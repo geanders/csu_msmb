@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts | CSU MSMB Group Study</title>
+    <link>/post/</link>
+      <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <description>Posts</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 13 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/post/featured.jpg</url>
+      <title>Posts</title>
+      <link>/post/</link>
+    </image>
+    
+    <item>
+      <title>How to add your profile details to our course website</title>
+      <link>/post/add-profile-details/</link>
+      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>/post/add-profile-details/</guid>
+      <description>
+
+
+&lt;p&gt;One goal of this course is to continue developing your data science programming
+skills. This will include plenty of work on R programming, but also more work to
+help you learn tools for reproducible research, like
+&lt;a href=&#34;https://rmarkdown.rstudio.com/&#34;&gt;RMarkdown&lt;/a&gt; and &lt;a href=&#34;https://git-scm.com/&#34;&gt;git&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We will be using our course website as a collaboration tool during this course.
+This website was created using &lt;a href=&#34;https://bookdown.org/yihui/blogdown/&#34;&gt;blogdown&lt;/a&gt;,
+which allows you to create and update a blogging website using R and RStudio. We
+are using a &lt;a href=&#34;https://github.com/geanders/csu_msmb&#34;&gt;GitHub repository&lt;/a&gt; to share
+all the code for this website and serving the site using &lt;a href=&#34;https://pages.github.com/&#34;&gt;GitHub Pages&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;During this course, you will have two graded products that you will need to
+submit as blog posts to our site. One will be a glossary for one chapter of the
+book, listing key words and their definitions for the chapter. The second is
+the “official” version of one week’s in-course exercise.&lt;/p&gt;
+&lt;p&gt;To help get you up to speed with using blogdown, GitHub, and RMarkdown with
+our site, we’ll start by having you update your profile details for our website.
+This post covers the details for how to do that.&lt;/p&gt;
+&lt;div id=&#34;required-set-up&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Required set-up&lt;/h1&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;R installed on your laptop&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You can install R from the &lt;a href=&#34;https://cran.rstudio.com/&#34;&gt;Comprehensive R Archive Network (CRAN)&lt;/a&gt;.
+Search for the version appropriate for your computer’s operating system. If you already
+have R installed, check your version number. If it’s older than six months or so, you
+should probably update your version for the class. You can use the &lt;code&gt;sessionInfo()&lt;/code&gt; function
+to find out details about your current R session, including the version of R you’re
+currently running:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sessionInfo()$R.version$version.string&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;R version 3.6.2 (2019-12-12)&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;RStudio installed on your laptop&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You can download RStudio directly
+&lt;a href=&#34;https://rstudio.com/products/rstudio/download/&#34;&gt;from their website&lt;/a&gt;. The free
+Desktop version will work great for this course. If your version of RStudio is
+more than a year old, you should probably update it for this course.&lt;/p&gt;
+&lt;ol start=&#34;3&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;git installed on your laptop&lt;/li&gt;
+&lt;li&gt;Your own GitHub account&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div id=&#34;about-blogdown&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;About &lt;em&gt;blogdown&lt;/em&gt;&lt;/h1&gt;
+&lt;/div&gt;
+&lt;div id=&#34;forking-our-sites-repository&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Forking our site’s repository&lt;/h1&gt;
+&lt;/div&gt;
+&lt;div id=&#34;updating-your-profile-details&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Updating your profile details&lt;/h1&gt;
+&lt;/div&gt;
+&lt;div id=&#34;submitting-a-pull-request-with-your-updates&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Submitting a pull request with your updates&lt;/h1&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

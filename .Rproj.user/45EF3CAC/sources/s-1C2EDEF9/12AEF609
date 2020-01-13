@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1578953375161.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "12AEF609",
+    "lastKnownWriteTime" : 1578954586,
+    "last_content_update" : 1578954586269,
+    "path" : "~/Documents/csu_msmb/content/post/2020-01-13-how-to-add-your-profile-details-to-our-course-website.Rmd",
+    "project_path" : "content/post/2020-01-13-how-to-add-your-profile-details-to-our-course-website.Rmd",
+    "properties" : {
+        "cursorPosition" : "42,49",
+        "marks" : "<:28,0\n>:29,79",
+        "scrollLine" : "32"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

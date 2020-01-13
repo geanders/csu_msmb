@@ -1,0 +1,31 @@
+---
+title: Example post
+authors: Brooke Anderson
+date: '2020-01-13'
+slug: test_example
+categories:
+  - example
+  - R
+tags:
+  - Demo
+subtitle: ''
+summary: ''
+lastmod: '2020-01-13T11:02:53-07:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+This is an example post. 
+
+```{r}
+library(ggplot2)
+
+ggplot(diamonds, aes(x = carat, y = price, color = color)) + 
+  geom_point() + 
+  facet_wrap(~ cut)
+```
+

@@ -1,0 +1,56 @@
+---
+title: How to add your profile details to our course website
+author: Brooke Anderson
+date: '2020-01-13'
+slug: add-profile-details
+categories:
+  - blogdown
+  - github
+tags:
+  - blogdown
+  - github
+subtitle: ''
+summary: ''
+authors: [brooke-anderson]
+lastmod: '2020-01-13T14:48:08-07:00'
+featured: no
+image:
+  placement: 3
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+One goal of this course is to continue developing your data science programming 
+skills. This will include plenty of work on R programming, but also more work to 
+help you learn tools for reproducible research, like RMarkdown and git. 
+
+We will be using our course website as a collaboration tool during this course. 
+This website was created using blogdown, which allows you to create and update a 
+blogging website using R and RStudio. We are using a GitHub repository to share
+all the code for this website and serving the site using GitHub Pages. 
+
+During this course, you will have two graded products that you will need to 
+submit as blog posts to our site. One will be a glossary for one chapter of the 
+book, listing key words and their definitions for the chapter. The second is 
+the "official" version of one week's in-course exercise. 
+
+To help get you up to speed with using blogdown, GitHub, and RMarkdown with 
+our site, we'll start by having you update your profile details for our website. 
+This post covers the details for how to do that. 
+
+# Required set-up
+
+1. R installed on your laptop (latest version recommended)
+2. RStudio installed on your laptop (latest version recommended)
+3. git installed on your laptop (latest version recommended)
+4. Your own GitHub account
+
+# Brief introduction to bookdown
+
+# Forking our site's repository
+
+# Updating your profile details
+
+# Submitting a pull request with your updates

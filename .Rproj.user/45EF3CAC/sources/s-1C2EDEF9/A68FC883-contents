@@ -1,0 +1,49 @@
+---
+authors:
+bio: My research interests include distributed robotics, mobile computing and programmable
+  matter.
+education:
+  courses:
+  - course: PostDoc in Biostatistics
+    institution: Johns Hopkins Bloomberg School of Public Health
+    year: 20xx--20xx
+  - course: PhD in Environmental Engineering
+    institution: Yale University
+    year: 20xx
+  - course: BSc in Chemical Engineering
+    institution: North Carolina State University
+    year: 20xx
+  - course: BA in French Language and Literature
+    institution: North Carolina State University 
+    year: 20xx
+email: "brooke.anderson@colostate.edu"
+interests:
+- Environmental Epidemiology
+- Climate-related Disasters
+- R Programming
+name: Brooke Anderson
+organizations:
+- name: Colorado State University
+  url: ""
+role: Assistant Professor of Epidemiology
+social:
+- icon: envelope
+  icon_pack: fas
+  link: '#contact'
+- icon: twitter
+  icon_pack: fab
+  link: https://twitter.com/gbwanderson
+- icon: google-scholar
+  icon_pack: ai
+  link: https://scholar.google.com/citations?user=CWSlbfsAAAAJ&hl=en&oi=ao
+- icon: github
+  icon_pack: fab
+  link: https://github.com/geanders
+superuser: true
+user_groups:
+- Faculty
+---
+
+Nelson Bighetti is a professor of artificial intelligence at the Stanford AI Lab. His research interests include distributed robotics, mobile computing and programmable matter. He leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.
