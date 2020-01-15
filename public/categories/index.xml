@@ -21,10 +21,34 @@
     </item>
     
     <item>
+      <title>Chapter 1</title>
+      <link>/categories/chapter-1/</link>
+      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/chapter-1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>github</title>
       <link>/categories/github/</link>
       <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
       <guid>/categories/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>instructions</title>
+      <link>/categories/instructions/</link>
+      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/instructions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vocabulary</title>
+      <link>/categories/vocabulary/</link>
+      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/vocabulary/</guid>
       <description></description>
     </item>
     

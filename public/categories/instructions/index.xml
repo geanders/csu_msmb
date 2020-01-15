@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>instructions | CSU MSMB Group Study</title>
+    <link>/categories/instructions/</link>
+      <atom:link href="/categories/instructions/index.xml" rel="self" type="application/rss+xml" />
+    <description>instructions</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 13 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>instructions</title>
+      <link>/categories/instructions/</link>
+    </image>
+    
+    <item>
+      <title>Tips on writing a vocabulary list</title>
+      <link>/post/tips-on-writing-a-vocabulary-list/</link>
+      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>/post/tips-on-writing-a-vocabulary-list/</guid>
+      <description>
+
+
+&lt;p&gt;Here are some tips on writing up the vocabulary list for a chapter:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;You should include all words in the chapter that are given in bold. Be sure to
+look for bolded terms in the sidenotes and end-of-chapter exercises, too! Occassionally,
+the authors use bold for subheadings (see the “Why R and Bioconductor?” section in
+the Introduction or the “Summary of this chapter” section of Chapter 1). These
+subheadings do not need to be included in the vocabulary list for the chapter.&lt;/li&gt;
+&lt;li&gt;It is fine to use wording from the chapter text or to use wording directly from
+other websites or sources. However, you &lt;strong&gt;must&lt;/strong&gt; include a list of any of the
+sources that you used to write your definitions at the bottom of the vocabulary
+blog post. Further, if you are using sources besides the course textbook, make sure
+that the definition is appropriate in the context of our course. Often, words will
+have a number of different definitions across different disciplines.&lt;/li&gt;
+&lt;li&gt;Feel free to change a term from singular to plural or vice versa if it helps you
+in writing the term’s definition. Similarly, if the bolded term does not include
+all the words that would be helpful (e.g., the bolded term is “sufficient”, but
+the term of interest is “sufficient statistic”), you can add a word or two to the
+bolded term.&lt;/li&gt;
+&lt;li&gt;You can see an example of a vocabulary blog post for
+&lt;a href=&#34;http://127.0.0.1:4736/post/vocabulary-for-chapter-1/&#34;&gt;Chapter 1&lt;/a&gt;. You can
+use this as templates for your own post.&lt;/li&gt;
+&lt;li&gt;Be sure to include the tag “vocabulary”, as well as a tag for your chapter, on
+the blog post.&lt;/li&gt;
+&lt;li&gt;If there are two bolded words that mean the same thing, put them both on the
+vocabulary list (with the same definition).&lt;/li&gt;
+&lt;li&gt;If a vocabulary term was defined in a previous chapter’s vocabulary list, feel free
+to reuse the definition.&lt;/li&gt;
+&lt;li&gt;Our library has excellent resources that you can use to help write your definitions.&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

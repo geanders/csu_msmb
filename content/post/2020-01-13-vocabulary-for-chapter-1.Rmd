@@ -1,0 +1,136 @@
+---
+title: Vocabulary for Chapter 1
+author: Brooke Anderson
+date: '2020-01-13'
+slug: vocabulary-for-chapter-1
+categories:
+  - vocabulary
+  - Chapter 1
+tags:
+  - vocabulary
+  - Chapter 1
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-01-13T16:20:46-07:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+library(dplyr)
+vocab <- tribble(
+  ~term, ~definition,
+  
+  "probability model", "",
+  
+  "vector", "",
+  
+  "discrete event", "",
+  
+  "categorical variable", "A variable that can belong to one of a finite set of levels.",
+  
+  "levels", "In the context of a categorical variable, the set of groups to which the variable can be assigned.",
+  
+  "factor", "",
+  
+  "exchangeable", "A way to describe a random variable for which the order that the data are observed doesn't matter",
+  
+  "sufficient statistic", "A statistic that, even though it is a summary, contains all the information that you would use from an original, uncondensed form of the data. An example is frequency counts for an exchangeable ...",
+  
+  "Bernoulli distribution", "A probability distribution to describe the outcome probability for two possible events.",
+  
+  "parameter", "A numerical value that describes a population or a model.",
+  
+  "complementary", "A description of two events who are mutually exclusive and whose probabilities sum to one. In other words, either one event or the other is guaranteed to happen, but not both.",
+  
+  "binomial random variable", "A variable whose values occur according to a binomial probability distribution.",
+  
+  "probability mass distribution", "",
+  
+  "Poisson distribution", "A probability distribution that is appropriate when the probability of success is small and the number of trials is large.",
+  
+  "epitope", "Site on a macromolecular antigen to which an antibody binds. This is the part of an antigen that is recognized by the immune system and is also known as an antigen determinent.",
+  
+  "Enzyme-linked immunosorbent assay (ELISA)", "An assay that is used to detect specific epitopes at different positions along a protein.", 
+  
+  "conditional on", "Given",
+  
+  "cumulative distribution function", "",
+  
+  "extreme value analysis", "Analysis focused on the behavior of the very large or the very small values of a random distribution, allowing an exploration of the probability of rare events.", 
+  
+  "rare events", "Something that occurs with a very low probability.",
+  
+  "rank statistic", "A statistic based on the order of the relative positions of observations based on a certain characteristics.", 
+  
+  "Monte Carlo method", "A method that uses a computer simulation based on our generative model that finds the probabilities of the events we're interested in.",
+  
+  "probability or generative modeling", "A method of modeling where all the parameters are known and the mathematical theory allows us to work by deduction.", 
+  
+  "deduction", "A top-down method of reasoning ...",
+  
+    "statistical modeling", "A method of modeling where the distribution of the data is not known.",
+  
+  "fit", "In the context of data and a statistical distribution, ...",
+  
+  "multinomial", "",
+  
+  "power", "The probability of detecting something if it is there.",
+  
+  "true positive rate", "The probability of detecting something if it is there.", 
+  
+  "null hypothesis", "", 
+  
+  "matrix", "", 
+  
+  "expected value", "",
+  
+  "variability", "", 
+  
+  "statistic", "A numerical characteristic of a sample",
+  
+  "null distribution", "", 
+  
+  "alternative", "In the context of a generating process, ...", 
+  
+  "chi-squared distribution", "", 
+  
+  "p-value", "The probability of seeing the data that were observed given a hypothesis.", 
+  
+  "probability density function", "",
+  
+  "default", "In the context of function parameters for an R function, the value that is used if no custom value is specified.", 
+  
+  "C. elegans genome nucleotide frequency", "",
+  
+  "Bioconductor", ""
+  
+)
+```
+
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+library(knitr)
+library(kableExtra)
+vocab %>% 
+  kable(align = c("rl"), 
+        col.names = c("", "")) %>% 
+  kable_styling(bootstrap_options = c("striped", "hover",
+                                      "condensed")) %>% 
+  column_spec(1, bold = T, border_right = T) %>%
+  column_spec(2, width = "30em")
+```
+
+### Sources consulted or cited 
+
+*Some of the definitions above are based in part or whole on listed definitions 
+in the following sources.*
+
+- Holmes and Huber, 2019. *Modern Statistics for Modern Biology.* Cambridge University Press, 
+Cambridge, United Kingdom.
+- Everitt and Skrondal, 2010. *The Cambridge Dictionary of Statistics (Fourth Edition).* Cambridge University Press, Cambridge, United Kingdom.
+

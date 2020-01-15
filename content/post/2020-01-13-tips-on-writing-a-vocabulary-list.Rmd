@@ -1,0 +1,51 @@
+---
+title: Tips on writing a vocabulary list
+author: Brooke Anderson
+date: '2020-01-13'
+slug: tips-on-writing-a-vocabulary-list
+categories:
+  - vocabulary
+  - instructions
+tags:
+  - vocabulary
+  - instructions
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-01-13T16:40:37-07:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+Here are some tips on writing up the vocabulary list for a chapter: 
+
+1. You should include all words in the chapter that are given in bold. Be sure to 
+look for bolded terms in the sidenotes and end-of-chapter exercises, too! Occassionally,
+the authors use bold for subheadings (see the "Why R and Bioconductor?" section in 
+the Introduction or the "Summary of this chapter" section of Chapter 1). These
+subheadings do not need to be included in the vocabulary list for the chapter.
+2. It is fine to use wording from the chapter text or to use wording directly from
+other websites or sources. However, you **must** include a list of any of the 
+sources that you used to write your definitions at the bottom of the vocabulary 
+blog post. Further, if you are using sources besides the course textbook, make sure
+that the definition is appropriate in the context of our course. Often, words will 
+have a number of different definitions across different disciplines.
+3. Feel free to change a term from singular to plural or vice versa if it helps you 
+in writing the term's definition. Similarly, if the bolded term does not include
+all the words that would be helpful (e.g., the bolded term is "sufficient", but 
+the term of interest is "sufficient statistic"), you can add a word or two to the
+bolded term.
+4. You can see an example of a vocabulary blog post for 
+[Chapter 1](http://127.0.0.1:4736/post/vocabulary-for-chapter-1/). You can
+use this as templates for your own post.
+5. Be sure to include the tag "vocabulary", as well as a tag for your chapter, on 
+the blog post.
+6. If there are two bolded words that mean the same thing, put them both on the 
+vocabulary list (with the same definition).
+7. If a vocabulary term was defined in a previous chapter's vocabulary list, feel free
+to reuse the definition. 
+8. Our library has excellent resources that you can use to help write your definitions.
