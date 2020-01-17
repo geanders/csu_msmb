@@ -158,6 +158,8 @@ a paragraph summarizing who you are and your academic / research interests.
 
 Be sure to save the file after you've made all your changes.
 
+For an example of a completed "_index.md" file, you can see mine [here](https://raw.githubusercontent.com/geanders/csu_msmb/master/content/authors/brooke-anderson/_index.md).
+
 ## Updating your avatar picture
 
 # Submitting your updates

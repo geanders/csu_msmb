@@ -68,12 +68,12 @@
   </url>
   
   <url>
-    <loc>/categories/github/</loc>
+    <loc>/tags/github/</loc>
     <lastmod>2020-01-13T14:48:08-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/github/</loc>
+    <loc>/categories/github/</loc>
     <lastmod>2020-01-13T14:48:08-07:00</lastmod>
   </url>
   
@@ -83,12 +83,12 @@
   </url>
   
   <url>
-    <loc>/tags/instructions/</loc>
+    <loc>/categories/instructions/</loc>
     <lastmod>2020-01-13T16:40:37-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/instructions/</loc>
+    <loc>/tags/instructions/</loc>
     <lastmod>2020-01-13T16:40:37-07:00</lastmod>
   </url>
   
@@ -108,12 +108,12 @@
   </url>
   
   <url>
-    <loc>/tags/vocabulary/</loc>
+    <loc>/categories/vocabulary/</loc>
     <lastmod>2020-01-13T16:40:37-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/vocabulary/</loc>
+    <loc>/tags/vocabulary/</loc>
     <lastmod>2020-01-13T16:40:37-07:00</lastmod>
   </url>
   
@@ -228,10 +228,6 @@
   
   <url>
     <loc>/authors/bailey-fosdick/</loc>
-  </url>
-  
-  <url>
-    <loc>/authors/brooke-anderson-copy/</loc>
   </url>
   
   <url>
