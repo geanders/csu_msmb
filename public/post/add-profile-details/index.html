@@ -560,7 +560,7 @@ We will be using our course website as a collaboration tool during this course. 
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    4 min read
   </span>
   
 
@@ -630,8 +630,28 @@ have R installed, check your version number. If it’s older than six months or 
 should probably update your version for the class. You can use the <code>sessionInfo()</code> function
 to find out details about your current R session, including the version of R you’re
 currently running:</p>
-<pre class="r"><code>sessionInfo()$R.version$version.string</code></pre>
-<pre><code>## [1] &quot;R version 3.6.2 (2019-12-12)&quot;</code></pre>
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>## R version 3.6.2 (2019-12-12)
+## Platform: x86_64-apple-darwin15.6.0 (64-bit)
+## Running under: macOS Mojave 10.14.6
+## 
+## Matrix products: default
+## BLAS:   /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRblas.0.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## loaded via a namespace (and not attached):
+##  [1] compiler_3.6.2  magrittr_1.5    bookdown_0.16   tools_3.6.2    
+##  [5] htmltools_0.4.0 yaml_2.2.0      Rcpp_1.0.3      stringi_1.4.5  
+##  [9] rmarkdown_2.0   blogdown_0.17   knitr_1.26      stringr_1.4.0  
+## [13] digest_0.6.23   xfun_0.12       rlang_0.4.2     evaluate_0.14</code></pre>
+<p>Based on the return from this call, for example, I can tell that I have
+R version 3.6.2 (2019-12-12).</p>
 <ol start="2" style="list-style-type: decimal">
 <li>RStudio installed on your laptop</li>
 </ol>
@@ -646,15 +666,98 @@ more than a year old, you should probably update it for this course.</p>
 </div>
 <div id="about-blogdown" class="section level1">
 <h1>About <em>blogdown</em></h1>
+<p>[Add a brief description of blogdown / Hugo / static websites.]</p>
+<p>You will need to install two pieces of software to work on our
+website. First, you’ll need the R package <code>blogdown</code>. You can install
+this package in the normal way, using <code>install.packages</code>:</p>
+<pre class="r"><code>install.packages(&quot;blogdown&quot;)</code></pre>
+<p>Once you have <code>blogdown</code>, you can install the Hugo software using a function
+in the <code>blogdown</code> package, <code>install_hugo</code>:</p>
+<pre class="r"><code>library(blogdown)
+install_hugo()</code></pre>
+<p>For both these installations, your computer will need to be online or you’ll
+get an error.</p>
 </div>
-<div id="forking-our-sites-repository" class="section level1">
-<h1>Forking our site’s repository</h1>
+<div id="getting-a-fork-of-our-repository-on-your-computer" class="section level1">
+<h1>Getting a fork of our repository on your computer</h1>
+<p>All our websites files are posted in a GitHub repository at <a href="https://github.com/geanders/csu_msmb" class="uri">https://github.com/geanders/csu_msmb</a>. With this (or any) GitHub repository,
+you can suggest changes by <em>forking</em> the repository, cloning the fork to
+your computer, making and commiting the changes, pushing those commits
+back up to your fork of the repository on GitHub, and then submitting
+a <em>pull request</em>.</p>
+<div id="forking-a-github-repository" class="section level2">
+<h2>Forking a GitHub repository</h2>
+<iframe src="https://giphy.com/embed/3o6fJ8baw3aDgUQnJu" width="480" height="240" frameBorder="0" class="giphy-embed" allowFullScreen>
+</iframe>
+<p>
+<a href="https://giphy.com/gifs/thegoodplace-season-2-nbc-3o6fJ8baw3aDgUQnJu">via GIPHY</a>
+</p>
+</div>
+<div id="cloning-the-fork-to-your-computer" class="section level2">
+<h2>Cloning the fork to your computer</h2>
+</div>
+<div id="changing-and-committing-in-rstudio" class="section level2">
+<h2>Changing and committing in RStudio</h2>
+</div>
 </div>
 <div id="updating-your-profile-details" class="section level1">
 <h1>Updating your profile details</h1>
+<div id="navigating-the-websites-file-directory-to-find-your-profile" class="section level2">
+<h2>Navigating the website’s file directory to find your profile</h2>
+<p>We all have our own author profile in a subdirectory within the
+website’s files. To find yours, go to the “content” subdirectory
+of the website files and then the “authors” subdirectory within that.
+You should see a subdirectory there with your name. Click on that
+and you’ll see the two files that make up your author profile,
+"_index.md" and “avatar.jpg”.</p>
+<p><img src="/img/screencapture_gifs/navigating_to_profile.gif" /></p>
 </div>
-<div id="submitting-a-pull-request-with-your-updates" class="section level1">
-<h1>Submitting a pull request with your updates</h1>
+<div id="updating-your-information-in-_index.md" class="section level2">
+<h2>Updating your information in "_index.md"</h2>
+<p>Your details are all given in the "_index.md" file in your author subdirectory.
+To update your details on the website, you’ll need to change your details in this
+file.</p>
+<p>The file is written in [YAML/TOML?]. Anywhere there is a placeholder, like
+“[Year]” or “[Institution]”, replace the placeholder with your own information.</p>
+<p><img src="/img/screencapture_gifs/change_placeholders.gif" /></p>
+<p>Make sure you change the following sections:</p>
+<ul>
+<li>“bio”</li>
+<li>“education”</li>
+<li>“email”</li>
+<li>“interests”</li>
+<li>“name”</li>
+<li>“organizations”</li>
+</ul>
+<p>Some of the sections in <code>social:</code> are commented out, including the information
+for buttons for GitHub, GoogleScholar, and Twitter. If you have accounts through
+any of these services, you can add these buttons with your updated information.
+Just delete the <code>#</code> at the beginning of all lines in that section and then
+change the handle or web address information so that it links to your
+account for that service, rather than mine.</p>
+<p><img src="/img/screencapture_gifs/update_social_section.gif" /></p>
+<p>The very bottom of the file, under the <code>---</code>, provides space for you to write
+a paragraph summarizing who you are and your academic / research interests.</p>
+<p><img src="/img/screencapture_gifs/add_summary_paragraph.gif" /></p>
+<p>Be sure to save the file after you’ve made all your changes.</p>
+</div>
+<div id="updating-your-avatar-picture" class="section level2">
+<h2>Updating your avatar picture</h2>
+</div>
+</div>
+<div id="submitting-your-updates" class="section level1">
+<h1>Submitting your updates</h1>
+<div id="pushing-the-commits-back-to-github" class="section level2">
+<h2>Pushing the commits back to GitHub</h2>
+</div>
+<div id="requesting-that-we-pull-your-changes" class="section level2">
+<h2>Requesting that we pull your changes</h2>
+<iframe src="https://giphy.com/embed/B6ZOD3aNT3Lxe" width="480" height="284" frameBorder="0" class="giphy-embed" allowFullScreen>
+</iframe>
+<p>
+<a href="https://giphy.com/gifs/cats-bowl-pull-B6ZOD3aNT3Lxe">via GIPHY</a>
+</p>
+</div>
 </div>
 
     </div>

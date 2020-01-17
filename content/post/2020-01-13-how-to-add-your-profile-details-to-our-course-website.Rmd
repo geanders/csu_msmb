@@ -54,8 +54,11 @@ to find out details about your current R session, including the version of R you
 currently running: 
 
 ```{r}
-sessionInfo()$R.version$version.string
+sessionInfo()
 ```
+
+Based on the return from this call, for example, I can tell that I have 
+`r sessionInfo()$R.version$version.string`.
 
 2. RStudio installed on your laptop 
 
@@ -69,8 +72,98 @@ more than a year old, you should probably update it for this course.
 
 # About *blogdown*
 
-# Forking our site's repository
+[Add a brief description of blogdown / Hugo / static websites.]
+
+You will need to install two pieces of software to work on our 
+website. First, you'll need the R package `blogdown`. You can install
+this package in the normal way, using `install.packages`:
+
+```{r eval = FALSE}
+install.packages("blogdown")
+```
+
+Once you have `blogdown`, you can install the Hugo software using a function
+in the `blogdown` package, `install_hugo`: 
+
+```{r eval = FALSE}
+library(blogdown)
+install_hugo()
+```
+
+For both these installations, your computer will need to be online or you'll 
+get an error.
+
+# Getting a fork of our repository on your computer
+
+All our websites files are posted in a GitHub repository at https://github.com/geanders/csu_msmb. With this (or any) GitHub repository, 
+you can suggest changes by *forking* the repository, cloning the fork to
+your computer, making and commiting the changes, pushing those commits
+back up to your fork of the repository on GitHub, and then submitting
+a *pull request*.
+
+## Forking a GitHub repository 
+
+<iframe src="https://giphy.com/embed/3o6fJ8baw3aDgUQnJu" width="480" height="240" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/thegoodplace-season-2-nbc-3o6fJ8baw3aDgUQnJu">via GIPHY</a></p>
+
+## Cloning the fork to your computer
+
+## Changing and committing in RStudio
 
 # Updating your profile details
 
-# Submitting a pull request with your updates
+## Navigating the website's file directory to find your profile
+
+We all have our own author profile in a subdirectory within the 
+website's files. To find yours, go to the "content" subdirectory
+of the website files and then the "authors" subdirectory within that.
+You should see a subdirectory there with your name. Click on that
+and you'll see the two files that make up your author profile, 
+"_index.md" and "avatar.jpg".
+
+![](/img/screencapture_gifs/navigating_to_profile.gif)
+
+## Updating your information in "_index.md"
+
+Your details are all given in the "_index.md" file in your author subdirectory. 
+To update your details on the website, you'll need to change your details in this
+file. 
+
+The file is written in [YAML/TOML?]. Anywhere there is a placeholder, like
+"[Year]" or "[Institution]", replace the placeholder with your own information.
+
+![](/img/screencapture_gifs/change_placeholders.gif)
+
+Make sure you change the following sections: 
+
+- "bio"
+- "education"
+- "email"
+- "interests"
+- "name"
+- "organizations"
+
+Some of the sections in `social:` are commented out, including the information 
+for buttons for GitHub, GoogleScholar, and Twitter. If you have accounts through
+any of these services, you can add these buttons with your updated information. 
+Just delete the `#` at the beginning of all lines in that section and then 
+change the handle or web address information so that it links to your 
+account for that service, rather than mine.
+
+![](/img/screencapture_gifs/update_social_section.gif)
+
+The very bottom of the file, under the `---`, provides space for you to write
+a paragraph summarizing who you are and your academic / research interests.
+
+![](/img/screencapture_gifs/add_summary_paragraph.gif)
+
+Be sure to save the file after you've made all your changes.
+
+## Updating your avatar picture
+
+# Submitting your updates
+
+## Pushing the commits back to GitHub
+
+## Requesting that we pull your changes
+
+<iframe src="https://giphy.com/embed/B6ZOD3aNT3Lxe" width="480" height="284" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/cats-bowl-pull-B6ZOD3aNT3Lxe">via GIPHY</a></p>
