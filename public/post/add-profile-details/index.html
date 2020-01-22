@@ -560,7 +560,7 @@ We will be using our course website as a collaboration tool during this course. 
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    5 min read
+    10 min read
   </span>
   
 
@@ -671,9 +671,23 @@ more than a year old, you should probably update it for this course.</p>
 </div>
 <div id="install-git-on-your-laptop" class="section level2">
 <h2>Install git on your laptop</h2>
+<p>The software <strong>git</strong> is version control software, which will help you record and
+track changes that you’ve made to code and other plain text documents.</p>
+<p>It’s free to download. Go to <a href="https://git-scm.com/downloads" class="uri">https://git-scm.com/downloads</a> and select the version
+for your operating system. For this software, you’re probably okay if you
+downloaded it a little while ago (although if more than two years or so, you might
+want to update).</p>
 </div>
 <div id="get-a-github-account" class="section level2">
 <h2>Get a GitHub account</h2>
+<p>You will need a (free) GitHub account for this course. You can sign up for one
+(if you don’t already have one) at <a href="https://github.com/" class="uri">https://github.com/</a>. While there are some
+fancier paid plans available, the free account will work great for this class.</p>
+<p>When you sign up, you’ll get to choose a GitHub handle. You might want to make
+this something that will be easy for people to remember. For example, if your
+name is still available, that would be a great option. This handle will form
+part of the address to all of your GitHub repositories, so it is convenient if
+it is easy for people you work with to remember (mine, unfortunately, is not!).</p>
 </div>
 </div>
 <div id="about-blogdown" class="section level1">
@@ -704,9 +718,89 @@ a <em>pull request</em>.</p>
 <p>
 <a href="https://giphy.com/gifs/thegoodplace-season-2-nbc-3o6fJ8baw3aDgUQnJu">via GIPHY</a>
 </p>
+<p>When you <strong>fork</strong> a GitHub repository, you get a copy of that repository that you
+can play around with and change yourself, without it affecting the original
+repository. It’s essentially just copying the whole repository, with all its
+files, into a repository on your GitHub account.</p>
+<p>The only thing that makes it different from a plain copy (and what makes it
+really powerful in some cases) is that, if you decide that your changes might
+make the <em>original</em> repository better, you can submit a <strong>pull request</strong>. This
+requests that the owners of the original repository update it to incorporate the
+changes you’ve made on your fork of the repository. The original authors can
+review each of the <strong>commits</strong> you’ve made, so they can even cherry-pick your
+changes if they want.</p>
+<p>GitHub also lets the original authors see if there are any <strong>merge conflicts</strong>
+created from changes that they’ve made to the original repository since you
+forked it. This can let the original authors see how hard it will be to
+incorporate all of your changes in the forked version with their version of the
+repository.</p>
+<p>To fork the repository with our course’s website materials, all you’ll need to
+do is go to our <a href="https://github.com/geanders/csu_msmb">GitHub repository for the course
+website</a> (while you’re signed in to
+GitHub) and click on the “Fork” button towards the right of the page. Now go and
+check in the “Repositories” section of your own GitHub account—you should see that
+you now have a forked copy of the “csu_msmb” repository.</p>
+<p>In this exercise, you’ll work with the fork of the repository, and then once you’ve
+made your changes, you submit a pull request, so that we can get your changes
+back into the main webpage.</p>
+<p>If you need more help on how to fork a repository, GitHub has a <a href="https://help.github.com/en/github/getting-started-with-github/fork-a-repo">help
+page</a>
+on the topic that might be useful.</p>
 </div>
 <div id="cloning-the-fork-to-your-computer" class="section level2">
 <h2>Cloning the fork to your computer</h2>
+<p>Next, you’ll want to get a copy of your forked repository onto your own computer,
+where you can work with it, make changes, and preview the website with your
+updates.</p>
+<p>To do this, you’ll <strong>clone</strong> your fork of the repository onto your computer.
+The version of the repository on GitHub is called the <strong>remote</strong> branch of the
+repository and the version you get on your computer once you’ve cloned it is
+the <strong>local</strong> branch. By cloning (instead of just downloading), you’ll maintain
+a connection between the remote and local versions through git, which will allow
+you to push changes that you make and commit on your own computer up to the
+remote branch on GitHub.</p>
+<p>Go to GitHub, make sure you are logged into your account, and navigate to your
+forked version of the repository for this class. There should be a button to the
+right of the page that says “Clone or download” (you may need to scroll down to
+find it).</p>
+<p>When you click on this button, it will give you a choice between
+“SSH” and “HTTPS” for the protocol to use to connect your local and remote branches
+of the repository. You’re welcome to try either, but I usually (on a Mac) have
+better luck with “SSH”. Occasionally, people running Windows in my courses have
+had better luck with “HTTPS”, although for most folks “SSH” seems to work fine.
+Once you choose which protocal to use, you can copy the snippet of code that is
+given in the pop-up.</p>
+<p>Next, you’ll run this code from a <strong>bash shell</strong> on your own computer to clone the
+repository. You first will need to open a shell. If you’re on a Mac, you can do that
+with the “Terminal” application. With Windows, you’ll probably need to use the
+bash shell that comes with the Windows version of git. Search your programs for
+“bash” or “git bash” and see if you see something that looks promising.</p>
+<p>Once you open a shell, you’ll see a command prompt, like this:</p>
+<pre><code>username$</code></pre>
+<p>You can type <strong>shell commands</strong> here and then press “Return” to run them. You
+should first move into the directory where you want to clone the repository.
+Your “Desktop” might be a good place for it for now (unless you have some
+organization you use for course-related files). The <code>cd</code> shell command lets you
+“change directory”. If you don’t put anything after <code>cd</code>, it will change to
+your <strong>home directory</strong>. Otherwise, it will move to the directory you specify.
+For example, if the “Desktop” directory is a subdirectory of my home directory,
+I could move into it by running:</p>
+<pre class="bash"><code>cd Desktop</code></pre>
+<p>If you have not use shell commands much before and are having any problems
+navigating to the directory you’d like, let us know in class, and one of us can
+help you.</p>
+<p>Once you are in this directory, you’ll paste <code>git clone</code> followed by the command
+you copied from the “Clone or download” button on GitHub. It will probably look
+something like this:</p>
+<pre class="bash"><code>git clone git@github.com:geanders/csu_msmb.git</code></pre>
+<p>When you run this, you may have to put in your GitHub username and password. You
+may also get some questions about whether you really want to download the
+repository (you do). If everything’s successful, you should see that there’s a new
+directory called “csu_msmb” in which directory you decided to put it (“Desktop”,
+for example).</p>
+<p>If you need more help, GitHub has a <a href="https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository">help
+page</a>
+with more on how to clone a repository from GitHub to your own computer.</p>
 </div>
 <div id="changing-and-committing-in-rstudio" class="section level2">
 <h2>Changing and committing in RStudio</h2>
@@ -746,7 +840,8 @@ for buttons for GitHub, GoogleScholar, and Twitter. If you have accounts through
 any of these services, you can add these buttons with your updated information.
 Just delete the <code>#</code> at the beginning of all lines in that section and then
 change the handle or web address information so that it links to your
-account for that service, rather than mine.</p>
+account for that service. In this section, also update your email address, with
+<code>mailto:</code> at the beginning, for the email icon.</p>
 <p><img src="/img/screencapture_gifs/update_social_section.gif" /></p>
 <p>The very bottom of the file, under the <code>---</code>, provides space for you to write
 a paragraph summarizing who you are and your academic / research interests.</p>
