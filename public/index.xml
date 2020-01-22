@@ -104,9 +104,18 @@ our site, we’ll start by having you update your profile details for our websit
 This post covers the details for how to do that.&lt;/p&gt;
 &lt;div id=&#34;required-set-up&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Required set-up&lt;/h1&gt;
+&lt;p&gt;This exercise, and this course as a whole, requires a certain set-up
+on your computer:&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;R installed on your laptop&lt;/li&gt;
+&lt;li&gt;RStudio installed on your laptop&lt;/li&gt;
+&lt;li&gt;git installed on your laptop&lt;/li&gt;
+&lt;li&gt;Your own GitHub account&lt;/li&gt;
 &lt;/ol&gt;
+&lt;p&gt;If you already have all this set-up, you can skip to the next section of
+the blog. Otherwise, this section has details on completing this set up.&lt;/p&gt;
+&lt;div id=&#34;install-r-on-your-laptop&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Install R on your laptop&lt;/h2&gt;
 &lt;p&gt;You can install R from the &lt;a href=&#34;https://cran.rstudio.com/&#34;&gt;Comprehensive R Archive Network (CRAN)&lt;/a&gt;.
 Search for the version appropriate for your computer’s operating system. If you already
 have R installed, check your version number. If it’s older than six months or so, you
@@ -135,17 +144,20 @@ currently running:&lt;/p&gt;
 ## [13] digest_0.6.23   xfun_0.12       rlang_0.4.2     evaluate_0.14&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Based on the return from this call, for example, I can tell that I have
 R version 3.6.2 (2019-12-12).&lt;/p&gt;
-&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;RStudio installed on your laptop&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div id=&#34;install-rstudio-on-your-laptop&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Install RStudio on your laptop&lt;/h2&gt;
 &lt;p&gt;You can download RStudio directly
 &lt;a href=&#34;https://rstudio.com/products/rstudio/download/&#34;&gt;from their website&lt;/a&gt;. The free
 Desktop version will work great for this course. If your version of RStudio is
 more than a year old, you should probably update it for this course.&lt;/p&gt;
-&lt;ol start=&#34;3&#34; style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;git installed on your laptop&lt;/li&gt;
-&lt;li&gt;Your own GitHub account&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div id=&#34;install-git-on-your-laptop&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Install git on your laptop&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div id=&#34;get-a-github-account&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Get a GitHub account&lt;/h2&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;about-blogdown&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;About &lt;em&gt;blogdown&lt;/em&gt;&lt;/h1&gt;

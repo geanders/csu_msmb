@@ -35,7 +35,7 @@ social:
   link: https://scholar.google.com/citations?user=0VlQno0AAAAJ&hl=en&oi=ao
 - icon: github
   icon_pack: fab
-  link: https://github.com/geanders
+  link: https://github.com/baileyfosdick
 superuser: true
 user_groups:
 - Faculty

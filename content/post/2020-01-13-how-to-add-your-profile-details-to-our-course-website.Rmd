@@ -44,7 +44,18 @@ This post covers the details for how to do that.
 
 # Required set-up
 
+This exercise, and this course as a whole, requires a certain set-up
+on your computer:
+
 1. R installed on your laptop 
+2. RStudio installed on your laptop 
+3. git installed on your laptop 
+4. Your own GitHub account
+
+If you already have all this set-up, you can skip to the next section of 
+the blog. Otherwise, this section has details on completing this set up.
+
+## Install R on your laptop 
 
 You can install R from the [Comprehensive R Archive Network (CRAN)](https://cran.rstudio.com/).
 Search for the version appropriate for your computer's operating system. If you already
@@ -60,15 +71,16 @@ sessionInfo()
 Based on the return from this call, for example, I can tell that I have 
 `r sessionInfo()$R.version$version.string`.
 
-2. RStudio installed on your laptop 
+## Install RStudio on your laptop 
 
 You can download RStudio directly 
 [from their website](https://rstudio.com/products/rstudio/download/). The free
 Desktop version will work great for this course. If your version of RStudio is
 more than a year old, you should probably update it for this course.
 
-3. git installed on your laptop 
-4. Your own GitHub account
+## Install git on your laptop 
+
+## Get a GitHub account
 
 # About *blogdown*
 

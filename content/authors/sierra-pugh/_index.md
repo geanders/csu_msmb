@@ -9,7 +9,7 @@ education:
   - course: BSc in [Discipline]
     institution: [Institution]
     year: [Year]
-email: "sierra.pugh@colostate.edu"
+email: "...@colostate.edu"
 interests:
 - Interest 1
 - Interest 2
@@ -22,16 +22,16 @@ role: Graduate Student in ...
 social:
 - icon: envelope
   icon_pack: fas
-  link: mailto:sierra.pugh@colostate.edu
+  link: mailto:...@colostate.edu
 #- icon: twitter
 #  icon_pack: fab
-#  link: https://twitter.com/gbwanderson
+#  link: https://twitter.com/...
 #- icon: google-scholar
 #  icon_pack: ai
-#  link: https://scholar.google.com/citations?user=CWSlbfsAAAAJ&hl=en&oi=ao
+#  link: https://scholar.google.com/citations?user=...
 #- icon: github
 #  icon_pack: fab
-#  link: https://github.com/geanders
+#  link: https://github.com/...
 superuser: true
 user_groups:
 - Students

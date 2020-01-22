@@ -58,22 +58,22 @@
   </url>
   
   <url>
-    <loc>/tags/chapter-1/</loc>
-    <lastmod>2020-01-13T16:20:46-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/categories/chapter-1/</loc>
     <lastmod>2020-01-13T16:20:46-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/github/</loc>
-    <lastmod>2020-01-13T14:48:08-07:00</lastmod>
+    <loc>/tags/chapter-1/</loc>
+    <lastmod>2020-01-13T16:20:46-07:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/github/</loc>
+    <lastmod>2020-01-13T14:48:08-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/github/</loc>
     <lastmod>2020-01-13T14:48:08-07:00</lastmod>
   </url>
   
@@ -83,12 +83,12 @@
   </url>
   
   <url>
-    <loc>/categories/instructions/</loc>
+    <loc>/tags/instructions/</loc>
     <lastmod>2020-01-13T16:40:37-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/instructions/</loc>
+    <loc>/categories/instructions/</loc>
     <lastmod>2020-01-13T16:40:37-07:00</lastmod>
   </url>
   
@@ -243,7 +243,23 @@
   </url>
   
   <url>
+    <loc>/authors/daniel-dean/</loc>
+  </url>
+  
+  <url>
+    <loc>/authors/mikaela-elder/</loc>
+  </url>
+  
+  <url>
     <loc>/authors/mike-lyons/</loc>
+  </url>
+  
+  <url>
+    <loc>/authors/sarah-cooper/</loc>
+  </url>
+  
+  <url>
+    <loc>/authors/sere-williams/</loc>
   </url>
   
   <url>

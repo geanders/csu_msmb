@@ -9,7 +9,7 @@ education:
   - course: BSc in [Discipline]
     institution: [Institution]
     year: [Year]
-email: "amy.fox@colostate.edu"
+email: "...@colostate.edu"
 interests:
 - Interest 1
 - Interest 2
@@ -22,7 +22,7 @@ role: Graduate Student in ...
 social:
 - icon: envelope
   icon_pack: fas
-  link: mailto:amy.fox@colostate.edu
+  link: mailto:...@colostate.edu
 #- icon: twitter
 #  icon_pack: fab
 #  link: https://twitter.com/gbwanderson
