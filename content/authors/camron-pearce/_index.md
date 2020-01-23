@@ -1,28 +1,28 @@
 ---
 authors:
-bio: [One sentence describing your research interest]
+bio: My research focuses on drug delivery in pre-clinical models of pulmonary tuberculosis.
 education:
   courses:
-  - course: MSc in [Discipline]
-    institution: [Institution]
-    year: [Year]
-  - course: BSc in [Discipline]
-    institution: [Institution]
-    year: [Year]
-email: "...@colostate.edu"
+  - course: MSc in Microbiology
+    institution: Colorado State University
+    year: 2019
+  - course: BSc in Biochemistry
+    institution: Colorado State University
+    year: 2020
+email: "camron.pearce@colostate.edu"
 interests:
-- Interest 1
-- Interest 2
-- Interest 3
+- Skiing
+- Running Marathons (I know... its weird)
+- Bass Fishing
 name: Camron Pearce
 organizations:
 - name: Colorado State University
-  url: ""
-role: Graduate Student in ...
+  url: "https://vetmedbiosci.colostate.edu/mip/member/?id=37327"
+role: Graduate Student in Cell and Molecular Biology
 social:
 - icon: envelope
   icon_pack: fas
-  link: mailto:...@colostate.edu
+  link: mailto:camron.pearce@colostate.edu
 #- icon: twitter
 #  icon_pack: fab
 #  link: https://twitter.com/...
