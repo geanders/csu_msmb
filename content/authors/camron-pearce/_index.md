@@ -12,7 +12,7 @@ education:
 email: "camron.pearce@colostate.edu"
 interests:
 - Skiing
-- Running Marathons (I know... weird)
+- Running Marathons
 - Traveling
 name: Camron Pearce
 organizations:
