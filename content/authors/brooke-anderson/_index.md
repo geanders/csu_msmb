@@ -1,6 +1,6 @@
 ---
 authors:
-bio: My research interests include environmental epidemiology, particularly on health impacts related to climate-related disasters, and R programming for scientific research.
+bio: My research interests include environmental epidemiology, particularly on health impacts related to climate-related disasters, and R programming.
 education:
   courses:
   - course: PostDoc in Biostatistics
