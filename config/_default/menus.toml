@@ -7,18 +7,23 @@
   name = "People"
   url = "#people"
   weight = 10
-
+  
 [[main]]
   name = "Posts"
   url = "#posts"
   weight = 20
-
+  
+[[main]]
+  name = "Schedule"
+  url = "#experience"
+  weight = 30
+  
 [[main]]
   name = "Location"
   url = "#contact"
-  weight = 60
+  weight = 40
 
  [[main]]
     name = "Syllabus"
     url = "files/csu_msmb_syllabus.pdf"
-    weight = 70
+    weight = 50
