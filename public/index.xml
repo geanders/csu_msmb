@@ -288,7 +288,13 @@ git, that file will show up in the Git pane, with a little check box beside it.
 When you’re ready to commit a change, click on the “Commit” button on the top left
 of the Git pane. This will open a pop-up box.&lt;/p&gt;
 &lt;p&gt;In this box, click the check boxes for all the changed files on the left you’d
-like to include in the commit. Then write a short &lt;strong&gt;commit message&lt;/strong&gt;&lt;/p&gt;
+like to include in the commit. Then write a short &lt;strong&gt;commit message&lt;/strong&gt;, describing
+the changes you’ve made. You should try to fit it all in the first line of the
+“commit message” window. If you can’t, write a short description in the first line,
+skip a line, and then you can write as much as you want.&lt;/p&gt;
+&lt;p&gt;Once you’ve written your commit message, click on the “commit” button. This will
+record this commit. To check that it has, you can go to the “History” tab and
+make sure the commit shows up as the last thing in your history.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;updating-your-profile-details&#34; class=&#34;section level1&#34;&gt;
