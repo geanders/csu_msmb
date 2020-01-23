@@ -29,4 +29,4 @@ user_groups:
 ---
 
 Sherry WeMott-Colton is a graduate student in the Department of Environmental and Radiological Health Sciences at Colorado 
-State University. My research focuses on evironmental and social factors impacting health.
+State University. Her research focuses on evironmental and social factors impacting health.
