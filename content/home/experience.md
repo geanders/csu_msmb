@@ -32,8 +32,8 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: 
-  * Exercise:
+  * Vocabulary: Faculty
+  * Exercise: Sere Williams
   """
 
 [[experience]]
@@ -49,7 +49,7 @@ date_format = "   "
   Student responsibilities:
 
   * Vocabulary: Amy Fox
-  * Exercise: Sere Williams
+  * Exercise: 
   """
   
 [[experience]]
