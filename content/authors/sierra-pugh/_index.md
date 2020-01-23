@@ -1,28 +1,27 @@
 ---
 authors:
-bio: [One sentence describing your research interest]
+bio: [Does anything?]
 education:
   courses:
-  - course: MSc in [Discipline]
-    institution: [Institution]
-    year: [Year]
-  - course: BSc in [Discipline]
-    institution: [Institution]
-    year: [Year]
-email: "...@colostate.edu"
+  - course: MS in Statistics
+    institution: Brigham Young University
+    year: 2018
+  - course: BS in Statistics
+    institution: Brigham Young University
+    year: 2018
+email: "sierra.pugh@colostate.edu"
 interests:
-- Interest 1
-- Interest 2
-- Interest 3
+- Bayesian statistics
+- Spatial statistics
 name: Sierra Pugh
 organizations:
 - name: Colorado State University
   url: ""
-role: Graduate Student in ...
+role: Graduate Student in Statistics
 social:
 - icon: envelope
   icon_pack: fas
-  link: mailto:...@colostate.edu
+  link: mailto:sierra.pugh@colostate.edu
 #- icon: twitter
 #  icon_pack: fab
 #  link: https://twitter.com/...
@@ -37,5 +36,5 @@ user_groups:
 - Students
 ---
 
-Sierra Pugh is a [graduate / undergraudate] student in the Department of [x] at Colorado 
-State University. [Short description of research and academic interests.]
+Sierra Pugh is a graduate student in the Department of Statistics at Colorado 
+State University. She has interest in Bayesian statistics, and has experience in spatial statisitcs. 
