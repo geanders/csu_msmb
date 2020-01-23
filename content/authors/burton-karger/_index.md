@@ -11,9 +11,9 @@ education:
     year: [Year]
 email: "...@colostate.edu"
 interests:
-- Interest 1
-- Interest 2
-- Interest 3
+- Microbiology
+- Computer Programming
+- Skiing
 name: Burton Karger
 organizations:
 - name: Colorado State University
