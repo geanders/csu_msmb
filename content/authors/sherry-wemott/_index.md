@@ -1,41 +1,32 @@
 ---
 authors:
-bio: [One sentence describing your research interest]
-education:
+bio: My researh focuses on environmental and social determinants of disease processes and outcomes. For my thesis project I'll be sampling and analyzing nasal viromes of young adult Colorado e-cigarette users compared to non-users. 
+education: 
   courses:
-  - course: MSc in [Discipline]
-    institution: [Institution]
-    year: [Year]
-  - course: BSc in [Discipline]
-    institution: [Institution]
-    year: [Year]
-email: "...@colostate.edu"
+  - course: BSc in Psychology
+    institution: Unversity of Missouri
+    year: 1999
+email: "sherry.wemott-colton@colostate.edu"
 interests:
-- Interest 1
-- Interest 2
-- Interest 3
-name: Sherry WeMott-Colton
+- environmental impacts on chronic disease
+- health equity
+- infectious disease transmission and susceptibilty
+name: Sherry WeMott
 organizations:
 - name: Colorado State University
   url: ""
-role: Graduate Student in ...
+role: Graduate Student in Environmental Epidemiology
 social:
 - icon: envelope
   icon_pack: fas
-  link: mailto:...@colostate.edu
-#- icon: twitter
-#  icon_pack: fab
-#  link: https://twitter.com/...
-#- icon: google-scholar
-#  icon_pack: ai
-#  link: https://scholar.google.com/citations?user=...
+  link: mailto:.sherry.wemott-colton@colostate.edu
 #- icon: github
 #  icon_pack: fab
-#  link: https://github.com/...
+#  link: https://github.com/swemott
 superuser: true
 user_groups:
 - Students
 ---
 
-Sherry WeMott-Colton is a [graduate / undergraudate] student in the Department of [x] at Colorado 
-State University. [Short description of research and academic interests.]
+Sherry WeMott-Colton is a graduate student in the Department of Environmental and Radiological Health Sciences at Colorado 
+State University. My research focuses on evironmental and social factors impacting health.
