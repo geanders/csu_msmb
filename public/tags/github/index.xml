@@ -152,7 +152,7 @@ get an error.&lt;/p&gt;
 &lt;h1&gt;Getting a fork of our repository on your computer&lt;/h1&gt;
 &lt;p&gt;All our websites files are posted in a GitHub repository at &lt;a href=&#34;https://github.com/geanders/csu_msmb&#34; class=&#34;uri&#34;&gt;https://github.com/geanders/csu_msmb&lt;/a&gt;. With this (or any) GitHub repository,
 you can suggest changes by &lt;strong&gt;forking&lt;/strong&gt; the repository, cloning the fork to
-your computer, making and commiting the changes, pushing those commits
+your computer, making and committing the changes, pushing those commits
 back up to your fork of the repository on GitHub, and then submitting
 a &lt;strong&gt;pull request&lt;/strong&gt;.&lt;/p&gt;
 &lt;div id=&#34;forking-a-github-repository&#34; class=&#34;section level2&#34;&gt;
@@ -212,7 +212,7 @@ find it).&lt;/p&gt;
 of the repository. You’re welcome to try either, but I usually (on a Mac) have
 better luck with “SSH”. Occasionally, people running Windows in my courses have
 had better luck with “HTTPS”, although for most folks “SSH” seems to work fine.
-Once you choose which protocal to use, you can copy the snippet of code that is
+Once you choose which protocol to use, you can copy the snippet of code that is
 given in the pop-up.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/img/screencapture_gifs/github_clone_button.gif&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Next, you’ll run this code from a &lt;strong&gt;bash shell&lt;/strong&gt; on your own computer to clone the
@@ -397,7 +397,7 @@ have successfully been pushed to the remote branch.&lt;/p&gt;
 for your GitHub password every time you try to push. This will get to be a pain,
 so you’ll probably want to set up an SSH key. For more on how to do this (as
 well as other help with using RStudio with version control), check out
-&lt;a href=&#34;https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN&#34;&gt;RStudio’s help documention on the
+&lt;a href=&#34;https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN&#34;&gt;RStudio’s help documentation on the
 topic&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;requesting-that-we-pull-your-changes&#34; class=&#34;section level2&#34;&gt;
