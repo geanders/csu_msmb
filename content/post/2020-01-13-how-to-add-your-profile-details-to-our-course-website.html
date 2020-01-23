@@ -227,6 +227,24 @@ with more on how to clone a repository from GitHub to your own computer.</p>
 </div>
 <div id="changing-and-committing-in-rstudio" class="section level2">
 <h2>Changing and committing in RStudio</h2>
+<p>When you have R Studio open to an R Project that is using git version control,
+R Studio will include a “Git” pane. You can use this pane to <strong>commit</strong> changes you
+make to files in the repository, write messages explaining those commits, and
+<strong>push</strong> your changes to your remote branch of the repository on GitHub.</p>
+<p>When you commit a change, that change is written into a log of every change made
+to the files in the repository. You can later look through these commits, so you’ll
+want the commit messages to make sense when you read them in the future. When you’re
+collaborating with others, the commit messages will help you see what each other
+are doing. These commits are only saved in your local branch. To send them up to
+the remote branch of the repository on GitHub, you’ll need to push those commits.
+Once you push your local commits, your GitHub repository should exactly mirror
+your local repository.</p>
+<p>As soon as you make a change to a file in the repository that’s being track by
+git, that file will show up in the Git pane, with a little check box beside it.
+When you’re ready to commit a change, click on the “Commit” button on the top left
+of the Git pane. This will open a pop-up box.</p>
+<p>In this box, click the check boxes for all the changed files on the left you’d
+like to include in the commit. Then write a short <strong>commit message</strong></p>
 </div>
 </div>
 <div id="updating-your-profile-details" class="section level1">
@@ -324,6 +342,18 @@ play around with cropping it until you’re happy.</p>
 <h1>Submitting your updates</h1>
 <div id="pushing-the-commits-back-to-github" class="section level2">
 <h2>Pushing the commits back to GitHub</h2>
+<p>When you are ready to push all the changes you’ve committed to your local branch, you can
+do this from the Git pane in R Studio. In this pane, there are two arrows: a green up
+arrow and a blue down arrow. Click on the green up arrow to push the commits from your
+computer (the local branch) to GitHub (the remote branch). Visit your GitHub page for
+the repository (or refresh it if you already had it open) and check if your changes
+have successfully been pushed to the remote branch.</p>
+<p>If you haven’t created an SSH key and shared it with GitHub, you may be asked
+for your GitHub password every time you try to push. This will get to be a pain,
+so you’ll probably want to set up an SSH key. For more on how to do this (as
+well as other help with using RStudio with version control), check out
+<a href="https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN">RStudio’s help documention on the
+topic</a>.</p>
 </div>
 <div id="requesting-that-we-pull-your-changes" class="section level2">
 <h2>Requesting that we pull your changes</h2>
@@ -332,5 +362,18 @@ play around with cropping it until you’re happy.</p>
 <p>
 <a href="https://giphy.com/gifs/cats-bowl-pull-B6ZOD3aNT3Lxe">via GIPHY</a>
 </p>
+<p>At this point, you’ve made changes, checked them, and pushed them to your GitHub version of
+the repository. Remember, though, that you forked the repository from our original one, and
+so you’ve been working with a copy of the repository this whole time, rather than changing
+our original version.</p>
+<p>To get your changes incorporated into our original version, you’ll need to request that we
+<strong>pull</strong> your changes into the original repository. To do this, you can submit a <strong>pull request</strong>
+through GitHub. Go to the main page for your fork of the GitHub repository and look for
+a button that says “New pull request”. When you click this, it will walk you through making
+a pull request. You’ll have a space to write a message describing the changes you’re
+recommending in the pull request.</p>
+<p>If you’d like more details on this information, GitHub has <a href="https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request">help documentation
+on pull
+requests</a>.</p>
 </div>
 </div>

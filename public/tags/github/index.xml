@@ -223,6 +223,24 @@ with more on how to clone a repository from GitHub to your own computer.&lt;/p&g
 &lt;/div&gt;
 &lt;div id=&#34;changing-and-committing-in-rstudio&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Changing and committing in RStudio&lt;/h2&gt;
+&lt;p&gt;When you have R Studio open to an R Project that is using git version control,
+R Studio will include a “Git” pane. You can use this pane to &lt;strong&gt;commit&lt;/strong&gt; changes you
+make to files in the repository, write messages explaining those commits, and
+&lt;strong&gt;push&lt;/strong&gt; your changes to your remote branch of the repository on GitHub.&lt;/p&gt;
+&lt;p&gt;When you commit a change, that change is written into a log of every change made
+to the files in the repository. You can later look through these commits, so you’ll
+want the commit messages to make sense when you read them in the future. When you’re
+collaborating with others, the commit messages will help you see what each other
+are doing. These commits are only saved in your local branch. To send them up to
+the remote branch of the repository on GitHub, you’ll need to push those commits.
+Once you push your local commits, your GitHub repository should exactly mirror
+your local repository.&lt;/p&gt;
+&lt;p&gt;As soon as you make a change to a file in the repository that’s being track by
+git, that file will show up in the Git pane, with a little check box beside it.
+When you’re ready to commit a change, click on the “Commit” button on the top left
+of the Git pane. This will open a pop-up box.&lt;/p&gt;
+&lt;p&gt;In this box, click the check boxes for all the changed files on the left you’d
+like to include in the commit. Then write a short &lt;strong&gt;commit message&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;updating-your-profile-details&#34; class=&#34;section level1&#34;&gt;
@@ -320,6 +338,18 @@ play around with cropping it until you’re happy.&lt;/p&gt;
 &lt;h1&gt;Submitting your updates&lt;/h1&gt;
 &lt;div id=&#34;pushing-the-commits-back-to-github&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Pushing the commits back to GitHub&lt;/h2&gt;
+&lt;p&gt;When you are ready to push all the changes you’ve committed to your local branch, you can
+do this from the Git pane in R Studio. In this pane, there are two arrows: a green up
+arrow and a blue down arrow. Click on the green up arrow to push the commits from your
+computer (the local branch) to GitHub (the remote branch). Visit your GitHub page for
+the repository (or refresh it if you already had it open) and check if your changes
+have successfully been pushed to the remote branch.&lt;/p&gt;
+&lt;p&gt;If you haven’t created an SSH key and shared it with GitHub, you may be asked
+for your GitHub password every time you try to push. This will get to be a pain,
+so you’ll probably want to set up an SSH key. For more on how to do this (as
+well as other help with using RStudio with version control), check out
+&lt;a href=&#34;https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN&#34;&gt;RStudio’s help documention on the
+topic&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;requesting-that-we-pull-your-changes&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Requesting that we pull your changes&lt;/h2&gt;
@@ -328,6 +358,19 @@ play around with cropping it until you’re happy.&lt;/p&gt;
 &lt;p&gt;
 &lt;a href=&#34;https://giphy.com/gifs/cats-bowl-pull-B6ZOD3aNT3Lxe&#34;&gt;via GIPHY&lt;/a&gt;
 &lt;/p&gt;
+&lt;p&gt;At this point, you’ve made changes, checked them, and pushed them to your GitHub version of
+the repository. Remember, though, that you forked the repository from our original one, and
+so you’ve been working with a copy of the repository this whole time, rather than changing
+our original version.&lt;/p&gt;
+&lt;p&gt;To get your changes incorporated into our original version, you’ll need to request that we
+&lt;strong&gt;pull&lt;/strong&gt; your changes into the original repository. To do this, you can submit a &lt;strong&gt;pull request&lt;/strong&gt;
+through GitHub. Go to the main page for your fork of the GitHub repository and look for
+a button that says “New pull request”. When you click this, it will walk you through making
+a pull request. You’ll have a space to write a message describing the changes you’re
+recommending in the pull request.&lt;/p&gt;
+&lt;p&gt;If you’d like more details on this information, GitHub has &lt;a href=&#34;https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request&#34;&gt;help documentation
+on pull
+requests&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
