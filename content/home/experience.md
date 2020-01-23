@@ -37,10 +37,10 @@ date_format = "   "
   """
 
 [[experience]]
-  title = "Chapter 2"
-  company = "Statistical Modeling"
+  title = "Chapter 2.1-2.7"
+  company = "Statistical Modeling (part 1)"
   company_url = "http://web.stanford.edu/class/bios221/book/Chap-Models.html"
-  location = "Feb. 13--20, 2020"
+  location = "Feb. 13, 2020"
   date_start = "2020-01-29"
   date_end = "2020-01-29"
   description = """
@@ -52,6 +52,23 @@ date_format = "   "
   * Vocabulary: 
   * Exercise:
   """
+  
+[[experience]]
+  title = "Chapter 2.8-2.12"
+  company = "Statistical Modeling (part 2)"
+  company_url = "http://web.stanford.edu/class/bios221/book/Chap-Models.html"
+  location = "Feb. 20, 2020"
+  date_start = "2020-01-29"
+  date_end = "2020-01-29"
+  description = """
+  
+  Exercise for Chapter:
+  
+  Student responsibilities:
+
+  * Vocabulary: 
+  * Exercise:
+  """  
   
 [[experience]]
   title = "Chapter 4"
