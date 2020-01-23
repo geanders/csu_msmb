@@ -5,12 +5,60 @@
     <link>/</link>
       <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <description>CSU MSMB Group Study</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 13 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 28 Jan 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>CSU MSMB Group Study</title>
       <link>/</link>
     </image>
+    
+    <item>
+      <title>Tips on writing a vocabulary list</title>
+      <link>/post/tips-on-writing-a-vocabulary-list/</link>
+      <pubDate>Tue, 28 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>/post/tips-on-writing-a-vocabulary-list/</guid>
+      <description>
+
+
+&lt;p&gt;Here are some tips on writing up the vocabulary list for a chapter:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You should include all words in the chapter that are given in bold. Be sure to
+look for bolded terms in the sidenotes and end-of-chapter exercises, too! Occassionally,
+the authors use bold for subheadings (see the “Why R and Bioconductor?” section in
+the Introduction or the “Summary of this chapter” section of Chapter 1). These
+subheadings do not need to be included in the vocabulary list for the chapter.&lt;/li&gt;
+&lt;li&gt;If you find one or more common synonyms for a term, you can include that with
+the term in the list (e.g., “variability / spread / dispersion”).&lt;/li&gt;
+&lt;li&gt;It is fine to use wording from the chapter text or to use wording directly from
+other websites or sources. However, you &lt;strong&gt;must&lt;/strong&gt; include a list of any of the
+sources that you used to write your definitions at the bottom of the vocabulary
+blog post. Further, if you are using sources besides the course textbook, make sure
+that the definition is appropriate in the context of our course. Often, words will
+have a number of different definitions across different disciplines. Try to use
+more formal sources (e.g., textbooks, other published books) rather than less
+formal websites to find definitions whenever possible.&lt;/li&gt;
+&lt;li&gt;Feel free to change a term from singular to plural or vice versa if it helps you
+in writing the term’s definition. Similarly, if the bolded term does not include
+all the words that would be helpful (e.g., the bolded term is “sufficient”, but
+the term of interest is “sufficient statistic”), you can add a word or two to the
+bolded term.&lt;/li&gt;
+&lt;li&gt;The bolded terms in the book tend to favor statistical terms over biological ones.
+If there are some biological terms you needed to look up when you read the chapter,
+or that you think some people in the class might not know,
+feel free to add them to your vocabulary list.&lt;/li&gt;
+&lt;li&gt;You can see an example of a vocabulary blog post for
+&lt;a href=&#34;http://127.0.0.1:4736/post/vocabulary-for-chapter-1/&#34;&gt;Chapter 1&lt;/a&gt;. You can
+use this as templates for your own post.&lt;/li&gt;
+&lt;li&gt;Be sure to include the tag “vocabulary”, as well as a tag for your chapter, on
+the blog post.&lt;/li&gt;
+&lt;li&gt;If there are two bolded words that mean the same thing, put them both on the
+vocabulary list (with the same definition).&lt;/li&gt;
+&lt;li&gt;If a vocabulary term was defined in a previous chapter’s vocabulary list, feel free
+to reuse the definition.&lt;/li&gt;
+&lt;li&gt;Our library has excellent resources that you can use to help write your definitions.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>How to add your profile details to our course website</title>
@@ -377,46 +425,6 @@ requests&lt;/a&gt;.&lt;/p&gt;
     </item>
     
     <item>
-      <title>Tips on writing a vocabulary list</title>
-      <link>/post/tips-on-writing-a-vocabulary-list/</link>
-      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
-      <guid>/post/tips-on-writing-a-vocabulary-list/</guid>
-      <description>
-
-
-&lt;p&gt;Here are some tips on writing up the vocabulary list for a chapter:&lt;/p&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;You should include all words in the chapter that are given in bold. Be sure to
-look for bolded terms in the sidenotes and end-of-chapter exercises, too! Occassionally,
-the authors use bold for subheadings (see the “Why R and Bioconductor?” section in
-the Introduction or the “Summary of this chapter” section of Chapter 1). These
-subheadings do not need to be included in the vocabulary list for the chapter.&lt;/li&gt;
-&lt;li&gt;It is fine to use wording from the chapter text or to use wording directly from
-other websites or sources. However, you &lt;strong&gt;must&lt;/strong&gt; include a list of any of the
-sources that you used to write your definitions at the bottom of the vocabulary
-blog post. Further, if you are using sources besides the course textbook, make sure
-that the definition is appropriate in the context of our course. Often, words will
-have a number of different definitions across different disciplines.&lt;/li&gt;
-&lt;li&gt;Feel free to change a term from singular to plural or vice versa if it helps you
-in writing the term’s definition. Similarly, if the bolded term does not include
-all the words that would be helpful (e.g., the bolded term is “sufficient”, but
-the term of interest is “sufficient statistic”), you can add a word or two to the
-bolded term.&lt;/li&gt;
-&lt;li&gt;You can see an example of a vocabulary blog post for
-&lt;a href=&#34;http://127.0.0.1:4736/post/vocabulary-for-chapter-1/&#34;&gt;Chapter 1&lt;/a&gt;. You can
-use this as templates for your own post.&lt;/li&gt;
-&lt;li&gt;Be sure to include the tag “vocabulary”, as well as a tag for your chapter, on
-the blog post.&lt;/li&gt;
-&lt;li&gt;If there are two bolded words that mean the same thing, put them both on the
-vocabulary list (with the same definition).&lt;/li&gt;
-&lt;li&gt;If a vocabulary term was defined in a previous chapter’s vocabulary list, feel free
-to reuse the definition.&lt;/li&gt;
-&lt;li&gt;Our library has excellent resources that you can use to help write your definitions.&lt;/li&gt;
-&lt;/ol&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Vocabulary for Chapter 1</title>
       <link>/post/vocabulary-for-chapter-1/</link>
       <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
@@ -425,6 +433,9 @@ to reuse the definition.&lt;/li&gt;
 &lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
 
 
+&lt;p&gt;Chapter 1 covers generative modeling for discrete data. It introduces a number of terms covering
+probablity and statistical modeling, as well as a few biological terms. The vocabulary words for
+Chapter 1 are:&lt;/p&gt;
 &lt;table class=&#34;table table-striped table-hover table-condensed&#34; style=&#34;margin-left: auto; margin-right: auto;&#34;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -440,7 +451,7 @@ to reuse the definition.&lt;/li&gt;
 probability model
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-NA
+A mathematical description of the possible outcomes of an experiment and the probability of each of those outcomes.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -448,7 +459,7 @@ NA
 vector
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-NA
+In programming, a one-dimensional array of data, all with the same data type.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -456,7 +467,7 @@ NA
 discrete event
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-NA
+In statistics, an event that can take a non-negative integer value (e.g., number of deaths in a community by day).
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -472,7 +483,7 @@ A variable that can belong to one of a finite set of levels.
 levels
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-In the context of a categorical variable, the set of groups to which the variable can be assigned.
+In the context of a categorical variable, the set of values to which the variable can be assigned.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -480,7 +491,7 @@ In the context of a categorical variable, the set of groups to which the variabl
 factor
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-NA
+In the context of statistical programming, a data type that can take one of a limited number of possible values (e.g., sex, nationality).
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -488,7 +499,7 @@ NA
 exchangeable
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-A way to describe a random variable for which the order that the data are observed doesn’t matter
+A way to describe a random variable for which the order in which the data are observed doesn’t matter.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -496,7 +507,7 @@ A way to describe a random variable for which the order that the data are observ
 sufficient statistic
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-A statistic that, even though it is a summary, contains all the information that you would use from an original, uncondensed form of the data. An example is frequency counts for an exchangeable …
+A statistic that, even though it is a summary, contains all the information that you would use from an original, uncondensed form of the data.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -504,7 +515,7 @@ A statistic that, even though it is a summary, contains all the information that
 Bernoulli distribution
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-A probability distribution to describe the outcome probability for two possible events.
+A probability distribution to describe the outcome probability for two possible events (e.g., win / loss).
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -520,7 +531,7 @@ A numerical value that describes a population or a model.
 complementary
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-A description of two events who are mutually exclusive and whose probabilities sum to one. In other words, either one event or the other is guaranteed to happen, but not both.
+A description of two events who are mutually exclusive and whose probabilities sum to one (i.e., either one event or the other is guaranteed to happen, but not both).
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -536,7 +547,7 @@ A variable whose values occur according to a binomial probability distribution.
 probability mass distribution
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-NA
+A distribution giving the probability that a discrete random variable is equal to a given value.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -549,10 +560,10 @@ A probability distribution that is appropriate when the probability of success i
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
-epitope
+epitope / antigen determinent
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-Site on a macromolecular antigen to which an antibody binds. This is the part of an antigen that is recognized by the immune system and is also known as an antigen determinent.
+Site on a macromolecular antigen to which an antibody binds. This is the part of an antigen that is recognized by the immune system.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -576,7 +587,7 @@ Given
 cumulative distribution function
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-NA
+A distribution giving the probability that a random variable is less than given values.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -589,7 +600,7 @@ Analysis focused on the behavior of the very large or the very small values of a
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
-rare events
+rare event
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
 Something that occurs with a very low probability.
@@ -608,7 +619,7 @@ A statistic based on the order of the relative positions of observations based o
 Monte Carlo method
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-A method that uses a computer simulation based on our generative model that finds the probabilities of the events we’re interested in.
+A method that uses a computer simulation based on a generative model to determine the probabilities of the events we’re interested in.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -624,7 +635,7 @@ A method of modeling where all the parameters are known and the mathematical the
 deduction
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-A top-down method of reasoning …
+A top-down method of reasoning, starting from a theory or principle rather than from data.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -640,7 +651,7 @@ A method of modeling where the distribution of the data is not known.
 fit
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-In the context of data and a statistical distribution, …
+In the context of statistical modeling, estimating the parameters of a model based on observed data thought to be generated by the model.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -648,20 +659,12 @@ In the context of data and a statistical distribution, …
 multinomial
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-NA
+A generalization of the binomial distribution to cases where a certain number of outcomes can occur in each of a number of trials.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
-power
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-The probability of detecting something if it is there.
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
-true positive rate
+power / true positive rate
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
 The probability of detecting something if it is there.
@@ -672,7 +675,7 @@ The probability of detecting something if it is there.
 null hypothesis
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-NA
+Often, a hypothesis of “no association” that is used as a counterpart to a more interesting alternative hypothesis in hypothesis testing.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -680,7 +683,7 @@ NA
 matrix
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-NA
+In programming, a two-dimensional array of data, all with the same data type.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -688,15 +691,15 @@ NA
 expected value
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-NA
+The predicted value of a variable.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
-variability
+variability / spread / dispersion
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-NA
+In statistics, the amount by which a set of observations deviate from their mean.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -704,7 +707,7 @@ NA
 statistic
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-A numerical characteristic of a sample
+A numerical characteristic of a sample.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -712,7 +715,7 @@ A numerical characteristic of a sample
 null distribution
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-NA
+The probability distribution for the null hypothesis.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -720,7 +723,7 @@ NA
 alternative
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-In the context of a generating process, …
+In the context of a generating process, the generating process that is considered in comparison to the generating process under the null hypothesis.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -728,7 +731,7 @@ In the context of a generating process, …
 chi-squared distribution
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-NA
+A distribution often appropriate for assessing goodness-of-fit, including for models fit to contingency tables.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -744,7 +747,7 @@ The probability of seeing the data that were observed given a hypothesis.
 probability density function
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-NA
+A distribution giving the relative likelihood that a continuous random variable is equal to a given value.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -760,7 +763,7 @@ In the context of function parameters for an R function, the value that is used 
 C. elegans genome nucleotide frequency
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-NA
+How often adenine, cytosine, guanine, and thymine occur in the DNA of a roundwork often used in scientific research.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -768,7 +771,95 @@ NA
 Bioconductor
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-NA
+Open-source software that provides contributed programs for bioinformatic data analysis.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+codon
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A three-nucleotide sequence that specifies the amino acid to be created next (or to start or stop synthesis).
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+DNA read
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+An inferred sequence of base pairs for a single DNA fragment, based on sequencing.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+nucleotide
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of DNA, one of four compounds (adenine (A); cytosince (C); guanine (G); and tymine (T)) that make up the basic information unit.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+genome
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+An organism’s complete set of DNA, including all of its genes.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+replication cycle
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In biology, the process that begins with the infection of a host cell by a virus and ends with the release of mature progeny virus particles.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+point mutation
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A change, addition, or deletion of a single nucleotide in a gene sequence.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+genotype
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+The genetic make-up of an individual’s cells, including how the individual’s genetic make-up differs from others’.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+diploid
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Having genetic material in two complete sets of chromosomes, from two parents.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+protein
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A compound made up of amino acids; one of the four types of macromolecules that make up living organisms.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+antibody
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A type of protein made by certain white blood cells in response to an antigen.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+antigen
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A foreign substance in the body to which the immune system reacts.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -781,6 +872,10 @@ in the following sources.&lt;/em&gt;&lt;/p&gt;
 &lt;li&gt;Holmes and Huber, 2019. &lt;em&gt;Modern Statistics for Modern Biology.&lt;/em&gt; Cambridge University Press,
 Cambridge, United Kingdom.&lt;/li&gt;
 &lt;li&gt;Everitt and Skrondal, 2010. &lt;em&gt;The Cambridge Dictionary of Statistics (Fourth Edition).&lt;/em&gt; Cambridge University Press, Cambridge, United Kingdom.&lt;/li&gt;
+&lt;li&gt;Bioconductor: Open Source Software for Bioinformatics. &lt;a href=&#34;https://www.bioconductor.org/&#34; class=&#34;uri&#34;&gt;https://www.bioconductor.org/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Wikipedia: The Free Encyclopedia. &lt;a href=&#34;https://en.wikipedia.org/wiki/Main_Page&#34; class=&#34;uri&#34;&gt;https://en.wikipedia.org/wiki/Main_Page&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;NIH Genetics Home Reference. &lt;a href=&#34;https://ghr.nlm.nih.gov/&#34; class=&#34;uri&#34;&gt;https://ghr.nlm.nih.gov/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;NCI Dictionary of Cancer Terms. &lt;a href=&#34;https://www.cancer.gov/publications/dictionaries/cancer-terms&#34; class=&#34;uri&#34;&gt;https://www.cancer.gov/publications/dictionaries/cancer-terms&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;practice&#34; class=&#34;section level3&#34;&gt;

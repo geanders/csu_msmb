@@ -21,6 +21,10 @@ image:
 projects: []
 ---
 
+Chapter 1 covers generative modeling for discrete data. It introduces a number of terms covering
+probablity and statistical modeling, as well as a few biological terms. The vocabulary words for 
+Chapter 1 are: 
+
 ```{r echo = FALSE, message = FALSE, warning = FALSE}
 library(dplyr)
 library(readr)
@@ -47,6 +51,10 @@ in the following sources.*
 - Holmes and Huber, 2019. *Modern Statistics for Modern Biology.* Cambridge University Press, 
 Cambridge, United Kingdom.
 - Everitt and Skrondal, 2010. *The Cambridge Dictionary of Statistics (Fourth Edition).* Cambridge University Press, Cambridge, United Kingdom.
+- Bioconductor: Open Source Software for Bioinformatics. https://www.bioconductor.org/
+- Wikipedia: The Free Encyclopedia. https://en.wikipedia.org/wiki/Main_Page
+- NIH Genetics Home Reference. https://ghr.nlm.nih.gov/
+- NCI Dictionary of Cancer Terms. https://www.cancer.gov/publications/dictionaries/cancer-terms 
 
 ### Practice
 
