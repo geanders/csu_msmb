@@ -12,8 +12,8 @@ education:
 email: "camron.pearce@colostate.edu"
 interests:
 - Skiing
-- Running Marathons (I know... its weird)
-- Bass Fishing
+- Running Marathons (I know... weird)
+- Traveling
 name: Camron Pearce
 organizations:
 - name: Colorado State University
@@ -37,5 +37,5 @@ user_groups:
 - Students
 ---
 
-Camron Pearce is a [graduate / undergraudate] student in the Department of [x] at Colorado 
-State University. [Short description of research and academic interests.]
+Camron Pearce is a graduate student in the Department of Microbiology at Colorado 
+State University. His research includes researching drug therapies against tuberculosis and determining particle localization using confocal microscopy. His personal life includes marathon training, skiing on the weekend, and finding the next best fishing hole. 
