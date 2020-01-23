@@ -37,9 +37,12 @@ date_format = "   "
   """
 
 [[experience]]
-  title = "Chapter 2.1-2.7"
+  title = "Chapter 2.1--2.7"
   company = "Statistical Modeling (part 1)"
-
+  location = "Feb. 13, 2020"
+  date_start = "2020-01-29"
+  date_end = "2020-01-29"
+  description = """
   
   Exercise for Chapter:
   
