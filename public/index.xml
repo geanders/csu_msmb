@@ -253,6 +253,7 @@ better luck with “SSH”. Occasionally, people running Windows in my courses h
 had better luck with “HTTPS”, although for most folks “SSH” seems to work fine.
 Once you choose which protocal to use, you can copy the snippet of code that is
 given in the pop-up.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/screencapture_gifs/github_clone_button.gif&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Next, you’ll run this code from a &lt;strong&gt;bash shell&lt;/strong&gt; on your own computer to clone the
 repository. You first will need to open a shell. If you’re on a Mac, you can do that
 with the “Terminal” application. With Windows, you’ll probably need to use the
@@ -276,6 +277,7 @@ help you.&lt;/p&gt;
 you copied from the “Clone or download” button on GitHub. It will probably look
 something like this (but with your GitHub handle in place of “geanders”):&lt;/p&gt;
 &lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;git clone git@github.com:geanders/csu_msmb.git&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/img/screencapture_gifs/bash_clone_git_repo.gif&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;When you run this, you may have to put in your GitHub username and password. You
 may also get some questions about whether you really want to download the
 repository (you do). If everything’s successful, you should see that there’s a new
@@ -304,6 +306,7 @@ repository of our website (“csu_msmb”), try running the following in your
 R console to render the site:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(blogdown)
 serve_site()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/img/screencapture_gifs/serve_site.gif&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;If everything worked, you should be able to see a version of the website in your
 RStudio “Viewer” pane. If you’d like to see it in your usual web browser, click
 on the “Show in new window” button on the top left of the “Viewer” pane. This

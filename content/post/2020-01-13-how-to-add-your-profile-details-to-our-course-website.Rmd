@@ -196,6 +196,8 @@ had better luck with "HTTPS", although for most folks "SSH" seems to work fine.
 Once you choose which protocal to use, you can copy the snippet of code that is 
 given in the pop-up. 
 
+![](/img/screencapture_gifs/github_clone_button.gif)
+
 Next, you'll run this code from a **bash shell** on your own computer to clone the
 repository. You first will need to open a shell. If you're on a Mac, you can do that
 with the "Terminal" application. With Windows, you'll probably need to use the 
@@ -233,6 +235,8 @@ something like this (but with your GitHub handle in place of "geanders"):
 git clone git@github.com:geanders/csu_msmb.git
 ```
 
+![](/img/screencapture_gifs/bash_clone_git_repo.gif)
+
 When you run this, you may have to put in your GitHub username and password. You 
 may also get some questions about whether you really want to download the 
 repository (you do). If everything's successful, you should see that there's a new
@@ -264,6 +268,8 @@ R console to render the site:
 library(blogdown)
 serve_site()
 ```
+
+![](/img/screencapture_gifs/serve_site.gif)
 
 If everything worked, you should be able to see a version of the website in your
 RStudio "Viewer" pane. If you'd like to see it in your usual web browser, click
