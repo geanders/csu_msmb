@@ -1,6 +1,6 @@
 ---
 authors:
-bio: [Does anything?]
+bio: Sierra is a Statistics PhD student.
 education:
   courses:
   - course: MS in Statistics
