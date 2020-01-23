@@ -1,41 +1,37 @@
 ---
 authors:
-bio: [One sentence describing your research interest]
+bio: She's interested in using computational tools to answer biological questions.
 education:
   courses:
-  - course: MSc in [Discipline]
-    institution: [Institution]
-    year: [Year]
-  - course: BSc in [Discipline]
-    institution: [Institution]
-    year: [Year]
-email: "...@colostate.edu"
+  - course: BSc in Bioengineering
+    institution: Rice University
+    year: 2017
+email: "amyfox@colostate.edu"
 interests:
-- Interest 1
-- Interest 2
-- Interest 3
+- R programming
+- Bioengineering
+- Bioinformatics
 name: Amy Fox
 organizations:
 - name: Colorado State University
   url: ""
-role: Graduate Student in ...
+role: Graduate Student in Microbiology, Immunology, and Pathology
 social:
 - icon: envelope
   icon_pack: fas
-  link: mailto:...@colostate.edu
-#- icon: twitter
-#  icon_pack: fab
-#  link: https://twitter.com/gbwanderson
-#- icon: google-scholar
-#  icon_pack: ai
-#  link: https://scholar.google.com/citations?user=CWSlbfsAAAAJ&hl=en&oi=ao
+  link: mailto:amyfox@colostate.edu
+#- icon: linkedin-square
+#  icon_pack: fa
+#  link: www.linkedin.com/in/amy-fox1
+#- icon: user-circle
+#  icon_pack: fa
+#  link: https://amyfox.netlify.com/
 #- icon: github
 #  icon_pack: fab
-#  link: https://github.com/geanders
+#  link: https://github.com/aef1004
 superuser: true
 user_groups:
 - Students
 ---
 
-Amy Fox is a [graduate / undergraudate] student in the Department of [x] at Colorado 
-State University. [Short description of research and academic interests.]
+Amy Fox is a graduate student in the Department of Microbiology, Immunology, and Pathology at Colorado State University. She's currently testing the efficacy of different tuberculosis vaccines in mice and working on developing an R-based data analysis pipeline for flow cytometry data. 
