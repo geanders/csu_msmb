@@ -3,36 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/courses/example/example1/</loc>
-    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/courses/example/</loc>
-    <lastmod>2018-09-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/courses/example/example2/</loc>
-    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/example/</loc>
-    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/</loc>
-    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/authors/brooke-anderson/</loc>
     <lastmod>2020-01-13T14:48:08-07:00</lastmod>
   </url>
@@ -58,22 +28,27 @@
   </url>
   
   <url>
-    <loc>/categories/chapter-1/</loc>
-    <lastmod>2020-01-13T16:20:46-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/chapter-1/</loc>
     <lastmod>2020-01-13T16:20:46-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/github/</loc>
-    <lastmod>2020-01-13T14:48:08-07:00</lastmod>
+    <loc>/categories/chapter-1/</loc>
+    <lastmod>2020-01-13T16:20:46-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-01-13T16:40:37-07:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/github/</loc>
+    <lastmod>2020-01-13T14:48:08-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/github/</loc>
     <lastmod>2020-01-13T14:48:08-07:00</lastmod>
   </url>
   
@@ -83,12 +58,12 @@
   </url>
   
   <url>
-    <loc>/tags/instructions/</loc>
+    <loc>/categories/instructions/</loc>
     <lastmod>2020-01-13T16:40:37-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/instructions/</loc>
+    <loc>/tags/instructions/</loc>
     <lastmod>2020-01-13T16:40:37-07:00</lastmod>
   </url>
   
@@ -108,58 +83,18 @@
   </url>
   
   <url>
-    <loc>/categories/vocabulary/</loc>
+    <loc>/tags/vocabulary/</loc>
     <lastmod>2020-01-13T16:40:37-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/vocabulary/</loc>
+    <loc>/categories/vocabulary/</loc>
     <lastmod>2020-01-13T16:40:37-07:00</lastmod>
   </url>
   
   <url>
     <loc>/post/vocabulary-for-chapter-1/</loc>
     <lastmod>2020-01-13T16:20:46-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/admin/</loc>
-    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/publication_types/3/</loc>
-    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/publication/preprint/</loc>
-    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/publication_types/</loc>
-    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/publication/</loc>
-    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/source-themes/</loc>
-    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/slides/</loc>
-    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/slides/example/</loc>
-    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -173,53 +108,7 @@
   </url>
   
   <url>
-    <loc>/tags/deep-learning/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/demo/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/project/external-project/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/project/internal-project/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/project/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/publication_types/2/</loc>
-    <lastmod>2015-09-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/publication/journal-article/</loc>
-    <lastmod>2015-09-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/robert-ford/</loc>
-    <lastmod>2015-09-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/publication_types/1/</loc>
-    <lastmod>2013-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/publication/conference-paper/</loc>
-    <lastmod>2013-07-01T00:00:00+00:00</lastmod>
+    <loc>/authors/admin/</loc>
   </url>
   
   <url>
@@ -271,7 +160,7 @@
   </url>
   
   <url>
-    <loc>/courses/</loc>
+    <loc>/publication_types/</loc>
   </url>
   
 </urlset>
