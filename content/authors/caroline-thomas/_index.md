@@ -1,28 +1,25 @@
 ---
 authors:
-bio: [One sentence describing your research interest]
+bio: Caroline is interested in sports analytics and biostatistcs.
 education:
   courses:
-  - course: MSc in [Discipline]
-    institution: [Institution]
-    year: [Year]
-  - course: BSc in [Discipline]
-    institution: [Institution]
-    year: [Year]
-email: "...@colostate.edu"
+  - course: BSc in Statistics and Biology
+    institution: Colorado State University
+    year: 2020
+email: "thomasc@rams.colostate.edu"
 interests:
-- Interest 1
-- Interest 2
-- Interest 3
+- Skiing
+- Camping
+- Baseball
 name: Caroline Thomas
 organizations:
 - name: Colorado State University
   url: ""
-role: Graduate Student in ...
+role: Undergraduate in Statistics and Biology
 social:
 - icon: envelope
   icon_pack: fas
-  link: mailto:...@colostate.edu
+  link: mailto:thomasc@rams.colostate.edu
 #- icon: twitter
 #  icon_pack: fab
 #  link: https://twitter.com/...
@@ -37,5 +34,6 @@ user_groups:
 - Students
 ---
 
-Caroline Thomas is a [graduate / undergraudate] student in the Department of [x] at Colorado 
-State University. [Short description of research and academic interests.]
+Caroline Thomas is a undergraduate student in the Departments of Statistics and Biology at Colorado 
+State University. She is interested in pursuing a graduate degree in Biostatistics and going into Public Health.
+Other interests include sports analytics, skiing, and camping!
