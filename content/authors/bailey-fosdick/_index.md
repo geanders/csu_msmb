@@ -4,7 +4,7 @@ bio: My research interests include the development of statistical methods for an
 education:
   courses:
   - course: PostDoc in Statistics
-    institution: Duke University
+    institution: Statistical and Applied Mathematical Sciences Institute (SAMSI)
     year: 2013--2014
   - course: PhD in Statistics
     institution: University of Washington
@@ -15,9 +15,10 @@ education:
 email: "bailey.fosdick@colostate.edu"
 interests:
 - Statistical Methods for Network Data
-- Covariance Models for Multiway Data
+- Models for Multiway Data
 - Bayesian Statistics
 - Methods for Survey Analysis
+- Applications in the Social and Biological Sciences
 name: Bailey Fosdick
 organizations:
 - name: Colorado State University
