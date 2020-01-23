@@ -6,6 +6,12 @@
       <atom:link href="/authors/index.xml" rel="self" type="application/rss+xml" />
     <description>Authors</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 13 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>Authors</title>
+      <link>/authors/</link>
+    </image>
+    
     <item>
       <title></title>
       <link>/authors/brooke-anderson/</link>
@@ -31,7 +37,7 @@ source R software packages to facilitate environmental epidemiologic research.&l
       <link>/authors/amy-fox/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/authors/amy-fox/</guid>
-      <description>&lt;p&gt;Amy Fox is a graduate student in the Department of Microbiology, Immunology, and Pathology at Colorado State University. She&amp;rsquo;s currently testing the efficacy of different tuberculosis vaccines in mice and working on developing an R-based data analysis pipeline for flow cytometry data.&lt;/p&gt;
+      <description>&lt;p&gt;Amy Fox is a graduate student in the Department of Microbiology, Immunology, and Pathology at Colorado State University. She&#39;s currently testing the efficacy of different tuberculosis vaccines in mice and working on developing an R-based data analysis pipeline for flow cytometry data.&lt;/p&gt;
 </description>
     </item>
     
@@ -73,8 +79,9 @@ State University. [Short description of research and academic interests.]&lt;/p&
       <link>/authors/caroline-thomas/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/authors/caroline-thomas/</guid>
-      <description>&lt;p&gt;Caroline Thomas is a [graduate / undergraudate] student in the Department of [x] at Colorado
-State University. [Short description of research and academic interests.]&lt;/p&gt;
+      <description>&lt;p&gt;Caroline Thomas is a undergraduate student in the Departments of Statistics and Biology at Colorado
+State University. She is interested in pursuing a graduate degree in Biostatistics and going into Public Health.
+Other interests include sports analytics, skiing, and camping!&lt;/p&gt;
 </description>
     </item>
     
@@ -84,6 +91,16 @@ State University. [Short description of research and academic interests.]&lt;/p&
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/authors/daniel-dean/</guid>
       <description>&lt;p&gt;Daniel Dean is a [graduate / undergraudate] student in the Department of [x] at Colorado
+State University. [Short description of research and academic interests.]&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/authors/james_dilisio/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/authors/james_dilisio/</guid>
+      <description>&lt;p&gt;James DiLisio is a [graduate / undergraudate] student in the Department of [x] at Colorado
 State University. [Short description of research and academic interests.]&lt;/p&gt;
 </description>
     </item>
@@ -103,13 +120,13 @@ State University. She has worked in a genetics lab on a project investigating th
       <link>/authors/mike-lyons/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/authors/mike-lyons/</guid>
-      <description>&lt;p&gt;Mike Lyons is an assistant professor of statistics at Colorado State University. He works in
-the area between pre-clinical and clinical drug development for the treatment of tuberculosis.
-His focus is the development and application of mathematical and computational tools to better
-translate experimental studies to dose selection for clinical trials. This work involves both
-conventional pharmacokinetic/pharmacodynamic modeling and simulation as well as physiological
-modeling and the use of engineering-based approaches to design optimized combination drug
-regimens.&lt;/p&gt;
+      <description>&lt;p&gt;Mike Lyons is an assistant professor at Colorado State University. He
+works on pre-clinical and clinical drug development for the treatment of
+tuberculosis.  His focus is the development and application of mathematical
+and computational tools for clinical trials. This work involves both
+conventional pharmacokinetic/pharmacodynamic modeling and simulation as
+well as physiological modeling and the use of engineering-based approaches
+to design optimized combination drug regimens.&lt;/p&gt;
 </description>
     </item>
     

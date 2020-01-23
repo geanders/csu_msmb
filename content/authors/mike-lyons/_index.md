@@ -1,8 +1,16 @@
 ---
 authors:
-bio: Development and application of mathematical and computational tools to 
-for tuberculosis drug.
+bio: Development and application of mathematical and computational tools to for tuberculosis drug.
 courses:
+  - course: PhD in Physics
+    institution: Marquette University
+    year: 1992
+  - course: MSc in Physics
+    institution: Marquette University
+    year: 1987
+  - course: BSc in Mathematics
+    institution: Purdue University
+    year: 1984
 email: "michael.lyons@colostate.edu"
 interests:
 - Drug Development for Tuberculosis

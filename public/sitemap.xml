@@ -58,12 +58,12 @@
   </url>
   
   <url>
-    <loc>/tags/blogdown/</loc>
+    <loc>/categories/blogdown/</loc>
     <lastmod>2020-01-13T14:48:08-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/blogdown/</loc>
+    <loc>/tags/blogdown/</loc>
     <lastmod>2020-01-13T14:48:08-07:00</lastmod>
   </url>
   
@@ -133,6 +133,10 @@
   
   <url>
     <loc>/authors/daniel-dean/</loc>
+  </url>
+  
+  <url>
+    <loc>/authors/james_dilisio/</loc>
   </url>
   
   <url>

@@ -6,6 +6,12 @@
       <atom:link href="/authors/brooke-anderson/index.xml" rel="self" type="application/rss+xml" />
     <description>CSU MSMB Group Study</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 13 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>CSU MSMB Group Study</title>
+      <link>/authors/brooke-anderson/</link>
+    </image>
+    
     <item>
       <title>How to add your profile details to our course website</title>
       <link>/post/add-profile-details/</link>
