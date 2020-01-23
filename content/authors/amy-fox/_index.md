@@ -20,12 +20,12 @@ social:
 - icon: envelope
   icon_pack: fas
   link: mailto:amyfox@colostate.edu
-#- icon: twitter
-#  icon_pack: fab
-#  link: 
-#- icon: google-scholar
-#  icon_pack: ai
-#  link: 
+#- icon: linkedin-square
+#  icon_pack: fa
+#  link: www.linkedin.com/in/amy-fox1
+#- icon: user-circle
+#  icon_pack: fa
+#  link: https://amyfox.netlify.com/
 #- icon: github
 #  icon_pack: fab
 #  link: https://github.com/aef1004
