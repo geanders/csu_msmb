@@ -463,6 +463,7 @@ to reuse the definition.&lt;/li&gt;
 probability model
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+NA
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -470,6 +471,7 @@ probability model
 vector
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+NA
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -477,6 +479,7 @@ vector
 discrete event
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+NA
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -500,6 +503,7 @@ In the context of a categorical variable, the set of groups to which the variabl
 factor
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+NA
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -555,6 +559,7 @@ A variable whose values occur according to a binomial probability distribution.
 probability mass distribution
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+NA
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -594,6 +599,7 @@ Given
 cumulative distribution function
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+NA
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -665,6 +671,7 @@ In the context of data and a statistical distribution, …
 multinomial
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+NA
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -688,6 +695,7 @@ The probability of detecting something if it is there.
 null hypothesis
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+NA
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -695,6 +703,7 @@ null hypothesis
 matrix
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+NA
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -702,6 +711,7 @@ matrix
 expected value
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+NA
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -709,6 +719,7 @@ expected value
 variability
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+NA
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -724,6 +735,7 @@ A numerical characteristic of a sample
 null distribution
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+NA
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -739,6 +751,7 @@ In the context of a generating process, …
 chi-squared distribution
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+NA
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -754,6 +767,7 @@ The probability of seeing the data that were observed given a hypothesis.
 probability density function
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+NA
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -769,6 +783,7 @@ In the context of function parameters for an R function, the value that is used 
 C. elegans genome nucleotide frequency
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+NA
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -776,6 +791,7 @@ C. elegans genome nucleotide frequency
 Bioconductor
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+NA
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
