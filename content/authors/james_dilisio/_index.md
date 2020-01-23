@@ -11,10 +11,10 @@ education:
     year: [Year]
 email: "...@colostate.edu"
 interests:
-- Microbiology
-- Computer Programming
-- Skiing
-name: Burton Karger
+- Interest 1
+- Interest 2
+- Interest 3
+name: James DiLisio
 organizations:
 - name: Colorado State University
   url: ""
@@ -37,5 +37,5 @@ user_groups:
 - Students
 ---
 
-Burton Karker is a [graduate / undergraudate] student in the Department of [x] at Colorado 
+James DiLisio is a [graduate / undergraudate] student in the Department of [x] at Colorado 
 State University. [Short description of research and academic interests.]
