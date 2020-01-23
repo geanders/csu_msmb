@@ -19,7 +19,7 @@ role: Undergraduate in Statistics and Biology
 social:
 - icon: envelope
   icon_pack: fas
-  link: mailto:...@colostate.edu
+  link: mailto:thomasc@rams.colostate.edu
 #- icon: twitter
 #  icon_pack: fab
 #  link: https://twitter.com/...
