@@ -227,7 +227,7 @@ help you.
 
 Once you are in this directory, you'll paste `git clone` followed by the command
 you copied from the "Clone or download" button on GitHub. It will probably look
-something like this:
+something like this (but with your GitHub handle in place of "geanders"):
 
 ```{bash, eval = FALSE}
 git clone git@github.com:geanders/csu_msmb.git
@@ -246,6 +246,43 @@ with more on how to clone a repository from GitHub to your own computer.
 ## Changing and committing in RStudio
 
 # Updating your profile details
+
+## Rendering blogdown websites in RStudio
+
+Once you've opened the R Project with our website, you can use the 
+`blogdown` package to render the website. This will *only* update and
+show the website on your computer (*not* change our main website online), 
+but it lets you check that everything's working and preview what the
+site will look like online. 
+
+RStudio's "Viewer" pane can work as a web browser. This means that it can 
+show our website. When you have opened the R Project with the cloned
+repository of our website ("csu_msmb"), try running the following in your
+R console to render the site:
+
+```{r eval = FALSE}
+library(blogdown)
+serve_site()
+```
+
+If everything worked, you should be able to see a version of the website in your
+RStudio "Viewer" pane. If you'd like to see it in your usual web browser, click
+on the "Show in new window" button on the top left of the "Viewer" pane. This
+will open the website in your default web browser. Take a look at the web
+address when you do---it should start with `127.0.0.1`. This is a **loopback
+address**---an IP address that refers back to your local computer
+(**localhost**), rather than an outside web servers.
+Anytime you're building a website and checking it locally, you'll see this as
+the web address when you open the site in a web browser. (Should you want a
+humourously geeky T-shirt, you can [get one with "There's no place like
+127.0.0.1"](https://www.amazon.com/Theres-Place-127-0-0-1-Address-Geek/dp/B07PF54LYT/ref=pd_sbs_193_t_0/134-9564811-5189968?_encoding=UTF8&pd_rd_i=B07PF54LYT&pd_rd_r=8bcd759f-27a2-443f-a9b8-596744041403&pd_rd_w=hzmrB&pd_rd_wg=nlhQV&pf_rd_p=5cfcfe89-300f-47d2-b1ad-a4e27203a02a&pf_rd_r=S0HM3N9YTGK1JXEK2H3T&psc=1&refRID=S0HM3N9YTGK1JXEK2H3T)).
+
+As you work through the next parts of the exercise, the rendered website in the
+Viewer pane should update every time you save your changes to files in the
+website. If you have the website open in your default browser, too, you might
+want to refresh the site with the normal "Refresh" button for your browser.
+If things ever seem like they've gotten out of sink, you can always re-run 
+`serve_site()`.
 
 ## Navigating the website's file directory to find your profile
 
@@ -298,6 +335,21 @@ Be sure to save the file after you've made all your changes.
 For an example of a completed "_index.md" file, you can see mine [here](https://raw.githubusercontent.com/geanders/csu_msmb/master/content/authors/brooke-anderson/_index.md).
 
 ## Updating your avatar picture
+
+There's also a place in your author profile directory to include a photo to
+represent yourself. To change from the default (the blue guy), replace the
+"avatar.jpg" file in your author profile directory with the JPG of your choice, 
+and use *the same name* ("avatar.jpg").
+
+It would be helpful for you to use a photo of yourself, since that will help 
+us get to know each others' names, but if you don't have one or would prefer
+not to use your own photo, feel free to pick any photo (for which you have
+appropriate permissions) to use. 
+
+You might need to crop your photo some to get it to show up in the circle on 
+the website correctly. Try with your uncropped picture once, check the website
+in the RStudio Viewer pane to see how it looks, and then if it doesn't work, 
+play around with cropping it until you're happy.
 
 # Submitting your updates
 
