@@ -23,24 +23,25 @@ projects: []
 ---
 
 One goal of this course is to continue developing your data science programming 
-skills. This will include plenty of work on R programming, but also more work to 
+skills. This will include plenty of work on R programming, but also more to 
 help you learn tools for reproducible research, like
 [RMarkdown](https://rmarkdown.rstudio.com/) and [git](https://git-scm.com/). 
 
 We will be using our course website as a collaboration tool during this course.
 This website was created using [blogdown](https://bookdown.org/yihui/blogdown/),
-which allows you to create and update a blogging website using R and RStudio. We
+which allows you to create and update a blogging website with R and RStudio. We
 are using a [GitHub repository](https://github.com/geanders/csu_msmb) to share
-all the code for this website and serving the site using [GitHub Pages](https://pages.github.com/).
+all the code for this website and serving the site using [Netlify](https://www.netlify.com/).
 
-During this course, you will have two graded products that you will need to 
-submit as blog posts to our site. One will be a glossary for one chapter of the 
-book, listing key words and their definitions for the chapter. The second is 
-the "official" version of one week's in-course exercise. 
+During this course, you will have two graded products that you will need to
+submit as blog posts to our site. One will be a glossary of vocabulary terms for
+one chapter of the book, listing key words and their definitions for the
+chapter. The second will be the "official" version of one week's in-course exercise.
 
 To help get you up to speed with using blogdown, GitHub, and RMarkdown with 
 our site, we'll start by having you update your profile details for our website. 
-This post covers the details for how to do that. 
+We'll also use this to give you all a chance to introduce yourselves to each 
+other and to us. This post covers the details for how to do that. 
 
 # Required set-up
 
@@ -52,17 +53,18 @@ on your computer:
 3. git installed on your laptop 
 4. Your own GitHub account
 
-If you already have all this set-up, you can skip to the next section of 
-the blog. Otherwise, this section has details on completing this set up.
+If you already have all this set-up, you can skip to the next section.
+Otherwise, this section has details on completing this set up.
 
 ## Install R on your laptop 
 
 You can install R from the [Comprehensive R Archive Network (CRAN)](https://cran.rstudio.com/).
-Search for the version appropriate for your computer's operating system. If you already
-have R installed, check your version number. If it's older than six months or so, you 
-should probably update your version for the class. You can use the `sessionInfo()` function
-to find out details about your current R session, including the version of R you're 
-currently running: 
+Search for the version appropriate for your computer's operating system. 
+
+If you already have R installed, check your version number. If it's older than
+six months or so, you should probably update your version for the class. You can
+use the `sessionInfo()` function to find out details about your current R
+session, including the version of R you're currently running:
 
 ```{r}
 sessionInfo()
@@ -76,7 +78,9 @@ Based on the return from this call, for example, I can tell that I have
 You can download RStudio directly 
 [from their website](https://rstudio.com/products/rstudio/download/). The free
 Desktop version will work great for this course. If your version of RStudio is
-more than a year old, you should probably update it for this course.
+more than a year old, you should probably update it for this course. To check
+your version of R Studio, open R Studio, go to the "RStudio" tab at the top, 
+and click on "About RStudio".
 
 ## Install git on your laptop 
 
@@ -102,7 +106,35 @@ it is easy for people you work with to remember (mine, unfortunately, is not!).
 
 # About *blogdown*
 
-[Add a brief description of blogdown / Hugo / static websites.]
+The `blogdown` package is an R package created by Yihui Xie that allows you
+to use R and RStudio to create and update your own webpage with a blog. The 
+appeal of being able to do this with R is that you can write blog posts
+using RMarkdown, so you can include executable R code in each post. 
+
+`blogdown` creates your site using the [Hugo](https://gohugo.io/) framework.
+Hugo is software that can build static websites (i.e., ones that can be 
+served to viewers without needing database backends or other fancy things).
+People have created different templates for Hugo-generated websites, and these
+templates provide the structure and framework, while you can adapt the content. 
+
+This means that our website (which is, essentially, a collection of files in 
+a directory written in a form that a web browser can convert to a pretty
+website) includes a lot of files and code that come straight from a template
+that someone else wrote, and then places here and there where we can add or 
+change the files to make the website ours. 
+
+One of the ways that you can change the website is to add posts. You'll be 
+doing this later in the course by contributing two blog posts of your own, 
+one on the vocabulary for a chapter and one with the "official" version of 
+the exercise for a chapter. We'll cover more on how to add a blog post later
+in the course.
+
+The other way that you can change the website is to change some of its 
+"front page" data. The website has a section on "People", with the 
+profiles of everyone in the class. The information shown in this section 
+is all saved in plain text files in our website's file directory. Today, 
+you'll change you details in the file dedicated to you and then send those
+changes back to us so we can update the online version of the site.
 
 You will need to install two pieces of software to work on our 
 website. First, you'll need the R package `blogdown`. You can install
@@ -126,10 +158,10 @@ get an error.
 # Getting a fork of our repository on your computer
 
 All our websites files are posted in a GitHub repository at https://github.com/geanders/csu_msmb. With this (or any) GitHub repository, 
-you can suggest changes by *forking* the repository, cloning the fork to
+you can suggest changes by **forking** the repository, cloning the fork to
 your computer, making and commiting the changes, pushing those commits
 back up to your fork of the repository on GitHub, and then submitting
-a *pull request*.
+a **pull request**.
 
 ## Forking a GitHub repository 
 
@@ -241,7 +273,14 @@ When you run this, you may have to put in your GitHub username and password. You
 may also get some questions about whether you really want to download the 
 repository (you do). If everything's successful, you should see that there's a new
 directory called "csu_msmb" in which directory you decided to put it ("Desktop", 
-for example).
+for example). 
+
+This directory has a special file in it that makes it an **R Project**---a special
+version of a file directory with some extra structure and saved preferences. Make 
+sure that you open the project as a whole when you work on it in R Studio, rather than
+opening just by clicking on one of the files. To do this, you can go in R Studio 
+to `"File"` -> `"Open Project..."` and then navigate through your file directory
+to the "csu_msmb" directory you just cloned.
 
 If you need more help, GitHub has a [help
 page](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
@@ -258,10 +297,12 @@ When you commit a change, that change is written into a log of every change made
 to the files in the repository. You can later look through these commits, so you'll
 want the commit messages to make sense when you read them in the future. When you're 
 collaborating with others, the commit messages will help you see what each other 
-are doing. These commits are only saved in your local branch. To send them up to 
-the remote branch of the repository on GitHub, you'll need to push those commits. 
-Once you push your local commits, your GitHub repository should exactly mirror
-your local repository.
+are doing. 
+
+When you first commit a change, the commit is only saved in your local branch.
+To send it up to the remote branch of the repository on GitHub, you'll need to
+**push** those commits. Once you push your local commits, your GitHub repository
+should exactly mirror your local repository.
 
 As soon as you make a change to a file in the repository that's being track by 
 git, that file will show up in the Git pane, with a little check box beside it. 
@@ -278,17 +319,19 @@ Once you've written your commit message, click on the "commit" button. This will
 record this commit. To check that it has, you can go to the "History" tab and 
 make sure the commit shows up as the last thing in your history.
 
+![](/img/screencapture_gifs/committing.gif)
+
 # Updating your profile details
 
 ## Rendering blogdown websites in RStudio
 
 Once you've opened the R Project with our website, you can use the 
-`blogdown` package to render the website. This will *only* update and
+`blogdown` package to serve the website. This will *only* update and
 show the website on your computer (*not* change our main website online), 
 but it lets you check that everything's working and preview what the
 site will look like online. 
 
-RStudio's "Viewer" pane can work as a web browser. This means that it can 
+RStudio's "Viewer" pane can work as a **web browser**. This means that it can 
 show our website. When you have opened the R Project with the cloned
 repository of our website ("csu_msmb"), try running the following in your
 R console to render the site:
@@ -302,14 +345,15 @@ serve_site()
 
 If everything worked, you should be able to see a version of the website in your
 RStudio "Viewer" pane. If you'd like to see it in your usual web browser, click
-on the "Show in new window" button on the top left of the "Viewer" pane. This
-will open the website in your default web browser. Take a look at the web
-address when you do---it should start with `127.0.0.1`. This is a **loopback
-address**---an IP address that refers back to your local computer
-(**localhost**), rather than an outside web servers.
-Anytime you're building a website and checking it locally, you'll see this as
-the web address when you open the site in a web browser. (Should you want a
-humourously geeky T-shirt, you can [get one with "There's no place like
+on the "Show in new window" button on the top left of the "Viewer" pane (this
+looks like a little rectangle with an arrow on it). This will open the website
+in your default web browser. 
+
+Take a look at the web address when you do---it should start with `127.0.0.1`.
+This is a **loopback address**---an IP address that refers back to your local
+computer (**localhost**), rather than an outside web servers. Anytime you're
+building a website and checking it locally, you'll see this in the web address
+when you open the site in a web browser. (You can even [get T shirts with "There's no place like
 127.0.0.1"](https://www.amazon.com/Theres-Place-127-0-0-1-Address-Geek/dp/B07PF54LYT/ref=pd_sbs_193_t_0/134-9564811-5189968?_encoding=UTF8&pd_rd_i=B07PF54LYT&pd_rd_r=8bcd759f-27a2-443f-a9b8-596744041403&pd_rd_w=hzmrB&pd_rd_wg=nlhQV&pf_rd_p=5cfcfe89-300f-47d2-b1ad-a4e27203a02a&pf_rd_r=S0HM3N9YTGK1JXEK2H3T&psc=1&refRID=S0HM3N9YTGK1JXEK2H3T)).
 
 As you work through the next parts of the exercise, the rendered website in the
@@ -336,19 +380,29 @@ Your details are all given in the "_index.md" file in your author subdirectory.
 To update your details on the website, you'll need to change your details in this
 file. 
 
-The file is written in [YAML/TOML?]. Anywhere there is a placeholder, like
-"[Year]" or "[Institution]", replace the placeholder with your own information.
+The file is written in a Markup language called **YAML**. If you've used RMarkdown
+before, you might recognize this syntax from the information that goes at the
+very top of each RMarkdown file. 
+
+In your "_index.md" file, anywhere there is a placeholder, like "[Year]"
+or "[Institution]", replace the placeholder with your own information.
 
 ![](/img/screencapture_gifs/change_placeholders.gif)
 
+Be very careful when changing things like spaces and hyphens in the structure,
+as YAML is based on parsing these elements. As with any Markup language, as
+you are learning it, it's best to try to render the final document often as 
+you make changes, so you can make sure the changes make it through like you want
+and so you can catch any problems quickly.
+
 Make sure you change the following sections: 
 
-- "bio"
-- "education"
-- "email"
-- "interests"
-- "name"
-- "organizations"
+- `bio:`
+- `education:`
+- `email:`
+- `interests:`
+- `name:`
+- `organizations:`
 
 Some of the sections in `social:` are commented out, including the information 
 for buttons for GitHub, GoogleScholar, and Twitter. If you have accounts through
@@ -374,10 +428,10 @@ For an example of a completed "_index.md" file, you can see mine [here](https://
 There's also a place in your author profile directory to include a photo to
 represent yourself. To change from the default (the blue guy), replace the
 "avatar.jpg" file in your author profile directory with the JPG of your choice, 
-and use *the same name* ("avatar.jpg").
+and use *the same file name* ("avatar.jpg").
 
 It would be helpful for you to use a photo of yourself, since that will help 
-us get to know each others' names, but if you don't have one or would prefer
+us put names with faces, but if you don't have one or would prefer
 not to use your own photo, feel free to pick any photo (for which you have
 appropriate permissions) to use. 
 
