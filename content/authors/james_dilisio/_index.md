@@ -7,7 +7,7 @@ education:
   - course: BSc in Microbiology
     institution: CSU
     year: 2016
-email: "...@colostate.edu"
+email: "jamdili@rams.colostate.edu"
 interests:
 - Immunotherapy
 - Infectious disease
@@ -35,5 +35,5 @@ user_groups:
 - Students
 ---
 
-James DiLisio is a [graduate / undergraudate] student in the Department of [x] at Colorado 
+James DiLisio is a graduate student in the Department of MIP at Colorado 
 State University. [Short description of research and academic interests.]
