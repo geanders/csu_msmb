@@ -1,24 +1,21 @@
 ---
 authors:
-bio: [One sentence describing your research interest]
+bio: Sarah Cooper is a PhD graduate student at Colorado State University. She is researching the immunopathology of M. tuberculosis in animal models.
 education:
   courses:
-  - course: MSc in [Discipline]
-    institution: [Institution]
-    year: [Year]
-  - course: BSc in [Discipline]
-    institution: [Institution]
-    year: [Year]
-email: "...@colostate.edu"
+  - course: BSc in Microbiology and Biomedical Sciences
+    institution: Colorado State University
+    year: 2019
+email: scooper2@rams.colostate.edu
 interests:
-- Interest 1
-- Interest 2
-- Interest 3
+- M. tuberculosis immunology 
+- Histopathogy image analysis
+- Learning to code
 name: Sarah Cooper
 organizations:
 - name: Colorado State University
   url: ""
-role: Graduate Student in ...
+role: Graduate Student in MIP
 social:
 - icon: envelope
   icon_pack: fas
@@ -37,5 +34,4 @@ user_groups:
 - Students
 ---
 
-Sarah Cooper is a [graduate / undergraudate] student in the Department of [x] at Colorado 
-State University. [Short description of research and academic interests.]
+Sarah Cooper is a graduate student in the Department of Microbiology, Immunology, Pathology at Colorado State University. 
