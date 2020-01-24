@@ -1,11 +1,12 @@
 ---
 authors:
-bio: Development and application of mathematical and computational tools to for tuberculosis drug.
-courses:
+bio: Development and application of mathematical and computational tools to for tuberculosis 
+education:
+  courses:
   - course: PhD in Physics
     institution: Purdue University
     year: 1992
-  email: "michael.lyons@colostate.edu"
+email: "michael.lyons@colostate.edu"
 interests:
 - Drug Development for Tuberculosis
 - Pharmacokinetic / Pharmacodynamic Modeling and Simulation
