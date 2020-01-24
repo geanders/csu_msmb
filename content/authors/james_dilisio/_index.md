@@ -13,7 +13,7 @@ interests:
 - Infectious disease
 - Immunometabolism
 name: James DiLisio
-organizations:
+organizations: 
 - name: Colorado State University
   url: ""
 role: Graduate Student in ...
