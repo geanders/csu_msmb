@@ -10,7 +10,7 @@ email: scooper2@rams.colostate.edu
 interests:
 - M. tuberculosis immunology 
 - Histopathogy image analysis
-- Interest 3
+- Learning to code
 name: Sarah Cooper
 organizations:
 - name: Colorado State University
