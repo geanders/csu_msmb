@@ -37,4 +37,4 @@ user_groups:
 ---
 
 Sierra Pugh is a graduate student in the Department of Statistics at Colorado 
-State University. She has interest in Bayesian statistics, and has experience in spatial statisitcs. 
+State University. She has interest in Bayesian statistics, and has experience in spatial statistics. 
