@@ -24,12 +24,12 @@ social:
 - icon: github
   icon_pack: fab
   link: https://github.com/aef1004
-#- icon: linkedin-square
-#  icon_pack: fa
-#  link: www.linkedin.com/in/amy-fox1
-#- icon: user-circle
-#  icon_pack: fa
-#  link: https://amyfox.netlify.com/
+- icon: linkedin
+  icon_pack: fab
+  link: https://www.linkedin.com/in/amy-fox1/
+- icon: user-circle
+  icon_pack: fa
+  link: https://amyfox.netlify.com/
 
 superuser: true
 user_groups:
