@@ -5,12 +5,76 @@
     <link>/tags/blogdown/</link>
       <atom:link href="/tags/blogdown/index.xml" rel="self" type="application/rss+xml" />
     <description>blogdown</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 13 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 04 Feb 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>blogdown</title>
       <link>/tags/blogdown/</link>
     </image>
+    
+    <item>
+      <title>How to create a vocabulary list blog post</title>
+      <link>/post/creating-a-vocabulary-list-blog-post/</link>
+      <pubDate>Tue, 04 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/post/creating-a-vocabulary-list-blog-post/</guid>
+      <description>
+
+
+&lt;p&gt;As one of your assignments for this class, you are responsible for creating a blog
+post with all the vocabulary and definitions for one week of the course. This
+blog post will explain how you can create and publish that blog post on our
+course website.&lt;/p&gt;
+&lt;div id=&#34;create-the-blog-post&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Create the blog post&lt;/h1&gt;
+&lt;div id=&#34;update-your-fork-of-the-website&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Update your fork of the website&lt;/h2&gt;
+&lt;p&gt;You should have already forked our website to add your details for the “Person”
+section. You can use this same fork to add your blog post, but you should make sure
+you get your fork up-to-date with the current version of the website before you do.&lt;/p&gt;
+&lt;p&gt;A fork of a repository does not stay up-to-date with the original repository it
+copied by itself. Instead, unless you update it, it will continue to be a snapshot
+of the original repository (plus any changes you’ve made to your copy) as of
+the time when you forked it. If the original has made a lot of changes since you
+made your fork, it might be very hard to make a clean pull request as there will
+be (potentially) lots of conflicts because of changes made to the original. It’s
+considered polite to make sure that you’re working with an up-to-date fork of
+a repository if you want to make a pull request back to the original.&lt;/p&gt;
+&lt;p&gt;[Git code to update fork]&lt;/p&gt;
+&lt;p&gt;[Updating your local branch]&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;creating-a-new-blog-post&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Creating a new blog post&lt;/h2&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;create-the-vocabulary-list&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Create the vocabulary list&lt;/h1&gt;
+&lt;div id=&#34;identify-the-vocabulary-terms-you-need-to-define&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Identify the vocabulary terms you need to define&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div id=&#34;create-a-.tsv-file-with-terms-and-definitions&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Create a .tsv file with terms and definitions&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div id=&#34;adding-r-code-to-show-the-list-in-the-post&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Adding R code to show the list in the post&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div id=&#34;creating-and-embedding-a-quizlet-app&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Creating and embedding a Quizlet app&lt;/h2&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;submit-the-post&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Submit the post&lt;/h1&gt;
+&lt;div id=&#34;pushing-your-changes-to-your-remote-repo&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Pushing your changes to your remote repo&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div id=&#34;submitting-a-pull-request-to-the-original-repo&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Submitting a pull request to the original repo&lt;/h2&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;edit-and-re-submit-the-post-based-on-faculty-feedback&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Edit and re-submit the post based on faculty feedback&lt;/h1&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>How to add your profile details to our course website</title>
