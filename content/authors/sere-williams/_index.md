@@ -29,11 +29,14 @@ social:
 #- icon: google-scholar
 #  icon_pack: ai
 #  link: https://scholar.google.com/citations?user=...
-icon: github
-icon_pack: fab
-link: https://github.com/serewilliams
+- icon: github
+  icon_pack: fab
+  link: https://github.com/serewilliams
+- icon: linkedin
+  icon_pack: fab
+  link: https://www.linkedin.com/in/seré-williams-ms-56804571/
 superuser: true
-user_groups:
+user_groups: 
 - Students
 ---
 
