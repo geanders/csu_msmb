@@ -37,7 +37,7 @@ source R software packages to facilitate environmental epidemiologic research.&l
       <link>/authors/amy-fox/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/authors/amy-fox/</guid>
-      <description>&lt;p&gt;Amy Fox is a graduate student in the Department of Microbiology, Immunology, and Pathology at Colorado State University. She&amp;rsquo;s currently testing the efficacy of different tuberculosis vaccines in mice and working on developing an R-based data analysis pipeline for flow cytometry data. When she&amp;rsquo;s not in the lab, she enjoys traveling and experiencing new food and cultures.&lt;/p&gt;
+      <description>&lt;p&gt;Amy Fox is a graduate student in the Department of Microbiology, Immunology, and Pathology at Colorado State University. She&#39;s currently testing the efficacy of different tuberculosis vaccines in mice and working on developing an R-based data analysis pipeline for flow cytometry data. When she&#39;s not in the lab, she enjoys traveling and experiencing new food and cultures.&lt;/p&gt;
 </description>
     </item>
     
@@ -158,6 +158,15 @@ State University. Her research focuses on evironmental and social factors impact
       <guid>/authors/sierra-pugh/</guid>
       <description>&lt;p&gt;Sierra Pugh is a graduate student in the Department of Statistics at Colorado
 State University. She has interest in Bayesian statistics, and has experience in spatial statistics.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/authors/zach_laubach/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/authors/zach_laubach/</guid>
+      <description>&lt;p&gt;Zach Laubach&#39;s research is grounded in behavioral ecology and evolutionary biology. In particular, he tries to understand the ways in which early life environments shape phenotype. He is drawn to questions that explore the interrelations among social behaviors, molecular mechanisms, and stress physiology. He uses tools from diverse fields, including molecular biology and physiology to identify proximate mechanisms of animal behaviors and phenotypes; and causal inference methods from epidemiology to better understand relationships gleaned from observational data. He has carried out his research in birds, hyenas, and humans.&lt;/p&gt;
 </description>
     </item>
     
