@@ -1,7 +1,7 @@
 ---
 title: Tips on writing a vocabulary list
 author: Brooke Anderson
-date: '2020-01-28'
+date: '2020-02-15'
 slug: tips-on-writing-a-vocabulary-list
 categories:
   - vocabulary
