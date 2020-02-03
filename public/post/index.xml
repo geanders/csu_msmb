@@ -74,6 +74,17 @@ blog post will explain how you can create and publish that blog post on our
 course website.&lt;/p&gt;
 &lt;div id=&#34;create-the-blog-post&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Create the blog post&lt;/h1&gt;
+&lt;div id=&#34;making-a-new-blog-post&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Making a new blog post&lt;/h2&gt;
+&lt;p&gt;In &lt;code&gt;blogdown&lt;/code&gt;, each blog post is an RMarkdown document. The stuff at the very top
+of the file (the YAML with details like the title and author) will look a bit
+different than plain RMarkdown files, but once you get into the body of the post,
+you should find that the rules are very similar to RMarkdown.&lt;/p&gt;
+&lt;p&gt;You will be creating a blog post that will include a table with the vocabulary
+list as well as a few other elements. There are a few ways you can add a new
+blog post file in &lt;code&gt;blogdown&lt;/code&gt;. You’re welcome to use any method you’d like, but
+if you’re not sure where to start, this is one way.&lt;/p&gt;
+&lt;/div&gt;
 &lt;div id=&#34;update-your-fork-of-the-website&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Update your fork of the website&lt;/h2&gt;
 &lt;p&gt;You should have already forked our website to add your details for the “Person”
