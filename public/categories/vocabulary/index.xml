@@ -103,7 +103,7 @@ In programming, a one-dimensional array of data, all with the same data type.
 discrete event
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-In statistics, an event that can take a non-negative integer value (e.g., number of deaths in a community by day).
+In statistics, an event that can take a finite or countable number of values (e.g., number of deaths in a community by day).
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -135,7 +135,7 @@ In the context of statistical programming, a data type that can take one of a li
 exchangeable
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-A way to describe a random variable for which the order in which the data are observed doesn’t matter.
+A property of a vector of random variables that implies the order in which the variables appear in the vector doesn’t matter.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -143,7 +143,7 @@ A way to describe a random variable for which the order in which the data are ob
 sufficient statistic
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-A statistic that, even though it is a summary, contains all the information that you would use from an original, uncondensed form of the data.
+A (summary) statistic that contains all the information about the model parameters that is in the original, uncondensed form of the data.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -151,7 +151,7 @@ A statistic that, even though it is a summary, contains all the information that
 Bernoulli distribution
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-A probability distribution to describe the outcome probability for two possible events (e.g., win / loss).
+A probability distribution describing a random variable that can take on two possible outcomes (e.g., win / loss).
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -159,7 +159,7 @@ A probability distribution to describe the outcome probability for two possible 
 parameter
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-A numerical value that describes a population or a model.
+A numerical value that describes a population.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -183,7 +183,7 @@ A variable whose values occur according to a binomial probability distribution.
 probability mass distribution
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-A distribution giving the probability that a discrete random variable is equal to a given value.
+A function giving the probability that a discrete random variable is equal to a given value.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -191,7 +191,7 @@ A distribution giving the probability that a discrete random variable is equal t
 Poisson distribution
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-A probability distribution that is appropriate when the probability of success is small and the number of trials is large.
+A probability distribution for count data that has support on the non-negative integers. This distribution is also used to approximate a binomial distribution when the probability of success is small and the number of trials is large.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -223,7 +223,7 @@ Given
 cumulative distribution function
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-A distribution giving the probability that a random variable is less than given values.
+A function giving the probability that a random variable is less than any specified value.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -231,7 +231,7 @@ A distribution giving the probability that a random variable is less than given 
 extreme value analysis
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-Analysis focused on the behavior of the very large or the very small values of a random distribution, allowing an exploration of the probability of rare events.
+Analysis focused on the behavior of the very large or the very small outcomes of a random distribution, allowing an exploration of the probability of rare events.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -247,7 +247,7 @@ Something that occurs with a very low probability.
 rank statistic
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-A statistic based on the order of the relative positions of observations based on a certain characteristics.
+A data vector sorted least to greatest.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -255,7 +255,7 @@ A statistic based on the order of the relative positions of observations based o
 Monte Carlo method
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-A method that uses a computer simulation based on a generative model to determine the probabilities of the events we’re interested in.
+A method that uses computer simulation from a generative model to determine probabilities of events.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -287,7 +287,7 @@ A method of modeling where the distribution of the data is not known.
 fit
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-In the context of statistical modeling, estimating the parameters of a model based on observed data thought to be generated by the model.
+In the context of statistical modeling, estimating the parameters of a model based on observed data.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -295,7 +295,7 @@ In the context of statistical modeling, estimating the parameters of a model bas
 multinomial
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-A generalization of the binomial distribution to cases where a certain number of outcomes can occur in each of a number of trials.
+A generalization of the binomial distribution to cases where there are a finite set of possible outcomes (e.g., a roll of a die).
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -327,7 +327,7 @@ In programming, a two-dimensional array of data, all with the same data type.
 expected value
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-The predicted value of a variable.
+The average (mean) value of a random variable.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -343,7 +343,7 @@ In statistics, the amount by which a set of observations deviate from their mean
 statistic
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-A numerical characteristic of a sample.
+A numerical characteristic of a sample and known constants (i.e. no unknown parameters).
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -351,7 +351,7 @@ A numerical characteristic of a sample.
 null distribution
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-The probability distribution for the null hypothesis.
+The probability distribution under the null hypothesis.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -359,7 +359,7 @@ The probability distribution for the null hypothesis.
 alternative
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-In the context of a generating process, the generating process that is considered in comparison to the generating process under the null hypothesis.
+In the context of a generating process and hypothesis testing, the generating process that is considered in comparison to the generating process under the null hypothesis.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -367,7 +367,7 @@ In the context of a generating process, the generating process that is considere
 chi-squared distribution
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-A distribution often appropriate for assessing goodness-of-fit, including for models fit to contingency tables.
+A distribution on the non-negative real numbers that is often used in assessing goodness-of-fit (e.g. models fit to contingency tables).
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -375,7 +375,7 @@ A distribution often appropriate for assessing goodness-of-fit, including for mo
 p-value
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-The probability of seeing the data that were observed given a hypothesis.
+The probability of seeing the observed data or something more extreme under the generative model associated with the null hypothesis.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -383,7 +383,7 @@ The probability of seeing the data that were observed given a hypothesis.
 probability density function
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-A distribution giving the relative likelihood that a continuous random variable is equal to a given value.
+A function giving the relative likelihood that a continuous random variable is equal to a given value. When this function is integrated over the sample space, it equals 1.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -391,7 +391,7 @@ A distribution giving the relative likelihood that a continuous random variable 
 default
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-In the context of function parameters for an R function, the value that is used if no custom value is specified.
+In the context of arguments to an R function, the value that is used if no custom value is specified.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
