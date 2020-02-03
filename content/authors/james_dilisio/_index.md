@@ -4,7 +4,7 @@ bio: Immunotherapies in autoimmune and infectious disease.
 education:
   courses:
 
-  - course: BSc in Microbiology
+  - course: BSc inMicrobiology
     institution: CSU
     year: 2016
 email: "jamdili@rams.colostate.edu"
