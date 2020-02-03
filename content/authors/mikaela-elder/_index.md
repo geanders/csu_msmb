@@ -1,28 +1,25 @@
 ---
 authors:
-bio: [One sentence describing your research interest]
+bio: I'm an undergraduate student interested in learning how to mathematically model biological systems. 
 education:
   courses:
-  - course: MSc in [Discipline]
-    institution: [Institution]
-    year: [Year]
-  - course: BSc in [Discipline]
-    institution: [Institution]
-    year: [Year]
-email: "...@colostate.edu"
+  - course: BS in Biochemistry with a Minor in Statistics
+    institution: Colorado State University
+    year: Anticipated May 2020
+email: "melder@rams.colostate.edu"
 interests:
-- Interest 1
-- Interest 2
-- Interest 3
+- Computational Biology
+- Systems Biology
+- Molecular mechanisms of disease
 name: Mikaela Elder
 organizations:
 - name: Colorado State University
   url: ""
-role: Graduate Student in ...
+role: Undergraduate Student in Biochemistry with Statistics Minor
 social:
 - icon: envelope
   icon_pack: fas
-  link: mailto:...@colostate.edu
+  link: mailto:melder@rams.colostate.edu
 #- icon: twitter
 #  icon_pack: fab
 #  link: https://twitter.com/...
@@ -37,5 +34,5 @@ user_groups:
 - Students
 ---
 
-Mikaela Elder is a [graduate / undergraudate] student in the Department of [x] at Colorado 
-State University. [Short description of research and academic interests.]
+Mikaela Elder is a undergraudate student in the Department of Biochemistry and Molecular Biology at Colorado 
+State University. She has worked in a genetics lab on a project investigating the effects of mutation in proteins linked to neurodegenerative diseases and a project investigating the atypical structural tendencies among low-complexity domains in the Protein Data Bank proteome. Her goals are to learn how to mathematically model biological systems in an effort to better understand the mechanisms of biochemical processes. 

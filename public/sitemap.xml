@@ -4,32 +4,32 @@
   
   <url>
     <loc>/categories/</loc>
-    <lastmod>2020-01-13T16:40:37-07:00</lastmod>
+    <lastmod>2020-02-03T10:37:52-07:00</lastmod>
   </url>
   
   <url>
     <loc>/</loc>
-    <lastmod>2020-01-13T16:40:37-07:00</lastmod>
+    <lastmod>2020-02-03T10:37:52-07:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/instructions/</loc>
-    <lastmod>2020-01-13T16:40:37-07:00</lastmod>
+    <lastmod>2020-02-03T10:37:52-07:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/instructions/</loc>
-    <lastmod>2020-01-13T16:40:37-07:00</lastmod>
+    <lastmod>2020-02-03T10:37:52-07:00</lastmod>
   </url>
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2020-01-13T16:40:37-07:00</lastmod>
+    <lastmod>2020-02-03T10:37:52-07:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/</loc>
-    <lastmod>2020-01-13T16:40:37-07:00</lastmod>
+    <lastmod>2020-02-03T10:37:52-07:00</lastmod>
   </url>
   
   <url>
@@ -39,12 +39,27 @@
   
   <url>
     <loc>/tags/vocabulary/</loc>
-    <lastmod>2020-01-13T16:40:37-07:00</lastmod>
+    <lastmod>2020-02-03T10:37:52-07:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/vocabulary/</loc>
-    <lastmod>2020-01-13T16:40:37-07:00</lastmod>
+    <lastmod>2020-02-03T10:37:52-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/blogdown/</loc>
+    <lastmod>2020-02-03T10:37:52-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/blogdown/</loc>
+    <lastmod>2020-02-03T10:37:52-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/creating-a-vocabulary-list-blog-post/</loc>
+    <lastmod>2020-02-03T10:37:52-07:00</lastmod>
   </url>
   
   <url>
@@ -54,16 +69,6 @@
   
   <url>
     <loc>/authors/</loc>
-    <lastmod>2020-01-13T14:48:08-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/blogdown/</loc>
-    <lastmod>2020-01-13T14:48:08-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/blogdown/</loc>
     <lastmod>2020-01-13T14:48:08-07:00</lastmod>
   </url>
   
@@ -78,12 +83,12 @@
   </url>
   
   <url>
-    <loc>/categories/github/</loc>
+    <loc>/tags/github/</loc>
     <lastmod>2020-01-13T14:48:08-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/github/</loc>
+    <loc>/categories/github/</loc>
     <lastmod>2020-01-13T14:48:08-07:00</lastmod>
   </url>
   
@@ -136,6 +141,10 @@
   </url>
   
   <url>
+    <loc>/authors/james_dilisio/</loc>
+  </url>
+  
+  <url>
     <loc>/authors/mikaela-elder/</loc>
   </url>
   
@@ -157,6 +166,10 @@
   
   <url>
     <loc>/authors/sierra-pugh/</loc>
+  </url>
+  
+  <url>
+    <loc>/authors/zach_laubach/</loc>
   </url>
   
   <url>
