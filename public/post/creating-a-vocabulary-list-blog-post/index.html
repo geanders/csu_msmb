@@ -29,7 +29,7 @@
     
   
   <meta name="description" content="As one of your assignments for this class, you are responsible for creating a blog post with all the vocabulary and definitions for one week of the course. This blog post will explain how you can create and publish that blog post on our course website.
-Create the blog post Making a new blog post In blogdown, each blog post is an RMarkdown document. The stuff at the very top of the file (the YAML with details like the title and author) will look a bit different than plain RMarkdown files, but once you get into the body of the post, you should find that the rules are very similar to RMarkdown.">
+Create the blog post Update your fork of the website You should have already forked our website to add your details for the “Person” section.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/creating-a-vocabulary-list-blog-post/">
@@ -236,7 +236,7 @@ Create the blog post Making a new blog post In blogdown, each blog post is an RM
   <meta property="og:url" content="/post/creating-a-vocabulary-list-blog-post/">
   <meta property="og:title" content="How to create a vocabulary list blog post | CSU MSMB Group Study">
   <meta property="og:description" content="As one of your assignments for this class, you are responsible for creating a blog post with all the vocabulary and definitions for one week of the course. This blog post will explain how you can create and publish that blog post on our course website.
-Create the blog post Making a new blog post In blogdown, each blog post is an RMarkdown document. The stuff at the very top of the file (the YAML with details like the title and author) will look a bit different than plain RMarkdown files, but once you get into the body of the post, you should find that the rules are very similar to RMarkdown."><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
+Create the blog post Update your fork of the website You should have already forked our website to add your details for the “Person” section."><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
   <meta property="twitter:image" content="img/map[gravatar:%!s(bool=false) shape:circle]"><meta property="og:locale" content="en-us">
   
     
@@ -288,7 +288,7 @@ Create the blog post Making a new blog post In blogdown, each blog post is an RM
       "url": "img//"
     }
   },
-  "description": "As one of your assignments for this class, you are responsible for creating a blog post with all the vocabulary and definitions for one week of the course. This blog post will explain how you can create and publish that blog post on our course website.\nCreate the blog post Making a new blog post In blogdown, each blog post is an RMarkdown document. The stuff at the very top of the file (the YAML with details like the title and author) will look a bit different than plain RMarkdown files, but once you get into the body of the post, you should find that the rules are very similar to RMarkdown."
+  "description": "As one of your assignments for this class, you are responsible for creating a blog post with all the vocabulary and definitions for one week of the course. This blog post will explain how you can create and publish that blog post on our course website.\nCreate the blog post Update your fork of the website You should have already forked our website to add your details for the “Person” section."
 }
 </script>
 
@@ -598,7 +598,7 @@ Create the blog post Making a new blog post In blogdown, each blog post is an RM
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    6 min read
   </span>
   
 
@@ -647,17 +647,6 @@ blog post will explain how you can create and publish that blog post on our
 course website.</p>
 <div id="create-the-blog-post" class="section level1">
 <h1>Create the blog post</h1>
-<div id="making-a-new-blog-post" class="section level2">
-<h2>Making a new blog post</h2>
-<p>In <code>blogdown</code>, each blog post is an RMarkdown document. The stuff at the very top
-of the file (the YAML with details like the title and author) will look a bit
-different than plain RMarkdown files, but once you get into the body of the post,
-you should find that the rules are very similar to RMarkdown.</p>
-<p>You will be creating a blog post that will include a table with the vocabulary
-list as well as a few other elements. There are a few ways you can add a new
-blog post file in <code>blogdown</code>. You’re welcome to use any method you’d like, but
-if you’re not sure where to start, this is one way.</p>
-</div>
 <div id="update-your-fork-of-the-website" class="section level2">
 <h2>Update your fork of the website</h2>
 <p>You should have already forked our website to add your details for the “Person”
@@ -673,6 +662,70 @@ considered polite to make sure that you’re working with an up-to-date fork of
 a repository if you want to make a pull request back to the original.</p>
 <p>[Git code to update fork]</p>
 <p>[Updating your local branch]</p>
+</div>
+<div id="making-a-new-blog-post" class="section level2">
+<h2>Making a new blog post</h2>
+<p>In <code>blogdown</code>, each blog post is an RMarkdown document. The stuff at the very top
+of the file (the YAML with details like the title and author) will look a bit
+different than plain RMarkdown files, but once you get into the body of the post,
+you should find that the rules are very similar to RMarkdown.</p>
+<p>You will be creating a blog post that will include a table with the vocabulary
+list as well as a few other elements. There are a few ways you can add a new
+blog post file in <code>blogdown</code>. You’re welcome to use any method you’d like, but
+if you’re not sure where to start, this is one way.</p>
+<p>Make sure that you have RStudio open to the project for our course’s website. If you
+do, you should see <code>csu_msmb</code> in the upper right hand corner of your RStudio session.
+(If not, go to <code>File</code> -&gt; <code>Open Project...</code> and navigate through your file directory
+to your local version of our project directory and open the <code>csu_msmb.RProj</code> file there.)</p>
+<p>Next, you can use an RStudio “Addin” to make a new blog post using a nice
+user interface. These Addins are all alternatives to things you could do with a
+function call in R, but the Addin often provides a more immediately user-friendly
+interface for you to enter options. For example, the Addin for creating a blog post
+does all the actions of a <code>blogdown</code> function called <code>new_post</code>, but instead of needing
+to remember the parameter name to use for the author listing and the title and all that,
+you can just fill the information into a nice form and go from there.</p>
+<p>To find the new post Addin, on the menu at the top of your RStudio session
+go to <code>Tools</code> -&gt; <code>Addins</code> -&gt; <code>Browse Addins...</code>. Once you’re there, you should see
+an option for “New Post”. Click on this and then click the “Execute” button.
+A form should pop up with spaces for you to fill in the title, author, and some other
+details.</p>
+<p>Fill this form out in the following way:</p>
+<ul>
+<li><strong>Title:</strong> This should be “Vocabulary for Chapter [x]”, but with “[x]” replaced
+with your chapter number.</li>
+<li><strong>Author:</strong> Make sure you put your name exactly as listed in the “People” section
+of the website. This will help the website generator connect this post with your
+user profile, so when someone reads it they’ll get your picture and a link to
+find out more about you at the end of the post.</li>
+<li><strong>Date:</strong> This is where you put the publication date of your blog post, and it
+has a pretty cool feature. Even if you write your blog post earlier, the post
+will not be published on the blog <em>until</em> the date listed in this section. That means
+that you can start writing your blog on one day but know that it won’t show up online
+until later. It also means you can start work on your blog, but a half-finished
+draft won’t show up online until you get to the publication date. For right now,
+set the current date in this section, so that your blog post will show up locally as
+you work on it, but later you’ll actually change this date so that, when you submit
+your pull request, your post won’t show up until the faculty have had the chance to
+suggest some changes and for you to make any needed fixes.</li>
+<li><strong>Categories and tags:</strong> For both the “Categories” and the “Tags”, be sure to
+include <code>vocabulary</code> and <code>Chapter [x]</code> (with [x] replaced with your chapter’s number).
+These tags will let everyone on our website quickly find all the blog posts on your
+chapter or all the vocabulary lists.</li>
+<li><strong>Format:</strong> You have several choices for the type of file to use to write your
+blog post. Since we’re going to be using some R code to make the table look pretty,
+you’ll need to pick one of the options that allows for R code chunks, so that rules
+out plain Markdown. I recommend that you use “.Rmd”.</li>
+</ul>
+<p>Once you make these entries, click the button labeled “Done”. This creates an
+RMarkdown file for your blog post and opens it for you. All of the blog posts are
+saved in a special place in our project’s directory: in the <code>content</code> subdirectory,
+there’s a subdirectory called <code>post</code> that contains both the RMarkdown files used to
+write the posts and the output (an HTML file) that is created by the RMarkdown each
+time you save the file. You might notice that they all have long file names—the
+file name for a blog post is a combinataion of its publication date and its
+“slug”, which is some abbreviation of the original title. If you really want, you
+can change what the slug will be when you first create the blog post, but I don’t
+think you really need to.</p>
 </div>
 <div id="creating-a-new-blog-post" class="section level2">
 <h2>Creating a new blog post</h2>
