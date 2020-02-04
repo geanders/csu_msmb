@@ -20,7 +20,7 @@ social:
 - icon: envelope
   icon_pack: fas
   link: mailto:.sherry.wemott-colton@colostate.edu
-#- icon: github
+#- icon: swemott
 #  icon_pack: fab
 #  link: https://github.com/swemott
 superuser: true
