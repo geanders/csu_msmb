@@ -30,6 +30,7 @@ course website.
 
 # Create the blog post
 
+
 ## Update your fork of the website
 
 You should have already forked our website to add your details for the "Person" 
@@ -46,6 +47,12 @@ considered polite to make sure that you're working with an up-to-date fork of
 a repository if you want to make a pull request back to the original. 
 
 [Git code to update fork]
+
+```{bash eval = FALSE}
+git remote add upstream git@github.com/geanders/csu_msmb.git
+git pull upstream master
+```
+
 
 [Updating your local branch]
 
@@ -132,6 +139,8 @@ but I don't think you really need to.
 
 ## Writing in the blog post
 
+<iframe src="https://giphy.com/embed/XIqCQx02E1U9W" width="480" height="269" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/XIqCQx02E1U9W">via GIPHY</a></p>
+
 Within the body of the blog post RMarkdown file (in other words, below the 
 `---` that marks the end of the YAML section), you can write the blog post
 just as you would any RMarkdown document. This means that you can use 
@@ -167,14 +176,128 @@ have been made in the version of the website in your `Viewer` pane!
 
 ## Adding R code to show the list in the post
 
+
+I've written up some R code that will read in the vocabulary list and make it 
+into a nicely formatted table in the HTML version of the blog post. You can 
+re-use this R code in your post, you'll just need to change the name of the 
+input file to the one for your chapter's file. 
+
+This R code uses a few R packages beyond the base R code. If you haven't installed
+these packages yet, you'll need to before the code will run. You'll need to install: 
+
+- `knitr`
+- `dplyr`
+- `readr`
+- `kableExtra`
+
+Once you have these, below your paragraph summarizing the chapter's theme, write:
+
+> "The vocabulary words for Chapter [x] are:"
+
+(but with your chapter's number) and then paste in the following code and change
+`chapter_1.tsv` in the code to the correct file name for the .tsv file you created 
+for your chapter's vocabulary. 
+
+<pre><code>```{r echo = FALSE, message = FALSE, warning = FALSE}
+# Load packages
+library(dplyr)
+library(readr)
+library(knitr)
+library(kableExtra)
+
+# Read in vocabulary from tsv into a dataframe
+# This is where you'll need to replace the file name with your own
+vocab <- read_tsv("vocab_lists/chapter_1.tsv",
+                  col_names = c("term", "definition"))
+
+# Print the dataframe as a nice-looking table
+vocab %>% 
+  kable(align = c("rl"), 
+        col.names = c("", "")) %>% 
+  kable_styling(bootstrap_options = c("striped", "hover",
+                                      "condensed")) %>% 
+  column_spec(1, bold = T, border_right = T) %>%
+  column_spec(2, width = "30em")
+```</code></pre>
+
+This code reads in the data from your .tsv file and then formats it in a nice way.
+If you'd like to understand it better, try commenting out some lines and see how it
+changes the output. One of my favorite piece of this code, one that I think might 
+come in useful for you later, is `column_spec(2, width = "30em")`. This sets the 
+width of one of the columns to be 30 ems (the width of the letter "m" in whatever 
+font you're using). By setting the width, the table won't automatically expand to 
+fit the text you put in the column onto one row. Instead, it will allow the text 
+to "wrap", going onto separate lines if the definition entry is long enough. 
+
+If you want to find out more about creating really fancy tables from RMarkdown, 
+check out the documentation on the `kableExtra` package. What you can do (and how) 
+is different, depending on whether you're outputting to a pdf or a HTML file, so there's
+separate documentation for each. 
+
+Once you add this code in, I've found that you actually do need to press the `Knit`
+button sometimes. If you don't see your list when you save your file, or if it doesn't 
+update properly as you make changes to your file, try knitting with the `Knit` button
+and that should help.
+
 ## Creating and embedding a Quizlet app
 
 
 # Submit the post
 
+<iframe src="https://giphy.com/embed/dOIDOBVNKmcFi" width="480" height="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/blog-book-blaxk-dOIDOBVNKmcFi">via GIPHY</a></p>
+
+So far, you've made these changes to your local copy of our website's 
+repository. To submit the changes to us, you'll need to push your changes
+to your remote version of the repository (the one in *your* GitHub account)
+and then submit a pull request to us for us to pull those changes into the
+original website repository (the one in *my* GitHub account). This process
+should feel pretty familiar---it's pretty much what you did to submit your
+changes to your profile information for the website on the first day of class.
+
+As with other steps, there are several ways you can do this, and if you have an
+idea of how to get it done, any way is fine. If you don't know where to start,
+though, you can follow along in this section for one way to do it.
+
 ## Pushing your changes to your remote repo
+
+First, you'll need to get any changes you've made from your local 
+repository up to your remote version on GitHub. 
+
+First, **commit** any changes that you've made through the `Git` window in your
+RStudio session. This will record the changes you've made in the `git` record
+for your local repository. 
+
+Next, you'll need to **push** these commits to the remote repository, to send
+these changes to GitHub. In the `Git` window in RStudio, there's a green up 
+button. Push that. It should send all your changes up to your GitHub version of 
+the repository. To check, go online to your GitHub account and look through
+your repositories for your fork of "csu_msmb". Click on "Commits" to see a 
+history of the commits to the repository---your latest ones should be at the top
+of the list. 
 
 ## Submitting a pull request to the original repo
 
+At this point, you've made changes, checked them, and pushed them to your GitHub version of 
+the repository. Remember, though, that you forked the repository from our original one, and
+so you've been working with a copy of the repository this whole time, rather than changing
+our original version.
+
+To get your changes incorporated into our original version, you'll need to request that we 
+**pull** your changes into the original repository. To do this, you can submit a **pull request**
+through GitHub. Go to the main page for your fork of the GitHub repository and look for 
+a button that says "New pull request". When you click this, it will walk you through making
+a pull request. You'll have a space to write a message describing the changes you're 
+recommending in the pull request. 
+
+If you'd like more details on this information, GitHub has [help documentation
+on pull
+requests](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
+
 # Edit and re-submit the post based on faculty feedback
+
+The other faculty members and I will get a notice when you submit your pull request. We'll
+take a look and will probably have some suggestions for the wording of some of the 
+vocabulary terms. We'll give you some feedback through the pull request page, and then 
+we'll work together to get the list finalized before it's published for the rest of the 
+class. 
 

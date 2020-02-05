@@ -40,6 +40,8 @@ be (potentially) lots of conflicts because of changes made to the original. It�
 considered polite to make sure that you’re working with an up-to-date fork of
 a repository if you want to make a pull request back to the original.&lt;/p&gt;
 &lt;p&gt;[Git code to update fork]&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;git remote add upstream git@github.com/geanders/csu_msmb.git
+git pull upstream master&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;[Updating your local branch]&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;making-a-new-blog-post&#34; class=&#34;section level2&#34;&gt;
@@ -117,6 +119,11 @@ but I don’t think you really need to.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;writing-in-the-blog-post&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Writing in the blog post&lt;/h2&gt;
+&lt;iframe src=&#34;https://giphy.com/embed/XIqCQx02E1U9W&#34; width=&#34;480&#34; height=&#34;269&#34; frameBorder=&#34;0&#34; class=&#34;giphy-embed&#34; allowFullScreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://giphy.com/gifs/XIqCQx02E1U9W&#34;&gt;via GIPHY&lt;/a&gt;
+&lt;/p&gt;
 &lt;p&gt;Within the body of the blog post RMarkdown file (in other words, below the
 &lt;code&gt;---&lt;/code&gt; that marks the end of the YAML section), you can write the blog post
 just as you would any RMarkdown document. This means that you can use
@@ -150,6 +157,62 @@ have been made in the version of the website in your &lt;code&gt;Viewer&lt;/code
 &lt;/div&gt;
 &lt;div id=&#34;adding-r-code-to-show-the-list-in-the-post&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Adding R code to show the list in the post&lt;/h2&gt;
+&lt;p&gt;I’ve written up some R code that will read in the vocabulary list and make it
+into a nicely formatted table in the HTML version of the blog post. You can
+re-use this R code in your post, you’ll just need to change the name of the
+input file to the one for your chapter’s file.&lt;/p&gt;
+&lt;p&gt;This R code uses a few R packages beyond the base R code. If you haven’t installed
+these packages yet, you’ll need to before the code will run. You’ll need to install:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;knitr&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;dplyr&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;readr&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;kableExtra&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Once you have these, below your paragraph summarizing the chapter’s theme, write:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“The vocabulary words for Chapter [x] are:”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;(but with your chapter’s number) and then paste in the following code and change
+&lt;code&gt;chapter_1.tsv&lt;/code&gt; in the code to the correct file name for the .tsv file you created
+for your chapter’s vocabulary.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;```{r echo = FALSE, message = FALSE, warning = FALSE}
+# Load packages
+library(dplyr)
+library(readr)
+library(knitr)
+library(kableExtra)
+
+# Read in vocabulary from tsv into a dataframe
+# This is where you&#39;ll need to replace the file name with your own
+vocab &lt;- read_tsv(&#34;vocab_lists/chapter_1.tsv&#34;,
+                  col_names = c(&#34;term&#34;, &#34;definition&#34;))
+
+# Print the dataframe as a nice-looking table
+vocab %&gt;% 
+  kable(align = c(&#34;rl&#34;), 
+        col.names = c(&#34;&#34;, &#34;&#34;)) %&gt;% 
+  kable_styling(bootstrap_options = c(&#34;striped&#34;, &#34;hover&#34;,
+                                      &#34;condensed&#34;)) %&gt;% 
+  column_spec(1, bold = T, border_right = T) %&gt;%
+  column_spec(2, width = &#34;30em&#34;)
+```&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This code reads in the data from your .tsv file and then formats it in a nice way.
+If you’d like to understand it better, try commenting out some lines and see how it
+changes the output. One of my favorite piece of this code, one that I think might
+come in useful for you later, is &lt;code&gt;column_spec(2, width = &#34;30em&#34;)&lt;/code&gt;. This sets the
+width of one of the columns to be 30 ems (the width of the letter “m” in whatever
+font you’re using). By setting the width, the table won’t automatically expand to
+fit the text you put in the column onto one row. Instead, it will allow the text
+to “wrap”, going onto separate lines if the definition entry is long enough.&lt;/p&gt;
+&lt;p&gt;If you want to find out more about creating really fancy tables from RMarkdown,
+check out the documentation on the &lt;code&gt;kableExtra&lt;/code&gt; package. What you can do (and how)
+is different, depending on whether you’re outputting to a pdf or a HTML file, so there’s
+separate documentation for each.&lt;/p&gt;
+&lt;p&gt;Once you add this code in, I’ve found that you actually do need to press the &lt;code&gt;Knit&lt;/code&gt;
+button sometimes. If you don’t see your list when you save your file, or if it doesn’t
+update properly as you make changes to your file, try knitting with the &lt;code&gt;Knit&lt;/code&gt; button
+and that should help.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;creating-and-embedding-a-quizlet-app&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Creating and embedding a Quizlet app&lt;/h2&gt;
@@ -157,15 +220,60 @@ have been made in the version of the website in your &lt;code&gt;Viewer&lt;/code
 &lt;/div&gt;
 &lt;div id=&#34;submit-the-post&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Submit the post&lt;/h1&gt;
+&lt;iframe src=&#34;https://giphy.com/embed/dOIDOBVNKmcFi&#34; width=&#34;480&#34; height=&#34;200&#34; frameBorder=&#34;0&#34; class=&#34;giphy-embed&#34; allowFullScreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://giphy.com/gifs/blog-book-blaxk-dOIDOBVNKmcFi&#34;&gt;via GIPHY&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;So far, you’ve made these changes to your local copy of our website’s
+repository. To submit the changes to us, you’ll need to push your changes
+to your remote version of the repository (the one in &lt;em&gt;your&lt;/em&gt; GitHub account)
+and then submit a pull request to us for us to pull those changes into the
+original website repository (the one in &lt;em&gt;my&lt;/em&gt; GitHub account). This process
+should feel pretty familiar—it’s pretty much what you did to submit your
+changes to your profile information for the website on the first day of class.&lt;/p&gt;
+&lt;p&gt;As with other steps, there are several ways you can do this, and if you have an
+idea of how to get it done, any way is fine. If you don’t know where to start,
+though, you can follow along in this section for one way to do it.&lt;/p&gt;
 &lt;div id=&#34;pushing-your-changes-to-your-remote-repo&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Pushing your changes to your remote repo&lt;/h2&gt;
+&lt;p&gt;First, you’ll need to get any changes you’ve made from your local
+repository up to your remote version on GitHub.&lt;/p&gt;
+&lt;p&gt;First, &lt;strong&gt;commit&lt;/strong&gt; any changes that you’ve made through the &lt;code&gt;Git&lt;/code&gt; window in your
+RStudio session. This will record the changes you’ve made in the &lt;code&gt;git&lt;/code&gt; record
+for your local repository.&lt;/p&gt;
+&lt;p&gt;Next, you’ll need to &lt;strong&gt;push&lt;/strong&gt; these commits to the remote repository, to send
+these changes to GitHub. In the &lt;code&gt;Git&lt;/code&gt; window in RStudio, there’s a green up
+button. Push that. It should send all your changes up to your GitHub version of
+the repository. To check, go online to your GitHub account and look through
+your repositories for your fork of “csu_msmb”. Click on “Commits” to see a
+history of the commits to the repository—your latest ones should be at the top
+of the list.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;submitting-a-pull-request-to-the-original-repo&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Submitting a pull request to the original repo&lt;/h2&gt;
+&lt;p&gt;At this point, you’ve made changes, checked them, and pushed them to your GitHub version of
+the repository. Remember, though, that you forked the repository from our original one, and
+so you’ve been working with a copy of the repository this whole time, rather than changing
+our original version.&lt;/p&gt;
+&lt;p&gt;To get your changes incorporated into our original version, you’ll need to request that we
+&lt;strong&gt;pull&lt;/strong&gt; your changes into the original repository. To do this, you can submit a &lt;strong&gt;pull request&lt;/strong&gt;
+through GitHub. Go to the main page for your fork of the GitHub repository and look for
+a button that says “New pull request”. When you click this, it will walk you through making
+a pull request. You’ll have a space to write a message describing the changes you’re
+recommending in the pull request.&lt;/p&gt;
+&lt;p&gt;If you’d like more details on this information, GitHub has &lt;a href=&#34;https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request&#34;&gt;help documentation
+on pull
+requests&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;edit-and-re-submit-the-post-based-on-faculty-feedback&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Edit and re-submit the post based on faculty feedback&lt;/h1&gt;
+&lt;p&gt;The other faculty members and I will get a notice when you submit your pull request. We’ll
+take a look and will probably have some suggestions for the wording of some of the
+vocabulary terms. We’ll give you some feedback through the pull request page, and then
+we’ll work together to get the list finalized before it’s published for the rest of the
+class.&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
