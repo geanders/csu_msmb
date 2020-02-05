@@ -244,6 +244,46 @@ feel free to add them to your vocabulary list.
 
 [More on tsv file]
 
+While you could directly add the vocabulary into an RMarkdown table, we are asking you 
+to save it into a plain text `.tsv` file, which will then be read into the RMarkdown
+document to form a table. We doing this because it creates a few advantages. First, 
+if we have the vocabulary list in a dataframe (which we get when we read it in from
+a plain text file), we can use some cool R packages to format the table nicely, without
+having to learn loads of new Markdown or HTML formatting tricks. Second, we want to also
+use the vocabulary list as input to a [Quizlet](https://quizlet.com/latest) list, which 
+will let us embed a practice app with flashcards and quizzes. One of the easiest ways
+to create a Quizlet list is to copy in vocabulary list directly in the `tsv` format, 
+so this approach makes that secondary use easy.
+
+In our website's repository, there is a special subdirectory for saving vocabulary list
+`.tsv` files, with one for each chapter. In the Project directory, go to `content` -> 
+`post` -> `vocab_list`. This is where you want to save the `.tsv` file for your chapter. 
+
+To create the file, in RStudio go to the "File" tab in the menu at the top and select
+"New File" -> "Text File". This will open a file in RStudio in plain text format. Save the 
+file as "chapter_[x].tsv" (but replace "[x]" with your chapter number). Make sure you save 
+it in the "vocab_list" subdirectory of the project with the rest of the vocabulary list files.
+
+Now write your vocabulary terms and definitions in this `.tsv`. This file extension stands
+for "tab-separated", so to format the file correctly, you should: 
+
+- Put each term / definition pair on its own line. Because some terms will be long, they 
+may visibly "wrap" in the text file you have open, but as long as you don't press the 
+"Return" key, they should still be on one line of the file. To doublecheck, you may want
+to make sure that you have line-numbering on in RStudio and make sure that only one line
+number is listed for each term on the left hand side of the file. 
+- Press the "Tab" key to add a tab between the term and definition on each line. This should
+be the *only* place you have tabs in the file. R will look for tabs to figure out where to 
+split between vocabulary terms and there definitions (as will Quizlet when you copy the
+terms into the list there). Sometimes it won't look like the tab's added a lot of space, 
+but that's no problem---the computer can see it even if you can't!
+- Don't put any header information at the start of the file. Just start directly with your
+first vocabulary term.
+
+If you'd like to see an example, check out the "chapter_1.tsv" file in the "vocab_lists"
+subdirectory. This is the file that serves as input for the Chapter 1 vocabulary list 
+blog post. 
+
 Here are some guidelines for writing your definitions: 
 
 - It is fine to use wording from the chapter text or to use wording directly from
