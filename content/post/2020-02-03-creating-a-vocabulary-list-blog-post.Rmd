@@ -94,6 +94,9 @@ green up arrow in RStudio's "Git" pane to push your updated local version up to 
 both your local ("master") and remote ("origin") branches should be up-to-date with our 
 original version, so it will make it much easier to merge in your changes.
 
+If you'd like to learn more about this process, there's a really nice blog post
+[here](https://philna.sh/blog/2018/08/21/git-commands-to-keep-a-fork-up-to-date/).
+
 ## Making a new blog post
 
 In `blogdown`, each blog post is an RMarkdown document. The stuff at the very top
@@ -213,7 +216,7 @@ vocabulary for the chapter. This list will be what everyone is responsible for
 in the weekly vocabulary quiz.
 
 You can see an example of a vocabulary blog post for
-[Chapter 1](http://127.0.0.1:4736/post/vocabulary-for-chapter-1/). You can use
+[Chapter 1](https://kind-neumann-789611.netlify.com/post/vocabulary-for-chapter-1/). You can use
 this as a template for your own post.
 
 ## Identify the vocabulary terms you need to define
@@ -241,8 +244,6 @@ or that you think some people in the class might not know,
 feel free to add them to your vocabulary list.
 
 ## Create a .tsv file with terms and definitions
-
-[More on tsv file]
 
 While you could directly add the vocabulary into an RMarkdown table, we are asking you 
 to save it into a plain text `.tsv` file, which will then be read into the RMarkdown
@@ -280,6 +281,8 @@ but that's no problem---the computer can see it even if you can't!
 - Don't put any header information at the start of the file. Just start directly with your
 first vocabulary term.
 
+![](/img/screencapture_gifs/make_vocab_tsv.gif)
+
 If you'd like to see an example, check out the "chapter_1.tsv" file in the "vocab_lists"
 subdirectory. This is the file that serves as input for the Chapter 1 vocabulary list 
 blog post. 
@@ -294,7 +297,7 @@ that the definition is appropriate in the context of our course. Often, words wi
 have a number of different definitions across different disciplines. Try to use 
 more formal sources (e.g., textbooks, other published books) rather than less
 formal websites to find definitions whenever possible. See the 
-[Chapter 1](http://127.0.0.1:4736/post/vocabulary-for-chapter-1/) vocabulary list
+[Chapter 1](https://kind-neumann-789611.netlify.com/post/vocabulary-for-chapter-1/) vocabulary list
 for an example of what we expect for using and listing references.
 - If a vocabulary term was defined in a previous chapter's vocabulary list, feel free
 to reuse the definition. 
@@ -366,8 +369,38 @@ button sometimes. If you don't see your list when you save your file, or if it d
 update properly as you make changes to your file, try knitting with the `Knit` button
 and that should help.
 
+![](/img/screencapture_gifs/add_vocab_code.gif)
+
 ## Creating and embedding a Quizlet app
 
+The last piece of the blog post is the practice section. For this, you'll create 
+a vocabulary list on [Quizlet](quizlet.com), which you can then embed in the 
+blog post, so the other students can practice right on our site. 
+
+You'll need to sign up for a Quizlet account first. The free account is fine. 
+
+Next, create a new vocabulary list. There's a "Create" button for making new lists
+on the main page. While you can add vocabulary by hand, you can also post in a 
+whole list if it's in a tab-separated or comma-separated format. Copy in the contents
+of your vocabulary list `.tsv` file. You can preview the terms lower on the page 
+once you do, to make sure that all the terms and definitions came in correctly. 
+If everything looks good, click on the buttons for "Import" and then "Create". 
+
+This will create your list and take you to a page where you can try out your 
+flashcards. On this page, there's also a button with three dots. If you click on 
+this, there's a choice of "Embed". When you **embed** HTML content, you are 
+inserting an application from one website within another one. Embedding is a 
+really fun trick for enriching blog posts and other RMarkdown documents that 
+are rendered to HTML. For example, you can also embed Shiny apps, YouTube 
+videos, and Google maps in your RMarkdown using the same process we'll use here.
+
+When you select "Embed", a pop-up window will open with some HTML code. Copy 
+this and then paste it in the "Practice" section of your vocabulary blog post. 
+Be sure to leave a blank line above and below the text you paste. When you 
+look at your blog post in a web browser now, you should see the practice 
+flashcards embedded in the "Practice" section.
+
+![](/img/screencapture_gifs/make_quizlet_app.gif)
 
 # Submit the post
 

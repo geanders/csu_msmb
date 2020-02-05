@@ -75,6 +75,8 @@ your version is now up-to-date.&lt;/p&gt;
 green up arrow in RStudio’s “Git” pane to push your updated local version up to GitHub. Now
 both your local (“master”) and remote (“origin”) branches should be up-to-date with our
 original version, so it will make it much easier to merge in your changes.&lt;/p&gt;
+&lt;p&gt;If you’d like to learn more about this process, there’s a really nice blog post
+&lt;a href=&#34;https://philna.sh/blog/2018/08/21/git-commands-to-keep-a-fork-up-to-date/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;making-a-new-blog-post&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Making a new blog post&lt;/h2&gt;
@@ -186,7 +188,7 @@ as embedding a Quizlet practice app, so that your classmates can learn the
 vocabulary for the chapter. This list will be what everyone is responsible for
 in the weekly vocabulary quiz.&lt;/p&gt;
 &lt;p&gt;You can see an example of a vocabulary blog post for
-&lt;a href=&#34;http://127.0.0.1:4736/post/vocabulary-for-chapter-1/&#34;&gt;Chapter 1&lt;/a&gt;. You can use
+&lt;a href=&#34;https://kind-neumann-789611.netlify.com/post/vocabulary-for-chapter-1/&#34;&gt;Chapter 1&lt;/a&gt;. You can use
 this as a template for your own post.&lt;/p&gt;
 &lt;div id=&#34;identify-the-vocabulary-terms-you-need-to-define&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Identify the vocabulary terms you need to define&lt;/h2&gt;
@@ -215,7 +217,6 @@ feel free to add them to your vocabulary list.&lt;/li&gt;
 &lt;/div&gt;
 &lt;div id=&#34;create-a-.tsv-file-with-terms-and-definitions&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Create a .tsv file with terms and definitions&lt;/h2&gt;
-&lt;p&gt;[More on tsv file]&lt;/p&gt;
 &lt;p&gt;While you could directly add the vocabulary into an RMarkdown table, we are asking you
 to save it into a plain text &lt;code&gt;.tsv&lt;/code&gt; file, which will then be read into the RMarkdown
 document to form a table. We doing this because it creates a few advantages. First,
@@ -249,6 +250,7 @@ but that’s no problem—the computer can see it even if you can’t!&lt;/li&gt
 &lt;li&gt;Don’t put any header information at the start of the file. Just start directly with your
 first vocabulary term.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;/img/screencapture_gifs/make_vocab_tsv.gif&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;If you’d like to see an example, check out the “chapter_1.tsv” file in the “vocab_lists”
 subdirectory. This is the file that serves as input for the Chapter 1 vocabulary list
 blog post.&lt;/p&gt;
@@ -262,7 +264,7 @@ that the definition is appropriate in the context of our course. Often, words wi
 have a number of different definitions across different disciplines. Try to use
 more formal sources (e.g., textbooks, other published books) rather than less
 formal websites to find definitions whenever possible. See the
-&lt;a href=&#34;http://127.0.0.1:4736/post/vocabulary-for-chapter-1/&#34;&gt;Chapter 1&lt;/a&gt; vocabulary list
+&lt;a href=&#34;https://kind-neumann-789611.netlify.com/post/vocabulary-for-chapter-1/&#34;&gt;Chapter 1&lt;/a&gt; vocabulary list
 for an example of what we expect for using and listing references.&lt;/li&gt;
 &lt;li&gt;If a vocabulary term was defined in a previous chapter’s vocabulary list, feel free
 to reuse the definition.&lt;/li&gt;
@@ -328,9 +330,33 @@ separate documentation for each.&lt;/p&gt;
 button sometimes. If you don’t see your list when you save your file, or if it doesn’t
 update properly as you make changes to your file, try knitting with the &lt;code&gt;Knit&lt;/code&gt; button
 and that should help.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/screencapture_gifs/add_vocab_code.gif&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;creating-and-embedding-a-quizlet-app&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Creating and embedding a Quizlet app&lt;/h2&gt;
+&lt;p&gt;The last piece of the blog post is the practice section. For this, you’ll create
+a vocabulary list on &lt;a href=&#34;quizlet.com&#34;&gt;Quizlet&lt;/a&gt;, which you can then embed in the
+blog post, so the other students can practice right on our site.&lt;/p&gt;
+&lt;p&gt;You’ll need to sign up for a Quizlet account first. The free account is fine.&lt;/p&gt;
+&lt;p&gt;Next, create a new vocabulary list. There’s a “Create” button for making new lists
+on the main page. While you can add vocabulary by hand, you can also post in a
+whole list if it’s in a tab-separated or comma-separated format. Copy in the contents
+of your vocabulary list &lt;code&gt;.tsv&lt;/code&gt; file. You can preview the terms lower on the page
+once you do, to make sure that all the terms and definitions came in correctly.
+If everything looks good, click on the buttons for “Import” and then “Create”.&lt;/p&gt;
+&lt;p&gt;This will create your list and take you to a page where you can try out your
+flashcards. On this page, there’s also a button with three dots. If you click on
+this, there’s a choice of “Embed”. When you &lt;strong&gt;embed&lt;/strong&gt; HTML content, you are
+inserting an application from one website within another one. Embedding is a
+really fun trick for enriching blog posts and other RMarkdown documents that
+are rendered to HTML. For example, you can also embed Shiny apps, YouTube
+videos, and Google maps in your RMarkdown using the same process we’ll use here.&lt;/p&gt;
+&lt;p&gt;When you select “Embed”, a pop-up window will open with some HTML code. Copy
+this and then paste it in the “Practice” section of your vocabulary blog post.
+Be sure to leave a blank line above and below the text you paste. When you
+look at your blog post in a web browser now, you should see the practice
+flashcards embedded in the “Practice” section.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/screencapture_gifs/make_quizlet_app.gif&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;submit-the-post&#34; class=&#34;section level1&#34;&gt;
