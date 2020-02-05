@@ -39,10 +39,42 @@ made your fork, it might be very hard to make a clean pull request as there will
 be (potentially) lots of conflicts because of changes made to the original. It’s
 considered polite to make sure that you’re working with an up-to-date fork of
 a repository if you want to make a pull request back to the original.&lt;/p&gt;
-&lt;p&gt;[Git code to update fork]&lt;/p&gt;
-&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;git remote add upstream git@github.com/geanders/csu_msmb.git
-git pull upstream master&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;[Updating your local branch]&lt;/p&gt;
+&lt;p&gt;To update your fork of the original repository, open your “csu_msmb.Rproj” file
+to open our website’s R Project on your computer. This should open RStudio with
+the website’s project open (check the top right corner of your RStudio window to
+confirm—it should say “csu_msmb”).&lt;/p&gt;
+&lt;p&gt;There is a little blue gear symbol in the “Git” pane in RStudio. Click on the down
+arrow to the right of it and select “Shell…”. This should open a bash shell on
+your computer. (If your computer uses Windows, there’s a chance that it might open
+something other than a bash shell. In that case, you can change your preferences in
+RStudio to reconfigure to always use a bash shell terminal when you ask for a shell
+from RStudio.)&lt;/p&gt;
+&lt;p&gt;In this shell, you need to run two &lt;code&gt;git&lt;/code&gt; commands. First, you’ll add a remote branch
+to your repository. You already have one remote branch called “origin”—that’s the
+GitHub repository that you have in your account, which you forked from the original.
+Now you’ll add the &lt;em&gt;original&lt;/em&gt; (the GitHub repository in my account) as another remote
+branch. Each branch has its own name, and you can use that name to refer to it in later
+&lt;code&gt;git&lt;/code&gt; commands. The convention, if you add an original repository that you forked from
+as a remote, is to name that remote branch “upstream”. Run the following code in your
+bash shell to add the original GitHub repository as a remote branch with the name
+“upstream”:&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;git remote add upstream git@github.com/geanders/csu_msmb.git&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now that you have added the original as a remote, you can pull in any commits that were
+made to it since you originally forked it. There are a few ways you can do that, but one
+way to do it in one step is with git’s &lt;code&gt;pull&lt;/code&gt; command. This fetches the changes and merges
+them into your local version of the repository, all in one step. Run the following code in
+your bash shell to do that:&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;git pull upstream master&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ideally, all this will have worked seamlessly (if not, check with the faculty and we can
+help you troubleshoot). Close your bash shell and check your version
+of the “csu_msmb” project to see if it looks like it’s up-to-date with the original. You can
+go to the “Commit” button in the “Git” tab, and there is a “History” selection in the window
+that pops up. Look through that and make sure that you see recent commits to confirm that
+your version is now up-to-date.&lt;/p&gt;
+&lt;p&gt;Finally, this has updated your local version, but not your GitHub remote. Go ahead and use the
+green up arrow in RStudio’s “Git” pane to push your updated local version up to GitHub. Now
+both your local (“master”) and remote (“origin”) branches should be up-to-date with our
+original version, so it will make it much easier to merge in your changes.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;making-a-new-blog-post&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Making a new blog post&lt;/h2&gt;
@@ -137,8 +169,8 @@ at the &lt;code&gt;Viewer&lt;/code&gt; pane to look at the current version of th
 show the site automatically, load the &lt;code&gt;blogdown&lt;/code&gt; package and then run
 &lt;code&gt;serve_site&lt;/code&gt;).&lt;/p&gt;
 &lt;p&gt;If you have not worked much with RMarkdown before, you might want to check
-out some references on how it works:&lt;/p&gt;
-&lt;p&gt;[RMarkdown references]&lt;/p&gt;
+out some references on how it works. There are several great articles on the
+&lt;a href=&#34;https://rmarkdown.rstudio.com/articles.html&#34;&gt;RMarkdown website&lt;/a&gt; that can help.&lt;/p&gt;
 &lt;p&gt;In your blog post, go ahead and draft a first paragraph that describes the
 key concepts covered in the chapter. Also, create third-level section headings
 (i.e., use &lt;code&gt;###&lt;/code&gt; to mark the section heading) for “Sources consulted or cited”
