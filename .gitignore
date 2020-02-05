@@ -1,3 +1,5 @@
+*.html
+*.xml
 .Rproj.user
 .Rhistory
 .RData
