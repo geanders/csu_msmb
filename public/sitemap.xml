@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/categories/blogdown/</loc>
+    <lastmod>2020-02-03T10:37:52-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/blogdown/</loc>
+    <lastmod>2020-02-03T10:37:52-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/categories/</loc>
     <lastmod>2020-02-03T16:03:39-07:00</lastmod>
   </url>
@@ -10,6 +20,11 @@
   <url>
     <loc>/</loc>
     <lastmod>2020-02-03T16:03:39-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/creating-a-vocabulary-list-blog-post/</loc>
+    <lastmod>2020-02-03T10:37:52-07:00</lastmod>
   </url>
   
   <url>
@@ -33,11 +48,6 @@
   </url>
   
   <url>
-    <loc>/post/tips-on-writing-a-vocabulary-list/</loc>
-    <lastmod>2020-01-13T16:40:37-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/vocabulary/</loc>
     <lastmod>2020-02-03T16:03:39-07:00</lastmod>
   </url>
@@ -48,27 +58,12 @@
   </url>
   
   <url>
-    <loc>/tags/blogdown/</loc>
-    <lastmod>2020-02-03T10:37:52-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/blogdown/</loc>
-    <lastmod>2020-02-03T10:37:52-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/creating-a-vocabulary-list-blog-post/</loc>
-    <lastmod>2020-02-03T10:37:52-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/chapter-16/</loc>
+    <loc>/categories/chapter-16/</loc>
     <lastmod>2020-02-03T16:03:39-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/chapter-16/</loc>
+    <loc>/tags/chapter-16/</loc>
     <lastmod>2020-02-03T16:03:39-07:00</lastmod>
   </url>
   
@@ -98,12 +93,12 @@
   </url>
   
   <url>
-    <loc>/categories/github/</loc>
+    <loc>/tags/github/</loc>
     <lastmod>2020-01-13T14:48:08-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/github/</loc>
+    <loc>/categories/github/</loc>
     <lastmod>2020-01-13T14:48:08-07:00</lastmod>
   </url>
   

@@ -5,60 +5,12 @@
     <link>/tags/vocabulary/</link>
       <atom:link href="/tags/vocabulary/index.xml" rel="self" type="application/rss+xml" />
     <description>vocabulary</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sat, 15 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 04 Feb 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>vocabulary</title>
       <link>/tags/vocabulary/</link>
     </image>
-    
-    <item>
-      <title>Tips on writing a vocabulary list</title>
-      <link>/post/tips-on-writing-a-vocabulary-list/</link>
-      <pubDate>Sat, 15 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>/post/tips-on-writing-a-vocabulary-list/</guid>
-      <description>
-
-
-&lt;p&gt;Here are some tips on writing up the vocabulary list for a chapter:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;You should include all words in the chapter that are given in bold. Be sure to
-look for bolded terms in the sidenotes and end-of-chapter exercises, too! Occassionally,
-the authors use bold for subheadings (see the “Why R and Bioconductor?” section in
-the Introduction or the “Summary of this chapter” section of Chapter 1). These
-subheadings do not need to be included in the vocabulary list for the chapter.&lt;/li&gt;
-&lt;li&gt;If you find one or more common synonyms for a term, you can include that with
-the term in the list (e.g., “variability / spread / dispersion”).&lt;/li&gt;
-&lt;li&gt;It is fine to use wording from the chapter text or to use wording directly from
-other websites or sources. However, you &lt;strong&gt;must&lt;/strong&gt; include a list of any of the
-sources that you used to write your definitions at the bottom of the vocabulary
-blog post. Further, if you are using sources besides the course textbook, make sure
-that the definition is appropriate in the context of our course. Often, words will
-have a number of different definitions across different disciplines. Try to use
-more formal sources (e.g., textbooks, other published books) rather than less
-formal websites to find definitions whenever possible.&lt;/li&gt;
-&lt;li&gt;Feel free to change a term from singular to plural or vice versa if it helps you
-in writing the term’s definition. Similarly, if the bolded term does not include
-all the words that would be helpful (e.g., the bolded term is “sufficient”, but
-the term of interest is “sufficient statistic”), you can add a word or two to the
-bolded term.&lt;/li&gt;
-&lt;li&gt;The bolded terms in the book tend to favor statistical terms over biological ones.
-If there are some biological terms you needed to look up when you read the chapter,
-or that you think some people in the class might not know,
-feel free to add them to your vocabulary list.&lt;/li&gt;
-&lt;li&gt;You can see an example of a vocabulary blog post for
-&lt;a href=&#34;http://127.0.0.1:4736/post/vocabulary-for-chapter-1/&#34;&gt;Chapter 1&lt;/a&gt;. You can
-use this as templates for your own post.&lt;/li&gt;
-&lt;li&gt;Be sure to include the tag “vocabulary”, as well as a tag for your chapter, on
-the blog post.&lt;/li&gt;
-&lt;li&gt;If there are two bolded words that mean the same thing, put them both on the
-vocabulary list (with the same definition).&lt;/li&gt;
-&lt;li&gt;If a vocabulary term was defined in a previous chapter’s vocabulary list, feel free
-to reuse the definition.&lt;/li&gt;
-&lt;li&gt;Our library has excellent resources that you can use to help write your definitions.&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
     
     <item>
       <title>How to create a vocabulary list blog post</title>
@@ -197,11 +149,58 @@ have been made in the version of the website in your &lt;code&gt;Viewer&lt;/code
 &lt;/div&gt;
 &lt;div id=&#34;create-the-vocabulary-list&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Create the vocabulary list&lt;/h1&gt;
+&lt;p&gt;Now, for the content of your post. You’ll be creating a vocabulary list, as well
+as embedding a Quizlet practice app, so that your classmates can learn the
+vocabulary for the chapter. This list will be what everyone is responsible for
+in the weekly vocabulary quiz.&lt;/p&gt;
+&lt;p&gt;You can see an example of a vocabulary blog post for
+&lt;a href=&#34;http://127.0.0.1:4736/post/vocabulary-for-chapter-1/&#34;&gt;Chapter 1&lt;/a&gt;. You can use
+this as a template for your own post.&lt;/p&gt;
 &lt;div id=&#34;identify-the-vocabulary-terms-you-need-to-define&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Identify the vocabulary terms you need to define&lt;/h2&gt;
+&lt;p&gt;First, you will need to decide which words from the chapter to define. We expect
+that you will include &lt;strong&gt;all&lt;/strong&gt; the bolded terms for your chapter.
+Here are some guidelines for deciding on the vocabulary terms to define for your
+chapter:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You should include all words in the chapter that are given in bold. Be sure to
+look for bolded terms in the sidenotes and end-of-chapter exercises, too! Occassionally,
+the authors use bold for subheadings (see the “Why R and Bioconductor?” section in
+the Introduction or the “Summary of this chapter” section of Chapter 1). These
+subheadings do not need to be included in the vocabulary list for the chapter.&lt;/li&gt;
+&lt;li&gt;If you find one or more common synonyms for a term, you can include that with
+the term in the list (e.g., “variability / spread / dispersion”).&lt;/li&gt;
+&lt;li&gt;Feel free to change a term from singular to plural or vice versa if it helps you
+in writing the term’s definition. Similarly, if the bolded term does not include
+all the words that would be helpful (e.g., the bolded term is “sufficient”, but
+the term of interest is “sufficient statistic”), you can add a word or two to the
+bolded term.&lt;/li&gt;
+&lt;li&gt;The bolded terms in the book tend to favor statistical terms over biological ones.
+If there are some biological terms you needed to look up when you read the chapter,
+or that you think some people in the class might not know,
+feel free to add them to your vocabulary list.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;create-a-.tsv-file-with-terms-and-definitions&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Create a .tsv file with terms and definitions&lt;/h2&gt;
+&lt;p&gt;[More on tsv file]&lt;/p&gt;
+&lt;p&gt;Here are some guidelines for writing your definitions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It is fine to use wording from the chapter text or to use wording directly from
+other websites or sources. However, you &lt;strong&gt;must&lt;/strong&gt; include a list of any of the
+sources that you used to write your definitions at the bottom of the vocabulary
+blog post. Further, if you are using sources besides the course textbook, make sure
+that the definition is appropriate in the context of our course. Often, words will
+have a number of different definitions across different disciplines. Try to use
+more formal sources (e.g., textbooks, other published books) rather than less
+formal websites to find definitions whenever possible. See the
+&lt;a href=&#34;http://127.0.0.1:4736/post/vocabulary-for-chapter-1/&#34;&gt;Chapter 1&lt;/a&gt; vocabulary list
+for an example of what we expect for using and listing references.&lt;/li&gt;
+&lt;li&gt;If a vocabulary term was defined in a previous chapter’s vocabulary list, feel free
+to reuse the definition.&lt;/li&gt;
+&lt;li&gt;Our library has excellent resources that you can use to help write your definitions,
+including textbooks and dictionaries specific to biology and statistics.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;adding-r-code-to-show-the-list-in-the-post&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Adding R code to show the list in the post&lt;/h2&gt;
