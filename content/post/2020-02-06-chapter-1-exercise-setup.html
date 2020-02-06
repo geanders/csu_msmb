@@ -1,0 +1,61 @@
+---
+title: Chapter 1 exercise setup
+author: Bailey Fosdick
+date: '2020-02-06'
+slug: chapter-1-exercise-setup
+categories:
+  - Chapter 1
+  - exercises
+tags:
+  - Chapter 1
+subtitle: 'Exercise 1.8 setup'
+summary: 'Instructions on how to get started on Chapter 1, exercise 1.8.'
+authors: []
+lastmod: '2020-02-06T10:05:38-07:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+
+<p>The code instructions in the exercise statement appear to be outdated. The code below worked on my machine. Note that when asked whether I would like to update packages from the binary version, I said no. (When I said yes, <code>R</code> gave an error.)</p>
+<pre class="r"><code>if (!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE))
+  install.packages(&quot;BiocManager&quot;)
+BiocManager::install(c(&quot;Biostrings&quot;, &quot;BSgenome.Celegans.UCSC.ce2&quot;,&quot;BSgenome&quot;))</code></pre>
+<p>You can see the various data genome data sets available by loading the <code>BSgenome</code> library and typing <code>available.genomes()</code>.</p>
+<p>Once you have the needed packages installed, you can access the sequence data for this exercise via the following commands.</p>
+<pre class="r"><code>suppressMessages(library(&quot;BSgenome.Celegans.UCSC.ce2&quot;))
+Celegans</code></pre>
+<pre><code>## Worm genome:
+## # organism: Caenorhabditis elegans (Worm)
+## # provider: UCSC
+## # provider version: ce2
+## # release date: Mar. 2004
+## # release name: WormBase v. WS120
+## # 7 sequences:
+## #   chrI   chrII  chrIII chrIV  chrV   chrX   chrM                              
+## # (use &#39;seqnames()&#39; to see all the sequence names, use the &#39;$&#39; or &#39;[[&#39; operator
+## # to access a given sequence)</code></pre>
+<pre class="r"><code>seqnames(Celegans)</code></pre>
+<pre><code>## [1] &quot;chrI&quot;   &quot;chrII&quot;  &quot;chrIII&quot; &quot;chrIV&quot;  &quot;chrV&quot;   &quot;chrX&quot;   &quot;chrM&quot;</code></pre>
+<pre class="r"><code>Celegans$chrM</code></pre>
+<pre><code>##   13794-letter &quot;DNAString&quot; instance
+## seq: CAGTAAATAGTTTAATAAAAATATAGCATTTGGGTT...TATTTATAGATATATACTTTGTATATATCTATATTA</code></pre>
+<pre class="r"><code>class(Celegans$chrM)</code></pre>
+<pre><code>## [1] &quot;DNAString&quot;
+## attr(,&quot;package&quot;)
+## [1] &quot;Biostrings&quot;</code></pre>
+<pre class="r"><code>length(Celegans$chrM)</code></pre>
+<pre><code>## [1] 13794</code></pre>
+<p>The Biostrings packages provides functions to summarize the sequence. For example:</p>
+<pre class="r"><code>library(&quot;Biostrings&quot;)
+lfM = letterFrequency(Celegans$chrM, letters=c(&quot;A&quot;, &quot;C&quot;, &quot;G&quot;, &quot;T&quot;))
+lfM</code></pre>
+<pre><code>##    A    C    G    T 
+## 4335 1225 2055 6179</code></pre>
+<pre class="r"><code>sum(lfM)</code></pre>
+<pre><code>## [1] 13794</code></pre>

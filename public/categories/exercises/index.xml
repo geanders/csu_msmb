@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>exercises | CSU MSMB Group Study</title>
+    <link>/categories/exercises/</link>
+      <atom:link href="/categories/exercises/index.xml" rel="self" type="application/rss+xml" />
+    <description>exercises</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 06 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>exercises</title>
+      <link>/categories/exercises/</link>
+    </image>
+    
+    <item>
+      <title>Chapter 1 exercise setup</title>
+      <link>/post/chapter-1-exercise-setup/</link>
+      <pubDate>Thu, 06 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/post/chapter-1-exercise-setup/</guid>
+      <description>
+
+
+&lt;p&gt;The code instructions in the exercise statement appear to be outdated. The code below worked on my machine. Note that when asked whether I would like to update packages from the binary version, I said no. (When I said yes, &lt;code&gt;R&lt;/code&gt; gave an error.)&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;if (!requireNamespace(&amp;quot;BiocManager&amp;quot;, quietly = TRUE))
+  install.packages(&amp;quot;BiocManager&amp;quot;)
+BiocManager::install(c(&amp;quot;Biostrings&amp;quot;, &amp;quot;BSgenome.Celegans.UCSC.ce2&amp;quot;,&amp;quot;BSgenome&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can see the various data genome data sets available by loading the &lt;code&gt;BSgenome&lt;/code&gt; library and typing &lt;code&gt;available.genomes()&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Once you have the needed packages installed, you can access the sequence data for this exercise via the following commands.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;suppressMessages(library(&amp;quot;BSgenome.Celegans.UCSC.ce2&amp;quot;))
+Celegans&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Worm genome:
+## # organism: Caenorhabditis elegans (Worm)
+## # provider: UCSC
+## # provider version: ce2
+## # release date: Mar. 2004
+## # release name: WormBase v. WS120
+## # 7 sequences:
+## #   chrI   chrII  chrIII chrIV  chrV   chrX   chrM                              
+## # (use &amp;#39;seqnames()&amp;#39; to see all the sequence names, use the &amp;#39;$&amp;#39; or &amp;#39;[[&amp;#39; operator
+## # to access a given sequence)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;seqnames(Celegans)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;chrI&amp;quot;   &amp;quot;chrII&amp;quot;  &amp;quot;chrIII&amp;quot; &amp;quot;chrIV&amp;quot;  &amp;quot;chrV&amp;quot;   &amp;quot;chrX&amp;quot;   &amp;quot;chrM&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Celegans$chrM&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   13794-letter &amp;quot;DNAString&amp;quot; instance
+## seq: CAGTAAATAGTTTAATAAAAATATAGCATTTGGGTT...TATTTATAGATATATACTTTGTATATATCTATATTA&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;class(Celegans$chrM)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;DNAString&amp;quot;
+## attr(,&amp;quot;package&amp;quot;)
+## [1] &amp;quot;Biostrings&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;length(Celegans$chrM)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 13794&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The Biostrings packages provides functions to summarize the sequence. For example:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(&amp;quot;Biostrings&amp;quot;)
+lfM = letterFrequency(Celegans$chrM, letters=c(&amp;quot;A&amp;quot;, &amp;quot;C&amp;quot;, &amp;quot;G&amp;quot;, &amp;quot;T&amp;quot;))
+lfM&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    A    C    G    T 
+## 4335 1225 2055 6179&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sum(lfM)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 13794&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
