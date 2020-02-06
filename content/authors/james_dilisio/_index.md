@@ -9,7 +9,7 @@ education:
     year: 2016
 email: "jamdili@rams.colostate.edu"
 interests:
-- Immunotherapy
+- Immunotherapy 
 - Infectious disease
 - Immunometabolism
 name: James DiLisio
