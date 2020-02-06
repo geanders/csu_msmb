@@ -5,7 +5,7 @@
     <link>/authors/</link>
       <atom:link href="/authors/index.xml" rel="self" type="application/rss+xml" />
     <description>Authors</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 13 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 06 Feb 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Authors</title>
@@ -14,8 +14,21 @@
     
     <item>
       <title></title>
+      <link>/authors/bailey-fosdick/</link>
+      <pubDate>Thu, 06 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/authors/bailey-fosdick/</guid>
+      <description>&lt;p&gt;Bailey Fosdick is an assistant professor of statistics at Colorado State University. Her
+primary research interests lie in the development of statistical methods for analyzing
+network data, with particular attention to applications in ecology and the social sciences.
+She also studies covariance models for multiway data, Bayesian statistics, and methods for
+survey analysis.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>/authors/brooke-anderson/</link>
-      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 06 Feb 2020 00:00:00 +0000</pubDate>
       <guid>/authors/brooke-anderson/</guid>
       <description>&lt;p&gt;Brooke Anderson is an assistant professor of environmental epidemiology at Colorado State University. Her research focuses on the health risks associated with climate-related
 exposures, including heat waves and air pollution, for which she has conducted several
@@ -38,19 +51,6 @@ source R software packages to facilitate environmental epidemiologic research.&l
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/authors/amy-fox/</guid>
       <description>&lt;p&gt;Amy Fox is a graduate student in the Department of Microbiology, Immunology, and Pathology at Colorado State University. She&#39;s currently testing the efficacy of different tuberculosis vaccines in mice and working on developing an R-based data analysis pipeline for flow cytometry data. When she&#39;s not in the lab, she enjoys traveling and experiencing new food and cultures.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/authors/bailey-fosdick/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/authors/bailey-fosdick/</guid>
-      <description>&lt;p&gt;Bailey Fosdick is an assistant professor of statistics at Colorado State University. Her
-primary research interests lie in the development of statistical methods for analyzing
-network data, with particular attention to applications in ecology and the social sciences.
-She also studies covariance models for multiway data, Bayesian statistics, and methods for
-survey analysis.&lt;/p&gt;
 </description>
     </item>
     
@@ -99,8 +99,7 @@ State University. He is studying the soil microbiome and interested in learning 
       <link>/authors/james_dilisio/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/authors/james_dilisio/</guid>
-      <description>&lt;p&gt;James DiLisio is a graduate student in the Department of MIP at Colorado
-State University. [Short description of research and academic interests.]&lt;/p&gt;
+      <description>&lt;p&gt;James DiLisio is a graduate student in the Department of Microbiology, Immunology, and Pathology at Colorado State University. He is interested in modulating immune cell phentoypes in various disease states to improve current therapies.&lt;/p&gt;
 </description>
     </item>
     
