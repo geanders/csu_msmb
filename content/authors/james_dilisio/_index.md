@@ -31,4 +31,4 @@ user_groups:
 - Students
 ---
 
-James DiLisio is a graduate student in the Department of Microbiology, Immunology, and Pathology at Colorado State University. He is interested in modulating immune cell phentoypes in various disease states to improve current therapies.   
+James DiLisio is a graduate student in the Department of Microbiology, Immunology, and Pathology at Colorado State University. He is interested in modulating immune cell phentoypes in various disease states to improve current therapies.    
