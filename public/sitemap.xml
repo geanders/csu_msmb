@@ -3,6 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/post/chapter-1-vocabulary-quiz/</loc>
+    <lastmod>2020-02-05T13:06:04-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-02-05T13:06:04-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-02-05T13:06:04-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/blogdown/</loc>
     <lastmod>2020-02-03T10:37:52-07:00</lastmod>
   </url>
@@ -18,11 +33,6 @@
   </url>
   
   <url>
-    <loc>/</loc>
-    <lastmod>2020-02-03T10:37:52-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/post/creating-a-vocabulary-list-blog-post/</loc>
     <lastmod>2020-02-03T10:37:52-07:00</lastmod>
   </url>
@@ -34,11 +44,6 @@
   
   <url>
     <loc>/categories/instructions/</loc>
-    <lastmod>2020-02-03T10:37:52-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
     <lastmod>2020-02-03T10:37:52-07:00</lastmod>
   </url>
   
@@ -68,12 +73,12 @@
   </url>
   
   <url>
-    <loc>/tags/chapter-1/</loc>
+    <loc>/categories/chapter-1/</loc>
     <lastmod>2020-01-13T16:20:46-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/chapter-1/</loc>
+    <loc>/tags/chapter-1/</loc>
     <lastmod>2020-01-13T16:20:46-07:00</lastmod>
   </url>
   
