@@ -28,7 +28,7 @@ date_format = "   "
   date_end = "2020-01-30"
   description = """
   
-  Exercise for Chapter:
+  Exercise for Chapter: Exercise 1.8, p. 17
   
   Student responsibilities:
 
@@ -49,7 +49,7 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: Amy Fox
+  * Vocabulary: Faculty
   * Exercise: Sere Williams
   """
   
@@ -66,7 +66,7 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: Sierra Pugh
+  * Vocabulary: Amy Fox
   * Exercise:
   """
   
@@ -83,7 +83,7 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: 
+  * Vocabulary: Sierra Pugh
   * Exercise:
   """
 
