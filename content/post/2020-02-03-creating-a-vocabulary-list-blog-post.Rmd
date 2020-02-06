@@ -13,7 +13,7 @@ tags:
   - blogdown
 subtitle: ''
 summary: ''
-authors: []
+authors: [brooke-anderson]
 lastmod: '2020-02-03T10:37:52-07:00'
 featured: no
 image:
