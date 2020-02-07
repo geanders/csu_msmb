@@ -5,12 +5,28 @@
     <link>/categories/</link>
       <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <description>Categories</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 05 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 06 Feb 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Categories</title>
       <link>/categories/</link>
     </image>
+    
+    <item>
+      <title>Chapter 1</title>
+      <link>/categories/chapter-1/</link>
+      <pubDate>Thu, 06 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/chapter-1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>exercises</title>
+      <link>/categories/exercises/</link>
+      <pubDate>Thu, 06 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/exercises/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Chapter 2</title>
@@ -41,14 +57,6 @@
       <link>/categories/instructions/</link>
       <pubDate>Tue, 04 Feb 2020 00:00:00 +0000</pubDate>
       <guid>/categories/instructions/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Chapter 1</title>
-      <link>/categories/chapter-1/</link>
-      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
-      <guid>/categories/chapter-1/</guid>
       <description></description>
     </item>
     
