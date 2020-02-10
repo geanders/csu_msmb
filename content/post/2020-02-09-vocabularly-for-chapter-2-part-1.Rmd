@@ -50,3 +50,7 @@ vocab %>%
 
 
 ### Sources consulted or cited
+
+### Practice
+
+<iframe src="https://quizlet.com/483285431/flashcards/embed?i=2ldef3&x=1jj1" height="500" width="100%" style="border:0"></iframe>
