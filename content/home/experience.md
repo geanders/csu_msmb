@@ -66,7 +66,7 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: Amy Fox
+  * Vocabulary: Sierra Pugh
   * Exercise:
   """
   
@@ -83,7 +83,7 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: Sierra Pugh
+  * Vocabulary: Amy Fox
   * Exercise:
   """
 
