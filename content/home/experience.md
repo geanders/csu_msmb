@@ -45,7 +45,7 @@ date_format = "   "
   date_end = "2020-01-29"
   description = """
   
-  Exercise for Chapter:
+  Exercise for Chapter: Exercise 2.3, p. 50
   
   Student responsibilities:
 
@@ -62,7 +62,7 @@ date_format = "   "
   date_end = "2020-01-29"
   description = """
   
-  Exercise for Chapter:
+  Exercise for Chapter: Exercise 2.6, p. 51
   
   Student responsibilities:
 
