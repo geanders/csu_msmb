@@ -50,7 +50,7 @@ date_format = "   "
   Student responsibilities:
 
   * Vocabulary: Faculty
-  * Exercise: Sere Williams
+  * Exercise: [Sere Williams](https://kind-neumann-789611.netlify.com/authors/sere-williams/)
   """
   
 [[experience]]
@@ -67,7 +67,7 @@ date_format = "   "
   Student responsibilities:
 
   * Vocabulary: Sierra Pugh
-  * Exercise: Sarah Cooper
+  * Exercise: [Sarah Cooper](https://kind-neumann-789611.netlify.com/authors/sarah-cooper/)
   """
   
 [[experience]]
@@ -83,7 +83,7 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: Amy Fox
+  * Vocabulary: [Amy Fox](https://kind-neumann-789611.netlify.com/authors/amy-fox/)
   * Exercise: James DeLisio
   """
 
@@ -100,8 +100,8 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: Burton Karger
-  * Exercise: Camron Pearce
+  * Vocabulary: [Burton Karger](https://kind-neumann-789611.netlify.com/authors/burton-karger/)
+  * Exercise: [Camron Pearce](https://kind-neumann-789611.netlify.com/authors/camron-pearce/)
   """
   
 [[experience]]
@@ -117,8 +117,8 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: Daniel Dean
-  * Exercise: Sherry WeMott
+  * Vocabulary: [Daniel Dean](https://kind-neumann-789611.netlify.com/authors/daniel-dean/)
+  * Exercise: [Sherry WeMott](https://kind-neumann-789611.netlify.com/authors/sherry-wemott/)
   """
   
 [[experience]]
@@ -134,7 +134,7 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: Zach Laubach
+  * Vocabulary: [Zach Laubach](https://kind-neumann-789611.netlify.com/authors/zach_laubach/)
   * Exercise: Sierra Pugh
   """
   
@@ -151,8 +151,8 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: Mikaela Elder
-  * Exercise: Burton Karger
+  * Vocabulary: [Mikaela Elder](https://kind-neumann-789611.netlify.com/authors/mikaela-elder/)
+  * Exercise: [Burton Karger](https://kind-neumann-789611.netlify.com/authors/burton-karger/)
   """
   
 [[experience]]
@@ -168,8 +168,8 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: Sere Williams
-  * Exercise: Daniel Dean
+  * Vocabulary: [Sere Williams](https://kind-neumann-789611.netlify.com/authors/sere-williams/)
+  * Exercise: [Daniel Dean](https://kind-neumann-789611.netlify.com/authors/daniel-dean/)
   """
 
 [[experience]]
@@ -185,8 +185,8 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: Sarah Cooper
-  * Exercise: Zach Laubach
+  * Vocabulary: [Sarah Cooper](https://kind-neumann-789611.netlify.com/authors/sarah-cooper/)
+  * Exercise: [Zach Laubach](https://kind-neumann-789611.netlify.com/authors/zach_laubach/)
   """
   
 [[experience]]
@@ -202,8 +202,8 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: Camron Pearce
-  * Exercise: Mikaela Elder
+  * Vocabulary: [Camron Pearce](https://kind-neumann-789611.netlify.com/authors/camron-pearce/)
+  * Exercise: [Mikaela Elder](https://kind-neumann-789611.netlify.com/authors/mikaela-elder/)
   """
 
 [[experience]]
@@ -219,8 +219,8 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: Sherry WeMott
-  * Exercise: Amy Fox
+  * Vocabulary: [Sherry WeMott](https://kind-neumann-789611.netlify.com/authors/sherry-wemott/)
+  * Exercise: [Amy Fox](https://kind-neumann-789611.netlify.com/authors/amy-fox/)
   """
 
 [[experience]]
