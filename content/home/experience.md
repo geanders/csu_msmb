@@ -67,7 +67,7 @@ date_format = "   "
   Student responsibilities:
 
   * Vocabulary: Sierra Pugh
-  * Exercise:
+  * Exercise: Sarah Cooper
   """
   
 [[experience]]
@@ -84,7 +84,7 @@ date_format = "   "
   Student responsibilities:
 
   * Vocabulary: Amy Fox
-  * Exercise:
+  * Exercise: James DeLisio
   """
 
 [[experience]]
@@ -100,8 +100,8 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: 
-  * Exercise:
+  * Vocabulary: Burton Karger
+  * Exercise: Camron Pearce
   """
   
 [[experience]]
@@ -117,8 +117,8 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: 
-  * Exercise:
+  * Vocabulary: Daniel Dean
+  * Exercise: Sherry WeMott
   """
   
 [[experience]]
@@ -134,8 +134,8 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: 
-  * Exercise:
+  * Vocabulary: Zach Laubach
+  * Exercise: Sierra Pugh
   """
   
 [[experience]]
@@ -151,8 +151,8 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: 
-  * Exercise:
+  * Vocabulary: Mikaela Elder
+  * Exercise: Burton Karger
   """
   
 [[experience]]
@@ -168,8 +168,8 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: 
-  * Exercise:
+  * Vocabulary: Sere Williams
+  * Exercise: Daniel Dean
   """
 
 [[experience]]
@@ -185,8 +185,8 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: 
-  * Exercise:
+  * Vocabulary: Sarah Cooper
+  * Exercise: Zach Laubach
   """
   
 [[experience]]
@@ -202,8 +202,8 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: 
-  * Exercise:
+  * Vocabulary: Camron Pearce
+  * Exercise: Mikaela Elder
   """
 
 [[experience]]
@@ -219,8 +219,8 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: 
-  * Exercise:
+  * Vocabulary: Sherry WeMott
+  * Exercise: Amy Fox
   """
 
 [[experience]]
@@ -236,8 +236,8 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: 
-  * Exercise:
+  * Vocabulary: James DeLisio
+  * Exercise: To be determined
   """
 
 +++
