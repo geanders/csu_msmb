@@ -32,7 +32,7 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: Faculty
+  * [Vocabulary](https://kind-neumann-789611.netlify.com/post/vocabulary-for-chapter-1/): Faculty
   * Exercise: Faculty
   """
 
@@ -49,7 +49,7 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: Faculty
+  * [Vocabulary](https://kind-neumann-789611.netlify.com/post/vocabularly-for-chapter-2-part-1/): Faculty
   * Exercise: [Sere Williams](https://kind-neumann-789611.netlify.com/authors/sere-williams/)
   """
   
