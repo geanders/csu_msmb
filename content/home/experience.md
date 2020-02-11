@@ -66,7 +66,7 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: Sierra Pugh
+  * Vocabulary: [Sierra Pugh](https://kind-neumann-789611.netlify.com/authors/sierra-pugh/)
   * Exercise: [Sarah Cooper](https://kind-neumann-789611.netlify.com/authors/sarah-cooper/)
   """
   
@@ -84,7 +84,7 @@ date_format = "   "
   Student responsibilities:
 
   * Vocabulary: [Amy Fox](https://kind-neumann-789611.netlify.com/authors/amy-fox/)
-  * Exercise: James DeLisio
+  * Exercise: [James DeLisio](https://kind-neumann-789611.netlify.com/authors/james_dilisio/)
   """
 
 [[experience]]
@@ -135,7 +135,7 @@ date_format = "   "
   Student responsibilities:
 
   * Vocabulary: [Zach Laubach](https://kind-neumann-789611.netlify.com/authors/zach_laubach/)
-  * Exercise: Sierra Pugh
+  * Exercise: [Sierra Pugh](https://kind-neumann-789611.netlify.com/authors/sierra-pugh/)
   """
   
 [[experience]]
@@ -236,7 +236,7 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: James DeLisio
+  * Vocabulary: [James DeLisio](https://kind-neumann-789611.netlify.com/authors/james_dilisio/)
   * Exercise: To be determined
   """
 
