@@ -5,12 +5,52 @@
     <link>/categories/</link>
       <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <description>Categories</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 09 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 14 Feb 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Categories</title>
       <link>/categories/</link>
     </image>
+    
+    <item>
+      <title>blogdown</title>
+      <link>/categories/blogdown/</link>
+      <pubDate>Fri, 14 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/blogdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>exercises</title>
+      <link>/categories/exercises/</link>
+      <pubDate>Fri, 14 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/exercises/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>github</title>
+      <link>/categories/github/</link>
+      <pubDate>Fri, 14 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>instructions</title>
+      <link>/categories/instructions/</link>
+      <pubDate>Fri, 14 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/instructions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chapter 1</title>
+      <link>/categories/chapter-1/</link>
+      <pubDate>Tue, 11 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/chapter-1/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Chapter 2</title>
@@ -25,46 +65,6 @@
       <link>/categories/vocabulary/</link>
       <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate>
       <guid>/categories/vocabulary/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Chapter 1</title>
-      <link>/categories/chapter-1/</link>
-      <pubDate>Thu, 06 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>/categories/chapter-1/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>exercises</title>
-      <link>/categories/exercises/</link>
-      <pubDate>Thu, 06 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>/categories/exercises/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>blogdown</title>
-      <link>/categories/blogdown/</link>
-      <pubDate>Tue, 04 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>/categories/blogdown/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>instructions</title>
-      <link>/categories/instructions/</link>
-      <pubDate>Tue, 04 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>/categories/instructions/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>github</title>
-      <link>/categories/github/</link>
-      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
-      <guid>/categories/github/</guid>
       <description></description>
     </item>
     

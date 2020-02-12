@@ -5,12 +5,46 @@
     <link>/tags/instructions/</link>
       <atom:link href="/tags/instructions/index.xml" rel="self" type="application/rss+xml" />
     <description>instructions</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 04 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 14 Feb 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>instructions</title>
       <link>/tags/instructions/</link>
     </image>
+    
+    <item>
+      <title>How to create an exercise solution blog post</title>
+      <link>/post/how-to-create-an-exercise-solution-blog-post/</link>
+      <pubDate>Fri, 14 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/post/how-to-create-an-exercise-solution-blog-post/</guid>
+      <description>
+
+
+&lt;div id=&#34;tips&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Tips&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Look at vignettes and helpfiles, especially for packages you are not familiar with.&lt;/li&gt;
+&lt;li&gt;For a lot of Bioconductor packages, object-oriented programming is used pretty
+heavily. This means that associated data in R packages will often be stored in a
+format that you haven’t used yet. Look up more information on data classes used in
+your exercise if you aren’t familiar with them. You can use the &lt;code&gt;class&lt;/code&gt; function
+to determine the class of an object as well as the name of the package that defines
+that class. The &lt;code&gt;str&lt;/code&gt; function is often helpful for exploring a data object class, as well.
+Many of the Bioconductor object classes will have special &lt;em&gt;accessor methods&lt;/em&gt;, which are
+functions that allow you to extract certain elements from the object—check the helpfile
+for the object class, as these methods are often listed there with examples.&lt;/li&gt;
+&lt;li&gt;Googling can also be very helpful for learning more about functions, packages, and
+datasets in R, especially if you don’t yet know what package the item is from.&lt;/li&gt;
+&lt;li&gt;Most Bioconductor packages have very nice vignettes available online and from your
+R session once you have installed the package. These are a great place to start to find
+out more about how to use the functions and object classes that come with the package.&lt;/li&gt;
+&lt;li&gt;Be sure to refresh yourself on all the Markdown formatting tags you can use to improve
+the appearance of your post. Be sure to include things like section headings and
+italics or bold as appropriate.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>How to create a vocabulary list blog post</title>

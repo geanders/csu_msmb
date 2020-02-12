@@ -1,0 +1,47 @@
+---
+title: How to create an exercise solution blog post
+author: Brooke Anderson
+date: '2020-02-14'
+slug: how-to-create-an-exercise-solution-blog-post
+categories:
+  - instructions
+  - blogdown
+  - exercises
+  - github
+tags:
+  - instructions
+  - blogdown
+  - exercises
+  - github
+subtitle: ''
+summary: ''
+authors: [brooke-anderson]
+lastmod: '2020-02-11T20:21:23-07:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+## Tips
+
+- Look at vignettes and helpfiles, especially for packages you are not familiar with. 
+- For a lot of Bioconductor packages, object-oriented programming is used pretty 
+heavily. This means that associated data in R packages will often be stored in a 
+format that you haven't used yet. Look up more information on data classes used in 
+your exercise if you aren't familiar with them. You can use the `class` function 
+to determine the class of an object as well as the name of the package that defines
+that class. The `str` function is often helpful for exploring a data object class, as well.
+Many of the Bioconductor object classes will have special *accessor methods*, which are
+functions that allow you to extract certain elements from the object---check the helpfile
+for the object class, as these methods are often listed there with examples.
+- Googling can also be very helpful for learning more about functions, packages, and
+datasets in R, especially if you don't yet know what package the item is from. 
+- Most Bioconductor packages have very nice vignettes available online and from your
+R session once you have installed the package. These are a great place to start to find
+out more about how to use the functions and object classes that come with the package.
+- Be sure to refresh yourself on all the Markdown formatting tags you can use to improve
+the appearance of your post. Be sure to include things like section headings and 
+italics or bold as appropriate. 
