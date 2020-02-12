@@ -33,7 +33,7 @@ date_format = "   "
   Student responsibilities:
 
   * [Vocabulary](https://kind-neumann-789611.netlify.com/post/vocabulary-for-chapter-1/): Faculty
-  * Exercise: Faculty
+  * [Exercise](https://kind-neumann-789611.netlify.com/post/exercise-solution-for-chapter-1/): Faculty
   """
 
 [[experience]]
