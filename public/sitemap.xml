@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>/authors/sierra-pugh/</loc>
+    <lastmod>2020-02-05T15:50:15-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/authors/</loc>
     <lastmod>2020-02-13T09:44:08-07:00</lastmod>
   </url>
@@ -48,12 +53,12 @@
   </url>
   
   <url>
-    <loc>/categories/exercises/</loc>
+    <loc>/tags/exercises/</loc>
     <lastmod>2020-02-11T20:22:07-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/exercises/</loc>
+    <loc>/categories/exercises/</loc>
     <lastmod>2020-02-11T20:22:07-07:00</lastmod>
   </url>
   
@@ -100,11 +105,6 @@
   <url>
     <loc>/tags/</loc>
     <lastmod>2020-02-13T09:44:08-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/sierra-pugh/</loc>
-    <lastmod>2020-02-05T15:50:15-07:00</lastmod>
   </url>
   
   <url>
