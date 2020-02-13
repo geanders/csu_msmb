@@ -103,21 +103,6 @@
   </url>
   
   <url>
-    <loc>/categories/vocabulary/</loc>
-    <lastmod>2020-02-09T13:48:07-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/vocabulary/</loc>
-    <lastmod>2020-02-09T13:48:07-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/vocabulary-for-chapter-2-8-2-12/</loc>
-    <lastmod>2020-02-05T15:50:15-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/chapter-1/</loc>
     <lastmod>2020-02-11T20:22:07-07:00</lastmod>
   </url>
@@ -130,6 +115,21 @@
   <url>
     <loc>/post/exercise-solution-for-chapter-1/</loc>
     <lastmod>2020-02-11T20:22:07-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/vocabulary/</loc>
+    <lastmod>2020-02-09T13:48:07-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/vocabulary/</loc>
+    <lastmod>2020-02-09T13:48:07-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/vocabulary-for-chapter-2-8-2-12/</loc>
+    <lastmod>2020-02-05T15:50:15-07:00</lastmod>
   </url>
   
   <url>

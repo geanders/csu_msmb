@@ -18,6 +18,7 @@ image:
   caption: ''
   focal_point: ''
   preview_only: no
+projects: []
 ---
 
 These sections introduced Markov chains and the Bayesian paradigm. Markov chain transitions were used to model dependencies along DNA sequences. The vocabulary terms are:
