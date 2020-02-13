@@ -3,6 +3,7 @@ title: Vocabulary for Chapter 2, Part 2
 author: Sierra Pugh
 date: '2020-02-11'
 publishdate: '2020-02-11'
+draft: no
 categories:
   - Chapter 2
   - vocabulary
