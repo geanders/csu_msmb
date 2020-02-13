@@ -1,7 +1,7 @@
 ---
-title: Vocabulary for Chapter 2.8-2.12
+title: Vocabulary for Chapter 2, Part 2
 author: Sierra Pugh
-date: '2020-02-20'
+date: '2020-02-13'
 slug: vocabulary-for-chapter-2-8-2-12
 categories:
   - vocabulary
@@ -11,7 +11,7 @@ tags:
   - Chapter 2
 subtitle: ''
 summary: ''
-authors: []
+authors: [sierra-pugh]
 lastmod: '2020-02-05T15:50:15-07:00'
 featured: no
 image:
@@ -37,7 +37,8 @@ vocab %>%
     column_spec(2, width="30em")
 ```
 
-#### Sources consulted or cited
+### Sources consulted or cited
+
 *Some of the definitons above are based in part or whole on listed definitions in the following sources:*
 
 - Holmes and Huber, 2019. *Modern Statistics for Modern Biology.* Cambridge University Press, 
@@ -46,9 +47,7 @@ Cambridge, United Kingdom.
 - NIH Genetics Home Reference. https://ghr.nlm.nih.gov/
 - NCBI Genetics Review. https://www.ncbi.nlm.nih.gov
 
+### Practice
 
-
-#### Practice
-
-<iframe src="https://quizlet.com/362954560/match/embed?i=1bqje7&x=1jj1" height="500" width="100%" style="border:0"></iframe>
+<iframe src="https://quizlet.com/362954560/flashcards/embed?i=1bqje7&x=1jj1" height="500" width="100%" style="border:0"></iframe>
 

@@ -5,7 +5,7 @@
     <link>/tags/vocabulary/</link>
       <atom:link href="/tags/vocabulary/index.xml" rel="self" type="application/rss+xml" />
     <description>vocabulary</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 20 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 13 Feb 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>vocabulary</title>
@@ -13,9 +13,9 @@
     </image>
     
     <item>
-      <title>Vocabulary for Chapter 2.8-2.12</title>
+      <title>Vocabulary for Chapter 2, Part 2</title>
       <link>/post/vocabulary-for-chapter-2-8-2-12/</link>
-      <pubDate>Thu, 20 Feb 2020 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
       <guid>/post/vocabulary-for-chapter-2-8-2-12/</guid>
       <description>
 &lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
@@ -42,10 +42,34 @@ a sequence where given the current state, the next state is conditionally indepe
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Bayesian paradigm
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+approaching statistics from the perspective that probability can be viewed as a degree of belief in an event
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Beta distribution
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a probability distribution defined on the interval [0, 1] often used to model probabilities in Bayesian statistics
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Exponential distribution
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a probability distribution defined on the positive real numbers that can be used to model the time between events in a Poisson point process
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
 Prior
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-a probability distribution describing our knowledge of a hypothesis/parameter before collecting data
+a probability distribution describing our knowledge of a hypothesis/parameter before incorporating new data
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -53,7 +77,7 @@ a probability distribution describing our knowledge of a hypothesis/parameter be
 Posterior
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-a probability distribution describing our knowledge of a hypothesis/parameter after collecting data
+a probability distribution describing our knowledge of a hypothesis/parameter after incorporating new data
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -61,7 +85,7 @@ a probability distribution describing our knowledge of a hypothesis/parameter af
 Haplotype
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-a collection of alleles (DNA sequence variants) that are spatially adjacent on a chromosome, are usually inherited together, and thus are genetically linked
+a collection of DNA sequence variants (e.g., alleles) that are spatially close on a chromosome, are usually inherited together, and thus are genetically linked
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -69,7 +93,7 @@ a collection of alleles (DNA sequence variants) that are spatially adjacent on a
 Marginal distribution
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-the distribution of Y after integrating out (or marginalizing over) theta. More generally, the distribution of a sub-collection of variables after integrating out the remaining variables in the collection.
+the distribution of a sub-collection of variables after integrating out the remaining variables in the collection.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -133,7 +157,7 @@ when a distribution has two modes
 Mixture
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-when the distribution of interest is a mixture of two different probability distributions
+in the context of statistics, when the distribution of interest is a combination of two or more different probability distributions
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -149,7 +173,7 @@ A three-nucleotide sequence that specifies the amino acid to be created next (or
 Codon bias
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-describes the difference in how often each spelling of an amino acid occurs in coding DNA
+the differences in how often each spelling of an amino acid occurs in coding DNA
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -162,8 +186,8 @@ the set of instructions in a gene that tell the cell how to make a specific prot
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;div id=&#34;sources-consulted-or-cited&#34; class=&#34;section level4&#34;&gt;
-&lt;h4&gt;Sources consulted or cited&lt;/h4&gt;
+&lt;div id=&#34;sources-consulted-or-cited&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Sources consulted or cited&lt;/h3&gt;
 &lt;p&gt;&lt;em&gt;Some of the definitons above are based in part or whole on listed definitions in the following sources:&lt;/em&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Holmes and Huber, 2019. &lt;em&gt;Modern Statistics for Modern Biology.&lt;/em&gt; Cambridge University Press,
@@ -173,9 +197,9 @@ Cambridge, United Kingdom.&lt;/li&gt;
 &lt;li&gt;NCBI Genetics Review. &lt;a href=&#34;https://www.ncbi.nlm.nih.gov&#34; class=&#34;uri&#34;&gt;https://www.ncbi.nlm.nih.gov&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;div id=&#34;practice&#34; class=&#34;section level4&#34;&gt;
-&lt;h4&gt;Practice&lt;/h4&gt;
-&lt;iframe src=&#34;https://quizlet.com/362954560/match/embed?i=1bqje7&amp;amp;x=1jj1&#34; height=&#34;500&#34; width=&#34;100%&#34; style=&#34;border:0&#34;&gt;
+&lt;div id=&#34;practice&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Practice&lt;/h3&gt;
+&lt;iframe src=&#34;https://quizlet.com/362954560/flashcards/embed?i=1bqje7&amp;amp;x=1jj1&#34; height=&#34;500&#34; width=&#34;100%&#34; style=&#34;border:0&#34;&gt;
 &lt;/iframe&gt;
 &lt;/div&gt;
 </description>

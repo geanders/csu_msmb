@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/authors/sierra-pugh/</loc>
+    <lastmod>2020-02-05T15:50:15-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/authors/</loc>
+    <lastmod>2020-02-06T10:05:38-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/categories/</loc>
     <lastmod>2020-02-06T10:05:38-07:00</lastmod>
   </url>
@@ -33,12 +43,12 @@
   </url>
   
   <url>
-    <loc>/categories/vocabulary/</loc>
+    <loc>/tags/vocabulary/</loc>
     <lastmod>2020-02-05T15:50:15-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/vocabulary/</loc>
+    <loc>/categories/vocabulary/</loc>
     <lastmod>2020-02-05T15:50:15-07:00</lastmod>
   </url>
   
@@ -58,17 +68,12 @@
   </url>
   
   <url>
-    <loc>/authors/</loc>
+    <loc>/categories/chapter-1/</loc>
     <lastmod>2020-02-06T10:05:38-07:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/chapter-1/</loc>
-    <lastmod>2020-02-06T10:05:38-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/chapter-1/</loc>
     <lastmod>2020-02-06T10:05:38-07:00</lastmod>
   </url>
   
@@ -188,10 +193,6 @@
   
   <url>
     <loc>/authors/sherry-wemott/</loc>
-  </url>
-  
-  <url>
-    <loc>/authors/sierra-pugh/</loc>
   </url>
   
   <url>
