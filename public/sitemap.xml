@@ -44,7 +44,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2020-02-13T12:18:48-07:00</lastmod>
+    <lastmod>2020-02-13T12:22:28-07:00</lastmod>
   </url>
   
   <url>
@@ -58,12 +58,12 @@
   </url>
   
   <url>
-    <loc>/categories/github/</loc>
+    <loc>/tags/github/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/github/</loc>
+    <loc>/categories/github/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
@@ -84,12 +84,7 @@
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2020-02-13T12:18:48-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/quiz/</loc>
-    <lastmod>2020-02-13T09:44:08-07:00</lastmod>
+    <lastmod>2020-02-13T12:22:28-07:00</lastmod>
   </url>
   
   <url>
@@ -98,8 +93,18 @@
   </url>
   
   <url>
+    <loc>/categories/quiz/</loc>
+    <lastmod>2020-02-13T09:44:08-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/</loc>
     <lastmod>2020-02-13T12:18:48-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/test-post/</loc>
+    <lastmod>2020-02-13T12:22:28-07:00</lastmod>
   </url>
   
   <url>

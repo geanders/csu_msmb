@@ -125,6 +125,18 @@ out more about how to use the functions and object classes that come with the pa
     </item>
     
     <item>
+      <title>Test post</title>
+      <link>/post/test-post/</link>
+      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/post/test-post/</guid>
+      <description>
+
+
+&lt;p&gt;This is a test post.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Vocabulary for Chapter 2, Part 2</title>
       <link>/post/vocabulary-for-chapter-2-part-2/</link>
       <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
