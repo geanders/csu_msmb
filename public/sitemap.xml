@@ -13,28 +13,28 @@
   </url>
   
   <url>
-    <loc>/tags/blogdown/</loc>
-    <lastmod>2020-02-11T20:21:23-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/categories/blogdown/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
   <url>
+    <loc>/tags/blogdown/</loc>
+    <lastmod>2020-02-11T20:21:23-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/categories/</loc>
-    <lastmod>2020-02-13T09:44:08-07:00</lastmod>
+    <lastmod>2020-02-13T12:18:48-07:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/chapter-2/</loc>
-    <lastmod>2020-02-13T09:44:08-07:00</lastmod>
+    <lastmod>2020-02-13T12:18:48-07:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/chapter-2/</loc>
-    <lastmod>2020-02-13T09:44:08-07:00</lastmod>
+    <lastmod>2020-02-13T12:18:48-07:00</lastmod>
   </url>
   
   <url>
@@ -44,7 +44,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2020-02-13T09:44:08-07:00</lastmod>
+    <lastmod>2020-02-13T12:18:48-07:00</lastmod>
   </url>
   
   <url>
@@ -58,12 +58,12 @@
   </url>
   
   <url>
-    <loc>/tags/github/</loc>
+    <loc>/categories/github/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/github/</loc>
+    <loc>/tags/github/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
@@ -84,6 +84,11 @@
   
   <url>
     <loc>/post/</loc>
+    <lastmod>2020-02-13T12:18:48-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/quiz/</loc>
     <lastmod>2020-02-13T09:44:08-07:00</lastmod>
   </url>
   
@@ -93,13 +98,23 @@
   </url>
   
   <url>
-    <loc>/categories/quiz/</loc>
-    <lastmod>2020-02-13T09:44:08-07:00</lastmod>
+    <loc>/tags/</loc>
+    <lastmod>2020-02-13T12:18:48-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/</loc>
-    <lastmod>2020-02-13T09:44:08-07:00</lastmod>
+    <loc>/tags/vocabulary/</loc>
+    <lastmod>2020-02-13T12:18:48-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/vocabulary/</loc>
+    <lastmod>2020-02-13T12:18:48-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/vocabulary-for-chapter-2-part-2/</loc>
+    <lastmod>2020-02-13T12:18:48-07:00</lastmod>
   </url>
   
   <url>
@@ -115,16 +130,6 @@
   <url>
     <loc>/post/exercise-solution-for-chapter-1/</loc>
     <lastmod>2020-02-11T20:22:07-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/vocabulary/</loc>
-    <lastmod>2020-02-09T13:48:07-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/vocabulary/</loc>
-    <lastmod>2020-02-09T13:48:07-07:00</lastmod>
   </url>
   
   <url>
