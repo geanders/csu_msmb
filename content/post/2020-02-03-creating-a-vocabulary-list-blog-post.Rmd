@@ -25,8 +25,6 @@ image:
 projects: []
 ---
 
-Test.
-
 As one of your assignments for this class, you are responsible for creating a blog
 post with all the vocabulary and definitions for one week of the course. This 
 blog post will explain how you can create and publish that blog post on our 
