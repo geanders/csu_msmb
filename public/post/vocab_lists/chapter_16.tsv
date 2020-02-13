@@ -1,2 +1,0 @@
-term 1	This is the definition for term 1. It is long, so it wraps to look like it's going to a new line, but you can see from the line number on the left that we're still on line 1.
-term 2 / term that means term 2	Each term can be as long as you want and can include spaces, slashes, and other characters, as long as it doesn't include a tab (save those for between the term and its defition)
