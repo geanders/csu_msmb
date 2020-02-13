@@ -8,22 +8,17 @@
   </url>
   
   <url>
-    <loc>/authors/sierra-pugh/</loc>
-    <lastmod>2020-02-05T15:50:15-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/authors/</loc>
     <lastmod>2020-02-13T09:44:08-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/blogdown/</loc>
+    <loc>/categories/blogdown/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/blogdown/</loc>
+    <loc>/tags/blogdown/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
@@ -78,12 +73,12 @@
   </url>
   
   <url>
-    <loc>/tags/instructions/</loc>
+    <loc>/categories/instructions/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/instructions/</loc>
+    <loc>/tags/instructions/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
@@ -224,6 +219,10 @@
   
   <url>
     <loc>/authors/sherry-wemott/</loc>
+  </url>
+  
+  <url>
+    <loc>/authors/sierra-pugh/</loc>
   </url>
   
   <url>
