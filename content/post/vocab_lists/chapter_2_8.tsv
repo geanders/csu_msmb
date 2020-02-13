@@ -1,4 +1,7 @@
 Markov chain	a sequence where given the current state, the next state is conditionally independent of all previous states
+Bayesian paradigm	approaching statistics from the perspective that probability can be viewed as a degree of belief in an event
+Beta distribution	a probability distribution defined on the interval [0, 1] often used to model probabilities in Bayesian statistics
+Exponential distribution	a probability distribution defined on the positive real numbers that can be used to model the time between events in a Poisson point process
 Prior	a probability distribution describing our knowledge of a hypothesis/parameter before incorporating new data
 Posterior	a probability distribution describing our knowledge of a hypothesis/parameter after incorporating new data
 Haplotype	a collection of DNA sequence variants (e.g., alleles) that are spatially close on a chromosome, are usually inherited together, and thus are genetically linked
