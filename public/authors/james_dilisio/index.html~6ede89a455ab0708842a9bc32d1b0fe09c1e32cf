@@ -21,17 +21,17 @@
   
   
 
-  <meta name="author" content="Brooke Anderson">
+  <meta name="author" content="Bailey Fosdick">
 
   
   
   
     
   
-  <meta name="description" content="Assistant Professor of Epidemiology">
+  <meta name="description" content="Assistant Professor of Statistics">
 
   
-  <link rel="alternate" hreflang="en-us" href="/tags/chapter-16/">
+  <link rel="alternate" hreflang="en-us" href="/authors/james_dilisio/">
 
   
 
@@ -213,14 +213,14 @@
 
 
   
-  <link rel="alternate" href="/tags/chapter-16/index.xml" type="application/rss+xml" title="CSU MSMB Group Study">
+  <link rel="alternate" href="/authors/james_dilisio/index.xml" type="application/rss+xml" title="CSU MSMB Group Study">
   
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
   <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
 
-  <link rel="canonical" href="/tags/chapter-16/">
+  <link rel="canonical" href="/authors/james_dilisio/">
 
   
   
@@ -234,12 +234,12 @@
   <meta property="twitter:card" content="summary">
   
   <meta property="og:site_name" content="CSU MSMB Group Study">
-  <meta property="og:url" content="/tags/chapter-16/">
-  <meta property="og:title" content="Chapter 16 | CSU MSMB Group Study">
-  <meta property="og:description" content="Assistant Professor of Epidemiology"><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
+  <meta property="og:url" content="/authors/james_dilisio/">
+  <meta property="og:title" content="James DiLisio | CSU MSMB Group Study">
+  <meta property="og:description" content="Assistant Professor of Statistics"><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
   <meta property="twitter:image" content="img/map[gravatar:%!s(bool=false) shape:circle]"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2020-02-05T00:00:00&#43;00:00">
+    
   
 
   
@@ -256,7 +256,7 @@
 
 
 
-  <title>Chapter 16 | CSU MSMB Group Study</title>
+  <title>James DiLisio | CSU MSMB Group Study</title>
 
 </head>
 
@@ -500,53 +500,159 @@
   
 
 
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-  
-  
+<section id="profile-page" class="pt-5">
+  <div class="container">
     
-  
-<div class="universal-wrapper pt-3">
-  <h1>Chapter 16</h1>
-
-  
-
-  
-</div>
-
-
-
-<div class="universal-wrapper">
-  
-
-  
-  
-  <div>
-    <h2><a href="/post/vocabulary-list-for-chapter-16/">Vocabulary list for Chapter 16</a></h2>
-    <div class="article-style">
+    
       
-        Chapter 16 does not exist, so it covers no topics.
-The vocabulary terms for Chapter 16 are:
-        term 1  This is the definition for term 1. It is long, so it wraps to look like it’s going to a new line, but you can see from the line number on the left that we’re still on line 1.    term 2 / term that means term 2  Each term can be as long as you want and can include spaces, slashes, and other characters, as long as it doesn’t include a tab (save those for between the term and its defition)     Sources consulted or cited  Practice   
       
+      
+      
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<div class="row">
+  <div class="col-12 col-lg-4">
+    <div id="profile">
+
+      
+      
+      <img class="avatar avatar-circle" src="/authors/james_dilisio/avatar_hue36b31ab020fbd7de2f17a9f4041e1a2_509344_270x270_fill_q90_lanczos_center.jpg" alt="Avatar">
+      
+
+      <div class="portrait-title">
+        <h2>James DiLisio</h2>
+        <h3>Graduate Student in &hellip;</h3>
+
+        
+        <h3>
+          
+          <span>Colorado State University</span>
+          
+        </h3>
+        
+      </div>
+
+      <ul class="network-icon" aria-hidden="true">
+        
+        
+        
+        
+          
+        
+        
+        
+        
+        
+        <li>
+          <a href="mailto:jamdili@rams.colostate.edu" >
+            <i class="fas fa-envelope big-icon"></i>
+          </a>
+        </li>
+        
+        
+        
+        
+          
+        
+        
+        
+        
+        
+          
+        
+        <li>
+          <a href="https://twitter.com/dilitron" target="_blank" rel="noopener">
+            <i class="fab fa-twitter big-icon"></i>
+          </a>
+        </li>
+        
+        
+        
+        
+          
+        
+        
+        
+        
+        
+          
+        
+        <li>
+          <a href="https://github.com/jamdili" target="_blank" rel="noopener">
+            <i class="fab fa-github big-icon"></i>
+          </a>
+        </li>
+        
+      </ul>
+
     </div>
   </div>
-  
+  <div class="col-12 col-lg-8">
 
-  
+    
+    
 
+    <p>James DiLisio is a graduate student in the Department of Microbiology, Immunology, and Pathology at Colorado State University. He is interested in modulating immune cell phentoypes in various disease states to improve current therapies.</p>
+
+
+    <div class="row">
+
+      
+      <div class="col-md-5">
+        <h3>Interests</h3>
+        <ul class="ul-interests">
+          
+          <li>Immunotherapy</li>
+          
+          <li>Infectious disease</li>
+          
+          <li>Immunometabolism</li>
+          
+        </ul>
+      </div>
+      
+
+      
+      <div class="col-md-7">
+        <h3>Education</h3>
+        <ul class="ul-edu fa-ul">
+          
+          <li>
+            <i class="fa-li fas fa-graduation-cap"></i>
+            <div class="description">
+              <p class="course">BSc in Microbiology, 2016</p>
+              <p class="institution">CSU</p>
+            </div>
+          </li>
+          
+        </ul>
+      </div>
+      
+
+    </div>
+  </div>
 </div>
+
+    
+
+    
+    
+    
+  </div>
+</section>
 
       
 

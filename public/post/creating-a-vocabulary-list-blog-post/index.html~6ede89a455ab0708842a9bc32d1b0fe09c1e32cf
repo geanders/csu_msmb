@@ -21,7 +21,7 @@
   
   
 
-  <meta name="author" content="Brooke Anderson">
+  <meta name="author" content="Bailey Fosdick">
 
   
   
@@ -208,42 +208,6 @@ Create the blog post Update your fork of the website You should have already for
   
 
 
-
-
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-36719749-3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-
-  function gtag() {
-      dataLayer.push(arguments);
-  }
-
-  function trackOutboundLink(url) {
-    gtag('event', 'click', {
-         'event_category': 'outbound',
-         'event_label': url,
-         'transport_type': 'beacon',
-         'event_callback': function () {
-           document.location = url;
-         }
-    });
-    console.debug("Outbound link clicked: " + url);
-  }
-
-  function onClickCallback(event) {
-    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
-      return;
-    }
-    trackOutboundLink(event.target);  
-  }
-
-  gtag('js', new Date());
-  gtag('config', 'UA-36719749-3', {});
-
-  
-  document.addEventListener('click', onClickCallback, false);
-</script>
 
 
   
@@ -659,7 +623,7 @@ Create the blog post Update your fork of the website You should have already for
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/instructions/">instructions</a>, <a href="/categories/vocabulary/">vocabulary</a>, <a href="/categories/blogdown/">blogdown</a>, <a href="/categories/github/">github</a></span>
+    <i class="fas fa-folder mr-1"></i><a href="/categories/instructions/">instructions</a>, <a href="/categories/vocabulary/">vocabulary</a>, <a href="/categories/blogdown/">blogdown</a></span>
   
 
 </div>
@@ -987,7 +951,7 @@ vocab %>%
 <p>This code reads in the data from your .tsv file and then formats it in a nice way.
 If you’d like to understand it better, try commenting out some lines and see how it
 changes the output. One of my favorite piece of this code, one that I think might
-come in useful for you later, is <code>column_spec(2, width = &quot;30em&quot;)</code>. This sets the
+come in useful for you later, is <code>column_spec(2, width = "30em")</code>. This sets the
 width of one of the columns to be 30 ems (the width of the letter “m” in whatever
 font you’re using). By setting the width, the table won’t automatically expand to
 fit the text you put in the column onto one row. Instead, it will allow the text
@@ -1102,8 +1066,6 @@ class.</p>
   <a class="badge badge-light" href="/tags/vocabulary/">vocabulary</a>
   
   <a class="badge badge-light" href="/tags/blogdown/">blogdown</a>
-  
-  <a class="badge badge-light" href="/tags/github/">github</a>
   
 </div>
 
