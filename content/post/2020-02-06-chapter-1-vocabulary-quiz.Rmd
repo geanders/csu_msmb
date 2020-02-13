@@ -5,8 +5,10 @@ date: '2020-02-06'
 slug: chapter-1-vocabulary-quiz
 categories: 
   - quiz
+  - Chapter 1
 tags: 
   - quiz
+  - Chapter 1
 subtitle: ''
 summary: ''
 authors: [brooke-anderson]
