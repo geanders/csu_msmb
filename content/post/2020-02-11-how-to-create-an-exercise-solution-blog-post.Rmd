@@ -1,7 +1,7 @@
 ---
 title: How to create an exercise solution blog post
 author: Brooke Anderson
-date: '2020-02-14'
+date: '2020-02-13'
 slug: how-to-create-an-exercise-solution-blog-post
 categories:
   - instructions
@@ -25,9 +25,79 @@ image:
 projects: []
 ---
 
+Each of you will be responsible once or twice over the semester to create
+a blog post that provides a clean, clearly-presented solution to the 
+in-class exercise for the week. This blog post provides the technical 
+instructions for writing and submitting that exercise. 
+
+Your exercise solution should be posted **before** the next class meeting. 
+Since it will need to be reviewed by the faculty before it can be officially
+posted, please plan to submit it by the **Tuesday after** the class for your
+exercise. Student assignments for the exercises are given in the 
+Schedule section of our course website.
+
+## Overview of creating a post
+
+You will be submitting your exercise solution as a blog post. Creating
+one for our website will follow all the same steps as creating a blog
+post for a vocabulary list, just with different content. Please read
+the [post on creating a vocabulary list](https://kind-neumann-789611.netlify.com/post/creating-a-vocabulary-list-blog-post/)
+and follow the steps there to: 
+
+- Update your fork of the website
+- Make a new blog post
+- Use RMarkdown syntax to write the blog post
+- Submit the blog post
+
+## Content for the blog post
+
+The blog post should provide a walk-through of the solution to that week's in-course
+exercise. We have posted an example for [the exercise for Chapter 1](https://kind-neumann-789611.netlify.com/post/exercise-solution-for-chapter-1/)
+to give you an idea of what you should aim to write. 
+
+Generally, this exercise will be a resource for everyone in the class, to make sure 
+they've understood the exercise, as well as to see how someone else tackled the problem.
+Your solution should cover all parts of the exercise (for example, if there's a 
+part A and B, you should cover both). You can start by writing it as you would if you
+were assigned the exercise as a homework problem, but then you should do a second step
+of revision to provide some context and dig a bit deeper into how you tackled
+the question. Since we are only requiring you to write up exercise answers once
+or twice over the semester (rather than submitting homework for exercises every
+week), we expect this product to be more in-depth and polished than a typical 
+homework solution.
+
+First, make sure that you have provided text explaining what the 
+exercise asks for, in case the reader hasn't recently read the exercise prompt. 
+Second, please add a few details either about how you tackled the problem through code
+or how the statistical principles covered in the exercise could apply to other problems
+you've come across in your research or coursework. 
+
+To help in preparing your post, plan to spend the exercise time in class during the 
+week of your exercise visiting the different groups of students working on the 
+exercise. You can talk to them about how they're approaching the problem, how they 
+interpret it, etc., to help you develop your own answer. 
+
 ## Tips
 
-- Look at vignettes and helpfiles, especially for packages you are not familiar with. 
+- Be sure to refresh yourself on all the Markdown formatting tags you can use to improve
+the appearance of your post. Be sure to include things like section headings and 
+italics or bold as appropriate. RStudio's website has some nice cheatsheets on 
+RMarkdown that can help. 
+- Make sure you include R code if appropriate. If you put parentheses around an 
+assignment expression in R, it will print out the assigned object and make the 
+assignment in the same call---you might find this useful in writing concise code
+while still showing what's in the objects you create.
+- Use the `$` and `$$` tags in RMarkdown to include mathematical equations in your blog post
+when appropriate. 
+- If you need to read in a dataset for R code in your blog post, talk with us about
+how we can do that within a *blogdown* framework. If your data comes from an online
+source or from an R library, this shouldn't be a problem, but if it is from a data file
+that needs to be included in the website directory, we may need to work with you on 
+some extra set-up.
+- You are welcome to draw from (and cite) other statistics textbooks or dictionaries
+if you'd like to in explaining the problem and your approach to it. 
+- For the code, look at vignettes and helpfiles, especially for packages you are not 
+familiar with. 
 - For a lot of Bioconductor packages, object-oriented programming is used pretty 
 heavily. This means that associated data in R packages will often be stored in a 
 format that you haven't used yet. Look up more information on data classes used in 
@@ -42,6 +112,4 @@ datasets in R, especially if you don't yet know what package the item is from.
 - Most Bioconductor packages have very nice vignettes available online and from your
 R session once you have installed the package. These are a great place to start to find
 out more about how to use the functions and object classes that come with the package.
-- Be sure to refresh yourself on all the Markdown formatting tags you can use to improve
-the appearance of your post. Be sure to include things like section headings and 
-italics or bold as appropriate. 
+

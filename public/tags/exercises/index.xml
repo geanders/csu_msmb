@@ -5,7 +5,7 @@
     <link>/tags/exercises/</link>
       <atom:link href="/tags/exercises/index.xml" rel="self" type="application/rss+xml" />
     <description>exercises</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 14 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 13 Feb 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>exercises</title>
@@ -15,15 +15,81 @@
     <item>
       <title>How to create an exercise solution blog post</title>
       <link>/post/how-to-create-an-exercise-solution-blog-post/</link>
-      <pubDate>Fri, 14 Feb 2020 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
       <guid>/post/how-to-create-an-exercise-solution-blog-post/</guid>
       <description>
 
 
+&lt;p&gt;Each of you will be responsible once or twice over the semester to create
+a blog post that provides a clean, clearly-presented solution to the
+in-class exercise for the week. This blog post provides the technical
+instructions for writing and submitting that exercise.&lt;/p&gt;
+&lt;p&gt;Your exercise solution should be posted &lt;strong&gt;before&lt;/strong&gt; the next class meeting.
+Since it will need to be reviewed by the faculty before it can be officially
+posted, please plan to submit it by the &lt;strong&gt;Tuesday after&lt;/strong&gt; the class for your
+exercise. Student assignments for the exercises are given in the
+Schedule section of our course website.&lt;/p&gt;
+&lt;div id=&#34;overview-of-creating-a-post&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Overview of creating a post&lt;/h2&gt;
+&lt;p&gt;You will be submitting your exercise solution as a blog post. Creating
+one for our website will follow all the same steps as creating a blog
+post for a vocabulary list, just with different content. Please read
+the &lt;a href=&#34;https://kind-neumann-789611.netlify.com/post/creating-a-vocabulary-list-blog-post/&#34;&gt;post on creating a vocabulary list&lt;/a&gt;
+and follow the steps there to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Update your fork of the website&lt;/li&gt;
+&lt;li&gt;Make a new blog post&lt;/li&gt;
+&lt;li&gt;Use RMarkdown syntax to write the blog post&lt;/li&gt;
+&lt;li&gt;Submit the blog post&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;content-for-the-blog-post&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Content for the blog post&lt;/h2&gt;
+&lt;p&gt;The blog post should provide a walk-through of the solution to that week’s in-course
+exercise. We have posted an example for &lt;a href=&#34;https://kind-neumann-789611.netlify.com/post/exercise-solution-for-chapter-1/&#34;&gt;the exercise for Chapter 1&lt;/a&gt;
+to give you an idea of what you should aim to write.&lt;/p&gt;
+&lt;p&gt;Generally, this exercise will be a resource for everyone in the class, to make sure
+they’ve understood the exercise, as well as to see how someone else tackled the problem.
+Your solution should cover all parts of the exercise (for example, if there’s a
+part A and B, you should cover both). You can start by writing it as you would if you
+were assigned the exercise as a homework problem, but then you should do a second step
+of revision to provide some context and dig a bit deeper into how you tackled
+the question. Since we are only requiring you to write up exercise answers once
+or twice over the semester (rather than submitting homework for exercises every
+week), we expect this product to be more in-depth and polished than a typical
+homework solution.&lt;/p&gt;
+&lt;p&gt;First, make sure that you have provided text explaining what the
+exercise asks for, in case the reader hasn’t recently read the exercise prompt.
+Second, please add a few details either about how you tackled the problem through code
+or how the statistical principles covered in the exercise could apply to other problems
+you’ve come across in your research or coursework.&lt;/p&gt;
+&lt;p&gt;To help in preparing your post, plan to spend the exercise time in class during the
+week of your exercise visiting the different groups of students working on the
+exercise. You can talk to them about how they’re approaching the problem, how they
+interpret it, etc., to help you develop your own answer.&lt;/p&gt;
+&lt;/div&gt;
 &lt;div id=&#34;tips&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Tips&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Look at vignettes and helpfiles, especially for packages you are not familiar with.&lt;/li&gt;
+&lt;li&gt;Be sure to refresh yourself on all the Markdown formatting tags you can use to improve
+the appearance of your post. Be sure to include things like section headings and
+italics or bold as appropriate. RStudio’s website has some nice cheatsheets on
+RMarkdown that can help.&lt;/li&gt;
+&lt;li&gt;Make sure you include R code if appropriate. If you put parentheses around an
+assignment expression in R, it will print out the assigned object and make the
+assignment in the same call—you might find this useful in writing concise code
+while still showing what’s in the objects you create.&lt;/li&gt;
+&lt;li&gt;Use the &lt;code&gt;$&lt;/code&gt; and &lt;code&gt;$$&lt;/code&gt; tags in RMarkdown to include mathematical equations in your blog post
+when appropriate.&lt;/li&gt;
+&lt;li&gt;If you need to read in a dataset for R code in your blog post, talk with us about
+how we can do that within a &lt;em&gt;blogdown&lt;/em&gt; framework. If your data comes from an online
+source or from an R library, this shouldn’t be a problem, but if it is from a data file
+that needs to be included in the website directory, we may need to work with you on
+some extra set-up.&lt;/li&gt;
+&lt;li&gt;You are welcome to draw from (and cite) other statistics textbooks or dictionaries
+if you’d like to in explaining the problem and your approach to it.&lt;/li&gt;
+&lt;li&gt;For the code, look at vignettes and helpfiles, especially for packages you are not
+familiar with.&lt;/li&gt;
 &lt;li&gt;For a lot of Bioconductor packages, object-oriented programming is used pretty
 heavily. This means that associated data in R packages will often be stored in a
 format that you haven’t used yet. Look up more information on data classes used in
@@ -38,9 +104,6 @@ datasets in R, especially if you don’t yet know what package the item is from.
 &lt;li&gt;Most Bioconductor packages have very nice vignettes available online and from your
 R session once you have installed the package. These are a great place to start to find
 out more about how to use the functions and object classes that come with the package.&lt;/li&gt;
-&lt;li&gt;Be sure to refresh yourself on all the Markdown formatting tags you can use to improve
-the appearance of your post. Be sure to include things like section headings and
-italics or bold as appropriate.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 </description>
