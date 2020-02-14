@@ -4,11 +4,51 @@
   
   <url>
     <loc>/categories/</loc>
-    <lastmod>2020-01-13T16:40:37-07:00</lastmod>
+    <lastmod>2020-02-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/chapter-4/</loc>
+    <lastmod>2020-02-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/chapter-4/</loc>
+    <lastmod>2020-02-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/</loc>
+    <lastmod>2020-02-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-02-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-02-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/vocabulary/</loc>
+    <lastmod>2020-02-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/vocabulary/</loc>
+    <lastmod>2020-02-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/vocabulary-for-chapter-4/</loc>
+    <lastmod>2020-02-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/instructions/</loc>
     <lastmod>2020-01-13T16:40:37-07:00</lastmod>
   </url>
   
@@ -18,32 +58,7 @@
   </url>
   
   <url>
-    <loc>/tags/instructions/</loc>
-    <lastmod>2020-01-13T16:40:37-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2020-01-13T16:40:37-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2020-01-13T16:40:37-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/post/tips-on-writing-a-vocabulary-list/</loc>
-    <lastmod>2020-01-13T16:40:37-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/vocabulary/</loc>
-    <lastmod>2020-01-13T16:40:37-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/vocabulary/</loc>
     <lastmod>2020-01-13T16:40:37-07:00</lastmod>
   </url>
   
@@ -78,12 +93,12 @@
   </url>
   
   <url>
-    <loc>/categories/github/</loc>
+    <loc>/tags/github/</loc>
     <lastmod>2020-01-13T14:48:08-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/github/</loc>
+    <loc>/categories/github/</loc>
     <lastmod>2020-01-13T14:48:08-07:00</lastmod>
   </url>
   

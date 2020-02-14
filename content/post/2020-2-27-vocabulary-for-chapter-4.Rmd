@@ -1,14 +1,14 @@
 ---
-  title: "Vocabulary for Chapter 4"
+title: "Vocabulary for Chapter 4"
 author: "Amy Fox"
-date: '2020-01-13'
+date: '2020-02-20'
 slug: vocabulary-for-chapter-4
 categories:
   - vocabulary
-- Chapter 4
+  - Chapter 4
 tags:
   - vocabulary
-- Chapter 4
+  - Chapter 4
 subtitle: ''
 summary: ''
 authors: []
@@ -21,8 +21,7 @@ preview_only: no
 projects: []
 ---
   
-Chapter 4 covers distributions and how to estimate parameters that define distributions. It introduces a number of terms covering distributions, as well as a few biological terms. The vocabulary words for 
-Chapter 4 are: 
+Chapter 4 covers how to generate both finite and infinite mixture models from various distributions. It introduces a number of terms relating to these models. The vocabulary words for Chapter 4 are: 
   
 ```{r echo = FALSE, message = FALSE, warning = FALSE}
 library(dplyr)
@@ -50,10 +49,12 @@ in the following sources.*
   - Holmes and Huber, 2019. *Modern Statistics for Modern Biology.* Cambridge University Press, 
 Cambridge, United Kingdom.
 - Everitt and Skrondal, 2010. *The Cambridge Dictionary of Statistics (Fourth Edition).* Cambridge University Press, Cambridge, United Kingdom.
-- *Zero-Inflated Poisson Regression.* Institute for Digital Research and Education Statistical Consulting. stats.idre.ucla.edu.
-- Berrar, 2019. *Introduction to Non-parametric Bootstrap.* Research Gate.
+- *Zero-Inflated Poisson Regression.* Institute for Digital Research and Education Statistical Consulting. https://stats.idre.ucla.edu/r/dae/zip/.
+- Berrar, 2019. *Introduction to Non-parametric Bootstrap.* Research Gate. https://www.researchgate.net/
+- Do and Batzoglou, 2008. *What is the expectaion maximization algorithm?.* Nature Biotechnology. 
+- Wikipedia: The Free Encylcopedia. https://en.wikipedia.org/wiki/Main_Page
 
 
 ### Practice
 
-<iframe src="https://quizlet.com/473473135/flashcards/embed?i=2ldef3&x=1jj1" height="500" width="100%" style="border:0"></iframe>
+<iframe src="https://quizlet.com/485299672/match/embed?i=2r4ib&x=1jj1" height="500" width="100%" style="border:0"></iframe>
