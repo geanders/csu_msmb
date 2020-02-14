@@ -16,7 +16,7 @@ name: James DiLisio
 organizations: 
 - name: Colorado State University
   url: ""
-role: Graduate Student and RA in Microbiology, Immunology, and Pathology  
+role: Graduate Student and RA in Microbiology, Immunology, and Pathology   
 social: @dilitron
 - icon: envelope
   icon_pack: fas
@@ -26,7 +26,7 @@ social: @dilitron
 #- icon: github
 #  icon_pack: fab
 #  link: https://github.com/jamdili
-superuser: true
+superuser: true 
 user_groups:
 - Students
 ---
