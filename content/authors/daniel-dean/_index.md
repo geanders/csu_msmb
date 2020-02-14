@@ -13,6 +13,7 @@ email: "daniel.alan.dean@colostate.edu"
 interests:
 - Soil Microbiome
 - R programming
+- Data visualization
 - Data Science
 name: Daniel Dean
 organizations:
@@ -22,20 +23,19 @@ role: Graduate Student in Agriculture and Biology
 social:
 - icon: envelope
   icon_pack: fas
-  link: mailto:daniel.alan.dean@colostate.edu@colostate.edu
+  link: mailto:daniel.alan.dean@colostate.edu
 #- icon: twitter
 #  icon_pack: fab
 #  link: https://twitter.com/...
 #- icon: google-scholar
 #  icon_pack: ai
 #  link: https://scholar.google.com/citations?user=...
-#- icon: github
-#  icon_pack: fab
-#  link: https://github.com/...
+- icon: github
+  icon_pack: fab
+  link: https://github.com/danieldean414
 superuser: true
 user_groups:
 - Students
 ---
 
-Daniel Dean is a graduate student in the Department of Agriculture and Biology at Colorado 
-State University. He is studying the soil microbiome and interested in learning more with R programming (etc.)
+Daniel Dean is a graduate student in the Department of Agriculture and Biology at Colorado State University. He is studying the soil microbiome and interested in learning additional skills in R programming and statistics.
