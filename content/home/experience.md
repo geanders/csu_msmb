@@ -79,7 +79,7 @@ date_format = "   "
   date_end = "2020-01-28"
   description = """
   
-  Exercise for Chapter:
+  Exercise for Chapter: Exercise 4.3
   
   Student responsibilities:
 

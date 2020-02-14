@@ -1,8 +1,7 @@
 ---
 title: Vocabulary for Chapter 2, Part 2
 author: Sierra Pugh
-date: '2020-02-11'
-publishdate: '2020-02-11'
+date: '2020-02-13'
 draft: no
 categories:
   - Chapter 2
@@ -11,7 +10,7 @@ tags:
   - Chapter 2
   - vocabulary
 slug: vocabulary-for-chapter-2-8-2-12
-authors: [brooke-anderson]
+authors: [sierra-pugh]
 lastmod: '2020-02-05T15:50:15-07:00'
 featured: no
 image:
