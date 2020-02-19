@@ -1,8 +1,9 @@
 ---
-title: Exercise solution for Chapter 2
+title: Exercise solution for Chapter 2, Part 1
 author: Sere Williams
 date: '2020-02-19'
 slug: exercise-solution-for-chapter-2
+draft: yes
 categories:
   - Exercise solutions
   - Chapter 2
@@ -11,7 +12,7 @@ tags:
   - Chapter 2
 subtitle: ''
 summary: ''
-authors: []
+authors: [sere-williams]
 lastmod: '2020-02-19T15:25:48-07:00'
 featured: no
 image:
@@ -21,6 +22,7 @@ image:
 projects: []
 ---
 As always, load libraries first.
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(ggplot2)
@@ -28,21 +30,23 @@ library(tidyverse)
 library(dplyr)
 ```
 
-
 ## Exercise 2.3 from Modern Statistics for Modern Biologists
 
 A sequence of three nucleotides codes for one amino acid. There are 4 nucleotides, thus 4^3 would allow for 64 different amino acids, however there are only 20 amino acids requiring only 20 combinations + 1 for an end signal. The code is redundant. Here we use the tuberculosis genome to understand codon bias. 
 
-# a) Explore the data mtb using table to tabulate the AmAcid and Codon variables.
+# a) Explore the data `mtb` using table to tabulate the AmAcid and Codon variables.
 
 Each amino acid is encoded by 1-6 tri-nucleotide combinations. 
+
 ```{r}
-mtb = read.table("../data/M_tuberculosis.txt", header = TRUE)
+mtb = read.table("example_datasets/M_tuberculosis.txt", header = TRUE)
 codon_no <- rowSums(table(mtb))
 codon_no
 ```
+
 The PerThousands of each codon can be visualized, where each bar represents a different codon. But what does the "PerThousands" variable mean?
-```{r, fig.width=4, fig.height=3}
+
+```{r, fig.width=8, fig.height=6}
 ggplot(mtb, aes(x=Codon, y=PerThous)) +
   geom_col()+
   facet_wrap(~AmAcid, scales="free") +
@@ -59,14 +63,16 @@ all_codons
 ```
 
 The PerThousands variable is derived by dividing the number of occurances of the codon of interest by the total number of codons. Because this number is then small and hard to intrepret, multipling it by 1000 gives a value that is easy to make sense of quickly. Here is an example for proline. The four values returned align to the four codons that each code for proline. 
+
 ```{r}
-pro  =  mtb[ mtb$AmAcid == "Pro", "Number"]
-pro/all_codons*1000
+pro  =  mtb[mtb$AmAcid == "Pro", "Number"]
+pro / all_codons * 1000
 ```
 
 # c) Write an R function that you can apply to the table to find which of the amino acids shows the strongest codon bias, i.e., the strongest departure from uniform distribution among its possible spellings.
 
 First, let's look at the expected frequencies of each codon. 
+
 ```{r}
 codon_expected <- data.frame(codon_no) %>%
   rownames_to_column() %>%
@@ -76,6 +82,7 @@ codon_expected
 ```
 
 Next, calculate the observed frequencies for each codon seen in the dataset:
+
 ```{r}
 codon_observed <- full_join(mtb, codon_expected, by = "AmAcid") %>%
   group_by(AmAcid) %>%
@@ -88,7 +95,7 @@ codon_observed
 
 Using the chi-squared distribution, a chi-squared test statistic can be used to show codon bias. 
 
-```{r}
+```{r eval = FALSE}
 chi_stat <- data.frame(chi_squared = ((codon_observed$Number - codon_observed$expected_PerThous)^2)/(codon_observed$expected_PerThous))
 chi_stat
 

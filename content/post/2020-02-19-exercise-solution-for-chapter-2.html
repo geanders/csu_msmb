@@ -1,0 +1,146 @@
+---
+title: Exercise solution for Chapter 2, Part 1
+author: Sere Williams
+date: '2020-02-19'
+slug: exercise-solution-for-chapter-2
+draft: yes
+categories:
+  - Exercise solutions
+  - Chapter 2
+tags:
+  - Exercise solutions
+  - Chapter 2
+subtitle: ''
+summary: ''
+authors: [sere-williams]
+lastmod: '2020-02-19T15:25:48-07:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+
+<p>As always, load libraries first.</p>
+<div id="exercise-2.3-from-modern-statistics-for-modern-biologists" class="section level2">
+<h2>Exercise 2.3 from Modern Statistics for Modern Biologists</h2>
+<p>A sequence of three nucleotides codes for one amino acid. There are 4 nucleotides, thus 4^3 would allow for 64 different amino acids, however there are only 20 amino acids requiring only 20 combinations + 1 for an end signal. The code is redundant. Here we use the tuberculosis genome to understand codon bias.</p>
+</div>
+<div id="a-explore-the-data-mtb-using-table-to-tabulate-the-amacid-and-codon-variables." class="section level1">
+<h1>a) Explore the data <code>mtb</code> using table to tabulate the AmAcid and Codon variables.</h1>
+<p>Each amino acid is encoded by 1-6 tri-nucleotide combinations.</p>
+<pre class="r"><code>mtb = read.table(&quot;example_datasets/M_tuberculosis.txt&quot;, header = TRUE)
+codon_no &lt;- rowSums(table(mtb))
+codon_no</code></pre>
+<pre><code>## Ala Arg Asn Asp Cys End Gln Glu Gly His Ile Leu Lys Met Phe Pro Ser Thr Trp Tyr 
+##   4   6   2   2   2   3   2   2   4   2   3   6   2   1   2   4   6   4   1   2 
+## Val 
+##   4</code></pre>
+<p>The PerThousands of each codon can be visualized, where each bar represents a different codon. But what does the “PerThousands” variable mean?</p>
+<pre class="r"><code>ggplot(mtb, aes(x=Codon, y=PerThous)) +
+  geom_col()+
+  facet_wrap(~AmAcid, scales=&quot;free&quot;) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))</code></pre>
+<p><img src="/post/2020-02-19-exercise-solution-for-chapter-2_files/figure-html/unnamed-chunk-2-1.png" width="768" /></p>
+</div>
+<div id="b-how-was-the-perthous-variable-created" class="section level1">
+<h1>b) How was the PerThous variable created?</h1>
+<p>The sum of all of the numbers of codons gives you the total number of codons in the M. tuberculosis genome: <code>all_codons</code>. Remember that this is not the size of the M. tuberculosis genome, but the number of codons in all M. tuberculosis genes. To get the size of the genome you’d have to multiply each codon by 3 (for each nucleotide) and add non-coding nucleotides (which we do not know from this dataset).</p>
+<pre class="r"><code>all_codons = sum(mtb$Number)
+all_codons</code></pre>
+<pre><code>## [1] 1344223</code></pre>
+<p>The PerThousands variable is derived by dividing the number of occurances of the codon of interest by the total number of codons. Because this number is then small and hard to intrepret, multipling it by 1000 gives a value that is easy to make sense of quickly. Here is an example for proline. The four values returned align to the four codons that each code for proline.</p>
+<pre class="r"><code>pro  =  mtb[mtb$AmAcid == &quot;Pro&quot;, &quot;Number&quot;]
+pro / all_codons * 1000</code></pre>
+<pre><code>## [1] 31.560240  6.121752  3.405685 17.032144</code></pre>
+</div>
+<div id="c-write-an-r-function-that-you-can-apply-to-the-table-to-find-which-of-the-amino-acids-shows-the-strongest-codon-bias-i.e.-the-strongest-departure-from-uniform-distribution-among-its-possible-spellings." class="section level1">
+<h1>c) Write an R function that you can apply to the table to find which of the amino acids shows the strongest codon bias, i.e., the strongest departure from uniform distribution among its possible spellings.</h1>
+<p>First, let’s look at the expected frequencies of each codon.</p>
+<pre class="r"><code>codon_expected &lt;- data.frame(codon_no) %&gt;%
+  rownames_to_column() %&gt;%
+  rename(`AmAcid` = rowname) %&gt;%
+  mutate(prob_codon = 1/codon_no)
+codon_expected</code></pre>
+<pre><code>##    AmAcid codon_no prob_codon
+## 1     Ala        4  0.2500000
+## 2     Arg        6  0.1666667
+## 3     Asn        2  0.5000000
+## 4     Asp        2  0.5000000
+## 5     Cys        2  0.5000000
+## 6     End        3  0.3333333
+## 7     Gln        2  0.5000000
+## 8     Glu        2  0.5000000
+## 9     Gly        4  0.2500000
+## 10    His        2  0.5000000
+## 11    Ile        3  0.3333333
+## 12    Leu        6  0.1666667
+## 13    Lys        2  0.5000000
+## 14    Met        1  1.0000000
+## 15    Phe        2  0.5000000
+## 16    Pro        4  0.2500000
+## 17    Ser        6  0.1666667
+## 18    Thr        4  0.2500000
+## 19    Trp        1  1.0000000
+## 20    Tyr        2  0.5000000
+## 21    Val        4  0.2500000</code></pre>
+<p>Next, calculate the observed frequencies for each codon seen in the dataset:</p>
+<pre class="r"><code>codon_observed &lt;- full_join(mtb, codon_expected, by = &quot;AmAcid&quot;) %&gt;%
+  group_by(AmAcid) %&gt;%
+  mutate(am_length = sum(Number))%&gt;%
+  mutate(prob_observed = Number / am_length) %&gt;%
+  select(-codon_no, -am_length) %&gt;%
+  mutate(expected_PerThous = Number*prob_codon)</code></pre>
+<pre><code>## Warning: Column `AmAcid` joining factor and character vector, coercing into
+## character vector</code></pre>
+<pre class="r"><code>codon_observed</code></pre>
+<pre><code>## # A tibble: 64 x 7
+## # Groups:   AmAcid [21]
+##    AmAcid Codon Number PerThous prob_codon prob_observed expected_PerThous
+##    &lt;chr&gt;  &lt;fct&gt;  &lt;int&gt;    &lt;dbl&gt;      &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;
+##  1 Gly    GGG    25874    19.2        0.25        0.195              6468.
+##  2 Gly    GGA    13306     9.9        0.25        0.100              3326.
+##  3 Gly    GGT    25320    18.8        0.25        0.191              6330 
+##  4 Gly    GGC    68310    50.8        0.25        0.514             17078.
+##  5 Glu    GAG    41103    30.6        0.5         0.654             20552.
+##  6 Glu    GAA    21767    16.2        0.5         0.346             10884.
+##  7 Asp    GAT    21165    15.8        0.5         0.272             10582.
+##  8 Asp    GAC    56687    42.2        0.5         0.728             28344.
+##  9 Val    GTG    53942    40.1        0.25        0.469             13486.
+## 10 Val    GTA     6372     4.74       0.25        0.0554             1593 
+## # … with 54 more rows</code></pre>
+<p>Using the chi-squared distribution, a chi-squared test statistic can be used to show codon bias.</p>
+<pre class="r"><code>chi_stat &lt;- data.frame(chi_squared = ((codon_observed$Number - codon_observed$expected_PerThous)^2)/(codon_observed$expected_PerThous))
+chi_stat
+
+#I&#39;m getting an error here. I&#39;m not sure what is wrong.
+codon_observed &lt;- codon_observed() %&gt;%
+  mutate(chi-squared = ((codon_observed$Number - codon_observed$expected_PerThous)^2)/(codon_observed$expected_PerThous)) %&gt;% 
+  select(-prob_codon, -prob_observed)
+codon_observed
+
+#Also an error here. 
+codon_observed &lt;- codon_observed() %&gt;%
+  mutate(chi-squared = chi_stat$chi_squared) %&gt;% 
+  select(-prob_codon, -prob_observed)
+codon_observed
+
+
+#Additional ideas from students in class. I&#39;m not able to run it, but I like the idea of using a function.  
+stat = function(codon_expected, exptd = 20 * pvec) {
+   sum((codon_df - exptd)^2 / exptd)
+}
+
+stat
+
+B = 1000
+simulstat = replicate(B, {
+  randomtab10 = sapply(stat, function(s) { rmultinom(1, s, p0) })
+  stat(randomtab10, expectedtab10)
+})
+S1 = stat(tab10, expectedtab10)
+sum(simulstat &gt;= S1)</code></pre>
+</div>
