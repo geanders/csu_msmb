@@ -53,6 +53,12 @@ Cambridge, United Kingdom.
 - Berrar, 2019. *Introduction to Non-parametric Bootstrap.* Research Gate. https://www.researchgate.net/
 - Do and Batzoglou, 2008. *What is the expectaion maximization algorithm?.* Nature Biotechnology. 
 - Wikipedia: The Free Encylcopedia. https://en.wikipedia.org/wiki/Main_Page
+- Google Oxford American Dictionary. https://www.google.com
+- d'Auzay, et al., 2019. *Statistics of progress variable and mixture fraction gradients in an open turbulent jet spray flame.* Fuel.
+- Brownlee, 2019. *A Gentle Introduction to Expectation-Maximization (EM Algorithm).* Machine Learning Mastery. https://www.machinelearningmastery.com 
+- *Non-parametric Methods.* R tutorial. https://www.r-tutor.com
+- *Precise analysis of DNA–protein binding sequences.* Illumina. https://www.illumina.com
+- *Microarray.* Nature. https://www.nature.com
 
 
 ### Practice

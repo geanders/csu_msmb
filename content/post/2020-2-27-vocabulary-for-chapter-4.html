@@ -40,7 +40,7 @@ projects: []
 finite mixture
 </td>
 <td style="text-align:left;width: 30em; ">
-data that contains a few components
+in the context of statistic, when the distribution of interest is a combination of a few different probability distribution
 </td>
 </tr>
 <tr>
@@ -48,7 +48,23 @@ data that contains a few components
 infinite mixture
 </td>
 <td style="text-align:left;width: 30em; ">
-data that contains the same number of components as observations
+in the context of statistic, when the distribution of interest is a combination of many probability distributions (more probability distributions than observations)
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+mixture model
+</td>
+<td style="text-align:left;width: 30em; ">
+a model for a combination of two or more different probability distributions
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+probability density function
+</td>
+<td style="text-align:left;width: 30em; ">
+a function giving the relative likelihood that a continuous random variable is equal to a given value. When this function is integrated over the sample space, it equals 1.
 </td>
 </tr>
 <tr>
@@ -56,7 +72,7 @@ data that contains the same number of components as observations
 bimodal distribution
 </td>
 <td style="text-align:left;width: 30em; ">
-distribution comprised of two peaks
+a distribution comprised of two modes
 </td>
 </tr>
 <tr>
@@ -64,7 +80,7 @@ distribution comprised of two peaks
 expectation-maximization (EM) algorithm
 </td>
 <td style="text-align:left;width: 30em; ">
-an algorithm that allows for parameter estimation in proabailistic models with incomplete data
+an algorithm that allows for parameter estimation in probabilistic models with incomplete data
 </td>
 </tr>
 <tr>
@@ -72,12 +88,12 @@ an algorithm that allows for parameter estimation in proabailistic models with i
 data augmentation
 </td>
 <td style="text-align:left;width: 30em; ">
-adding variables that are not measured (latent varibles) to the data
+adding variables that are not measured (latent variables) to the data
 </td>
 </tr>
 <tr>
 <td style="text-align:right;font-weight: bold;border-right:1px solid;">
-latent variable
+latent variables
 </td>
 <td style="text-align:left;width: 30em; ">
 variables not measured in the data
@@ -93,10 +109,50 @@ a combined distribution made of two random variables
 </tr>
 <tr>
 <td style="text-align:right;font-weight: bold;border-right:1px solid;">
+mixture fraction
+</td>
+<td style="text-align:left;width: 30em; ">
+a fraction used to describe the inhomogeneity in mixture composition
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+identifiability
+</td>
+<td style="text-align:left;width: 30em; ">
+an issue where there can be several explanations for the same observed values; occurs when there are too many degrees of freedom in parameters
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
 marginal likelihood
 </td>
 <td style="text-align:left;width: 30em; ">
-sum of all possible values for the densitities
+the sum of the marginal distributions
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+expectation function
+</td>
+<td style="text-align:left;width: 30em; ">
+a function that calculates the average of all possible values of the group that an observation belongs to
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+maximization step
+</td>
+<td style="text-align:left;width: 30em; ">
+a step to optimize the parameters of a model
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+soft averaging
+</td>
+<td style="text-align:left;width: 30em; ">
+the process in which observations are not assigned to groups, rather they are added to multiple groups by using probabilities of memberships as weights
 </td>
 </tr>
 <tr>
@@ -109,7 +165,7 @@ the process of using several models and combining them together into a weighted 
 </tr>
 <tr>
 <td style="text-align:right;font-weight: bold;border-right:1px solid;">
-zero inflated data
+zero-inflated data
 </td>
 <td style="text-align:left;width: 30em; ">
 data that contains a large number of zero counts
@@ -117,10 +173,66 @@ data that contains a large number of zero counts
 </tr>
 <tr>
 <td style="text-align:right;font-weight: bold;border-right:1px solid;">
+ChIP-Seq data
+</td>
+<td style="text-align:left;width: 30em; ">
+sequencing data that identifies DNA binding sites for proteins
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+chromosome
+</td>
+<td style="text-align:left;width: 30em; ">
+a DNA molecule that contains the genetic material of an organism
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+binding site
+</td>
+<td style="text-align:left;width: 30em; ">
+in the context of molecular biology, a specific region to which a macromolecule binds
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+deoxyribonucleotide monophosphate
+</td>
+<td style="text-align:left;width: 30em; ">
+a single phosphate group in a unit of DNA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+gene expression measurement
+</td>
+<td style="text-align:left;width: 30em; ">
+the measurement of a functional gene product (i.e. protein or RNA)
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+microarray
+</td>
+<td style="text-align:left;width: 30em; ">
+a laboratory tool used to detect gene expression
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+promoter
+</td>
+<td style="text-align:left;width: 30em; ">
+in the context of genetics, a region of DNA that initiates transcription of a gene
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
 point mass
 </td>
 <td style="text-align:left;width: 30em; ">
-a finite probabiliity concentrated at a point in the proability mass distribution at which there is a discontinuous segment in proability density function
+a finite probabiliity concentrated at a point in the proability mass distribution at which there is a discontinuous segment in probability density function
 </td>
 </tr>
 <tr>
@@ -133,10 +245,34 @@ the probability distribution calculated from a random sample
 </tr>
 <tr>
 <td style="text-align:right;font-weight: bold;border-right:1px solid;">
+empirical cumulative distribution function (ECDF)
+</td>
+<td style="text-align:left;width: 30em; ">
+a step distribution function based on empirical data measurements
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+density
+</td>
+<td style="text-align:left;width: 30em; ">
+in the context of probability distributions, the derivitive of the distribution function
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
 bootstrap
 </td>
 <td style="text-align:left;width: 30em; ">
-an approximation of the true sampling distribution; created by drawing new samples from the empirical dstirubtion of the original sample
+an approximation of the true sampling distribution; created by drawing new samples from the empirical distribution of the original sample
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+non-parametric method
+</td>
+<td style="text-align:left;width: 30em; ">
+a statistical method that does not make assumptions about population distribution or sample size
 </td>
 </tr>
 <tr>
@@ -144,7 +280,23 @@ an approximation of the true sampling distribution; created by drawing new sampl
 nonparametric bootstrap
 </td>
 <td style="text-align:left;width: 30em; ">
-an approximation of the true samplin distriubtion not based off of specific assumptionf or a particular model
+an approximation of the true sampling distribution not based off of a specific assumption or a particular model
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Laplace distribution
+</td>
+<td style="text-align:left;width: 30em; ">
+a distribution that shows differences between two independent variates with identical exponential distributions
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+gamma distribution
+</td>
+<td style="text-align:left;width: 30em; ">
+a distribution that is positively valued and continuous with two parameters: shape and scale
 </td>
 </tr>
 <tr>
@@ -176,7 +328,7 @@ transformations designed to give approximate independence between mean and varia
 heteroscedasticity
 </td>
 <td style="text-align:left;width: 30em; ">
-the varaicne of the data is different in different regions of the data
+the variance of the data is different in different regions of the data
 </td>
 </tr>
 <tr>
@@ -185,6 +337,86 @@ delta method
 </td>
 <td style="text-align:left;width: 30em; ">
 a calculus procedure that uses random variables to approximate the expected value and variance of a function
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+NA
+</td>
+<td style="text-align:left;width: 30em; ">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+NA
+</td>
+<td style="text-align:left;width: 30em; ">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+NA
+</td>
+<td style="text-align:left;width: 30em; ">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+NA
+</td>
+<td style="text-align:left;width: 30em; ">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+NA
+</td>
+<td style="text-align:left;width: 30em; ">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+<a href="https://www.nature.com/scitable/definition/microarray-202/" class="uri">https://www.nature.com/scitable/definition/microarray-202/</a>
+</td>
+<td style="text-align:left;width: 30em; ">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+<a href="https://www.illumina.com/techniques/sequencing/dna-sequencing/chip-seq.html" class="uri">https://www.illumina.com/techniques/sequencing/dna-sequencing/chip-seq.html</a>
+</td>
+<td style="text-align:left;width: 30em; ">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+<a href="http://www.r-tutor.com/elementary-statistics/non-parametric-methods" class="uri">http://www.r-tutor.com/elementary-statistics/non-parametric-methods</a>
+</td>
+<td style="text-align:left;width: 30em; ">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+<a href="https://machinelearningmastery.com/expectation-maximization-em-algorithm/" class="uri">https://machinelearningmastery.com/expectation-maximization-em-algorithm/</a>
+</td>
+<td style="text-align:left;width: 30em; ">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+<a href="https://www.sciencedirect.com/science/article/pii/S0016236119303230" class="uri">https://www.sciencedirect.com/science/article/pii/S0016236119303230</a>
+</td>
+<td style="text-align:left;width: 30em; ">
+NA
 </td>
 </tr>
 </tbody>
@@ -199,6 +431,12 @@ a calculus procedure that uses random variables to approximate the expected valu
 <li>Berrar, 2019. <em>Introduction to Non-parametric Bootstrap.</em> Research Gate. <a href="https://www.researchgate.net/" class="uri">https://www.researchgate.net/</a></li>
 <li>Do and Batzoglou, 2008. <em>What is the expectaion maximization algorithm?.</em> Nature Biotechnology.</li>
 <li>Wikipedia: The Free Encylcopedia. <a href="https://en.wikipedia.org/wiki/Main_Page" class="uri">https://en.wikipedia.org/wiki/Main_Page</a></li>
+<li>Google Oxford American Dictionary. <a href="https://www.google.com" class="uri">https://www.google.com</a></li>
+<li>d’Auzay, et al., 2019. <em>Statistics of progress variable and mixture fraction gradients in an open turbulent jet spray flame.</em> Fuel.</li>
+<li>Brownlee, 2019. <em>A Gentle Introduction to Expectation-Maximization (EM Algorithm).</em> Machine Learning Mastery. <a href="https://www.machinelearningmastery.com" class="uri">https://www.machinelearningmastery.com</a></li>
+<li><em>Non-parametric Methods.</em> R tutorial. <a href="https://www.r-tutor.com" class="uri">https://www.r-tutor.com</a></li>
+<li><em>Precise analysis of DNA–protein binding sequences.</em> Illumina. <a href="https://www.illumina.com" class="uri">https://www.illumina.com</a></li>
+<li><em>Microarray.</em> Nature. <a href="https://www.nature.com" class="uri">https://www.nature.com</a></li>
 </ul>
 </div>
 <div id="practice" class="section level3">
