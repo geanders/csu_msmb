@@ -3,17 +3,67 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/authors/sere-williams/</loc>
+    <lastmod>2020-02-19T15:25:48-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/authors/</loc>
+    <lastmod>2020-02-19T15:25:48-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+    <lastmod>2020-02-19T15:25:48-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/chapter-2/</loc>
+    <lastmod>2020-02-19T15:25:48-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/chapter-2/</loc>
+    <lastmod>2020-02-19T15:25:48-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-02-19T15:25:48-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/exercise-solution-for-chapter-2/</loc>
+    <lastmod>2020-02-19T15:25:48-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/exercise-solutions/</loc>
+    <lastmod>2020-02-19T15:25:48-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/exercise-solutions/</loc>
+    <lastmod>2020-02-19T15:25:48-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-02-19T15:25:48-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-02-19T15:25:48-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/authors/brooke-anderson/</loc>
     <lastmod>2020-02-13T09:44:08-07:00</lastmod>
   </url>
   
   <url>
     <loc>/authors/sierra-pugh/</loc>
-    <lastmod>2020-02-14T07:50:15-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/</loc>
     <lastmod>2020-02-14T07:50:15-07:00</lastmod>
   </url>
   
@@ -28,28 +78,8 @@
   </url>
   
   <url>
-    <loc>/categories/</loc>
-    <lastmod>2020-02-14T07:50:15-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/chapter-2/</loc>
-    <lastmod>2020-02-14T07:50:15-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/chapter-2/</loc>
-    <lastmod>2020-02-14T07:50:15-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/post/chapter-2-vocabulary-quiz/</loc>
     <lastmod>2020-02-13T09:44:08-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2020-02-14T07:50:15-07:00</lastmod>
   </url>
   
   <url>
@@ -63,12 +93,12 @@
   </url>
   
   <url>
-    <loc>/categories/github/</loc>
+    <loc>/tags/github/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/github/</loc>
+    <loc>/categories/github/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
@@ -78,23 +108,13 @@
   </url>
   
   <url>
-    <loc>/categories/instructions/</loc>
-    <lastmod>2020-02-11T20:21:23-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/instructions/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/</loc>
-    <lastmod>2020-02-14T07:50:15-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/quiz/</loc>
-    <lastmod>2020-02-13T09:44:08-07:00</lastmod>
+    <loc>/categories/instructions/</loc>
+    <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
   <url>
@@ -103,8 +123,8 @@
   </url>
   
   <url>
-    <loc>/tags/</loc>
-    <lastmod>2020-02-14T07:50:15-07:00</lastmod>
+    <loc>/tags/quiz/</loc>
+    <lastmod>2020-02-13T09:44:08-07:00</lastmod>
   </url>
   
   <url>
@@ -123,12 +143,12 @@
   </url>
   
   <url>
-    <loc>/tags/chapter-1/</loc>
+    <loc>/categories/chapter-1/</loc>
     <lastmod>2020-02-11T20:22:07-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/chapter-1/</loc>
+    <loc>/tags/chapter-1/</loc>
     <lastmod>2020-02-11T20:22:07-07:00</lastmod>
   </url>
   
@@ -216,10 +236,6 @@
   
   <url>
     <loc>/authors/sarah-cooper/</loc>
-  </url>
-  
-  <url>
-    <loc>/authors/sere-williams/</loc>
   </url>
   
   <url>

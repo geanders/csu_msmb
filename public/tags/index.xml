@@ -5,7 +5,7 @@
     <link>/tags/</link>
       <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <description>Tags</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 13 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 19 Feb 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Tags</title>
@@ -13,18 +13,26 @@
     </image>
     
     <item>
-      <title>blogdown</title>
-      <link>/tags/blogdown/</link>
-      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>/tags/blogdown/</guid>
+      <title>Chapter 2</title>
+      <link>/tags/chapter-2/</link>
+      <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/chapter-2/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Chapter 2</title>
-      <link>/tags/chapter-2/</link>
+      <title>Exercise solutions</title>
+      <link>/tags/exercise-solutions/</link>
+      <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/exercise-solutions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>blogdown</title>
+      <link>/tags/blogdown/</link>
       <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>/tags/chapter-2/</guid>
+      <guid>/tags/blogdown/</guid>
       <description></description>
     </item>
     

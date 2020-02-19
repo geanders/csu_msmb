@@ -5,12 +5,143 @@
     <link>/</link>
       <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <description>CSU MSMB Group Study</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 13 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 19 Feb 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>CSU MSMB Group Study</title>
       <link>/</link>
     </image>
+    
+    <item>
+      <title>Exercise solution for Chapter 2, Part 1</title>
+      <link>/post/exercise-solution-for-chapter-2/</link>
+      <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/post/exercise-solution-for-chapter-2/</guid>
+      <description>
+
+
+&lt;p&gt;As always, load libraries first.&lt;/p&gt;
+&lt;div id=&#34;exercise-2.3-from-modern-statistics-for-modern-biologists&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Exercise 2.3 from Modern Statistics for Modern Biologists&lt;/h2&gt;
+&lt;p&gt;A sequence of three nucleotides codes for one amino acid. There are 4 nucleotides, thus 4^3 would allow for 64 different amino acids, however there are only 20 amino acids requiring only 20 combinations + 1 for an end signal. The code is redundant. Here we use the tuberculosis genome to understand codon bias.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;a-explore-the-data-mtb-using-table-to-tabulate-the-amacid-and-codon-variables.&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;a) Explore the data &lt;code&gt;mtb&lt;/code&gt; using table to tabulate the AmAcid and Codon variables.&lt;/h1&gt;
+&lt;p&gt;Each amino acid is encoded by 1-6 tri-nucleotide combinations.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtb = read.table(&amp;quot;example_datasets/M_tuberculosis.txt&amp;quot;, header = TRUE)
+codon_no &amp;lt;- rowSums(table(mtb))
+codon_no&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Ala Arg Asn Asp Cys End Gln Glu Gly His Ile Leu Lys Met Phe Pro Ser Thr Trp Tyr 
+##   4   6   2   2   2   3   2   2   4   2   3   6   2   1   2   4   6   4   1   2 
+## Val 
+##   4&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The PerThousands of each codon can be visualized, where each bar represents a different codon. But what does the “PerThousands” variable mean?&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtb, aes(x=Codon, y=PerThous)) +
+  geom_col()+
+  facet_wrap(~AmAcid, scales=&amp;quot;free&amp;quot;) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-02-19-exercise-solution-for-chapter-2_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;768&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;b-how-was-the-perthous-variable-created&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;b) How was the PerThous variable created?&lt;/h1&gt;
+&lt;p&gt;The sum of all of the numbers of codons gives you the total number of codons in the M. tuberculosis genome: &lt;code&gt;all_codons&lt;/code&gt;. Remember that this is not the size of the M. tuberculosis genome, but the number of codons in all M. tuberculosis genes. To get the size of the genome you’d have to multiply each codon by 3 (for each nucleotide) and add non-coding nucleotides (which we do not know from this dataset).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;all_codons = sum(mtb$Number)
+all_codons&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1344223&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The PerThousands variable is derived by dividing the number of occurances of the codon of interest by the total number of codons. Because this number is then small and hard to intrepret, multipling it by 1000 gives a value that is easy to make sense of quickly. Here is an example for proline. The four values returned align to the four codons that each code for proline.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pro  =  mtb[mtb$AmAcid == &amp;quot;Pro&amp;quot;, &amp;quot;Number&amp;quot;]
+pro / all_codons * 1000&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 31.560240  6.121752  3.405685 17.032144&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;c-write-an-r-function-that-you-can-apply-to-the-table-to-find-which-of-the-amino-acids-shows-the-strongest-codon-bias-i.e.-the-strongest-departure-from-uniform-distribution-among-its-possible-spellings.&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;c) Write an R function that you can apply to the table to find which of the amino acids shows the strongest codon bias, i.e., the strongest departure from uniform distribution among its possible spellings.&lt;/h1&gt;
+&lt;p&gt;First, let’s look at the expected frequencies of each codon.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;codon_expected &amp;lt;- data.frame(codon_no) %&amp;gt;%
+  rownames_to_column() %&amp;gt;%
+  rename(`AmAcid` = rowname) %&amp;gt;%
+  mutate(prob_codon = 1/codon_no)
+codon_expected&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    AmAcid codon_no prob_codon
+## 1     Ala        4  0.2500000
+## 2     Arg        6  0.1666667
+## 3     Asn        2  0.5000000
+## 4     Asp        2  0.5000000
+## 5     Cys        2  0.5000000
+## 6     End        3  0.3333333
+## 7     Gln        2  0.5000000
+## 8     Glu        2  0.5000000
+## 9     Gly        4  0.2500000
+## 10    His        2  0.5000000
+## 11    Ile        3  0.3333333
+## 12    Leu        6  0.1666667
+## 13    Lys        2  0.5000000
+## 14    Met        1  1.0000000
+## 15    Phe        2  0.5000000
+## 16    Pro        4  0.2500000
+## 17    Ser        6  0.1666667
+## 18    Thr        4  0.2500000
+## 19    Trp        1  1.0000000
+## 20    Tyr        2  0.5000000
+## 21    Val        4  0.2500000&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Next, calculate the observed frequencies for each codon seen in the dataset:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;codon_observed &amp;lt;- full_join(mtb, codon_expected, by = &amp;quot;AmAcid&amp;quot;) %&amp;gt;%
+  group_by(AmAcid) %&amp;gt;%
+  mutate(am_length = sum(Number))%&amp;gt;%
+  mutate(prob_observed = Number / am_length) %&amp;gt;%
+  select(-codon_no, -am_length) %&amp;gt;%
+  mutate(expected_PerThous = Number*prob_codon)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: Column `AmAcid` joining factor and character vector, coercing into
+## character vector&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;codon_observed&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 64 x 7
+## # Groups:   AmAcid [21]
+##    AmAcid Codon Number PerThous prob_codon prob_observed expected_PerThous
+##    &amp;lt;chr&amp;gt;  &amp;lt;fct&amp;gt;  &amp;lt;int&amp;gt;    &amp;lt;dbl&amp;gt;      &amp;lt;dbl&amp;gt;         &amp;lt;dbl&amp;gt;             &amp;lt;dbl&amp;gt;
+##  1 Gly    GGG    25874    19.2        0.25        0.195              6468.
+##  2 Gly    GGA    13306     9.9        0.25        0.100              3326.
+##  3 Gly    GGT    25320    18.8        0.25        0.191              6330 
+##  4 Gly    GGC    68310    50.8        0.25        0.514             17078.
+##  5 Glu    GAG    41103    30.6        0.5         0.654             20552.
+##  6 Glu    GAA    21767    16.2        0.5         0.346             10884.
+##  7 Asp    GAT    21165    15.8        0.5         0.272             10582.
+##  8 Asp    GAC    56687    42.2        0.5         0.728             28344.
+##  9 Val    GTG    53942    40.1        0.25        0.469             13486.
+## 10 Val    GTA     6372     4.74       0.25        0.0554             1593 
+## # … with 54 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Using the chi-squared distribution, a chi-squared test statistic can be used to show codon bias.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;chi_stat &amp;lt;- data.frame(chi_squared = ((codon_observed$Number - codon_observed$expected_PerThous)^2)/(codon_observed$expected_PerThous))
+chi_stat
+
+#I&amp;#39;m getting an error here. I&amp;#39;m not sure what is wrong.
+codon_observed &amp;lt;- codon_observed() %&amp;gt;%
+  mutate(chi-squared = ((codon_observed$Number - codon_observed$expected_PerThous)^2)/(codon_observed$expected_PerThous)) %&amp;gt;% 
+  select(-prob_codon, -prob_observed)
+codon_observed
+
+#Also an error here. 
+codon_observed &amp;lt;- codon_observed() %&amp;gt;%
+  mutate(chi-squared = chi_stat$chi_squared) %&amp;gt;% 
+  select(-prob_codon, -prob_observed)
+codon_observed
+
+
+#Additional ideas from students in class. I&amp;#39;m not able to run it, but I like the idea of using a function.  
+stat = function(codon_expected, exptd = 20 * pvec) {
+   sum((codon_df - exptd)^2 / exptd)
+}
+
+stat
+
+B = 1000
+simulstat = replicate(B, {
+  randomtab10 = sapply(stat, function(s) { rmultinom(1, s, p0) })
+  stat(randomtab10, expectedtab10)
+})
+S1 = stat(tab10, expectedtab10)
+sum(simulstat &amp;gt;= S1)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Chapter 2 Part 1 vocabulary quiz</title>
@@ -495,15 +626,15 @@ probability of each nucleotide at each spot on the genome:&lt;/p&gt;
                           size = sum(nuc_freq_df$n), 
                           prob = rep(1 / 4, 4)))&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13] [,14]
-## [1,] 3415 3468 3441 3390 3528 3422 3393 3500 3498  3457  3392  3445  3458  3457
-## [2,] 3400 3439 3489 3452 3407 3509 3491 3413 3413  3430  3472  3401  3381  3388
-## [3,] 3516 3418 3386 3501 3470 3397 3466 3482 3426  3501  3461  3399  3537  3456
-## [4,] 3463 3469 3478 3451 3389 3466 3444 3399 3457  3406  3469  3549  3418  3493
+## [1,] 3409 3409 3415 3442 3433 3452 3470 3406 3458  3506  3527  3531  3497  3466
+## [2,] 3456 3456 3394 3510 3468 3438 3499 3477 3421  3462  3400  3400  3397  3467
+## [3,] 3443 3418 3590 3479 3399 3406 3509 3485 3492  3405  3448  3344  3407  3429
+## [4,] 3486 3511 3395 3363 3494 3498 3316 3426 3423  3421  3419  3519  3493  3432
 ##      [,15] [,16] [,17] [,18] [,19] [,20]
-## [1,]  3444  3413  3456  3404  3445  3453
-## [2,]  3444  3504  3467  3440  3409  3472
-## [3,]  3534  3395  3382  3432  3489  3416
-## [4,]  3372  3482  3489  3518  3451  3453&lt;/code&gt;&lt;/pre&gt;
+## [1,]  3456  3433  3429  3477  3405  3480
+## [2,]  3445  3407  3492  3446  3426  3481
+## [3,]  3465  3477  3434  3432  3437  3390
+## [4,]  3428  3477  3439  3439  3526  3443&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Next, I moved this into a tibble so I could more easily rearrange and plot the data using
 facetting in &lt;code&gt;ggplot2&lt;/code&gt;:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sim_nuc_freq_df &amp;lt;- as_tibble(sim_nuc_freq) %&amp;gt;% 
@@ -517,16 +648,16 @@ sim_nuc_freq_df %&amp;gt;%
 &lt;pre&gt;&lt;code&gt;## # A tibble: 10 x 3
 ##    nucleotide sample value
 ##    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt; &amp;lt;int&amp;gt;
-##  1 A               1  3415
-##  2 C               1  3400
-##  3 G               1  3516
-##  4 T               1  3463
-##  5 A               2  3468
-##  6 C               2  3439
+##  1 A               1  3409
+##  2 C               1  3456
+##  3 G               1  3443
+##  4 T               1  3486
+##  5 A               2  3409
+##  6 C               2  3456
 ##  7 G               2  3418
-##  8 T               2  3469
-##  9 A               3  3441
-## 10 C               3  3489&lt;/code&gt;&lt;/pre&gt;
+##  8 T               2  3511
+##  9 A               3  3415
+## 10 C               3  3394&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(sim_nuc_freq_df, aes(x = nucleotide, y = value)) + 
   geom_col(fill = &amp;quot;lavender&amp;quot;, color = &amp;quot;black&amp;quot;) + 
   theme_classic() + 
@@ -556,16 +687,16 @@ sim_nuc_freq_df %&amp;gt;%
 &lt;pre&gt;&lt;code&gt;## # A tibble: 10 x 3
 ##    nucleotide sample value
 ##    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt; &amp;lt;int&amp;gt;
-##  1 A               1  3313
-##  2 C               1  3600
-##  3 G               1  3482
-##  4 T               1  3399
-##  5 A               2  3514
-##  6 C               2  3346
-##  7 G               2  3503
-##  8 T               2  3431
-##  9 A               3  3474
-## 10 C               3  3418&lt;/code&gt;&lt;/pre&gt;
+##  1 A               1  3377
+##  2 C               1  3528
+##  3 G               1  3359
+##  4 T               1  3530
+##  5 A               2  3471
+##  6 C               2  3448
+##  7 G               2  3403
+##  8 T               2  3472
+##  9 A               3  3410
+## 10 C               3  3476&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Using this dataframe of simulations, we can measure the mean, minimum, and maximum frequencies
 of each nucleotide across all 1,000 simulations:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;(sim_summary &amp;lt;- sim_nuc_freq_df %&amp;gt;% 
@@ -576,10 +707,10 @@ of each nucleotide across all 1,000 simulations:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 4 x 4
 ##   nucleotide mean_freq min_freq max_freq
 ##   &amp;lt;chr&amp;gt;          &amp;lt;dbl&amp;gt;    &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;
-## 1 A              3448.     3286     3626
-## 2 C              3449.     3269     3600
-## 3 G              3448.     3292     3598
-## 4 T              3449.     3303     3606&lt;/code&gt;&lt;/pre&gt;
+## 1 A              3450.     3310     3658
+## 2 C              3448.     3286     3601
+## 3 G              3448.     3278     3626
+## 4 T              3448.     3291     3652&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;To help compare this with the observed data, we can create a table with information from
 both the original data and the simulations under the null model:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;nuc_freq_df %&amp;gt;% 
@@ -604,22 +735,22 @@ both the original data and the simulations under the null model:&lt;/p&gt;
 &lt;tr class=&#34;odd&#34;&gt;
 &lt;td align=&#34;center&#34;&gt;A&lt;/td&gt;
 &lt;td align=&#34;center&#34;&gt;4,335&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;3,448 (3,286, 3,626)&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;3,450 (3,310, 3,658)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
 &lt;td align=&#34;center&#34;&gt;C&lt;/td&gt;
 &lt;td align=&#34;center&#34;&gt;1,225&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;3,449 (3,269, 3,600)&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;3,448 (3,286, 3,601)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;odd&#34;&gt;
 &lt;td align=&#34;center&#34;&gt;G&lt;/td&gt;
 &lt;td align=&#34;center&#34;&gt;2,055&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;3,448 (3,292, 3,598)&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;3,448 (3,278, 3,626)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
 &lt;td align=&#34;center&#34;&gt;T&lt;/td&gt;
 &lt;td align=&#34;center&#34;&gt;6,179&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;3,449 (3,303, 3,606)&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;3,448 (3,291, 3,652)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -669,11 +800,11 @@ sim_stat %&amp;gt;%
 &lt;pre&gt;&lt;code&gt;## # A tibble: 5 x 2
 ##   sample variability_stat
 ##    &amp;lt;dbl&amp;gt;            &amp;lt;dbl&amp;gt;
-## 1      1           13.0  
-## 2      2            5.24 
-## 3      3            0.950
-## 4      4            3.78 
-## 5      5            2.42&lt;/code&gt;&lt;/pre&gt;
+## 1      1            7.56 
+## 2      2            0.907
+## 3      3            1.79 
+## 4      4            1.54 
+## 5      5            0.662&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Here is a plot of the distribution of this statistic across the 1,000 simulations:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(sim_stat, aes(x = variability_stat)) + 
   geom_rect(data = sim_stat, aes(xmin = quantile(variability_stat, prob = 0.025),
