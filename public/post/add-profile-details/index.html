@@ -21,7 +21,7 @@
   
   
 
-  <meta name="author" content="Brooke Anderson">
+  <meta name="author" content="Sere Williams">
 
   
   
@@ -208,6 +208,42 @@ We will be using our course website as a collaboration tool during this course. 
   
 
 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-36719749-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           document.location = url;
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target);  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-36719749-3', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
 
 
   
@@ -623,7 +659,7 @@ We will be using our course website as a collaboration tool during this course. 
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/blogdown/">blogdown</a>, <a href="/categories/github/">github</a></span>
+    <i class="fas fa-folder mr-1"></i><a href="/categories/blogdown/">blogdown</a>, <a href="/categories/github/">github</a>, <a href="/categories/instructions/">instructions</a></span>
   
 
 </div>
@@ -707,10 +743,10 @@ session, including the version of R you’re currently running:</p>
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] compiler_3.6.2  magrittr_1.5    bookdown_0.16   tools_3.6.2    
-##  [5] htmltools_0.4.0 yaml_2.2.0      Rcpp_1.0.3      stringi_1.4.5  
-##  [9] rmarkdown_2.0   blogdown_0.17   knitr_1.26      stringr_1.4.0  
-## [13] digest_0.6.23   xfun_0.12       rlang_0.4.2     evaluate_0.14</code></pre>
+##  [1] compiler_3.6.2  magrittr_1.5    bookdown_0.17   tools_3.6.2    
+##  [5] htmltools_0.4.0 yaml_2.2.1      Rcpp_1.0.3      stringi_1.4.5  
+##  [9] rmarkdown_2.1   blogdown_0.17   knitr_1.27      stringr_1.4.0  
+## [13] digest_0.6.23   xfun_0.12       rlang_0.4.4     evaluate_0.14</code></pre>
 <p>Based on the return from this call, for example, I can tell that I have
 R version 3.6.2 (2019-12-12).</p>
 </div>
@@ -1070,6 +1106,8 @@ requests</a>.</p>
   <a class="badge badge-light" href="/tags/blogdown/">blogdown</a>
   
   <a class="badge badge-light" href="/tags/github/">github</a>
+  
+  <a class="badge badge-light" href="/tags/instructions/">instructions</a>
   
 </div>
 

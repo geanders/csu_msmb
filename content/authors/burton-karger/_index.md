@@ -1,15 +1,15 @@
 ---
 authors:
-bio: [One sentence describing your research interest]
+bio: [Mycobacterial research concerning boosting strategies for BCG vaccination strategies against Tuberculosis disease.]
 education:
   courses:
-  - course: MSc in [Discipline]
-    institution: [Institution]
-    year: [Year]
-  - course: BSc in [Discipline]
-    institution: [Institution]
-    year: [Year]
-email: "...@colostate.edu"
+  - course: MS in [Microbiology Immunology Pathology]
+    institution: [CSU]
+    year: [2018]
+  - course: BS in [Biology]
+    institution: [CSU]
+    year: [2017]
+email: "burton.karger@colostate.edu"
 interests:
 - Microbiology
 - Computer Programming
@@ -18,24 +18,24 @@ name: Burton Karger
 organizations:
 - name: Colorado State University
   url: ""
-role: Graduate Student in ...
+role: Laboratory Manager and Research Associate in MIP
 social:
 - icon: envelope
   icon_pack: fas
-  link: mailto:...@colostate.edu
+  link: mailto:burton.karger@colostate.edu
 #- icon: twitter
 #  icon_pack: fab
 #  link: https://twitter.com/...
 #- icon: google-scholar
 #  icon_pack: ai
 #  link: https://scholar.google.com/citations?user=...
-#- icon: github
-#  icon_pack: fab
-#  link: https://github.com/...
+- icon: github
+  icon_pack: fab
+  link: https://github.com/bkarger/
 superuser: true
 user_groups:
 - Students
 ---
 
-Burton Karker is a [graduate / undergraudate] student in the Department of [x] at Colorado 
-State University. [Short description of research and academic interests.]
+Burton Karger is a Research Associate in the Department of Microbiology Immunology and Pathology at Colorado 
+State University.
