@@ -21,14 +21,14 @@
   
   
 
-  <meta name="author" content="Brooke Anderson">
+  <meta name="author" content="Sere Williams">
 
   
   
   
     
   
-  <meta name="description" content="Assistant Professor of Epidemiology">
+  <meta name="description" content="Graduate Student in Cellular and Molecular Biology">
 
   
   <link rel="alternate" hreflang="en-us" href="/categories/chapter-1/">
@@ -209,6 +209,42 @@
 
 
 
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-36719749-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           document.location = url;
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target);  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-36719749-3', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
   
 
 
@@ -236,10 +272,10 @@
   <meta property="og:site_name" content="CSU MSMB Group Study">
   <meta property="og:url" content="/categories/chapter-1/">
   <meta property="og:title" content="Chapter 1 | CSU MSMB Group Study">
-  <meta property="og:description" content="Assistant Professor of Epidemiology"><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
+  <meta property="og:description" content="Graduate Student in Cellular and Molecular Biology"><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
   <meta property="twitter:image" content="img/map[gravatar:%!s(bool=false) shape:circle]"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2020-01-13T00:00:00&#43;00:00">
+    <meta property="og:updated_time" content="2020-02-11T00:00:00&#43;00:00">
   
 
   
@@ -531,6 +567,35 @@
   
 
   
+  
+  <div>
+    <h2><a href="/post/exercise-solution-for-chapter-1/">Exercise solution for Chapter 1</a></h2>
+    <div class="article-style">
+      
+      This exercise asks us to explore the frequency of each of the four nucleotides (A, C, G, and T) in the genome of C. elegans, a type of worm used frequently in scientific research.
+This solution requires that several R extension packages be loaded in your R session. If you do not have these packages installed to your computer yet, you should follow instructions we’ve posted separately describing the required set-up for this exercise.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/chapter-1-exercise-setup/">Chapter 1 exercise setup</a></h2>
+    <div class="article-style">
+      
+      Instructions on how to get started on Chapter 1, exercise 1.8.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/chapter-1-vocabulary-quiz/">Chapter 1 vocabulary quiz</a></h2>
+    <div class="article-style">
+      
+       The vocabulary quiz will be live here during the start of the course.
+Loading…  
+      
+    </div>
+  </div>
   
   <div>
     <h2><a href="/post/vocabulary-for-chapter-1/">Vocabulary for Chapter 1</a></h2>

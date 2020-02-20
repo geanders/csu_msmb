@@ -15,7 +15,7 @@ name: James DiLisio
 organizations: 
 - name: Colorado State University
   url: ""
-role: Graduate Student in ...
+role: Graduate Student in Microbiology, Immunology, and Pathology
 social: 
 - icon: envelope
   icon_pack: fas
@@ -34,5 +34,4 @@ user_groups:
 - Students
 ---
 
-James DiLisio is a graduate student in the Department of MIP at Colorado 
-State University. [Short description of research and academic interests.]
+James DiLisio is a graduate student in the Department of Microbiology, Immunology, and Pathology at Colorado State University. He is interested in modulating immune cell phentoypes in various disease states to improve current therapies.  

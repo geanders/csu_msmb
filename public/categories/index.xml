@@ -29,34 +29,66 @@
     </item>
     
     <item>
-      <title>instructions</title>
-      <link>/categories/instructions/</link>
-      <pubDate>Tue, 28 Jan 2020 00:00:00 +0000</pubDate>
-      <guid>/categories/instructions/</guid>
+      <title>Chapter 2</title>
+      <link>/categories/chapter-2/</link>
+      <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/chapter-2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Exercise solutions</title>
+      <link>/categories/exercise-solutions/</link>
+      <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/exercise-solutions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>quiz</title>
+      <link>/categories/quiz/</link>
+      <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/quiz/</guid>
       <description></description>
     </item>
     
     <item>
       <title>blogdown</title>
       <link>/categories/blogdown/</link>
-      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
       <guid>/categories/blogdown/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Chapter 1</title>
-      <link>/categories/chapter-1/</link>
-      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
-      <guid>/categories/chapter-1/</guid>
+      <title>exercises</title>
+      <link>/categories/exercises/</link>
+      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/exercises/</guid>
       <description></description>
     </item>
     
     <item>
       <title>github</title>
       <link>/categories/github/</link>
-      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
       <guid>/categories/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>instructions</title>
+      <link>/categories/instructions/</link>
+      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/instructions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chapter 1</title>
+      <link>/categories/chapter-1/</link>
+      <pubDate>Tue, 11 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/chapter-1/</guid>
       <description></description>
     </item>
     

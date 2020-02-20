@@ -1,5 +1,5 @@
-finite mixture	"in the context of statistic, when the distribution of interest is a combination of a few different probability distribution "
-infinite mixture	"in the context of statistic, when the distribution of interest is a combination of many probability distributions (more probability distributions than observations)"
+finite mixture	"in the context of statistic, when the distribution of interest is a combination of a few different probability distributions "
+infinite mixture	"in the context of statistic, when the distribution of interest is a combination of many probability distributions (as many or more probability distributions as observations)"
 mixture model	a model for a combination of two or more different probability distributions
 probability density function	"a function giving the relative likelihood that a continuous random variable is equal to a given value. When this function is integrated over the sample space, it equals 1."
 bimodal distribution	a distribution comprised of two modes
@@ -7,7 +7,7 @@ expectation-maximization (EM) algorithm	an algorithm that allows for parameter e
 data augmentation	adding variables that are not measured (latent variables) to the data
 latent variables	variables not measured in the data
 bivariate distribution	a combined distribution made of two random variables
-mixture fraction	a fraction used to describe the inhomogeneity in mixture composition
+mixture fraction	a fraction used to describe the inhomogeneity in the mixture composition
 identifiability	an issue where there can be several explanations for the same observed values; occurs when there are too many degrees of freedom in parameters 
 marginal likelihood	the sum of the marginal distributions
 expectation function	a function that calculates the average of all possible values of  the group that an observation belongs to
@@ -19,7 +19,7 @@ ChIP-Seq data	sequencing data that identifies DNA binding sites for proteins
 chromosome	a DNA molecule that contains the genetic material of an organism
 binding site	"in the context of molecular biology, a specific region to which a macromolecule binds"
 deoxyribonucleotide monophosphate	a single phosphate group in a unit of DNA
-gene expression measurement	the measurement of a functional gene product (i.e. protein or RNA)
+gene expression measurement	the measurement of a functional gene product (i.e., protein or RNA)
 microarray	a laboratory tool used to detect gene expression
 promoter	"in the context of genetics, a region of DNA that initiates transcription of a gene"
 point mass	a finite probabiliity concentrated at a point in the proability mass distribution at which there is a discontinuous segment in probability density function

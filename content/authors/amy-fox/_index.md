@@ -30,7 +30,6 @@ social:
 - icon: user-circle
   icon_pack: fa
   link: https://amyfox.netlify.com/
-
 superuser: true
 user_groups:
 - Students

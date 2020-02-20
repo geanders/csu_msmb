@@ -11,6 +11,9 @@ title = "CSU MSMB Group Study"
 # End your URL with a `/` trailing slash, e.g. `https://example.com/`.
 baseurl = "/"
 
+# Enable analytics by entering your Google Analytics tracking ID
+GoogleAnalytics = "UA-36719749-3"
+
 # Enter a copyright notice to display in the site footer.
 # To display a copyright symbol, type `&copy;`. For current year, type `{year}`.
 copyright = ""

@@ -21,14 +21,14 @@
   
   
 
-  <meta name="author" content="Brooke Anderson">
+  <meta name="author" content="Sere Williams">
 
   
   
   
     
   
-  <meta name="description" content="Assistant Professor of Epidemiology">
+  <meta name="description" content="Graduate Student in Cellular and Molecular Biology">
 
   
   <link rel="alternate" hreflang="en-us" href="/tags/vocabulary/">
@@ -209,6 +209,42 @@
 
 
 
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-36719749-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           document.location = url;
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target);  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-36719749-3', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
   
 
 
@@ -236,7 +272,7 @@
   <meta property="og:site_name" content="CSU MSMB Group Study">
   <meta property="og:url" content="/tags/vocabulary/">
   <meta property="og:title" content="vocabulary | CSU MSMB Group Study">
-  <meta property="og:description" content="Assistant Professor of Epidemiology"><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
+  <meta property="og:description" content="Graduate Student in Cellular and Molecular Biology"><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
   <meta property="twitter:image" content="img/map[gravatar:%!s(bool=false) shape:circle]"><meta property="og:locale" content="en-us">
   
     <meta property="og:updated_time" content="2020-02-20T00:00:00&#43;00:00">
@@ -537,17 +573,36 @@
     <div class="article-style">
       
       Chapter 4 covers how to generate both finite and infinite mixture models from various distributions. It introduces a number of terms relating to these models. The vocabulary words for Chapter 4 are:
-        finite mixture  in the context of statistic, when the distribution of interest is a combination of a few different probability distribution    infinite mixture  in the context of statistic, when the distribution of interest is a combination of many probability distributions (more probability distributions than observations)    mixture model  a model for a combination of two or more different probability distributions    probability density function  a function giving the relative likelihood that a continuous random variable is equal to a given value.
+        finite mixture  in the context of statistic, when the distribution of interest is a combination of a few different probability distributions    infinite mixture  in the context of statistic, when the distribution of interest is a combination of many probability distributions (as many or more probability distributions as observations)    mixture model  a model for a combination of two or more different probability distributions    probability density function  a function giving the relative likelihood that a continuous random variable is equal to a given value.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="/post/tips-on-writing-a-vocabulary-list/">Tips on writing a vocabulary list</a></h2>
+    <h2><a href="/post/vocabulary-for-chapter-2-8-2-12/">Vocabulary for Chapter 2, Part 2</a></h2>
     <div class="article-style">
       
-      Here are some tips on writing up the vocabulary list for a chapter:
- You should include all words in the chapter that are given in bold. Be sure to look for bolded terms in the sidenotes and end-of-chapter exercises, too! Occassionally, the authors use bold for subheadings (see the “Why R and Bioconductor?” section in the Introduction or the “Summary of this chapter” section of Chapter 1). These subheadings do not need to be included in the vocabulary list for the chapter.
+      These sections introduced Markov chains and the Bayesian paradigm. Markov chain transitions were used to model dependencies along DNA sequences. The vocabulary terms are:
+        Markov chain  a sequence where given the current state, the next state is conditionally independent of all previous states    Bayesian paradigm  approaching statistics from the perspective that probability can be viewed as a degree of belief in an event    Beta distribution  a probability distribution defined on the interval [0, 1] often used to model probabilities in Bayesian statistics    Exponential distribution  a probability distribution defined on the positive real numbers that can be used to model the time between events in a Poisson point process    Prior  a probability distribution describing our knowledge of a hypothesis/parameter before incorporating new data    Posterior  a probability distribution describing our knowledge of a hypothesis/parameter after incorporating new data    Haplotype  a collection of DNA sequence variants (e.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/vocabularly-for-chapter-2-part-1/">Vocabularly for Chapter 2, Part 1</a></h2>
+    <div class="article-style">
+      
+      Vocabulary for the first part of Chapter 2
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/creating-a-vocabulary-list-blog-post/">How to create a vocabulary list blog post</a></h2>
+    <div class="article-style">
+      
+      As one of your assignments for this class, you are responsible for creating a blog post with all the vocabulary and definitions for one week of the course. This blog post will explain how you can create and publish that blog post on our course website.
+Create the blog post Update your fork of the website You should have already forked our website to add your details for the “Person” section.
       
     </div>
   </div>

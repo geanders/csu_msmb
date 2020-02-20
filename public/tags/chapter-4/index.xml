@@ -37,7 +37,7 @@
 finite mixture
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-in the context of statistic, when the distribution of interest is a combination of a few different probability distribution
+in the context of statistic, when the distribution of interest is a combination of a few different probability distributions
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -45,7 +45,7 @@ in the context of statistic, when the distribution of interest is a combination 
 infinite mixture
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-in the context of statistic, when the distribution of interest is a combination of many probability distributions (more probability distributions than observations)
+in the context of statistic, when the distribution of interest is a combination of many probability distributions (as many or more probability distributions as observations)
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -109,7 +109,7 @@ a combined distribution made of two random variables
 mixture fraction
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-a fraction used to describe the inhomogeneity in mixture composition
+a fraction used to describe the inhomogeneity in the mixture composition
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -205,7 +205,7 @@ a single phosphate group in a unit of DNA
 gene expression measurement
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-the measurement of a functional gene product (i.e. protein or RNA)
+the measurement of a functional gene product (i.e., protein or RNA)
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -334,86 +334,6 @@ delta method
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
 a calculus procedure that uses random variables to approximate the expected value and variance of a function
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
-NA
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-NA
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
-NA
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-NA
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
-NA
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-NA
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
-NA
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-NA
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
-NA
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-NA
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
-&lt;a href=&#34;https://www.nature.com/scitable/definition/microarray-202/&#34; class=&#34;uri&#34;&gt;https://www.nature.com/scitable/definition/microarray-202/&lt;/a&gt;
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-NA
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
-&lt;a href=&#34;https://www.illumina.com/techniques/sequencing/dna-sequencing/chip-seq.html&#34; class=&#34;uri&#34;&gt;https://www.illumina.com/techniques/sequencing/dna-sequencing/chip-seq.html&lt;/a&gt;
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-NA
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
-&lt;a href=&#34;http://www.r-tutor.com/elementary-statistics/non-parametric-methods&#34; class=&#34;uri&#34;&gt;http://www.r-tutor.com/elementary-statistics/non-parametric-methods&lt;/a&gt;
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-NA
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
-&lt;a href=&#34;https://machinelearningmastery.com/expectation-maximization-em-algorithm/&#34; class=&#34;uri&#34;&gt;https://machinelearningmastery.com/expectation-maximization-em-algorithm/&lt;/a&gt;
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-NA
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
-&lt;a href=&#34;https://www.sciencedirect.com/science/article/pii/S0016236119303230&#34; class=&#34;uri&#34;&gt;https://www.sciencedirect.com/science/article/pii/S0016236119303230&lt;/a&gt;
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-NA
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;

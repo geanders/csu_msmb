@@ -1,0 +1,19 @@
+Markov chain	a sequence where given the current state, the next state is conditionally independent of all previous states
+Bayesian paradigm	approaching statistics from the perspective that probability can be viewed as a degree of belief in an event
+Beta distribution	a probability distribution defined on the interval [0, 1] often used to model probabilities in Bayesian statistics
+Exponential distribution	a probability distribution defined on the positive real numbers that can be used to model the time between events in a Poisson point process
+Prior	a probability distribution describing our knowledge of a hypothesis/parameter before incorporating new data
+Posterior	a probability distribution describing our knowledge of a hypothesis/parameter after incorporating new data
+Haplotype	a collection of DNA sequence variants (e.g., alleles) that are spatially close on a chromosome, are usually inherited together, and thus are genetically linked
+Marginal distribution	the distribution of a sub-collection of variables after integrating out the remaining variables in the collection.
+Monte Carlo integration	a technique for numerical integration where the value of an integral is estimated by simulating data
+Quantile-quantile plot (QQ-plot)	a plot comparing the quantiles from one distribution (often a theoretical distribution) to the quantiles of another distribution (often from a sample)
+Maximum a posteriori (MAP) estimate	the mode of the posterior distribution associated with the quantity of interest
+Escherichia coli	facultative anaerobic, rod-shaped, coliform bacterium commonly found in the lower intestine of warm-blooded organisms
+Epigenetics	the study of heritable phenotype changes that do not involve alterations in the DNA sequence
+Log-likelihood ratio	the log of the likelihood under one set of assumptions divided by the likelihood under another set of assumptions
+Bimodality	when a distribution has two modes
+Mixture	in the context of statistics, when the distribution of interest is a combination of two or more different probability distributions
+Codon	A three-nucleotide sequence that specifies the amino acid to be created next (or to start or stop synthesis)
+Codon bias	the differences in how often each spelling of an amino acid occurs in coding DNA
+Genetic code	the set of instructions in a gene that tell the cell how to make a specific protein
