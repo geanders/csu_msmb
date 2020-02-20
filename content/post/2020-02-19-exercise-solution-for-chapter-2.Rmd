@@ -23,7 +23,7 @@ projects: []
 ---
 As always, load libraries first.
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE, echo = TRUE}
 knitr::opts_chunk$set(echo = TRUE)
 library(ggplot2)
 library(tidyverse)
@@ -32,11 +32,11 @@ library(dplyr)
 
 ## Exercise 2.3 from Modern Statistics for Modern Biologists
 
-A sequence of three nucleotides codes for one amino acid. There are 4 nucleotides, thus 4^3 would allow for 64 different amino acids, however there are only 20 amino acids requiring only 20 combinations + 1 for an end signal. The code is redundant. Here we use the tuberculosis genome to understand codon bias. 
+A sequence of three nucleotides codes for one amino acid. There are 4 nucleotides, thus $4^3$ would allow for 64 different amino acids, however there are only 20 amino acids requiring only 20 combinations + 1 for an "end" signal. (The "start" signal is the codon, ATG, which also codes for the amino acid methionine, so the start signal does not have a separate codon.) The code is redundant. But is the redundancy even among codons that code for the same amino acid? In other words, if alanine is coded by 4 different codons, do these codons code for alanine equally (each 25%), or do some codons appear more often than others? Here we use the tuberculosis genome to explore codon bias. 
 
-# a) Explore the data `mtb` using table to tabulate the AmAcid and Codon variables.
+# a) Explore the data `mtb` using `table` to tabulate the `AmAcid` and `Codon` variables.
 
-Each amino acid is encoded by 1-6 tri-nucleotide combinations. 
+Each amino acid is encoded by 1--6 tri-nucleotide combinations. 
 
 ```{r}
 mtb = read.table("example_datasets/M_tuberculosis.txt", header = TRUE)
@@ -44,7 +44,8 @@ codon_no <- rowSums(table(mtb))
 codon_no
 ```
 
-The PerThousands of each codon can be visualized, where each bar represents a different codon. But what does the "PerThousands" variable mean?
+
+The `PerThousands` of each codon can be visualized, where each plot represents an amino acid and each bar represents a different codon that codes for that amino acid. But what does the `PerThousands` variable mean?
 
 ```{r, fig.width=8, fig.height=6}
 ggplot(mtb, aes(x=Codon, y=PerThous)) +
@@ -53,16 +54,16 @@ ggplot(mtb, aes(x=Codon, y=PerThous)) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
-# b) How was the PerThous variable created?
+# b) How was the `PerThous` variable created?
 
-The sum of all of the numbers of codons gives you the total number of codons in the M. tuberculosis genome: `all_codons`. Remember that this is not the size of the M. tuberculosis genome, but the number of codons in all M. tuberculosis genes. To get the size of the genome you'd have to multiply each codon by 3 (for each nucleotide) and add non-coding nucleotides (which we do not know from this dataset).
+The sum of all of the numbers of codons gives you the total number of codons in the M. tuberculosis genome: `all_codons`. Remember that this is not the size of the M. tuberculosis genome, but the number of codons in all M. tuberculosis genes. To get the size of the genome, multiply each codon by 3 (for each nucleotide) and add all non-coding nucleotides (which we do not know from this data set).
 
 ```{r}
 all_codons = sum(mtb$Number)
 all_codons
 ```
 
-The PerThousands variable is derived by dividing the number of occurances of the codon of interest by the total number of codons. Because this number is then small and hard to intrepret, multipling it by 1000 gives a value that is easy to make sense of quickly. Here is an example for proline. The four values returned align to the four codons that each code for proline. 
+The `PerThousands` variable is derived by dividing the number of occurrences of the codon of interest by the total number of codons. Because this number is small and hard to interpret, multiplying it by 1000 gives a value that is easy to make sense of. Here is an example for proline. The four values returned align to the four codons that each code for proline. 
 
 ```{r}
 pro  =  mtb[mtb$AmAcid == "Pro", "Number"]
@@ -81,7 +82,7 @@ codon_expected <- data.frame(codon_no) %>%
 codon_expected
 ```
 
-Next, calculate the observed frequencies for each codon seen in the dataset:
+Next, calculate the observed frequencies for each codon seen in the data set:
 
 ```{r}
 codon_observed <- full_join(mtb, codon_expected, by = "AmAcid") %>%
