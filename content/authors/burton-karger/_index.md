@@ -3,12 +3,12 @@ authors:
 bio: [Mycobacterial research concerning boosting strategies for BCG vaccination strategies against Tuberculosis disease.]
 education:
   courses:
-  - course: MS in [Microbiology Immunology Pathology]
-    institution: [CSU]
-    year: [2018]
-  - course: BS in [Biology]
-    institution: [CSU]
-    year: [2017]
+  - course: MS in Microbiology Immunology Pathology
+    institution: CSU
+    year: 2018
+  - course: BS in Biology
+    institution: CSU
+    year: 2017
 email: "burton.karger@colostate.edu"
 interests:
 - Microbiology
