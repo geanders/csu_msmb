@@ -71,7 +71,7 @@ bash shell to add the original GitHub repository as a remote branch with the nam
 "upstream":
 
 ```{bash eval = FALSE}
-git remote add upstream git@github.com/geanders/csu_msmb.git
+git remote add upstream git@github.com:geanders/csu_msmb.git
 ```
 
 Now that you have added the original as a remote, you can pull in any commits that were

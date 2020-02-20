@@ -81,11 +81,10 @@ assignment in the same call—you might find this useful in writing concise code
 while still showing what’s in the objects you create.&lt;/li&gt;
 &lt;li&gt;Use the &lt;code&gt;$&lt;/code&gt; and &lt;code&gt;$$&lt;/code&gt; tags in RMarkdown to include mathematical equations in your blog post
 when appropriate.&lt;/li&gt;
-&lt;li&gt;If you need to read in a dataset for R code in your blog post, talk with us about
-how we can do that within a &lt;em&gt;blogdown&lt;/em&gt; framework. If your data comes from an online
-source or from an R library, this shouldn’t be a problem, but if it is from a data file
-that needs to be included in the website directory, we may need to work with you on
-some extra set-up.&lt;/li&gt;
+&lt;li&gt;If you need to read in a dataset for R code in your blog post, save it in the
+website directory’s “content/post/example_datasets” subdirectory. If your data
+comes from an online source or from an R library, you won’t need to do this,
+only if you need a “local” copy of the datafile to run your RMarkdown code.&lt;/li&gt;
 &lt;li&gt;You are welcome to draw from (and cite) other statistics textbooks or dictionaries
 if you’d like to in explaining the problem and your approach to it.&lt;/li&gt;
 &lt;li&gt;For the code, look at vignettes and helpfiles, especially for packages you are not
@@ -155,7 +154,7 @@ branch. Each branch has its own name, and you can use that name to refer to it i
 as a remote, is to name that remote branch “upstream”. Run the following code in your
 bash shell to add the original GitHub repository as a remote branch with the name
 “upstream”:&lt;/p&gt;
-&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;git remote add upstream git@github.com/geanders/csu_msmb.git&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;git remote add upstream git@github.com:geanders/csu_msmb.git&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Now that you have added the original as a remote, you can pull in any commits that were
 made to it since you originally forked it. There are a few ways you can do that, but one
 way to do it in one step is with git’s &lt;code&gt;pull&lt;/code&gt; command. This fetches the changes and merges
