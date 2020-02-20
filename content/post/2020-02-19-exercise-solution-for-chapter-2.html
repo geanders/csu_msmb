@@ -25,13 +25,16 @@ projects: []
 
 
 <p>As always, load libraries first.</p>
+<pre class="r"><code>library(ggplot2)
+library(tidyverse)
+library(dplyr)</code></pre>
 <div id="exercise-2.3-from-modern-statistics-for-modern-biologists" class="section level2">
 <h2>Exercise 2.3 from Modern Statistics for Modern Biologists</h2>
-<p>A sequence of three nucleotides codes for one amino acid. There are 4 nucleotides, thus 4^3 would allow for 64 different amino acids, however there are only 20 amino acids requiring only 20 combinations + 1 for an end signal. The code is redundant. Here we use the tuberculosis genome to understand codon bias.</p>
+<p>A sequence of three nucleotides codes for one amino acid. There are 4 nucleotides, thus <span class="math inline">\(4^3\)</span> would allow for 64 different amino acids, however there are only 20 amino acids requiring only 20 combinations + 1 for an “end” signal. (The “start” signal is the codon, ATG, which also codes for the amino acid methionine, so the start signal does not have a separate codon.) The code is redundant. But is the redundancy even among codons that code for the same amino acid? In other words, if alanine is coded by 4 different codons, do these codons code for alanine equally (each 25%), or do some codons appear more often than others? Here we use the tuberculosis genome to explore codon bias.</p>
 </div>
 <div id="a-explore-the-data-mtb-using-table-to-tabulate-the-amacid-and-codon-variables." class="section level1">
-<h1>a) Explore the data <code>mtb</code> using table to tabulate the AmAcid and Codon variables.</h1>
-<p>Each amino acid is encoded by 1-6 tri-nucleotide combinations.</p>
+<h1>a) Explore the data <code>mtb</code> using <code>table</code> to tabulate the <code>AmAcid</code> and <code>Codon</code> variables.</h1>
+<p>Each amino acid is encoded by 1–6 tri-nucleotide combinations.</p>
 <pre class="r"><code>mtb = read.table(&quot;example_datasets/M_tuberculosis.txt&quot;, header = TRUE)
 codon_no &lt;- rowSums(table(mtb))
 codon_no</code></pre>
@@ -39,20 +42,20 @@ codon_no</code></pre>
 ##   4   6   2   2   2   3   2   2   4   2   3   6   2   1   2   4   6   4   1   2 
 ## Val 
 ##   4</code></pre>
-<p>The PerThousands of each codon can be visualized, where each bar represents a different codon. But what does the “PerThousands” variable mean?</p>
+<p>The <code>PerThousands</code> of each codon can be visualized, where each plot represents an amino acid and each bar represents a different codon that codes for that amino acid. But what does the <code>PerThousands</code> variable mean?</p>
 <pre class="r"><code>ggplot(mtb, aes(x=Codon, y=PerThous)) +
   geom_col()+
   facet_wrap(~AmAcid, scales=&quot;free&quot;) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))</code></pre>
-<p><img src="/post/2020-02-19-exercise-solution-for-chapter-2_files/figure-html/unnamed-chunk-2-1.png" width="768" /></p>
+<p><img src="/post/2020-02-19-exercise-solution-for-chapter-2_files/figure-html/unnamed-chunk-3-1.png" width="768" /></p>
 </div>
 <div id="b-how-was-the-perthous-variable-created" class="section level1">
-<h1>b) How was the PerThous variable created?</h1>
-<p>The sum of all of the numbers of codons gives you the total number of codons in the M. tuberculosis genome: <code>all_codons</code>. Remember that this is not the size of the M. tuberculosis genome, but the number of codons in all M. tuberculosis genes. To get the size of the genome you’d have to multiply each codon by 3 (for each nucleotide) and add non-coding nucleotides (which we do not know from this dataset).</p>
+<h1>b) How was the <code>PerThous</code> variable created?</h1>
+<p>The sum of all of the numbers of codons gives you the total number of codons in the M. tuberculosis genome: <code>all_codons</code>. Remember that this is not the size of the M. tuberculosis genome, but the number of codons in all M. tuberculosis genes. To get the size of the genome, multiply each codon by 3 (for each nucleotide) and add all non-coding nucleotides (which we do not know from this data set).</p>
 <pre class="r"><code>all_codons = sum(mtb$Number)
 all_codons</code></pre>
 <pre><code>## [1] 1344223</code></pre>
-<p>The PerThousands variable is derived by dividing the number of occurances of the codon of interest by the total number of codons. Because this number is then small and hard to intrepret, multipling it by 1000 gives a value that is easy to make sense of quickly. Here is an example for proline. The four values returned align to the four codons that each code for proline.</p>
+<p>The <code>PerThousands</code> variable is derived by dividing the number of occurrences of the codon of interest by the total number of codons. Because this number is small and hard to interpret, multiplying it by 1000 gives a value that is easy to make sense of. Here is an example for proline. The four values returned align to the four codons that each code for proline.</p>
 <pre class="r"><code>pro  =  mtb[mtb$AmAcid == &quot;Pro&quot;, &quot;Number&quot;]
 pro / all_codons * 1000</code></pre>
 <pre><code>## [1] 31.560240  6.121752  3.405685 17.032144</code></pre>
@@ -87,7 +90,7 @@ codon_expected</code></pre>
 ## 19    Trp        1  1.0000000
 ## 20    Tyr        2  0.5000000
 ## 21    Val        4  0.2500000</code></pre>
-<p>Next, calculate the observed frequencies for each codon seen in the dataset:</p>
+<p>Next, calculate the observed frequencies for each codon seen in the data set:</p>
 <pre class="r"><code>codon_observed &lt;- full_join(mtb, codon_expected, by = &quot;AmAcid&quot;) %&gt;%
   group_by(AmAcid) %&gt;%
   mutate(am_length = sum(Number))%&gt;%
