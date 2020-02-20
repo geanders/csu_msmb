@@ -25,10 +25,14 @@ As always, load libraries first.
 
 ```{r setup, include=FALSE, echo = TRUE}
 knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r message = FALSE}
 library(ggplot2)
 library(tidyverse)
 library(dplyr)
 ```
+
 
 ## Exercise 2.3 from Modern Statistics for Modern Biologists
 
