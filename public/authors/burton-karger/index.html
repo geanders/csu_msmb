@@ -21,14 +21,14 @@
   
   
 
-  <meta name="author" content="Brooke Anderson">
+  <meta name="author" content="Sere Williams">
 
   
   
   
     
   
-  <meta name="description" content="Assistant Professor of Epidemiology">
+  <meta name="description" content="Graduate Student in Cellular and Molecular Biology">
 
   
   <link rel="alternate" hreflang="en-us" href="/authors/burton-karger/">
@@ -209,6 +209,42 @@
 
 
 
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-36719749-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           document.location = url;
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target);  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-36719749-3', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
   
 
 
@@ -236,7 +272,7 @@
   <meta property="og:site_name" content="CSU MSMB Group Study">
   <meta property="og:url" content="/authors/burton-karger/">
   <meta property="og:title" content="Burton Karger | CSU MSMB Group Study">
-  <meta property="og:description" content="Assistant Professor of Epidemiology"><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
+  <meta property="og:description" content="Graduate Student in Cellular and Molecular Biology"><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
   <meta property="twitter:image" content="img/map[gravatar:%!s(bool=false) shape:circle]"><meta property="og:locale" content="en-us">
   
     
@@ -529,12 +565,12 @@
 
       
       
-      <img class="avatar avatar-circle" src="/authors/burton-karger/avatar_hu52a603635ecebd45650b162dadabb4e5_12861_270x270_fill_q90_lanczos_center.jpg" alt="Avatar">
+      <img class="avatar avatar-circle" src="/authors/burton-karger/avatar_hu7b9983f8c34616cc77d0b8cfb1ab256d_24797_270x270_fill_q90_lanczos_center.jpeg" alt="Avatar">
       
 
       <div class="portrait-title">
         <h2>Burton Karger</h2>
-        <h3>Graduate Student in &hellip;</h3>
+        <h3>Laboratory Manager and Research Associate in MIP</h3>
 
         
         <h3>
@@ -557,8 +593,25 @@
         
         
         <li>
-          <a href="mailto:...@colostate.edu" >
+          <a href="mailto:burton.karger@colostate.edu" >
             <i class="fas fa-envelope big-icon"></i>
+          </a>
+        </li>
+        
+        
+        
+        
+          
+        
+        
+        
+        
+        
+          
+        
+        <li>
+          <a href="https://github.com/bkarger/" target="_blank" rel="noopener">
+            <i class="fab fa-github big-icon"></i>
           </a>
         </li>
         
@@ -571,8 +624,8 @@
     
     
 
-    <p>Burton Karker is a [graduate / undergraudate] student in the Department of [x] at Colorado
-State University. [Short description of research and academic interests.]</p>
+    <p>Burton Karger is a Research Associate in the Department of Microbiology Immunology and Pathology at Colorado
+State University.</p>
 
 
     <div class="row">
@@ -582,11 +635,11 @@ State University. [Short description of research and academic interests.]</p>
         <h3>Interests</h3>
         <ul class="ul-interests">
           
-          <li>Interest 1</li>
+          <li>Microbiology</li>
           
-          <li>Interest 2</li>
+          <li>Computer Programming</li>
           
-          <li>Interest 3</li>
+          <li>Skiing</li>
           
         </ul>
       </div>
@@ -600,16 +653,16 @@ State University. [Short description of research and academic interests.]</p>
           <li>
             <i class="fa-li fas fa-graduation-cap"></i>
             <div class="description">
-              <p class="course">MSc in [Discipline], [Year]</p>
-              <p class="institution">[Institution]</p>
+              <p class="course">MS in [Microbiology Immunology Pathology], [2018]</p>
+              <p class="institution">[CSU]</p>
             </div>
           </li>
           
           <li>
             <i class="fa-li fas fa-graduation-cap"></i>
             <div class="description">
-              <p class="course">BSc in [Discipline], [Year]</p>
-              <p class="institution">[Institution]</p>
+              <p class="course">BS in [Biology], [2017]</p>
+              <p class="institution">[CSU]</p>
             </div>
           </li>
           

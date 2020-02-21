@@ -21,14 +21,14 @@
   
   
 
-  <meta name="author" content="Brooke Anderson">
+  <meta name="author" content="Sere Williams">
 
   
   
   
     
   
-  <meta name="description" content="Assistant Professor of Epidemiology">
+  <meta name="description" content="Graduate Student in Cellular and Molecular Biology">
 
   
   <link rel="alternate" hreflang="en-us" href="/authors/">
@@ -209,6 +209,42 @@
 
 
 
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-36719749-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           document.location = url;
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target);  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-36719749-3', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
   
 
 
@@ -236,10 +272,10 @@
   <meta property="og:site_name" content="CSU MSMB Group Study">
   <meta property="og:url" content="/authors/">
   <meta property="og:title" content="Authors | CSU MSMB Group Study">
-  <meta property="og:description" content="Assistant Professor of Epidemiology"><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
+  <meta property="og:description" content="Graduate Student in Cellular and Molecular Biology"><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
   <meta property="twitter:image" content="img/map[gravatar:%!s(bool=false) shape:circle]"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2020-01-13T00:00:00&#43;00:00">
+    <meta property="og:updated_time" content="2020-02-19T00:00:00&#43;00:00">
   
 
   
@@ -534,16 +570,19 @@
     
     
       
+      <li><a href="/authors/mikaela-elder/">Mikaela Elder</a></li>
+    
+      
+      <li><a href="/authors/mike-lyons/">Mike Lyons</a></li>
+    
+      
       <li><a href="/authors/sarah-cooper/">Sarah Cooper</a></li>
     
       
-      <li><a href="/authors/sere-williams/">Sere Williams</a></li>
+      <li><a href="/authors/sherry-wemott/">Sherry WeMott</a></li>
     
       
-      <li><a href="/authors/sherry-wemott/">Sherry WeMott-Colton</a></li>
-    
-      
-      <li><a href="/authors/sierra-pugh/">Sierra Pugh</a></li>
+      <li><a href="/authors/zach_laubach/">Zach Laubach</a></li>
     
   </ul>
 
