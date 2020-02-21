@@ -6,9 +6,11 @@ slug: add-profile-details
 categories:
   - blogdown
   - github
+  - instructions
 tags:
   - blogdown
   - github
+  - instructions
 subtitle: ''
 summary: ''
 authors: [brooke-anderson]
