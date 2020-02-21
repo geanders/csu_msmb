@@ -5,10 +5,10 @@ date: '2020-02-19'
 slug: exercise-solution-for-chapter-2
 draft: yes
 categories:
-  - Exercise solutions
+  - exercises
   - Chapter 2
 tags:
-  - Exercise solutions
+  - exercises
   - Chapter 2
 subtitle: ''
 summary: ''
@@ -22,44 +22,34 @@ image:
 projects: []
 ---
 As always, load libraries first.
-<<<<<<< HEAD
 ```{r setup, include=FALSE, echo = TRUE}
-=======
-
-```{r setup, include=FALSE}
->>>>>>> 82d3ffdaf57e7c3a075dc207f5370c7595b50a0c
 knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r message = FALSE}
 library(ggplot2)
 library(tidyverse)
 library(dplyr)
 ```
 
+
 ## Exercise 2.3 from Modern Statistics for Modern Biologists
 
 A sequence of three nucleotides codes for one amino acid. There are 4 nucleotides, thus $4^3$ would allow for 64 different amino acids, however there are only 20 amino acids requiring only 20 combinations + 1 for an "end" signal. (The "start" signal is the codon, ATG, which also codes for the amino acid methionine, so the start signal does not have a separate codon.) The code is redundant. But is the redundancy even among codons that code for the same amino acid? In other words, if alanine is coded by 4 different codons, do these codons code for alanine equally (each 25%), or do some codons appear more often than others? Here we use the tuberculosis genome to explore codon bias. 
 
-<<<<<<< HEAD
 # a) Explore the data `mtb` using `table` to tabulate the `AmAcid` and `Codon` variables.
 
 Each amino acid is encoded by 1--6 tri-nucleotide combinations. 
-=======
-# a) Explore the data `mtb` using table to tabulate the AmAcid and Codon variables.
 
-Each amino acid is encoded by 1-6 tri-nucleotide combinations. 
-
->>>>>>> 82d3ffdaf57e7c3a075dc207f5370c7595b50a0c
 ```{r}
 mtb = read.table("example_datasets/M_tuberculosis.txt", header = TRUE)
 codon_no <- rowSums(table(mtb))
 codon_no
 ```
-<<<<<<< HEAD
+
 The `PerThousands` of each codon can be visualized, where each plot represents an amino acid and each bar represents a different codon that codes for that amino acid. But what does the `PerThousands` variable mean?
-=======
 
-The PerThousands of each codon can be visualized, where each bar represents a different codon. But what does the "PerThousands" variable mean?
-
->>>>>>> 82d3ffdaf57e7c3a075dc207f5370c7595b50a0c
 ```{r, fig.width=8, fig.height=6}
 ggplot(mtb, aes(x=Codon, y=PerThous)) +
   geom_col()+
@@ -76,12 +66,8 @@ all_codons = sum(mtb$Number)
 all_codons
 ```
 
-<<<<<<< HEAD
 The `PerThousands` variable is derived by dividing the number of occurrences of the codon of interest by the total number of codons. Because this number is small and hard to interpret, multiplying it by 1000 gives a value that is easy to make sense of. Here is an example for proline. The four values returned align to the four codons that each code for proline. 
-=======
-The PerThousands variable is derived by dividing the number of occurances of the codon of interest by the total number of codons. Because this number is then small and hard to intrepret, multipling it by 1000 gives a value that is easy to make sense of quickly. Here is an example for proline. The four values returned align to the four codons that each code for proline. 
 
->>>>>>> 82d3ffdaf57e7c3a075dc207f5370c7595b50a0c
 ```{r}
 pro  =  mtb[mtb$AmAcid == "Pro", "Number"]
 pro / all_codons * 1000
@@ -99,12 +85,8 @@ codon_expected <- data.frame(codon_no) %>%
 codon_expected
 ```
 
-<<<<<<< HEAD
 Next, calculate the observed frequencies for each codon seen in the data set:
-=======
-Next, calculate the observed frequencies for each codon seen in the dataset:
 
->>>>>>> 82d3ffdaf57e7c3a075dc207f5370c7595b50a0c
 ```{r}
 codon_observed <- full_join(mtb, codon_expected, by = "AmAcid") %>%
   group_by(AmAcid) %>%
