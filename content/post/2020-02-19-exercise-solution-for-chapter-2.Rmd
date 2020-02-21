@@ -88,13 +88,27 @@ codon_expected
 Next, calculate the observed frequencies for each codon seen in the data set:
 
 ```{r}
-codon_observed <- full_join(mtb, codon_expected, by = "AmAcid") %>%
-  group_by(AmAcid) %>%
-  mutate(am_length = sum(Number))%>%
-  mutate(prob_observed = Number / am_length) %>%
-  select(-codon_no, -am_length) %>%
-  mutate(expected_PerThous = Number*prob_codon)
-codon_observed
+codon_compared <- mtb %>% 
+  group_by(AmAcid) %>% 
+  mutate(total = sum(Number),
+         n_codons = n(),
+         expected = total / n_codons)
+codon_compared
+
+ggplot(codon_compared, aes(x=Codon, y=expected)) +
+     geom_col()+
+     facet_wrap(~AmAcid, scales="free") +
+     theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+codon_compared %>% 
+  filter(n_codons > 1) %>% 
+  group_by(AmAcid) %>% 
+  mutate(chi_squared = (Number - expected)^2/expected) %>% 
+  summarise(chi_squared = sum(chi_squared),
+            n = n()) %>% 
+  mutate(p_value = pchisq(chi_squared, df = n-1, lower.tail = FALSE)) %>% 
+  arrange(p_value)
+
 ```
 
 Using the chi-squared distribution, a chi-squared test statistic can be used to show codon bias. 
