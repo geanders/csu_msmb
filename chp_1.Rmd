@@ -1,0 +1,36 @@
+---
+title: "Exercise 1.8"
+author: "Burton Karger"
+date: "2/6/2020"
+output: html_document
+---
+
+```{r}
+library(Biostrings)
+library(BSgenome.Celegans.UCSC.ce2)
+library(magrittr)
+library(tibble)
+```
+```{r}
+x <- letterFrequency(Celegans$chrM, letters = c("A", "T", "G", "C"))
+x3 <- sum(x)
+x2 <- x/(sum(x))
+
+
+y <- sample(c("A", "T", "G", "C"), size = x3, replace = T)
+table(y)
+
+z <- function() {y <- sample(c("A", "T", "G", "C"), size = x3, replace = T)
+(table(y))
+}
+
+x4 <- replicate(100, z())
+x4
+
+m <- numeric(4)
+for(i in 1:4) {
+  m[i] <- mean(abs(x4[i,] - x3*.25) >= abs(x-x3*.25))
+}
+m
+```
+

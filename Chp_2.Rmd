@@ -1,0 +1,59 @@
+---
+title: "Chp_2"
+author: "Burton Karger"
+date: "2/13/2020"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+library(vcd)
+```
+
+
+```{r}
+load("../../Downloads/data/e100.RData")
+e99 = e100[-which.max(e100)]
+
+barplot(table(e99), space = 0.8, col = "chartreuse4")
+
+
+gf1 = goodfit( e99, "poisson")
+known = rpois(100, lambda = 0.05) 
+gfk = goodfit(known, "poisson")
+rootogram(gfk, xlab = "")
+```
+
+```{r}
+table(e99)
+table(e100)
+```
+```{r}
+table(rpois(100, lambda = 0.82))
+
+prod(dpois(c(0, 1, 2, 7), lambda = 1) ^ (c(58, 34, 7, 1)))
+
+```
+
+
+```{r}
+dim(HairEyeColor[,,"Female"])
+```
+
+
+
+
+
+```{r}
+H37Rv <- read.table("../../Downloads/data/M_tuberculosis.txt", header = TRUE) %>% 
+  print()
+```
+```{r}
+H37Rv %>% 
+  filter(AmAcid == "Gly") %>% 
+  
+```
+```{r}
+
+```
+
