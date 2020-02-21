@@ -50,7 +50,7 @@ codon_no
 
 The `PerThousands` of each codon can be visualized, where each plot represents an amino acid and each bar represents a different codon that codes for that amino acid. But what does the `PerThousands` variable mean?
 
-```{r, fig.width=8, fig.height=6}
+```{r, fig.height=6, fig.width=8}
 ggplot(mtb, aes(x=Codon, y=PerThous)) +
   geom_col()+
   facet_wrap(~AmAcid, scales="free") +
@@ -87,7 +87,7 @@ codon_expected
 
 Next, calculate the observed frequencies for each codon seen in the data set:
 
-```{r}
+```{r, fig.height=6, fig.width=8}
 codon_compared <- mtb %>% 
   group_by(AmAcid) %>% 
   mutate(total = sum(Number),
@@ -106,8 +106,11 @@ codon_compared %>%
   mutate(chi_squared = (Number - expected)^2/expected) %>% 
   summarise(chi_squared = sum(chi_squared),
             n = n()) %>% 
-  mutate(p_value = pchisq(chi_squared, df = n-1, lower.tail = FALSE)) %>% 
+  mutate(p_value = dchisq(chi_squared, df = n)) %>% 
   arrange(p_value)
+
+hist(chi_squared)
+hist(sqrt(chi_squared))
 
 ```
 
