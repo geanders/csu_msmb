@@ -103,20 +103,22 @@ ggplot(codon_compared, aes(x=Codon, y=expected)) +
 codon_compared %>% 
   filter(n_codons > 1) %>% 
   group_by(AmAcid) %>% 
-  mutate(chi_squared = (Number - expected)^2/expected) %>% 
+  mutate(chi_squared = ((Number - expected)^2/expected)/1000) %>% 
   summarise(chi_squared = sum(chi_squared),
             n = n()) %>% 
   mutate(p_value = dchisq(chi_squared, df = n)) %>% 
   arrange(p_value)
 
-hist(chi_squared)
-hist(sqrt(chi_squared))
+
 
 ```
 
 Using the chi-squared distribution, a chi-squared test statistic can be used to show codon bias. 
 
 ```{r eval = FALSE}
+hist(chi_squared)
+hist(sqrt(chi_squared))
+
 chi_stat <- data.frame(chi_squared = ((codon_observed$Number - codon_observed$expected_PerThous)^2)/(codon_observed$expected_PerThous))
 chi_stat
 
