@@ -4,87 +4,212 @@
   
   <url>
     <loc>/categories/</loc>
-    <lastmod>2020-01-13T16:40:37-07:00</lastmod>
+    <lastmod>2020-02-21T14:41:22-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/chapter-5/</loc>
+    <lastmod>2020-02-21T14:41:22-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/chapter-5/</loc>
+    <lastmod>2020-02-21T14:41:22-07:00</lastmod>
   </url>
   
   <url>
     <loc>/</loc>
-    <lastmod>2020-01-13T16:40:37-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/instructions/</loc>
-    <lastmod>2020-01-13T16:40:37-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/instructions/</loc>
-    <lastmod>2020-01-13T16:40:37-07:00</lastmod>
+    <lastmod>2020-02-21T14:41:22-07:00</lastmod>
   </url>
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2020-01-13T16:40:37-07:00</lastmod>
+    <lastmod>2020-02-21T14:41:22-07:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/</loc>
-    <lastmod>2020-01-13T16:40:37-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/tips-on-writing-a-vocabulary-list/</loc>
-    <lastmod>2020-01-13T16:40:37-07:00</lastmod>
+    <lastmod>2020-02-21T14:41:22-07:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/vocabulary/</loc>
-    <lastmod>2020-01-13T16:40:37-07:00</lastmod>
+    <lastmod>2020-02-21T14:41:22-07:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/vocabulary/</loc>
-    <lastmod>2020-01-13T16:40:37-07:00</lastmod>
+    <lastmod>2020-02-21T14:41:22-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/authors/brooke-anderson/</loc>
-    <lastmod>2020-01-13T14:48:08-07:00</lastmod>
+    <loc>/post/vocabulary-for-chapter-5/</loc>
+    <lastmod>2020-02-21T14:41:22-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/authors/amy-fox/</loc>
+    <lastmod>2020-02-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/authors/</loc>
-    <lastmod>2020-01-13T14:48:08-07:00</lastmod>
+    <lastmod>2020-02-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/blogdown/</loc>
-    <lastmod>2020-01-13T14:48:08-07:00</lastmod>
+    <loc>/categories/chapter-4/</loc>
+    <lastmod>2020-02-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/chapter-4/</loc>
+    <lastmod>2020-02-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/vocabulary-for-chapter-4/</loc>
+    <lastmod>2020-02-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/authors/sere-williams/</loc>
+    <lastmod>2020-02-19T15:25:48-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/chapter-2/</loc>
+    <lastmod>2020-02-19T18:18:47-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/chapter-2/</loc>
+    <lastmod>2020-02-19T18:18:47-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/chapter-2-part-2-vocabulary-quiz/</loc>
+    <lastmod>2020-02-19T18:18:47-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/exercise-solution-for-chapter-2/</loc>
+    <lastmod>2020-02-19T15:25:48-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/exercises/</loc>
+    <lastmod>2020-02-19T15:25:48-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/exercises/</loc>
+    <lastmod>2020-02-19T15:25:48-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/quiz/</loc>
+    <lastmod>2020-02-19T18:18:47-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/quiz/</loc>
+    <lastmod>2020-02-19T18:18:47-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/authors/brooke-anderson/</loc>
+    <lastmod>2020-02-13T09:44:08-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/authors/sierra-pugh/</loc>
+    <lastmod>2020-02-14T07:50:15-07:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/blogdown/</loc>
-    <lastmod>2020-01-13T14:48:08-07:00</lastmod>
+    <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/chapter-1/</loc>
-    <lastmod>2020-01-13T16:20:46-07:00</lastmod>
+    <loc>/tags/blogdown/</loc>
+    <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/chapter-1/</loc>
-    <lastmod>2020-01-13T16:20:46-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/github/</loc>
-    <lastmod>2020-01-13T14:48:08-07:00</lastmod>
+    <loc>/post/chapter-2-vocabulary-quiz/</loc>
+    <lastmod>2020-02-13T09:44:08-07:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/github/</loc>
-    <lastmod>2020-01-13T14:48:08-07:00</lastmod>
+    <lastmod>2020-02-11T20:21:23-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/github/</loc>
+    <lastmod>2020-02-11T20:21:23-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/how-to-create-an-exercise-solution-blog-post/</loc>
+    <lastmod>2020-02-11T20:21:23-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/instructions/</loc>
+    <lastmod>2020-02-11T20:21:23-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/instructions/</loc>
+    <lastmod>2020-02-11T20:21:23-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/vocabulary-for-chapter-2-8-2-12/</loc>
+    <lastmod>2020-02-14T07:50:15-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/chapter-1/</loc>
+    <lastmod>2020-02-11T20:22:07-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/chapter-1/</loc>
+    <lastmod>2020-02-11T20:22:07-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/exercise-solution-for-chapter-1/</loc>
+    <lastmod>2020-02-11T20:22:07-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/authors/bailey-fosdick/</loc>
+    <lastmod>2020-02-09T13:48:07-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/vocabularly-for-chapter-2-part-1/</loc>
+    <lastmod>2020-02-09T13:48:07-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/chapter-1-exercise-setup/</loc>
+    <lastmod>2020-02-06T10:05:38-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/chapter-1-vocabulary-quiz/</loc>
+    <lastmod>2020-02-05T13:06:04-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/creating-a-vocabulary-list-blog-post/</loc>
+    <lastmod>2020-02-03T10:37:52-07:00</lastmod>
   </url>
   
   <url>
@@ -112,14 +237,6 @@
   </url>
   
   <url>
-    <loc>/authors/amy-fox/</loc>
-  </url>
-  
-  <url>
-    <loc>/authors/bailey-fosdick/</loc>
-  </url>
-  
-  <url>
     <loc>/authors/burton-karger/</loc>
   </url>
   
@@ -128,11 +245,11 @@
   </url>
   
   <url>
-    <loc>/authors/caroline-thomas/</loc>
+    <loc>/authors/daniel-dean/</loc>
   </url>
   
   <url>
-    <loc>/authors/daniel-dean/</loc>
+    <loc>/authors/james_dilisio/</loc>
   </url>
   
   <url>
@@ -148,15 +265,11 @@
   </url>
   
   <url>
-    <loc>/authors/sere-williams/</loc>
-  </url>
-  
-  <url>
     <loc>/authors/sherry-wemott/</loc>
   </url>
   
   <url>
-    <loc>/authors/sierra-pugh/</loc>
+    <loc>/authors/zach_laubach/</loc>
   </url>
   
   <url>
