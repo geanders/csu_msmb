@@ -1,0 +1,61 @@
+---
+title: "Chapter 1"
+output: html_document
+---
+
+Exercise 1.8 
+```{r}
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("Biostrings")
+library(Biostrings)
+BiocManager::install("BSgenome.Celegans.UCSC.ce2")
+a
+library(BSgenome.Celegans.UCSC.ce2)
+genome_length <- length(Celegans$chrM)
+probs <- letterFrequency(Celegans$chrM, letters = c("A","C","G","T"))/genome_length
+
+
+You can kind of make up statistical equations to simulate - for example, could just do summation of absoluate value of expected - observed.
+```{r}
+library(BSgenome.Celegans.UCSC.ce2)
+
+library(Biostrings)
+
+genome_length <- length(Celegans$chrM)
+
+# probabilities
+probs <- letterFrequency(Celegans$chrM, letters = c("A", "C", "G", "T"))/length(Celegans$chrM)
+
+set.seed(2)
+pvec <- rep(1/4, 4)
+obs <- rmultinom(1000, prob = pvec, size = genome_length)
+
+expected0 <- pvec*genome_length
+
+   
+stat = function(obsvd, exptd = genome_length * pvec) {
+  sum((obsvd - exptd)^2 / exptd)
+}
+stat(obs[, 1])
+
+
+S0 = apply(obs, 2, stat)
+summary(S0)
+
+
+hist(S0, breaks = 25, col = "lavender", main = "")
+
+# this gives us the test statistic
+q95 = quantile(S0, probs = 0.95)
+q95
+
+# if we set an alpha of 0.05, then 95% of the data should be
+
+# Because our stat = 4392 (below) is much greater than our quantile of 8.045, then we reject the null (the probability is not uniform)
+
+# to get the 95% quantile where 3 is 1 fewer the number of bins you have
+qchisq(0.95, 3)
+```
+```
