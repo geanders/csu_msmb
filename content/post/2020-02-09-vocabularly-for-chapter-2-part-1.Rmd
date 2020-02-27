@@ -1,0 +1,53 @@
+---
+title: Vocabularly for Chapter 2, Part 1
+author: Bailey Fosdick
+date: '2020-02-09'
+slug: vocabularly-for-chapter-2-part-1
+categories:
+  - Chapter 2
+  - vocabulary
+tags:
+  - Chapter 2
+  - vocabulary
+subtitle: 'Sections 2.1-2.7'
+summary: 'Vocabulary for the first part of Chapter 2'
+authors: [bailey-fosdick]
+lastmod: '2020-02-09T13:48:07-07:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+The first portion of Chapter 2 (2.1-2.7) is focused on statistical modeling of data.  It introduces a number of distributions commonly used in statistics, as well as model fitting estimation procedures (e.g. maximum likelihood estimation).
+
+The vocabulary words for Chapter 2, part 1, are: 
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+# Load packages
+library(dplyr)
+library(readr)
+library(knitr)
+library(kableExtra)
+
+# Read in vocabulary from tsv into a dataframe
+# This is where you'll need to replace the file name with your own
+vocab <- read_tsv("vocab_lists/chapter_2_part1.tsv",
+                  col_names = c("term", "definition"))
+
+# Print the dataframe as a nice-looking table
+vocab %>% 
+  kable(align = c("rl"), 
+        col.names = c("", "")) %>% 
+  kable_styling(bootstrap_options = c("striped", "hover",
+                                      "condensed")) %>% 
+  column_spec(1, bold = T, border_right = T) %>%
+  column_spec(2, width = "30em")
+```
+
+
+### Practice
+
+<iframe src="https://quizlet.com/483285431/flashcards/embed?i=2ldef3&x=1jj1" height="500" width="100%" style="border:0"></iframe>
