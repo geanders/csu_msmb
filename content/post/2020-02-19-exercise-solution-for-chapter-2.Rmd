@@ -85,7 +85,7 @@ codon_expected <- data.frame(codon_no) %>%
 codon_expected
 ```
 
-Next, calculate the observed frequencies for each codon seen in the data set:
+Next, calculate the observed frequencies for each codon seen in the data set and use the chi-squared test statistic to determine if the difference between expected and observed codon frequencies is even or if some codon sequences are used more than others. 
 
 ```{r, fig.height=6, fig.width=8}
 codon_compared <- mtb %>% 
@@ -106,47 +106,10 @@ codon_compared %>%
   mutate(chi_squared = ((Number - expected)^2/expected)/1000) %>% 
   summarise(chi_squared = sum(chi_squared),
             n = n()) %>% 
-  mutate(p_value = dchisq(chi_squared, df = n)) %>% 
+  mutate(p_value = dchisq(chi_squared, df = n-1)) %>% 
   arrange(p_value)
 
 
 
 ```
 
-Using the chi-squared distribution, a chi-squared test statistic can be used to show codon bias. 
-
-```{r eval = FALSE}
-hist(chi_squared)
-hist(sqrt(chi_squared))
-
-chi_stat <- data.frame(chi_squared = ((codon_observed$Number - codon_observed$expected_PerThous)^2)/(codon_observed$expected_PerThous))
-chi_stat
-
-#I'm getting an error here. I'm not sure what is wrong.
-codon_observed <- codon_observed() %>%
-  mutate(chi-squared = ((codon_observed$Number - codon_observed$expected_PerThous)^2)/(codon_observed$expected_PerThous)) %>% 
-  select(-prob_codon, -prob_observed)
-codon_observed
-
-#Also an error here. 
-codon_observed <- codon_observed() %>%
-  mutate(chi-squared = chi_stat$chi_squared) %>% 
-  select(-prob_codon, -prob_observed)
-codon_observed
-
-
-#Additional ideas from students in class. I'm not able to run it, but I like the idea of using a function.  
-stat = function(codon_expected, exptd = 20 * pvec) {
-   sum((codon_df - exptd)^2 / exptd)
-}
-
-stat
-
-B = 1000
-simulstat = replicate(B, {
-  randomtab10 = sapply(stat, function(s) { rmultinom(1, s, p0) })
-  stat(randomtab10, expectedtab10)
-})
-S1 = stat(tab10, expectedtab10)
-sum(simulstat >= S1)
-```
