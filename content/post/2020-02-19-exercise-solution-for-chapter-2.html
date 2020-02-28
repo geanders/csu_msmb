@@ -32,8 +32,9 @@ library(dplyr)</code></pre>
 <h2>Exercise 2.3 from Modern Statistics for Modern Biologists</h2>
 <p>A sequence of three nucleotides codes for one amino acid. There are 4 nucleotides, thus <span class="math inline">\(4^3\)</span> would allow for 64 different amino acids, however there are only 20 amino acids requiring only 20 combinations + 1 for an “end” signal. (The “start” signal is the codon, ATG, which also codes for the amino acid methionine, so the start signal does not have a separate codon.) The code is redundant. But is the redundancy even among codons that code for the same amino acid? In other words, if alanine is coded by 4 different codons, do these codons code for alanine equally (each 25%), or do some codons appear more often than others? Here we use the tuberculosis genome to explore codon bias.</p>
 </div>
-<div id="a-explore-the-data-mtb-using-table-to-tabulate-the-amacid-and-codon-variables." class="section level1">
-<h1>a) Explore the data <code>mtb</code> using <code>table</code> to tabulate the <code>AmAcid</code> and <code>Codon</code> variables.</h1>
+<div id="a-explore-the-data-mtb" class="section level1">
+<h1>a) Explore the data, <code>mtb</code></h1>
+<p>Use <code>table</code> to tabulate the <code>AmAcid</code> and <code>Codon</code> variables.</p>
 <p>Each amino acid is encoded by 1–6 tri-nucleotide combinations.</p>
 <pre class="r"><code>mtb = read.table(&quot;example_datasets/M_tuberculosis.txt&quot;, header = TRUE)
 codon_no &lt;- rowSums(table(mtb))
@@ -49,8 +50,9 @@ codon_no</code></pre>
   theme(axis.text.x = element_text(angle = 45, hjust = 1))</code></pre>
 <p><img src="/post/2020-02-19-exercise-solution-for-chapter-2_files/figure-html/unnamed-chunk-3-1.png" width="768" /></p>
 </div>
-<div id="b-how-was-the-perthous-variable-created" class="section level1">
-<h1>b) How was the <code>PerThous</code> variable created?</h1>
+<div id="b-the-perthous-variable" class="section level1">
+<h1>b) The <code>PerThous</code> variable</h1>
+<p>How was the <code>PerThous</code> variable created?</p>
 <p>The sum of all of the numbers of codons gives you the total number of codons in the M. tuberculosis genome: <code>all_codons</code>. Remember that this is not the size of the M. tuberculosis genome, but the number of codons in all M. tuberculosis genes. To get the size of the genome, multiply each codon by 3 (for each nucleotide) and add all non-coding nucleotides (which we do not know from this data set).</p>
 <pre class="r"><code>all_codons = sum(mtb$Number)
 all_codons</code></pre>
@@ -60,8 +62,9 @@ all_codons</code></pre>
 pro / all_codons * 1000</code></pre>
 <pre><code>## [1] 31.560240  6.121752  3.405685 17.032144</code></pre>
 </div>
-<div id="c-write-an-r-function-that-you-can-apply-to-the-table-to-find-which-of-the-amino-acids-shows-the-strongest-codon-bias-i.e.-the-strongest-departure-from-uniform-distribution-among-its-possible-spellings." class="section level1">
-<h1>c) Write an R function that you can apply to the table to find which of the amino acids shows the strongest codon bias, i.e., the strongest departure from uniform distribution among its possible spellings.</h1>
+<div id="c-codon-bias" class="section level1">
+<h1>c) Codon bias</h1>
+<p>Write an R function that you can apply to the table to find which of the amino acids shows the strongest codon bias, i.e., the strongest departure from uniform distribution among its possible spellings.</p>
 <p>First, let’s look at the expected frequencies of each codon.</p>
 <pre class="r"><code>codon_expected &lt;- data.frame(codon_no) %&gt;%
   rownames_to_column() %&gt;%
@@ -148,5 +151,5 @@ codon_compared</code></pre>
 ## 17 Tyr          4738.     2  -2373.    17
 ## 18 Cys          2958.     2  -1483.    18
 ## 19 End           928.     3   -464.    19</code></pre>
-<p>As you may notice, these p-values are large, negative (so very tiny) values. In calculating the p-value from chi-squared text statistic, we took the log. If you exponentiate the p-value, you will get the actual p-value, but this number is so small (0.00000000e+00) that it is looses meaning. Instead, we will leave the p-value as a negative and sort the amino acids from most negative to less negative, providing a rank order of amino acids with the most unevenly used codons at 1 and amino acids with more evenly used codons as their rank increases.</p>
+<p>As you may notice, these p-values are large, negative (so very tiny) values. In calculating the p-value from chi-squared text statistic, we took the log. If you exponentiate the p-value you will get the actual p-value, but this number is so small (0.00000000e+00) that it is not meaningful. Instead, we will leave the p-value as a negative value and sort the amino acids from most negative to less negative. We now have the amino acids ranked from most biased codons (1) to least (19).</p>
 </div>

@@ -38,7 +38,9 @@ library(dplyr)
 
 A sequence of three nucleotides codes for one amino acid. There are 4 nucleotides, thus $4^3$ would allow for 64 different amino acids, however there are only 20 amino acids requiring only 20 combinations + 1 for an "end" signal. (The "start" signal is the codon, ATG, which also codes for the amino acid methionine, so the start signal does not have a separate codon.) The code is redundant. But is the redundancy even among codons that code for the same amino acid? In other words, if alanine is coded by 4 different codons, do these codons code for alanine equally (each 25%), or do some codons appear more often than others? Here we use the tuberculosis genome to explore codon bias. 
 
-# a) Explore the data `mtb` using `table` to tabulate the `AmAcid` and `Codon` variables.
+# a) Explore the data, `mtb` 
+
+Use `table` to tabulate the `AmAcid` and `Codon` variables.
 
 Each amino acid is encoded by 1--6 tri-nucleotide combinations. 
 
@@ -57,7 +59,9 @@ ggplot(mtb, aes(x=Codon, y=PerThous)) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
-# b) How was the `PerThous` variable created?
+# b) The `PerThous` variable
+
+How was the `PerThous` variable created? 
 
 The sum of all of the numbers of codons gives you the total number of codons in the M. tuberculosis genome: `all_codons`. Remember that this is not the size of the M. tuberculosis genome, but the number of codons in all M. tuberculosis genes. To get the size of the genome, multiply each codon by 3 (for each nucleotide) and add all non-coding nucleotides (which we do not know from this data set).
 
@@ -73,7 +77,9 @@ pro  =  mtb[mtb$AmAcid == "Pro", "Number"]
 pro / all_codons * 1000
 ```
 
-# c) Write an R function that you can apply to the table to find which of the amino acids shows the strongest codon bias, i.e., the strongest departure from uniform distribution among its possible spellings.
+# c) Codon bias
+
+Write an R function that you can apply to the table to find which of the amino acids shows the strongest codon bias, i.e., the strongest departure from uniform distribution among its possible spellings.
 
 First, let's look at the expected frequencies of each codon. 
 
@@ -110,4 +116,4 @@ codon_compared %>%
   arrange(p_value) %>% 
   mutate(rank = 1:n())
 ```
-As you may notice, these p-values are large, negative (so very tiny) values. In calculating the p-value from chi-squared text statistic, we took the log. If you exponentiate the p-value, you will get the actual p-value, but this number is so small (0.00000000e+00) that it is looses meaning. Instead, we will leave the p-value as a negative and sort the amino acids from most negative to less negative, providing a rank order of amino acids with the most unevenly used codons at 1 and amino acids with more evenly used codons as their rank increases. 
+As you may notice, these p-values are large, negative (so very tiny) values. In calculating the p-value from chi-squared text statistic, we took the log. If you exponentiate the p-value you will get the actual p-value, but this number is so small (0.00000000e+00) that it is not meaningful. Instead, we will leave the p-value as a negative value and sort the amino acids from most negative to less negative. We now have the amino acids ranked from most biased codons (1) to least (19). 
