@@ -55,6 +55,7 @@ Cambridge, United Kingdom.
 - https://iti.stanford.edu/
 - https://sysbiowiki.soe.ucsc.edu/node/323
 - https://www.statisticshowto.datasciencecentral.com/between-group-variation/
+- https://vsoch.github.io/2013/the-gap-statistic/
 
 ### Practice
 

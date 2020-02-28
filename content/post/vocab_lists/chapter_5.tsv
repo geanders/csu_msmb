@@ -1,55 +1,55 @@
-unsupervised method	Does not require any labeled sensor data.
-status	In multivariate data where we are not concerned with one single variable's value, we say that all variables	have the same status.
-distance	Measures relate to the differences between random variables, these may have statistical dependence
-The Euclidean distance	Between two points A=(a1,...,ap)A=(a1,...,ap) and B=(b1,...,bp)B=(b1,...,bp) in a pp-dimensional space (for the pp features) is the square root of the sum of squares of the differences in all pp coordinate directions: d(A,B)=√(a1−b1)2+(a2−b2)2+...+(ap−bp)2.
-Manhattan distance	The Manhattan distance takes the sum of the absolute differences in all coordinates.
-Maximum distance	The maximum jump (or complete linkage) method defines the distance between clusters as the largest distance between any two objects in the two clusters.
-Weighted Euclidean distanc	A generalization of the ordinary Euclidean distance, by giving different directions in feature space different weights.
-Minkowski distance	A metric in a normed vector space which can be considered as a generalization of both the Euclidean distance and the Manhattan distance.
-Edit or Hamming distance	The simplest way to compare character sequences. It simply counts the number of differences between two character strings.
-Binary distance	The proportion of features having only one bit on amongst those features that have at least one bit on.
-Jaccard distance	Occurrence of traits or features in ecological or mutation data can be translated into presence and absence and encoded as 1’s and 0’s.
+unsupervised method	A learning method where all variables are treated with the same status, rather than one variable being considered as an outcome or target.
+status	In multivariate data where we are not concerned with one single variable's value.
+distance	A measure of the differences between random variables.
+The Euclidean distance	a distance metric based on, the "ordinary" straight-line distance between two points
+Manhattan distance	a distance metric based on the sum of the absolute differences in all coordinates.
+Maximum distance	a distance metric based on, the maximum jump (or complete linkage) method defines the distance between clusters as the largest distance between any two objects in the two clusters.
+Weighted Euclidean distance	a distance metric based on a generalization of the ordinary Euclidean distance, by giving different directions in feature space different weights.
+Minkowski distance	a distance metric based on, a normed vector space that encompasses both the Euclidean and Manhattan distance, incorporating a parameter to allow this generalization.
+Edit or Hamming distance	a distance metric based on, the simplest way to compare character sequences. It simply counts the number of differences between two character strings.
+Binary distance	A metric of distance between two binary strings based on the proportion of features having only one bit on amongst those features that have at least one bit on.
+Jaccard distance	a distance metric based on, how dissimilar two sets are.
 co-occurrence	The fact of two or more things occurring together or simultaneously.
 Jaccard index	A statistic used in understanding the similarities between sample sets. The measurement emphasizes similarity between finite sample sets, and is formally defined as the size of the intersection divided by the size of the union of the sample sets.
-Jaccard dissimilarity	1- the Jaccard index 
-Correlation-based distance	Considers two objects to be similar if their features are highly correlated, even though the observed values may be far apart in terms of Euclidean distance. The distance between two objects is 0 when they are perfectly correlated.
-Clusters of Differentiation (CDs)	At different stages of their development, immune cells express unique combinations of proteins on their surfaces. These protein-markers are called CDs (clusters of differentiation)
-Rectangular gating	When just one marker can be used to separate populations a gate of rectangular shape can be placed over those cells to select or negate them. 
-Hyperbolic Arcsine (asinh)	It is standard to transform both flow and mass cytometry data using one of several special functions.
+Jaccard dissimilarity	1 - the Jaccard index. 
+Correlation-based distance	A distance metric that measures two objects to be similar if their features are highly correlated, even though the observed values may be far apart in terms of Euclidean distance. 
+Clusters of Differentiation (CDs)	At different stages of their development, immune cells express unique combinations of proteins on their surfaces.
+Rectangular gating	A method of identifying groups of cells from a flow cytometry experiment using either a line (one-dimensional) or the quadrants created by two perpendicular lines (two-dimensional)
+Hyperbolic Arcsine (asinh)	A transform function often preferred over the log tranform for flow cytometry data because it can be applied to negative values.
 density-based clustering (dbscan)	The dbscan method clusters points in dense regions according to the density-connectedness criterion. It looks at small neighborhood spheres of radius ϵϵ to see if points are connected.
-curse of dimensionality	various phenomena that arise when analyzing and organizing data in high-dimensional spaces that do not occur in low-dimensional settings such as the three-dimensional physical space of everyday experience.
+curse of dimensionality	that arises because, when the dimensionality increases, the volume of the space increases so fast that the available data become sparse
 density-reachability	Building block of dbscan, a point qq is directly density-reachable from a point pp if it is not further away than a given threshold ϵϵ, and if pp is surrounded by sufficiently many points such that one may consider pp (and qq) be part of a dense region
-recursive partitioning methods	Often used to make decision trees, They can be useful for prediction (say, survival time, given a medical diagnosis): we are hoping in those instances to split heterogeneous populations into more homogeneous subgroups by partitioning.
-minimal jump method/single linkage method/nearest neighbor method	Computes the distance between clusters as the smallest distance between any two points in the two clusters.
-maximum jump method/complete linkage method	Defines the distance between clusters as the largest distance between any two objects in the two clusters.
-average linkage method	Half way between single and complete linkage
-Ward's method	Takes an analysis of variance approach, where the goal is to minimize the variance within clusters. This method is very efficient, however, it tends to create break the clusters up into ones of smaller sizes.
-Within-groups sum of squares (WSS)	Within-group variation is reported in ANOVA output as SS(W) or which means Sum of Squares Within groups or SSW: Sum of Squares Within.
+recursive partitioning methods	A class of methods for dividing heterogeneous populations into more homogeneous subgroups, often used to make decision trees, that starts by separating the whole population into a few groups and iteratively continues separating each into subgroups.
+minimal jump method/single linkage method/nearest neighbor method	a clustering method that computes the distance between clusters as the smallest distance between any two points in the two clusters.
+maximum jump method/complete linkage method	a clustering method that defines the distance between clusters as the largest distance between any two objects in the two clusters.
+average linkage method	a clustering method that clusters half way between single and complete linkage
+Ward's method	a clustering method that takes an analysis of variance approach, where the goal is to minimize the variance within clusters. This method is very efficient, however, it tends to create break the clusters up into ones of smaller sizes.
+Within-groups sum of squares (WSS)	a measure of the difference among data points within an identified cluster
 Calinski-Harabasz index	Uses the within-groups sum of sqaures and between group sums of squares and is inspired by the F statistic 
-Between-groups sum of squares (BSS)	This measures the interaction between the groups or samples. If the group means don’t differ greatly from each other and the grand mean, the SS(B) will be small.
-gap statistic	Taking the logarithm of the within-sum-of-squares (log(WSSk)loga(WSSk)) and comparing it to averages from simulated data with less structure can be a good way of choosing k.
-technical / batch effects	Due to technical differences between your samples, such as the type of sequencing machine or even the technician that ran the sample. Removing this variability means changing the data for individual samples.
-computational complexity	An algorithm is said to be O(nk)O(nk), if, as nn gets larger, the resource consumption (CPU time or memory) grows proportionally to nknk.
-noise	Unexplained variability within a data sample. The term noise, in this context, came from signal processing where it was used to refer to unwanted electrical or electromagnetic energy that degrades the quality of signals and data.
-operational taxonomic unit (OTU) clustering	An operational definition used to classify groups of closely related individuals, an OTU is a pragmatic definition to group individuals by similarity, equivalent to but not necessarily in line with classical Linnaean taxonomy or modern evolutionary taxonomy.
+Between-groups sum of squares (BSS)	A measure of the interaction between the groups or samples that is small if the group means don’t differ greatly from each other and the overall mean. 
+gap statistic	a metric developed to help approximate the 'correct' number of clusters for an unsupervised clustering by measuring the within cluster sum of squares with regard to the number of clusters.
+technical / batch effects	Depedence in data observations that results from technical differences between samples, such as the type of sequencing machine or the technician that ran the sample, rather than from scientifically interesting causes.
+computational complexity	A measure capturing the computational resources usually needed to solve an algorithm.
+noise	Unexplained variability within a data sample. 
+operational taxonomic unit (OTU) A method of clustering organisms based on DNA sequence similarity of a certain taxonomic marker gene. 
 bias	The tendency of a statistic to overestimate or underestimate a parameter.
-representativeness heuristic	described as assessing similarity of objects and organizing them based around the category prototype (e.g., like goes with like, and causes and effects should resemble each other).
-rare variants	Occur just once or twice in an individual sample but more often across all samples
-insertion-deletion (indel) errors	when comparing two sequences that differ by a small stretch of characters, it is a matter of viewpoint whether this is an insertion or a deletion, thus the name.
-neighboring cluster	The cluster with the lowest average dissimilarity.
-silhouette index	Refers to a method of interpretation and validation of consistency within clusters of data.
+representativeness heuristic	a method of learning or discovery that assesses similarity of objects and organizing them based around the category prototype (e.g., like goes with like, and causes and effects should resemble each other).
+rare variants	an alternative form of a gene that occur just once or twice in an individual sample but more often across all samples.
+insertion-deletion (indel) insertion or deletion of bases in the genome of an organism. 
+neighboring cluster	The cluster with the lowest average dissimilarity for a given cluster.
+silhouette index	a metric of interpretation and validation of consistency within clusters of data.
 Microbiome	The aggregate of all microbiota that reside on or within an organim's tissues and biofluids along with the corresponding anatomical sites in which they reside.
-filtering (in the context of filtering out low-quality rRNA reads)	Filter out low-quality reads and trim them to a consistent length
+filtering 	in the context of low-quality rRNA reads removal of low-quality reads and trimming them to a consistent length
 Histopathology	The microscopic examination of tissue in order to study the manifestations of disease.
 Molecular signature	Sets of genes, proteins, genetic variants or other variables that can be used as markers for a particular phenotype
 Gene expression data	Gene expression measurements : from gene¬scale to genome¬scale
-Single-cell RNA-Seq experiment	Provides the expression profiles of individual cells.
+Single-cell RNA-Seq experiment	a measurement of the gene expression profiles of individual cells.
 gene transcript	An RNA molecule of defined size over the length of a gene.
 cell lineage dynamics	Visualized with tools such as scRNA-seq to track individual cells through their natural progression. 
 Flow cytometry	A technique for identifying and sorting cells and their components (such as DNA) by staining with a fluorescent dye and detecting the fluorescence usually by laser beam illumination
 Mass cytometry	A variation of flow cytometry in which antibodies are labeled with heavy metal ion tags rather than fluorochromes.  Readout is by time-of-flight mass spectrometry. 
-Immune cells	A cell that is part of the immune system and helps the body fight infections and other diseases
-CD marker	CD markers, also known as CD antigens, are specific types of molecules found on the surface of cells that help differentiate one cell type from another.
+Immune cells	cells that are part of the immune system and help the body fight infections and other diseases
+CD marker / antigen marker	are specific types of molecules found on the surface of cells that help differentiate one cell type from another.
 CD4	A glycoprotein found on the surface of immune cells such as T helper cells, monocytes, macrophages, and dendritic cells.
 helper T cells	A type of T cell that provides help to other cells in the immune response by recognizing foreign antigens and secreting substances called cytokines that activate T and B cells
 Isotope	Two or more forms of the same element that contain equal numbers of protons but different numbers of neutrons in their nuclei, and hence differ in relative atomic mass but not in chemical properties;
@@ -57,5 +57,5 @@ Inner cell mass (ICM)	Pluripotent cell lineage in the blastocyst. forms within t
 Blastocyst	A thin-walled hollow structure in early embryonic development that contains a cluster of cells called the inner cell mass from which the embryo arises.
 Pluripotent epiblast (EPI)	The functional progenitors of soma and germ cells which later differentiate into three layers: definitive endoderm, mesoderm and ectoderm
 primitive endoderm (PE)	The second extraembryonic tissue to form during embryogenesis in mammals. The PE develops from pluripotent cells of the blastocyst inner cell mass
-variable regions (in the context of taxon identification of bacteria)	Bacterial 16S ribosomal RNA (rRNA) genes contain nine “hypervariable regions” (V1 – V9) that demonstrate considerable sequence diversity among different bacteria.
+variable regions	in the context of taxon identification of bacteria bacterial 16S ribosomal RNA (rRNA) genes contain nine “hypervariable regions” (V1 – V9) that demonstrate considerable sequence diversity among different bacteria.
 Chimera	An organism or tissue that contains at least two different sets of DNA, most often originating from the fusion of as many different zygotes (fertilized eggs). 
