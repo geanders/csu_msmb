@@ -21,12 +21,12 @@ image:
   preview_only: no
 projects: []
 ---
-As always, load libraries first.
+
 ```{r setup, include=FALSE, echo = TRUE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-
+As always, load libraries first.
 ```{r message = FALSE}
 library(ggplot2)
 library(tidyverse)
@@ -38,7 +38,9 @@ library(dplyr)
 
 A sequence of three nucleotides codes for one amino acid. There are 4 nucleotides, thus $4^3$ would allow for 64 different amino acids, however there are only 20 amino acids requiring only 20 combinations + 1 for an "end" signal. (The "start" signal is the codon, ATG, which also codes for the amino acid methionine, so the start signal does not have a separate codon.) The code is redundant. But is the redundancy even among codons that code for the same amino acid? In other words, if alanine is coded by 4 different codons, do these codons code for alanine equally (each 25%), or do some codons appear more often than others? Here we use the tuberculosis genome to explore codon bias. 
 
-# a) Explore the data `mtb` using `table` to tabulate the `AmAcid` and `Codon` variables.
+# a) Explore the data, `mtb` 
+
+Use `table` to tabulate the `AmAcid` and `Codon` variables.
 
 Each amino acid is encoded by 1--6 tri-nucleotide combinations. 
 
@@ -57,7 +59,9 @@ ggplot(mtb, aes(x=Codon, y=PerThous)) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
-# b) How was the `PerThous` variable created?
+# b) The `PerThous` variable
+
+How was the `PerThous` variable created? 
 
 The sum of all of the numbers of codons gives you the total number of codons in the M. tuberculosis genome: `all_codons`. Remember that this is not the size of the M. tuberculosis genome, but the number of codons in all M. tuberculosis genes. To get the size of the genome, multiply each codon by 3 (for each nucleotide) and add all non-coding nucleotides (which we do not know from this data set).
 
@@ -73,7 +77,9 @@ pro  =  mtb[mtb$AmAcid == "Pro", "Number"]
 pro / all_codons * 1000
 ```
 
-# c) Write an R function that you can apply to the table to find which of the amino acids shows the strongest codon bias, i.e., the strongest departure from uniform distribution among its possible spellings.
+# c) Codon bias
+
+Write an R function that you can apply to the table to find which of the amino acids shows the strongest codon bias, i.e., the strongest departure from uniform distribution among its possible spellings.
 
 First, let's look at the expected frequencies of each codon. 
 
@@ -85,7 +91,7 @@ codon_expected <- data.frame(codon_no) %>%
 codon_expected
 ```
 
-Next, calculate the observed frequencies for each codon seen in the data set:
+Next, calculate the observed frequencies for each codon seen in the data set and use the chi-squared test statistic to determine if the difference between expected and observed codon frequencies is even or if some codon sequences are used more than others. 
 
 ```{r, fig.height=6, fig.width=8}
 codon_compared <- mtb %>% 
@@ -103,50 +109,11 @@ ggplot(codon_compared, aes(x=Codon, y=expected)) +
 codon_compared %>% 
   filter(n_codons > 1) %>% 
   group_by(AmAcid) %>% 
-  mutate(chi_squared = ((Number - expected)^2/expected)/1000) %>% 
+  mutate(chi_squared = ((Number - expected)^2/expected)) %>% 
   summarise(chi_squared = sum(chi_squared),
             n = n()) %>% 
-  mutate(p_value = dchisq(chi_squared, df = n)) %>% 
-  arrange(p_value)
-
-
-
+  mutate(p_value = pchisq(chi_squared, df = n-1, log = TRUE, lower.tail = FALSE)) %>% 
+  arrange(p_value) %>% 
+  mutate(rank = 1:n())
 ```
-
-Using the chi-squared distribution, a chi-squared test statistic can be used to show codon bias. 
-
-```{r eval = FALSE}
-hist(chi_squared)
-hist(sqrt(chi_squared))
-
-chi_stat <- data.frame(chi_squared = ((codon_observed$Number - codon_observed$expected_PerThous)^2)/(codon_observed$expected_PerThous))
-chi_stat
-
-#I'm getting an error here. I'm not sure what is wrong.
-codon_observed <- codon_observed() %>%
-  mutate(chi-squared = ((codon_observed$Number - codon_observed$expected_PerThous)^2)/(codon_observed$expected_PerThous)) %>% 
-  select(-prob_codon, -prob_observed)
-codon_observed
-
-#Also an error here. 
-codon_observed <- codon_observed() %>%
-  mutate(chi-squared = chi_stat$chi_squared) %>% 
-  select(-prob_codon, -prob_observed)
-codon_observed
-
-
-#Additional ideas from students in class. I'm not able to run it, but I like the idea of using a function.  
-stat = function(codon_expected, exptd = 20 * pvec) {
-   sum((codon_df - exptd)^2 / exptd)
-}
-
-stat
-
-B = 1000
-simulstat = replicate(B, {
-  randomtab10 = sapply(stat, function(s) { rmultinom(1, s, p0) })
-  stat(randomtab10, expectedtab10)
-})
-S1 = stat(tab10, expectedtab10)
-sum(simulstat >= S1)
-```
+As you may notice, these p-values are large, negative (so very tiny) values. In calculating the p-value from chi-squared text statistic, we took the log. If you exponentiate the p-value you will get the actual p-value, but this number is so small (0.00000000e+00) that it is not meaningful. Instead, we will leave the p-value as a negative value and sort the amino acids from most negative to less negative. We now have the amino acids ranked from most biased codons (1) to least (19). 
