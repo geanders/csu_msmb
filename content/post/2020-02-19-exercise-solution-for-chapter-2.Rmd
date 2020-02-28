@@ -3,7 +3,7 @@ title: Exercise solution for Chapter 2, Part 1
 author: Sere Williams
 date: '2020-02-19'
 slug: exercise-solution-for-chapter-2
-draft: yes
+draft: no
 categories:
   - exercises
   - Chapter 2
