@@ -90,60 +90,63 @@ codon_expected</code></pre>
 ## 19    Trp        1  1.0000000
 ## 20    Tyr        2  0.5000000
 ## 21    Val        4  0.2500000</code></pre>
-<p>Next, calculate the observed frequencies for each codon seen in the data set:</p>
-<pre class="r"><code>codon_observed &lt;- full_join(mtb, codon_expected, by = &quot;AmAcid&quot;) %&gt;%
-  group_by(AmAcid) %&gt;%
-  mutate(am_length = sum(Number))%&gt;%
-  mutate(prob_observed = Number / am_length) %&gt;%
-  select(-codon_no, -am_length) %&gt;%
-  mutate(expected_PerThous = Number*prob_codon)</code></pre>
-<pre><code>## Warning: Column `AmAcid` joining factor and character vector, coercing into
-## character vector</code></pre>
-<pre class="r"><code>codon_observed</code></pre>
+<p>Next, calculate the observed frequencies for each codon seen in the data set and use the chi-squared test statistic to determine if the difference between expected and observed codon frequencies is even or if some codon sequences are used more than others.</p>
+<pre class="r"><code>codon_compared &lt;- mtb %&gt;% 
+  group_by(AmAcid) %&gt;% 
+  mutate(total = sum(Number),
+         n_codons = n(),
+         expected = total / n_codons)
+codon_compared</code></pre>
 <pre><code>## # A tibble: 64 x 7
 ## # Groups:   AmAcid [21]
-##    AmAcid Codon Number PerThous prob_codon prob_observed expected_PerThous
-##    &lt;chr&gt;  &lt;fct&gt;  &lt;int&gt;    &lt;dbl&gt;      &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;
-##  1 Gly    GGG    25874    19.2        0.25        0.195              6468.
-##  2 Gly    GGA    13306     9.9        0.25        0.100              3326.
-##  3 Gly    GGT    25320    18.8        0.25        0.191              6330 
-##  4 Gly    GGC    68310    50.8        0.25        0.514             17078.
-##  5 Glu    GAG    41103    30.6        0.5         0.654             20552.
-##  6 Glu    GAA    21767    16.2        0.5         0.346             10884.
-##  7 Asp    GAT    21165    15.8        0.5         0.272             10582.
-##  8 Asp    GAC    56687    42.2        0.5         0.728             28344.
-##  9 Val    GTG    53942    40.1        0.25        0.469             13486.
-## 10 Val    GTA     6372     4.74       0.25        0.0554             1593 
+##    AmAcid Codon Number PerThous  total n_codons expected
+##    &lt;fct&gt;  &lt;fct&gt;  &lt;int&gt;    &lt;dbl&gt;  &lt;int&gt;    &lt;int&gt;    &lt;dbl&gt;
+##  1 Gly    GGG    25874    19.2  132810        4   33202.
+##  2 Gly    GGA    13306     9.9  132810        4   33202.
+##  3 Gly    GGT    25320    18.8  132810        4   33202.
+##  4 Gly    GGC    68310    50.8  132810        4   33202.
+##  5 Glu    GAG    41103    30.6   62870        2   31435 
+##  6 Glu    GAA    21767    16.2   62870        2   31435 
+##  7 Asp    GAT    21165    15.8   77852        2   38926 
+##  8 Asp    GAC    56687    42.2   77852        2   38926 
+##  9 Val    GTG    53942    40.1  114991        4   28748.
+## 10 Val    GTA     6372     4.74 114991        4   28748.
 ## # … with 54 more rows</code></pre>
-<p>Using the chi-squared distribution, a chi-squared test statistic can be used to show codon bias.</p>
-<pre class="r"><code>chi_stat &lt;- data.frame(chi_squared = ((codon_observed$Number - codon_observed$expected_PerThous)^2)/(codon_observed$expected_PerThous))
-chi_stat
-
-#I&#39;m getting an error here. I&#39;m not sure what is wrong.
-codon_observed &lt;- codon_observed() %&gt;%
-  mutate(chi-squared = ((codon_observed$Number - codon_observed$expected_PerThous)^2)/(codon_observed$expected_PerThous)) %&gt;% 
-  select(-prob_codon, -prob_observed)
-codon_observed
-
-#Also an error here. 
-codon_observed &lt;- codon_observed() %&gt;%
-  mutate(chi-squared = chi_stat$chi_squared) %&gt;% 
-  select(-prob_codon, -prob_observed)
-codon_observed
-
-
-#Additional ideas from students in class. I&#39;m not able to run it, but I like the idea of using a function.  
-stat = function(codon_expected, exptd = 20 * pvec) {
-   sum((codon_df - exptd)^2 / exptd)
-}
-
-stat
-
-B = 1000
-simulstat = replicate(B, {
-  randomtab10 = sapply(stat, function(s) { rmultinom(1, s, p0) })
-  stat(randomtab10, expectedtab10)
-})
-S1 = stat(tab10, expectedtab10)
-sum(simulstat &gt;= S1)</code></pre>
+<pre class="r"><code>ggplot(codon_compared, aes(x=Codon, y=expected)) +
+     geom_col()+
+     facet_wrap(~AmAcid, scales=&quot;free&quot;) +
+     theme(axis.text.x = element_text(angle = 45, hjust = 1))</code></pre>
+<p><img src="/post/2020-02-19-exercise-solution-for-chapter-2_files/figure-html/unnamed-chunk-7-1.png" width="768" /></p>
+<pre class="r"><code>codon_compared %&gt;% 
+  filter(n_codons &gt; 1) %&gt;% 
+  group_by(AmAcid) %&gt;% 
+  mutate(chi_squared = ((Number - expected)^2/expected)) %&gt;% 
+  summarise(chi_squared = sum(chi_squared),
+            n = n()) %&gt;% 
+  mutate(p_value = pchisq(chi_squared, df = n-1, log = TRUE, lower.tail = FALSE)) %&gt;% 
+  arrange(p_value) %&gt;% 
+  mutate(rank = 1:n())</code></pre>
+<pre><code>## # A tibble: 19 x 5
+##    AmAcid chi_squared     n p_value  rank
+##    &lt;fct&gt;        &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;int&gt;
+##  1 Leu        135432.     6 -67700.     1
+##  2 Ala         75620.     4 -37805.     2
+##  3 Arg         72183.     6 -36076.     3
+##  4 Thr         58767.     4 -29378.     4
+##  5 Val         58737.     4 -29363.     5
+##  6 Ile         56070.     3 -28035.     6
+##  7 Gly         52534.     4 -26262.     7
+##  8 Pro         45400.     4 -22695.     8
+##  9 Ser         36742.     6 -18357.     9
+## 10 Asp         16208.     2  -8109.    10
+## 11 Phe         13444.     2  -6727.    11
+## 12 Asn         11404.     2  -5707.    12
+## 13 Gln          9376.     2  -4693.    13
+## 14 Lys          6382.     2  -3195.    14
+## 15 Glu          5947.     2  -2978.    15
+## 16 His          5346.     2  -2678.    16
+## 17 Tyr          4738.     2  -2373.    17
+## 18 Cys          2958.     2  -1483.    18
+## 19 End           928.     3   -464.    19</code></pre>
+<p>As you may notice, these p-values are large, negative (so very tiny) values. In calculating the p-value from chi-squared text statistic, we took the log. If you exponentiate the p-value, you will get the actual p-value, but this number is so small (0.00000000e+00) that it is looses meaning. Instead, we will leave the p-value as a negative and sort the amino acids from most negative to less negative, providing a rank order of amino acids with the most unevenly used codons at 1 and amino acids with more evenly used codons as their rank increases.</p>
 </div>

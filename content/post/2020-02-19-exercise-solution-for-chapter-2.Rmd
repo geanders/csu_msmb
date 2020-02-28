@@ -21,12 +21,12 @@ image:
   preview_only: no
 projects: []
 ---
-As always, load libraries first.
+
 ```{r setup, include=FALSE, echo = TRUE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-
+As always, load libraries first.
 ```{r message = FALSE}
 library(ggplot2)
 library(tidyverse)
@@ -103,13 +103,11 @@ ggplot(codon_compared, aes(x=Codon, y=expected)) +
 codon_compared %>% 
   filter(n_codons > 1) %>% 
   group_by(AmAcid) %>% 
-  mutate(chi_squared = ((Number - expected)^2/expected)/1000) %>% 
+  mutate(chi_squared = ((Number - expected)^2/expected)) %>% 
   summarise(chi_squared = sum(chi_squared),
             n = n()) %>% 
-  mutate(p_value = dchisq(chi_squared, df = n-1)) %>% 
-  arrange(p_value)
-
-
-
+  mutate(p_value = pchisq(chi_squared, df = n-1, log = TRUE, lower.tail = FALSE)) %>% 
+  arrange(p_value) %>% 
+  mutate(rank = 1:n())
 ```
-
+As you may notice, these p-values are large, negative (so very tiny) values. In calculating the p-value from chi-squared text statistic, we took the log. If you exponentiate the p-value, you will get the actual p-value, but this number is so small (0.00000000e+00) that it is looses meaning. Instead, we will leave the p-value as a negative and sort the amino acids from most negative to less negative, providing a rank order of amino acids with the most unevenly used codons at 1 and amino acids with more evenly used codons as their rank increases. 
