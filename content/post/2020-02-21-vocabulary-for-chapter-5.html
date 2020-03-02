@@ -395,7 +395,7 @@ summary {
 unsupervised method
 </td>
 <td style="text-align:left;width: 30em; ">
-Does not require any labeled sensor data.
+A learning method where all variables are treated with the same status, rather than one variable being considered as an outcome or target.
 </td>
 </tr>
 <tr>
@@ -403,7 +403,7 @@ Does not require any labeled sensor data.
 status
 </td>
 <td style="text-align:left;width: 30em; ">
-In multivariate data where we are not concerned with one single variable’s value, we say that all variables
+A variable’s classification as an outcome/predictor (e.g. independent/dependent) in an analysis.
 </td>
 </tr>
 <tr>
@@ -411,7 +411,7 @@ In multivariate data where we are not concerned with one single variable’s val
 distance
 </td>
 <td style="text-align:left;width: 30em; ">
-Measures relate to the differences between random variables, these may have statistical dependence
+A measure of the difference between two random variables.
 </td>
 </tr>
 <tr>
@@ -419,7 +419,7 @@ Measures relate to the differences between random variables, these may have stat
 The Euclidean distance
 </td>
 <td style="text-align:left;width: 30em; ">
-Between two points A=(a1,…,ap)A=(a1,…,ap) and B=(b1,…,bp)B=(b1,…,bp) in a pp-dimensional space (for the pp features) is the square root of the sum of squares of the differences in all pp coordinate directions: d(A,B)=√(a1−b1)2+(a2−b2)2+…+(ap−bp)2.
+A distance metric equal to the “ordinary” straight-line distance between two points.
 </td>
 </tr>
 <tr>
@@ -427,7 +427,7 @@ Between two points A=(a1,…,ap)A=(a1,…,ap) and B=(b1,…,bp)B=(b1,…,bp) in 
 Manhattan distance
 </td>
 <td style="text-align:left;width: 30em; ">
-The Manhattan distance takes the sum of the absolute differences in all coordinates.
+A distance metric equal to the sum of the absolute differences between the coordinate values for two points.
 </td>
 </tr>
 <tr>
@@ -435,15 +435,15 @@ The Manhattan distance takes the sum of the absolute differences in all coordina
 Maximum distance
 </td>
 <td style="text-align:left;width: 30em; ">
-The maximum jump (or complete linkage) method defines the distance between clusters as the largest distance between any two objects in the two clusters.
+A distance metric equal to the largest absolute difference between the coordinate values for two points.
 </td>
 </tr>
 <tr>
 <td style="text-align:right;font-weight: bold;border-right:1px solid;">
-Weighted Euclidean distanc
+Weighted Euclidean distance
 </td>
 <td style="text-align:left;width: 30em; ">
-A generalization of the ordinary Euclidean distance, by giving different directions in feature space different weights.
+A distance metric, which is a generalization of the ordinary Euclidean distance, that differentially weights the differences between the coordinate values for two points.
 </td>
 </tr>
 <tr>
@@ -451,7 +451,7 @@ A generalization of the ordinary Euclidean distance, by giving different directi
 Minkowski distance
 </td>
 <td style="text-align:left;width: 30em; ">
-A metric in a normed vector space which can be considered as a generalization of both the Euclidean distance and the Manhattan distance.
+A distance metric equal to the mth root of the sum of the absolute differences between the coordinate values each raised to the mth power.
 </td>
 </tr>
 <tr>
@@ -459,7 +459,7 @@ A metric in a normed vector space which can be considered as a generalization of
 Edit or Hamming distance
 </td>
 <td style="text-align:left;width: 30em; ">
-The simplest way to compare character sequences. It simply counts the number of differences between two character strings.
+A distance metric for comparing character sequences that counts the number of differences between two character strings.
 </td>
 </tr>
 <tr>
@@ -467,7 +467,7 @@ The simplest way to compare character sequences. It simply counts the number of 
 Binary distance
 </td>
 <td style="text-align:left;width: 30em; ">
-The proportion of features having only one bit on amongst those features that have at least one bit on.
+A distance metric for binary strings based on the proportion of features having only one bit on amongst those features that have at least one bit on.
 </td>
 </tr>
 <tr>
@@ -475,7 +475,7 @@ The proportion of features having only one bit on amongst those features that ha
 Jaccard distance
 </td>
 <td style="text-align:left;width: 30em; ">
-Occurrence of traits or features in ecological or mutation data can be translated into presence and absence and encoded as 1’s and 0’s.
+A distance metric that quantifies how dissimilar two sets are.
 </td>
 </tr>
 <tr>
@@ -491,7 +491,7 @@ The fact of two or more things occurring together or simultaneously.
 Jaccard index
 </td>
 <td style="text-align:left;width: 30em; ">
-A statistic used in understanding the similarities between sample sets. The measurement emphasizes similarity between finite sample sets, and is formally defined as the size of the intersection divided by the size of the union of the sample sets.
+A statistic used in quantifying the similarities between sample sets, which is formally defined as the size of the intersection between two sets divided by the size of the union of the sets.
 </td>
 </tr>
 <tr>
@@ -499,7 +499,7 @@ A statistic used in understanding the similarities between sample sets. The meas
 Jaccard dissimilarity
 </td>
 <td style="text-align:left;width: 30em; ">
-1- the Jaccard index
+1 - the Jaccard index.
 </td>
 </tr>
 <tr>
@@ -507,7 +507,7 @@ Jaccard dissimilarity
 Correlation-based distance
 </td>
 <td style="text-align:left;width: 30em; ">
-Considers two objects to be similar if their features are highly correlated, even though the observed values may be far apart in terms of Euclidean distance. The distance between two objects is 0 when they are perfectly correlated.
+A distance metric that measures two objects to be similar if their features are highly correlated, even though the observed values may be far apart in terms of Euclidean distance.
 </td>
 </tr>
 <tr>
@@ -515,7 +515,7 @@ Considers two objects to be similar if their features are highly correlated, eve
 Clusters of Differentiation (CDs)
 </td>
 <td style="text-align:left;width: 30em; ">
-At different stages of their development, immune cells express unique combinations of proteins on their surfaces. These protein-markers are called CDs (clusters of differentiation)
+At different stages of their development, immune cells express unique combinations of proteins on their surfaces.
 </td>
 </tr>
 <tr>
@@ -523,7 +523,7 @@ At different stages of their development, immune cells express unique combinatio
 Rectangular gating
 </td>
 <td style="text-align:left;width: 30em; ">
-When just one marker can be used to separate populations a gate of rectangular shape can be placed over those cells to select or negate them.
+A method of identifying groups of cells from a flow cytometry experiment using either a line (one-dimensional) or the quadrants created by two perpendicular lines (two-dimensional)
 </td>
 </tr>
 <tr>
@@ -531,7 +531,7 @@ When just one marker can be used to separate populations a gate of rectangular s
 Hyperbolic Arcsine (asinh)
 </td>
 <td style="text-align:left;width: 30em; ">
-It is standard to transform both flow and mass cytometry data using one of several special functions.
+A transform function often preferred over the log tranform for flow cytometry data because it can be applied to negative values.
 </td>
 </tr>
 <tr>
@@ -539,7 +539,7 @@ It is standard to transform both flow and mass cytometry data using one of sever
 density-based clustering (dbscan)
 </td>
 <td style="text-align:left;width: 30em; ">
-The dbscan method clusters points in dense regions according to the density-connectedness criterion. It looks at small neighborhood spheres of radius ϵϵ to see if points are connected.
+The dbscan method clusters points in dense regions according to the density-connectedness criterion. It looks at small neighborhood spheres to see if points are connected.
 </td>
 </tr>
 <tr>
@@ -547,7 +547,7 @@ The dbscan method clusters points in dense regions according to the density-conn
 curse of dimensionality
 </td>
 <td style="text-align:left;width: 30em; ">
-various phenomena that arise when analyzing and organizing data in high-dimensional spaces that do not occur in low-dimensional settings such as the three-dimensional physical space of everyday experience.
+When the dimensionality increases, the volume of the space increases so fast that the available data become sparse
 </td>
 </tr>
 <tr>
@@ -555,7 +555,7 @@ various phenomena that arise when analyzing and organizing data in high-dimensio
 density-reachability
 </td>
 <td style="text-align:left;width: 30em; ">
-Building block of dbscan, a point qq is directly density-reachable from a point pp if it is not further away than a given threshold ϵϵ, and if pp is surrounded by sufficiently many points such that one may consider pp (and qq) be part of a dense region
+A fundamental criterion in dbscan that quantifies whether two points are close enough together and surrounded by sufficiently many other points.
 </td>
 </tr>
 <tr>
@@ -563,7 +563,7 @@ Building block of dbscan, a point qq is directly density-reachable from a point 
 recursive partitioning methods
 </td>
 <td style="text-align:left;width: 30em; ">
-Often used to make decision trees, They can be useful for prediction (say, survival time, given a medical diagnosis): we are hoping in those instances to split heterogeneous populations into more homogeneous subgroups by partitioning.
+A class of methods for dividing heterogeneous populations into more homogeneous subgroups, often used to make decision trees, that starts by separating the whole population into a few groups and iteratively continues separating each into subgroups.
 </td>
 </tr>
 <tr>
@@ -571,7 +571,7 @@ Often used to make decision trees, They can be useful for prediction (say, survi
 minimal jump method/single linkage method/nearest neighbor method
 </td>
 <td style="text-align:left;width: 30em; ">
-Computes the distance between clusters as the smallest distance between any two points in the two clusters.
+A clustering method that computes the distance between clusters as the smallest distance between any two points in the two clusters.
 </td>
 </tr>
 <tr>
@@ -579,7 +579,7 @@ Computes the distance between clusters as the smallest distance between any two 
 maximum jump method/complete linkage method
 </td>
 <td style="text-align:left;width: 30em; ">
-Defines the distance between clusters as the largest distance between any two objects in the two clusters.
+A clustering method that defines the distance between clusters as the largest distance between any two objects in the two clusters.
 </td>
 </tr>
 <tr>
@@ -587,7 +587,7 @@ Defines the distance between clusters as the largest distance between any two ob
 average linkage method
 </td>
 <td style="text-align:left;width: 30em; ">
-Half way between single and complete linkage
+A clustering method that defines the distance between clusters as the average distance between a point in one cluster and another point in the other cluster.
 </td>
 </tr>
 <tr>
@@ -595,7 +595,7 @@ Half way between single and complete linkage
 Ward’s method
 </td>
 <td style="text-align:left;width: 30em; ">
-Takes an analysis of variance approach, where the goal is to minimize the variance within clusters. This method is very efficient, however, it tends to create break the clusters up into ones of smaller sizes.
+A clustering method that takes an analysis of variance approach, where the goal is to minimize the variance within clusters. This method is very efficient, however, it tends to break the clusters up into ones of smaller sizes.
 </td>
 </tr>
 <tr>
@@ -603,7 +603,7 @@ Takes an analysis of variance approach, where the goal is to minimize the varian
 Within-groups sum of squares (WSS)
 </td>
 <td style="text-align:left;width: 30em; ">
-Within-group variation is reported in ANOVA output as SS(W) or which means Sum of Squares Within groups or SSW: Sum of Squares Within.
+A measure of the variability among data points within an identified cluster.
 </td>
 </tr>
 <tr>
@@ -611,7 +611,7 @@ Within-group variation is reported in ANOVA output as SS(W) or which means Sum o
 Calinski-Harabasz index
 </td>
 <td style="text-align:left;width: 30em; ">
-Uses the within-groups sum of sqaures and between group sums of squares and is inspired by the F statistic
+Quantifies the relative variability between groups (between group sum of squares) and within groups (within-groups sum of sqaures), similar to the F statistic used in analysis of variance.
 </td>
 </tr>
 <tr>
@@ -619,7 +619,7 @@ Uses the within-groups sum of sqaures and between group sums of squares and is i
 Between-groups sum of squares (BSS)
 </td>
 <td style="text-align:left;width: 30em; ">
-This measures the interaction between the groups or samples. If the group means don’t differ greatly from each other and the grand mean, the SS(B) will be small.
+A measure of the variability between clusters.
 </td>
 </tr>
 <tr>
@@ -627,7 +627,7 @@ This measures the interaction between the groups or samples. If the group means 
 gap statistic
 </td>
 <td style="text-align:left;width: 30em; ">
-Taking the logarithm of the within-sum-of-squares (log(WSSk)loga(WSSk)) and comparing it to averages from simulated data with less structure can be a good way of choosing k.
+A metric used to perform model selection which quantifies the amount of model fit improvement when using a more complex model. These can be used to select the number of clusters for a data set.
 </td>
 </tr>
 <tr>
@@ -635,7 +635,7 @@ Taking the logarithm of the within-sum-of-squares (log(WSSk)loga(WSSk)) and comp
 technical / batch effects
 </td>
 <td style="text-align:left;width: 30em; ">
-Due to technical differences between your samples, such as the type of sequencing machine or even the technician that ran the sample. Removing this variability means changing the data for individual samples.
+Depedence in data observations that results from technical differences between samples, such as the type of sequencing machine or the technician that ran the sample, rather than from scientifically interesting causes.
 </td>
 </tr>
 <tr>
@@ -643,7 +643,7 @@ Due to technical differences between your samples, such as the type of sequencin
 computational complexity
 </td>
 <td style="text-align:left;width: 30em; ">
-An algorithm is said to be O(nk)O(nk), if, as nn gets larger, the resource consumption (CPU time or memory) grows proportionally to nknk.
+A measure of the computational resources needed to run an algorithm.
 </td>
 </tr>
 <tr>
@@ -651,15 +651,15 @@ An algorithm is said to be O(nk)O(nk), if, as nn gets larger, the resource consu
 noise
 </td>
 <td style="text-align:left;width: 30em; ">
-Unexplained variability within a data sample. The term noise, in this context, came from signal processing where it was used to refer to unwanted electrical or electromagnetic energy that degrades the quality of signals and data.
+Unexplained variability within a data sample.
 </td>
 </tr>
 <tr>
 <td style="text-align:right;font-weight: bold;border-right:1px solid;">
-operational taxonomic unit (OTU) clustering
+operational taxonomic unit (OTU)
 </td>
 <td style="text-align:left;width: 30em; ">
-An operational definition used to classify groups of closely related individuals, an OTU is a pragmatic definition to group individuals by similarity, equivalent to but not necessarily in line with classical Linnaean taxonomy or modern evolutionary taxonomy.
+A method of clustering organisms based on DNA sequence similarity of a certain taxonomic marker gene.
 </td>
 </tr>
 <tr>
@@ -675,7 +675,7 @@ The tendency of a statistic to overestimate or underestimate a parameter.
 representativeness heuristic
 </td>
 <td style="text-align:left;width: 30em; ">
-described as assessing similarity of objects and organizing them based around the category prototype (e.g., like goes with like, and causes and effects should resemble each other).
+A method of learning or discovery that assesses similarity of objects and organizes them based around a category prototype (e.g., like goes with like, and causes and effects should resemble each other).
 </td>
 </tr>
 <tr>
@@ -683,15 +683,15 @@ described as assessing similarity of objects and organizing them based around th
 rare variants
 </td>
 <td style="text-align:left;width: 30em; ">
-Occur just once or twice in an individual sample but more often across all samples
+An alternative form of a gene that occur just once or twice in an individual sample but more often across all samples.
 </td>
 </tr>
 <tr>
 <td style="text-align:right;font-weight: bold;border-right:1px solid;">
-insertion-deletion (indel) errors
+insertion-deletion (indel)
 </td>
 <td style="text-align:left;width: 30em; ">
-when comparing two sequences that differ by a small stretch of characters, it is a matter of viewpoint whether this is an insertion or a deletion, thus the name.
+insertion or deletion of bases in the genome of an organism.
 </td>
 </tr>
 <tr>
@@ -699,7 +699,7 @@ when comparing two sequences that differ by a small stretch of characters, it is
 neighboring cluster
 </td>
 <td style="text-align:left;width: 30em; ">
-The cluster with the lowest average dissimilarity.
+The cluster with the lowest average dissimilarity to a given cluster.
 </td>
 </tr>
 <tr>
@@ -707,7 +707,7 @@ The cluster with the lowest average dissimilarity.
 silhouette index
 </td>
 <td style="text-align:left;width: 30em; ">
-Refers to a method of interpretation and validation of consistency within clusters of data.
+A metric quantifying the degree to which a given data point belongs to its designated cluster.
 </td>
 </tr>
 <tr>
@@ -720,10 +720,10 @@ The aggregate of all microbiota that reside on or within an organim’s tissues 
 </tr>
 <tr>
 <td style="text-align:right;font-weight: bold;border-right:1px solid;">
-filtering (in the context of filtering out low-quality rRNA reads)
+filtering
 </td>
 <td style="text-align:left;width: 30em; ">
-Filter out low-quality reads and trim them to a consistent length
+in the context of low-quality rRNA reads removal of low-quality reads and trimming them to a consistent length
 </td>
 </tr>
 <tr>
@@ -755,7 +755,7 @@ Gene expression measurements : from gene¬scale to genome¬scale
 Single-cell RNA-Seq experiment
 </td>
 <td style="text-align:left;width: 30em; ">
-Provides the expression profiles of individual cells.
+a measurement of the gene expression profiles of individual cells.
 </td>
 </tr>
 <tr>
@@ -795,15 +795,15 @@ A variation of flow cytometry in which antibodies are labeled with heavy metal i
 Immune cells
 </td>
 <td style="text-align:left;width: 30em; ">
-A cell that is part of the immune system and helps the body fight infections and other diseases
+cells that are part of the immune system and help the body fight infections and other diseases
 </td>
 </tr>
 <tr>
 <td style="text-align:right;font-weight: bold;border-right:1px solid;">
-CD marker
+CD marker / antigen marker
 </td>
 <td style="text-align:left;width: 30em; ">
-CD markers, also known as CD antigens, are specific types of molecules found on the surface of cells that help differentiate one cell type from another.
+are specific types of molecules found on the surface of cells that help differentiate one cell type from another.
 </td>
 </tr>
 <tr>
@@ -864,10 +864,10 @@ The second extraembryonic tissue to form during embryogenesis in mammals. The PE
 </tr>
 <tr>
 <td style="text-align:right;font-weight: bold;border-right:1px solid;">
-variable regions (in the context of taxon identification of bacteria)
+variable regions
 </td>
 <td style="text-align:left;width: 30em; ">
-Bacterial 16S ribosomal RNA (rRNA) genes contain nine “hypervariable regions” (V1 – V9) that demonstrate considerable sequence diversity among different bacteria.
+in the context of taxon identification of bacteria bacterial 16S ribosomal RNA (rRNA) genes contain nine “hypervariable regions” (V1 – V9) that demonstrate considerable sequence diversity among different bacteria.
 </td>
 </tr>
 <tr>
@@ -895,6 +895,7 @@ An organism or tissue that contains at least two different sets of DNA, most oft
 <li><a href="https://iti.stanford.edu/" class="uri">https://iti.stanford.edu/</a></li>
 <li><a href="https://sysbiowiki.soe.ucsc.edu/node/323" class="uri">https://sysbiowiki.soe.ucsc.edu/node/323</a></li>
 <li><a href="https://www.statisticshowto.datasciencecentral.com/between-group-variation/" class="uri">https://www.statisticshowto.datasciencecentral.com/between-group-variation/</a></li>
+<li><a href="https://vsoch.github.io/2013/the-gap-statistic/" class="uri">https://vsoch.github.io/2013/the-gap-statistic/</a></li>
 </ul>
 </div>
 <div id="practice" class="section level3">
