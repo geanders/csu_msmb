@@ -31,11 +31,11 @@ gap statistic	A metric used to perform model selection which quantifies the amou
 technical / batch effects	Depedence in data observations that results from technical differences between samples, such as the type of sequencing machine or the technician that ran the sample, rather than from scientifically interesting causes.
 computational complexity	A measure of the computational resources needed to run an algorithm.
 noise	Unexplained variability within a data sample. 
-operational taxonomic unit (OTU) A method of clustering organisms based on DNA sequence similarity of a certain taxonomic marker gene. 
+operational taxonomic unit (OTU)	A method of clustering organisms based on DNA sequence similarity of a certain taxonomic marker gene. 
 bias	The tendency of a statistic to overestimate or underestimate a parameter.
 representativeness heuristic	A method of learning or discovery that assesses similarity of objects and organizes them based around a category prototype (e.g., like goes with like, and causes and effects should resemble each other).
 rare variants	An alternative form of a gene that occur just once or twice in an individual sample but more often across all samples.
-insertion-deletion (indel) insertion or deletion of bases in the genome of an organism. 
+insertion-deletion (indel)	insertion or deletion of bases in the genome of an organism. 
 neighboring cluster	The cluster with the lowest average dissimilarity to a given cluster.
 silhouette index	A metric quantifying the degree to which a given data point belongs to its designated cluster.
 Microbiome	The aggregate of all microbiota that reside on or within an organim's tissues and biofluids along with the corresponding anatomical sites in which they reside.
