@@ -18,12 +18,12 @@
   </url>
   
   <url>
-    <loc>/categories/chapter-4/</loc>
+    <loc>/tags/chapter-4/</loc>
     <lastmod>2020-02-27T10:42:19-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/chapter-4/</loc>
+    <loc>/categories/chapter-4/</loc>
     <lastmod>2020-02-27T10:42:19-07:00</lastmod>
   </url>
   
@@ -63,22 +63,22 @@
   </url>
   
   <url>
-    <loc>/categories/chapter-5/</loc>
-    <lastmod>2020-02-21T14:41:22-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/chapter-5/</loc>
     <lastmod>2020-02-21T14:41:22-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/vocabulary/</loc>
+    <loc>/categories/chapter-5/</loc>
     <lastmod>2020-02-21T14:41:22-07:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/vocabulary/</loc>
+    <lastmod>2020-02-21T14:41:22-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/vocabulary/</loc>
     <lastmod>2020-02-21T14:41:22-07:00</lastmod>
   </url>
   
@@ -123,12 +123,12 @@
   </url>
   
   <url>
-    <loc>/tags/exercises/</loc>
+    <loc>/categories/exercises/</loc>
     <lastmod>2020-02-19T15:25:48-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/exercises/</loc>
+    <loc>/tags/exercises/</loc>
     <lastmod>2020-02-19T15:25:48-07:00</lastmod>
   </url>
   
@@ -138,12 +138,12 @@
   </url>
   
   <url>
-    <loc>/tags/blogdown/</loc>
+    <loc>/categories/blogdown/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/blogdown/</loc>
+    <loc>/tags/blogdown/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
@@ -168,12 +168,12 @@
   </url>
   
   <url>
-    <loc>/tags/instructions/</loc>
+    <loc>/categories/instructions/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/instructions/</loc>
+    <loc>/tags/instructions/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
