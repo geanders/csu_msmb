@@ -1,0 +1,63 @@
+---
+title: Vocabulary for Chapter 5
+author: "Burton Karger"
+date: '2020-02-21'
+slug: vocabulary-for-chapter-5
+categories:
+  - Chapter 5
+  - vocabulary
+tags:
+  - Chapter 5
+  - vocabulary
+subtitle: ''
+summary: ''
+authors: [burton-karger]
+lastmod: '2020-02-21T14:41:22-07:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+Chapter 5 covers Clustering Analysis for large scale data anlysis like DNA/RNA sequencing outputs. These methods produce so much data that more unbiased approaches are required when attempting to make correlations. 
+
+```{r, echo=F, message=F, warning=F}
+library(readr)
+library(dplyr)
+library(knitr)
+library(kableExtra)
+```
+
+```{r, echo=F, message=F, warning=F}
+vocab <- read_tsv("vocab_lists/chapter_5.tsv",col_names=c("term","definition")) 
+
+vocab %>% 
+    kable(align=c("rl"), col.names=c("","")) %>%
+    kable_styling(bootstrap_options = c("striped","hover","condensed")) %>%
+    column_spec(1, bold=T, border_right=T) %>%
+    column_spec(2, width="30em")
+```
+
+### Sources Consulted or Cited
+
+*Some of the definitons above are based in part or whole on listed definitions in the following sources:*
+
+- Holmes and Huber, 2019. *Modern Statistics for Modern Biology.* Cambridge University Press, 
+Cambridge, United Kingdom.
+- Wikipedia: The Free Encyclopedia. http://en.wikipedia.org/wiki/Main_Page
+- https://academic.oup.com/biolreprod/article/85/5/946/2530522
+- https://discovery.lifemapsc.com/in-vivo-development/inner-cell-mass/inner-cell-mass
+- https://study.com/academy/lesson/inner-cell-mass-icm-definition-function-quiz.html
+- https://www.sciencedirect.com/
+- https://www.medicinenet.com/
+- https://www.niaid.nih.gov/
+- https://iti.stanford.edu/
+- https://sysbiowiki.soe.ucsc.edu/node/323
+- https://www.statisticshowto.datasciencecentral.com/between-group-variation/
+- https://vsoch.github.io/2013/the-gap-statistic/
+
+### Practice
+
+<iframe src="https://quizlet.com/488864042/match/embed?i=2oqpc3&x=1jj1" height="500" width="100%" style="border:0"></iframe>
