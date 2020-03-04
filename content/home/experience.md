@@ -28,45 +28,46 @@ date_format = "   "
   date_end = "2020-01-30"
   description = """
   
-  Exercise for Chapter:
+  Exercise for Chapter: Exercise 1.8, p. 17
   
   Student responsibilities:
 
-  * Vocabulary: Faculty
-  * Exercise: Faculty
+  * [Vocabulary](https://kind-neumann-789611.netlify.com/post/vocabulary-for-chapter-1/): Faculty
+  * [Exercise](https://kind-neumann-789611.netlify.com/post/exercise-solution-for-chapter-1/): Faculty
   """
 
 [[experience]]
   title = "Chapter 2.1--2.7"
   company = "Statistical Modeling (part 1)"
+  company_url = "http://web.stanford.edu/class/bios221/book/Chap-Models.html"
   location = "Feb. 13, 2020"
   date_start = "2020-01-29"
   date_end = "2020-01-29"
   description = """
   
-  Exercise for Chapter:
+  Exercise for Chapter: Exercise 2.3, p. 50
   
   Student responsibilities:
 
-  * Vocabulary: Amy Fox
-  * Exercise: Sere Williams
+  * [Vocabulary](https://kind-neumann-789611.netlify.com/post/vocabularly-for-chapter-2-part-1/): Faculty
+  * [Exercise](https://kind-neumann-789611.netlify.com/post/exercise-solution-for-chapter-2/): [Sere Williams](https://kind-neumann-789611.netlify.com/authors/sere-williams/)
   """
   
 [[experience]]
   title = "Chapter 2.8--2.12"
-  company = "Statistical Modeling"
+  company = "Statistical Modeling (part 2)"
   company_url = "http://web.stanford.edu/class/bios221/book/Chap-Models.html"
   location = "Feb. 20, 2020"
   date_start = "2020-01-29"
   date_end = "2020-01-29"
   description = """
   
-  Exercise for Chapter:
+  Exercise for Chapter: Exercise 2.6, p. 51
   
   Student responsibilities:
 
-  * Vocabulary: Sierra Pugh
-  * Exercise:
+  * [Vocabulary](https://kind-neumann-789611.netlify.com/post/vocabulary-for-chapter-2-8-2-12/): [Sierra Pugh](https://kind-neumann-789611.netlify.com/authors/sierra-pugh/)
+  * Exercise: [Sarah Cooper](https://kind-neumann-789611.netlify.com/authors/sarah-cooper/)
   """
   
 [[experience]]
@@ -78,12 +79,12 @@ date_format = "   "
   date_end = "2020-01-28"
   description = """
   
-  Exercise for Chapter:
+  Exercise for Chapter: Exercise 4.3
   
   Student responsibilities:
 
-  * Vocabulary: 
-  * Exercise:
+  * [Vocabulary](https://kind-neumann-789611.netlify.com/post/vocabulary-for-chapter-4/): [Amy Fox](https://kind-neumann-789611.netlify.com/authors/amy-fox/)
+  * Exercise: [James DeLisio](https://kind-neumann-789611.netlify.com/authors/james_dilisio/)
   """
 
 [[experience]]
@@ -99,8 +100,8 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: 
-  * Exercise:
+  * [Vocabulary](https://kind-neumann-789611.netlify.com/post/vocabulary-for-chapter-5/): [Burton Karger](https://kind-neumann-789611.netlify.com/authors/burton-karger/)
+  * Exercise: [Camron Pearce](https://kind-neumann-789611.netlify.com/authors/camron-pearce/)
   """
   
 [[experience]]
@@ -116,8 +117,8 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: 
-  * Exercise:
+  * Vocabulary: [Daniel Dean](https://kind-neumann-789611.netlify.com/authors/daniel-dean/)
+  * Exercise: [Sherry WeMott](https://kind-neumann-789611.netlify.com/authors/sherry-wemott/)
   """
   
 [[experience]]
@@ -133,8 +134,8 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: 
-  * Exercise:
+  * Vocabulary: [Zach Laubach](https://kind-neumann-789611.netlify.com/authors/zach_laubach/)
+  * Exercise: [Sierra Pugh](https://kind-neumann-789611.netlify.com/authors/sierra-pugh/)
   """
   
 [[experience]]
@@ -150,8 +151,8 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: 
-  * Exercise:
+  * Vocabulary: [Mikaela Elder](https://kind-neumann-789611.netlify.com/authors/mikaela-elder/)
+  * Exercise: [Burton Karger](https://kind-neumann-789611.netlify.com/authors/burton-karger/)
   """
   
 [[experience]]
@@ -167,8 +168,8 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: 
-  * Exercise:
+  * Vocabulary: [Sere Williams](https://kind-neumann-789611.netlify.com/authors/sere-williams/)
+  * Exercise: [Daniel Dean](https://kind-neumann-789611.netlify.com/authors/daniel-dean/)
   """
 
 [[experience]]
@@ -184,8 +185,8 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: 
-  * Exercise:
+  * Vocabulary: [Sarah Cooper](https://kind-neumann-789611.netlify.com/authors/sarah-cooper/)
+  * Exercise: [Zach Laubach](https://kind-neumann-789611.netlify.com/authors/zach_laubach/)
   """
   
 [[experience]]
@@ -201,8 +202,8 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: 
-  * Exercise:
+  * Vocabulary: [Camron Pearce](https://kind-neumann-789611.netlify.com/authors/camron-pearce/)
+  * Exercise: [Mikaela Elder](https://kind-neumann-789611.netlify.com/authors/mikaela-elder/)
   """
 
 [[experience]]
@@ -218,8 +219,8 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: 
-  * Exercise:
+  * Vocabulary: [Sherry WeMott](https://kind-neumann-789611.netlify.com/authors/sherry-wemott/)
+  * Exercise: [Amy Fox](https://kind-neumann-789611.netlify.com/authors/amy-fox/)
   """
 
 [[experience]]
@@ -235,8 +236,8 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: 
-  * Exercise:
+  * Vocabulary: [James DeLisio](https://kind-neumann-789611.netlify.com/authors/james_dilisio/)
+  * Exercise: To be determined
   """
 
 +++

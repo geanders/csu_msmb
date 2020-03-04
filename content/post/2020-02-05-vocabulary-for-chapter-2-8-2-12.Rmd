@@ -1,0 +1,51 @@
+---
+title: Vocabulary for Chapter 2, Part 2
+author: Sierra Pugh
+date: '2020-02-13'
+categories:
+  - Chapter 2
+  - vocabulary
+tags:
+  - Chapter 2
+  - vocabulary
+slug: vocabulary-for-chapter-2-8-2-12
+authors: [sierra-pugh]
+lastmod: '2020-02-14T07:50:15-07:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+These sections introduced Markov chains and the Bayesian paradigm. Markov chain transitions were used to model dependencies along DNA sequences. The vocabulary terms are:
+
+```{r, echo=F, message=F, warning=F}
+library(dplyr)
+library(readr)
+library(knitr)
+library(kableExtra)
+
+vocab <- read_tsv("vocab_lists/chapter_2_8.tsv",col_names=c("term","definition"))
+vocab %>% 
+    kable(align=c("rl"), col.names=c("","")) %>%
+    kable_styling(bootstrap_options = c("striped","hover","condensed")) %>%
+    column_spec(1, bold=T, border_right=T) %>%
+    column_spec(2, width="30em")
+```
+
+### Sources consulted or cited
+
+*Some of the definitons above are based in part or whole on listed definitions in the following sources:*
+
+- Holmes and Huber, 2019. *Modern Statistics for Modern Biology.* Cambridge University Press, 
+Cambridge, United Kingdom.
+- Wikipedia: The Free Encyclopedia. http://en.wikipedia.org/wiki/Main_Page
+- NIH Genetics Home Reference. https://ghr.nlm.nih.gov/
+- NCBI Genetics Review. https://www.ncbi.nlm.nih.gov
+
+### Practice
+
+<iframe src="https://quizlet.com/362954560/flashcards/embed?i=1bqje7&x=1jj1" height="500" width="100%" style="border:0"></iframe>
+

@@ -1,0 +1,50 @@
+---
+title: Chapter 1 exercise setup
+author: Bailey Fosdick
+date: '2020-02-06'
+slug: chapter-1-exercise-setup
+categories:
+  - Chapter 1
+  - exercises
+tags:
+  - Chapter 1
+subtitle: 'Exercise 1.8 setup'
+summary: 'Instructions on how to get started on Chapter 1, exercise 1.8.'
+authors: [bailey-fosdick]
+lastmod: '2020-02-06T10:05:38-07:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+The code instructions in the exercise statement appear to be outdated.  The code below worked on my machine.  Note that when asked whether I would like to update packages from the binary version, I said no.  (When I said yes, `R` gave an error.)
+
+```{r, eval=FALSE}
+if (!requireNamespace("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+BiocManager::install(c("Biostrings", "BSgenome.Celegans.UCSC.ce2","BSgenome"))
+```
+
+You can see the various data genome data sets available by loading the `BSgenome` library and typing `available.genomes()`. 
+
+
+Once you have the needed packages installed, you can access the sequence data for this exercise via the following commands.
+```{r}
+suppressMessages(library("BSgenome.Celegans.UCSC.ce2"))
+Celegans
+seqnames(Celegans)
+Celegans$chrM
+class(Celegans$chrM)
+length(Celegans$chrM)
+```
+
+The Biostrings packages provides functions to summarize the sequence.  For example:
+```{r}
+library("Biostrings")
+lfM = letterFrequency(Celegans$chrM, letters=c("A", "C", "G", "T"))
+lfM
+sum(lfM)
+```
