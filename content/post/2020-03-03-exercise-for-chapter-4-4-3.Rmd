@@ -146,3 +146,5 @@ grid.arrange(g5, g6)
 
 
 Neither of these two seem to represent the data well and the normal distribution chosen seems to be the most informative in distinguishing the two classes through mixture modeling.
+
+# Major credit to Amy Fox for helping with the code for the exercise solution.
