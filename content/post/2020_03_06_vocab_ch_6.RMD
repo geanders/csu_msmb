@@ -52,6 +52,9 @@ Cambridge, United Kingdom.
 - https://www.statisticssolutions.com/bonferroni-correction/
 - https://bioconductor.org/packages/release/bioc/vignettes/IHW/inst/doc/introduction_to_ihw.html
 - https://www.statisticshowto.datasciencecentral.com/familywise-error-rate/
+- https://www.statisticshowto.datasciencecentral.com/probability-and-statistics/hypothesis-testing/
+- https://www.biostars.org/p/273537/
+
   
 
   

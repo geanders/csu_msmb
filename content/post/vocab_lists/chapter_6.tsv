@@ -21,3 +21,16 @@ Tail Area False Disovery Rate (Fdr)	Integration-based extension of the local Fal
 Independent Filtering	Method to increase test power by filtering variables with criteria that are independent under the null hypothesis, but correlated under the alternative (per Bourbon, Wolfgang, and Huber 2010)
 Independent Hypothesis Weighting	A method of improving power of multiple testing by weighting hypotheses based on their power
 Bonferroni Adjustment	Method used to compensate for inflated Type I (false positive) error in multiple testing by dividing the critical value (e.g. p = 0.05) by the number of comparisons performed
+whole genome sequencing	Method used to determine and record the DNA base values and order across all of an organism's genes
+marker gene	A gene used to determine membership in a group of interest (e.g. a taxon, genotype within a population, or possessing a certain metabolic trait)
+expression level	The realtive abundance of transcriptions of a gene of interest present in e.g. a cell or environment
+reagent	a compound used in creating a chemical reaction like an assay
+hypothesis testing	Evaluating whether test outcomes are sufficently unlikely under the null hypothesis (holding that outcomes are determined fully by chance) that it can be rejected in favor of an alternative hypothesis
+workflow	A sequence of steps used in carrying out a larger operation or process
+two-sided test	A statistical test which can reject the null hypothesis if an observed value is either larger or smaller than that expected under the null hypothesis
+one-sided test	A statistical test which can reject the null hypothesis if an observed value departs from the expected range in a single, predetermined direction (i.e. larger or smaller)
+two-sample	In the context of statistical testing, comparing the means of two groups
+unpaired	In the context of statistical tests, these are used when comparing groups with independent measurements (e.g. not comparing the same individuals under two conditions)
+equal variances	When groups being compared have (substantially) equivalent degrees of variance
+dependence	When the outcomes of two variables are statistically correlated
+expected value	For a given test, this is the ideal outcome predicted by the null hypothesis (e.g. a 1:1 ratio of heads to tails on fair coin flips)
