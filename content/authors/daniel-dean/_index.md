@@ -38,5 +38,5 @@ user_groups:
 - Students
 ---
 
-Daniel Dean is a graduate student in the Department of Agriculture and Biology at Colorado
+Daniel Dean is a graduate student in the Department of Agriculture and Biology at Colorado 
 State University. He is studying the soil microbiome and interested in learning more with R programming (etc.)
