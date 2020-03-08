@@ -1,5 +1,5 @@
 Occam's Razor	Heuristic stating that the simplest explanation for a phenomenon is often the best
-Rejection Region	Subset of possible null hypothesis outcomes  with probabilities falling under a low probability threshold, e.g. outcomes with a null-distribution probability < 0.05
+Rejection Region	Subset of possible outcomes for which probabilities under the null hypothesis fall under a low probability threshold, e.g. outcomes with a null-distribution probability < 0.05
 Test Statistic	Metric for measuring how well a null hypothesis fits the data
 Null Hypothesis	Hypothesis that no difference exists between certain groups of events/outcomes.
 Null Distribution	Distribution of possible outcomes of an event, given that the null hypothesis is true
