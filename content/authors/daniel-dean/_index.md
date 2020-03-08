@@ -13,6 +13,7 @@ email: "daniel.alan.dean@colostate.edu"
 interests:
 - Soil Microbiome
 - R programming
+- Data visualization
 - Data Science
 name: Daniel Dean
 organizations:
