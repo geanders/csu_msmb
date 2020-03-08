@@ -1,9 +1,8 @@
 Occam's razor	Heuristic stating that the simplest explanation for a phenomenon is often the best
-rejection region	Subset of possible outcomes for which probabilities under the null hypothesis fall under a low probability threshold, e.g. outcomes with a null-distribution probability < 0.05
+rejection region	Subset of possible outcomes for which probabilities under the null hypothesis fall under a low probability threshold, e.g. outcomes with a null-distribution probability < 0.05; if an outcome falls within this region (e.g. p < 0.05), it suggests that the null hypothesis is not true.
 test statistic	Metric for measuring how well a null hypothesis fits the data
-null hypothesis	Hypothesis that no difference exists between certain groups of events/outcomes.
+null hypothesis	Hypothesis describing some "uninteresting" outcome (e.g., that no difference exists between certain groups of events/outcomes)
 null distribution	Distribution of possible outcomes of an event, given that the null hypothesis is true
-rejection region	Subset of null distribution with outcomes under a low, pre-determined probability threshold; if an outcome falls within this region (e.g. p < 0.05), it suggests that the null hypothesis is not true.
 alternative hypothesis	A hypothesis providing a different probability distribution than the null hypothesis; conceptually, holds that some difference from the null hypothesis exists (e.g. different means, frequencies, trends)
 significance Level/false positive rate/Type I error	Probability of falsely rejecting the null hypothesis due to outcomes falling within the rejection region by chance; in terms of the null distribution, total probability that the outcome could fall within the rejection region given that the null hypothesis is true.
 power	True positive rate of a test (i.e. probability that an outcome falls in the rejection region of the null distribution, given that the alternative hypothesis is true)
