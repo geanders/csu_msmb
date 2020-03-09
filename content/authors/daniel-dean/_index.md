@@ -30,9 +30,9 @@ social:
 #- icon: google-scholar
 #  icon_pack: ai
 #  link: https://scholar.google.com/citations?user=...
-#- icon: github
-#  icon_pack: fab
-#  link: https://github.com/...
+- icon: github
+  icon_pack: fab
+  link: https://github.com/danieldean414
 superuser: true
 user_groups:
 - Students
