@@ -3,6 +3,7 @@ title: Vocabulary for Chapter 6
 author: "Daniel Dean"
 date: '2020-03-06'
 slug: vocabulary-for-chapter-6
+draft: yes
 categories:
   - Chapter 6
   - vocabulary
@@ -21,7 +22,7 @@ preview_only: no
 projects: []
 ---
   
-  Chapter 6 covers Statistical Testing, including a review of null and alternative hypotheses (and associated distributions), types of error (I and II), as well as challenges and opportunities introduced by Multiple Testing. 
+Chapter 6 covers Statistical Testing, including a review of null and alternative hypotheses (and associated distributions), types of error (I and II), as well as challenges and opportunities introduced by multiple testing. 
 
 ```{r, echo=F, message=F, warning=F}
 library(readr)
