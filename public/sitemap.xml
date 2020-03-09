@@ -3,22 +3,62 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/authors/brooke-anderson/</loc>
-    <lastmod>2020-03-05T14:59:00-07:00</lastmod>
+    <loc>/authors/daniel-dean/</loc>
+    <lastmod>2020-03-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/authors/</loc>
-    <lastmod>2020-03-05T14:59:00-07:00</lastmod>
+    <lastmod>2020-03-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/</loc>
-    <lastmod>2020-03-05T14:59:00-07:00</lastmod>
+    <lastmod>2020-03-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/chapter-5/</loc>
+    <loc>/categories/chapter-6/</loc>
+    <lastmod>2020-03-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/chapter-6/</loc>
+    <lastmod>2020-03-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-03-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-03-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-03-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/vocabulary/</loc>
+    <lastmod>2020-03-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/vocabulary/</loc>
+    <lastmod>2020-03-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/vocabulary-for-chapter-6/</loc>
+    <lastmod>2020-03-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/authors/brooke-anderson/</loc>
     <lastmod>2020-03-05T14:59:00-07:00</lastmod>
   </url>
   
@@ -28,17 +68,12 @@
   </url>
   
   <url>
+    <loc>/tags/chapter-5/</loc>
+    <lastmod>2020-03-05T14:59:00-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/chapter-5-vocabulary-quiz/</loc>
-    <lastmod>2020-03-05T14:59:00-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2020-03-05T14:59:00-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
     <lastmod>2020-03-05T14:59:00-07:00</lastmod>
   </url>
   
@@ -49,11 +84,6 @@
   
   <url>
     <loc>/categories/quiz/</loc>
-    <lastmod>2020-03-05T14:59:00-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
     <lastmod>2020-03-05T14:59:00-07:00</lastmod>
   </url>
   
@@ -73,17 +103,37 @@
   </url>
   
   <url>
+    <loc>/authors/sarah-cooper/</loc>
+    <lastmod>2020-02-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/chapter-2/</loc>
+    <lastmod>2020-02-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/chapter-2/</loc>
+    <lastmod>2020-02-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/ex-2-6/</loc>
+    <lastmod>2020-02-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/exercises/</loc>
+    <lastmod>2020-02-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/exercises/</loc>
+    <lastmod>2020-02-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/authors/burton-karger/</loc>
-    <lastmod>2020-02-21T14:41:22-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/vocabulary/</loc>
-    <lastmod>2020-02-21T14:41:22-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/vocabulary/</loc>
     <lastmod>2020-02-21T14:41:22-07:00</lastmod>
   </url>
   
@@ -108,16 +158,6 @@
   </url>
   
   <url>
-    <loc>/tags/chapter-2/</loc>
-    <lastmod>2020-02-19T18:18:47-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/chapter-2/</loc>
-    <lastmod>2020-02-19T18:18:47-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/post/chapter-2-part-2-vocabulary-quiz/</loc>
     <lastmod>2020-02-19T18:18:47-07:00</lastmod>
   </url>
@@ -128,27 +168,17 @@
   </url>
   
   <url>
-    <loc>/categories/exercises/</loc>
-    <lastmod>2020-02-19T15:25:48-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/exercises/</loc>
-    <lastmod>2020-02-19T15:25:48-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/authors/sierra-pugh/</loc>
     <lastmod>2020-02-14T07:50:15-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/blogdown/</loc>
+    <loc>/categories/blogdown/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/blogdown/</loc>
+    <loc>/tags/blogdown/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
@@ -158,12 +188,12 @@
   </url>
   
   <url>
-    <loc>/categories/github/</loc>
+    <loc>/tags/github/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/github/</loc>
+    <loc>/categories/github/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
@@ -173,12 +203,12 @@
   </url>
   
   <url>
-    <loc>/tags/instructions/</loc>
+    <loc>/categories/instructions/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/instructions/</loc>
+    <loc>/tags/instructions/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
@@ -188,12 +218,12 @@
   </url>
   
   <url>
-    <loc>/categories/chapter-1/</loc>
+    <loc>/tags/chapter-1/</loc>
     <lastmod>2020-02-11T20:22:07-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/chapter-1/</loc>
+    <loc>/categories/chapter-1/</loc>
     <lastmod>2020-02-11T20:22:07-07:00</lastmod>
   </url>
   
@@ -238,15 +268,21 @@
   </url>
   
   <url>
+    <loc>/privacy/</loc>
+    <lastmod>2018-06-28T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/terms/</loc>
+    <lastmod>2018-06-28T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/authors/admin/</loc>
   </url>
   
   <url>
     <loc>/authors/camron-pearce/</loc>
-  </url>
-  
-  <url>
-    <loc>/authors/daniel-dean/</loc>
   </url>
   
   <url>
@@ -262,20 +298,11 @@
   </url>
   
   <url>
-    <loc>/authors/sarah-cooper/</loc>
-  </url>
-  
-  <url>
     <loc>/authors/sherry-wemott/</loc>
   </url>
   
   <url>
     <loc>/authors/zach_laubach/</loc>
-  </url>
-  
-  <url>
-    <loc>/post/2020_03_06_vocab_ch_6/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
