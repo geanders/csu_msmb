@@ -1,5 +1,5 @@
 ---
-title: Vocabulary for Chapter 6
+title: "Vocabulary for Chapter 6"
 author: "Daniel Dean"
 date: '2020-03-06'
 slug: vocabulary-for-chapter-6
@@ -13,8 +13,8 @@ tags:
 subtitle: ''
 summary: ''
 authors: [daniel-dean]
-lastmod: '2020-03-06'
-featured: no
+lastmod: 
+  featured: no
 image:
   caption: ''
 focal_point: ''
