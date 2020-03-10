@@ -69,7 +69,7 @@ Hypothesis describing some ‘uninteresting’ outcome (e.g., that no difference
 null distribution
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-Distribution of possible outcomes of an event, given that the null hypothesis is true
+Distribution of possible outcomes, given that the null hypothesis is true
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -85,7 +85,7 @@ A hypothesis providing a different probability distribution than the null hypoth
 significance level/false positive rate/Type I error
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-Probability of falsely rejecting the null hypothesis due to outcomes falling within the rejection region by chance; in terms of the null distribution, total probability that the outcome could fall within the rejection region given that the null hypothesis is true.
+Probability of incorrectly rejecting the null hypothesis due to outcomes falling within the rejection region by chance; in terms of the null distribution, total probability that the outcome could fall within the rejection region given that the null hypothesis is true.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -101,7 +101,7 @@ True positive rate of a test (i.e., probability that an outcome falls in the rej
 false negative rate/Type II error
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-Probability of falsely failing to reject the null hypothesis when an outcome from the alternative hypothesis distribution fails to fall within the rejection region of the null hypothesis.
+Probability of incorrectly failing to reject the null hypothesis when an outcome from the alternative hypothesis distribution fails to fall within the rejection region of the null hypothesis.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -109,7 +109,7 @@ Probability of falsely failing to reject the null hypothesis when an outcome fro
 specificity
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-Complement of false positive rate; probability of a test not having a Type I error
+Complement of false positive rate (Type I error); probability of a test failing to reject the null hypothesis when it is true.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -117,7 +117,7 @@ Complement of false positive rate; probability of a test not having a Type I err
 power/sensitivity/true negative rate
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-Complement of false negative rate (Type II error); chance of correctly rejecting null hypothesis if an outcome falls in the rejection region of the null distribution.
+Complement of false negative rate (Type II error); probability of correctly rejecting null hypothesis if the alternative hypothesis is true.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -149,7 +149,7 @@ Fallacy of generating and/or changing hypotheses for a set of known results unti
 family-wide error rate (FWER)
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-Probability of at least one false positive occurring in repeated tests. Assuming independent observations, this is the completement of the probability of only true positives occurring, and approaches 1.0 as the number of trials approaches infinity.
+Probability of at least one false positive occurring in repeated tests. Assuming independent tests, this is the complement of the probability of only true positives occurring, and approaches 1.0 as the number of tests approaches infinity.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -205,7 +205,7 @@ A method of improving power of multiple testing by weighting hypotheses based on
 Bonferroni adjustment
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-Method used to compensate for inflated Type I (false positive) error in multiple testing by dividing the critical value (e.g., p = 0.05) by the number of comparisons performed
+Method used to compensate for inflated Type I (false positive) error in multiple testing by dividing the test significance level/hypothesis threshold (e.g., alpha = 0.05) by the number of tests performed
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -245,7 +245,7 @@ a compound used in creating a chemical reaction like an assay
 hypothesis testing
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-Evaluating whether test outcomes are sufficently unlikely under the null hypothesis (holding that outcomes are determined fully by chance) that it can be rejected in favor of an alternative hypothesis
+Evaluating whether outcomes are sufficently unlikely under the null hypothesis (holding that outcomes are determined fully by chance) that it can be rejected in favor of an alternative hypothesis
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -261,7 +261,7 @@ A sequence of steps used in carrying out a larger operation or process
 two-sided test
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-A statistical test which can reject the null hypothesis if an observed value is either larger or smaller than that expected under the null hypothesis
+A statistical test which rejects the null hypothesis if an observed test statistic is either too large or too small compared to that expected under the null hypothesis
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -269,7 +269,7 @@ A statistical test which can reject the null hypothesis if an observed value is 
 one-sided test
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-A statistical test which can reject the null hypothesis if an observed value departs from the expected range in a single, predetermined direction (i.e. larger or smaller)
+A statistical test which rejects the null hypothesis if an observed test statistic departs from the expected range in a single, predetermined direction (i.e. larger or smaller)
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -277,7 +277,7 @@ A statistical test which can reject the null hypothesis if an observed value dep
 two-sample
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-In the context of statistical testing, comparing the means of two groups
+In the context of statistical testing, a situation whether the data belong to two known groups.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -285,7 +285,7 @@ In the context of statistical testing, comparing the means of two groups
 unpaired
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-In the context of statistical tests, these are used when comparing groups with independent measurements (e.g. not comparing the same individuals under two conditions)
+In the context of statistical tests, these are used when comparing groups with independent measurements (e.g. the observations for one group have no association with observations from the other group)
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -293,7 +293,7 @@ In the context of statistical tests, these are used when comparing groups with i
 equal variances
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-When groups being compared have (substantially) equivalent degrees of variance
+When groups being compared have (substantially) equivalent levels of variability.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -301,7 +301,7 @@ When groups being compared have (substantially) equivalent degrees of variance
 dependence
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-When the outcomes of two variables are statistically correlated
+When the outcomes of two variables are associated with one another.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -309,7 +309,7 @@ When the outcomes of two variables are statistically correlated
 expected value
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-For a given test, this is the ideal outcome predicted by the null hypothesis (e.g. a 1:1 ratio of heads to tails on fair coin flips)
+For a random quantity, this is the value of the mean, i.e. “average value”.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;

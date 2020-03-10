@@ -78,22 +78,22 @@
   </url>
   
   <url>
-    <loc>/tags/quiz/</loc>
-    <lastmod>2020-03-05T14:59:00-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/categories/quiz/</loc>
     <lastmod>2020-03-05T14:59:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/chapter-4/</loc>
-    <lastmod>2020-02-27T10:42:19-07:00</lastmod>
+    <loc>/tags/quiz/</loc>
+    <lastmod>2020-03-05T14:59:00-07:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/chapter-4/</loc>
+    <lastmod>2020-02-27T10:42:19-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/chapter-4/</loc>
     <lastmod>2020-02-27T10:42:19-07:00</lastmod>
   </url>
   
@@ -123,12 +123,12 @@
   </url>
   
   <url>
-    <loc>/categories/exercises/</loc>
+    <loc>/tags/exercises/</loc>
     <lastmod>2020-02-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/exercises/</loc>
+    <loc>/categories/exercises/</loc>
     <lastmod>2020-02-24T00:00:00+00:00</lastmod>
   </url>
   
@@ -173,12 +173,12 @@
   </url>
   
   <url>
-    <loc>/tags/blogdown/</loc>
+    <loc>/categories/blogdown/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/blogdown/</loc>
+    <loc>/tags/blogdown/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
@@ -188,12 +188,12 @@
   </url>
   
   <url>
-    <loc>/categories/github/</loc>
+    <loc>/tags/github/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/github/</loc>
+    <loc>/categories/github/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
@@ -218,12 +218,12 @@
   </url>
   
   <url>
-    <loc>/tags/chapter-1/</loc>
+    <loc>/categories/chapter-1/</loc>
     <lastmod>2020-02-11T20:22:07-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/chapter-1/</loc>
+    <loc>/tags/chapter-1/</loc>
     <lastmod>2020-02-11T20:22:07-07:00</lastmod>
   </url>
   
