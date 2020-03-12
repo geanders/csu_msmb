@@ -209,6 +209,42 @@
 
 
 
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-36719749-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           document.location = url;
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target);  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-36719749-3', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
   
 
 
@@ -239,7 +275,7 @@
   <meta property="og:description" content="Assistant Professor of Epidemiology"><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
   <meta property="twitter:image" content="img/map[gravatar:%!s(bool=false) shape:circle]"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2020-01-13T00:00:00&#43;00:00">
+    <meta property="og:updated_time" content="2020-02-13T00:00:00&#43;00:00">
   
 
   
@@ -533,11 +569,31 @@
   
   
   <div>
+    <h2><a href="/post/how-to-create-an-exercise-solution-blog-post/">How to create an exercise solution blog post</a></h2>
+    <div class="article-style">
+      
+      Each of you will be responsible once or twice over the semester to create a blog post that provides a clean, clearly-presented solution to the in-class exercise for the week. This blog post provides the technical instructions for writing and submitting that exercise.
+Your exercise solution should be posted before the next class meeting. Since it will need to be reviewed by the faculty before it can be officially posted, please plan to submit it by the Tuesday after the class for your exercise.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/creating-a-vocabulary-list-blog-post/">How to create a vocabulary list blog post</a></h2>
+    <div class="article-style">
+      
+      As one of your assignments for this class, you are responsible for creating a blog post with all the vocabulary and definitions for one week of the course. This blog post will explain how you can create and publish that blog post on our course website.
+Create the blog post Update your fork of the website You should have already forked our website to add your details for the “Person” section.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/add-profile-details/">How to add your profile details to our course website</a></h2>
     <div class="article-style">
       
-      One goal of this course is to continue developing your data science programmingskills. This will include plenty of work on R programming, but also more tohelp you learn tools for reproducible research, likeRMarkdown and git.
-We will be using our course website as a collaboration tool during this course.This website was created using blogdown,which allows you to create and update a blogging website with R and RStudio.
+      One goal of this course is to continue developing your data science programming skills. This will include plenty of work on R programming, but also more to help you learn tools for reproducible research, like RMarkdown and git.
+We will be using our course website as a collaboration tool during this course. This website was created using blogdown, which allows you to create and update a blogging website with R and RStudio.
       
     </div>
   </div>

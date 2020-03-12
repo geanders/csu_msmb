@@ -209,6 +209,42 @@
 
 
 
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-36719749-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           document.location = url;
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target);  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-36719749-3', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
   
 
 
@@ -239,7 +275,7 @@
   <meta property="og:description" content="Assistant Professor of Epidemiology"><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
   <meta property="twitter:image" content="img/map[gravatar:%!s(bool=false) shape:circle]"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2020-01-13T00:00:00&#43;00:00">
+    <meta property="og:updated_time" content="2020-03-12T00:00:00&#43;00:00">
   
 
   
@@ -698,7 +734,43 @@ source R software packages to facilitate environmental epidemiologic research.</
       <ul>
         
         <li>
+          <a href="/post/chapter-6-vocabular-zuiz/">Chapter 6 vocabulary quiz</a>
+        </li>
+        
+        <li>
+          <a href="/post/chapter-5-vocabulary-quiz/">Chapter 5 vocabulary quiz</a>
+        </li>
+        
+        <li>
+          <a href="/post/chapter-4-vocabulary-quiz/">Chapter 4 vocabulary quiz</a>
+        </li>
+        
+        <li>
+          <a href="/post/chapter-2-vocabulary-quiz/">Chapter 2 Part 1 vocabulary quiz</a>
+        </li>
+        
+        <li>
+          <a href="/post/how-to-create-an-exercise-solution-blog-post/">How to create an exercise solution blog post</a>
+        </li>
+        
+        <li>
+          <a href="/post/exercise-solution-for-chapter-1/">Exercise solution for Chapter 1</a>
+        </li>
+        
+        <li>
+          <a href="/post/chapter-1-vocabulary-quiz/">Chapter 1 vocabulary quiz</a>
+        </li>
+        
+        <li>
+          <a href="/post/creating-a-vocabulary-list-blog-post/">How to create a vocabulary list blog post</a>
+        </li>
+        
+        <li>
           <a href="/post/add-profile-details/">How to add your profile details to our course website</a>
+        </li>
+        
+        <li>
+          <a href="/post/vocabulary-for-chapter-1/">Vocabulary for Chapter 1</a>
         </li>
         
       </ul>

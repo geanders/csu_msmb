@@ -209,6 +209,42 @@
 
 
 
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-36719749-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           document.location = url;
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target);  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-36719749-3', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
   
 
 
@@ -239,7 +275,7 @@
   <meta property="og:description" content="Assistant Professor of Epidemiology"><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
   <meta property="twitter:image" content="img/map[gravatar:%!s(bool=false) shape:circle]"><meta property="og:locale" content="en-us">
   
-    
+    <meta property="og:updated_time" content="2020-02-19T00:00:00&#43;00:00">
   
 
   
@@ -529,12 +565,12 @@
 
       
       
-      <img class="avatar avatar-circle" src="/authors/sere-williams/avatar_hu52a603635ecebd45650b162dadabb4e5_12861_270x270_fill_q90_lanczos_center.jpg" alt="Avatar">
+      <img class="avatar avatar-circle" src="/authors/sere-williams/avatar_hu7c8ca0f65f9d98110dd99020825b4ff3_120374_270x270_fill_q90_lanczos_center.jpg" alt="Avatar">
       
 
       <div class="portrait-title">
         <h2>Sere Williams</h2>
-        <h3>Graduate Student in &hellip;</h3>
+        <h3>Graduate Student in Cellular and Molecular Biology</h3>
 
         
         <h3>
@@ -557,8 +593,42 @@
         
         
         <li>
-          <a href="mailto:...@colostate.edu" >
+          <a href="mailto:sere.williams@colostate.edu" >
             <i class="fas fa-envelope big-icon"></i>
+          </a>
+        </li>
+        
+        
+        
+        
+          
+        
+        
+        
+        
+        
+          
+        
+        <li>
+          <a href="https://github.com/serewilliams" target="_blank" rel="noopener">
+            <i class="fab fa-github big-icon"></i>
+          </a>
+        </li>
+        
+        
+        
+        
+          
+        
+        
+        
+        
+        
+          
+        
+        <li>
+          <a href="https://www.linkedin.com/in/ser%c3%a9-williams-ms-56804571/" target="_blank" rel="noopener">
+            <i class="fab fa-linkedin big-icon"></i>
           </a>
         </li>
         
@@ -571,8 +641,7 @@
     
     
 
-    <p>Sere Williams is a [graduate / undergraudate] student in the Department of [x] at Colorado
-State University. [Short description of research and academic interests.]</p>
+    <p>Sere Williams is a graduate student in the Department of Cellular and Molecular Biology at Colorado State University. She recently completed her MSc studying gene expression in rice exposed to drought stress. She's excited to begin her PhD. This year she is rotating through labs working on immune response in tobacco, modeling hormone interactions in Arabidopsis, frost tolerance in weeds, and electron transport in Archaea.</p>
 
 
     <div class="row">
@@ -582,11 +651,11 @@ State University. [Short description of research and academic interests.]</p>
         <h3>Interests</h3>
         <ul class="ul-interests">
           
-          <li>Interest 1</li>
+          <li>Plant Genetics</li>
           
-          <li>Interest 2</li>
+          <li>RNA Biology</li>
           
-          <li>Interest 3</li>
+          <li>Science Communication</li>
           
         </ul>
       </div>
@@ -600,16 +669,16 @@ State University. [Short description of research and academic interests.]</p>
           <li>
             <i class="fa-li fas fa-graduation-cap"></i>
             <div class="description">
-              <p class="course">MSc in [Discipline], [Year]</p>
-              <p class="institution">[Institution]</p>
+              <p class="course">MSc in Molecular and Cellular Biology, 2019</p>
+              <p class="institution">Colorado State University</p>
             </div>
           </li>
           
           <li>
             <i class="fa-li fas fa-graduation-cap"></i>
             <div class="description">
-              <p class="course">BSc in [Discipline], [Year]</p>
-              <p class="institution">[Institution]</p>
+              <p class="course">BSc in Biology</p>
+              <p class="institution">Colorado State University</p>
             </div>
           </li>
           
@@ -625,6 +694,17 @@ State University. [Short description of research and academic interests.]</p>
 
     
     
+    
+    <div class="article-widget content-widget-hr">
+      <h3>Latest</h3>
+      <ul>
+        
+        <li>
+          <a href="/post/exercise-solution-for-chapter-2/">Exercise solution for Chapter 2, Part 1</a>
+        </li>
+        
+      </ul>
+    </div>
     
   </div>
 </section>

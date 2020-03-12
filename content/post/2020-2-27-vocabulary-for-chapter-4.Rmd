@@ -1,0 +1,67 @@
+---
+title: "Vocabulary for Chapter 4"
+author: "Amy Fox"
+date: '2020-02-20'
+slug: vocabulary-for-chapter-4
+draft: yes
+categories:
+  - vocabulary
+  - Chapter 4
+tags:
+  - vocabulary
+  - Chapter 4
+subtitle: ''
+summary: ''
+authors: [amy-fox]
+lastmod: 
+  featured: no
+image:
+  caption: ''
+focal_point: ''
+preview_only: no
+projects: []
+---
+  
+Chapter 4 covers how to generate both finite and infinite mixture models from various distributions. It introduces a number of terms relating to these models. The vocabulary words for Chapter 4 are: 
+  
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+library(dplyr)
+library(readr)
+vocab <- read_tsv("vocab_lists/chapter_4.tsv", col_names = c("term", "definition"))
+```
+
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+library(knitr)
+library(kableExtra)
+vocab %>% 
+  kable(align = c("rl"), 
+        col.names = c("", "")) %>% 
+  kable_styling(bootstrap_options = c("striped", "hover",
+                                      "condensed")) %>% 
+  column_spec(1, bold = T, border_right = T) %>%
+  column_spec(2, width = "30em")
+```
+
+### Sources consulted or cited 
+
+*Some of the definitions above are based in part or whole on listed definitions 
+in the following sources.*
+  
+  - Holmes and Huber, 2019. *Modern Statistics for Modern Biology.* Cambridge University Press, 
+Cambridge, United Kingdom.
+- Everitt and Skrondal, 2010. *The Cambridge Dictionary of Statistics (Fourth Edition).* Cambridge University Press, Cambridge, United Kingdom.
+- *Zero-Inflated Poisson Regression.* Institute for Digital Research and Education Statistical Consulting. https://stats.idre.ucla.edu/r/dae/zip/.
+- Berrar, 2019. *Introduction to Non-parametric Bootstrap.* Research Gate. https://www.researchgate.net/
+- Do and Batzoglou, 2008. *What is the expectaion maximization algorithm?.* Nature Biotechnology. 
+- Wikipedia: The Free Encylcopedia. https://en.wikipedia.org/wiki/Main_Page
+- Google Oxford American Dictionary. https://www.google.com
+- d'Auzay, et al., 2019. *Statistics of progress variable and mixture fraction gradients in an open turbulent jet spray flame.* Fuel.
+- Brownlee, 2019. *A Gentle Introduction to Expectation-Maximization (EM Algorithm).* Machine Learning Mastery. https://www.machinelearningmastery.com 
+- *Non-parametric Methods.* R tutorial. https://www.r-tutor.com
+- *Precise analysis of DNA–protein binding sequences.* Illumina. https://www.illumina.com
+- *Microarray.* Nature. https://www.nature.com
+
+
+### Practice
+
+<iframe src="https://quizlet.com/485299672/flashcards/embed?i=2r4ib&x=1jj1" height="500" width="100%" style="border:0"></iframe>

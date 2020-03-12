@@ -209,6 +209,42 @@
 
 
 
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-36719749-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           document.location = url;
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target);  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-36719749-3', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
   
 
 
@@ -516,15 +552,25 @@
   <h2>Latest</h2>
   <ul>
     
-      <li><a href="/post/tips-on-writing-a-vocabulary-list/">Tips on writing a vocabulary list</a></li>
+      <li><a href="/post/chapter-6-vocabular-zuiz/">Chapter 6 vocabulary quiz</a></li>
     
-      <li><a href="/post/add-profile-details/">How to add your profile details to our course website</a></li>
+      <li><a href="/post/vocabulary-for-chapter-6/">Vocabulary for Chapter 6</a></li>
     
-      <li><a href="/post/vocabulary-for-chapter-1/">Vocabulary for Chapter 1</a></li>
+      <li><a href="/post/chapter-5-vocabulary-quiz/">Chapter 5 vocabulary quiz</a></li>
     
-      <li><a href="/privacy/">Privacy Policy</a></li>
+      <li><a href="/post/chapter-4-vocabulary-quiz/">Chapter 4 vocabulary quiz</a></li>
     
-      <li><a href="/terms/">Terms</a></li>
+      <li><a href="/post/ex-2-6/">Exercise solution for Chapter 2, Part 2</a></li>
+    
+      <li><a href="/post/vocabulary-for-chapter-5/">Vocabulary for Chapter 5</a></li>
+    
+      <li><a href="/post/vocabulary-for-chapter-4/">Vocabulary for Chapter 4</a></li>
+    
+      <li><a href="/post/chapter-2-part-2-vocabulary-quiz/">Chapter 2, part 2, vocabulary quiz</a></li>
+    
+      <li><a href="/post/exercise-solution-for-chapter-2/">Exercise solution for Chapter 2, Part 1</a></li>
+    
+      <li><a href="/post/chapter-2-vocabulary-quiz/">Chapter 2 Part 1 vocabulary quiz</a></li>
     
   </ul>
   

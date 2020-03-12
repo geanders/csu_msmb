@@ -1,0 +1,38 @@
+finite mixture	"in the context of statistic, when the distribution of interest is a combination of a few different probability distributions "
+infinite mixture	"in the context of statistic, when the distribution of interest is a combination of many probability distributions (as many or more probability distributions as observations)"
+mixture model	a model for a combination of two or more different probability distributions
+probability density function	"a function giving the relative likelihood that a continuous random variable is equal to a given value. When this function is integrated over the sample space, it equals 1."
+bimodal distribution	a distribution comprised of two modes
+expectation-maximization (EM) algorithm	an algorithm that allows for parameter estimation in probabilistic models with incomplete data
+data augmentation	adding variables that are not measured (latent variables) to the data
+latent variables	variables not measured in the data
+bivariate distribution	a combined distribution made of two random variables
+mixture fraction	a fraction used to describe the inhomogeneity in the mixture composition
+identifiability	an issue where there can be several explanations for the same observed values; occurs when there are too many degrees of freedom in parameters 
+marginal likelihood	the sum of the marginal distributions
+expectation function	a function that calculates the average of all possible values of  the group that an observation belongs to
+maximization step	a step to optimize the parameters of a model
+soft averaging	"the process in which observations are not assigned to groups, rather they are added to multiple groups by using probabilities of memberships as weights"
+model averaging	the process of using several models and combining them together into a weighted model
+zero-inflated data	data that contains a large number of zero counts
+ChIP-Seq data	sequencing data that identifies DNA binding sites for proteins
+chromosome	a DNA molecule that contains the genetic material of an organism
+binding site	"in the context of molecular biology, a specific region to which a macromolecule binds"
+deoxyribonucleotide monophosphate	a single phosphate group in a unit of DNA
+gene expression measurement	the measurement of a functional gene product (i.e., protein or RNA)
+microarray	a laboratory tool used to detect gene expression
+promoter	"in the context of genetics, a region of DNA that initiates transcription of a gene"
+point mass	a finite probabiliity concentrated at a point in the proability mass distribution at which there is a discontinuous segment in probability density function
+sampling distribution	the probability distribution calculated from a random sample 
+empirical cumulative distribution function (ECDF)	a step distribution function based on empirical data measurements 
+density	"in the context of probability distributions, the derivitive of the distribution function"
+bootstrap	an approximation of the true sampling distribution; created by drawing new samples from the empirical distribution of the original sample
+non-parametric method	a statistical method that does not make assumptions about population distribution or sample size
+nonparametric bootstrap 	an approximation of the true sampling distribution not based off of a specific assumption or a particular model
+Laplace distribution	a distribution that shows differences between two independent variates with identical exponential distributions
+gamma distribution	a distribution that is positively valued and continuous with two parameters: shape and scale
+negative binomial distribution/ gamma-Poisson distubtion	the probability distribution of the number of failures before the kth success in a sequence of Bernoulli trials
+dispersion	the amount by which a set of observations deviate from their mean
+variance-stabilizing transformations	transformations designed to give approximate independence between mean and variance
+heteroscedasticity	the variance of the data is different in different regions of the data
+delta method	a calculus procedure that uses random variables to approximate the expected value and variance of a function
