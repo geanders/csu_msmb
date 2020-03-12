@@ -19,16 +19,26 @@ role: Graduate Student in MIP
 social:
 - icon: envelope
   icon_pack: fas
+<<<<<<< HEAD
   link: mailto: scooper2@rams.colostate.edu
+=======
+  link: mailto:scooper2@rams.colostate.edu@colostate.edu
+>>>>>>> 7e1963b6767e167d3c10f2fbf5858b0e86be2738
 #- icon: twitter
 #  icon_pack: fab
 #  link: https://twitter.com/...
 #- icon: google-scholar
 #  icon_pack: ai
 #  link: https://scholar.google.com/citations?user=...
+<<<<<<< HEAD
 #- icon: github
 #  icon_pack: fab
 #  link: https://github.com/sarahcooper22
+=======
+- icon: github
+  icon_pack: fab
+  link: https://github.com/sarahcooper22
+>>>>>>> 7e1963b6767e167d3c10f2fbf5858b0e86be2738
 superuser: true
 user_groups:
 - Students

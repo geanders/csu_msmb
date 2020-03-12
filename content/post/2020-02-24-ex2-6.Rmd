@@ -21,9 +21,13 @@ image:
 projects:
 ---
 
-#Choose your own prior for the parameters of the beta distribution. You can do this by sketching it here: https://jhubiostatistics.shinyapps.io/drawyourprior. Once you have set up a prior, re-analyse the data from Section 2.9.2, where we saw Y = 40 successes out of n = 300 trials. Compare your posterior distribution to the one we obtained in that section using a QQ-plot. 
+## Exercise 2.6 from Modern Statistics for Modern Biologists
+# Choose your own prior for the parameters of the beta distribution. You can do this by sketching it here: https://jhubiostatistics.shinyapps.io/drawyourprior. 
 
-#After sketching a plot, I chose the parameters to set up a prior: alpha = 2.47 and beta = 8.5. Using the equation from above I replaced their alpha and beta with mine.
+After sketching a plot, I chose the parameters to set up a prior: alpha = 2.47 and beta = 8.5. Using the equation from above I replaced their alpha and beta with mine.
+
+# Once you have set up a prior, re-analyse the data from Section 2.9.2, where we saw Y = 40 successes out of n = 300 trials. Compare your posterior distribution to the one we obtained in that section using a QQ-plot. 
+
 
 ```{r}
 thetas = seq(0, 1, by = 0.001)
