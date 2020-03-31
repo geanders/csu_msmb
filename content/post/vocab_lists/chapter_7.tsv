@@ -18,12 +18,12 @@ predictor	an independent, explanatory, or 'x' variable in a model
 response	an outcome or 'y' variable in a model that is thought to be affected by a predictor
 principal components	uncorrelated latent variables created by the PCA procedure, of which there are as many as there are original variables entered into the procedure
 inertia	in the context of variability of points, the total variance of a point cloud based on the sum of squares of the projection of points 
-linear combination	mathematical expression in which terms are multiplied or scaled by constants
-loadings	in the context of principal components, values from -1 to 1 for each variable in each principal component where higher value indicates variables driving the PC pattern
+linear combination	mathematical expression in which terms are scaled by constants and then added together
+loadings	in the context of principal components, these values quantify the weight of each original variable in a principal component
 singular value decomposition (SVD)	a way to decompose a rectangular matrix by factoring it into three different matrices in a way that has some useful mathematical applications
 rank	in the context of a matrix, the maximum number of linearly independent column or row vectors
-norm	in the context of a vector, a positive scalar quantity reflecting its size
-singular value	a non-negative, normalizing value from a singular value decomposition 
+norm	in the context of a vector, a positive scalar quantity reflecting its size/magnitude
+singular value	a non-negative, normalizing value from a singular value decomposition quantifying the relative importance of the corresponding singular vectors
 orthonormal	the characteristic of a set of vectors that are both orthogonal (uncorrelated) and normalized
 principal plane	a 2-dimensional space across which the data are most spread out or variable 
  trace	in the context of matrices, the sum of the diagonal elements of a square matrix
