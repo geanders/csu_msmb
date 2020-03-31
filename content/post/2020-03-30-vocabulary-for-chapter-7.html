@@ -1,0 +1,399 @@
+---
+title: Vocabulary for Chapter 7
+author: Zach Laubach
+date: '2020-03-30'
+slug: vocabulary-for-chapter-7
+draft: yes
+categories:
+  - Chapter 7
+  - vocabulary
+tags:
+  - Chapter 7
+  - vocabulary
+subtitle: ''
+summary: ''
+authors: [zach_laubach]
+lastmod: '2020-03-30T21:37:37-06:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+<script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
+
+
+<p>Chapter 7 covers multivariate analysis, with a focus on principal component analysis and
+dimension reduction in general.</p>
+<table class="table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+</th>
+<th style="text-align:left;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+principal component analysis (PCA)
+</td>
+<td style="text-align:left;width: 30em; ">
+an unsupervised ordination method used to reduce the dimensionality of data by creating scores that maximize the explained variation in the data
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+matrix
+</td>
+<td style="text-align:left;width: 30em; ">
+a two dimensional arrangement of rows and columns used to store data
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+mass spectroscopy
+</td>
+<td style="text-align:left;width: 30em; ">
+a measurement procedure based on the mass-to-charge ratio of ions, often used to measure metabolite abundance
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+correlation coefficient
+</td>
+<td style="text-align:left;width: 30em; ">
+a measure of how two variables co-vary, reported as a single summary value
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+centering
+</td>
+<td style="text-align:left;width: 30em; ">
+subtracting the mean of the data so the new mean is 0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+scaling / standardizing
+</td>
+<td style="text-align:left;width: 30em; ">
+dividing data values by the data’s standard deviation so the new standard deviation is 1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+data simplification
+</td>
+<td style="text-align:left;width: 30em; ">
+a broadly applicable term referring to the process of summarizing or reducing the dimensions of multivariate data
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+dimension reduction
+</td>
+<td style="text-align:left;width: 30em; ">
+summarizing data to reduce the number of variables for downstream analyses
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+principal scores
+</td>
+<td style="text-align:left;width: 30em; ">
+a normally distributed z-score assigned to each subject that corresponds with the specific ordering and weighting of original variables within a given principal component
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+unsupervised learning
+</td>
+<td style="text-align:left;width: 30em; ">
+a machine learning method used to find patterns in the data without a priori variable ranking or labeling
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+status
+</td>
+<td style="text-align:left;width: 30em; ">
+in the context of variables in a statistical learning algorithm, a ranking or labeling of variables (e.g., to consider one variable as the outcome or goal and the rest as potential predictive variables)
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+projection
+</td>
+<td style="text-align:left;width: 30em; ">
+a representation of data from a higher dimensional space to a lower dimensional space
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+linear
+</td>
+<td style="text-align:left;width: 30em; ">
+in the context of a statistical technique, a description that describes the search for relationships between variables that can be expressed as a linear combination of predictors
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+regression line
+</td>
+<td style="text-align:left;width: 30em; ">
+a linear function of the form y = mx + b which is used to project two-dimensional data onto a 1 dimensional line
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+linear regression
+</td>
+<td style="text-align:left;width: 30em; ">
+a supervised method that models the relationship between explanatory and response variables by minimizing the residual sum of squares with respect to the response variable
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+supervised learning
+</td>
+<td style="text-align:left;width: 30em; ">
+in the context of a statistical learning technique, a machine learning method that uses specified, user defined inputs to map patterns (input/output associations) in data
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+predictor
+</td>
+<td style="text-align:left;width: 30em; ">
+an independent, explanatory, or ‘x’ variable in a model
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+response
+</td>
+<td style="text-align:left;width: 30em; ">
+an outcome or ‘y’ variable in a model that is thought to be affected by a predictor
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+principal components
+</td>
+<td style="text-align:left;width: 30em; ">
+uncorrelated latent variables created by the PCA procedure, of which there are as many as there are original variables entered into the procedure
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+inertia
+</td>
+<td style="text-align:left;width: 30em; ">
+in the context of variability of points, the total variance of a point cloud based on the sum of squares of the projection of points
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+linear combination
+</td>
+<td style="text-align:left;width: 30em; ">
+mathematical expression in which terms are multiplied or scaled by constants
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+loadings
+</td>
+<td style="text-align:left;width: 30em; ">
+in the context of principal components, values from -1 to 1 for each variable in each principal component where higher value indicates variables driving the PC pattern
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+singular value decomposition (SVD)
+</td>
+<td style="text-align:left;width: 30em; ">
+a way to decompose a rectangular matrix by factoring it into three different matrices in a way that has some useful mathematical applications
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+rank
+</td>
+<td style="text-align:left;width: 30em; ">
+in the context of a matrix, the maximum number of linearly independent column or row vectors
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+norm
+</td>
+<td style="text-align:left;width: 30em; ">
+in the context of a vector, a positive scalar quantity reflecting its size
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+singular value
+</td>
+<td style="text-align:left;width: 30em; ">
+a non-negative, normalizing value from a singular value decomposition
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+orthonormal
+</td>
+<td style="text-align:left;width: 30em; ">
+the characteristic of a set of vectors that are both orthogonal (uncorrelated) and normalized
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+principal plane
+</td>
+<td style="text-align:left;width: 30em; ">
+a 2-dimensional space across which the data are most spread out or variable
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+trace
+</td>
+<td style="text-align:left;width: 30em; ">
+in the context of matrices, the sum of the diagonal elements of a square matrix
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+supplementary information
+</td>
+<td style="text-align:left;width: 30em; ">
+extra information or instruction to help clarify research question, procedure or results
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+metadata
+</td>
+<td style="text-align:left;width: 30em; ">
+information, data, or descriptions that characterize other data
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+biplot
+</td>
+<td style="text-align:left;width: 30em; ">
+a type of exploratory graph that displays information on both the observations and the variables of a data matrix
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+biometric characteristics
+</td>
+<td style="text-align:left;width: 30em; ">
+physical, physiological, demographic, or behavioral features of an organism that can be measured and quantified
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+proliferation rate
+</td>
+<td style="text-align:left;width: 30em; ">
+speed at which the number of cells increase through the process of cellular division
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+gene expression profile
+</td>
+<td style="text-align:left;width: 30em; ">
+a snapshot measure of the level of activity/expression (transcription) of a collection (thousands) of genes, representing a global measure of gene function
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+T-cell populations
+</td>
+<td style="text-align:left;width: 30em; ">
+groups of differentiated white blood cells that function in immune response
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+operational taxonomic units (OTUs)
+</td>
+<td style="text-align:left;width: 30em; ">
+clusters of closely related species of bacteria based on sequence similarity
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+transcriptome data
+</td>
+<td style="text-align:left;width: 30em; ">
+the complete set of all RNA molecules measured from a biological sample generated from genome-wide sequencing methods, like RNA-seq
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+sequence read
+</td>
+<td style="text-align:left;width: 30em; ">
+an inferred sequence of base pairs, or fragments of the genome, generated from one of many genomics methods
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+proteomic profile
+</td>
+<td style="text-align:left;width: 30em; ">
+a snapshot measure of the levels of all proteins measured in a biological sample
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+molecule
+</td>
+<td style="text-align:left;width: 30em; ">
+two or more chemically bond atoms that lack a charge
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+m/z ratio
+</td>
+<td style="text-align:left;width: 30em; ">
+mass to charge ratio used in mass spectrometry to differentiation molecules
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+wild-type
+</td>
+<td style="text-align:left;width: 30em; ">
+a normal allele or phenotype that occurs under natural conditions
+</td>
+</tr>
+</tbody>
+</table>
+<div id="source-consulted-or-cited" class="section level3">
+<h3>Source Consulted or Cited</h3>
+<p><em>Some of the definitons above are based in part or whole on listed definitions in the following source:</em></p>
+<ul>
+<li>Holmes and Huber, 2019. <em>Modern Statistics for Modern Biology.</em> Cambridge University Press,
+Cambridge, United Kingdom.</li>
+<li>Wikipedia: The Free Encyclopedia. <a href="http://en.wikipedia.org/wiki/Main_Page" class="uri">http://en.wikipedia.org/wiki/Main_Page</a></li>
+</ul>
+</div>
+<div id="practice" class="section level3">
+<h3>Practice</h3>
+<iframe src="https://quizlet.com/499545557/flashcards/embed?i=2ldef3&amp;x=1jj1" height="500" width="100%" style="border:0">
+</iframe>
+</div>
