@@ -5,12 +5,34 @@
     <link>/authors/</link>
       <atom:link href="/authors/index.xml" rel="self" type="application/rss+xml" />
     <description>Authors</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 12 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 31 Mar 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Authors</title>
       <link>/authors/</link>
     </image>
+    
+    <item>
+      <title></title>
+      <link>/authors/bailey-fosdick/</link>
+      <pubDate>Tue, 31 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>/authors/bailey-fosdick/</guid>
+      <description>&lt;p&gt;Bailey Fosdick is an assistant professor of statistics at Colorado State University. Her
+primary research interests lie in the development of statistical methods for analyzing
+network data, with particular attention to applications in ecology and the social sciences.
+She also studies covariance models for multiway data, Bayesian statistics, and methods for
+survey analysis.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/authors/zach_laubach/</link>
+      <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>/authors/zach_laubach/</guid>
+      <description>&lt;p&gt;Zach Laubach&#39;s research is grounded in behavioral ecology and evolutionary biology. In particular, he tries to understand the ways in which early life environments shape phenotype. He is drawn to questions that explore the interrelations among social behaviors, molecular mechanisms, and stress physiology. He uses tools from diverse fields, including molecular biology and physiology to identify proximate mechanisms of animal behaviors and phenotypes; and causal inference methods from epidemiology to better understand relationships gleaned from observational data. He has carried out his research in birds, hyenas, and humans.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title></title>
@@ -30,6 +52,15 @@ source R software packages to facilitate environmental epidemiologic research.&l
       <pubDate>Fri, 06 Mar 2020 00:00:00 +0000</pubDate>
       <guid>/authors/daniel-dean/</guid>
       <description>&lt;p&gt;Daniel Dean is a graduate student in the Department of Agriculture and Biology at Colorado State University. He is studying the soil microbiome and interested in learning additional skills in R programming and statistics.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/authors/sarah-cooper/</link>
+      <pubDate>Mon, 24 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/authors/sarah-cooper/</guid>
+      <description>&lt;p&gt;Sarah Cooper is a graduate student in the Department of Microbiology, Immunology, Pathology at Colorado State University.&lt;/p&gt;
 </description>
     </item>
     
@@ -68,19 +99,6 @@ State University.&lt;/p&gt;
       <guid>/authors/sierra-pugh/</guid>
       <description>&lt;p&gt;Sierra Pugh is a graduate student in the Department of Statistics at Colorado
 State University. She has interest in Bayesian statistics, and has experience in spatial statistics.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/authors/bailey-fosdick/</link>
-      <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>/authors/bailey-fosdick/</guid>
-      <description>&lt;p&gt;Bailey Fosdick is an assistant professor of statistics at Colorado State University. Her
-primary research interests lie in the development of statistical methods for analyzing
-network data, with particular attention to applications in ecology and the social sciences.
-She also studies covariance models for multiway data, Bayesian statistics, and methods for
-survey analysis.&lt;/p&gt;
 </description>
     </item>
     
@@ -131,29 +149,11 @@ State University. She has worked in a genetics lab on a project investigating th
     
     <item>
       <title></title>
-      <link>/authors/sarah-cooper/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/authors/sarah-cooper/</guid>
-      <description>&lt;p&gt;Sarah Cooper is a graduate student in the Department of Microbiology, Immunology, Pathology at Colorado State University.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title></title>
       <link>/authors/sherry-wemott/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/authors/sherry-wemott/</guid>
       <description>&lt;p&gt;Sherry WeMott-Colton is a graduate student in the Department of Environmental and Radiological Health Sciences at Colorado
 State University. Her research focuses on evironmental and social factors impacting health.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/authors/zach_laubach/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/authors/zach_laubach/</guid>
-      <description>&lt;p&gt;Zach Laubach&#39;s research is grounded in behavioral ecology and evolutionary biology. In particular, he tries to understand the ways in which early life environments shape phenotype. He is drawn to questions that explore the interrelations among social behaviors, molecular mechanisms, and stress physiology. He uses tools from diverse fields, including molecular biology and physiology to identify proximate mechanisms of animal behaviors and phenotypes; and causal inference methods from epidemiology to better understand relationships gleaned from observational data. He has carried out his research in birds, hyenas, and humans.&lt;/p&gt;
 </description>
     </item>
     

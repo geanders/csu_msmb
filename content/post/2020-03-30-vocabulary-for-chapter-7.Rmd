@@ -3,7 +3,6 @@ title: "Vocabulary for Chapter 7"
 author: "Zach Laubach"
 date: '2020-03-30'
 slug: vocabulary-for-chapter-7
-draft: no
 categories:
   - Chapter 7
   - vocabulary
