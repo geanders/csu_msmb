@@ -1,0 +1,42 @@
+---
+title: Details for class on April 2
+author: Bailey Fosdick
+date: '2020-03-31'
+slug: details-for-class-on-april-2
+draft: yes
+categories:
+  - class meeting
+tags:
+  - class meeting
+subtitle: ''
+summary: ''
+authors: [bailey-fosdick]
+lastmod: '2020-03-31T08:32:12-06:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+## General course information 
+
+We are going to try meeting each week using Microsoft Teams during our usual time on Thursdays, 3-5pm.  The class  structure will remain the same as before, however everything will be online:
+
+3:00-3:10 pm: Take the quiz through the online blog post.
+3:10-4:00 pm: Large group meeting for group discussion. 
+4:00-5:00 pm: Smaller meetings for groups to work on the chapter exercise.  
+
+
+## Links for April 2
+
+Vocabulary quiz 
+
+Large group : [meeting link](https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZWY5MTczNDUtOTIzYS00ZGUyLTk4ODctMjdhZWI4MmE4NjMx%40thread.v2/0?context=%7b%22Tid%22%3a%22afb58802-ff7a-4bb1-ab21-367ff2ecfc8b%22%2c%22Oid%22%3a%2205ade929-16e7-49a7-96bb-775f26ed73d5%22%7d)
+
+Group 1 (Sierra, Camron, James) : [meeting link](https://teams.microsoft.com/l/meetup-join/19%3ameeting_NjA3Y2Q5MDYtYTM5OS00MzAyLWEwMzAtMzdmNWMzYzhmMTUw%40thread.v2/0?context=%7b%22Tid%22%3a%22afb58802-ff7a-4bb1-ab21-367ff2ecfc8b%22%2c%22Oid%22%3a%2205ade929-16e7-49a7-96bb-775f26ed73d5%22%7d)
+
+Group 2 (Sherry, Amy, Mikaela): [meeting link](https://teams.microsoft.com/l/meetup-join/19%3ameeting_M2I3YmViYjMtNWJlNC00M2E5LTg5NTItNzI0N2VlYmVkNzUz%40thread.v2/0?context=%7b%22Tid%22%3a%22afb58802-ff7a-4bb1-ab21-367ff2ecfc8b%22%2c%22Oid%22%3a%2205ade929-16e7-49a7-96bb-775f26ed73d5%22%7d)
+
+Group 3 (Daniel, Burton, Sarah, Sere): [meeting link](https://teams.microsoft.com/l/meetup-join/19%3ameeting_YjE4ZGJhNjItYTViMS00MjZjLTk4NWUtMjBhY2E3OTJiOGQw%40thread.v2/0?context=%7b%22Tid%22%3a%22afb58802-ff7a-4bb1-ab21-367ff2ecfc8b%22%2c%22Oid%22%3a%2205ade929-16e7-49a7-96bb-775f26ed73d5%22%7d)
