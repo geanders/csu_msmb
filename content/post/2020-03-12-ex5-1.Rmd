@@ -1,0 +1,162 @@
+---
+title: "Exercise Solution for 5.1"
+author5.1: "Camron Pearce"
+date: "3/12/2020"
+output: html_document
+---
+
+
+```{r setup, include=FALSE, echo=TRUE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+This exercise asks us to interpret and validate the consistency within our clusters of data. To do this, we will employ the silhouette index, which gives us a silhouette value measuring how similar an object is to its own cluster compared to other clusters. 
+
+The **silhouette index** is as follows:  
+
+$$\displaystyle S(i) = \frac{B(i) - A(i)}{max_i(A(i), B(i))} $$  
+
+The solution to this exercise requires the following R packages to be loaded into your environment.
+
+## Required Libraries
+```{r, error=FALSE, message=FALSE, warning=FALSE}
+library("cluster")
+library(dplyr)
+library(ggplot2)
+library(purrr)
+```
+
+## Part A
+
+Question 5.1.a asks us to compute the silhouette index for the simdat data that was simulated in Section **5.7**. The code is as follows: 
+
+
+```{r, echo=TRUE, message=FALSE, include=TRUE}
+set.seed(1)
+
+simdat = lapply(c(0, 8), function(mx) {
+  lapply(c(0,8), function(my) {
+    tibble(x = rnorm(100, mean = mx, sd = 2),
+           y = rnorm(100, mean = my, sd = 2),
+           class = paste(mx, my, sep = ":"))
+   }) %>% bind_rows
+}) %>% bind_rows
+
+simdatxy = simdat[, c("x", "y")]
+
+wss = tibble(k = 1:8, value = NA_real_)
+
+wss$value[1] = sum(scale(simdatxy, scale = FALSE)^2)
+
+for (i in 2:nrow(wss)) {
+  km  = kmeans(simdatxy, centers = wss$k[i])
+  wss$value[i] = sum(km$withinss)
+}
+
+ggplot(wss, aes(x = k, y = value)) + geom_col()
+
+```
+
+The provided code is used to simulate data coming from four separate groups. They use the pipe operator to concatenate four different, randomly generated, data sets. The ggplot2 package is used to take a look at the data as a barchart with the k-means method and k = 4.
+
+```{r}
+pam4 = pam(simdatxy, 4)
+sil = silhouette(pam4, 4, border = NA)
+plot(sil, col=c("red","green","blue","purple"), main="Silhouette")
+
+```
+
+Next up is the code necessary to plot the silhouette index. The "silhouette" function comes from the "cluster" package, and the resulting graph provides an average silhouette width for k = 4 clusters.
+
+### Computing the Silhouette Index
+
+```{r}
+summary(sil)$avg.width
+```
+
+## Part B
+
+Question 5.1.b asks us to change the number of clusters *k* and assess which *k* value produces the best silhouette index.  
+
+The silhouette value is a measure of how similar a cluster is to its own cluster when compared to other clusters. Values can range from -1 to +1. A high value tells us that the object is better matched to its on cluster and more poorly matched to neighboring clusters.   
+
+In this example, there are a couple of ways to assess which k gives the best silhouette index.One method would be trial and error and determining which k-value produces the highest silhouette index. This method works out for this example, but is impractical for much larger and complex datasets. Included below is the code for testing multiple different k-values and the resulting coefficient values.  
+
+```{r}
+pam2 = pam(simdatxy, 2)
+sil2 = silhouette(pam2, 2)
+plot(sil2, col=c("red","green","blue","purple"), main="Silhouette")
+
+pam3 = pam(simdatxy, 3)
+sil3 = silhouette(pam3, 3)
+plot(sil3, col=c("red","green","blue","purple"), main="Silhouette")
+
+pam4 = pam(simdatxy, 4)
+sil = silhouette(pam4, 4)
+plot(sil, col=c("red","green","blue","purple"), main="Silhouette")
+
+pam12 = pam(simdatxy, 12)
+sil12 = silhouette(pam12, 12)
+plot(sil12, col=c("red","green","blue","purple"), main="Silhouette")
+
+pam40 = pam(simdatxy, 40)
+sil40 = silhouette(pam40, 40)
+plot(sil40, col=c("red","green","blue","purple"), main="Silhouette")
+```
+
+This trial and error method indicates that the highest silhouette index (that was tested) is achieved with k = 4.  
+
+A different (seemingly more appropriate) method is to write a piece of code that will test a range of k-values automatically. This next piece of code is adapted from Amy Fox and the group that she worked with during class. This is a much more practical method that provides a clear answer of which *k* gives the best silhouette index.
+
+```{r}
+k <- c(2:10)
+df_test <- data.frame()
+for (i in 2:10){
+  
+  pam_run <- pam(simdatxy, i)
+  sil_run <- silhouette(pam_run, i)
+  
+  row_to_add <- data.frame(i, width = summary(sil_run)$avg.width)
+  
+  df_test <- rbind(df_test, row_to_add)
+}
+df_test
+ggplot(df_test, aes(i, width)) +
+  geom_point() +
+  geom_line() +
+  xlab("k") +
+  ylab("Silhouette Index") +
+  ggtitle("Testing different k values for Silhouette Index")
+summary(sil_run)
+```
+
+The result of summary(sil_run) matches the trial and error method, but in a more efficient manner..
+
+## Part C
+
+The last part of this exercise asks us to repeat by calculating the silhouette index on a uniform (unclustered) data distribution over a range of values.  
+
+Here, a new data set is generated without clustering the randomly genereated data. 
+
+```{r}
+set.seed(1)
+
+simdat1 = lapply(c(1), function(mx) {
+  lapply(c(1), function(my) {
+    tibble(x = rnorm(100, mean = mx, sd = 2),
+           y = rnorm(100, mean = my, sd = 2),
+           class = paste(mx, my, sep = ":"))
+   }) %>% bind_rows
+}) %>% bind_rows
+
+simdatxy1 = simdat1[, c("x", "y")]
+
+ggplot(simdatxy1, aes(x = x, y = y)) +
+  geom_point()
+
+pam4.1 = pam(simdatxy1, 4)
+sil.1 = silhouette(pam4.1, 4)
+plot(sil.1, col=c("red","green","blue","purple"), main="Silhouette")
+
+```
+
+The average silhouette width is 0.33, which is much lower than the clustered value of 0.50 that we see with the first simulation.
