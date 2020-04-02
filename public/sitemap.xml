@@ -18,12 +18,12 @@
   </url>
   
   <url>
-    <loc>/categories/class-meeting/</loc>
+    <loc>/tags/class-meeting/</loc>
     <lastmod>2020-03-31T08:32:12-06:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/class-meeting/</loc>
+    <loc>/categories/class-meeting/</loc>
     <lastmod>2020-03-31T08:32:12-06:00</lastmod>
   </url>
   
@@ -53,12 +53,12 @@
   </url>
   
   <url>
-    <loc>/categories/chapter-7/</loc>
+    <loc>/tags/chapter-7/</loc>
     <lastmod>2020-03-30T21:37:37-06:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/chapter-7/</loc>
+    <loc>/categories/chapter-7/</loc>
     <lastmod>2020-03-30T21:37:37-06:00</lastmod>
   </url>
   
@@ -83,12 +83,12 @@
   </url>
   
   <url>
-    <loc>/tags/chapter-6/</loc>
+    <loc>/categories/chapter-6/</loc>
     <lastmod>2020-03-12T13:17:23-06:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/chapter-6/</loc>
+    <loc>/tags/chapter-6/</loc>
     <lastmod>2020-03-12T13:17:23-06:00</lastmod>
   </url>
   
@@ -98,12 +98,12 @@
   </url>
   
   <url>
-    <loc>/categories/quiz/</loc>
+    <loc>/tags/quiz/</loc>
     <lastmod>2020-03-12T13:17:23-06:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/quiz/</loc>
+    <loc>/categories/quiz/</loc>
     <lastmod>2020-03-12T13:17:23-06:00</lastmod>
   </url>
   
@@ -118,12 +118,12 @@
   </url>
   
   <url>
-    <loc>/categories/chapter-5/</loc>
+    <loc>/tags/chapter-5/</loc>
     <lastmod>2020-03-05T14:59:00-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/chapter-5/</loc>
+    <loc>/categories/chapter-5/</loc>
     <lastmod>2020-03-05T14:59:00-07:00</lastmod>
   </url>
   
@@ -133,48 +133,18 @@
   </url>
   
   <url>
-    <loc>/categories/chapter-4/</loc>
+    <loc>/tags/chapter-4/</loc>
     <lastmod>2020-02-27T10:42:19-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/chapter-4/</loc>
+    <loc>/categories/chapter-4/</loc>
     <lastmod>2020-02-27T10:42:19-07:00</lastmod>
   </url>
   
   <url>
     <loc>/post/chapter-4-vocabulary-quiz/</loc>
     <lastmod>2020-02-27T10:42:19-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/sarah-cooper/</loc>
-    <lastmod>2020-02-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/chapter-2/</loc>
-    <lastmod>2020-02-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/chapter-2/</loc>
-    <lastmod>2020-02-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/ex-2-6/</loc>
-    <lastmod>2020-02-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/exercises/</loc>
-    <lastmod>2020-02-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/exercises/</loc>
-    <lastmod>2020-02-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -203,12 +173,32 @@
   </url>
   
   <url>
+    <loc>/categories/chapter-2/</loc>
+    <lastmod>2020-02-19T18:18:47-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/chapter-2/</loc>
+    <lastmod>2020-02-19T18:18:47-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/chapter-2-part-2-vocabulary-quiz/</loc>
     <lastmod>2020-02-19T18:18:47-07:00</lastmod>
   </url>
   
   <url>
     <loc>/post/exercise-solution-for-chapter-2/</loc>
+    <lastmod>2020-02-19T15:25:48-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/exercises/</loc>
+    <lastmod>2020-02-19T15:25:48-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/exercises/</loc>
     <lastmod>2020-02-19T15:25:48-07:00</lastmod>
   </url>
   
@@ -248,12 +238,12 @@
   </url>
   
   <url>
-    <loc>/categories/instructions/</loc>
+    <loc>/tags/instructions/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/instructions/</loc>
+    <loc>/categories/instructions/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
@@ -263,12 +253,12 @@
   </url>
   
   <url>
-    <loc>/categories/chapter-1/</loc>
+    <loc>/tags/chapter-1/</loc>
     <lastmod>2020-02-11T20:22:07-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/chapter-1/</loc>
+    <loc>/categories/chapter-1/</loc>
     <lastmod>2020-02-11T20:22:07-07:00</lastmod>
   </url>
   
@@ -308,16 +298,6 @@
   </url>
   
   <url>
-    <loc>/privacy/</loc>
-    <lastmod>2018-06-28T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/terms/</loc>
-    <lastmod>2018-06-28T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/authors/admin/</loc>
   </url>
   
@@ -335,6 +315,10 @@
   
   <url>
     <loc>/authors/mike-lyons/</loc>
+  </url>
+  
+  <url>
+    <loc>/authors/sarah-cooper/</loc>
   </url>
   
   <url>
