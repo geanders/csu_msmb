@@ -1,0 +1,99 @@
+---
+title: Exercise solution for Chapter 7
+author: Sierra Pugh
+date: '2020-04-09'
+slug: exercise-solution-for-chapter-7
+categories:
+  - exercises
+  - Chapter 7
+tags:
+  - Chapter 7
+  - exercises
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-04-05T17:52:49-06:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+# Exercise 7.4 from Modern Statistics for Modern Biology
+
+*Let’s revisit the Hiiragi data and compare the weighted and unweighted approaches. 7.4a Make a correlation circle for the unweighted Hiiragi data xwt. Which genes have the best projections on the first principal plane (best approximation)? 7.4b Make a biplot showing the labels of the extreme gene-variables that explain most of the variance in the first plane. Add the the sample-points.*
+
+## Read in and clean data
+
+We start by loading the libraries:
+```{r message=FALSE, warning=F}
+library("Hiiragi2013")
+library("ade4")
+library("factoextra")
+library("pander")
+```
+
+You can install the libraries using `install.packages` for the `ade4` and `factoextra` packages, and the following line for `Hiiragi2013`:
+```{r, eval=F}
+BiocManager::install("Hiiragi2013")
+```
+
+Then I copied the code from the textbook to clean the data. A tidyverse version of this code is available on Brooke Andersons's github.
+
+```{r}
+data("x", package = "Hiiragi2013")
+xwt = x[, x$genotype == "WT"]
+sel = order(rowVars(Biobase::exprs(xwt)), decreasing = TRUE)[1:100]
+xwt = xwt[sel, ]
+```
+
+## a) Make a correlation circle
+
+First I used `dudi.pca` to perform principal component analysis and get a pca and dudi class object. Because I didn't use the `row.w` option as the textbook did, this is an unweighted PCA.
+
+```{r}
+pcaMouse = dudi.pca(as.data.frame(t(Biobase::exprs(xwt))),
+                            center = TRUE, scale = TRUE, nf = 2, scannf = FALSE)
+```
+
+Then I used the `fviz_pca_var` function to plot the correlation circle. I used `geom= "arrow"` to remove the labels of each arrow as they were all overlapping.
+
+```{r}
+fviz_pca_var(pcaMouse, col.circle = "black",geom= "arrow") + ggtitle("") +
+  xlim(c(-1.2, 1.2)) + ylim(c(-1.2, 1.2))
+```
+
+The genes that have the best projections on the first principal plane are those with the longest arrows on the plot above. I extracted the genes with arrow lengths greater than 0.8 with the following code:
+
+```{r}
+corrCircle <- fviz_pca_var(pcaMouse, col.circle = "black")$data
+arrowLengths <- sqrt(corrCircle$x^2+corrCircle$y^2)
+cutoff <- 0.8
+kpInd <- order(arrowLengths, decreasing=TRUE)[1:sum(arrowLengths>cutoff)]
+genes <- corrCircle[kpInd,"name"]
+```
+```{r,eval=F}
+genes
+```
+```{r,echo=F}
+pander::pander(as.character(genes))
+```
+
+To summarize, the code above saves output from the `fviz_pca_var` function to an object called `corrCircle`. I used the output (which included x and y coordinates) to calculate the arrow length for each gene. I then created vector, `kpInd`, with the indice number for genes that had a length greater then the cutoff of 0.8. Finally, I output the names of those genes with length greather than 0.8.
+
+## b) Make a biplot
+
+I used the `fviz_pca_biplot` function. The `col.var` and `col.ind` options allow you to color the different genes and sample points, respectively, by particular groups. I used `label=""` to remove the labels on the vectors and points. The `above8` variable is simply a vector of either "Less than 0.8" or "Greater than 0.8" to indicate if each gene's vector length was less than or greater than our cutoff value on the correlation circle.
+
+```{r}
+above8 <- rep("Less than 0.8", dim(xwt)[1])
+above8[1:100 %in% kpInd] <- "Greater than 0.8"
+fviz_pca_biplot(pcaMouse, col.var=above8, col.ind=xwt$sampleGroup, label="") +
+  ggtitle("") 
+```
+
+The colors/shapes of the point indicate the sample group of each sample point. The colors of the arrows indicate whether or not the corresponding gene had length greater than or less than 0.8 on the correlation circle. 
+
+We can see the EPI and PE groups (the groups with the fewest samples) appear more extreme in the first principle plane when using the unweighted PCA. This was not the case in the weighted PCA because then groups were weighted equally. Here, the PCA mostly depends on the larger groups (to best understand the most observations), so the smaller groups appear more extreme on the principal plane.

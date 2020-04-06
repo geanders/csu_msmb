@@ -1,0 +1,74 @@
+---
+title: Exercise solution for Chapter 7
+author: Sierra Pugh
+date: '2020-04-09'
+slug: exercise-solution-for-chapter-7
+categories:
+  - exercises
+  - Chapter 7
+tags:
+  - Chapter 7
+  - exercises
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-04-05T17:52:49-06:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+
+<div id="exercise-7.4-from-modern-statistics-for-modern-biology" class="section level1">
+<h1>Exercise 7.4 from Modern Statistics for Modern Biology</h1>
+<p><em>Let’s revisit the Hiiragi data and compare the weighted and unweighted approaches. 7.4a Make a correlation circle for the unweighted Hiiragi data xwt. Which genes have the best projections on the first principal plane (best approximation)? 7.4b Make a biplot showing the labels of the extreme gene-variables that explain most of the variance in the first plane. Add the the sample-points.</em></p>
+<div id="read-in-and-clean-data" class="section level2">
+<h2>Read in and clean data</h2>
+<p>We start by loading the libraries:</p>
+<pre class="r"><code>library(&quot;Hiiragi2013&quot;)
+library(&quot;ade4&quot;)
+library(&quot;factoextra&quot;)
+library(&quot;pander&quot;)</code></pre>
+<p>You can install the libraries using <code>install.packages</code> for the <code>ade4</code> and <code>factoextra</code> packages, and the following line for <code>Hiiragi2013</code>:</p>
+<pre class="r"><code>BiocManager::install(&quot;Hiiragi2013&quot;)</code></pre>
+<p>Then I copied the code from the textbook to clean the data. A tidyverse version of this code is available on Brooke Andersons’s github.</p>
+<pre class="r"><code>data(&quot;x&quot;, package = &quot;Hiiragi2013&quot;)
+xwt = x[, x$genotype == &quot;WT&quot;]
+sel = order(rowVars(Biobase::exprs(xwt)), decreasing = TRUE)[1:100]
+xwt = xwt[sel, ]</code></pre>
+</div>
+<div id="a-make-a-correlation-circle" class="section level2">
+<h2>a) Make a correlation circle</h2>
+<p>First I used <code>dudi.pca</code> to perform principal component analysis and get a pca and dudi class object. Because I didn’t use the <code>row.w</code> option as the textbook did, this is an unweighted PCA.</p>
+<pre class="r"><code>pcaMouse = dudi.pca(as.data.frame(t(Biobase::exprs(xwt))),
+                            center = TRUE, scale = TRUE, nf = 2, scannf = FALSE)</code></pre>
+<p>Then I used the <code>fviz_pca_var</code> function to plot the correlation circle. I used <code>geom= &quot;arrow&quot;</code> to remove the labels of each arrow as they were all overlapping.</p>
+<pre class="r"><code>fviz_pca_var(pcaMouse, col.circle = &quot;black&quot;,geom= &quot;arrow&quot;) + ggtitle(&quot;&quot;) +
+  xlim(c(-1.2, 1.2)) + ylim(c(-1.2, 1.2))</code></pre>
+<p><img src="/post/2020-04-09-exercise-solution-for-chapter-7_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>The genes that have the best projections on the first principal plane are those with the longest arrows on the plot above. I extracted the genes with arrow lengths greater than 0.8 with the following code:</p>
+<pre class="r"><code>corrCircle &lt;- fviz_pca_var(pcaMouse, col.circle = &quot;black&quot;)$data
+arrowLengths &lt;- sqrt(corrCircle$x^2+corrCircle$y^2)
+cutoff &lt;- 0.8
+kpInd &lt;- order(arrowLengths, decreasing=TRUE)[1:sum(arrowLengths&gt;cutoff)]
+genes &lt;- corrCircle[kpInd,&quot;name&quot;]</code></pre>
+<pre class="r"><code>genes</code></pre>
+<p><em>1456270_s_at</em>, <em>1450624_at</em>, <em>1449134_s_at</em>, <em>1418153_at</em>, <em>1420085_at</em>, <em>1420086_x_at</em>, <em>1434584_a_at</em>, <em>1450843_a_at</em>, <em>1429483_at</em>, <em>1437308_s_at</em>, <em>1456598_at</em>, <em>1460605_at</em>, <em>1429388_at</em>, <em>1426990_at</em>, <em>1436392_s_at</em> and <em>1452270_s_at</em></p>
+<p>To summarize, the code above saves output from the <code>fviz_pca_var</code> function to an object called <code>corrCircle</code>. I used the output (which included x and y coordinates) to calculate the arrow length for each gene. I then created vector, <code>kpInd</code>, with the indice number for genes that had a length greater then the cutoff of 0.8. Finally, I output the names of those genes with length greather than 0.8.</p>
+</div>
+<div id="b-make-a-biplot" class="section level2">
+<h2>b) Make a biplot</h2>
+<p>I used the <code>fviz_pca_biplot</code> function. The <code>col.var</code> and <code>col.ind</code> options allow you to color the different genes and sample points, respectively, by particular groups. I used <code>label=&quot;&quot;</code> to remove the labels on the vectors and points. The <code>above8</code> variable is simply a vector of either “Less than 0.8” or “Greater than 0.8” to indicate if each gene’s vector length was less than or greater than our cutoff value on the correlation circle.</p>
+<pre class="r"><code>above8 &lt;- rep(&quot;Less than 0.8&quot;, dim(xwt)[1])
+above8[1:100 %in% kpInd] &lt;- &quot;Greater than 0.8&quot;
+fviz_pca_biplot(pcaMouse, col.var=above8, col.ind=xwt$sampleGroup, label=&quot;&quot;) +
+  ggtitle(&quot;&quot;) </code></pre>
+<p><img src="/post/2020-04-09-exercise-solution-for-chapter-7_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>The colors/shapes of the point indicate the sample group of each sample point. The colors of the arrows indicate whether or not the corresponding gene had length greater than or less than 0.8 on the correlation circle.</p>
+<p>We can see the EPI and PE groups (the groups with the fewest samples) appear more extreme in the first principle plane when using the unweighted PCA. This was not the case in the weighted PCA because then groups were weighted equally. Here, the PCA mostly depends on the larger groups (to best understand the most observations), so the smaller groups appear more extreme on the principal plane.</p>
+</div>
+</div>
