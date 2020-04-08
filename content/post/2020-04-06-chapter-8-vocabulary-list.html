@@ -475,7 +475,7 @@ molecules being sequenced during a sequencing analysis
 count table
 </td>
 <td style="text-align:left;width: 30em; ">
-a matrix with the tallies of the number of reads seen for each gene in each sample
+a matrix with the tallies of the number of occurrences of subpopulations from a larger population/sample
 </td>
 </tr>
 <tr>
@@ -507,7 +507,7 @@ a technique that adjusts for the nature and magnitude of systematic sampling bia
 rare events
 </td>
 <td style="text-align:left;width: 30em; ">
-occurrences in the tail(s) of a distribution; counts that are extraordinarily high or low
+occurrences in the tail(s) of a distribution; observations that are extraordinarily high or low
 </td>
 </tr>
 <tr>
@@ -520,7 +520,7 @@ a measure of the spread of the data; a common measure is the standard deviation 
 </tr>
 <tr>
 <td style="text-align:right;font-weight: bold;border-right:1px solid;">
-gamma-Poison
+gamma-Poisson
 </td>
 <td style="text-align:left;width: 30em; ">
 negative binomial distribution with 2 parameters; 𝛼 and 𝛽
@@ -603,7 +603,7 @@ a matrix encoding the design of an experiment where the columns correspond to ex
 residuals
 </td>
 <td style="text-align:left;width: 30em; ">
-a term in a model that reflects the experimental fluctuations around the mean between replicates
+a term in a model that reflects the experimental fluctuations (i.e. random noise)
 </td>
 </tr>
 <tr>
@@ -619,7 +619,7 @@ a type of model fitting that minimizes the sum of the squared residuals
 linear model
 </td>
 <td style="text-align:left;width: 30em; ">
-a model that takes the form: y_j = sum_k (x_jk * beta_k + e_j)
+a model that is a linear function of parameters, i.e. takes the form: y_j = sum_k (x_jk * beta_k + e_j)
 </td>
 </tr>
 <tr>
@@ -627,7 +627,7 @@ a model that takes the form: y_j = sum_k (x_jk * beta_k + e_j)
 analysis of variance (ANOVA)
 </td>
 <td style="text-align:left;width: 30em; ">
-an analysis that outlines the systematic variability and noise in a model
+an analysis that decomposes patterns in the data into systematic variability and noise
 </td>
 </tr>
 <tr>
@@ -659,7 +659,7 @@ a measure of the robustness of an estimator; larger values indicate more robust 
 robust
 </td>
 <td style="text-align:left;width: 30em; ">
-an estimator with a high degree of robustness against outliers
+a “sturdy” estimator that is not heavily influenced by outliers
 </td>
 </tr>
 <tr>
@@ -675,7 +675,7 @@ minimization of the sum of the absolute values of the residuals
 least quantile of squares
 </td>
 <td style="text-align:left;width: 30em; ">
-a type of regression where the sum over the squared residuals is replaced with a quantile
+a type of regression where the difference between the model quantile and empirical quantile is minimized
 </td>
 </tr>
 <tr>
@@ -683,7 +683,7 @@ a type of regression where the sum over the squared residuals is replaced with a
 least trimmed sum of squares
 </td>
 <td style="text-align:left;width: 30em; ">
-a type of regression that uses the sum over the squared residuals over a fraction for the smallest residuals
+a type of regression that minimized the sum of squared residuals, where the sum is over only a fraction of the smallest residuals
 </td>
 </tr>
 <tr>
@@ -691,7 +691,7 @@ a type of regression that uses the sum over the squared residuals over a fractio
 logistic regression
 </td>
 <td style="text-align:left;width: 30em; ">
-a type of generalized linear regression where the outcome is transformed by the logistic function and bounded between 0 and 1
+a type of generalized linear regression for binary data where the outcome is transformed by the logistic function and bounded between 0 and 1
 </td>
 </tr>
 <tr>
@@ -699,7 +699,7 @@ a type of generalized linear regression where the outcome is transformed by the 
 maximum likelihood
 </td>
 <td style="text-align:left;width: 30em; ">
-a method that maximizes the product of the probabilistic model where the residuals ~N(0, sigma)
+a method for parameter estimation that finds the parameter value that maximizes the probablity of the observed data under the model
 </td>
 </tr>
 <tr>
@@ -707,7 +707,7 @@ a method that maximizes the product of the probabilistic model where the residua
 likelihood
 </td>
 <td style="text-align:left;width: 30em; ">
-a term describing a case where the product of the probability of the residuals is a function of the model parameters
+a function of a model parameter which is equal to the probability of the observed data under the model
 </td>
 </tr>
 <tr>
@@ -715,7 +715,7 @@ a term describing a case where the product of the probability of the residuals i
 maximum-likelihood estimates
 </td>
 <td style="text-align:left;width: 30em; ">
-model parameters that are estimated by optimizing the sum over the squared residuals (thereby optimizing the product of the probability of the residuals)
+model parameters that are estimated by maximizing the probability of the observed data under the model
 </td>
 </tr>
 <tr>
@@ -787,7 +787,7 @@ often, a hypothesis of “no association” that is used as a counterpart to a m
 variability
 </td>
 <td style="text-align:left;width: 30em; ">
-in statistics, the amount by which a set of observations deviate from their mean.
+in statistics, the amount by which a set of observations deviate from their mean
 </td>
 </tr>
 <tr>
@@ -795,7 +795,7 @@ in statistics, the amount by which a set of observations deviate from their mean
 outlier
 </td>
 <td style="text-align:left;width: 30em; ">
-a data point with a large residual
+a data point that does not follow the pattern of the rest of the data; often this data point will have a large residual
 </td>
 </tr>
 <tr>
