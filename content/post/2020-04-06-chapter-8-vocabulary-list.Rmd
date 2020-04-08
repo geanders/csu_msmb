@@ -1,0 +1,63 @@
+---
+title: Chapter 8 Vocabulary List
+author: Mikaela Elder
+date: '2020-04-06'
+slug: chapter-8-vocabulary-list
+categories:
+  - vocabulary
+  - chapter 8
+tags:
+  - vocabulary
+  - chapter 8
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-04-06T16:16:47-06:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+Chapter 8 covers high-throughput count data, like data generated through RNA-seq. It introduces a number of tools that are useful for analyzing this type of data. The vocabulary terms for Chapter 8 are:
+
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+
+library(dplyr)
+library(readr)
+library(knitr)
+library(kableExtra)
+
+# Read in vocabulary from tsv into a dataframe
+# This is where you'll need to replace the file name with your own
+vocab <- read_tsv("vocab_lists/chapter_8.tsv",
+                  col_names = c("term", "definition"))
+
+# Print the dataframe as a nice-looking table
+vocab %>% 
+  kable(align = c("rl"), 
+        col.names = c("", "")) %>% 
+  kable_styling(bootstrap_options = c("striped", "hover",
+                                      "condensed")) %>% 
+  column_spec(1, bold = T, border_right = T) %>%
+  column_spec(2, width = "30em")
+```
+
+
+###Sources consulted or cited
+
+*Some of the definitions above are based in part or whole on listed definitions in the following sources.*
+
+- Holmes and Huber, 2019. *Modern Statistics for Modern Biology.* Cambridge University Press, 
+Cambridge, United Kingdom.
+- Lexico: https://www.lexico.com
+- Statistics How To: https://www.statisticshowto.com
+- Lavrakas, 2008. Sampling without replacement. *Encyclopedia of Survey Research Methods.*  https://dx.doi.org/10.4135/9781412963947.n516
+
+
+###Practice
+
+<iframe src="https://quizlet.com/501110916/match/embed?i=2shf5e&x=1jj1" height="500" width="100%" style="border:0"></iframe>
+
