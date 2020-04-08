@@ -147,7 +147,7 @@ date_format = "   "
   date_end = "2020-01-24"
   description = """
   
-  Exercise for Chapter:
+  Exercise for Chapter: Exercise 8.1 (p. 216)
   
   Student responsibilities:
 
