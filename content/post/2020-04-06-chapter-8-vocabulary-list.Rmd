@@ -46,7 +46,7 @@ vocab %>%
 ```
 
 
-###Sources consulted or cited
+### Sources consulted or cited
 
 *Some of the definitions above are based in part or whole on listed definitions in the following sources.*
 
@@ -57,7 +57,7 @@ Cambridge, United Kingdom.
 - Lavrakas, 2008. Sampling without replacement. *Encyclopedia of Survey Research Methods.*  https://dx.doi.org/10.4135/9781412963947.n516
 
 
-###Practice
+### Practice
 
-<iframe src="https://quizlet.com/501110916/match/embed?i=2shf5e&x=1jj1" height="500" width="100%" style="border:0"></iframe>
+<iframe src="https://quizlet.com/501110916/flashcards/embed?i=2shf5e&x=1jj1" height="500" width="100%" style="border:0"></iframe>
 
