@@ -1,6 +1,6 @@
 ---
-title: Chapter 8 Vocabulary List
-author: Mikaela Elder
+title: "Chapter 8 Vocabulary List"
+author: "Mikaela Elder"
 date: '2020-04-06'
 slug: chapter-8-vocabulary-list
 categories:
@@ -11,7 +11,7 @@ tags:
   - chapter 8
 subtitle: ''
 summary: ''
-authors: []
+authors: [mikaela-elder]
 lastmod: '2020-04-06T16:16:47-06:00'
 featured: no
 image:
