@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Authors | CSU MSMB Group Study</title>
+    <link>/authors/</link>
+      <atom:link href="/authors/index.xml" rel="self" type="application/rss+xml" />
+    <description>Authors</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 06 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>Authors</title>
+      <link>/authors/</link>
+    </image>
+    
+    <item>
+      <title></title>
+      <link>/authors/mikaela-elder/</link>
+      <pubDate>Mon, 06 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/authors/mikaela-elder/</guid>
+      <description>&lt;p&gt;Mikaela Elder is a undergraudate student in the Department of Biochemistry and Molecular Biology at Colorado
+State University. She has worked in a genetics lab on a project investigating the effects of mutation in proteins linked to neurodegenerative diseases and a project investigating the atypical structural tendencies among low-complexity domains in the Protein Data Bank proteome. Her goals are to learn how to mathematically model biological systems in an effort to better understand the mechanisms of biochemical processes.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/authors/bailey-fosdick/</link>
+      <pubDate>Tue, 31 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>/authors/bailey-fosdick/</guid>
+      <description>&lt;p&gt;Bailey Fosdick is an assistant professor of statistics at Colorado State University. Her
+primary research interests lie in the development of statistical methods for analyzing
+network data, with particular attention to applications in ecology and the social sciences.
+She also studies covariance models for multiway data, Bayesian statistics, and methods for
+survey analysis.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/authors/zach_laubach/</link>
+      <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>/authors/zach_laubach/</guid>
+      <description>&lt;p&gt;Zach Laubach&#39;s research is grounded in behavioral ecology and evolutionary biology. In particular, he tries to understand the ways in which early life environments shape phenotype. He is drawn to questions that explore the interrelations among social behaviors, molecular mechanisms, and stress physiology. He uses tools from diverse fields, including molecular biology and physiology to identify proximate mechanisms of animal behaviors and phenotypes; and causal inference methods from epidemiology to better understand relationships gleaned from observational data. He has carried out his research in birds, hyenas, and humans.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/authors/brooke-anderson/</link>
+      <pubDate>Thu, 12 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>/authors/brooke-anderson/</guid>
+      <description>&lt;p&gt;Brooke Anderson is an assistant professor of environmental epidemiology at Colorado State University. Her research focuses on the health risks associated with climate-related
+exposures, including heat waves and air pollution, for which she has conducted several
+national-level studies. As part of her research, she has also published a number of open
+source R software packages to facilitate environmental epidemiologic research.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/authors/daniel-dean/</link>
+      <pubDate>Fri, 06 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>/authors/daniel-dean/</guid>
+      <description>&lt;p&gt;Daniel Dean is a graduate student in the Department of Agriculture and Biology at Colorado State University. He is studying the soil microbiome and interested in learning additional skills in R programming and statistics.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/authors/burton-karger/</link>
+      <pubDate>Fri, 21 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/authors/burton-karger/</guid>
+      <description>&lt;p&gt;Burton Karger is a Research Associate in the Department of Microbiology Immunology and Pathology at Colorado
+State University.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/authors/amy-fox/</link>
+      <pubDate>Thu, 20 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/authors/amy-fox/</guid>
+      <description>&lt;p&gt;Amy Fox is a graduate student in the Department of Microbiology, Immunology, and Pathology at Colorado State University. She&#39;s currently testing the efficacy of different tuberculosis vaccines in mice and working on developing an R-based data analysis pipeline for flow cytometry data. When she&#39;s not in the lab, she enjoys traveling and experiencing new food and cultures.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/authors/sere-williams/</link>
+      <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/authors/sere-williams/</guid>
+      <description>&lt;p&gt;Sere Williams is a graduate student in the Department of Cellular and Molecular Biology at Colorado State University. She recently completed her MSc studying gene expression in rice exposed to drought stress. She&#39;s excited to begin her PhD. This year she is rotating through labs working on immune response in tobacco, modeling hormone interactions in Arabidopsis, frost tolerance in weeds, and electron transport in Archaea.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/authors/sierra-pugh/</link>
+      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/authors/sierra-pugh/</guid>
+      <description>&lt;p&gt;Sierra Pugh is a graduate student in the Department of Statistics at Colorado
+State University. She has interest in Bayesian statistics, and has experience in spatial statistics.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/authors/admin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/authors/admin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/authors/camron-pearce/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/authors/camron-pearce/</guid>
+      <description>&lt;p&gt;Camron Pearce is a graduate student in the Department of Microbiology at Colorado State University. His research includes researching drug therapies against tuberculosis and determining particle localization using confocal microscopy. His personal life includes marathon training, skiing on the weekend, and finding the next best fishing hole.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/authors/james_dilisio/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/authors/james_dilisio/</guid>
+      <description>&lt;p&gt;James DiLisio is a graduate student in the Department of Microbiology, Immunology, and Pathology at Colorado State University. He is interested in modulating immune cell phentoypes in various disease states to improve current therapies.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/authors/mike-lyons/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/authors/mike-lyons/</guid>
+      <description>&lt;p&gt;Mike Lyons is an assistant professor at Colorado State University. He works on the development and application of mathematical and computational tools for tuberculosis clinical trials. This work involves both conventional pharmacokinetic/pharmacodynamic modeling and simulation as well as physiological modeling and the use of engineering-based approaches to design optimized combination drug regimens.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/authors/sarah-cooper/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/authors/sarah-cooper/</guid>
+      <description>&lt;p&gt;Sarah Cooper is a graduate student in the Department of Microbiology, Immunology, Pathology at Colorado State University.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/authors/sherry-wemott/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/authors/sherry-wemott/</guid>
+      <description>&lt;p&gt;Sherry WeMott-Colton is a graduate student in the Department of Environmental and Radiological Health Sciences at Colorado
+State University. Her research focuses on evironmental and social factors impacting health.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,54 @@
+---
+title: "Vocabulary for Chapter 7"
+author: "Zach Laubach"
+date: '2020-03-30'
+slug: vocabulary-for-chapter-7
+categories:
+  - Chapter 7
+  - vocabulary
+tags:
+  - Chapter 7
+  - vocabulary
+subtitle: ''
+summary: ''
+authors: [zach_laubach]
+lastmod: '2020-03-30T21:37:37-06:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+Chapter 7 covers multivariate analysis, with a focus on principal component analysis and
+dimension reduction in general.
+
+```{r, echo=F, message=F, warning=F}
+library(readr)
+library(dplyr)
+library(knitr)
+library(kableExtra)
+```
+
+```{r, echo=F, message=F, warning=F}
+vocab <- read_tsv("vocab_lists/chapter_7.tsv",col_names=c("term","definition")) 
+
+vocab %>% 
+    kable(align=c("rl"), col.names=c("","")) %>%
+    kable_styling(bootstrap_options = c("striped","hover","condensed")) %>%
+    column_spec(1, bold=T, border_right=T) %>%
+    column_spec(2, width="30em")
+```
+
+### Source Consulted or Cited
+
+*Some of the definitons above are based in part or whole on listed definitions in the following source:*
+
+- Holmes and Huber, 2019. *Modern Statistics for Modern Biology.* Cambridge University Press, 
+Cambridge, United Kingdom.
+- Wikipedia: The Free Encyclopedia. http://en.wikipedia.org/wiki/Main_Page
+
+### Practice
+
+<iframe src="https://quizlet.com/499545557/flashcards/embed?i=2ldef3&x=1jj1" height="500" width="100%" style="border:0"></iframe>
