@@ -30,7 +30,8 @@ The vocabulary words for Chapter 9 are:
 Some of the definitions above are based in part or whole on listed definitions in the following sources.
 
 Holmes and Huber, 2019. Modern Statistics for Modern Biology. Cambridge University Press, Cambridge, United Kingdom.
-
+http://www.econ.upf.edu/~michael/stanford/maeb4.pdf
+https://statisticsbyjim.com/regression/difference-between-linear-nonlinear-regression-models/
 www.wikipedia.org
 
 ```{r echo = FALSE, message = FALSE, warning = FALSE}
