@@ -25,15 +25,6 @@ Chapter 9 covers multivariate methods for heterogenous data. It builds on method
 
 The vocabulary words for Chapter 9 are:
 
-### Sources consulted or cited
-
-Some of the definitions above are based in part or whole on listed definitions in the following sources.
-
-Holmes and Huber, 2019. Modern Statistics for Modern Biology. Cambridge University Press, Cambridge, United Kingdom.
-http://www.econ.upf.edu/~michael/stanford/maeb4.pdf
-https://statisticsbyjim.com/regression/difference-between-linear-nonlinear-regression-models/
-www.wikipedia.org
-
 ```{r echo = FALSE, message = FALSE, warning = FALSE}
 #load packages
 library(knitr)
@@ -55,4 +46,16 @@ vocab %>%
   column_spec(1, bold = T, border_right = T) %>%
   column_spec(2, width = "30em")
 ```
+### Sources consulted or cited
+
+Some of the definitions above are based in part or whole on listed definitions in the following sources.
+
+Holmes and Huber, 2019. Modern Statistics for Modern Biology. Cambridge University Press, Cambridge, United Kingdom.
+http://www.econ.upf.edu/~michael/stanford/maeb4.pdf
+https://statisticsbyjim.com/regression/difference-between-linear-nonlinear-regression-models/
+www.wikipedia.org
+
+### Practice
+
+<iframe src="https://quizlet.com/501633373/match/embed?i=2stug3&x=1jj1" height="500" width="100%" style="border:0"></iframe>
 
