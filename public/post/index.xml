@@ -5,12 +5,574 @@
     <link>/post/</link>
       <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 31 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 08 Apr 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Posts</title>
       <link>/post/</link>
     </image>
+    
+    <item>
+      <title>Details for class on April 9</title>
+      <link>/post/details-for-class-on-april-9/</link>
+      <pubDate>Wed, 08 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/post/details-for-class-on-april-9/</guid>
+      <description>
+
+
+&lt;div id=&#34;links-for-april-9&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Links for April 9&lt;/h2&gt;
+&lt;p&gt;Large group: &lt;a href=&#34;https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZWY5MTczNDUtOTIzYS00ZGUyLTk4ODctMjdhZWI4MmE4NjMx%40thread.v2/0?context=%7b%22Tid%22%3a%22afb58802-ff7a-4bb1-ab21-367ff2ecfc8b%22%2c%22Oid%22%3a%2205ade929-16e7-49a7-96bb-775f26ed73d5%22%7d&#34;&gt;meeting link&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Group 1 (Sierra, Daniel, Burton): &lt;a href=&#34;https://teams.microsoft.com/l/meetup-join/19%3ameeting_NjA3Y2Q5MDYtYTM5OS00MzAyLWEwMzAtMzdmNWMzYzhmMTUw%40thread.v2/0?context=%7b%22Tid%22%3a%22afb58802-ff7a-4bb1-ab21-367ff2ecfc8b%22%2c%22Oid%22%3a%2205ade929-16e7-49a7-96bb-775f26ed73d5%22%7d&#34;&gt;meeting link&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Group 2 (Camron, Sarah, Mikaela): &lt;a href=&#34;https://teams.microsoft.com/l/meetup-join/19%3ameeting_M2I3YmViYjMtNWJlNC00M2E5LTg5NTItNzI0N2VlYmVkNzUz%40thread.v2/0?context=%7b%22Tid%22%3a%22afb58802-ff7a-4bb1-ab21-367ff2ecfc8b%22%2c%22Oid%22%3a%2205ade929-16e7-49a7-96bb-775f26ed73d5%22%7d&#34;&gt;meeting link&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Group 3 (Sere, James, Sherry, Amy): &lt;a href=&#34;https://teams.microsoft.com/l/meetup-join/19%3ameeting_YjE4ZGJhNjItYTViMS00MjZjLTk4NWUtMjBhY2E3OTJiOGQw%40thread.v2/0?context=%7b%22Tid%22%3a%22afb58802-ff7a-4bb1-ab21-367ff2ecfc8b%22%2c%22Oid%22%3a%2205ade929-16e7-49a7-96bb-775f26ed73d5%22%7d&#34;&gt;meeting link&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;additional-links&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Additional links&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://bioconductor.org/packages/release/bioc/vignettes/DESeq/inst/doc/DESeq.pdf&#34;&gt;&lt;code&gt;DESeq2&lt;/code&gt; vignette&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.bioconductor.org/packages/release/bioc/vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf&#34;&gt;&lt;code&gt;edgeR&lt;/code&gt; vignette&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;vocabulary-quiz-for-april-9&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Vocabulary quiz for April 9&lt;/h2&gt;
+&lt;iframe src=&#34;https://docs.google.com/forms/d/e/1FAIpQLSeBAzaWodnzNYNy3xOjn_MBIQQIOvX4NcBZlMoJptgazKfX9w/viewform?embedded=true&#34; width=&#34;640&#34; height=&#34;2952&#34; frameborder=&#34;0&#34; marginheight=&#34;0&#34; marginwidth=&#34;0&#34;&gt;
+Loading…
+&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Chapter 8 Vocabulary List</title>
+      <link>/post/chapter-8-vocabulary-list/</link>
+      <pubDate>Mon, 06 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/post/chapter-8-vocabulary-list/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Chapter 8 covers high-throughput count data, like data generated through RNA-seq. It introduces a number of tools that are useful for analyzing this type of data. The vocabulary terms for Chapter 8 are:&lt;/p&gt;
+&lt;table class=&#34;table table-striped table-hover table-condensed&#34; style=&#34;margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+RNA-Seq
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+sequencing of RNA molecules found in a population of cells or in a tissue
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+ChIP-Seq
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+sequencing of DNA regions that are bound to particular DNA-binding proteins (selected by immunoprecipitation)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+RIP-Seq
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+sequencing of RNA molecules, or regions of them, bound to a particular RNA-binding protein
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+DNA-Seq
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+sequencing of genomic DNA
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+HiC
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+high-throughput chromatin conformation capture; a technique that aims to map the 3D spatial arrangement of DNA
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+cDNA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+complementary DNA made from RNA templates and reverse transcriptase; used in RNA-Seq
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+genetic screens
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a technique looking at the proliferation or survival of cells upon gene knockdown, knockout, or modification
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+read
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+the sequence obtained from a fragment
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+sequencing library
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+the collection of DNA molecules used as input for the sequencing machine
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+fragments
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+molecules being sequenced during a sequencing analysis
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+count table
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a matrix with the tallies of the number of occurrences of subpopulations from a larger population/sample
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+dynamic range
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a ratio between the maximum and minimum values
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+heteroskedasticity
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a phenomenon where the variance and distribution shape of the data in different parts of the dynamic range are very different
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+normalization
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a technique that adjusts for the nature and magnitude of systematic sampling biases
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+rare events
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+occurrences in the tail(s) of a distribution; observations that are extraordinarily high or low
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+dispersion
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a measure of the spread of the data; a common measure is the standard deviation or variance
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+gamma-Poisson
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+negative binomial distribution with 2 parameters; 𝛼 and 𝛽
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+systematic biases
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+systematic distortions that affect the data generation and need to be accounted for in the analysis; one example would be variations in the total number of reads for each sample in a sequencing experiment
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+metadata
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a set of data that describes or gives information about other data
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+multifactorial design
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+an experimental design with more than one independent variable
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+balanced
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+in the context of study design, these are where there is an equal number of observations of all combinations of factors being tested
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+differential expression analysis
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a type of analysis that uses the normalized read count data to investigate quantitative changes in expression levels between different experimental groups
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+intercept
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a coefficient representing the base level of the measurement in the negative control
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+design factors
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+binary indicator variables
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+interaction effect
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a parameter in a model that accounts for the effects of two experimental factors that combine in a more complicated fashion than a simple summation
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+design matrix
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a matrix encoding the design of an experiment where the columns correspond to experimental factors and the rows correspond to different experimental conditions
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+residuals
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a term in a model that reflects the experimental fluctuations (i.e. random noise)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+least sum-of-squares fitting
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a type of model fitting that minimizes the sum of the squared residuals
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+linear model
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a model that is a linear function of parameters, i.e. takes the form: y_j = sum_k (x_jk * beta_k + e_j)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+analysis of variance (ANOVA)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+an analysis that decomposes patterns in the data into systematic variability and noise
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+noise
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+variability unaccounted for by model parameters
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+systematic variability
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+variability accounted for by model parameters
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+breakdown point
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a measure of the robustness of an estimator; larger values indicate more robust estimators
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+robust
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a “sturdy” estimator that is not heavily influenced by outliers
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+least absolute deviations
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+minimization of the sum of the absolute values of the residuals
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+least quantile of squares
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a type of regression where the difference between the model quantile and empirical quantile is minimized
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+least trimmed sum of squares
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a type of regression that minimized the sum of squared residuals, where the sum is over only a fraction of the smallest residuals
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+logistic regression
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a type of generalized linear regression for binary data where the outcome is transformed by the logistic function and bounded between 0 and 1
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+maximum likelihood
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a method for parameter estimation that finds the parameter value that maximizes the probablity of the observed data under the model
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+likelihood
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a function of a model parameter which is equal to the probability of the observed data under the model
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+maximum-likelihood estimates
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+model parameters that are estimated by maximizing the probability of the observed data under the model
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+nuisance factor / blocking factor
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a factor that has some effect on the response but is of no interest to the experiment
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+batch effects
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+hidden factors that affect the data but are not documented; e.g. running samples at the same time have a degree of similarity from being run in the same batch
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+pseudocounts
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+transformations that take the form y = log2(n + n_0) where n is the count and n_0 is a chosen positive constant
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+variance stabilizing transformation
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a transformation that has finite values and finite slope, even for counts close to zero
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+regularized logarithm (rlog) transformation
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a technique that transforms the original count data to a log2-like scale by fitting a “trivial” model with a separate term for each sample and a prior distribution on the coefficients which is estimated from the data
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Cook’s distance
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a measure of how much a single sample is influencing the coefficients in a model; large values indicate an outlier count
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+sampling without replacement
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a random sample in which no observation occurs more than one time in the sample
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+null hypothesis
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+often, a hypothesis of “no association” that is used as a counterpart to a more interesting alternative hypothesis in hypothesis testing.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+variability
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+in statistics, the amount by which a set of observations deviate from their mean
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+outlier
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a data point that does not follow the pattern of the rest of the data; often this data point will have a large residual
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+M-estimation
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a type of regression analysis that is more robust than OLS to outliers or data that does not follow a normal distribution; it minimizes the sum of the penalization function applied to the residuals
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+conservative
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+an approach that prioritizes reducing false positives
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+splicing
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a process in eukaryotic organisms where mRNA is cut down from the full-length gene to just the exons before being translated
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+exons
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+segments of a gene that actually get used during translation or encode for a protein
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+isoforms
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+different forms of the same gene that result from splicing events that combine different exons in an mRNA script
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+upregulated
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a term used to describe the increased expression of a gene
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+gene knockdown
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a way of inactivating a gene by targeting its mRNA transcript for inactivation or degradation
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+gene knockout
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+deletion of a gene from the genome
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+transcriptome
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+the total of all of the mRNA expressed from genes in an organism
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+polymorphism
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+genetic variation within a population
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div id=&#34;sources-consulted-or-cited&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Sources consulted or cited&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Some of the definitions above are based in part or whole on listed definitions in the following sources.&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Holmes and Huber, 2019. &lt;em&gt;Modern Statistics for Modern Biology.&lt;/em&gt; Cambridge University Press,
+Cambridge, United Kingdom.&lt;/li&gt;
+&lt;li&gt;Lexico: &lt;a href=&#34;https://www.lexico.com&#34; class=&#34;uri&#34;&gt;https://www.lexico.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Statistics How To: &lt;a href=&#34;https://www.statisticshowto.com&#34; class=&#34;uri&#34;&gt;https://www.statisticshowto.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Lavrakas, 2008. Sampling without replacement. &lt;em&gt;Encyclopedia of Survey Research Methods.&lt;/em&gt; &lt;a href=&#34;https://dx.doi.org/10.4135/9781412963947.n516&#34; class=&#34;uri&#34;&gt;https://dx.doi.org/10.4135/9781412963947.n516&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;practice&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Practice&lt;/h3&gt;
+&lt;iframe src=&#34;https://quizlet.com/501110916/flashcards/embed?i=2shf5e&amp;amp;x=1jj1&#34; height=&#34;500&#34; width=&#34;100%&#34; style=&#34;border:0&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Details for class on April 2</title>
@@ -2445,15 +3007,15 @@ probability of each nucleotide at each spot on the genome:&lt;/p&gt;
                           size = sum(nuc_freq_df$n), 
                           prob = rep(1 / 4, 4)))&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13] [,14]
-## [1,] 3497 3533 3454 3436 3469 3490 3506 3381 3481  3527  3334  3430  3445  3475
-## [2,] 3449 3446 3512 3450 3479 3408 3409 3429 3404  3423  3530  3332  3463  3518
-## [3,] 3348 3413 3408 3528 3391 3490 3408 3502 3485  3356  3500  3562  3456  3394
-## [4,] 3500 3402 3420 3380 3455 3406 3471 3482 3424  3488  3430  3470  3430  3407
+## [1,] 3494 3353 3406 3407 3383 3508 3385 3383 3428  3391  3506  3377  3400  3517
+## [2,] 3459 3506 3422 3501 3401 3396 3417 3472 3493  3489  3448  3436  3465  3506
+## [3,] 3428 3429 3542 3403 3462 3381 3508 3477 3386  3523  3402  3530  3461  3303
+## [4,] 3413 3506 3424 3483 3548 3509 3484 3462 3487  3391  3438  3451  3468  3468
 ##      [,15] [,16] [,17] [,18] [,19] [,20]
-## [1,]  3405  3377  3336  3454  3501  3369
-## [2,]  3496  3405  3534  3438  3433  3449
-## [3,]  3420  3536  3394  3485  3446  3437
-## [4,]  3473  3476  3530  3417  3414  3539&lt;/code&gt;&lt;/pre&gt;
+## [1,]  3501  3435  3415  3440  3488  3417
+## [2,]  3468  3584  3500  3500  3447  3447
+## [3,]  3417  3401  3401  3366  3431  3457
+## [4,]  3408  3374  3478  3488  3428  3473&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Next, I moved this into a tibble so I could more easily rearrange and plot the data using
 facetting in &lt;code&gt;ggplot2&lt;/code&gt;:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sim_nuc_freq_df &amp;lt;- as_tibble(sim_nuc_freq) %&amp;gt;% 
@@ -2467,16 +3029,16 @@ sim_nuc_freq_df %&amp;gt;%
 &lt;pre&gt;&lt;code&gt;## # A tibble: 10 x 3
 ##    nucleotide sample value
 ##    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt; &amp;lt;int&amp;gt;
-##  1 A               1  3497
-##  2 C               1  3449
-##  3 G               1  3348
-##  4 T               1  3500
-##  5 A               2  3533
-##  6 C               2  3446
-##  7 G               2  3413
-##  8 T               2  3402
-##  9 A               3  3454
-## 10 C               3  3512&lt;/code&gt;&lt;/pre&gt;
+##  1 A               1  3494
+##  2 C               1  3459
+##  3 G               1  3428
+##  4 T               1  3413
+##  5 A               2  3353
+##  6 C               2  3506
+##  7 G               2  3429
+##  8 T               2  3506
+##  9 A               3  3406
+## 10 C               3  3422&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(sim_nuc_freq_df, aes(x = nucleotide, y = value)) + 
   geom_col(fill = &amp;quot;lavender&amp;quot;, color = &amp;quot;black&amp;quot;) + 
   theme_classic() + 
@@ -2506,16 +3068,16 @@ sim_nuc_freq_df %&amp;gt;%
 &lt;pre&gt;&lt;code&gt;## # A tibble: 10 x 3
 ##    nucleotide sample value
 ##    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt; &amp;lt;int&amp;gt;
-##  1 A               1  3478
-##  2 C               1  3433
-##  3 G               1  3434
-##  4 T               1  3449
-##  5 A               2  3501
-##  6 C               2  3403
-##  7 G               2  3439
-##  8 T               2  3451
-##  9 A               3  3489
-## 10 C               3  3451&lt;/code&gt;&lt;/pre&gt;
+##  1 A               1  3418
+##  2 C               1  3481
+##  3 G               1  3459
+##  4 T               1  3436
+##  5 A               2  3531
+##  6 C               2  3404
+##  7 G               2  3435
+##  8 T               2  3424
+##  9 A               3  3332
+## 10 C               3  3477&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Using this dataframe of simulations, we can measure the mean, minimum, and maximum frequencies
 of each nucleotide across all 1,000 simulations:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;(sim_summary &amp;lt;- sim_nuc_freq_df %&amp;gt;% 
@@ -2526,10 +3088,10 @@ of each nucleotide across all 1,000 simulations:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 4 x 4
 ##   nucleotide mean_freq min_freq max_freq
 ##   &amp;lt;chr&amp;gt;          &amp;lt;dbl&amp;gt;    &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;
-## 1 A              3448.     3267     3612
-## 2 C              3448.     3278     3617
-## 3 G              3445.     3289     3602
-## 4 T              3452.     3282     3619&lt;/code&gt;&lt;/pre&gt;
+## 1 A              3446.     3290     3595
+## 2 C              3450.     3287     3634
+## 3 G              3449.     3270     3644
+## 4 T              3448.     3252     3613&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;To help compare this with the observed data, we can create a table with information from
 both the original data and the simulations under the null model:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;nuc_freq_df %&amp;gt;% 
@@ -2554,22 +3116,22 @@ both the original data and the simulations under the null model:&lt;/p&gt;
 &lt;tr class=&#34;odd&#34;&gt;
 &lt;td align=&#34;center&#34;&gt;A&lt;/td&gt;
 &lt;td align=&#34;center&#34;&gt;4,335&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;3,448 (3,267, 3,612)&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;3,446 (3,290, 3,595)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
 &lt;td align=&#34;center&#34;&gt;C&lt;/td&gt;
 &lt;td align=&#34;center&#34;&gt;1,225&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;3,448 (3,278, 3,617)&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;3,450 (3,287, 3,634)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;odd&#34;&gt;
 &lt;td align=&#34;center&#34;&gt;G&lt;/td&gt;
 &lt;td align=&#34;center&#34;&gt;2,055&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;3,445 (3,289, 3,602)&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;3,449 (3,270, 3,644)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
 &lt;td align=&#34;center&#34;&gt;T&lt;/td&gt;
 &lt;td align=&#34;center&#34;&gt;6,179&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;3,452 (3,282, 3,619)&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;3,448 (3,252, 3,613)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -2619,11 +3181,11 @@ sim_stat %&amp;gt;%
 &lt;pre&gt;&lt;code&gt;## # A tibble: 5 x 2
 ##   sample variability_stat
 ##    &amp;lt;dbl&amp;gt;            &amp;lt;dbl&amp;gt;
-## 1      1            0.383
-## 2      2            1.43 
-## 3      3            1.46 
-## 4      4            1.76 
-## 5      5            0.467&lt;/code&gt;&lt;/pre&gt;
+## 1      1            0.653
+## 2      2            2.77 
+## 3      3            6.44 
+## 4      4            3.93 
+## 5      5            5.14&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Here is a plot of the distribution of this statistic across the 1,000 simulations:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(sim_stat, aes(x = variability_stat)) + 
   geom_rect(data = sim_stat, aes(xmin = quantile(variability_stat, prob = 0.025),
@@ -3386,7 +3948,7 @@ six months or so, you should probably update your version for the class. You can
 use the &lt;code&gt;sessionInfo()&lt;/code&gt; function to find out details about your current R
 session, including the version of R you’re currently running:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sessionInfo()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## R version 3.6.2 (2019-12-12)
+&lt;pre&gt;&lt;code&gt;## R version 3.6.3 (2020-02-29)
 ## Platform: x86_64-apple-darwin15.6.0 (64-bit)
 ## Running under: macOS Mojave 10.14.6
 ## 
@@ -3401,12 +3963,12 @@ session, including the version of R you’re currently running:&lt;/p&gt;
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] compiler_3.6.2  magrittr_1.5    bookdown_0.18   tools_3.6.2    
+##  [1] compiler_3.6.3  magrittr_1.5    bookdown_0.18   tools_3.6.3    
 ##  [5] htmltools_0.4.0 yaml_2.2.1      Rcpp_1.0.3      stringi_1.4.6  
 ##  [9] rmarkdown_2.1   blogdown_0.18   knitr_1.28      stringr_1.4.0  
 ## [13] digest_0.6.25   xfun_0.12       rlang_0.4.5     evaluate_0.14&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Based on the return from this call, for example, I can tell that I have
-R version 3.6.2 (2019-12-12).&lt;/p&gt;
+R version 3.6.3 (2020-02-29).&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;install-rstudio-on-your-laptop&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Install RStudio on your laptop&lt;/h2&gt;
