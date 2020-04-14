@@ -46,6 +46,7 @@ vocab %>%
   column_spec(1, bold = T, border_right = T) %>%
   column_spec(2, width = "30em")
 ```
+
 ### Sources consulted or cited
 
 Some of the definitions above are based in part or whole on listed definitions in the following sources.
