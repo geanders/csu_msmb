@@ -1,6 +1,6 @@
 ---
-title: Vocabulary for Chapter 9
-author: Sere Williams
+title: "Vocabulary for Chapter 9"
+author: "Sere Williams"
 date: '2020-04-10'
 slug: vocabulary-for-chapter-9
 categories:
@@ -11,7 +11,7 @@ tags:
   - Chapter 9
 subtitle: ''
 summary: ''
-authors: []
+authors: [sere-williams]
 lastmod: '2020-04-10T14:41:31-06:00'
 featured: no
 image:
@@ -50,12 +50,12 @@ vocab %>%
 
 Some of the definitions above are based in part or whole on listed definitions in the following sources.
 
-Holmes and Huber, 2019. Modern Statistics for Modern Biology. Cambridge University Press, Cambridge, United Kingdom.
-http://www.econ.upf.edu/~michael/stanford/maeb4.pdf
-https://statisticsbyjim.com/regression/difference-between-linear-nonlinear-regression-models/
-www.wikipedia.org
+- Holmes and Huber, 2019. Modern Statistics for Modern Biology. Cambridge University Press, Cambridge, United Kingdom.
+- http://www.econ.upf.edu/~michael/stanford/maeb4.pdf
+- https://statisticsbyjim.com/regression/difference-between-linear-nonlinear-regression-models/
+- https://www.wikipedia.org
 
 ### Practice
 
-<iframe src="https://quizlet.com/501633373/match/embed?i=2stug3&x=1jj1" height="500" width="100%" style="border:0"></iframe>
+<iframe src="https://quizlet.com/501633373/flashcards/embed?i=2stug3&x=1jj1" height="500" width="100%" style="border:0"></iframe>
 
