@@ -3,6 +3,7 @@ title: "Vocabulary for Chapter 9"
 author: "Sere Williams"
 date: '2020-04-10'
 slug: vocabulary-for-chapter-9
+draft: no
 categories:
   - vocabulary
   - Chapter 9
