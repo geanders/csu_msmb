@@ -193,27 +193,15 @@ probability of each nucleotide at each spot on the genome:</p>
                           size = sum(nuc_freq_df$n), 
                           prob = rep(1 / 4, 4)))</code></pre>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13] [,14]
-<<<<<<< HEAD
-## [1,] 3489 3424 3453 3438 3497 3534 3515 3391 3429  3412  3501  3416  3395  3565
-## [2,] 3455 3334 3512 3420 3483 3343 3404 3422 3428  3391  3395  3488  3476  3465
-## [3,] 3353 3549 3372 3413 3402 3390 3440 3457 3441  3505  3466  3446  3443  3345
-## [4,] 3497 3487 3457 3523 3412 3527 3435 3524 3496  3486  3432  3444  3480  3419
+## [1,] 3494 3353 3406 3407 3383 3508 3385 3383 3428  3391  3506  3377  3400  3517
+## [2,] 3459 3506 3422 3501 3401 3396 3417 3472 3493  3489  3448  3436  3465  3506
+## [3,] 3428 3429 3542 3403 3462 3381 3508 3477 3386  3523  3402  3530  3461  3303
+## [4,] 3413 3506 3424 3483 3548 3509 3484 3462 3487  3391  3438  3451  3468  3468
 ##      [,15] [,16] [,17] [,18] [,19] [,20]
-## [1,]  3450  3409  3428  3478  3401  3381
-## [2,]  3467  3509  3482  3467  3436  3438
-## [3,]  3441  3445  3465  3379  3491  3463
-## [4,]  3436  3431  3419  3470  3466  3512</code></pre>
-=======
-## [1,] 3370 3404 3433 3445 3515 3437 3406 3412 3463  3428  3545  3443  3562  3461
-## [2,] 3417 3340 3456 3461 3386 3417 3442 3487 3404  3441  3433  3412  3384  3447
-## [3,] 3516 3504 3426 3382 3438 3468 3413 3428 3384  3461  3494  3424  3415  3491
-## [4,] 3491 3546 3479 3506 3455 3472 3533 3467 3543  3464  3322  3515  3433  3395
-##      [,15] [,16] [,17] [,18] [,19] [,20]
-## [1,]  3455  3399  3421  3470  3439  3399
-## [2,]  3516  3539  3476  3462  3434  3450
-## [3,]  3440  3360  3472  3359  3517  3441
-## [4,]  3383  3496  3425  3503  3404  3504</code></pre>
->>>>>>> serewilliams-master
+## [1,]  3501  3435  3415  3440  3488  3417
+## [2,]  3468  3584  3500  3500  3447  3447
+## [3,]  3417  3401  3401  3366  3431  3457
+## [4,]  3408  3374  3478  3488  3428  3473</code></pre>
 <p>Next, I moved this into a tibble so I could more easily rearrange and plot the data using
 facetting in <code>ggplot2</code>:</p>
 <pre class="r"><code>sim_nuc_freq_df &lt;- as_tibble(sim_nuc_freq) %&gt;% 
@@ -227,29 +215,16 @@ sim_nuc_freq_df %&gt;%
 <pre><code>## # A tibble: 10 x 3
 ##    nucleotide sample value
 ##    &lt;chr&gt;       &lt;dbl&gt; &lt;int&gt;
-<<<<<<< HEAD
-##  1 A               1  3489
-##  2 C               1  3455
-##  3 G               1  3353
-##  4 T               1  3497
-##  5 A               2  3424
-##  6 C               2  3334
-##  7 G               2  3549
-##  8 T               2  3487
-##  9 A               3  3453
-## 10 C               3  3512</code></pre>
-=======
-##  1 A               1  3370
-##  2 C               1  3417
-##  3 G               1  3516
-##  4 T               1  3491
-##  5 A               2  3404
-##  6 C               2  3340
-##  7 G               2  3504
-##  8 T               2  3546
-##  9 A               3  3433
-## 10 C               3  3456</code></pre>
->>>>>>> serewilliams-master
+##  1 A               1  3494
+##  2 C               1  3459
+##  3 G               1  3428
+##  4 T               1  3413
+##  5 A               2  3353
+##  6 C               2  3506
+##  7 G               2  3429
+##  8 T               2  3506
+##  9 A               3  3406
+## 10 C               3  3422</code></pre>
 <pre class="r"><code>ggplot(sim_nuc_freq_df, aes(x = nucleotide, y = value)) + 
   geom_col(fill = &quot;lavender&quot;, color = &quot;black&quot;) + 
   theme_classic() + 
@@ -279,29 +254,16 @@ sim_nuc_freq_df %&gt;%
 <pre><code>## # A tibble: 10 x 3
 ##    nucleotide sample value
 ##    &lt;chr&gt;       &lt;dbl&gt; &lt;int&gt;
-<<<<<<< HEAD
-##  1 A               1  3504
-##  2 C               1  3443
-##  3 G               1  3446
-##  4 T               1  3401
-##  5 A               2  3493
-##  6 C               2  3296
-##  7 G               2  3506
-##  8 T               2  3499
-##  9 A               3  3424
-## 10 C               3  3471</code></pre>
-=======
-##  1 A               1  3449
-##  2 C               1  3384
-##  3 G               1  3476
-##  4 T               1  3485
-##  5 A               2  3436
-##  6 C               2  3428
-##  7 G               2  3418
-##  8 T               2  3512
-##  9 A               3  3453
-## 10 C               3  3354</code></pre>
->>>>>>> serewilliams-master
+##  1 A               1  3418
+##  2 C               1  3481
+##  3 G               1  3459
+##  4 T               1  3436
+##  5 A               2  3531
+##  6 C               2  3404
+##  7 G               2  3435
+##  8 T               2  3424
+##  9 A               3  3332
+## 10 C               3  3477</code></pre>
 <p>Using this dataframe of simulations, we can measure the mean, minimum, and maximum frequencies
 of each nucleotide across all 1,000 simulations:</p>
 <pre class="r"><code>(sim_summary &lt;- sim_nuc_freq_df %&gt;% 
@@ -312,17 +274,10 @@ of each nucleotide across all 1,000 simulations:</p>
 <pre><code>## # A tibble: 4 x 4
 ##   nucleotide mean_freq min_freq max_freq
 ##   &lt;chr&gt;          &lt;dbl&gt;    &lt;int&gt;    &lt;int&gt;
-<<<<<<< HEAD
-## 1 A              3450.     3286     3614
-## 2 C              3450.     3280     3624
-## 3 G              3448.     3285     3637
-## 4 T              3446.     3289     3622</code></pre>
-=======
-## 1 A              3448.     3288     3593
-## 2 C              3446.     3260     3630
-## 3 G              3449.     3271     3590
-## 4 T              3450.     3280     3600</code></pre>
->>>>>>> serewilliams-master
+## 1 A              3446.     3290     3595
+## 2 C              3450.     3287     3634
+## 3 G              3449.     3270     3644
+## 4 T              3448.     3252     3613</code></pre>
 <p>To help compare this with the observed data, we can create a table with information from
 both the original data and the simulations under the null model:</p>
 <pre class="r"><code>nuc_freq_df %&gt;% 
@@ -347,38 +302,22 @@ both the original data and the simulations under the null model:</p>
 <tr class="odd">
 <td align="center">A</td>
 <td align="center">4,335</td>
-<<<<<<< HEAD
-<td align="center">3,450 (3,286, 3,614)</td>
-=======
-<td align="center">3,448 (3,288, 3,593)</td>
->>>>>>> serewilliams-master
+<td align="center">3,446 (3,290, 3,595)</td>
 </tr>
 <tr class="even">
 <td align="center">C</td>
 <td align="center">1,225</td>
-<<<<<<< HEAD
-<td align="center">3,450 (3,280, 3,624)</td>
-=======
-<td align="center">3,446 (3,260, 3,630)</td>
->>>>>>> serewilliams-master
+<td align="center">3,450 (3,287, 3,634)</td>
 </tr>
 <tr class="odd">
 <td align="center">G</td>
 <td align="center">2,055</td>
-<<<<<<< HEAD
-<td align="center">3,448 (3,285, 3,637)</td>
-=======
-<td align="center">3,449 (3,271, 3,590)</td>
->>>>>>> serewilliams-master
+<td align="center">3,449 (3,270, 3,644)</td>
 </tr>
 <tr class="even">
 <td align="center">T</td>
 <td align="center">6,179</td>
-<<<<<<< HEAD
-<td align="center">3,446 (3,289, 3,622)</td>
-=======
-<td align="center">3,450 (3,280, 3,600)</td>
->>>>>>> serewilliams-master
+<td align="center">3,448 (3,252, 3,613)</td>
 </tr>
 </tbody>
 </table>
@@ -428,19 +367,11 @@ sim_stat %&gt;%
 <pre><code>## # A tibble: 5 x 2
 ##   sample variability_stat
 ##    &lt;dbl&gt;            &lt;dbl&gt;
-<<<<<<< HEAD
-## 1      1            1.56 
-## 2      2            9.02 
-## 3      3            0.590
-## 4      4            0.186
-## 5      5            2.62</code></pre>
-=======
-## 1      1            1.81 
-## 2      2            1.61 
-## 3      3            5.43 
-## 4      4            0.743
-## 5      5            4.57</code></pre>
->>>>>>> serewilliams-master
+## 1      1            0.653
+## 2      2            2.77 
+## 3      3            6.44 
+## 4      4            3.93 
+## 5      5            5.14</code></pre>
 <p>Here is a plot of the distribution of this statistic across the 1,000 simulations:</p>
 <pre class="r"><code>ggplot(sim_stat, aes(x = variability_stat)) + 
   geom_rect(data = sim_stat, aes(xmin = quantile(variability_stat, prob = 0.025),
