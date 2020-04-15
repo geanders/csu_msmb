@@ -1,78 +1,92 @@
----
-title: Ex 2.6
+--- 
+title: Exercise solution for Chapter 2, Part 2
 author: Sarah Cooper
 date: '2020-02-24'
+draft: yes
 slug: ex-2-6
-categories: [exercise 2.6]
-tags: [chapter 2]
-output: html_document
+categories: 
+  - exercises
+  - Chapter 2
+tags: 
+  - exercises
+  - Chapter 2
+subtitle: ''
+summary: ''
+authors: [sarah-cooper]
+lastmod: '2020-02-24T2klo:16:10-07:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
 ---
 
 
 
-<p>#Choose your own prior for the parameters of the beta distribution. You can do this by sketching it here: <a href="https://jhubiostatistics.shinyapps.io/drawyourprior" class="uri">https://jhubiostatistics.shinyapps.io/drawyourprior</a>. Once you have set up a prior, re-analyse the data from Section 2.9.2, where we saw Y = 40 successes out of n = 300 trials. Compare your posterior distribution to the one we obtained in that section using a QQ-plot.</p>
-<p>#In 2.9.2, we looked at finding the marginal distribution of Y. In this example they used an alpha of 50, a beta of 350, and an n of 300 to generate a y for a random sample of 10000 thetas
-rtheta = rbeta(100000, 50, 350)
+<div id="picking-a-prior" class="section level1">
+<h1>Picking a prior</h1>
+<p>The first part of the exercise asks you to:</p>
+<blockquote>
+<p>“Choose your own prior for the parameters of the beta distribution. You can do this by sketching it here: <a href="https://jhubiostatistics.shinyapps.io/drawyourprior" class="uri">https://jhubiostatistics.shinyapps.io/drawyourprior</a>. Once you have set up a prior, re-analyse the data from Section 2.9.2, where we saw Y = 40 successes out of n = 300 trials. Compare your posterior distribution to the one we obtained in that section using a QQ-plot.”</p>
+</blockquote>
+<p>After sketching a plot on the online web app, I chose the parameters to set up a prior: <span class="math inline">\(\alpha = 2.47\)</span> and <span class="math inline">\(\beta = 8.5\)</span>.</p>
+</div>
+<div id="using-this-prior" class="section level1">
+<h1>Using this prior</h1>
+<p>Next, I replaced the original values for <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> used in the example in the text with my own from the shape I drew with the online app.</p>
+<p>To be able to use the <code>loglikelihood</code> function from the text, I first needed to redefine it here:</p>
+<pre class="r"><code>loglikelihood = function(theta, n = 300, k = 40) { ## Function definition from the textbook
+  115 + k * log(theta) + (n - k) * log(1 - theta)
+}</code></pre>
+<p>Then, I created a vector of <span class="math inline">\(\theta\)</span> values between 0 and 1, spaced 0.001 units wide. The plot below shows …</p>
+<pre class="r"><code>thetas = seq(0, 1, by = 0.001)
+plot(thetas, loglikelihood(thetas), xlab = expression(theta),
+     ylab = expression(paste(&quot;log f(&quot;, theta, &quot; | y)&quot;)),type = &quot;l&quot;)</code></pre>
+<p><img src="/post/2020-02-24-ex2-6_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>Next, I used <code>rbeta</code> to draw 1,000,000 random samples from a beta distribution with my new picks for the parameters:</p>
+<pre class="r"><code>rtheta = rbeta(1000000, shape1 = 2.47, shape2 = 8.5)
 y = vapply(rtheta, function(th) {
-rbinom(1, prob = th, size = 300)
-}, numeric(1))
-hist(y, breaks = 50, col = “orange”, main = &quot;“, xlab =”&quot;)</p>
-<p>#After running the above, for each of these thetas, we then generate a random sample of Y as observed in this histogram (with orange bars).</p>
-<p>#Our next step is to use this information to generate a posterior distribution of theta at a fixed Y value. In this example they used Y=40</p>
-<p>thetaPostEmp = rtheta[ y == 40 ]
-hist(thetaPostEmp, breaks = 40, col = “chartreuse4”, main = &quot;“,
-probability = TRUE, xlab = expression(”posterior“~theta))
-densPostTheory = dbeta(thetas, 90, 610)
-lines(thetas, densPostTheory, type=”l&quot;, lwd = 3)</p>
-<p>#After running the above, for each of these thetas, we generated simulated values for the posterior distribution of theta at Y=40 as observed in this histogram (with green bars).</p>
-<div id="section" class="section level1">
-<h1></h1>
-<p>mean(thetaPostEmp)
-#0.1286394
+  rbinom(1, prob = th, size = 300)
+}, numeric(1))</code></pre>
+<p>This plot shows … :</p>
+<pre class="r"><code>hist(y, breaks = 50, col = &quot;orange&quot;, main = &quot;&quot;, xlab = &quot;&quot;)</code></pre>
+<p><img src="/post/2020-02-24-ex2-6_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>After running the above, for each of these <span class="math inline">\(\theta\)</span> values, we then generate a random sample of <span class="math inline">\(Y\)</span> as observed in this histogram (with orange bars). Our next step is to use this information to generate a posterior distribution of theta at a fixed Y value. In this example they used <span class="math inline">\(Y=40\)</span>.</p>
+<pre class="r"><code>thetaPostEmp = rtheta[ y == 40 ]
+hist(thetaPostEmp, breaks = 40, col = &quot;chartreuse4&quot;, main = &quot;&quot;,
+     probability = TRUE, xlab = expression(&quot;posterior&quot;~theta), ylim=c(0,40))</code></pre>
+<p><img src="/post/2020-02-24-ex2-6_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<pre class="r"><code>densPostTheory  =  dbeta(thetas, 42.47, 268.5)</code></pre>
+<pre class="r"><code>hist(thetaPostEmp, breaks = 40, col = &quot;chartreuse4&quot;, main = &quot;&quot;,
+  probability = TRUE, xlab = expression(&quot;posterior&quot;~theta))
+lines(thetas, densPostTheory, type=&quot;l&quot;, lwd = 3)</code></pre>
+<p><img src="/post/2020-02-24-ex2-6_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>After running the above, for each of these thetas, we generated simulated values for the posterior distribution of <span class="math inline">\(\theta\)</span> at <span class="math inline">\(Y=40\)</span> as observed in this histogram (with green bars). We can also check the means of both distributions computed above.</p>
+<pre class="r"><code>mean(thetaPostMC)
+#0.1365705
 dtheta = thetas[2]-thetas[1]
 sum(thetas * densPostTheory * dtheta)
-#0.1285714
-#</p>
-</div>
-<div id="section-1" class="section level1">
-<h1></h1>
-<p>qqplot(thetaPostMC, thetaPostEmp, type = “l”, asp = 1)
-abline(a = 0, b = 1, col = “blue”)
-#</p>
-<p>#**Now back to exercise 2.6. After sketching a plot, I chose the parameters to set up a prior: alpha = 2.47 and beta = 8.5. Using the equation from above I replaced their alpha and beta with mine.</p>
-<p>thetas = seq(0, 1, by = 0.001)
-plot(thetas, loglikelihood(thetas), xlab = expression(theta),
-ylab = expression(paste(“log f(”, theta, &quot; | y)“)),type =”l&quot;)</p>
-<p>rtheta = rbeta(1000000, 2.47, 8.5)
-y = vapply(rtheta, function(th) {
-rbinom(1, prob = th, size = 300)
-}, numeric(1))
-hist(y, breaks = 50, col = “orange”, main = &quot;“, xlab =”&quot;)</p>
-<p>rbinom(length(rtheta), rtheta, size = 300)</p>
-<p>thetaPostEmp = rtheta[ y == 40 ]
-hist(thetaPostEmp, breaks = 40, col = “chartreuse4”, main = &quot;“,
-probability = TRUE, xlab = expression(”posterior“~theta), ylim=c(0,40))
-densPostTheory = dbeta(thetas, 42.47, 268.5)
-lines(thetas, densPostTheory, type=”l&quot;, lwd = 3)</p>
-<p>mean(thetaPostMC)
-#0.1365705</p>
-<p>dtheta = thetas[2]-thetas[1]
-sum(thetas * densPostTheory * dtheta)
-#0.1365727</p>
-<p>thetaPostMC = rbeta(n = 1e6, 42.47, 268.5)
+#0.1365727</code></pre>
+<p>#We can use Monte Carlo integration instead and then check the agreement between our Monte Carlo sample thetaPostMC and our sample thetaPostEmp with a QQ plot</p>
+<pre class="r"><code>thetaPostMC = rbeta(n = 1e6, 42.47, 268.5)
 mean(thetaPostMC)
-#0.1365902</p>
-<p>qqplot(thetaPostMC, thetaPostEmp, type = “l”, asp = 1)
-abline(a = 0, b = 1, col = “blue”)</p>
-<p>densPost2 = dbeta(thetas, 42.47, 268.5)
-mcPost2 = rbeta(1e6, 42.47, 268.5)</p>
-<p>sum(thetas * densPost2 * dtheta) # mean, by numeric integration
+#0.1365902
+
+qqplot(thetaPostMC, thetaPostEmp, type = &quot;l&quot;, asp = 1)
+abline(a = 0, b = 1, col = &quot;blue&quot;)
+
+densPost2 = dbeta(thetas, 42.47, 268.5)
+mcPost2   = rbeta(1e6, 42.47, 268.5)
+
+sum(thetas * densPost2 * dtheta)  # mean, by numeric integration
 # [1] 0.1365727
-mean(mcPost2) # mean, by MC
+mean(mcPost2)                     # mean, by MC
 # [1] 0.1365778
-thetas[which.max(densPost2)] # MAP estimate
-# [1] 0.134</p>
-<p>quantile(mcPost2, c(0.025, 0.975))
-# 2.5% 97.5%
-#0.1006757 0.1768317</p>
+thetas[which.max(densPost2)]      # MAP estimate
+# [1] 0.134
+
+quantile(mcPost2, c(0.025, 0.975))
+#     2.5%     97.5% 
+#0.1006757 0.1768317 </code></pre>
 </div>

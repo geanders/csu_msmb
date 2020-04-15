@@ -1,0 +1,37 @@
+Graph	formed by a set of nodes or vertices and a set of edges between these vertices
+Adjacency matrix A	The matrix representation of edges with as many rows as nodes in the graph
+Network	a weighted, directed graph
+Sparse	A term to describe a graph when the number of edges is similar to the number of nodes
+Dense	A  term to describe a graph when the number of edges is (approximately) a quadratic function of the nodes
+Arrows/directed edges	Directionally connects nodes
+Annotation variables on nodes and edges	Help to demonstrate strength of a link in a graph by changing the width of the edge or covariates associated to the size or color of the node.
+Graph layout	Different ways to plot a graph, either for aesthetic or practical reasons
+Data from distances	Transforming data into graphs by simplifying distance matrices by rounding the smaller distances down to zero
+Binary data	Data presented as 0/1 matrices
+Bipartite graph	A graph that connects each taxon to sites where it was observed
+Overrepresented or enriched	Increased expression of a gene or (set of genes) of interest
+Hypergeometric testing	two-way table testing used to account for the fact that some categories are extremely numerous and others are rarer
+Known skeleton graph	A graph that projects significance scores such as p-values
+Perturbed	non uniformly distributed pvalues
+Rooted binary trees	a data tree in which each node has at most two children
+Cycles	Another word for loops: either self-loops or ones that go through several vertices
+Ancestral sequences	Correspond to inner nodes and are inferred from the contemporaneous data on the tips
+Contemporaneous data	Data that are entered as soon as they are obtained
+OTUs (Operational Taxonomic Units)	A method of clustering organisms based on DNA similarity of a certain taxonomic marker gene (Tips of the tree)
+Parameter	A numerical value that describes a population
+Gene trees	Produced when different genes show differences in their evolutionary histories
+The generator	The instantaneous change probability matrix
+Transition matrix	Contains all probabilities of any state changes
+Parsimony tree	a nonparametric method that minimizes the number of changes necessary to explain the data
+Maximum likelihood tree	A parametric method that uses efficient optimization algorithms to maximize the likelihood of a tree under the model assumptions.
+Bayesian posterior distributions for trees	use MCMC to find posterior distributions of the phylogenies
+Distance based methods	A semi-parametric method similar to the hierarchical clustering algorithms but uses the parametric evolutionary models
+Align	Arranging different sequences of DNA, RNA, or protein together to identify similarities or differences between them
+Sample information	Typically provided as a spreadsheet and named the meta-data
+Spanning tree	A tree that goes through all points at least once
+Minimum spanning tree (MST)	Given distances between vertices, it is a tree that spans all the points and has the minimum total length
+Jitter	Slightly moving coordinates on a graph to avoid too much overlapping
+Undirected 	A graph without arrows between nodes
+Associated	Indicates that two variables are related
+Friedman-Rafsky	Tests for two/multiple sample segregation on a minimum spanning tree
+Pure edges	edges whose two nodes have the same level of the factor variable
