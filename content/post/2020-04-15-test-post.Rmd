@@ -1,0 +1,20 @@
+---
+title: test post
+author: Georgiana Anderson
+date: '2020-04-15'
+slug: test-post
+categories:
+  - vocabulary
+tags:
+  - vocabulary
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-04-15T11:32:40-06:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---

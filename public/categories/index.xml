@@ -5,28 +5,12 @@
     <link>/categories/</link>
       <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <description>Categories</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 10 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 08 Apr 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Categories</title>
       <link>/categories/</link>
     </image>
-    
-    <item>
-      <title>Chapter 9</title>
-      <link>/categories/chapter-9/</link>
-      <pubDate>Fri, 10 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>/categories/chapter-9/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>vocabulary</title>
-      <link>/categories/vocabulary/</link>
-      <pubDate>Fri, 10 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>/categories/vocabulary/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>class meeting</title>
@@ -41,6 +25,14 @@
       <link>/categories/chapter-8/</link>
       <pubDate>Mon, 06 Apr 2020 00:00:00 +0000</pubDate>
       <guid>/categories/chapter-8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vocabulary</title>
+      <link>/categories/vocabulary/</link>
+      <pubDate>Mon, 06 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/vocabulary/</guid>
       <description></description>
     </item>
     

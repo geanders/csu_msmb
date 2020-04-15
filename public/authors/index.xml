@@ -5,21 +5,12 @@
     <link>/authors/</link>
       <atom:link href="/authors/index.xml" rel="self" type="application/rss+xml" />
     <description>Authors</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 10 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 08 Apr 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Authors</title>
       <link>/authors/</link>
     </image>
-    
-    <item>
-      <title></title>
-      <link>/authors/sere-williams/</link>
-      <pubDate>Fri, 10 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>/authors/sere-williams/</guid>
-      <description>&lt;p&gt;Sere Williams is a graduate student in the Department of Cellular and Molecular Biology at Colorado State University. She recently completed her MSc studying gene expression in rice exposed to drought stress. She&#39;s excited to begin her PhD. This year she is rotating through labs working on immune response in tobacco, modeling hormone interactions in Arabidopsis, frost tolerance in weeds, and electron transport in Archaea.&lt;/p&gt;
-</description>
-    </item>
     
     <item>
       <title></title>
@@ -90,6 +81,15 @@ State University.&lt;/p&gt;
       <pubDate>Thu, 20 Feb 2020 00:00:00 +0000</pubDate>
       <guid>/authors/amy-fox/</guid>
       <description>&lt;p&gt;Amy Fox is a graduate student in the Department of Microbiology, Immunology, and Pathology at Colorado State University. She&#39;s currently testing the efficacy of different tuberculosis vaccines in mice and working on developing an R-based data analysis pipeline for flow cytometry data. When she&#39;s not in the lab, she enjoys traveling and experiencing new food and cultures.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/authors/sere-williams/</link>
+      <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/authors/sere-williams/</guid>
+      <description>&lt;p&gt;Sere Williams is a graduate student in the Department of Cellular and Molecular Biology at Colorado State University. She recently completed her MSc studying gene expression in rice exposed to drought stress. She&#39;s excited to begin her PhD. This year she is rotating through labs working on immune response in tobacco, modeling hormone interactions in Arabidopsis, frost tolerance in weeds, and electron transport in Archaea.&lt;/p&gt;
 </description>
     </item>
     
