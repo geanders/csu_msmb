@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Chapter 6 | CSU MSMB Group Study</title>
+    <link>/categories/chapter-6/</link>
+      <atom:link href="/categories/chapter-6/index.xml" rel="self" type="application/rss+xml" />
+    <description>Chapter 6</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 12 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>Chapter 6</title>
+      <link>/categories/chapter-6/</link>
+    </image>
+    
+    <item>
+      <title>Chapter 6 vocabulary quiz</title>
+      <link>/post/chapter-6-vocabular-zuiz/</link>
+      <pubDate>Thu, 12 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>/post/chapter-6-vocabular-zuiz/</guid>
+      <description>
+
+
+&lt;p&gt;The vocabulary quiz will be live here during the start of the course.&lt;/p&gt;
+&lt;iframe src=&#34;https://docs.google.com/forms/d/e/1FAIpQLSdNNTPez-hy4wz8fJcG7IBu9F3FL-Kxfit74dbgAcjsBjkJjA/viewform?embedded=true&#34; width=&#34;640&#34; height=&#34;3437&#34; frameborder=&#34;0&#34; marginheight=&#34;0&#34; marginwidth=&#34;0&#34;&gt;
+Loading…
+&lt;/iframe&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Vocabulary for Chapter 6</title>
+      <link>/post/vocabulary-for-chapter-6/</link>
+      <pubDate>Fri, 06 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>/post/vocabulary-for-chapter-6/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Chapter 6 covers Statistical Testing, including a review of null and alternative hypotheses (and associated distributions), types of error (I and II), as well as challenges and opportunities introduced by multiple testing.&lt;/p&gt;
+&lt;table class=&#34;table table-striped table-hover table-condensed&#34; style=&#34;margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Occam’s razor
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Heuristic stating that the simplest explanation for a phenomenon is often the best
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+rejection region
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Subset of possible outcomes for which probabilities under the null hypothesis fall under a low probability threshold, e.g. outcomes with a null-distribution probability &amp;lt; 0.05; if an outcome falls within this region (e.g., p &amp;lt; 0.05), it suggests that the null hypothesis is not true.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+test statistic
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Metric for measuring how well a null hypothesis fits the data
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+null hypothesis
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Hypothesis describing some ‘uninteresting’ outcome (e.g., that no difference exists between certain groups of events/outcomes)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+null distribution
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Distribution of possible outcomes, given that the null hypothesis is true
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+alternative hypothesis
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A hypothesis providing a different probability distribution than the null hypothesis; conceptually, holds that some difference from the null hypothesis exists (e.g. different means, frequencies, trends)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+significance level/false positive rate/Type I error
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Probability of incorrectly rejecting the null hypothesis due to outcomes falling within the rejection region by chance; in terms of the null distribution, total probability that the outcome could fall within the rejection region given that the null hypothesis is true.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+power
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+True positive rate of a test (i.e., probability that an outcome falls in the rejection region of the null distribution, given that the alternative hypothesis is true)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+false negative rate/Type II error
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Probability of incorrectly failing to reject the null hypothesis when an outcome from the alternative hypothesis distribution fails to fall within the rejection region of the null hypothesis.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+specificity
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Complement of false positive rate (Type I error); probability of a test failing to reject the null hypothesis when it is true.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+power/sensitivity/true negative rate
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Complement of false negative rate (Type II error); probability of correctly rejecting null hypothesis if the alternative hypothesis is true.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+assumption of independence
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Treating every observation in a dataset as if it has no influence on the outcomes of other observations (or at least none unaccounted-for in the model).
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+p-value hacking
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Fallaciously ‘fishing’ for significant results by running tests until a small p-value is obtained by chance; this can be deliberate or inadvertently caused by a scattershot approach to testing.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+hypothesis switching
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Fallacy of generating and/or changing hypotheses for a set of known results until a significant result is obtained by chance.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+family-wide error rate (FWER)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Probability of at least one false positive occurring in repeated tests. Assuming independent tests, this is the complement of the probability of only true positives occurring, and approaches 1.0 as the number of tests approaches infinity.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+p-value histogram
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Visualization to get a quick sense of p-value distribution of possible test outcomes for a null hypothesis. The distribution is a mixture of cases where the null hypothesis is rejected (small p-values) or retained (larger p-values).
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+false discovery rate (FDR)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+The proportion of false positives among all cases where the null hypothesis is rejected across an entire distribution.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+local false discovery rate (fdr)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+The probability of Type I Error at a given p-value when the distribution of the p-values is treated as a mixture model of the null distribution and alternative hypothesis distribution. This varies based on the p-value, rather than being a property of the entire distribution.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+tail-area false disovery rate (Fdr)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Integration-based extension of the local false discovery rate to obtain a false discovery rate for the entire distribution.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+independent filtering
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Method to increase test power by filtering variables with criteria that are independent under the null hypothesis, but correlated under the alternative
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+independent hypothesis weighting
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A method of improving power of multiple testing by weighting hypotheses based on their power
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Bonferroni adjustment
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Method used to compensate for inflated Type I (false positive) error in multiple testing by dividing the test significance level/hypothesis threshold (e.g., alpha = 0.05) by the number of tests performed
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+whole genome sequencing
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Method used to determine and record the DNA base values and order across all of an organism’s genes
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+marker gene
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A gene used to determine membership in a group of interest (e.g., a taxon, genotype within a population, or possessing a certain metabolic trait)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+expression level
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+The realtive abundance of transcriptions of a gene of interest present in, e.g., a cell or environment
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+reagent
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a compound used in creating a chemical reaction like an assay
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+hypothesis testing
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Evaluating whether outcomes are sufficently unlikely under the null hypothesis (holding that outcomes are determined fully by chance) that it can be rejected in favor of an alternative hypothesis
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+workflow
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A sequence of steps used in carrying out a larger operation or process
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+two-sided test
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A statistical test which rejects the null hypothesis if an observed test statistic is either too large or too small compared to that expected under the null hypothesis
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+one-sided test
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A statistical test which rejects the null hypothesis if an observed test statistic departs from the expected range in a single, predetermined direction (i.e. larger or smaller)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+two-sample
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of statistical testing, a situation whether the data belong to two known groups.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+unpaired
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of statistical tests, these are used when comparing groups with independent measurements (e.g. the observations for one group have no association with observations from the other group)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+equal variances
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+When groups being compared have (substantially) equivalent levels of variability.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+dependence
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+When the outcomes of two variables are associated with one another.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+expected value
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+For a random quantity, this is the value of the mean, i.e. “average value”.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div id=&#34;sources-consulted-or-cited&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Sources Consulted or Cited&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Some of the definitons above are based in part or whole on listed definitions in the following sources:&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Holmes and Huber, 2019. &lt;em&gt;Modern Statistics for Modern Biology.&lt;/em&gt; Cambridge University Press,
+Cambridge, United Kingdom.&lt;/li&gt;
+&lt;li&gt;Wikipedia: The Free Encyclopedia. &lt;a href=&#34;http://en.wikipedia.org/wiki/Main_Page&#34; class=&#34;uri&#34;&gt;http://en.wikipedia.org/wiki/Main_Page&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Bourgon, R., Gentleman, R. &amp;amp; Huber, W. Independent filtering increases detection power for high-throughput experiments. Proceedings of the National Academy of Sciences 107, 9546–9551 (2010).&lt;/li&gt;
+&lt;li&gt;Ignatiadis, N., Klaus, B., Zaugg, J. et al. Data-driven hypothesis weighting increases detection power in genome-scale multiple testing. Nat Methods 13, 577–580 (2016). &lt;a href=&#34;https://doi.org/10.1038/nmeth.3885&#34; class=&#34;uri&#34;&gt;https://doi.org/10.1038/nmeth.3885&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.statisticssolutions.com/bonferroni-correction/&#34; class=&#34;uri&#34;&gt;https://www.statisticssolutions.com/bonferroni-correction/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://bioconductor.org/packages/release/bioc/vignettes/IHW/inst/doc/introduction_to_ihw.html&#34; class=&#34;uri&#34;&gt;https://bioconductor.org/packages/release/bioc/vignettes/IHW/inst/doc/introduction_to_ihw.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.statisticshowto.datasciencecentral.com/familywise-error-rate/&#34; class=&#34;uri&#34;&gt;https://www.statisticshowto.datasciencecentral.com/familywise-error-rate/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.statisticshowto.datasciencecentral.com/probability-and-statistics/hypothesis-testing/&#34; class=&#34;uri&#34;&gt;https://www.statisticshowto.datasciencecentral.com/probability-and-statistics/hypothesis-testing/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://www.biostars.org/p/273537/&#34; class=&#34;uri&#34;&gt;https://www.biostars.org/p/273537/&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;practice&#34;&gt;Practice&lt;/h3&gt;
+&lt;iframe src=&#34;https://quizlet.com/488864042/flashcards/embed?i=2oqpc3&amp;amp;x=1jj1&#34; height=&#34;500&#34; width=&#34;100%&#34; style=&#34;border:0&#34;&gt;
+&lt;/iframe&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

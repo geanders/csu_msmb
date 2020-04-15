@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CSU MSMB Group Study</title>
+    <link>/authors/sere-williams/</link>
+      <atom:link href="/authors/sere-williams/index.xml" rel="self" type="application/rss+xml" />
+    <description>CSU MSMB Group Study</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 10 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>CSU MSMB Group Study</title>
+      <link>/authors/sere-williams/</link>
+    </image>
+    
+    <item>
+      <title>Vocabulary for Chapter 9</title>
+      <link>/post/vocabulary-for-chapter-9/</link>
+      <pubDate>Fri, 10 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/post/vocabulary-for-chapter-9/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Chapter 9 covers multivariate methods for heterogenous data. It builds on methods covered in Chapter 7, like dimension reduction, by extending these ideas to more complex, heterogenous data.&lt;/p&gt;
+&lt;p&gt;The vocabulary words for Chapter 9 are:&lt;/p&gt;
+&lt;table class=&#34;table table-striped table-hover table-condensed&#34; style=&#34;margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+multidimensional scaling (MDS)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a linear dimension reduction method applied in cases where distances between observations are available
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+clusters
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+in the context of data analysis, data points that group together
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+robust
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+in the context of a statistical method, a ‘sturdy’ estimator that is not heavily influenced by outliers
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+outlier
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a single data point with large distances to other data points, thus potentially dominating and skewing the analysis
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+breakdown point
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a measure of the robustness of an estimator; larger values indicate more robust estimators
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+non-metric multidimensional scaling (NMDS)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a robust ordination method which attempts to embed data points in a new space while maintaining their respective order to one another
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+metadata
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+information, data, or descriptions that characterize other data
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+batch effects
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+hidden factors that affect the data but are not documented; e.g. running samples at the same time have a degree of similarity from being run in the same batch
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+confounded effects
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a term describing when there is uncertainty in the source of variation impacting data
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+supplementary
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+in the context of variables for a statistical model, categorical variables added to continuous variables in heterogenous data
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+supplementary points
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+points created using the group-means of points in each of the groups
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+interactive
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+in the context of plots, data visualizations that can be manipulated in real time by the observer
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+contingency table
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+the result of counting the co-occurrence of any pair of categorical variables measured in a set of observations; for example, two phenotypes
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+chi-square distance
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+weighted Eucledian distance using relative counts and standardized by the mean, not the variance
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+biplots
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a type of exploratory graph that displays information on both the observations and the variables of a data matrix
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+co-occurence matrix
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a matrix that captures the extent to which variables are jointly observed in observations
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+correspondence analysis (CA) / dual scaling
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a method for computing low dimensional projections that explain dependencies in categorical data
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+ordination method
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a method which enables one to detect and interpret a hidden ordering, gradient or latent variable in the data
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+clustering
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+in the context of statistical methods, a way to detect and interpret a hidden factor/categorical variable
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+kernel
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a linear algorithm designed to determine a non-linear decision boundary; used in pattern analysis to better understand general types of relations like clusters, rankings, principal components, or correlations
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+local linear embedding (LLE)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a nonlinear method for estimating nonlinear trajectories by points in the relevant state spaces
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+isomap
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a nonlinear method for estimating nonlinear trajectories by points in the relevant state spaces
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+inertia
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+in the context of counts in a contingency table, the weighted sum of the squares of distances between observed and expected frequencies
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+covariance
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+measure of the joint variability of two random variables
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+matrix association
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+correlation of vectors derived from matrices based on dissimilarity
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+RV coefficient
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+the global measure of similarity of two data tables as opposed to two vectors; correlation coefficient for tables
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+penalty
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a method to constrain the typical optimization algorithm, added to interpret correlation when there are too many degrees of freedom
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+sparsity penalty
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+an approach to maintain the number of non-zero coefficients to a minimum
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+heterogenous data
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a mixture of many continuous and a few categorical variables
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+canonical correlation
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a method for finding a few linear combinations of variables from each table that are as correlated as possible
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+nonlinear
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a regression equation where the equation is not ‘linear in the parameters,’ meaning the relationship between parameters cannot be calulated by multiplying, exponentiating, or transforming independent variables
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+species tree
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a simplified term for a diagram showing the relatedness of organisms based on biological, often genetic sequence, information
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+assay
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+an investigative (analytic) procedure in laboratory medicine, pharmacology, environmental biology and molecular biology for qualitatively assessing or quantitatively measuring the presence, amount, or functional activity of a target entity (the analyte)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+protocol
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a predefined written procedural method of conducting experiments
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+microarray
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a ‘lab-on-a-chip’ method to assess many samples at once, often used in gene expression studies
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+taxon
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a group of one or more populations of an organism making up a single unit, typically disected to the level of genus and species
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+mutation
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+an alteration in the nucleotide sequence of the genome of an organism or virus
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+phenotype
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a visually observed genetic trait or characteristic
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+cell development
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+the process of a cell transitioning from one state to another, such as in the case of a cell transitioning from growth to division in mitosis
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+metabolite
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+an intermediate or end product of metabolism; typically a small, organic molecule
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div id=&#34;sources-consulted-or-cited&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Sources consulted or cited&lt;/h3&gt;
+&lt;p&gt;Some of the definitions above are based in part or whole on listed definitions in the following sources.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Holmes and Huber, 2019. Modern Statistics for Modern Biology. Cambridge University Press, Cambridge, United Kingdom.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.econ.upf.edu/~michael/stanford/maeb4.pdf&#34; class=&#34;uri&#34;&gt;http://www.econ.upf.edu/~michael/stanford/maeb4.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://statisticsbyjim.com/regression/difference-between-linear-nonlinear-regression-models/&#34; class=&#34;uri&#34;&gt;https://statisticsbyjim.com/regression/difference-between-linear-nonlinear-regression-models/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.wikipedia.org&#34; class=&#34;uri&#34;&gt;https://www.wikipedia.org&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;practice&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Practice&lt;/h3&gt;
+&lt;iframe src=&#34;https://quizlet.com/501633373/flashcards/embed?i=2stug3&amp;amp;x=1jj1&#34; height=&#34;500&#34; width=&#34;100%&#34; style=&#34;border:0&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Exercise solution for Chapter 2, Part 1</title>
+      <link>/post/exercise-solution-for-chapter-2/</link>
+      <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/post/exercise-solution-for-chapter-2/</guid>
+      <description>
+
+
+&lt;p&gt;As always, load libraries first.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)
+library(tidyverse)
+library(dplyr)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;exercise-2.3-from-modern-statistics-for-modern-biologists&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Exercise 2.3 from Modern Statistics for Modern Biologists&lt;/h2&gt;
+&lt;p&gt;A sequence of three nucleotides codes for one amino acid. There are 4 nucleotides, thus &lt;span class=&#34;math inline&#34;&gt;\(4^3\)&lt;/span&gt; would allow for 64 different amino acids, however there are only 20 amino acids requiring only 20 combinations + 1 for an “end” signal. (The “start” signal is the codon, ATG, which also codes for the amino acid methionine, so the start signal does not have a separate codon.) The code is redundant. But is the redundancy even among codons that code for the same amino acid? In other words, if alanine is coded by 4 different codons, do these codons code for alanine equally (each 25%), or do some codons appear more often than others? Here we use the tuberculosis genome to explore codon bias.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;a-explore-the-data-mtb&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;a) Explore the data, &lt;code&gt;mtb&lt;/code&gt;&lt;/h1&gt;
+&lt;p&gt;Use &lt;code&gt;table&lt;/code&gt; to tabulate the &lt;code&gt;AmAcid&lt;/code&gt; and &lt;code&gt;Codon&lt;/code&gt; variables.&lt;/p&gt;
+&lt;p&gt;Each amino acid is encoded by 1–6 tri-nucleotide combinations.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtb = read.table(&amp;quot;example_datasets/M_tuberculosis.txt&amp;quot;, header = TRUE)
+codon_no &amp;lt;- rowSums(table(mtb))
+codon_no&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Ala Arg Asn Asp Cys End Gln Glu Gly His Ile Leu Lys Met Phe Pro Ser Thr Trp Tyr 
+##   4   6   2   2   2   3   2   2   4   2   3   6   2   1   2   4   6   4   1   2 
+## Val 
+##   4&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;code&gt;PerThousands&lt;/code&gt; of each codon can be visualized, where each plot represents an amino acid and each bar represents a different codon that codes for that amino acid. But what does the &lt;code&gt;PerThousands&lt;/code&gt; variable mean?&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtb, aes(x=Codon, y=PerThous)) +
+  geom_col()+
+  facet_wrap(~AmAcid, scales=&amp;quot;free&amp;quot;) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-02-19-exercise-solution-for-chapter-2_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;768&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;b-the-perthous-variable&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;b) The &lt;code&gt;PerThous&lt;/code&gt; variable&lt;/h1&gt;
+&lt;p&gt;How was the &lt;code&gt;PerThous&lt;/code&gt; variable created?&lt;/p&gt;
+&lt;p&gt;The sum of all of the numbers of codons gives you the total number of codons in the M. tuberculosis genome: &lt;code&gt;all_codons&lt;/code&gt;. Remember that this is not the size of the M. tuberculosis genome, but the number of codons in all M. tuberculosis genes. To get the size of the genome, multiply each codon by 3 (for each nucleotide) and add all non-coding nucleotides (which we do not know from this data set).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;all_codons = sum(mtb$Number)
+all_codons&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1344223&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;code&gt;PerThousands&lt;/code&gt; variable is derived by dividing the number of occurrences of the codon of interest by the total number of codons. Because this number is small and hard to interpret, multiplying it by 1000 gives a value that is easy to make sense of. Here is an example for proline. The four values returned align to the four codons that each code for proline.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pro  =  mtb[mtb$AmAcid == &amp;quot;Pro&amp;quot;, &amp;quot;Number&amp;quot;]
+pro / all_codons * 1000&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 31.560240  6.121752  3.405685 17.032144&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;c-codon-bias&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;c) Codon bias&lt;/h1&gt;
+&lt;p&gt;Write an R function that you can apply to the table to find which of the amino acids shows the strongest codon bias, i.e., the strongest departure from uniform distribution among its possible spellings.&lt;/p&gt;
+&lt;p&gt;First, let’s look at the expected frequencies of each codon.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;codon_expected &amp;lt;- data.frame(codon_no) %&amp;gt;%
+  rownames_to_column(var = &amp;quot;AmAcid&amp;quot;) %&amp;gt;%
+  mutate(prob_codon = 1/codon_no)
+codon_expected&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    AmAcid codon_no prob_codon
+## 1     Ala        4  0.2500000
+## 2     Arg        6  0.1666667
+## 3     Asn        2  0.5000000
+## 4     Asp        2  0.5000000
+## 5     Cys        2  0.5000000
+## 6     End        3  0.3333333
+## 7     Gln        2  0.5000000
+## 8     Glu        2  0.5000000
+## 9     Gly        4  0.2500000
+## 10    His        2  0.5000000
+## 11    Ile        3  0.3333333
+## 12    Leu        6  0.1666667
+## 13    Lys        2  0.5000000
+## 14    Met        1  1.0000000
+## 15    Phe        2  0.5000000
+## 16    Pro        4  0.2500000
+## 17    Ser        6  0.1666667
+## 18    Thr        4  0.2500000
+## 19    Trp        1  1.0000000
+## 20    Tyr        2  0.5000000
+## 21    Val        4  0.2500000&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Next, calculate the observed frequencies for each codon seen in the data set and use the chi-squared test statistic to determine if the difference between expected and observed codon frequencies is even or if some codon sequences are used more than others.&lt;/p&gt;
+&lt;p&gt;To start, you can group the data by amino acid and then determine a few things about
+the amino acid or the possible codons for it, including the total observations
+across all codons for the amino acid (&lt;code&gt;total&lt;/code&gt;), the number of codons for that
+amino acid (&lt;code&gt;n_codons&lt;/code&gt;), and the expected count for each codon for that amino acid
+(the total number of observations for that amino acid divided by the number of
+codons, giving an expected number that’s the same for all codons of an amino
+acid; &lt;code&gt;expected&lt;/code&gt;).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;codon_compared &amp;lt;- mtb %&amp;gt;% 
+  group_by(AmAcid) %&amp;gt;% 
+  mutate(total = sum(Number),
+         n_codons = n(),
+         expected = total / n_codons)
+codon_compared&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 64 x 7
+## # Groups:   AmAcid [21]
+##    AmAcid Codon Number PerThous  total n_codons expected
+##    &amp;lt;fct&amp;gt;  &amp;lt;fct&amp;gt;  &amp;lt;int&amp;gt;    &amp;lt;dbl&amp;gt;  &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;    &amp;lt;dbl&amp;gt;
+##  1 Gly    GGG    25874    19.2  132810        4   33202.
+##  2 Gly    GGA    13306     9.9  132810        4   33202.
+##  3 Gly    GGT    25320    18.8  132810        4   33202.
+##  4 Gly    GGC    68310    50.8  132810        4   33202.
+##  5 Glu    GAG    41103    30.6   62870        2   31435 
+##  6 Glu    GAA    21767    16.2   62870        2   31435 
+##  7 Asp    GAT    21165    15.8   77852        2   38926 
+##  8 Asp    GAC    56687    42.2   77852        2   38926 
+##  9 Val    GTG    53942    40.1  114991        4   28748.
+## 10 Val    GTA     6372     4.74 114991        4   28748.
+## # … with 54 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;code&gt;mutate&lt;/code&gt; function is used after &lt;code&gt;group_by&lt;/code&gt; to do all this
+within each amino acid group of codons, but without collapsing to one row per
+amino acid, as a &lt;code&gt;summarize&lt;/code&gt; call would.&lt;/p&gt;
+&lt;p&gt;To convince yourself that this has worked out correctly, you can repeat
+the plot we made before and see that the bars for the expected values are
+always equal across all codons for an amino acid:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(codon_compared, aes(x=Codon, y=expected)) +
+     geom_col()+
+     facet_wrap(~AmAcid, scales=&amp;quot;free&amp;quot;) +
+     theme(axis.text.x = element_text(angle = 45, hjust = 1))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-02-19-exercise-solution-for-chapter-2_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;768&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Finally, we can calculate the chi-squared (&lt;span class=&#34;math inline&#34;&gt;\(\chi^2\)&lt;/span&gt;) statistic and compare it to the
+chi-squared distribution to get the p-value when testing against the null hypothesis
+that the amino acid observations are uniformly distributed across codons. The &lt;span class=&#34;math inline&#34;&gt;\(\chi^2\)&lt;/span&gt;
+is calculated as:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\chi^2 = \sum_i{\frac{(O_i-E_i)^2}{E_i}}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;where:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(O_i\)&lt;/span&gt; is the observed value of data point &lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt; (&lt;code&gt;Number&lt;/code&gt; in our data); and&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(E_i\)&lt;/span&gt; is the expected value of data point &lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt; (&lt;code&gt;expected&lt;/code&gt; in our data)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In our data, we can calculate the contribution to the total &lt;span class=&#34;math inline&#34;&gt;\(\chi^2\)&lt;/span&gt; statistic
+from each data point (in this case, each codon within an amino acid) using
+&lt;code&gt;mutate&lt;/code&gt;, and then
+add these values up using &lt;code&gt;group_by&lt;/code&gt; to group by amino acid followed by
+&lt;code&gt;summarize&lt;/code&gt; to sum up across all the data points for an amino acid.
+The other information we need to get is the number of codons for the
+amino acid, because we’ll need this to determine the degrees of freedom
+for the chi-squared distribution. Next, we used &lt;code&gt;mutate&lt;/code&gt; with
+&lt;code&gt;pchisq&lt;/code&gt; to determine the p-values within each amino acid group for the
+test against the null that the codons are uniformly distributed for that
+amino acid (i.e., that there isn’t codon bias). These p-values turn out to
+be super small, so we’re using a technique to get the log-transform versions of
+them instead, which we explain a bit more later. Finally, we used &lt;code&gt;arrange&lt;/code&gt; to
+list the amino acids by evidence against uniform distribution of the codons,
+from most evidence against (smallest p-value so most negative log(p-value))
+to least evidence against (although still plenty of evidence against) and added
+an &lt;code&gt;index&lt;/code&gt; with the ranking for each codon by adding a column with the sequence
+of numbers from 1 to the number of rows in the data (&lt;code&gt;n()&lt;/code&gt;).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;codon_compared %&amp;gt;% 
+  filter(n_codons &amp;gt; 1) %&amp;gt;% 
+  group_by(AmAcid) %&amp;gt;% 
+  mutate(chi_squared = ((Number - expected)^2/expected)) %&amp;gt;% 
+  summarise(chi_squared = sum(chi_squared),
+            n = n()) %&amp;gt;% 
+  mutate(p_value = pchisq(chi_squared, df = n-1, log = TRUE, lower.tail = FALSE)) %&amp;gt;% 
+  arrange(p_value) %&amp;gt;% 
+  mutate(rank = 1:n())&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 19 x 5
+##    AmAcid chi_squared     n p_value  rank
+##    &amp;lt;fct&amp;gt;        &amp;lt;dbl&amp;gt; &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt; &amp;lt;int&amp;gt;
+##  1 Leu        135432.     6 -67700.     1
+##  2 Ala         75620.     4 -37805.     2
+##  3 Arg         72183.     6 -36076.     3
+##  4 Thr         58767.     4 -29378.     4
+##  5 Val         58737.     4 -29363.     5
+##  6 Ile         56070.     3 -28035.     6
+##  7 Gly         52534.     4 -26262.     7
+##  8 Pro         45400.     4 -22695.     8
+##  9 Ser         36742.     6 -18357.     9
+## 10 Asp         16208.     2  -8109.    10
+## 11 Phe         13444.     2  -6727.    11
+## 12 Asn         11404.     2  -5707.    12
+## 13 Gln          9376.     2  -4693.    13
+## 14 Lys          6382.     2  -3195.    14
+## 15 Glu          5947.     2  -2978.    15
+## 16 His          5346.     2  -2678.    16
+## 17 Tyr          4738.     2  -2373.    17
+## 18 Cys          2958.     2  -1483.    18
+## 19 End           928.     3   -464.    19&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As you may notice, these log transforms of the p-values (which we got rather than untransformed p-values in the &lt;code&gt;pchisq&lt;/code&gt; call because we used the option &lt;code&gt;log = TRUE&lt;/code&gt;) are large in magnitude and negative (so very tiny once you take the exponent if you re-transformed them to p-values) values. If you tried to calculate the untransformed p-values (and we did!), this number is so small (0.00000000e+00) that it is too small for R—it shows up as exactly zero in R, even though it actually is a very tiny, but still non-zero, number. To get around this issue, we told &lt;code&gt;pchisq&lt;/code&gt; to work on these p-values as log transforms, and then we left the p-value as that log-transformed value. A group of numbers that are log transformed will be in the same order as their untransformed versions, so we don’t need to convert back to figure out which amino acid had that smallest p-value. We can just sort the amino acids from most negative to less negative using these log-transformed versions of the p-values. We now have the amino acids ranked from most biased codons (1) to least (19).&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
