@@ -3,17 +3,52 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/authors/sere-williams/</loc>
-    <lastmod>2020-04-10T14:41:31-06:00</lastmod>
+    <loc>/authors/bailey-fosdick/</loc>
+    <lastmod>2020-04-16T13:28:20-06:00</lastmod>
   </url>
   
   <url>
     <loc>/authors/</loc>
-    <lastmod>2020-04-10T14:41:31-06:00</lastmod>
+    <lastmod>2020-04-16T13:28:20-06:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/</loc>
+    <lastmod>2020-04-16T13:28:20-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/class-meeting/</loc>
+    <lastmod>2020-04-16T13:28:20-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/class-meeting/</loc>
+    <lastmod>2020-04-16T13:28:20-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-04-16T13:28:20-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/details-for-class-april-16/</loc>
+    <lastmod>2020-04-16T13:28:20-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-04-16T13:28:20-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-04-16T13:28:20-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/authors/sere-williams/</loc>
     <lastmod>2020-04-10T14:41:31-06:00</lastmod>
   </url>
   
@@ -28,17 +63,7 @@
   </url>
   
   <url>
-    <loc>/</loc>
-    <lastmod>2020-04-10T14:41:31-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2020-04-10T14:41:31-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
+    <loc>/categories/vocabulary/</loc>
     <lastmod>2020-04-10T14:41:31-06:00</lastmod>
   </url>
   
@@ -48,28 +73,8 @@
   </url>
   
   <url>
-    <loc>/categories/vocabulary/</loc>
-    <lastmod>2020-04-10T14:41:31-06:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/post/vocabulary-for-chapter-9/</loc>
     <lastmod>2020-04-10T14:41:31-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/bailey-fosdick/</loc>
-    <lastmod>2020-04-08T10:47:12-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/class-meeting/</loc>
-    <lastmod>2020-04-08T10:47:12-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/class-meeting/</loc>
-    <lastmod>2020-04-08T10:47:12-06:00</lastmod>
   </url>
   
   <url>
@@ -83,12 +88,12 @@
   </url>
   
   <url>
-    <loc>/tags/chapter-8/</loc>
+    <loc>/categories/chapter-8/</loc>
     <lastmod>2020-04-06T16:16:47-06:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/chapter-8/</loc>
+    <loc>/tags/chapter-8/</loc>
     <lastmod>2020-04-06T16:16:47-06:00</lastmod>
   </url>
   
@@ -293,12 +298,12 @@
   </url>
   
   <url>
-    <loc>/tags/chapter-1/</loc>
+    <loc>/categories/chapter-1/</loc>
     <lastmod>2020-02-11T20:22:07-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/chapter-1/</loc>
+    <loc>/tags/chapter-1/</loc>
     <lastmod>2020-02-11T20:22:07-07:00</lastmod>
   </url>
   
@@ -359,11 +364,6 @@
   
   <url>
     <loc>/authors/sherry-wemott/</loc>
-  </url>
-  
-  <url>
-    <loc>/post/2020-04-16-details-for-class-april-16/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
