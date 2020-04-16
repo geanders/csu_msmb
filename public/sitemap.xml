@@ -3,57 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/authors/bailey-fosdick/</loc>
-    <lastmod>2020-04-16T13:28:20-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/</loc>
-    <lastmod>2020-04-16T13:28:20-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/</loc>
-    <lastmod>2020-04-16T13:28:20-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/class-meeting/</loc>
-    <lastmod>2020-04-16T13:28:20-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/class-meeting/</loc>
-    <lastmod>2020-04-16T13:28:20-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2020-04-16T13:28:20-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/details-for-class-april-16/</loc>
-    <lastmod>2020-04-16T13:28:20-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2020-04-16T13:28:20-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2020-04-16T13:28:20-06:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/authors/sere-williams/</loc>
     <lastmod>2020-04-10T14:41:31-06:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/chapter-9/</loc>
+    <loc>/authors/</loc>
+    <lastmod>2020-04-10T14:41:31-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
     <lastmod>2020-04-10T14:41:31-06:00</lastmod>
   </url>
   
@@ -63,7 +23,22 @@
   </url>
   
   <url>
-    <loc>/categories/vocabulary/</loc>
+    <loc>/tags/chapter-9/</loc>
+    <lastmod>2020-04-10T14:41:31-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-04-10T14:41:31-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-04-10T14:41:31-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
     <lastmod>2020-04-10T14:41:31-06:00</lastmod>
   </url>
   
@@ -73,8 +48,28 @@
   </url>
   
   <url>
+    <loc>/categories/vocabulary/</loc>
+    <lastmod>2020-04-10T14:41:31-06:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/vocabulary-for-chapter-9/</loc>
     <lastmod>2020-04-10T14:41:31-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/authors/bailey-fosdick/</loc>
+    <lastmod>2020-04-08T10:47:12-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/class-meeting/</loc>
+    <lastmod>2020-04-08T10:47:12-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/class-meeting/</loc>
+    <lastmod>2020-04-08T10:47:12-06:00</lastmod>
   </url>
   
   <url>
@@ -113,12 +108,12 @@
   </url>
   
   <url>
-    <loc>/categories/chapter-7/</loc>
+    <loc>/tags/chapter-7/</loc>
     <lastmod>2020-03-30T21:37:37-06:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/chapter-7/</loc>
+    <loc>/categories/chapter-7/</loc>
     <lastmod>2020-03-30T21:37:37-06:00</lastmod>
   </url>
   
@@ -183,12 +178,12 @@
   </url>
   
   <url>
-    <loc>/tags/chapter-4/</loc>
+    <loc>/categories/chapter-4/</loc>
     <lastmod>2020-02-27T10:42:19-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/chapter-4/</loc>
+    <loc>/tags/chapter-4/</loc>
     <lastmod>2020-02-27T10:42:19-07:00</lastmod>
   </url>
   
@@ -218,12 +213,12 @@
   </url>
   
   <url>
-    <loc>/tags/chapter-2/</loc>
+    <loc>/categories/chapter-2/</loc>
     <lastmod>2020-02-19T18:18:47-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/chapter-2/</loc>
+    <loc>/tags/chapter-2/</loc>
     <lastmod>2020-02-19T18:18:47-07:00</lastmod>
   </url>
   
@@ -268,12 +263,12 @@
   </url>
   
   <url>
-    <loc>/tags/github/</loc>
+    <loc>/categories/github/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/github/</loc>
+    <loc>/tags/github/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
@@ -283,12 +278,12 @@
   </url>
   
   <url>
-    <loc>/tags/instructions/</loc>
+    <loc>/categories/instructions/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/instructions/</loc>
+    <loc>/tags/instructions/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
@@ -364,6 +359,11 @@
   
   <url>
     <loc>/authors/sherry-wemott/</loc>
+  </url>
+  
+  <url>
+    <loc>/post/2020-04-16-details-for-class-april-16/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
