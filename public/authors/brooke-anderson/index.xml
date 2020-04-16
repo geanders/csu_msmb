@@ -346,15 +346,15 @@ probability of each nucleotide at each spot on the genome:&lt;/p&gt;
                           size = sum(nuc_freq_df$n), 
                           prob = rep(1 / 4, 4)))&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13] [,14]
-## [1,] 3528 3498 3514 3391 3401 3462 3458 3545 3418  3520  3396  3501  3497  3451
-## [2,] 3412 3394 3379 3464 3425 3380 3511 3407 3483  3471  3415  3430  3461  3400
-## [3,] 3489 3443 3434 3483 3485 3472 3469 3464 3404  3398  3406  3460  3402  3458
-## [4,] 3365 3459 3467 3456 3483 3480 3356 3378 3489  3405  3577  3403  3434  3485
+## [1,] 3420 3505 3472 3390 3357 3475 3491 3486 3403  3413  3577  3475  3449  3411
+## [2,] 3521 3471 3446 3480 3477 3466 3490 3414 3487  3562  3398  3435  3484  3451
+## [3,] 3419 3413 3468 3520 3484 3379 3410 3456 3460  3427  3433  3489  3375  3449
+## [4,] 3434 3405 3408 3404 3476 3474 3403 3438 3444  3392  3386  3395  3486  3483
 ##      [,15] [,16] [,17] [,18] [,19] [,20]
-## [1,]  3465  3542  3443  3311  3462  3413
-## [2,]  3428  3408  3503  3467  3492  3416
-## [3,]  3441  3415  3356  3558  3456  3492
-## [4,]  3460  3429  3492  3458  3384  3473&lt;/code&gt;&lt;/pre&gt;
+## [1,]  3464  3514  3472  3516  3427  3411
+## [2,]  3484  3483  3360  3485  3496  3431
+## [3,]  3439  3363  3383  3380  3476  3442
+## [4,]  3407  3434  3579  3413  3395  3510&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Next, I moved this into a tibble so I could more easily rearrange and plot the data using
 facetting in &lt;code&gt;ggplot2&lt;/code&gt;:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sim_nuc_freq_df &amp;lt;- as_tibble(sim_nuc_freq) %&amp;gt;% 
@@ -368,16 +368,16 @@ sim_nuc_freq_df %&amp;gt;%
 &lt;pre&gt;&lt;code&gt;## # A tibble: 10 x 3
 ##    nucleotide sample value
 ##    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt; &amp;lt;int&amp;gt;
-##  1 A               1  3528
-##  2 C               1  3412
-##  3 G               1  3489
-##  4 T               1  3365
-##  5 A               2  3498
-##  6 C               2  3394
-##  7 G               2  3443
-##  8 T               2  3459
-##  9 A               3  3514
-## 10 C               3  3379&lt;/code&gt;&lt;/pre&gt;
+##  1 A               1  3420
+##  2 C               1  3521
+##  3 G               1  3419
+##  4 T               1  3434
+##  5 A               2  3505
+##  6 C               2  3471
+##  7 G               2  3413
+##  8 T               2  3405
+##  9 A               3  3472
+## 10 C               3  3446&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(sim_nuc_freq_df, aes(x = nucleotide, y = value)) + 
   geom_col(fill = &amp;quot;lavender&amp;quot;, color = &amp;quot;black&amp;quot;) + 
   theme_classic() + 
@@ -407,16 +407,16 @@ sim_nuc_freq_df %&amp;gt;%
 &lt;pre&gt;&lt;code&gt;## # A tibble: 10 x 3
 ##    nucleotide sample value
 ##    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt; &amp;lt;int&amp;gt;
-##  1 A               1  3469
-##  2 C               1  3518
-##  3 G               1  3406
-##  4 T               1  3401
-##  5 A               2  3411
-##  6 C               2  3541
-##  7 G               2  3454
-##  8 T               2  3388
-##  9 A               3  3400
-## 10 C               3  3446&lt;/code&gt;&lt;/pre&gt;
+##  1 A               1  3454
+##  2 C               1  3506
+##  3 G               1  3450
+##  4 T               1  3384
+##  5 A               2  3523
+##  6 C               2  3404
+##  7 G               2  3486
+##  8 T               2  3381
+##  9 A               3  3526
+## 10 C               3  3415&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Using this dataframe of simulations, we can measure the mean, minimum, and maximum frequencies
 of each nucleotide across all 1,000 simulations:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;(sim_summary &amp;lt;- sim_nuc_freq_df %&amp;gt;% 
@@ -427,10 +427,10 @@ of each nucleotide across all 1,000 simulations:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 4 x 4
 ##   nucleotide mean_freq min_freq max_freq
 ##   &amp;lt;chr&amp;gt;          &amp;lt;dbl&amp;gt;    &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;
-## 1 A              3452.     3302     3601
-## 2 C              3447.     3290     3600
-## 3 G              3447.     3276     3616
-## 4 T              3448.     3274     3614&lt;/code&gt;&lt;/pre&gt;
+## 1 A              3446.     3271     3622
+## 2 C              3450.     3259     3635
+## 3 G              3448.     3289     3657
+## 4 T              3450.     3282     3578&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;To help compare this with the observed data, we can create a table with information from
 both the original data and the simulations under the null model:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;nuc_freq_df %&amp;gt;% 
@@ -455,22 +455,22 @@ both the original data and the simulations under the null model:&lt;/p&gt;
 &lt;tr class=&#34;odd&#34;&gt;
 &lt;td align=&#34;center&#34;&gt;A&lt;/td&gt;
 &lt;td align=&#34;center&#34;&gt;4,335&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;3,452 (3,302, 3,601)&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;3,446 (3,271, 3,622)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
 &lt;td align=&#34;center&#34;&gt;C&lt;/td&gt;
 &lt;td align=&#34;center&#34;&gt;1,225&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;3,447 (3,290, 3,600)&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;3,450 (3,259, 3,635)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;odd&#34;&gt;
 &lt;td align=&#34;center&#34;&gt;G&lt;/td&gt;
 &lt;td align=&#34;center&#34;&gt;2,055&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;3,447 (3,276, 3,616)&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;3,448 (3,289, 3,657)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
 &lt;td align=&#34;center&#34;&gt;T&lt;/td&gt;
 &lt;td align=&#34;center&#34;&gt;6,179&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;3,448 (3,274, 3,614)&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;3,450 (3,282, 3,578)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -520,11 +520,11 @@ sim_stat %&amp;gt;%
 &lt;pre&gt;&lt;code&gt;## # A tibble: 5 x 2
 ##   sample variability_stat
 ##    &amp;lt;dbl&amp;gt;            &amp;lt;dbl&amp;gt;
-## 1      1             2.70
-## 2      2             3.96
-## 3      3             1.77
-## 4      4             6.33
-## 5      5             2.70&lt;/code&gt;&lt;/pre&gt;
+## 1      1             2.17
+## 2      2             3.91
+## 3      3             2.53
+## 4      4             4.47
+## 5      5             1.75&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Here is a plot of the distribution of this statistic across the 1,000 simulations:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(sim_stat, aes(x = variability_stat)) + 
   geom_rect(data = sim_stat, aes(xmin = quantile(variability_stat, prob = 0.025),

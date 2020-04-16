@@ -164,7 +164,7 @@ date_format = "   "
   date_end = "2020-01-23"
   description = """
   
-  Exercise for Chapter:
+  Exercise for Chapter: Exercise 9.2 (p. 246), *Correspondence analysis on color association tables*
   
   Student responsibilities:
 

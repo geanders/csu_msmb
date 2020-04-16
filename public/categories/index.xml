@@ -5,7 +5,7 @@
     <link>/categories/</link>
       <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <description>Categories</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 15 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 16 Apr 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Categories</title>
@@ -13,10 +13,10 @@
     </image>
     
     <item>
-      <title>vocabulary</title>
-      <link>/categories/vocabulary/</link>
-      <pubDate>Wed, 15 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>/categories/vocabulary/</guid>
+      <title>class meeting</title>
+      <link>/categories/class-meeting/</link>
+      <pubDate>Thu, 16 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/class-meeting/</guid>
       <description></description>
     </item>
     
@@ -29,10 +29,10 @@
     </item>
     
     <item>
-      <title>class meeting</title>
-      <link>/categories/class-meeting/</link>
-      <pubDate>Wed, 08 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>/categories/class-meeting/</guid>
+      <title>vocabulary</title>
+      <link>/categories/vocabulary/</link>
+      <pubDate>Fri, 10 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/vocabulary/</guid>
       <description></description>
     </item>
     
