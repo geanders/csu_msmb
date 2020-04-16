@@ -3,7 +3,6 @@ title: Details for class April 16
 author: Bailey Fosdick
 date: '2020-04-16'
 slug: details-for-class-april-16
-draft: no
 categories:
   - class meeting
 tags:
