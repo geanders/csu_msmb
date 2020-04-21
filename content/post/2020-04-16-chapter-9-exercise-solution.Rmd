@@ -44,7 +44,7 @@ library(ggrepel)
 At least working from the online version of the tex,t there are two ways to obtain (roughly) equal data for this exercise. One option is to copy table 9.4 directly from the book into Excel, shift the header one cell to the right to align columns with their proper names, export a .csv (`ex_9.2_color_table.csv` in this example), and load it into R using a command like:
 
 ```{r copy_paste_method, eval = FALSE}
-color_matrix <- read_csv("content/post/example_datasets/ex_9_2_color_table.csv", col_names = TRUE) %>%
+color_matrix <- read_csv("example_datasets/ex_9_2_color_table.csv", col_names = TRUE) %>%
   column_to_rownames(var = 'X1') %>%
   as.matrix
 ```
@@ -55,14 +55,14 @@ Something to note is that this data is rounded to units of thousands (e.g. "19" 
 Alternatively, the file is included in the course data as `colorsentiment.csv`, although in a different, three-column format:
 
 ```{r course_data}
-head(read_csv("content/post/example_datasets//colorsentiment.csv"))
+head(read_csv("example_datasets/colorsentiment.csv"))
 
 ```
 
 This can be converted to match our correspondence table format using the `pivot_wider` function and other `tidyverse` formatting tools: 
 
 ```{r reformat, message = FALSE}
-color_matrix <- read_csv("content/post/example_datasets//colorsentiment.csv") %>%
+color_matrix <- read_csv("example_datasets/colorsentiment.csv") %>%
   janitor::clean_names() %>% #standardizes column name format
   arrange(desc(results)) %>% # Rearranging to match row/col order in table 9.4
   pivot_wider(names_from = x, values_from = results) %>% # converts colors from column entries (`x`) to column names
@@ -110,7 +110,7 @@ Here, we can see that, for instance, the combination of "happy" and "black" in s
 
 To take these patterns more intuitively, We can use a mosaic plot to visualize the proportional distribution of color/sentiment terms in searches (e.g. "back" and "happy" are both popular terms, so could be expected to occur more frequently than e.g. "perplexed" and "purple" in any case), as well as color coding for residuals:
 
-*Note: for some reason I'm having issues getting the mosaic plot's color coding to work here; it shows standardized residuals as uniformly either >4 or <-4, which didn't occur when rendering directly in R*
+# *Note: for some reason I'm having issues getting the mosaic plot's color coding to work here; it shows standardized residuals as uniformly either >4 or <-4, which didn't occur when rendering directly in R*
 
 ```{r}
   #For some reason this is 'flattening'  color coding to <-4 or >4 in the final render, but shows intermediate levels in R Studio
