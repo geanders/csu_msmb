@@ -5,12 +5,21 @@
     <link>/authors/</link>
       <atom:link href="/authors/index.xml" rel="self" type="application/rss+xml" />
     <description>Authors</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 16 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 22 Apr 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Authors</title>
       <link>/authors/</link>
     </image>
+    
+    <item>
+      <title></title>
+      <link>/authors/sarah-cooper/</link>
+      <pubDate>Wed, 22 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/authors/sarah-cooper/</guid>
+      <description>&lt;p&gt;Sarah Cooper is a graduate student in the Department of Microbiology, Immunology, Pathology at Colorado State University.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title></title>
@@ -71,15 +80,6 @@ source R software packages to facilitate environmental epidemiologic research.&l
       <pubDate>Fri, 06 Mar 2020 00:00:00 +0000</pubDate>
       <guid>/authors/daniel-dean/</guid>
       <description>&lt;p&gt;Daniel Dean is a graduate student in the Department of Agriculture and Biology at Colorado State University. He is studying the soil microbiome and interested in learning additional skills in R programming and statistics.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/authors/sarah-cooper/</link>
-      <pubDate>Mon, 24 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>/authors/sarah-cooper/</guid>
-      <description>&lt;p&gt;Sarah Cooper is a graduate student in the Department of Microbiology, Immunology, Pathology at Colorado State University.&lt;/p&gt;
 </description>
     </item>
     

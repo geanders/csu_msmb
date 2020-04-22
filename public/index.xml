@@ -5,12 +5,469 @@
     <link>/</link>
       <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <description>CSU MSMB Group Study</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 16 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 22 Apr 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>CSU MSMB Group Study</title>
       <link>/</link>
     </image>
+    
+    <item>
+      <title>Vocabulary for Chapter 10</title>
+      <link>/post/vocabulary-for-chapter-10/</link>
+      <pubDate>Wed, 22 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/post/vocabulary-for-chapter-10/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Chapter 10 discusses the use of networks and trees to visualize biological data. It covers the main components of each and how different data sets can be appropriately transformed into specific networks and trees based on what you are trying to present. The vocabulary words for Chapter 10 are:&lt;/p&gt;
+&lt;table class=&#34;table table-striped table-hover table-condensed&#34; style=&#34;margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Graph
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A structure formed by a set of nodes or vertices and a set of edges between these vertices
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Adjacency matrix
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+The matrix representation of edges of a graph with as many rows as nodes in the graph
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Network
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A weighted, directed graph
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Sparse
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of graphs, a term to describe a graph when the number of edges is similar to the number of nodes
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Dense
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of graphs, a term to describe a graph when the number of edges is (approximately) a quadratic function of the nodes
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Arrows/directed edges
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Graph edges that directionally connect nodes
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Annotation variables
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Graph visualization characteristics that help to demonstrate strength of a link in a graph by changing the width of the edge or covariates associated to the size or color of the node
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Graph layouts
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Different ways to plot a graph, either for aesthetic or practical reasons
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Binary data
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Data in which each observation can take only one of two values (e.g., 0 or 1)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Differentially expressed genes
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A term to describe changes in gene expression levels between different experimental groups
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Bipartite graph
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A graph where each edge connects a node
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Overrepresented or enriched
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of gene expresion, a term to describe increased expression of a gene / set of genes of interest
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Gene Ontology (GO)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A resource aimed to unify the vocabulary to describe genes and gene product attributes across all species
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Fisher’s exact test / Hypergeometric testing
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Two-way table testing used to account for the fact that some categories are extremely numerous and others are rarer
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Known skeleton graph
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A graph that projects significance scores such as p-values
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Perturbation
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of a network, an alteration of the function of a biological system, induced by external or internal mechanisms
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Hotspots
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of a graph, areas with high event density
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Rooted binary tree
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A data tree in which each node has at most two children
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Cycles
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of graphs, another word for loops: either self-loops or ones that go through several vertices
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Ancestral taxa
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Correspond to inner nodes and are inferred from the contemporaneous data on the tips
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Contemporaneous
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of data for phylogenetic tress, organisms at terminal nodes that exist at the same time and are related to each other, thus revealing information about their common ancestors
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+OTUs (Operational Taxonomic Units)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A method of clustering organisms based on DNA similarity of a certain taxonomic marker gene (Tips of the tree)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Parameter
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of statistics, numerical value that describes a population
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Gene trees
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Structures produced when different genes show differences in their evolutionary histories
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Markov chain
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A sequence where given the current state, the next state is conditionally independent of all previous states
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Molecular clock hypothesis
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A term that describes a technique that uses the mutation rate to infer what happened to a species historically
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Non-identifiability
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+The inability to distinguish a parameterization of a model based on observed data
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Time homogeneity
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of Markov chains, the state of the mutation rate being constant across history
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Generator
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of Markov chains, the instantaneous change probability matrix describing transitions between steps of the chain
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Transition matrix
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A matrix that contains all probabilities of any state changes for a Markov chain
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Parsimony tree
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A structure created using nonparametric method that minimizes the number of changes necessary to explain the data
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Maximum likelihood tree
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A structure created using a parametric method that uses efficient optimization algorithms to maximize the likelihood of a tree under the model assumptions.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Bayesian posterior distributions for trees
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A method that uses MCMC to find posterior distributions of the phylogenies
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Distance-based methods
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Semi-parametric methods similar to the hierarchical clustering algorithms but use the parametric evolutionary models
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Aligning
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Arranging different sequences of DNA, RNA, or protein together to identify similarities or differences between them
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+indel (inserted-deleted) event
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Insertion or deletion of bases in the genome of an organism
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Filtering operations
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of low-quality rRNA reads, the removal of low-quality reads and trimming of remaining reads to a consistent length
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Interactive
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of a plot, enabling direct actions on a graphical plot to change elements and link multiple plots
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Spanning tree
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A tree that goes through all points at least once
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Minimum spanning tree (MST)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Given distances between vertices, a tree that spans all the points and has the minimum total length
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Jitter
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+To slightly move coordinates on a graph to avoid too much overlapping
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Undirected network
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A term describing a graph without arrows between nodes
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Associated
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A term indicating that two variables are related
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Friedman-Rafsky tests
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Tests for two/multiple sample segregation on a minimum spanning tree
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Pure edges
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of graphs, edges whose two nodes have the same level of the factor variable
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Microbiome
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+The aggregate of all microbiota that reside on or within an organism tissues and biofluids along with the corresponding anatomical sites in which they reside
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Exponential random graph models (ERGMs)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Models that can be used to predict vertex covariates
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Protein interaction networks
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of graphing, a way to visualize observed protein-protein interactions
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Phylogenetic tree
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A tree used to visualize evolutionary relationships among species
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Strain
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of a virus, a genetic variant or subtype
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Taxa
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A group of one or more populations of an organism making up a single unit, typically disected to the level of genus and species
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Protein
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A compound made up of amino acids; one of the four types of macromolecules that make up living organisms.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div id=&#34;sources-consulted-or-cited&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Sources consulted or cited&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Some of the definitions above are based in part or whole on listed definitions
+in the following sources.&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Holmes and Huber, 2019. &lt;em&gt;Modern Statistics for Modern Biology.&lt;/em&gt; Cambridge University Press,
+Cambridge, United Kingdom.&lt;/li&gt;
+&lt;li&gt;Everitt and Skrondal, 2010. &lt;em&gt;The Cambridge Dictionary of Statistics (Fourth Edition).&lt;/em&gt; Cambridge University Press, Cambridge, United Kingdom.&lt;/li&gt;
+&lt;li&gt;Wikipedia: The Free Encyclopedia. &lt;a href=&#34;http://en.wikipedia.org/wiki/Main_Page&#34; class=&#34;uri&#34;&gt;http://en.wikipedia.org/wiki/Main_Page&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;practice&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Practice&lt;/h3&gt;
+&lt;iframe src=&#34;https://quizlet.com/333490771/match/embed?i=km5j1&amp;amp;x=1jj1&#34; height=&#34;500&#34; width=&#34;100%&#34; style=&#34;border:0&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Details for class April 16</title>
@@ -3401,15 +3858,15 @@ probability of each nucleotide at each spot on the genome:&lt;/p&gt;
                           size = sum(nuc_freq_df$n), 
                           prob = rep(1 / 4, 4)))&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13] [,14]
-## [1,] 3468 3371 3374 3435 3424 3434 3329 3423 3461  3503  3472  3441  3455  3417
-## [2,] 3455 3541 3482 3430 3538 3536 3409 3411 3432  3415  3549  3442  3461  3444
-## [3,] 3394 3498 3455 3525 3375 3392 3559 3435 3442  3503  3383  3425  3465  3438
-## [4,] 3477 3384 3483 3404 3457 3432 3497 3525 3459  3373  3390  3486  3413  3495
+## [1,] 3457 3502 3489 3483 3464 3390 3500 3509 3455  3473  3460  3421  3468  3465
+## [2,] 3530 3423 3399 3470 3386 3384 3567 3387 3418  3425  3428  3435  3421  3445
+## [3,] 3365 3457 3465 3439 3478 3446 3421 3488 3438  3478  3461  3534  3411  3455
+## [4,] 3442 3412 3441 3402 3466 3574 3306 3410 3483  3418  3445  3404  3494  3429
 ##      [,15] [,16] [,17] [,18] [,19] [,20]
-## [1,]  3493  3526  3431  3422  3448  3530
-## [2,]  3459  3395  3445  3492  3441  3376
-## [3,]  3418  3411  3433  3441  3435  3434
-## [4,]  3424  3462  3485  3439  3470  3454&lt;/code&gt;&lt;/pre&gt;
+## [1,]  3400  3445  3439  3503  3432  3504
+## [2,]  3525  3424  3389  3441  3409  3429
+## [3,]  3498  3503  3531  3472  3523  3413
+## [4,]  3371  3422  3435  3378  3430  3448&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Next, I moved this into a tibble so I could more easily rearrange and plot the data using
 facetting in &lt;code&gt;ggplot2&lt;/code&gt;:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sim_nuc_freq_df &amp;lt;- as_tibble(sim_nuc_freq) %&amp;gt;% 
@@ -3423,16 +3880,16 @@ sim_nuc_freq_df %&amp;gt;%
 &lt;pre&gt;&lt;code&gt;## # A tibble: 10 x 3
 ##    nucleotide sample value
 ##    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt; &amp;lt;int&amp;gt;
-##  1 A               1  3468
-##  2 C               1  3455
-##  3 G               1  3394
-##  4 T               1  3477
-##  5 A               2  3371
-##  6 C               2  3541
-##  7 G               2  3498
-##  8 T               2  3384
-##  9 A               3  3374
-## 10 C               3  3482&lt;/code&gt;&lt;/pre&gt;
+##  1 A               1  3457
+##  2 C               1  3530
+##  3 G               1  3365
+##  4 T               1  3442
+##  5 A               2  3502
+##  6 C               2  3423
+##  7 G               2  3457
+##  8 T               2  3412
+##  9 A               3  3489
+## 10 C               3  3399&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(sim_nuc_freq_df, aes(x = nucleotide, y = value)) + 
   geom_col(fill = &amp;quot;lavender&amp;quot;, color = &amp;quot;black&amp;quot;) + 
   theme_classic() + 
@@ -3462,16 +3919,16 @@ sim_nuc_freq_df %&amp;gt;%
 &lt;pre&gt;&lt;code&gt;## # A tibble: 10 x 3
 ##    nucleotide sample value
 ##    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt; &amp;lt;int&amp;gt;
-##  1 A               1  3510
-##  2 C               1  3421
-##  3 G               1  3468
-##  4 T               1  3395
-##  5 A               2  3406
-##  6 C               2  3420
-##  7 G               2  3541
-##  8 T               2  3427
-##  9 A               3  3474
-## 10 C               3  3380&lt;/code&gt;&lt;/pre&gt;
+##  1 A               1  3484
+##  2 C               1  3501
+##  3 G               1  3372
+##  4 T               1  3437
+##  5 A               2  3510
+##  6 C               2  3382
+##  7 G               2  3436
+##  8 T               2  3466
+##  9 A               3  3425
+## 10 C               3  3422&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Using this dataframe of simulations, we can measure the mean, minimum, and maximum frequencies
 of each nucleotide across all 1,000 simulations:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;(sim_summary &amp;lt;- sim_nuc_freq_df %&amp;gt;% 
@@ -3481,11 +3938,11 @@ of each nucleotide across all 1,000 simulations:&lt;/p&gt;
             max_freq = max(value)))&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 4 x 4
 ##   nucleotide mean_freq min_freq max_freq
-##   &amp;lt;chr&amp;gt;          &amp;lt;dbl&amp;gt;    &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;
-## 1 A              3451.     3311     3615
-## 2 C              3447.     3287     3611
-## 3 G              3449.     3288     3636
-## 4 T              3447.     3226     3602&lt;/code&gt;&lt;/pre&gt;
+## * &amp;lt;chr&amp;gt;          &amp;lt;dbl&amp;gt;    &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;
+## 1 A              3448.     3271     3602
+## 2 C              3448.     3276     3653
+## 3 G              3448.     3258     3629
+## 4 T              3449.     3284     3619&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;To help compare this with the observed data, we can create a table with information from
 both the original data and the simulations under the null model:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;nuc_freq_df %&amp;gt;% 
@@ -3510,22 +3967,22 @@ both the original data and the simulations under the null model:&lt;/p&gt;
 &lt;tr class=&#34;odd&#34;&gt;
 &lt;td align=&#34;center&#34;&gt;A&lt;/td&gt;
 &lt;td align=&#34;center&#34;&gt;4,335&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;3,451 (3,311, 3,615)&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;3,448 (3,271, 3,602)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
 &lt;td align=&#34;center&#34;&gt;C&lt;/td&gt;
 &lt;td align=&#34;center&#34;&gt;1,225&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;3,447 (3,287, 3,611)&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;3,448 (3,276, 3,653)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;odd&#34;&gt;
 &lt;td align=&#34;center&#34;&gt;G&lt;/td&gt;
 &lt;td align=&#34;center&#34;&gt;2,055&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;3,449 (3,288, 3,636)&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;3,448 (3,258, 3,629)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
 &lt;td align=&#34;center&#34;&gt;T&lt;/td&gt;
 &lt;td align=&#34;center&#34;&gt;6,179&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;3,447 (3,226, 3,602)&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;3,449 (3,284, 3,619)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -3575,11 +4032,11 @@ sim_stat %&amp;gt;%
 &lt;pre&gt;&lt;code&gt;## # A tibble: 5 x 2
 ##   sample variability_stat
 ##    &amp;lt;dbl&amp;gt;            &amp;lt;dbl&amp;gt;
-## 1      1             2.26
-## 2      2             3.37
-## 3      3             2.57
-## 4      4             1.06
-## 5      5             2.72&lt;/code&gt;&lt;/pre&gt;
+## 1      1            2.90 
+## 2      2            2.51 
+## 3      3            1.13 
+## 4      4            5.55 
+## 5      5            0.384&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Here is a plot of the distribution of this statistic across the 1,000 simulations:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(sim_stat, aes(x = variability_stat)) + 
   geom_rect(data = sim_stat, aes(xmin = quantile(variability_stat, prob = 0.025),
@@ -4357,10 +4814,10 @@ session, including the version of R you’re currently running:&lt;/p&gt;
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] compiler_3.6.3  magrittr_1.5    bookdown_0.18   tools_3.6.3    
-##  [5] htmltools_0.4.0 yaml_2.2.1      Rcpp_1.0.3      stringi_1.4.6  
-##  [9] rmarkdown_2.1   blogdown_0.18   knitr_1.28      stringr_1.4.0  
-## [13] digest_0.6.25   xfun_0.12       rlang_0.4.5     evaluate_0.14&lt;/code&gt;&lt;/pre&gt;
+##  [1] compiler_3.6.3   magrittr_1.5     bookdown_0.18    tools_3.6.3     
+##  [5] htmltools_0.4.0  yaml_2.2.1       Rcpp_1.0.3       stringi_1.4.6   
+##  [9] rmarkdown_2.1    blogdown_0.18    knitr_1.28       stringr_1.4.0   
+## [13] digest_0.6.25    xfun_0.12        rlang_0.4.5.9000 evaluate_0.14&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Based on the return from this call, for example, I can tell that I have
 R version 3.6.3 (2020-02-29).&lt;/p&gt;
 &lt;/div&gt;

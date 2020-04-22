@@ -1,9 +1,9 @@
 ---
-title: Vocabulary for Chapter 10
-author: Sarah Cooper
-date: '2020-04-14'
+title: "Vocabulary for Chapter 10"
+author: "Sarah Cooper"
+date: '2020-04-22'
 slug: vocabulary-for-chapter-10
-categories
+categories:
   - vocabulary
   - Chapter 10
 tags:
@@ -11,7 +11,7 @@ tags:
   - Chapter 10
 subtitle: ''
 summary: ''
-authors: []
+authors: [sarah-cooper]
 lastmod: '2020-04-14T20:29:11-06:00'
 featured: no
 image:

@@ -5,12 +5,28 @@
     <link>/tags/</link>
       <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <description>Tags</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 16 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 22 Apr 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Tags</title>
       <link>/tags/</link>
     </image>
+    
+    <item>
+      <title>Chapter 10</title>
+      <link>/tags/chapter-10/</link>
+      <pubDate>Wed, 22 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/chapter-10/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vocabulary</title>
+      <link>/tags/vocabulary/</link>
+      <pubDate>Wed, 22 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/vocabulary/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>class meeting</title>
@@ -25,14 +41,6 @@
       <link>/tags/chapter-9/</link>
       <pubDate>Fri, 10 Apr 2020 00:00:00 +0000</pubDate>
       <guid>/tags/chapter-9/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>vocabulary</title>
-      <link>/tags/vocabulary/</link>
-      <pubDate>Fri, 10 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>/tags/vocabulary/</guid>
       <description></description>
     </item>
     
