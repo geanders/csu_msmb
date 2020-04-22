@@ -1,0 +1,57 @@
+---
+title: Vocabulary for Chapter 10
+author: Sarah Cooper
+date: '2020-04-14'
+slug: vocabulary-for-chapter-10
+categories
+  - vocabulary
+  - Chapter 10
+tags:
+  - vocabulary
+  - Chapter 10
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-04-14T20:29:11-06:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+Chapter 10 discusses the use of networks and trees to visualize biological data. It covers the main components of each and how different data sets can be appropriately transformed into specific networks and trees based on what you are trying to present. The vocabulary words for Chapter 10 are:
+
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+library(dplyr)
+library(readr)
+vocab <- read_tsv("vocab_lists/chapter_10.tsv", col_names = c("term", "definition"))
+```
+
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+library(knitr)
+library(kableExtra)
+vocab %>% 
+  kable(align = c("rl"), 
+        col.names = c("", "")) %>% 
+  kable_styling(bootstrap_options = c("striped", "hover",
+                                      "condensed")) %>% 
+  column_spec(1, bold = T, border_right = T) %>%
+  column_spec(2, width = "30em")
+```
+
+### Sources consulted or cited 
+
+*Some of the definitions above are based in part or whole on listed definitions 
+in the following sources.*
+
+- Holmes and Huber, 2019. *Modern Statistics for Modern Biology.* Cambridge University Press, 
+Cambridge, United Kingdom.
+- Everitt and Skrondal, 2010. *The Cambridge Dictionary of Statistics (Fourth Edition).* Cambridge University Press, Cambridge, United Kingdom.
+- Wikipedia: The Free Encyclopedia. http://en.wikipedia.org/wiki/Main_Page
+
+
+### Practice
+
+<iframe src="https://quizlet.com/333490771/match/embed?i=km5j1&x=1jj1" height="500" width="100%" style="border:0"></iframe>
