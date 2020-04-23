@@ -33,7 +33,12 @@ Large group: [meeting link](https://teams.microsoft.com/l/meetup-join/19%3ameeti
 - Link for HIV amino acid sequences: https://www.hiv.lanl.gov/content/sequence/NEWALIGN/align.html
 - Online book on `ggtree`: https://yulab-smu.github.io/treedata-book/
 - Introductory vignette for `phangorn`: https://cran.r-project.org/web/packages/phangorn/vignettes/Trees.pdf
+- Vignette for `ape`: https://cran.r-project.org/web/packages/ape/vignettes/MoranI.pdf
 - Online book with (much!) more on studying networks: http://networksciencebook.com/
+
+## Slido comments
+
+- https://admin.sli.do/event/lkcufqsv/questions
 
 ## Vocabulary quiz for April 23 
 
