@@ -35,6 +35,7 @@ Large group: [meeting link](https://teams.microsoft.com/l/meetup-join/19%3ameeti
 - Introductory vignette for `phangorn`: https://cran.r-project.org/web/packages/phangorn/vignettes/Trees.pdf
 - Vignette for `ape`: https://cran.r-project.org/web/packages/ape/vignettes/MoranI.pdf
 - Online book with (much!) more on studying networks: http://networksciencebook.com/
+- Relevant COVID-19 article: https://www.thelancet.com/journals/laninf/article/PIIS1473-3099(20)30273-5/fulltext#.Xp_6SyUko0Y.twitter
 
 ## Slido comments
 
