@@ -35,7 +35,7 @@ Large group: [meeting link](https://teams.microsoft.com/l/meetup-join/19%3ameeti
 - [`edgeR` vignette](https://www.bioconductor.org/packages/release/bioc/vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf)
 
 
-## Vocabulary quiz for April 16 [UPDATE]
+## Vocabulary quiz for April 23 [UPDATE]
 
 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeBAzaWodnzNYNy3xOjn_MBIQQIOvX4NcBZlMoJptgazKfX9w/viewform?embedded=true" width="640" height="2952" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 
