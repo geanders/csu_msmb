@@ -181,7 +181,7 @@ date_format = "   "
   date_end = "2020-01-22"
   description = """
   
-  Exercise for Chapter:
+  Exercise for Chapter: 10.8 (p. 277) (Starts with "Compare the use of...")
   
   Student responsibilities:
 
@@ -232,12 +232,12 @@ date_format = "   "
   date_end = "2020-01-19"
   description = """
   
-  Exercise for Chapter:
+  Exercise for Chapter: None
   
   Student responsibilities:
 
   * Vocabulary: [James DeLisio](https://kind-neumann-789611.netlify.com/authors/james_dilisio/)
-  * Exercise: To be determined
+  * Exercise: None
   """
 
 +++

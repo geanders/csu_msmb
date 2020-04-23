@@ -54,4 +54,4 @@ Cambridge, United Kingdom.
 
 ### Practice
 
-<iframe src="https://quizlet.com/333490771/match/embed?i=km5j1&x=1jj1" height="500" width="100%" style="border:0"></iframe>
+<iframe src="https://quizlet.com/333490771/flashcards/embed?i=km5j1&x=1jj1" height="500" width="100%" style="border:0"></iframe>

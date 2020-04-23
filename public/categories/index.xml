@@ -21,18 +21,18 @@
     </item>
     
     <item>
-      <title>vocabulary</title>
-      <link>/categories/vocabulary/</link>
+      <title>class meeting</title>
+      <link>/categories/class-meeting/</link>
       <pubDate>Wed, 22 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>/categories/vocabulary/</guid>
+      <guid>/categories/class-meeting/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>class meeting</title>
-      <link>/categories/class-meeting/</link>
-      <pubDate>Thu, 16 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>/categories/class-meeting/</guid>
+      <title>vocabulary</title>
+      <link>/categories/vocabulary/</link>
+      <pubDate>Wed, 22 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/vocabulary/</guid>
       <description></description>
     </item>
     
@@ -95,7 +95,7 @@
     <item>
       <title>Chapter 2</title>
       <link>/categories/chapter-2/</link>
-      <pubDate>Mon, 24 Feb 2020 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
       <guid>/categories/chapter-2/</guid>
       <description></description>
     </item>
@@ -103,7 +103,7 @@
     <item>
       <title>exercises</title>
       <link>/categories/exercises/</link>
-      <pubDate>Mon, 24 Feb 2020 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
       <guid>/categories/exercises/</guid>
       <description></description>
     </item>

@@ -3,7 +3,6 @@ title: Details for class on April 23
 author: Bailey Fosdick
 date: '2020-04-22'
 slug: details-for-class-on-april-23
-draft: yes
 categories:
   - class meeting
 tags:
@@ -29,14 +28,16 @@ Large group: [meeting link](https://teams.microsoft.com/l/meetup-join/19%3ameeti
 - Group 3 (Burton, Camron, Amy): [meeting link](https://teams.microsoft.com/l/meetup-join/19%3ameeting_YjE4ZGJhNjItYTViMS00MjZjLTk4NWUtMjBhY2E3OTJiOGQw%40thread.v2/0?context=%7b%22Tid%22%3a%22afb58802-ff7a-4bb1-ab21-367ff2ecfc8b%22%2c%22Oid%22%3a%2205ade929-16e7-49a7-96bb-775f26ed73d5%22%7d)
 
 
-## Additional links [UPDATE]
+## Additional links 
 
-- [`DESeq2` vignette](https://bioconductor.org/packages/release/bioc/vignettes/DESeq/inst/doc/DESeq.pdf)
-- [`edgeR` vignette](https://www.bioconductor.org/packages/release/bioc/vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf)
+- Link for HIV amino acid sequences: https://www.hiv.lanl.gov/content/sequence/NEWALIGN/align.html
+- Online book on `ggtree`: https://yulab-smu.github.io/treedata-book/
+- Introductory vignette for `phangorn`: https://cran.r-project.org/web/packages/phangorn/vignettes/Trees.pdf
+- Online book with (much!) more on studying networks: http://networksciencebook.com/
 
+## Vocabulary quiz for April 23 
 
-## Vocabulary quiz for April 23 [UPDATE]
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSetjCYOqAoDU3J-6mVx8QEbTWfjy1u7u26Dl40dOGARA4Hm4A/viewform?embedded=true" width="640" height="2907" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeBAzaWodnzNYNy3xOjn_MBIQQIOvX4NcBZlMoJptgazKfX9w/viewform?embedded=true" width="640" height="2952" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 
 
