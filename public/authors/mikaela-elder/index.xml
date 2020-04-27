@@ -6,12 +6,6 @@
       <atom:link href="/authors/mikaela-elder/index.xml" rel="self" type="application/rss+xml" />
     <description>CSU MSMB Group Study</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 06 Apr 2020 00:00:00 +0000</lastBuildDate>
-    <image>
-      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
-      <title>CSU MSMB Group Study</title>
-      <link>/authors/mikaela-elder/</link>
-    </image>
-    
     <item>
       <title>Chapter 8 Vocabulary List</title>
       <link>/post/chapter-8-vocabulary-list/</link>
