@@ -5,7 +5,7 @@
     <link>/categories/</link>
       <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <description>Categories</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 22 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 28 Apr 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Categories</title>
@@ -13,26 +13,34 @@
     </image>
     
     <item>
-      <title>Chapter 10</title>
-      <link>/categories/chapter-10/</link>
-      <pubDate>Wed, 22 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>/categories/chapter-10/</guid>
+      <title>class meeting</title>
+      <link>/categories/class-meeting/</link>
+      <pubDate>Tue, 28 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/class-meeting/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>class meeting</title>
-      <link>/categories/class-meeting/</link>
-      <pubDate>Wed, 22 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>/categories/class-meeting/</guid>
+      <title>Chapter 11</title>
+      <link>/categories/chapter-11/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/chapter-11/</guid>
       <description></description>
     </item>
     
     <item>
       <title>vocabulary</title>
       <link>/categories/vocabulary/</link>
-      <pubDate>Wed, 22 Apr 2020 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
       <guid>/categories/vocabulary/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chapter 10</title>
+      <link>/categories/chapter-10/</link>
+      <pubDate>Wed, 22 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/chapter-10/</guid>
       <description></description>
     </item>
     
@@ -95,7 +103,7 @@
     <item>
       <title>Chapter 2</title>
       <link>/categories/chapter-2/</link>
-      <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 24 Feb 2020 00:00:00 +0000</pubDate>
       <guid>/categories/chapter-2/</guid>
       <description></description>
     </item>
@@ -103,7 +111,7 @@
     <item>
       <title>exercises</title>
       <link>/categories/exercises/</link>
-      <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 24 Feb 2020 00:00:00 +0000</pubDate>
       <guid>/categories/exercises/</guid>
       <description></description>
     </item>

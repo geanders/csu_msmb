@@ -5,12 +5,262 @@
     <link>/post/</link>
       <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 22 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 28 Apr 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Posts</title>
       <link>/post/</link>
     </image>
+    
+    <item>
+      <title>Details for class on April 30</title>
+      <link>/post/details-for-class-on-april-30/</link>
+      <pubDate>Tue, 28 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/post/details-for-class-on-april-30/</guid>
+      <description>
+
+
+&lt;div id=&#34;links-for-april-30&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Links for April 30&lt;/h2&gt;
+&lt;p&gt;Large group: &lt;a href=&#34;https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZWY5MTczNDUtOTIzYS00ZGUyLTk4ODctMjdhZWI4MmE4NjMx%40thread.v2/0?context=%7b%22Tid%22%3a%22afb58802-ff7a-4bb1-ab21-367ff2ecfc8b%22%2c%22Oid%22%3a%2205ade929-16e7-49a7-96bb-775f26ed73d5%22%7d&#34;&gt;meeting link&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Group 1 (Sierra, Camron, Sere): &lt;a href=&#34;https://teams.microsoft.com/l/meetup-join/19%3ameeting_NjA3Y2Q5MDYtYTM5OS00MzAyLWEwMzAtMzdmNWMzYzhmMTUw%40thread.v2/0?context=%7b%22Tid%22%3a%22afb58802-ff7a-4bb1-ab21-367ff2ecfc8b%22%2c%22Oid%22%3a%2205ade929-16e7-49a7-96bb-775f26ed73d5%22%7d&#34;&gt;meeting link&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Group 2 (Burton, Mikaela, Sherry, Amy): &lt;a href=&#34;https://teams.microsoft.com/l/meetup-join/19%3ameeting_M2I3YmViYjMtNWJlNC00M2E5LTg5NTItNzI0N2VlYmVkNzUz%40thread.v2/0?context=%7b%22Tid%22%3a%22afb58802-ff7a-4bb1-ab21-367ff2ecfc8b%22%2c%22Oid%22%3a%2205ade929-16e7-49a7-96bb-775f26ed73d5%22%7d&#34;&gt;meeting link&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Group 3 (Daniel, James, Sarah): &lt;a href=&#34;https://teams.microsoft.com/l/meetup-join/19%3ameeting_YjE4ZGJhNjItYTViMS00MjZjLTk4NWUtMjBhY2E3OTJiOGQw%40thread.v2/0?context=%7b%22Tid%22%3a%22afb58802-ff7a-4bb1-ab21-367ff2ecfc8b%22%2c%22Oid%22%3a%2205ade929-16e7-49a7-96bb-775f26ed73d5%22%7d&#34;&gt;meeting link&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;additional-links&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Additional links&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div id=&#34;vocabulary-quiz-for-april-30&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Vocabulary quiz for April 30&lt;/h2&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Vocabulary for Chapter 11</title>
+      <link>/post/vocabulary-for-chapter-11/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/post/vocabulary-for-chapter-11/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Chapter 11 is focused on learning how to read, write, and manipulate images in R. The first sections are helping the reader understand when to apply different filters and transformations to an image and why it is necessary. It then touches on segmentation and feature extraction, two components that are utilized to simplify an image for machine learning and recognition. Finally, statistal methods are introduced to analyze spacial distributions and spatial point process is introduced on a basic level.&lt;/p&gt;
+&lt;p&gt;The vocabulary words for Chapter 11 are:&lt;/p&gt;
+&lt;table class=&#34;table table-striped table-hover table-condensed&#34; style=&#34;margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+segmentation
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+partitioning an image to assign a label to every pixel or group of pixels with similar characteristics
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+slot
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a part, element, or “property” of an object in the context of object-oriented programming in R
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+classification
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+the process of grouping observations in a dataset by their similarities in terms of measured characteristics
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+feature extraction
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+the process of building derived values to describe observations or features from the initial set of measured data, with the aim of creating a new set of characteristics that is informative.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+spatial point process
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a random collection of coordinates or points randomly located along an underlying mathematical space. There is at most one point observed at any location.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Poisson process
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a mathematical object consisting of points randomly located on a mathematical space, characterized by the Poisson distribution
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Ripley’s K function
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a descriptive statistic for detecting the deviations from spatial homogeneity that can help determine if points are random, dispersed, or clustered
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+pair correlation function
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a description of how the point density varies as a function of distance from the point of reference
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+spatial transformation
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+changes to a coordinate system that provides a new approach to defining variation of material parameters
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+linear filter
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a tool for refining an image such that the output pixel is a combination of the time-varying input pixels subject to the constraint of linearity
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+dynamic range
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+the ratio or logarithmic value of the difference between the largest and smallest values
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+noise reduction
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+the process of removing the undesirable variation in image pixelation
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+adaptive thresholding
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+segmenting an image using smaller regions that are defined by the range of local intensity values
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+binary image
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+an image consisting of pixels that can only have one of exactly two values, usually black and white
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+morphological operation
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+image processing in which each individual pixel in the image is adjusted based on the other pixels in the neighborhood
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Voronoi tessellation
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+partitioning an image plane into regions closest to each set of points. Line segments are formed equidistant to the two nearest points
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+convex hull
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+the smallest polygon that encloses all of the points of interest in a set
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+spatial dependence
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+the propensity for nearby points to influence each other and possess similar attributes
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+virion
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+infectious nucleic acid surrounded by a protective protein capsid
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+actin
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+globular proteins that form the microfilaments essential for cell mobility and division
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+macrophages
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+immune cells responsible for engulfing potential pathogens and other lymphatic particles
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+dendritic cells
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+immune cells responsible for processing foreign material and presenting it to other cells in the immune system
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+light sheet microscopy
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a method that illuminates a specimen in a single plane and detected from the perpendicular direction
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div id=&#34;sources-consulted&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Sources Consulted&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.cso.ie/en/methods/classifications/classificationsexplained/&#34; class=&#34;uri&#34;&gt;https://www.cso.ie/en/methods/classifications/classificationsexplained/&lt;/a&gt;
+&lt;a href=&#34;http://www.stat.umn.edu/geyer/8501/points.pdf&#34; class=&#34;uri&#34;&gt;http://www.stat.umn.edu/geyer/8501/points.pdf&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4528837/&#34; class=&#34;uri&#34;&gt;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4528837/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.e-education.psu.edu/natureofgeoinfo/c1_p18.html&#34; class=&#34;uri&#34;&gt;https://www.e-education.psu.edu/natureofgeoinfo/c1_p18.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.leica-microsystems.com/science-lab/topics/light-sheet-microscopy/&#34; class=&#34;uri&#34;&gt;https://www.leica-microsystems.com/science-lab/topics/light-sheet-microscopy/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.mathworks.com/help/images/morphological-filtering.html&#34; class=&#34;uri&#34;&gt;https://www.mathworks.com/help/images/morphological-filtering.html&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;practice&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Practice&lt;/h3&gt;
+&lt;iframe src=&#34;https://quizlet.com/504650205/flashcards/embed?i=22uyf&amp;amp;x=1jj1&#34; height=&#34;500&#34; width=&#34;100%&#34; style=&#34;border:0&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Details for class on April 23</title>
@@ -2250,6 +2500,83 @@ Loading…
 &lt;iframe src=&#34;https://docs.google.com/forms/d/e/1FAIpQLSd7UnxDl9NTR8vvqgeWzallGB5IJdM5_s1BRRWWtyTtuDVKTw/viewform?embedded=true&#34; width=&#34;640&#34; height=&#34;2787&#34; frameborder=&#34;0&#34; marginheight=&#34;0&#34; marginwidth=&#34;0&#34;&gt;
 Loading…
 &lt;/iframe&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Exercise solution for Chapter 2, Part 2</title>
+      <link>/post/ex-2-6/</link>
+      <pubDate>Mon, 24 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/post/ex-2-6/</guid>
+      <description>
+
+
+&lt;div id=&#34;picking-a-prior&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Picking a prior&lt;/h1&gt;
+&lt;p&gt;The first part of the exercise asks you to:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“Choose your own prior for the parameters of the beta distribution. You can do this by sketching it here: &lt;a href=&#34;https://jhubiostatistics.shinyapps.io/drawyourprior&#34; class=&#34;uri&#34;&gt;https://jhubiostatistics.shinyapps.io/drawyourprior&lt;/a&gt;. Once you have set up a prior, re-analyse the data from Section 2.9.2, where we saw Y = 40 successes out of n = 300 trials. Compare your posterior distribution to the one we obtained in that section using a QQ-plot.”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;After sketching a plot on the online web app, I chose the parameters to set up a prior: &lt;span class=&#34;math inline&#34;&gt;\(\alpha = 2.47\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta = 8.5\)&lt;/span&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;using-this-prior&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Using this prior&lt;/h1&gt;
+&lt;p&gt;Next, I replaced the original values for &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; used in the example in the text with my own from the shape I drew with the online app.&lt;/p&gt;
+&lt;p&gt;To be able to use the &lt;code&gt;loglikelihood&lt;/code&gt; function from the text, I first needed to redefine it here:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;loglikelihood = function(theta, n = 300, k = 40) { ## Function definition from the textbook
+  115 + k * log(theta) + (n - k) * log(1 - theta)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then, I created a vector of &lt;span class=&#34;math inline&#34;&gt;\(\theta\)&lt;/span&gt; values between 0 and 1, spaced 0.001 units wide. The plot below shows …&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;thetas = seq(0, 1, by = 0.001)
+plot(thetas, loglikelihood(thetas), xlab = expression(theta),
+     ylab = expression(paste(&amp;quot;log f(&amp;quot;, theta, &amp;quot; | y)&amp;quot;)),type = &amp;quot;l&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-02-24-ex2-6_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Next, I used &lt;code&gt;rbeta&lt;/code&gt; to draw 1,000,000 random samples from a beta distribution with my new picks for the parameters:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;rtheta = rbeta(1000000, shape1 = 2.47, shape2 = 8.5)
+y = vapply(rtheta, function(th) {
+  rbinom(1, prob = th, size = 300)
+}, numeric(1))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This plot shows … :&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;hist(y, breaks = 50, col = &amp;quot;orange&amp;quot;, main = &amp;quot;&amp;quot;, xlab = &amp;quot;&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-02-24-ex2-6_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;After running the above, for each of these &lt;span class=&#34;math inline&#34;&gt;\(\theta\)&lt;/span&gt; values, we then generate a random sample of &lt;span class=&#34;math inline&#34;&gt;\(Y\)&lt;/span&gt; as observed in this histogram (with orange bars). Our next step is to use this information to generate a posterior distribution of theta at a fixed Y value. In this example they used &lt;span class=&#34;math inline&#34;&gt;\(Y=40\)&lt;/span&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;thetaPostEmp = rtheta[ y == 40 ]
+hist(thetaPostEmp, breaks = 40, col = &amp;quot;chartreuse4&amp;quot;, main = &amp;quot;&amp;quot;,
+     probability = TRUE, xlab = expression(&amp;quot;posterior&amp;quot;~theta), ylim=c(0,40))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-02-24-ex2-6_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;densPostTheory  =  dbeta(thetas, 42.47, 268.5)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;hist(thetaPostEmp, breaks = 40, col = &amp;quot;chartreuse4&amp;quot;, main = &amp;quot;&amp;quot;,
+  probability = TRUE, xlab = expression(&amp;quot;posterior&amp;quot;~theta))
+lines(thetas, densPostTheory, type=&amp;quot;l&amp;quot;, lwd = 3)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-02-24-ex2-6_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;After running the above, for each of these thetas, we generated simulated values for the posterior distribution of &lt;span class=&#34;math inline&#34;&gt;\(\theta\)&lt;/span&gt; at &lt;span class=&#34;math inline&#34;&gt;\(Y=40\)&lt;/span&gt; as observed in this histogram (with green bars). We can also check the means of both distributions computed above.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(thetaPostMC)
+#0.1365705
+dtheta = thetas[2]-thetas[1]
+sum(thetas * densPostTheory * dtheta)
+#0.1365727&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;#We can use Monte Carlo integration instead and then check the agreement between our Monte Carlo sample thetaPostMC and our sample thetaPostEmp with a QQ plot&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;thetaPostMC = rbeta(n = 1e6, 42.47, 268.5)
+mean(thetaPostMC)
+#0.1365902
+
+qqplot(thetaPostMC, thetaPostEmp, type = &amp;quot;l&amp;quot;, asp = 1)
+abline(a = 0, b = 1, col = &amp;quot;blue&amp;quot;)
+
+densPost2 = dbeta(thetas, 42.47, 268.5)
+mcPost2   = rbeta(1e6, 42.47, 268.5)
+
+sum(thetas * densPost2 * dtheta)  # mean, by numeric integration
+# [1] 0.1365727
+mean(mcPost2)                     # mean, by MC
+# [1] 0.1365778
+thetas[which.max(densPost2)]      # MAP estimate
+# [1] 0.134
+
+quantile(mcPost2, c(0.025, 0.975))
+#     2.5%     97.5% 
+#0.1006757 0.1768317 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 </description>
     </item>
     
@@ -5589,6 +5916,159 @@ Cambridge, United Kingdom.&lt;/li&gt;
 &lt;h3&gt;Practice&lt;/h3&gt;
 &lt;iframe src=&#34;https://quizlet.com/473473135/flashcards/embed?i=2ldef3&amp;amp;x=1jj1&#34; height=&#34;500&#34; width=&#34;100%&#34; style=&#34;border:0&#34;&gt;
 &lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Exercise Solution for 5.1</title>
+      <link>/post/2020-03-12-ex5-1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/post/2020-03-12-ex5-1/</guid>
+      <description>
+
+
+&lt;p&gt;This exercise asks us to interpret and validate the consistency within our clusters of data. To do this, we will employ the silhouette index, which gives us a silhouette value measuring how similar an object is to its own cluster compared to other clusters.&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;silhouette index&lt;/strong&gt; is as follows:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\displaystyle S(i) = \frac{B(i) - A(i)}{max_i(A(i), B(i))} \]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;The solution to this exercise requires the following R packages to be loaded into your environment.&lt;/p&gt;
+&lt;div id=&#34;required-libraries&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Required Libraries&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(&amp;quot;cluster&amp;quot;)
+library(dplyr)
+library(ggplot2)
+library(purrr)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;part-a&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Part A&lt;/h2&gt;
+&lt;p&gt;Question 5.1.a asks us to compute the silhouette index for the simdat data that was simulated in Section &lt;strong&gt;5.7&lt;/strong&gt;. The code is as follows:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(1)
+
+simdat = lapply(c(0, 8), function(mx) {
+  lapply(c(0,8), function(my) {
+    tibble(x = rnorm(100, mean = mx, sd = 2),
+           y = rnorm(100, mean = my, sd = 2),
+           class = paste(mx, my, sep = &amp;quot;:&amp;quot;))
+   }) %&amp;gt;% bind_rows
+}) %&amp;gt;% bind_rows
+
+simdatxy = simdat[, c(&amp;quot;x&amp;quot;, &amp;quot;y&amp;quot;)]
+
+wss = tibble(k = 1:8, value = NA_real_)
+
+wss$value[1] = sum(scale(simdatxy, scale = FALSE)^2)
+
+for (i in 2:nrow(wss)) {
+  km  = kmeans(simdatxy, centers = wss$k[i])
+  wss$value[i] = sum(km$withinss)
+}
+
+ggplot(wss, aes(x = k, y = value)) + geom_col()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-03-12-ex5-1_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The provided code is used to simulate data coming from four separate groups. They use the pipe operator to concatenate four different, randomly generated, data sets. The ggplot2 package is used to take a look at the data as a barchart with the k-means method and k = 4.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pam4 = pam(simdatxy, 4)
+sil = silhouette(pam4, 4, border = NA)
+plot(sil, col=c(&amp;quot;red&amp;quot;,&amp;quot;green&amp;quot;,&amp;quot;blue&amp;quot;,&amp;quot;purple&amp;quot;), main=&amp;quot;Silhouette&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-03-12-ex5-1_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Next up is the code necessary to plot the silhouette index. The “silhouette” function comes from the “cluster” package, and the resulting graph provides an average silhouette width for k = 4 clusters.&lt;/p&gt;
+&lt;div id=&#34;computing-the-silhouette-index&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Computing the Silhouette Index&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(sil)$avg.width&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.4985801&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;part-b&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Part B&lt;/h2&gt;
+&lt;p&gt;Question 5.1.b asks us to change the number of clusters &lt;em&gt;k&lt;/em&gt; and assess which &lt;em&gt;k&lt;/em&gt; value produces the best silhouette index.&lt;/p&gt;
+&lt;p&gt;The silhouette value is a measure of how similar a cluster is to its own cluster when compared to other clusters. Values can range from -1 to +1. A high value tells us that the object is better matched to its on cluster and more poorly matched to neighboring clusters.&lt;/p&gt;
+&lt;p&gt;In this example, there are a couple of ways to assess which k gives the best silhouette index.One method would be trial and error and determining which k-value produces the highest silhouette index. This method works out for this example, but is impractical for much larger and complex datasets. Included below is the code for testing multiple different k-values and the resulting coefficient values.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pam2 = pam(simdatxy, 2)
+sil2 = silhouette(pam2, 2)
+plot(sil2, col=c(&amp;quot;red&amp;quot;,&amp;quot;green&amp;quot;,&amp;quot;blue&amp;quot;,&amp;quot;purple&amp;quot;), main=&amp;quot;Silhouette&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-03-12-ex5-1_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pam3 = pam(simdatxy, 3)
+sil3 = silhouette(pam3, 3)
+plot(sil3, col=c(&amp;quot;red&amp;quot;,&amp;quot;green&amp;quot;,&amp;quot;blue&amp;quot;,&amp;quot;purple&amp;quot;), main=&amp;quot;Silhouette&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-03-12-ex5-1_files/figure-html/unnamed-chunk-5-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pam4 = pam(simdatxy, 4)
+sil = silhouette(pam4, 4)
+plot(sil, col=c(&amp;quot;red&amp;quot;,&amp;quot;green&amp;quot;,&amp;quot;blue&amp;quot;,&amp;quot;purple&amp;quot;), main=&amp;quot;Silhouette&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-03-12-ex5-1_files/figure-html/unnamed-chunk-5-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pam12 = pam(simdatxy, 12)
+sil12 = silhouette(pam12, 12)
+plot(sil12, col=c(&amp;quot;red&amp;quot;,&amp;quot;green&amp;quot;,&amp;quot;blue&amp;quot;,&amp;quot;purple&amp;quot;), main=&amp;quot;Silhouette&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-03-12-ex5-1_files/figure-html/unnamed-chunk-5-4.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pam40 = pam(simdatxy, 40)
+sil40 = silhouette(pam40, 40)
+plot(sil40, col=c(&amp;quot;red&amp;quot;,&amp;quot;green&amp;quot;,&amp;quot;blue&amp;quot;,&amp;quot;purple&amp;quot;), main=&amp;quot;Silhouette&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-03-12-ex5-1_files/figure-html/unnamed-chunk-5-5.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;This trial and error method indicates that the highest silhouette index (that was tested) is achieved with k = 4.&lt;/p&gt;
+&lt;p&gt;A different (seemingly more appropriate) method is to write a piece of code that will test a range of k-values automatically. This next piece of code is adapted from Amy Fox and the group that she worked with during class. This is a much more practical method that provides a clear answer of which &lt;em&gt;k&lt;/em&gt; gives the best silhouette index.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;k &amp;lt;- c(2:10)
+df_test &amp;lt;- data.frame()
+for (i in 2:10){
+  
+  pam_run &amp;lt;- pam(simdatxy, i)
+  sil_run &amp;lt;- silhouette(pam_run, i)
+  
+  row_to_add &amp;lt;- data.frame(i, width = summary(sil_run)$avg.width)
+  
+  df_test &amp;lt;- rbind(df_test, row_to_add)
+}
+df_test&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    i     width
+## 1  2 0.4067400
+## 2  3 0.4000560
+## 3  4 0.4985801
+## 4  5 0.4401518
+## 5  6 0.3957347
+## 6  7 0.3717875
+## 7  8 0.3699929
+## 8  9 0.3670770
+## 9 10 0.3516570&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(df_test, aes(i, width)) +
+  geom_point() +
+  geom_line() +
+  xlab(&amp;quot;k&amp;quot;) +
+  ylab(&amp;quot;Silhouette Index&amp;quot;) +
+  ggtitle(&amp;quot;Testing different k values for Silhouette Index&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-03-12-ex5-1_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(sil_run)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Silhouette of 400 units in 10 clusters from pam(x = simdatxy, k = i) :
+##  Cluster sizes and average silhouette widths:
+##        63        38        40        52        33        40        35        33 
+## 0.3885059 0.3273800 0.3622990 0.3703291 0.3573781 0.3257945 0.4429236 0.2807700 
+##        31        35 
+## 0.3944945 0.2335738 
+## Individual silhouette widths:
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## -0.1778  0.2389  0.3703  0.3517  0.4946  0.6623&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The result of summary(sil_run) matches the trial and error method, but in a more efficient manner..&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;part-c&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Part C&lt;/h2&gt;
+&lt;p&gt;The last part of this exercise asks us to repeat by calculating the silhouette index on a uniform (unclustered) data distribution over a range of values.&lt;/p&gt;
+&lt;p&gt;Here, a new data set is generated without clustering the randomly genereated data.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(1)
+
+simdat1 = lapply(c(1), function(mx) {
+  lapply(c(1), function(my) {
+    tibble(x = rnorm(100, mean = mx, sd = 2),
+           y = rnorm(100, mean = my, sd = 2),
+           class = paste(mx, my, sep = &amp;quot;:&amp;quot;))
+   }) %&amp;gt;% bind_rows
+}) %&amp;gt;% bind_rows
+
+simdatxy1 = simdat1[, c(&amp;quot;x&amp;quot;, &amp;quot;y&amp;quot;)]
+
+ggplot(simdatxy1, aes(x = x, y = y)) +
+  geom_point()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-03-12-ex5-1_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pam4.1 = pam(simdatxy1, 4)
+sil.1 = silhouette(pam4.1, 4)
+plot(sil.1, col=c(&amp;quot;red&amp;quot;,&amp;quot;green&amp;quot;,&amp;quot;blue&amp;quot;,&amp;quot;purple&amp;quot;), main=&amp;quot;Silhouette&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-03-12-ex5-1_files/figure-html/unnamed-chunk-7-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The average silhouette width is 0.33, which is much lower than the clustered value of 0.50 that we see with the first simulation.&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>

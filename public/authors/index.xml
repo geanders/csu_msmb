@@ -5,7 +5,7 @@
     <link>/authors/</link>
       <atom:link href="/authors/index.xml" rel="self" type="application/rss+xml" />
     <description>Authors</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 22 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 28 Apr 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Authors</title>
@@ -15,13 +15,22 @@
     <item>
       <title></title>
       <link>/authors/bailey-fosdick/</link>
-      <pubDate>Wed, 22 Apr 2020 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 28 Apr 2020 00:00:00 +0000</pubDate>
       <guid>/authors/bailey-fosdick/</guid>
       <description>&lt;p&gt;Bailey Fosdick is an assistant professor of statistics at Colorado State University. Her
 primary research interests lie in the development of statistical methods for analyzing
 network data, with particular attention to applications in ecology and the social sciences.
 She also studies covariance models for multiway data, Bayesian statistics, and methods for
 survey analysis.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/authors/camron-pearce/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/authors/camron-pearce/</guid>
+      <description>&lt;p&gt;Camron Pearce is a graduate student in the Department of Microbiology at Colorado State University. His research includes researching drug therapies against tuberculosis and determining particle localization using confocal microscopy. His personal life includes marathon training, skiing on the weekend, and finding the next best fishing hole.&lt;/p&gt;
 </description>
     </item>
     
@@ -118,15 +127,6 @@ State University. She has interest in Bayesian statistics, and has experience in
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/authors/admin/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/authors/camron-pearce/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/authors/camron-pearce/</guid>
-      <description>&lt;p&gt;Camron Pearce is a graduate student in the Department of Microbiology at Colorado State University. His research includes researching drug therapies against tuberculosis and determining particle localization using confocal microscopy. His personal life includes marathon training, skiing on the weekend, and finding the next best fishing hole.&lt;/p&gt;
-</description>
     </item>
     
     <item>

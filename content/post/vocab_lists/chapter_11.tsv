@@ -2,8 +2,8 @@ segmentation	partitioning an image to assign a label to every pixel or group of 
 slot	a part, element, or "property" of an object in the context of object-oriented programming in R
 classification	the process of grouping observations in a dataset by their similarities in terms of measured characteristics
 feature extraction	the process of building derived values to describe observations or features from the initial set of measured data, with the aim of creating a new set of characteristics that is informative.
-spatial point process	a random collection of coordinates or points randomly located along an underlying mathematical space. There is at most one point observed at any location.
-Poisson process	a mathematical object consisting of points randomly located on a mathematical space, characterized by the Poisson distribution
+spatial point process	mechanism that generates a random collection of coordinates or points randomly located along an underlying mathematical space. There is at most one point observed at any location.
+Poisson process	mechanism that generates instantaneous events (in time and/or space) based on the Poisson distribution
 Ripley's K function	a descriptive statistic for detecting the deviations from spatial homogeneity that can help determine if points are random, dispersed, or clustered
 pair correlation function	a description of how the point density varies as a function of distance from the point of reference
 spatial transformation	changes to a coordinate system that provides a new approach to defining variation of material parameters
