@@ -70,7 +70,7 @@ the process of building derived values to describe observations or features from
 spatial point process
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-a random collection of coordinates or points randomly located along an underlying mathematical space. There is at most one point observed at any location.
+mechanism that generates a random collection of coordinates or points randomly located along an underlying mathematical space. There is at most one point observed at any location.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -78,7 +78,7 @@ a random collection of coordinates or points randomly located along an underlyin
 Poisson process
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-a mathematical object consisting of points randomly located on a mathematical space, characterized by the Poisson distribution
+mechanism that generates instantaneous events (in time and/or space) based on the Poisson distribution
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
