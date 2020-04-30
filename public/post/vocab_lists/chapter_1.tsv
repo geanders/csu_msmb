@@ -1,0 +1,52 @@
+probability model	A mathematical description of the possible outcomes of an experiment and the probability of each of those outcomes.
+vector	In programming, a one-dimensional array of data, all with the same data type.
+discrete event	In statistics, an event that can take a finite or countable number of values (e.g., number of deaths in a community by day).
+categorical variable	A variable that can belong to one of a finite set of levels.
+levels	In the context of a categorical variable, the set of values to which the variable can be assigned.
+factor	In the context of statistical programming, a data type that can take one of a limited number of possible values (e.g., sex, nationality).
+exchangeable	A property of a vector of random variables that implies the order in which the variables appear in the vector doesn't matter.
+sufficient statistic	A (summary) statistic that contains all the information about the model parameters that is in the original, uncondensed form of the data. 
+Bernoulli distribution	A probability distribution describing a random variable that can take on two possible outcomes (e.g., win / loss).
+parameter	A numerical value that describes a population.
+complementary	A description of two events who are mutually exclusive and whose probabilities sum to one (i.e., either one event or the other is guaranteed to happen, but not both).
+binomial random variable	A variable whose values occur according to a binomial probability distribution.
+probability mass distribution	A function giving the probability that a discrete random variable is equal to a given value.
+Poisson distribution	A probability distribution for count data that has support on the non-negative integers.  This distribution is also used to approximate a binomial distribution when the probability of success is small and the number of trials is large.
+epitope / antigen determinent	Site on a macromolecular antigen to which an antibody binds. This is the part of an antigen that is recognized by the immune system.
+Enzyme-linked immunosorbent assay (ELISA)	An assay that is used to detect specific epitopes at different positions along a protein.
+conditional on	Given
+cumulative distribution function	A function giving the probability that a random variable is less than any specified value.
+extreme value analysis	Analysis focused on the behavior of the very large or the very small outcomes of a random distribution, allowing an exploration of the probability of rare events.
+rare event	Something that occurs with a very low probability.
+rank statistic	A data vector sorted least to greatest. 
+Monte Carlo method	A method that uses computer simulation from a generative model to determine probabilities of events.
+probability or generative modeling	A method of modeling where all the parameters are known and the mathematical theory allows us to work by deduction.
+deduction	A top-down method of reasoning, starting from a theory or principle rather than from data.
+statistical modeling	A method of modeling where the distribution of the data is not known.
+fit	In the context of statistical modeling, estimating the parameters of a model based on observed data.
+multinomial	A generalization of the binomial distribution to cases where there are a finite set of possible outcomes (e.g., a roll of a die).
+power / true positive rate	The probability of detecting something if it is there.
+null hypothesis	Often, a hypothesis of "no association" that is used as a counterpart to a more interesting alternative hypothesis in hypothesis testing.
+matrix	In programming, a two-dimensional array of data, all with the same data type.
+expected value	The average (mean) value of a random variable.
+variability / spread / dispersion	In statistics, the amount by which a set of observations deviate from their mean.
+statistic	A numerical characteristic of a sample and known constants (i.e. no unknown parameters).
+null distribution	The probability distribution under the null hypothesis.
+alternative	In the context of a generating process and hypothesis testing, the generating process that is considered in comparison to the generating process under the null hypothesis.
+chi-squared distribution	A distribution on the non-negative real numbers that is often used in assessing goodness-of-fit (e.g. models fit to contingency tables).
+p-value	The probability of seeing the observed data or something more extreme under the generative model associated with the null hypothesis.
+probability density function	A function giving the relative likelihood that a continuous random variable is equal to a given value.  When this function is integrated over the sample space, it equals 1.
+default	In the context of arguments to an R function, the value that is used if no custom value is specified.
+C. elegans genome nucleotide frequency	How often adenine, cytosine, guanine, and thymine occur in the DNA of a roundwork often used in scientific research.
+Bioconductor	Open-source software that provides contributed programs for bioinformatic data analysis.
+codon	A three-nucleotide sequence that specifies the amino acid to be created next (or to start or stop synthesis).
+DNA read	An inferred sequence of base pairs for a single DNA fragment, based on sequencing.
+nucleotide	In the context of DNA, one of four compounds (adenine (A); cytosince (C); guanine (G); and tymine (T)) that make up the basic information unit.
+genome	An organism’s complete set of DNA, including all of its genes.
+replication cycle	In biology, the process that begins with the infection of a host cell by a virus and ends with the release of mature progeny virus particles.
+point mutation	A change, addition, or deletion of a single nucleotide in a gene sequence.
+genotype	The genetic make-up of an individual's cells, including how the individual's genetic make-up differs from others'.
+diploid	Having genetic material in two complete sets of chromosomes, from two parents. 
+protein	A compound made up of amino acids; one of the four types of macromolecules that make up living organisms.
+antibody	A type of protein made by certain white blood cells in response to an antigen.
+antigen	A foreign substance in the body to which the immune system reacts.

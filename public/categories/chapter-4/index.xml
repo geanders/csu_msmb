@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Chapter 4 | CSU MSMB Group Study</title>
+    <link>/categories/chapter-4/</link>
+      <atom:link href="/categories/chapter-4/index.xml" rel="self" type="application/rss+xml" />
+    <description>Chapter 4</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 27 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>Chapter 4</title>
+      <link>/categories/chapter-4/</link>
+    </image>
+    
+    <item>
+      <title>Chapter 4 vocabulary quiz</title>
+      <link>/post/chapter-4-vocabulary-quiz/</link>
+      <pubDate>Thu, 27 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/post/chapter-4-vocabulary-quiz/</guid>
+      <description>
+
+
+&lt;p&gt;The vocabulary quiz will be live here during the start of the course.&lt;/p&gt;
+&lt;iframe src=&#34;https://docs.google.com/forms/d/e/1FAIpQLSd7UnxDl9NTR8vvqgeWzallGB5IJdM5_s1BRRWWtyTtuDVKTw/viewform?embedded=true&#34; width=&#34;640&#34; height=&#34;2787&#34; frameborder=&#34;0&#34; marginheight=&#34;0&#34; marginwidth=&#34;0&#34;&gt;
+Loading…
+&lt;/iframe&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Vocabulary for Chapter 4</title>
+      <link>/post/vocabulary-for-chapter-4/</link>
+      <pubDate>Thu, 20 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/post/vocabulary-for-chapter-4/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Chapter 4 covers how to generate both finite and infinite mixture models from various distributions. It introduces a number of terms relating to these models. The vocabulary words for Chapter 4 are:&lt;/p&gt;
+&lt;table class=&#34;table table-striped table-hover table-condensed&#34; style=&#34;margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+finite mixture
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+in the context of statistic, when the distribution of interest is a combination of a few different probability distributions
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+infinite mixture
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+in the context of statistic, when the distribution of interest is a combination of many probability distributions (as many or more probability distributions as observations)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+mixture model
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a model for a combination of two or more different probability distributions
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+probability density function
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a function giving the relative likelihood that a continuous random variable is equal to a given value. When this function is integrated over the sample space, it equals 1.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+bimodal distribution
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a distribution comprised of two modes
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+expectation-maximization (EM) algorithm
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+an algorithm that allows for parameter estimation in probabilistic models with incomplete data
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+data augmentation
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+adding variables that are not measured (latent variables) to the data
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+latent variables
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+variables not measured in the data
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+bivariate distribution
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a combined distribution made of two random variables
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+mixture fraction
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a fraction used to describe the inhomogeneity in the mixture composition
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+identifiability
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+an issue where there can be several explanations for the same observed values; occurs when there are too many degrees of freedom in parameters
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+marginal likelihood
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+the sum of the marginal distributions
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+expectation function
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a function that calculates the average of all possible values of the group that an observation belongs to
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+maximization step
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a step to optimize the parameters of a model
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+soft averaging
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+the process in which observations are not assigned to groups, rather they are added to multiple groups by using probabilities of memberships as weights
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+model averaging
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+the process of using several models and combining them together into a weighted model
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+zero-inflated data
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+data that contains a large number of zero counts
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+ChIP-Seq data
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+sequencing data that identifies DNA binding sites for proteins
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+chromosome
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a DNA molecule that contains the genetic material of an organism
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+binding site
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+in the context of molecular biology, a specific region to which a macromolecule binds
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+deoxyribonucleotide monophosphate
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a single phosphate group in a unit of DNA
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+gene expression measurement
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+the measurement of a functional gene product (i.e., protein or RNA)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+microarray
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a laboratory tool used to detect gene expression
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+promoter
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+in the context of genetics, a region of DNA that initiates transcription of a gene
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+point mass
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a finite probabiliity concentrated at a point in the proability mass distribution at which there is a discontinuous segment in probability density function
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+sampling distribution
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+the probability distribution calculated from a random sample
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+empirical cumulative distribution function (ECDF)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a step distribution function based on empirical data measurements
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+density
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+in the context of probability distributions, the derivitive of the distribution function
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+bootstrap
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+an approximation of the true sampling distribution; created by drawing new samples from the empirical distribution of the original sample
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+non-parametric method
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a statistical method that does not make assumptions about population distribution or sample size
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+nonparametric bootstrap
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+an approximation of the true sampling distribution not based off of a specific assumption or a particular model
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Laplace distribution
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a distribution that shows differences between two independent variates with identical exponential distributions
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+gamma distribution
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a distribution that is positively valued and continuous with two parameters: shape and scale
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+negative binomial distribution/ gamma-Poisson distubtion
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+the probability distribution of the number of failures before the kth success in a sequence of Bernoulli trials
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+dispersion
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+the amount by which a set of observations deviate from their mean
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+variance-stabilizing transformations
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+transformations designed to give approximate independence between mean and variance
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+heteroscedasticity
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+the variance of the data is different in different regions of the data
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+delta method
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a calculus procedure that uses random variables to approximate the expected value and variance of a function
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div id=&#34;sources-consulted-or-cited&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Sources consulted or cited&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Some of the definitions above are based in part or whole on listed definitions
+in the following sources.&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Holmes and Huber, 2019. &lt;em&gt;Modern Statistics for Modern Biology.&lt;/em&gt; Cambridge University Press,
+Cambridge, United Kingdom.&lt;/li&gt;
+&lt;li&gt;Everitt and Skrondal, 2010. &lt;em&gt;The Cambridge Dictionary of Statistics (Fourth Edition).&lt;/em&gt; Cambridge University Press, Cambridge, United Kingdom.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Zero-Inflated Poisson Regression.&lt;/em&gt; Institute for Digital Research and Education Statistical Consulting. &lt;a href=&#34;https://stats.idre.ucla.edu/r/dae/zip/&#34; class=&#34;uri&#34;&gt;https://stats.idre.ucla.edu/r/dae/zip/&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Berrar, 2019. &lt;em&gt;Introduction to Non-parametric Bootstrap.&lt;/em&gt; Research Gate. &lt;a href=&#34;https://www.researchgate.net/&#34; class=&#34;uri&#34;&gt;https://www.researchgate.net/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Do and Batzoglou, 2008. &lt;em&gt;What is the expectaion maximization algorithm?.&lt;/em&gt; Nature Biotechnology.&lt;/li&gt;
+&lt;li&gt;Wikipedia: The Free Encylcopedia. &lt;a href=&#34;https://en.wikipedia.org/wiki/Main_Page&#34; class=&#34;uri&#34;&gt;https://en.wikipedia.org/wiki/Main_Page&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Google Oxford American Dictionary. &lt;a href=&#34;https://www.google.com&#34; class=&#34;uri&#34;&gt;https://www.google.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;d’Auzay, et al., 2019. &lt;em&gt;Statistics of progress variable and mixture fraction gradients in an open turbulent jet spray flame.&lt;/em&gt; Fuel.&lt;/li&gt;
+&lt;li&gt;Brownlee, 2019. &lt;em&gt;A Gentle Introduction to Expectation-Maximization (EM Algorithm).&lt;/em&gt; Machine Learning Mastery. &lt;a href=&#34;https://www.machinelearningmastery.com&#34; class=&#34;uri&#34;&gt;https://www.machinelearningmastery.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Non-parametric Methods.&lt;/em&gt; R tutorial. &lt;a href=&#34;https://www.r-tutor.com&#34; class=&#34;uri&#34;&gt;https://www.r-tutor.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Precise analysis of DNA–protein binding sequences.&lt;/em&gt; Illumina. &lt;a href=&#34;https://www.illumina.com&#34; class=&#34;uri&#34;&gt;https://www.illumina.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Microarray.&lt;/em&gt; Nature. &lt;a href=&#34;https://www.nature.com&#34; class=&#34;uri&#34;&gt;https://www.nature.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;practice&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Practice&lt;/h3&gt;
+&lt;iframe src=&#34;https://quizlet.com/485299672/flashcards/embed?i=2r4ib&amp;amp;x=1jj1&#34; height=&#34;500&#34; width=&#34;100%&#34; style=&#34;border:0&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

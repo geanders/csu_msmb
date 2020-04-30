@@ -1,0 +1,932 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blogdown | CSU MSMB Group Study</title>
+    <link>/categories/blogdown/</link>
+      <atom:link href="/categories/blogdown/index.xml" rel="self" type="application/rss+xml" />
+    <description>blogdown</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 13 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>blogdown</title>
+      <link>/categories/blogdown/</link>
+    </image>
+    
+    <item>
+      <title>How to create an exercise solution blog post</title>
+      <link>/post/how-to-create-an-exercise-solution-blog-post/</link>
+      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/post/how-to-create-an-exercise-solution-blog-post/</guid>
+      <description>
+
+
+&lt;p&gt;Each of you will be responsible once or twice over the semester to create
+a blog post that provides a clean, clearly-presented solution to the
+in-class exercise for the week. This blog post provides the technical
+instructions for writing and submitting that exercise.&lt;/p&gt;
+&lt;p&gt;Your exercise solution should be posted &lt;strong&gt;before&lt;/strong&gt; the next class meeting.
+Since it will need to be reviewed by the faculty before it can be officially
+posted, please plan to submit it by the &lt;strong&gt;Tuesday after&lt;/strong&gt; the class for your
+exercise. Student assignments for the exercises are given in the
+Schedule section of our course website.&lt;/p&gt;
+&lt;div id=&#34;overview-of-creating-a-post&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Overview of creating a post&lt;/h2&gt;
+&lt;p&gt;You will be submitting your exercise solution as a blog post. Creating
+one for our website will follow all the same steps as creating a blog
+post for a vocabulary list, just with different content. Please read
+the &lt;a href=&#34;https://kind-neumann-789611.netlify.com/post/creating-a-vocabulary-list-blog-post/&#34;&gt;post on creating a vocabulary list&lt;/a&gt;
+and follow the steps there to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Update your fork of the website&lt;/li&gt;
+&lt;li&gt;Make a new blog post&lt;/li&gt;
+&lt;li&gt;Use RMarkdown syntax to write the blog post&lt;/li&gt;
+&lt;li&gt;Submit the blog post&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;content-for-the-blog-post&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Content for the blog post&lt;/h2&gt;
+&lt;p&gt;The blog post should provide a walk-through of the solution to that week’s in-course
+exercise. We have posted an example for &lt;a href=&#34;https://kind-neumann-789611.netlify.com/post/exercise-solution-for-chapter-1/&#34;&gt;the exercise for Chapter 1&lt;/a&gt;
+to give you an idea of what you should aim to write.&lt;/p&gt;
+&lt;p&gt;Generally, this exercise will be a resource for everyone in the class, to make sure
+they’ve understood the exercise, as well as to see how someone else tackled the problem.
+Your solution should cover all parts of the exercise (for example, if there’s a
+part A and B, you should cover both). You can start by writing it as you would if you
+were assigned the exercise as a homework problem, but then you should do a second step
+of revision to provide some context and dig a bit deeper into how you tackled
+the question. Since we are only requiring you to write up exercise answers once
+or twice over the semester (rather than submitting homework for exercises every
+week), we expect this product to be more in-depth and polished than a typical
+homework solution.&lt;/p&gt;
+&lt;p&gt;First, make sure that you have provided text explaining what the
+exercise asks for, in case the reader hasn’t recently read the exercise prompt.
+Second, please add a few details either about how you tackled the problem through code
+or how the statistical principles covered in the exercise could apply to other problems
+you’ve come across in your research or coursework.&lt;/p&gt;
+&lt;p&gt;To help in preparing your post, plan to spend the exercise time in class during the
+week of your exercise visiting the different groups of students working on the
+exercise. You can talk to them about how they’re approaching the problem, how they
+interpret it, etc., to help you develop your own answer.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;tips&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Tips&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Be sure to refresh yourself on all the Markdown formatting tags you can use to improve
+the appearance of your post. Be sure to include things like section headings and
+italics or bold as appropriate. RStudio’s website has some nice cheatsheets on
+RMarkdown that can help.&lt;/li&gt;
+&lt;li&gt;Make sure you include R code if appropriate. If you put parentheses around an
+assignment expression in R, it will print out the assigned object and make the
+assignment in the same call—you might find this useful in writing concise code
+while still showing what’s in the objects you create.&lt;/li&gt;
+&lt;li&gt;Use the &lt;code&gt;$&lt;/code&gt; and &lt;code&gt;$$&lt;/code&gt; tags in RMarkdown to include mathematical equations in your blog post
+when appropriate.&lt;/li&gt;
+&lt;li&gt;If you need to read in a dataset for R code in your blog post, save it in the
+website directory’s “content/post/example_datasets” subdirectory. If your data
+comes from an online source or from an R library, you won’t need to do this,
+only if you need a “local” copy of the datafile to run your RMarkdown code.&lt;/li&gt;
+&lt;li&gt;You are welcome to draw from (and cite) other statistics textbooks or dictionaries
+if you’d like to in explaining the problem and your approach to it.&lt;/li&gt;
+&lt;li&gt;For the code, look at vignettes and helpfiles, especially for packages you are not
+familiar with.&lt;/li&gt;
+&lt;li&gt;For a lot of Bioconductor packages, object-oriented programming is used pretty
+heavily. This means that associated data in R packages will often be stored in a
+format that you haven’t used yet. Look up more information on data classes used in
+your exercise if you aren’t familiar with them. You can use the &lt;code&gt;class&lt;/code&gt; function
+to determine the class of an object as well as the name of the package that defines
+that class. The &lt;code&gt;str&lt;/code&gt; function is often helpful for exploring a data object class, as well.
+Many of the Bioconductor object classes will have special &lt;em&gt;accessor methods&lt;/em&gt;, which are
+functions that allow you to extract certain elements from the object—check the helpfile
+for the object class, as these methods are often listed there with examples.&lt;/li&gt;
+&lt;li&gt;Googling can also be very helpful for learning more about functions, packages, and
+datasets in R, especially if you don’t yet know what package the item is from.&lt;/li&gt;
+&lt;li&gt;Most Bioconductor packages have very nice vignettes available online and from your
+R session once you have installed the package. These are a great place to start to find
+out more about how to use the functions and object classes that come with the package.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to create a vocabulary list blog post</title>
+      <link>/post/creating-a-vocabulary-list-blog-post/</link>
+      <pubDate>Tue, 04 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/post/creating-a-vocabulary-list-blog-post/</guid>
+      <description>
+
+
+&lt;p&gt;As one of your assignments for this class, you are responsible for creating a blog
+post with all the vocabulary and definitions for one week of the course. This
+blog post will explain how you can create and publish that blog post on our
+course website.&lt;/p&gt;
+&lt;div id=&#34;create-the-blog-post&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Create the blog post&lt;/h1&gt;
+&lt;div id=&#34;update-your-fork-of-the-website&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Update your fork of the website&lt;/h2&gt;
+&lt;p&gt;You should have already forked our website to add your details for the “Person”
+section. You can use this same fork to add your blog post, but you should make sure
+you get your fork up-to-date with the current version of the website before you do.&lt;/p&gt;
+&lt;p&gt;A fork of a repository does not stay up-to-date with the original repository it
+copied by itself. Instead, unless you update it, it will continue to be a snapshot
+of the original repository (plus any changes you’ve made to your copy) as of
+the time when you forked it. If the original has made a lot of changes since you
+made your fork, it might be very hard to make a clean pull request as there will
+be (potentially) lots of conflicts because of changes made to the original. It’s
+considered polite to make sure that you’re working with an up-to-date fork of
+a repository if you want to make a pull request back to the original.&lt;/p&gt;
+&lt;p&gt;To update your fork of the original repository, open your “csu_msmb.Rproj” file
+to open our website’s R Project on your computer. This should open RStudio with
+the website’s project open (check the top right corner of your RStudio window to
+confirm—it should say “csu_msmb”).&lt;/p&gt;
+&lt;p&gt;There is a little blue gear symbol in the “Git” pane in RStudio. Click on the down
+arrow to the right of it and select “Shell…”. This should open a bash shell on
+your computer. (If your computer uses Windows, there’s a chance that it might open
+something other than a bash shell. In that case, you can change your preferences in
+RStudio to reconfigure to always use a bash shell terminal when you ask for a shell
+from RStudio.)&lt;/p&gt;
+&lt;p&gt;In this shell, you need to run two &lt;code&gt;git&lt;/code&gt; commands. First, you’ll add a remote branch
+to your repository. You already have one remote branch called “origin”—that’s the
+GitHub repository that you have in your account, which you forked from the original.
+Now you’ll add the &lt;em&gt;original&lt;/em&gt; (the GitHub repository in my account) as another remote
+branch. Each branch has its own name, and you can use that name to refer to it in later
+&lt;code&gt;git&lt;/code&gt; commands. The convention, if you add an original repository that you forked from
+as a remote, is to name that remote branch “upstream”. Run the following code in your
+bash shell to add the original GitHub repository as a remote branch with the name
+“upstream”:&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;git remote add upstream git@github.com:geanders/csu_msmb.git&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now that you have added the original as a remote, you can pull in any commits that were
+made to it since you originally forked it. There are a few ways you can do that, but one
+way to do it in one step is with git’s &lt;code&gt;pull&lt;/code&gt; command. This fetches the changes and merges
+them into your local version of the repository, all in one step. Run the following code in
+your bash shell to do that:&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;git pull upstream master&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ideally, all this will have worked seamlessly (if not, check with the faculty and we can
+help you troubleshoot). Close your bash shell and check your version
+of the “csu_msmb” project to see if it looks like it’s up-to-date with the original. You can
+go to the “Commit” button in the “Git” tab, and there is a “History” selection in the window
+that pops up. Look through that and make sure that you see recent commits to confirm that
+your version is now up-to-date.&lt;/p&gt;
+&lt;p&gt;Finally, this has updated your local version, but not your GitHub remote. Go ahead and use the
+green up arrow in RStudio’s “Git” pane to push your updated local version up to GitHub. Now
+both your local (“master”) and remote (“origin”) branches should be up-to-date with our
+original version, so it will make it much easier to merge in your changes.&lt;/p&gt;
+&lt;p&gt;If you’d like to learn more about this process, there’s a really nice blog post
+&lt;a href=&#34;https://philna.sh/blog/2018/08/21/git-commands-to-keep-a-fork-up-to-date/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;making-a-new-blog-post&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Making a new blog post&lt;/h2&gt;
+&lt;p&gt;In &lt;code&gt;blogdown&lt;/code&gt;, each blog post is an RMarkdown document. The stuff at the very top
+of the file (the YAML with details like the title and author) will look a bit
+different than plain RMarkdown files, but once you get into the body of the post,
+you should find that the rules are very similar to RMarkdown.&lt;/p&gt;
+&lt;p&gt;You will be creating a blog post that will include a table with the vocabulary
+list as well as a few other elements. There are a few ways you can add a new
+blog post file in &lt;code&gt;blogdown&lt;/code&gt;. You’re welcome to use any method you’d like, but
+if you’re not sure where to start, this is one way.&lt;/p&gt;
+&lt;p&gt;Make sure that you have RStudio open to the project for our course’s website. If you
+do, you should see &lt;code&gt;csu_msmb&lt;/code&gt; in the upper right hand corner of your RStudio session.
+(If not, go to &lt;code&gt;File&lt;/code&gt; -&amp;gt; &lt;code&gt;Open Project...&lt;/code&gt; and navigate through your file directory
+to your local version of our project directory and open the &lt;code&gt;csu_msmb.RProj&lt;/code&gt; file there.)&lt;/p&gt;
+&lt;p&gt;Next, you can use an RStudio “Addin” to make a new blog post using a nice user
+interface. These Addins are all alternatives to things you could do with a
+function call in R, but the Addin often provides a more immediately
+user-friendly interface for you to enter options. For example, the Addin for
+creating a blog post does all the actions of a &lt;code&gt;blogdown&lt;/code&gt; function called
+&lt;code&gt;new_post&lt;/code&gt;, but instead of needing to remember the parameter name to use for the
+author listing and the title and all that, you can just fill the information
+into a nice form and go from there.&lt;/p&gt;
+&lt;p&gt;To find the new post Addin, look at the top of your RStudio session window. You
+should see “Addins” with a down arrow beside it. Click on the down arrow. When
+you do, you should see a “New Post” option. Select this option. A form should
+pop up with spaces for you to fill in the title, author, and some other details.&lt;/p&gt;
+&lt;p&gt;Fill this form out in the following way:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Title:&lt;/strong&gt; This should be “Vocabulary for Chapter [x]”, but with “[x]” replaced
+with your chapter number.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Author:&lt;/strong&gt; Make sure you put your name exactly as listed in the “People” section
+of the website. This will help the website generator connect this post with your
+user profile, so when someone reads it they’ll get your picture and a link to
+find out more about you at the end of the post.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Date:&lt;/strong&gt; This is where you put the publication date of your blog post, and it
+has a pretty cool feature. Even if you write your blog post earlier, the post
+will not be published on the blog &lt;em&gt;until&lt;/em&gt; the date listed in this section. That means
+that you can start writing your blog on one day but know that it won’t show up online
+until later. It also means you can start work on your blog, but a half-finished
+draft won’t show up online until you get to the publication date. For right now,
+set the current date in this section, so that your blog post will show up locally as
+you work on it, but later you’ll actually change this date so that, when you submit
+your pull request, your post won’t show up until the faculty have had the chance to
+suggest some changes and for you to make any needed fixes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Categories and tags:&lt;/strong&gt; For both the “Categories” and the “Tags”, be sure to
+include &lt;code&gt;vocabulary&lt;/code&gt; and &lt;code&gt;Chapter [x]&lt;/code&gt; (with [x] replaced with your chapter’s number).
+These tags will let everyone on our website quickly find all the blog posts on your
+chapter or all the vocabulary lists.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Format:&lt;/strong&gt; You have several choices for the type of file to use to write your
+blog post. Since we’re going to be using some R code to make the table look pretty,
+you’ll need to pick one of the options that allows for R code chunks, so that rules
+out plain Markdown. I recommend that you use “.Rmd”.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Once you make these entries, click the button labeled “Done”. This creates an
+RMarkdown file for your blog post and opens it for you. Here’s an example of
+me doing this process if I were writing the vocabulary list for Chapter 16:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/screencapture_gifs/post_addin.gif&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;You can see, in the RMarkdown file that’s created and opened, that all these
+details end up getting inserted into the YAML at the top of the RMarkdown file.
+If you ever need to change anything (like the date or the title), you can
+change it here in the RMarkdown file. Do so carefully, though—YAML can be
+pretty picky about things like spacing and special characters (hyphens, for
+example).&lt;/p&gt;
+&lt;p&gt;If you ever need to find this file later, all of the blog posts are saved in a
+special place in our project’s directory: in the &lt;code&gt;content&lt;/code&gt; subdirectory, there’s
+a subdirectory called &lt;code&gt;post&lt;/code&gt; that contains both the RMarkdown files used to
+write the posts and the output (an HTML file) that is created by the RMarkdown
+each time you save the file. You might notice that they all have long file
+names—the file name for a blog post is a combinataion of its publication date
+and its “slug”, which is some abbreviation of the original title. If you really
+want, you can change what the slug will be when you first create the blog post,
+but I don’t think you really need to.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;writing-in-the-blog-post&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Writing in the blog post&lt;/h2&gt;
+&lt;iframe src=&#34;https://giphy.com/embed/XIqCQx02E1U9W&#34; width=&#34;480&#34; height=&#34;269&#34; frameBorder=&#34;0&#34; class=&#34;giphy-embed&#34; allowFullScreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://giphy.com/gifs/XIqCQx02E1U9W&#34;&gt;via GIPHY&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;Within the body of the blog post RMarkdown file (in other words, below the
+&lt;code&gt;---&lt;/code&gt; that marks the end of the YAML section), you can write the blog post
+just as you would any RMarkdown document. This means that you can use
+things like &lt;code&gt;**&lt;/code&gt; to mark bold text, &lt;code&gt;*&lt;/code&gt; for italics, and &lt;code&gt;#&lt;/code&gt;, &lt;code&gt;##&lt;/code&gt;, etc., for
+section headings.&lt;/p&gt;
+&lt;p&gt;It also means that you can insert chunks of R code that will run and add
+their output within the post. Unlike in regular RMarkdown, you usually won’t
+have to press the &lt;code&gt;Knit&lt;/code&gt; button to knit the document. Instead, the blog post
+should re-knit every time you save the file. You can check to see by looking
+at the &lt;code&gt;Viewer&lt;/code&gt; pane to look at the current version of the site (if it doesn’t
+show the site automatically, load the &lt;code&gt;blogdown&lt;/code&gt; package and then run
+&lt;code&gt;serve_site&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;If you have not worked much with RMarkdown before, you might want to check
+out some references on how it works. There are several great articles on the
+&lt;a href=&#34;https://rmarkdown.rstudio.com/articles.html&#34;&gt;RMarkdown website&lt;/a&gt; that can help.&lt;/p&gt;
+&lt;p&gt;In your blog post, go ahead and draft a first paragraph that describes the
+key concepts covered in the chapter. Also, create third-level section headings
+(i.e., use &lt;code&gt;###&lt;/code&gt; to mark the section heading) for “Sources consulted or cited”
+and “Practice”. Save your blog post file and check to see if these changes
+have been made in the version of the website in your &lt;code&gt;Viewer&lt;/code&gt; pane!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/screencapture_gifs/start_post.gif&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;create-the-vocabulary-list&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Create the vocabulary list&lt;/h1&gt;
+&lt;p&gt;Now, for the content of your post. You’ll be creating a vocabulary list, as well
+as embedding a Quizlet practice app, so that your classmates can learn the
+vocabulary for the chapter. This list will be what everyone is responsible for
+in the weekly vocabulary quiz.&lt;/p&gt;
+&lt;p&gt;You can see an example of a vocabulary blog post for
+&lt;a href=&#34;https://kind-neumann-789611.netlify.com/post/vocabulary-for-chapter-1/&#34;&gt;Chapter 1&lt;/a&gt;. You can use
+this as a template for your own post.&lt;/p&gt;
+&lt;div id=&#34;identify-the-vocabulary-terms-you-need-to-define&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Identify the vocabulary terms you need to define&lt;/h2&gt;
+&lt;p&gt;First, you will need to decide which words from the chapter to define. We expect
+that you will include &lt;strong&gt;all&lt;/strong&gt; the bolded terms for your chapter.
+Here are some guidelines for deciding on the vocabulary terms to define for your
+chapter:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You should include all words in the chapter that are given in bold. Be sure to
+look for bolded terms in the sidenotes and end-of-chapter exercises, too! Occassionally,
+the authors use bold for subheadings (see the “Why R and Bioconductor?” section in
+the Introduction or the “Summary of this chapter” section of Chapter 1). These
+subheadings do not need to be included in the vocabulary list for the chapter.&lt;/li&gt;
+&lt;li&gt;If you find one or more common synonyms for a term, you can include that with
+the term in the list (e.g., “variability / spread / dispersion”).&lt;/li&gt;
+&lt;li&gt;Feel free to change a term from singular to plural or vice versa if it helps you
+in writing the term’s definition. Similarly, if the bolded term does not include
+all the words that would be helpful (e.g., the bolded term is “sufficient”, but
+the term of interest is “sufficient statistic”), you can add a word or two to the
+bolded term.&lt;/li&gt;
+&lt;li&gt;The bolded terms in the book tend to favor statistical terms over biological ones.
+If there are some biological terms you needed to look up when you read the chapter,
+or that you think some people in the class might not know,
+feel free to add them to your vocabulary list.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;create-a-.tsv-file-with-terms-and-definitions&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Create a .tsv file with terms and definitions&lt;/h2&gt;
+&lt;p&gt;While you could directly add the vocabulary into an RMarkdown table, we are asking you
+to save it into a plain text &lt;code&gt;.tsv&lt;/code&gt; file, which will then be read into the RMarkdown
+document to form a table. We doing this because it creates a few advantages. First,
+if we have the vocabulary list in a dataframe (which we get when we read it in from
+a plain text file), we can use some cool R packages to format the table nicely, without
+having to learn loads of new Markdown or HTML formatting tricks. Second, we want to also
+use the vocabulary list as input to a &lt;a href=&#34;https://quizlet.com/latest&#34;&gt;Quizlet&lt;/a&gt; list, which
+will let us embed a practice app with flashcards and quizzes. One of the easiest ways
+to create a Quizlet list is to copy in vocabulary list directly in the &lt;code&gt;tsv&lt;/code&gt; format,
+so this approach makes that secondary use easy.&lt;/p&gt;
+&lt;p&gt;In our website’s repository, there is a special subdirectory for saving vocabulary list
+&lt;code&gt;.tsv&lt;/code&gt; files, with one for each chapter. In the Project directory, go to &lt;code&gt;content&lt;/code&gt; -&amp;gt;
+&lt;code&gt;post&lt;/code&gt; -&amp;gt; &lt;code&gt;vocab_list&lt;/code&gt;. This is where you want to save the &lt;code&gt;.tsv&lt;/code&gt; file for your chapter.&lt;/p&gt;
+&lt;p&gt;To create the file, in RStudio go to the “File” tab in the menu at the top and select
+“New File” -&amp;gt; “Text File”. This will open a file in RStudio in plain text format. Save the
+file as “chapter_[x].tsv” (but replace “[x]” with your chapter number). Make sure you save
+it in the “vocab_list” subdirectory of the project with the rest of the vocabulary list files.&lt;/p&gt;
+&lt;p&gt;Now write your vocabulary terms and definitions in this &lt;code&gt;.tsv&lt;/code&gt;. This file extension stands
+for “tab-separated”, so to format the file correctly, you should:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Put each term / definition pair on its own line. Because some terms will be long, they
+may visibly “wrap” in the text file you have open, but as long as you don’t press the
+“Return” key, they should still be on one line of the file. To doublecheck, you may want
+to make sure that you have line-numbering on in RStudio and make sure that only one line
+number is listed for each term on the left hand side of the file.&lt;/li&gt;
+&lt;li&gt;Press the “Tab” key to add a tab between the term and definition on each line. This should
+be the &lt;em&gt;only&lt;/em&gt; place you have tabs in the file. R will look for tabs to figure out where to
+split between vocabulary terms and there definitions (as will Quizlet when you copy the
+terms into the list there). Sometimes it won’t look like the tab’s added a lot of space,
+but that’s no problem—the computer can see it even if you can’t!&lt;/li&gt;
+&lt;li&gt;Don’t put any header information at the start of the file. Just start directly with your
+first vocabulary term.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;/img/screencapture_gifs/make_vocab_tsv.gif&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;If you’d like to see an example, check out the “chapter_1.tsv” file in the “vocab_lists”
+subdirectory. This is the file that serves as input for the Chapter 1 vocabulary list
+blog post.&lt;/p&gt;
+&lt;p&gt;Here are some guidelines for writing your definitions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It is fine to use wording from the chapter text or to use wording directly from
+other websites or sources. However, you &lt;strong&gt;must&lt;/strong&gt; include a list of any of the
+sources that you used to write your definitions at the bottom of the vocabulary
+blog post. Further, if you are using sources besides the course textbook, make sure
+that the definition is appropriate in the context of our course. Often, words will
+have a number of different definitions across different disciplines. Try to use
+more formal sources (e.g., textbooks, other published books) rather than less
+formal websites to find definitions whenever possible. See the
+&lt;a href=&#34;https://kind-neumann-789611.netlify.com/post/vocabulary-for-chapter-1/&#34;&gt;Chapter 1&lt;/a&gt; vocabulary list
+for an example of what we expect for using and listing references.&lt;/li&gt;
+&lt;li&gt;If a vocabulary term was defined in a previous chapter’s vocabulary list, feel free
+to reuse the definition.&lt;/li&gt;
+&lt;li&gt;Our library has excellent resources that you can use to help write your definitions,
+including textbooks and dictionaries specific to biology and statistics.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;adding-r-code-to-show-the-list-in-the-post&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Adding R code to show the list in the post&lt;/h2&gt;
+&lt;p&gt;I’ve written up some R code that will read in the vocabulary list and make it
+into a nicely formatted table in the HTML version of the blog post. You can
+re-use this R code in your post, you’ll just need to change the name of the
+input file to the one for your chapter’s file.&lt;/p&gt;
+&lt;p&gt;This R code uses a few R packages beyond the base R code. If you haven’t installed
+these packages yet, you’ll need to before the code will run. You’ll need to install:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;knitr&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;dplyr&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;readr&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;kableExtra&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Once you have these, below your paragraph summarizing the chapter’s theme, write:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“The vocabulary words for Chapter [x] are:”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;(but with your chapter’s number) and then paste in the following code and change
+&lt;code&gt;chapter_1.tsv&lt;/code&gt; in the code to the correct file name for the .tsv file you created
+for your chapter’s vocabulary.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;```{r echo = FALSE, message = FALSE, warning = FALSE}
+# Load packages
+library(dplyr)
+library(readr)
+library(knitr)
+library(kableExtra)
+
+# Read in vocabulary from tsv into a dataframe
+# This is where you&#39;ll need to replace the file name with your own
+vocab &lt;- read_tsv(&#34;vocab_lists/chapter_1.tsv&#34;,
+                  col_names = c(&#34;term&#34;, &#34;definition&#34;))
+
+# Print the dataframe as a nice-looking table
+vocab %&gt;% 
+  kable(align = c(&#34;rl&#34;), 
+        col.names = c(&#34;&#34;, &#34;&#34;)) %&gt;% 
+  kable_styling(bootstrap_options = c(&#34;striped&#34;, &#34;hover&#34;,
+                                      &#34;condensed&#34;)) %&gt;% 
+  column_spec(1, bold = T, border_right = T) %&gt;%
+  column_spec(2, width = &#34;30em&#34;)
+```&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This code reads in the data from your .tsv file and then formats it in a nice way.
+If you’d like to understand it better, try commenting out some lines and see how it
+changes the output. One of my favorite piece of this code, one that I think might
+come in useful for you later, is &lt;code&gt;column_spec(2, width = &#34;30em&#34;)&lt;/code&gt;. This sets the
+width of one of the columns to be 30 ems (the width of the letter “m” in whatever
+font you’re using). By setting the width, the table won’t automatically expand to
+fit the text you put in the column onto one row. Instead, it will allow the text
+to “wrap”, going onto separate lines if the definition entry is long enough.&lt;/p&gt;
+&lt;p&gt;If you want to find out more about creating really fancy tables from RMarkdown,
+check out the documentation on the &lt;code&gt;kableExtra&lt;/code&gt; package. What you can do (and how)
+is different, depending on whether you’re outputting to a pdf or a HTML file, so there’s
+separate documentation for each.&lt;/p&gt;
+&lt;p&gt;Once you add this code in, I’ve found that you actually do need to press the &lt;code&gt;Knit&lt;/code&gt;
+button sometimes. If you don’t see your list when you save your file, or if it doesn’t
+update properly as you make changes to your file, try knitting with the &lt;code&gt;Knit&lt;/code&gt; button
+and that should help.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/screencapture_gifs/add_vocab_code.gif&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;creating-and-embedding-a-quizlet-app&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Creating and embedding a Quizlet app&lt;/h2&gt;
+&lt;p&gt;The last piece of the blog post is the practice section. For this, you’ll create
+a vocabulary list on &lt;a href=&#34;quizlet.com&#34;&gt;Quizlet&lt;/a&gt;, which you can then embed in the
+blog post, so the other students can practice right on our site.&lt;/p&gt;
+&lt;p&gt;You’ll need to sign up for a Quizlet account first. The free account is fine.&lt;/p&gt;
+&lt;p&gt;Next, create a new vocabulary list. There’s a “Create” button for making new lists
+on the main page. While you can add vocabulary by hand, you can also post in a
+whole list if it’s in a tab-separated or comma-separated format. Copy in the contents
+of your vocabulary list &lt;code&gt;.tsv&lt;/code&gt; file. You can preview the terms lower on the page
+once you do, to make sure that all the terms and definitions came in correctly.
+If everything looks good, click on the buttons for “Import” and then “Create”.&lt;/p&gt;
+&lt;p&gt;This will create your list and take you to a page where you can try out your
+flashcards. On this page, there’s also a button with three dots. If you click on
+this, there’s a choice of “Embed”. When you &lt;strong&gt;embed&lt;/strong&gt; HTML content, you are
+inserting an application from one website within another one. Embedding is a
+really fun trick for enriching blog posts and other RMarkdown documents that
+are rendered to HTML. For example, you can also embed Shiny apps, YouTube
+videos, and Google maps in your RMarkdown using the same process we’ll use here.&lt;/p&gt;
+&lt;p&gt;When you select “Embed”, a pop-up window will open with some HTML code. Copy
+this and then paste it in the “Practice” section of your vocabulary blog post.
+Be sure to leave a blank line above and below the text you paste. When you
+look at your blog post in a web browser now, you should see the practice
+flashcards embedded in the “Practice” section.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/screencapture_gifs/make_quizlet_app.gif&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;submit-the-post&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Submit the post&lt;/h1&gt;
+&lt;iframe src=&#34;https://giphy.com/embed/dOIDOBVNKmcFi&#34; width=&#34;480&#34; height=&#34;200&#34; frameBorder=&#34;0&#34; class=&#34;giphy-embed&#34; allowFullScreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://giphy.com/gifs/blog-book-blaxk-dOIDOBVNKmcFi&#34;&gt;via GIPHY&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;So far, you’ve made these changes to your local copy of our website’s
+repository. To submit the changes to us, you’ll need to push your changes
+to your remote version of the repository (the one in &lt;em&gt;your&lt;/em&gt; GitHub account)
+and then submit a pull request to us for us to pull those changes into the
+original website repository (the one in &lt;em&gt;my&lt;/em&gt; GitHub account). This process
+should feel pretty familiar—it’s pretty much what you did to submit your
+changes to your profile information for the website on the first day of class.&lt;/p&gt;
+&lt;p&gt;As with other steps, there are several ways you can do this, and if you have an
+idea of how to get it done, any way is fine. If you don’t know where to start,
+though, you can follow along in this section for one way to do it.&lt;/p&gt;
+&lt;div id=&#34;pushing-your-changes-to-your-remote-repo&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Pushing your changes to your remote repo&lt;/h2&gt;
+&lt;p&gt;First, you’ll need to get any changes you’ve made from your local
+repository up to your remote version on GitHub.&lt;/p&gt;
+&lt;p&gt;First, &lt;strong&gt;commit&lt;/strong&gt; any changes that you’ve made through the &lt;code&gt;Git&lt;/code&gt; window in your
+RStudio session. This will record the changes you’ve made in the &lt;code&gt;git&lt;/code&gt; record
+for your local repository.&lt;/p&gt;
+&lt;p&gt;Next, you’ll need to &lt;strong&gt;push&lt;/strong&gt; these commits to the remote repository, to send
+these changes to GitHub. In the &lt;code&gt;Git&lt;/code&gt; window in RStudio, there’s a green up
+button. Push that. It should send all your changes up to your GitHub version of
+the repository. To check, go online to your GitHub account and look through
+your repositories for your fork of “csu_msmb”. Click on “Commits” to see a
+history of the commits to the repository—your latest ones should be at the top
+of the list.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;submitting-a-pull-request-to-the-original-repo&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Submitting a pull request to the original repo&lt;/h2&gt;
+&lt;p&gt;At this point, you’ve made changes, checked them, and pushed them to your GitHub version of
+the repository. Remember, though, that you forked the repository from our original one, and
+so you’ve been working with a copy of the repository this whole time, rather than changing
+our original version.&lt;/p&gt;
+&lt;p&gt;To get your changes incorporated into our original version, you’ll need to request that we
+&lt;strong&gt;pull&lt;/strong&gt; your changes into the original repository. To do this, you can submit a &lt;strong&gt;pull request&lt;/strong&gt;
+through GitHub. Go to the main page for your fork of the GitHub repository and look for
+a button that says “New pull request”. When you click this, it will walk you through making
+a pull request. You’ll have a space to write a message describing the changes you’re
+recommending in the pull request.&lt;/p&gt;
+&lt;p&gt;If you’d like more details on this information, GitHub has &lt;a href=&#34;https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request&#34;&gt;help documentation
+on pull
+requests&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;edit-and-re-submit-the-post-based-on-faculty-feedback&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Edit and re-submit the post based on faculty feedback&lt;/h1&gt;
+&lt;p&gt;The other faculty members and I will get a notice when you submit your pull request. We’ll
+take a look and will probably have some suggestions for the wording of some of the
+vocabulary terms. We’ll give you some feedback through the pull request page, and then
+we’ll work together to get the list finalized before it’s published for the rest of the
+class.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to add your profile details to our course website</title>
+      <link>/post/add-profile-details/</link>
+      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>/post/add-profile-details/</guid>
+      <description>
+
+
+&lt;p&gt;One goal of this course is to continue developing your data science programming
+skills. This will include plenty of work on R programming, but also more to
+help you learn tools for reproducible research, like
+&lt;a href=&#34;https://rmarkdown.rstudio.com/&#34;&gt;RMarkdown&lt;/a&gt; and &lt;a href=&#34;https://git-scm.com/&#34;&gt;git&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We will be using our course website as a collaboration tool during this course.
+This website was created using &lt;a href=&#34;https://bookdown.org/yihui/blogdown/&#34;&gt;blogdown&lt;/a&gt;,
+which allows you to create and update a blogging website with R and RStudio. We
+are using a &lt;a href=&#34;https://github.com/geanders/csu_msmb&#34;&gt;GitHub repository&lt;/a&gt; to share
+all the code for this website and serving the site using &lt;a href=&#34;https://www.netlify.com/&#34;&gt;Netlify&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;During this course, you will have two graded products that you will need to
+submit as blog posts to our site. One will be a glossary of vocabulary terms for
+one chapter of the book, listing key words and their definitions for the
+chapter. The second will be the “official” version of one week’s in-course exercise.&lt;/p&gt;
+&lt;p&gt;To help get you up to speed with using blogdown, GitHub, and RMarkdown with
+our site, we’ll start by having you update your profile details for our website.
+We’ll also use this to give you all a chance to introduce yourselves to each
+other and to us. This post covers the details for how to do that.&lt;/p&gt;
+&lt;div id=&#34;required-set-up&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Required set-up&lt;/h1&gt;
+&lt;p&gt;This exercise, and this course as a whole, requires a certain set-up
+on your computer:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;R installed on your laptop&lt;/li&gt;
+&lt;li&gt;RStudio installed on your laptop&lt;/li&gt;
+&lt;li&gt;git installed on your laptop&lt;/li&gt;
+&lt;li&gt;Your own GitHub account&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;If you already have all this set-up, you can skip to the next section.
+Otherwise, this section has details on completing this set up.&lt;/p&gt;
+&lt;div id=&#34;install-r-on-your-laptop&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Install R on your laptop&lt;/h2&gt;
+&lt;p&gt;You can install R from the &lt;a href=&#34;https://cran.rstudio.com/&#34;&gt;Comprehensive R Archive Network (CRAN)&lt;/a&gt;.
+Search for the version appropriate for your computer’s operating system.&lt;/p&gt;
+&lt;p&gt;If you already have R installed, check your version number. If it’s older than
+six months or so, you should probably update your version for the class. You can
+use the &lt;code&gt;sessionInfo()&lt;/code&gt; function to find out details about your current R
+session, including the version of R you’re currently running:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sessionInfo()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## R version 3.6.3 (2020-02-29)
+## Platform: x86_64-apple-darwin15.6.0 (64-bit)
+## Running under: macOS Mojave 10.14.6
+## 
+## Matrix products: default
+## BLAS:   /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRblas.0.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## loaded via a namespace (and not attached):
+##  [1] compiler_3.6.3  magrittr_1.5    bookdown_0.18   tools_3.6.3    
+##  [5] htmltools_0.4.0 yaml_2.2.1      Rcpp_1.0.4.6    stringi_1.4.6  
+##  [9] rmarkdown_2.1   blogdown_0.18   knitr_1.28      stringr_1.4.0  
+## [13] digest_0.6.25   xfun_0.13       rlang_0.4.5     evaluate_0.14&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Based on the return from this call, for example, I can tell that I have
+R version 3.6.3 (2020-02-29).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;install-rstudio-on-your-laptop&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Install RStudio on your laptop&lt;/h2&gt;
+&lt;p&gt;You can download RStudio directly
+&lt;a href=&#34;https://rstudio.com/products/rstudio/download/&#34;&gt;from their website&lt;/a&gt;. The free
+Desktop version will work great for this course. If your version of RStudio is
+more than a year old, you should probably update it for this course. To check
+your version of R Studio, open R Studio, go to the “RStudio” tab at the top,
+and click on “About RStudio”.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;install-git-on-your-laptop&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Install git on your laptop&lt;/h2&gt;
+&lt;p&gt;The software &lt;strong&gt;git&lt;/strong&gt; is version control software, which will help you record and
+track changes that you’ve made to code and other plain text documents.&lt;/p&gt;
+&lt;p&gt;It’s free to download. Go to &lt;a href=&#34;https://git-scm.com/downloads&#34; class=&#34;uri&#34;&gt;https://git-scm.com/downloads&lt;/a&gt; and select the version
+for your operating system. For this software, you’re probably okay if you
+downloaded it a little while ago (although if more than two years or so, you might
+want to update).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;get-a-github-account&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Get a GitHub account&lt;/h2&gt;
+&lt;p&gt;You will need a (free) GitHub account for this course. You can sign up for one
+(if you don’t already have one) at &lt;a href=&#34;https://github.com/&#34; class=&#34;uri&#34;&gt;https://github.com/&lt;/a&gt;. While there are some
+fancier paid plans available, the free account will work great for this class.&lt;/p&gt;
+&lt;p&gt;When you sign up, you’ll get to choose a GitHub handle. You might want to make
+this something that will be easy for people to remember. For example, if your
+name is still available, that would be a great option. This handle will form
+part of the address to all of your GitHub repositories, so it is convenient if
+it is easy for people you work with to remember (mine, unfortunately, is not!).&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;about-blogdown&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;About &lt;em&gt;blogdown&lt;/em&gt;&lt;/h1&gt;
+&lt;p&gt;The &lt;code&gt;blogdown&lt;/code&gt; package is an R package created by Yihui Xie that allows you
+to use R and RStudio to create and update your own webpage with a blog. The
+appeal of being able to do this with R is that you can write blog posts
+using RMarkdown, so you can include executable R code in each post.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;blogdown&lt;/code&gt; creates your site using the &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; framework.
+Hugo is software that can build static websites (i.e., ones that can be
+served to viewers without needing database backends or other fancy things).
+People have created different templates for Hugo-generated websites, and these
+templates provide the structure and framework, while you can adapt the content.&lt;/p&gt;
+&lt;p&gt;This means that our website (which is, essentially, a collection of files in
+a directory written in a form that a web browser can convert to a pretty
+website) includes a lot of files and code that come straight from a template
+that someone else wrote, and then places here and there where we can add or
+change the files to make the website ours.&lt;/p&gt;
+&lt;p&gt;One of the ways that you can change the website is to add posts. You’ll be
+doing this later in the course by contributing two blog posts of your own,
+one on the vocabulary for a chapter and one with the “official” version of
+the exercise for a chapter. We’ll cover more on how to add a blog post later
+in the course.&lt;/p&gt;
+&lt;p&gt;The other way that you can change the website is to change some of its
+“front page” data. The website has a section on “People”, with the
+profiles of everyone in the class. The information shown in this section
+is all saved in plain text files in our website’s file directory. Today,
+you’ll change you details in the file dedicated to you and then send those
+changes back to us so we can update the online version of the site.&lt;/p&gt;
+&lt;p&gt;You will need to install two pieces of software to work on our
+website. First, you’ll need the R package &lt;code&gt;blogdown&lt;/code&gt;. You can install
+this package in the normal way, using &lt;code&gt;install.packages&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;install.packages(&amp;quot;blogdown&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Once you have &lt;code&gt;blogdown&lt;/code&gt;, you can install the Hugo software using a function
+in the &lt;code&gt;blogdown&lt;/code&gt; package, &lt;code&gt;install_hugo&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(blogdown)
+install_hugo()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;For both these installations, your computer will need to be online or you’ll
+get an error.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;getting-a-fork-of-our-repository-on-your-computer&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Getting a fork of our repository on your computer&lt;/h1&gt;
+&lt;p&gt;All our websites files are posted in a GitHub repository at &lt;a href=&#34;https://github.com/geanders/csu_msmb&#34; class=&#34;uri&#34;&gt;https://github.com/geanders/csu_msmb&lt;/a&gt;. With this (or any) GitHub repository,
+you can suggest changes by &lt;strong&gt;forking&lt;/strong&gt; the repository, cloning the fork to
+your computer, making and committing the changes, pushing those commits
+back up to your fork of the repository on GitHub, and then submitting
+a &lt;strong&gt;pull request&lt;/strong&gt;.&lt;/p&gt;
+&lt;div id=&#34;forking-a-github-repository&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Forking a GitHub repository&lt;/h2&gt;
+&lt;iframe src=&#34;https://giphy.com/embed/3o6fJ8baw3aDgUQnJu&#34; width=&#34;480&#34; height=&#34;240&#34; frameBorder=&#34;0&#34; class=&#34;giphy-embed&#34; allowFullScreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://giphy.com/gifs/thegoodplace-season-2-nbc-3o6fJ8baw3aDgUQnJu&#34;&gt;via GIPHY&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;When you &lt;strong&gt;fork&lt;/strong&gt; a GitHub repository, you get a copy of that repository that you
+can play around with and change yourself, without it affecting the original
+repository. It’s essentially just copying the whole repository, with all its
+files, into a repository on your GitHub account.&lt;/p&gt;
+&lt;p&gt;The only thing that makes it different from a plain copy (and what makes it
+really powerful in some cases) is that, if you decide that your changes might
+make the &lt;em&gt;original&lt;/em&gt; repository better, you can submit a &lt;strong&gt;pull request&lt;/strong&gt;. This
+requests that the owners of the original repository update it to incorporate the
+changes you’ve made on your fork of the repository. The original authors can
+review each of the &lt;strong&gt;commits&lt;/strong&gt; you’ve made, so they can even cherry-pick your
+changes if they want.&lt;/p&gt;
+&lt;p&gt;GitHub also lets the original authors see if there are any &lt;strong&gt;merge conflicts&lt;/strong&gt;
+created from changes that they’ve made to the original repository since you
+forked it. This can let the original authors see how hard it will be to
+incorporate all of your changes in the forked version with their version of the
+repository.&lt;/p&gt;
+&lt;p&gt;To fork the repository with our course’s website materials, all you’ll need to
+do is go to our &lt;a href=&#34;https://github.com/geanders/csu_msmb&#34;&gt;GitHub repository for the course
+website&lt;/a&gt; (while you’re signed in to
+GitHub) and click on the “Fork” button towards the right of the page. Now go and
+check in the “Repositories” section of your own GitHub account—you should see that
+you now have a forked copy of the “csu_msmb” repository.&lt;/p&gt;
+&lt;p&gt;In this exercise, you’ll work with the fork of the repository, and then once you’ve
+made your changes, you submit a pull request, so that we can get your changes
+back into the main webpage.&lt;/p&gt;
+&lt;p&gt;If you need more help on how to fork a repository, GitHub has a &lt;a href=&#34;https://help.github.com/en/github/getting-started-with-github/fork-a-repo&#34;&gt;help
+page&lt;/a&gt;
+on the topic that might be useful.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;cloning-the-fork-to-your-computer&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Cloning the fork to your computer&lt;/h2&gt;
+&lt;p&gt;Next, you’ll want to get a copy of your forked repository onto your own computer,
+where you can work with it, make changes, and preview the website with your
+updates.&lt;/p&gt;
+&lt;p&gt;To do this, you’ll &lt;strong&gt;clone&lt;/strong&gt; your fork of the repository onto your computer.
+The version of the repository on GitHub is called the &lt;strong&gt;remote&lt;/strong&gt; branch of the
+repository and the version you get on your computer once you’ve cloned it is
+the &lt;strong&gt;local&lt;/strong&gt; branch. By cloning (instead of just downloading), you’ll maintain
+a connection between the remote and local versions through git, which will allow
+you to push changes that you make and commit on your own computer up to the
+remote branch on GitHub.&lt;/p&gt;
+&lt;p&gt;Go to GitHub, make sure you are logged into your account, and navigate to your
+forked version of the repository for this class. There should be a button to the
+right of the page that says “Clone or download” (you may need to scroll down to
+find it).&lt;/p&gt;
+&lt;p&gt;When you click on this button, it will give you a choice between
+“SSH” and “HTTPS” for the protocol to use to connect your local and remote branches
+of the repository. You’re welcome to try either, but I usually (on a Mac) have
+better luck with “SSH”. Occasionally, people running Windows in my courses have
+had better luck with “HTTPS”, although for most folks “SSH” seems to work fine.
+Once you choose which protocol to use, you can copy the snippet of code that is
+given in the pop-up.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/screencapture_gifs/github_clone_button.gif&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Next, you’ll run this code from a &lt;strong&gt;bash shell&lt;/strong&gt; on your own computer to clone the
+repository. You first will need to open a shell. If you’re on a Mac, you can do that
+with the “Terminal” application. With Windows, you’ll probably need to use the
+bash shell that comes with the Windows version of git. Search your programs for
+“bash” or “git bash” and see if you see something that looks promising.&lt;/p&gt;
+&lt;p&gt;Once you open a shell, you’ll see a command prompt, like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;username$&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can type &lt;strong&gt;shell commands&lt;/strong&gt; here and then press “Return” to run them. You
+should first move into the directory where you want to clone the repository.
+Your “Desktop” might be a good place for it for now (unless you have some
+organization you use for course-related files). The &lt;code&gt;cd&lt;/code&gt; shell command lets you
+“change directory”. If you don’t put anything after &lt;code&gt;cd&lt;/code&gt;, it will change to
+your &lt;strong&gt;home directory&lt;/strong&gt;. Otherwise, it will move to the directory you specify.
+For example, if the “Desktop” directory is a subdirectory of my home directory,
+I could move into it by running:&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;cd Desktop&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If you have not use shell commands much before and are having any problems
+navigating to the directory you’d like, let us know in class, and one of us can
+help you.&lt;/p&gt;
+&lt;p&gt;Once you are in this directory, you’ll paste &lt;code&gt;git clone&lt;/code&gt; followed by the command
+you copied from the “Clone or download” button on GitHub. It will probably look
+something like this (but with your GitHub handle in place of “geanders”):&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;git clone git@github.com:geanders/csu_msmb.git&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/img/screencapture_gifs/bash_clone_git_repo.gif&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;When you run this, you may have to put in your GitHub username and password. You
+may also get some questions about whether you really want to download the
+repository (you do). If everything’s successful, you should see that there’s a new
+directory called “csu_msmb” in which directory you decided to put it (“Desktop”,
+for example).&lt;/p&gt;
+&lt;p&gt;This directory has a special file in it that makes it an &lt;strong&gt;R Project&lt;/strong&gt;—a special
+version of a file directory with some extra structure and saved preferences. Make
+sure that you open the project as a whole when you work on it in R Studio, rather than
+opening just by clicking on one of the files. To do this, you can go in R Studio
+to &lt;code&gt;&#34;File&#34;&lt;/code&gt; -&amp;gt; &lt;code&gt;&#34;Open Project...&#34;&lt;/code&gt; and then navigate through your file directory
+to the “csu_msmb” directory you just cloned.&lt;/p&gt;
+&lt;p&gt;If you need more help, GitHub has a &lt;a href=&#34;https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository&#34;&gt;help
+page&lt;/a&gt;
+with more on how to clone a repository from GitHub to your own computer.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;changing-and-committing-in-rstudio&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Changing and committing in RStudio&lt;/h2&gt;
+&lt;p&gt;When you have R Studio open to an R Project that is using git version control,
+R Studio will include a “Git” pane. You can use this pane to &lt;strong&gt;commit&lt;/strong&gt; changes you
+make to files in the repository, write messages explaining those commits, and
+&lt;strong&gt;push&lt;/strong&gt; your changes to your remote branch of the repository on GitHub.&lt;/p&gt;
+&lt;p&gt;When you commit a change, that change is written into a log of every change made
+to the files in the repository. You can later look through these commits, so you’ll
+want the commit messages to make sense when you read them in the future. When you’re
+collaborating with others, the commit messages will help you see what each other
+are doing.&lt;/p&gt;
+&lt;p&gt;When you first commit a change, the commit is only saved in your local branch.
+To send it up to the remote branch of the repository on GitHub, you’ll need to
+&lt;strong&gt;push&lt;/strong&gt; those commits. Once you push your local commits, your GitHub repository
+should exactly mirror your local repository.&lt;/p&gt;
+&lt;p&gt;As soon as you make a change to a file in the repository that’s being track by
+git, that file will show up in the Git pane, with a little check box beside it.
+When you’re ready to commit a change, click on the “Commit” button on the top left
+of the Git pane. This will open a pop-up box.&lt;/p&gt;
+&lt;p&gt;In this box, click the check boxes for all the changed files on the left you’d
+like to include in the commit. Then write a short &lt;strong&gt;commit message&lt;/strong&gt;, describing
+the changes you’ve made. You should try to fit it all in the first line of the
+“commit message” window. If you can’t, write a short description in the first line,
+skip a line, and then you can write as much as you want.&lt;/p&gt;
+&lt;p&gt;Once you’ve written your commit message, click on the “commit” button. This will
+record this commit. To check that it has, you can go to the “History” tab and
+make sure the commit shows up as the last thing in your history.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/screencapture_gifs/committing.gif&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;updating-your-profile-details&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Updating your profile details&lt;/h1&gt;
+&lt;div id=&#34;rendering-blogdown-websites-in-rstudio&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Rendering blogdown websites in RStudio&lt;/h2&gt;
+&lt;p&gt;Once you’ve opened the R Project with our website, you can use the
+&lt;code&gt;blogdown&lt;/code&gt; package to serve the website. This will &lt;em&gt;only&lt;/em&gt; update and
+show the website on your computer (&lt;em&gt;not&lt;/em&gt; change our main website online),
+but it lets you check that everything’s working and preview what the
+site will look like online.&lt;/p&gt;
+&lt;p&gt;RStudio’s “Viewer” pane can work as a &lt;strong&gt;web browser&lt;/strong&gt;. This means that it can
+show our website. When you have opened the R Project with the cloned
+repository of our website (“csu_msmb”), try running the following in your
+R console to render the site:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(blogdown)
+serve_site()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/img/screencapture_gifs/serve_site.gif&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;If everything worked, you should be able to see a version of the website in your
+RStudio “Viewer” pane. If you’d like to see it in your usual web browser, click
+on the “Show in new window” button on the top left of the “Viewer” pane (this
+looks like a little rectangle with an arrow on it). This will open the website
+in your default web browser.&lt;/p&gt;
+&lt;p&gt;Take a look at the web address when you do—it should start with &lt;code&gt;127.0.0.1&lt;/code&gt;.
+This is a &lt;strong&gt;loopback address&lt;/strong&gt;—an IP address that refers back to your local
+computer (&lt;strong&gt;localhost&lt;/strong&gt;), rather than an outside web servers. Anytime you’re
+building a website and checking it locally, you’ll see this in the web address
+when you open the site in a web browser. (You can even &lt;a href=&#34;https://www.amazon.com/Theres-Place-127-0-0-1-Address-Geek/dp/B07PF54LYT/ref=pd_sbs_193_t_0/134-9564811-5189968?_encoding=UTF8&amp;amp;pd_rd_i=B07PF54LYT&amp;amp;pd_rd_r=8bcd759f-27a2-443f-a9b8-596744041403&amp;amp;pd_rd_w=hzmrB&amp;amp;pd_rd_wg=nlhQV&amp;amp;pf_rd_p=5cfcfe89-300f-47d2-b1ad-a4e27203a02a&amp;amp;pf_rd_r=S0HM3N9YTGK1JXEK2H3T&amp;amp;psc=1&amp;amp;refRID=S0HM3N9YTGK1JXEK2H3T&#34;&gt;get T shirts with “There’s no place like
+127.0.0.1”&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;As you work through the next parts of the exercise, the rendered website in the
+Viewer pane should update every time you save your changes to files in the
+website. If you have the website open in your default browser, too, you might
+want to refresh the site with the normal “Refresh” button for your browser.
+If things ever seem like they’ve gotten out of sink, you can always re-run
+&lt;code&gt;serve_site()&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;navigating-the-websites-file-directory-to-find-your-profile&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Navigating the website’s file directory to find your profile&lt;/h2&gt;
+&lt;p&gt;We all have our own author profile in a subdirectory within the
+website’s files. To find yours, go to the “content” subdirectory
+of the website files and then the “authors” subdirectory within that.
+You should see a subdirectory there with your name. Click on that
+and you’ll see the two files that make up your author profile,
+&#34;_index.md&#34; and “avatar.jpg”.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/screencapture_gifs/navigating_to_profile.gif&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;updating-your-information-in-_index.md&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Updating your information in &#34;_index.md&#34;&lt;/h2&gt;
+&lt;p&gt;Your details are all given in the &#34;_index.md&#34; file in your author subdirectory.
+To update your details on the website, you’ll need to change your details in this
+file.&lt;/p&gt;
+&lt;p&gt;The file is written in a Markup language called &lt;strong&gt;YAML&lt;/strong&gt;. If you’ve used RMarkdown
+before, you might recognize this syntax from the information that goes at the
+very top of each RMarkdown file.&lt;/p&gt;
+&lt;p&gt;In your &#34;_index.md&#34; file, anywhere there is a placeholder, like “[Year]”
+or “[Institution]”, replace the placeholder with your own information.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/screencapture_gifs/change_placeholders.gif&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Be very careful when changing things like spaces and hyphens in the structure,
+as YAML is based on parsing these elements. As with any Markup language, as
+you are learning it, it’s best to try to render the final document often as
+you make changes, so you can make sure the changes make it through like you want
+and so you can catch any problems quickly.&lt;/p&gt;
+&lt;p&gt;Make sure you change the following sections:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;bio:&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;education:&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;email:&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;interests:&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;name:&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;organizations:&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Some of the sections in &lt;code&gt;social:&lt;/code&gt; are commented out, including the information
+for buttons for GitHub, GoogleScholar, and Twitter. If you have accounts through
+any of these services, you can add these buttons with your updated information.
+Just delete the &lt;code&gt;#&lt;/code&gt; at the beginning of all lines in that section and then
+change the handle or web address information so that it links to your
+account for that service. In this section, also update your email address, with
+&lt;code&gt;mailto:&lt;/code&gt; at the beginning, for the email icon.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/screencapture_gifs/update_social_section.gif&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The very bottom of the file, under the &lt;code&gt;---&lt;/code&gt;, provides space for you to write
+a paragraph summarizing who you are and your academic / research interests.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/screencapture_gifs/add_summary_paragraph.gif&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Be sure to save the file after you’ve made all your changes.&lt;/p&gt;
+&lt;p&gt;For an example of a completed &#34;_index.md&#34; file, you can see mine &lt;a href=&#34;https://raw.githubusercontent.com/geanders/csu_msmb/master/content/authors/brooke-anderson/_index.md&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;updating-your-avatar-picture&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Updating your avatar picture&lt;/h2&gt;
+&lt;p&gt;There’s also a place in your author profile directory to include a photo to
+represent yourself. To change from the default (the blue guy), replace the
+“avatar.jpg” file in your author profile directory with the JPG of your choice,
+and use &lt;em&gt;the same file name&lt;/em&gt; (“avatar.jpg”).&lt;/p&gt;
+&lt;p&gt;It would be helpful for you to use a photo of yourself, since that will help
+us put names with faces, but if you don’t have one or would prefer
+not to use your own photo, feel free to pick any photo (for which you have
+appropriate permissions) to use.&lt;/p&gt;
+&lt;p&gt;You might need to crop your photo some to get it to show up in the circle on
+the website correctly. Try with your uncropped picture once, check the website
+in the RStudio Viewer pane to see how it looks, and then if it doesn’t work,
+play around with cropping it until you’re happy.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;submitting-your-updates&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Submitting your updates&lt;/h1&gt;
+&lt;div id=&#34;pushing-the-commits-back-to-github&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Pushing the commits back to GitHub&lt;/h2&gt;
+&lt;p&gt;When you are ready to push all the changes you’ve committed to your local branch, you can
+do this from the Git pane in R Studio. In this pane, there are two arrows: a green up
+arrow and a blue down arrow. Click on the green up arrow to push the commits from your
+computer (the local branch) to GitHub (the remote branch). Visit your GitHub page for
+the repository (or refresh it if you already had it open) and check if your changes
+have successfully been pushed to the remote branch.&lt;/p&gt;
+&lt;p&gt;If you haven’t created an SSH key and shared it with GitHub, you may be asked
+for your GitHub password every time you try to push. This will get to be a pain,
+so you’ll probably want to set up an SSH key. For more on how to do this (as
+well as other help with using RStudio with version control), check out
+&lt;a href=&#34;https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN&#34;&gt;RStudio’s help documentation on the
+topic&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;requesting-that-we-pull-your-changes&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Requesting that we pull your changes&lt;/h2&gt;
+&lt;iframe src=&#34;https://giphy.com/embed/B6ZOD3aNT3Lxe&#34; width=&#34;480&#34; height=&#34;284&#34; frameBorder=&#34;0&#34; class=&#34;giphy-embed&#34; allowFullScreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://giphy.com/gifs/cats-bowl-pull-B6ZOD3aNT3Lxe&#34;&gt;via GIPHY&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;At this point, you’ve made changes, checked them, and pushed them to your GitHub version of
+the repository. Remember, though, that you forked the repository from our original one, and
+so you’ve been working with a copy of the repository this whole time, rather than changing
+our original version.&lt;/p&gt;
+&lt;p&gt;To get your changes incorporated into our original version, you’ll need to request that we
+&lt;strong&gt;pull&lt;/strong&gt; your changes into the original repository. To do this, you can submit a &lt;strong&gt;pull request&lt;/strong&gt;
+through GitHub. Go to the main page for your fork of the GitHub repository and look for
+a button that says “New pull request”. When you click this, it will walk you through making
+a pull request. You’ll have a space to write a message describing the changes you’re
+recommending in the pull request.&lt;/p&gt;
+&lt;p&gt;If you’d like more details on this information, GitHub has &lt;a href=&#34;https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request&#34;&gt;help documentation
+on pull
+requests&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

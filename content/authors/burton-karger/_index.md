@@ -1,6 +1,6 @@
 ---
 authors:
-bio: [Mycobacterial research concerning boosting strategies for BCG vaccination strategies against Tuberculosis disease.]
+bio: Mycobacterial research concerning boosting strategies for BCG vaccination strategies against Tuberculosis disease.
 education:
   courses:
   - course: MS in Microbiology Immunology Pathology

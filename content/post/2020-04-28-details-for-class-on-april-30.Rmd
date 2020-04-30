@@ -1,0 +1,47 @@
+---
+title: Details for class on April 30
+author: Bailey Fosdick
+date: '2020-04-28'
+slug: details-for-class-on-april-30
+categories:
+  - class meeting
+tags:
+  - class meeting
+subtitle: ''
+summary: ''
+authors: [bailey-fosdick]
+lastmod: '2020-04-28T14:52:19-06:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+
+## Links for April 30
+
+Large group: [meeting link](https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZWY5MTczNDUtOTIzYS00ZGUyLTk4ODctMjdhZWI4MmE4NjMx%40thread.v2/0?context=%7b%22Tid%22%3a%22afb58802-ff7a-4bb1-ab21-367ff2ecfc8b%22%2c%22Oid%22%3a%2205ade929-16e7-49a7-96bb-775f26ed73d5%22%7d)
+
+- Group 1 (Sierra, Camron, Sere): [meeting link](https://teams.microsoft.com/l/meetup-join/19%3ameeting_NjA3Y2Q5MDYtYTM5OS00MzAyLWEwMzAtMzdmNWMzYzhmMTUw%40thread.v2/0?context=%7b%22Tid%22%3a%22afb58802-ff7a-4bb1-ab21-367ff2ecfc8b%22%2c%22Oid%22%3a%2205ade929-16e7-49a7-96bb-775f26ed73d5%22%7d)
+- Group 2 (Burton, Mikaela, Sherry, Amy): [meeting link](https://teams.microsoft.com/l/meetup-join/19%3ameeting_M2I3YmViYjMtNWJlNC00M2E5LTg5NTItNzI0N2VlYmVkNzUz%40thread.v2/0?context=%7b%22Tid%22%3a%22afb58802-ff7a-4bb1-ab21-367ff2ecfc8b%22%2c%22Oid%22%3a%2205ade929-16e7-49a7-96bb-775f26ed73d5%22%7d)
+- Group 3 (Daniel, James, Sarah): [meeting link](https://teams.microsoft.com/l/meetup-join/19%3ameeting_YjE4ZGJhNjItYTViMS00MjZjLTk4NWUtMjBhY2E3OTJiOGQw%40thread.v2/0?context=%7b%22Tid%22%3a%22afb58802-ff7a-4bb1-ab21-367ff2ecfc8b%22%2c%22Oid%22%3a%2205ade929-16e7-49a7-96bb-775f26ed73d5%22%7d)
+
+## Additional links
+
+More on spatial point processes: 
+
+- https://crd150.github.io/lab6.html 
+- http://spatstat.org/
+- https://training.fws.gov/courses/references/tutorials/geospatial/CSP7304/documents/PointPatterTutorial.pdf
+
+More on `EBImages`: 
+
+- https://www.bioconductor.org/packages/release/bioc/vignettes/EBImage/inst/doc/EBImage-introduction.html
+
+## Vocabulary quiz for April 30
+
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdyhEmMFLukgfMVzG2SNBbqXk4wYr0bzcTQM5KbxQUYsc0pIg/viewform?embedded=true" width="640" height="2972" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+

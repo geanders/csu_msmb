@@ -1,0 +1,644 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Chapter 2 | CSU MSMB Group Study</title>
+    <link>/categories/chapter-2/</link>
+      <atom:link href="/categories/chapter-2/index.xml" rel="self" type="application/rss+xml" />
+    <description>Chapter 2</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 19 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>Chapter 2</title>
+      <link>/categories/chapter-2/</link>
+    </image>
+    
+    <item>
+      <title>Chapter 2, part 2, vocabulary quiz</title>
+      <link>/post/chapter-2-part-2-vocabulary-quiz/</link>
+      <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/post/chapter-2-part-2-vocabulary-quiz/</guid>
+      <description>
+
+
+&lt;p&gt;The vocabulary quiz will be live here during the start of the course.&lt;/p&gt;
+&lt;iframe src=&#34;https://docs.google.com/forms/d/e/1FAIpQLSfaoamajaVKWjrisvObSuEwqs2BiRCZzkzEg-Vx_prlgWhnog/viewform?embedded=true&#34; width=&#34;640&#34; height=&#34;2987&#34; frameborder=&#34;0&#34; marginheight=&#34;0&#34; marginwidth=&#34;0&#34;&gt;
+Loading…
+&lt;/iframe&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Exercise solution for Chapter 2, Part 1</title>
+      <link>/post/exercise-solution-for-chapter-2/</link>
+      <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/post/exercise-solution-for-chapter-2/</guid>
+      <description>
+
+
+&lt;p&gt;As always, load libraries first.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)
+library(tidyverse)
+library(dplyr)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;exercise-2.3-from-modern-statistics-for-modern-biologists&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Exercise 2.3 from Modern Statistics for Modern Biologists&lt;/h2&gt;
+&lt;p&gt;A sequence of three nucleotides codes for one amino acid. There are 4 nucleotides, thus &lt;span class=&#34;math inline&#34;&gt;\(4^3\)&lt;/span&gt; would allow for 64 different amino acids, however there are only 20 amino acids requiring only 20 combinations + 1 for an “end” signal. (The “start” signal is the codon, ATG, which also codes for the amino acid methionine, so the start signal does not have a separate codon.) The code is redundant. But is the redundancy even among codons that code for the same amino acid? In other words, if alanine is coded by 4 different codons, do these codons code for alanine equally (each 25%), or do some codons appear more often than others? Here we use the tuberculosis genome to explore codon bias.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;a-explore-the-data-mtb&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;a) Explore the data, &lt;code&gt;mtb&lt;/code&gt;&lt;/h1&gt;
+&lt;p&gt;Use &lt;code&gt;table&lt;/code&gt; to tabulate the &lt;code&gt;AmAcid&lt;/code&gt; and &lt;code&gt;Codon&lt;/code&gt; variables.&lt;/p&gt;
+&lt;p&gt;Each amino acid is encoded by 1–6 tri-nucleotide combinations.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtb = read.table(&amp;quot;example_datasets/M_tuberculosis.txt&amp;quot;, header = TRUE)
+codon_no &amp;lt;- rowSums(table(mtb))
+codon_no&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Ala Arg Asn Asp Cys End Gln Glu Gly His Ile Leu Lys Met Phe Pro Ser Thr Trp Tyr 
+##   4   6   2   2   2   3   2   2   4   2   3   6   2   1   2   4   6   4   1   2 
+## Val 
+##   4&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;code&gt;PerThousands&lt;/code&gt; of each codon can be visualized, where each plot represents an amino acid and each bar represents a different codon that codes for that amino acid. But what does the &lt;code&gt;PerThousands&lt;/code&gt; variable mean?&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtb, aes(x=Codon, y=PerThous)) +
+  geom_col()+
+  facet_wrap(~AmAcid, scales=&amp;quot;free&amp;quot;) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-02-19-exercise-solution-for-chapter-2_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;768&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;b-the-perthous-variable&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;b) The &lt;code&gt;PerThous&lt;/code&gt; variable&lt;/h1&gt;
+&lt;p&gt;How was the &lt;code&gt;PerThous&lt;/code&gt; variable created?&lt;/p&gt;
+&lt;p&gt;The sum of all of the numbers of codons gives you the total number of codons in the M. tuberculosis genome: &lt;code&gt;all_codons&lt;/code&gt;. Remember that this is not the size of the M. tuberculosis genome, but the number of codons in all M. tuberculosis genes. To get the size of the genome, multiply each codon by 3 (for each nucleotide) and add all non-coding nucleotides (which we do not know from this data set).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;all_codons = sum(mtb$Number)
+all_codons&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1344223&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;code&gt;PerThousands&lt;/code&gt; variable is derived by dividing the number of occurrences of the codon of interest by the total number of codons. Because this number is small and hard to interpret, multiplying it by 1000 gives a value that is easy to make sense of. Here is an example for proline. The four values returned align to the four codons that each code for proline.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pro  =  mtb[mtb$AmAcid == &amp;quot;Pro&amp;quot;, &amp;quot;Number&amp;quot;]
+pro / all_codons * 1000&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 31.560240  6.121752  3.405685 17.032144&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;c-codon-bias&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;c) Codon bias&lt;/h1&gt;
+&lt;p&gt;Write an R function that you can apply to the table to find which of the amino acids shows the strongest codon bias, i.e., the strongest departure from uniform distribution among its possible spellings.&lt;/p&gt;
+&lt;p&gt;First, let’s look at the expected frequencies of each codon.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;codon_expected &amp;lt;- data.frame(codon_no) %&amp;gt;%
+  rownames_to_column(var = &amp;quot;AmAcid&amp;quot;) %&amp;gt;%
+  mutate(prob_codon = 1/codon_no)
+codon_expected&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    AmAcid codon_no prob_codon
+## 1     Ala        4  0.2500000
+## 2     Arg        6  0.1666667
+## 3     Asn        2  0.5000000
+## 4     Asp        2  0.5000000
+## 5     Cys        2  0.5000000
+## 6     End        3  0.3333333
+## 7     Gln        2  0.5000000
+## 8     Glu        2  0.5000000
+## 9     Gly        4  0.2500000
+## 10    His        2  0.5000000
+## 11    Ile        3  0.3333333
+## 12    Leu        6  0.1666667
+## 13    Lys        2  0.5000000
+## 14    Met        1  1.0000000
+## 15    Phe        2  0.5000000
+## 16    Pro        4  0.2500000
+## 17    Ser        6  0.1666667
+## 18    Thr        4  0.2500000
+## 19    Trp        1  1.0000000
+## 20    Tyr        2  0.5000000
+## 21    Val        4  0.2500000&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Next, calculate the observed frequencies for each codon seen in the data set and use the chi-squared test statistic to determine if the difference between expected and observed codon frequencies is even or if some codon sequences are used more than others.&lt;/p&gt;
+&lt;p&gt;To start, you can group the data by amino acid and then determine a few things about
+the amino acid or the possible codons for it, including the total observations
+across all codons for the amino acid (&lt;code&gt;total&lt;/code&gt;), the number of codons for that
+amino acid (&lt;code&gt;n_codons&lt;/code&gt;), and the expected count for each codon for that amino acid
+(the total number of observations for that amino acid divided by the number of
+codons, giving an expected number that’s the same for all codons of an amino
+acid; &lt;code&gt;expected&lt;/code&gt;).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;codon_compared &amp;lt;- mtb %&amp;gt;% 
+  group_by(AmAcid) %&amp;gt;% 
+  mutate(total = sum(Number),
+         n_codons = n(),
+         expected = total / n_codons)
+codon_compared&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 64 x 7
+## # Groups:   AmAcid [21]
+##    AmAcid Codon Number PerThous  total n_codons expected
+##    &amp;lt;fct&amp;gt;  &amp;lt;fct&amp;gt;  &amp;lt;int&amp;gt;    &amp;lt;dbl&amp;gt;  &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;    &amp;lt;dbl&amp;gt;
+##  1 Gly    GGG    25874    19.2  132810        4   33202.
+##  2 Gly    GGA    13306     9.9  132810        4   33202.
+##  3 Gly    GGT    25320    18.8  132810        4   33202.
+##  4 Gly    GGC    68310    50.8  132810        4   33202.
+##  5 Glu    GAG    41103    30.6   62870        2   31435 
+##  6 Glu    GAA    21767    16.2   62870        2   31435 
+##  7 Asp    GAT    21165    15.8   77852        2   38926 
+##  8 Asp    GAC    56687    42.2   77852        2   38926 
+##  9 Val    GTG    53942    40.1  114991        4   28748.
+## 10 Val    GTA     6372     4.74 114991        4   28748.
+## # … with 54 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;code&gt;mutate&lt;/code&gt; function is used after &lt;code&gt;group_by&lt;/code&gt; to do all this
+within each amino acid group of codons, but without collapsing to one row per
+amino acid, as a &lt;code&gt;summarize&lt;/code&gt; call would.&lt;/p&gt;
+&lt;p&gt;To convince yourself that this has worked out correctly, you can repeat
+the plot we made before and see that the bars for the expected values are
+always equal across all codons for an amino acid:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(codon_compared, aes(x=Codon, y=expected)) +
+     geom_col()+
+     facet_wrap(~AmAcid, scales=&amp;quot;free&amp;quot;) +
+     theme(axis.text.x = element_text(angle = 45, hjust = 1))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-02-19-exercise-solution-for-chapter-2_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;768&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Finally, we can calculate the chi-squared (&lt;span class=&#34;math inline&#34;&gt;\(\chi^2\)&lt;/span&gt;) statistic and compare it to the
+chi-squared distribution to get the p-value when testing against the null hypothesis
+that the amino acid observations are uniformly distributed across codons. The &lt;span class=&#34;math inline&#34;&gt;\(\chi^2\)&lt;/span&gt;
+is calculated as:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\chi^2 = \sum_i{\frac{(O_i-E_i)^2}{E_i}}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;where:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(O_i\)&lt;/span&gt; is the observed value of data point &lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt; (&lt;code&gt;Number&lt;/code&gt; in our data); and&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(E_i\)&lt;/span&gt; is the expected value of data point &lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt; (&lt;code&gt;expected&lt;/code&gt; in our data)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In our data, we can calculate the contribution to the total &lt;span class=&#34;math inline&#34;&gt;\(\chi^2\)&lt;/span&gt; statistic
+from each data point (in this case, each codon within an amino acid) using
+&lt;code&gt;mutate&lt;/code&gt;, and then
+add these values up using &lt;code&gt;group_by&lt;/code&gt; to group by amino acid followed by
+&lt;code&gt;summarize&lt;/code&gt; to sum up across all the data points for an amino acid.
+The other information we need to get is the number of codons for the
+amino acid, because we’ll need this to determine the degrees of freedom
+for the chi-squared distribution. Next, we used &lt;code&gt;mutate&lt;/code&gt; with
+&lt;code&gt;pchisq&lt;/code&gt; to determine the p-values within each amino acid group for the
+test against the null that the codons are uniformly distributed for that
+amino acid (i.e., that there isn’t codon bias). These p-values turn out to
+be super small, so we’re using a technique to get the log-transform versions of
+them instead, which we explain a bit more later. Finally, we used &lt;code&gt;arrange&lt;/code&gt; to
+list the amino acids by evidence against uniform distribution of the codons,
+from most evidence against (smallest p-value so most negative log(p-value))
+to least evidence against (although still plenty of evidence against) and added
+an &lt;code&gt;index&lt;/code&gt; with the ranking for each codon by adding a column with the sequence
+of numbers from 1 to the number of rows in the data (&lt;code&gt;n()&lt;/code&gt;).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;codon_compared %&amp;gt;% 
+  filter(n_codons &amp;gt; 1) %&amp;gt;% 
+  group_by(AmAcid) %&amp;gt;% 
+  mutate(chi_squared = ((Number - expected)^2/expected)) %&amp;gt;% 
+  summarise(chi_squared = sum(chi_squared),
+            n = n()) %&amp;gt;% 
+  mutate(p_value = pchisq(chi_squared, df = n-1, log = TRUE, lower.tail = FALSE)) %&amp;gt;% 
+  arrange(p_value) %&amp;gt;% 
+  mutate(rank = 1:n())&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 19 x 5
+##    AmAcid chi_squared     n p_value  rank
+##    &amp;lt;fct&amp;gt;        &amp;lt;dbl&amp;gt; &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt; &amp;lt;int&amp;gt;
+##  1 Leu        135432.     6 -67700.     1
+##  2 Ala         75620.     4 -37805.     2
+##  3 Arg         72183.     6 -36076.     3
+##  4 Thr         58767.     4 -29378.     4
+##  5 Val         58737.     4 -29363.     5
+##  6 Ile         56070.     3 -28035.     6
+##  7 Gly         52534.     4 -26262.     7
+##  8 Pro         45400.     4 -22695.     8
+##  9 Ser         36742.     6 -18357.     9
+## 10 Asp         16208.     2  -8109.    10
+## 11 Phe         13444.     2  -6727.    11
+## 12 Asn         11404.     2  -5707.    12
+## 13 Gln          9376.     2  -4693.    13
+## 14 Lys          6382.     2  -3195.    14
+## 15 Glu          5947.     2  -2978.    15
+## 16 His          5346.     2  -2678.    16
+## 17 Tyr          4738.     2  -2373.    17
+## 18 Cys          2958.     2  -1483.    18
+## 19 End           928.     3   -464.    19&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As you may notice, these log transforms of the p-values (which we got rather than untransformed p-values in the &lt;code&gt;pchisq&lt;/code&gt; call because we used the option &lt;code&gt;log = TRUE&lt;/code&gt;) are large in magnitude and negative (so very tiny once you take the exponent if you re-transformed them to p-values) values. If you tried to calculate the untransformed p-values (and we did!), this number is so small (0.00000000e+00) that it is too small for R—it shows up as exactly zero in R, even though it actually is a very tiny, but still non-zero, number. To get around this issue, we told &lt;code&gt;pchisq&lt;/code&gt; to work on these p-values as log transforms, and then we left the p-value as that log-transformed value. A group of numbers that are log transformed will be in the same order as their untransformed versions, so we don’t need to convert back to figure out which amino acid had that smallest p-value. We can just sort the amino acids from most negative to less negative using these log-transformed versions of the p-values. We now have the amino acids ranked from most biased codons (1) to least (19).&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Chapter 2 Part 1 vocabulary quiz</title>
+      <link>/post/chapter-2-vocabulary-quiz/</link>
+      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/post/chapter-2-vocabulary-quiz/</guid>
+      <description>
+
+
+&lt;p&gt;The vocabulary quiz will be live here during the start of the course.&lt;/p&gt;
+&lt;iframe src=&#34;https://docs.google.com/forms/d/e/1FAIpQLSd_F2yhNwWK-GMCUuQTLVIQobe46lplbhWOjdq2rIBmHrN-hQ/viewform?embedded=true&#34; width=&#34;640&#34; height=&#34;3357&#34; frameborder=&#34;0&#34; marginheight=&#34;0&#34; marginwidth=&#34;0&#34;&gt;
+Loading…
+&lt;/iframe&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Vocabulary for Chapter 2, Part 2</title>
+      <link>/post/vocabulary-for-chapter-2-8-2-12/</link>
+      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/post/vocabulary-for-chapter-2-8-2-12/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;These sections introduced Markov chains and the Bayesian paradigm. Markov chain transitions were used to model dependencies along DNA sequences. The vocabulary terms are:&lt;/p&gt;
+&lt;table class=&#34;table table-striped table-hover table-condensed&#34; style=&#34;margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Markov chain
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a sequence where given the current state, the next state is conditionally independent of all previous states
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Bayesian paradigm
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+approaching statistics from the perspective that probability can be viewed as a degree of belief in an event
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Beta distribution
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a probability distribution defined on the interval [0, 1] often used to model probabilities in Bayesian statistics
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Exponential distribution
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a probability distribution defined on the positive real numbers that can be used to model the time between events in a Poisson point process
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Prior
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a probability distribution describing our knowledge of a hypothesis/parameter before incorporating new data
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Posterior
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a probability distribution describing our knowledge of a hypothesis/parameter after incorporating new data
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Haplotype
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a collection of DNA sequence variants (e.g., alleles) that are spatially close on a chromosome, are usually inherited together, and thus are genetically linked
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Marginal distribution
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+the distribution of a sub-collection of variables after integrating out the remaining variables in the collection.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Monte Carlo integration
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a technique for numerical integration where the value of an integral is estimated by simulating data
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Quantile-quantile plot (QQ-plot)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a plot comparing the quantiles from one distribution (often a theoretical distribution) to the quantiles of another distribution (often from a sample)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Maximum a posteriori (MAP) estimate
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+the mode of the posterior distribution associated with the quantity of interest
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Escherichia coli
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+facultative anaerobic, rod-shaped, coliform bacterium commonly found in the lower intestine of warm-blooded organisms
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Epigenetics
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+the study of heritable phenotype changes that do not involve alterations in the DNA sequence
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Log-likelihood ratio
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+the log of the likelihood under one set of assumptions divided by the likelihood under another set of assumptions
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Bimodality
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+when a distribution has two modes
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Mixture
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+in the context of statistics, when the distribution of interest is a combination of two or more different probability distributions
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Codon
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A three-nucleotide sequence that specifies the amino acid to be created next (or to start or stop synthesis)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Codon bias
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+the differences in how often each spelling of an amino acid occurs in coding DNA
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Genetic code
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+the set of instructions in a gene that tell the cell how to make a specific protein
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div id=&#34;sources-consulted-or-cited&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Sources consulted or cited&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Some of the definitons above are based in part or whole on listed definitions in the following sources:&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Holmes and Huber, 2019. &lt;em&gt;Modern Statistics for Modern Biology.&lt;/em&gt; Cambridge University Press,
+Cambridge, United Kingdom.&lt;/li&gt;
+&lt;li&gt;Wikipedia: The Free Encyclopedia. &lt;a href=&#34;http://en.wikipedia.org/wiki/Main_Page&#34; class=&#34;uri&#34;&gt;http://en.wikipedia.org/wiki/Main_Page&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;NIH Genetics Home Reference. &lt;a href=&#34;https://ghr.nlm.nih.gov/&#34; class=&#34;uri&#34;&gt;https://ghr.nlm.nih.gov/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;NCBI Genetics Review. &lt;a href=&#34;https://www.ncbi.nlm.nih.gov&#34; class=&#34;uri&#34;&gt;https://www.ncbi.nlm.nih.gov&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;practice&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Practice&lt;/h3&gt;
+&lt;iframe src=&#34;https://quizlet.com/362954560/flashcards/embed?i=1bqje7&amp;amp;x=1jj1&#34; height=&#34;500&#34; width=&#34;100%&#34; style=&#34;border:0&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Vocabularly for Chapter 2, Part 1</title>
+      <link>/post/vocabularly-for-chapter-2-part-1/</link>
+      <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/post/vocabularly-for-chapter-2-part-1/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;The first portion of Chapter 2 (2.1-2.7) is focused on statistical modeling of data. It introduces a number of distributions commonly used in statistics, as well as model fitting estimation procedures (e.g. maximum likelihood estimation).&lt;/p&gt;
+The vocabulary words for Chapter 2, part 1, are:
+&lt;table class=&#34;table table-striped table-hover table-condensed&#34; style=&#34;margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+statistical inference / up / statistical approach
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+An upward-reasoning approach that start with data and works towards defining a model that might possibly explain the data.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+deduction
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Starting from a mathematical/statistical model with known parameters and computing the probability of observing an event.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+null model
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+The model associated with the null hypothesis, which formulates an “uninteresting” baseline.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+goodness-of-fit
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Evaluation of whether a theorectical distribution/model is appropriate for a data set.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+rootogram
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Diagram to assess model goodness-of-fit for a data set. Bar chart where the bars “hang” from their theorectical values and will approximately line up with horizontal axis if the model is a good fit to the data.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+maximum likelihood estimator (MLE)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A rule, or mathematical formula, that outputs an estimate of a parameter for a model, where that estimate maximizes the probability of the observed data.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+conservative (approach)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+An analysis approach that errs on the side of caution to avoid concluding an alternative hypothesis (e.g. detecting a signal) when it is not true.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+vectorization
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In regard to function evaluation, if a vector is supplied to a function that expects a scalar, R will apply the function to each element of the vector.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+likelihood function
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+The probability of the data under a model expressed as a function of the model parameter(s).
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+estimation
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Process of using data to perform inference on population parameters.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+statistical testing
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Formal decision process to determine if a null model is appropriate for the observed data.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+regression
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Relating how an outcome measure depends on one or more covariates.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+residual
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Deviation between the observed data and the expected value of the data point according to a model.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+generalized linear model
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A class of models for non-continuous or non-negative data that allows regression of an outcome on observed covariates. An extension of linear regression.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+chi-squared distribution
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A distribution on the non-negative real numbers that is often used in assessing goodness-of-fit (e.g. models fit to contingency tables).
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+quantile-quantile (QQ) plot
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Used to compare two distributions (or samples). Deviations in the plot from the y=x line suggest differences between the two distributions.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+quantile
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Value corresponding to a percentile of a distribution.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+empirical cumulative distribution function (ECDF)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Function with input value x gives as output the probability that a random variable from the distribution is less than or equal to x. Function is defined using a sample and assigning probability 1/n to each data point.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+chi-squared statistic
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A summary statistic of a data set that has a theorectical chi-squared distribution.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+base pairing
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+The pattern that adenine (A) and thymine (T) are paired (appear with equal frequency) in the DNA of an organism, and similarly cytosine (C) and guianine (G) are paired.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+contingency table
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Table of counts summarizing the number of times combinations of factor levels were observed in the data set.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Hardy-Weinberg equilibrium (HWE)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Assuming random mating, this principle characterizes the distribution of genotype frequencies as a function of the relative frequencies of each allele.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+position weight matrix (PWM) / position-specific scoring matrix (PSSM)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Table giving the probability of each nucleotide at each position
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+sequence logo
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A graphical summary of the position weight matrix or position-specific scoring matrix.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div id=&#34;practice&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Practice&lt;/h3&gt;
+&lt;iframe src=&#34;https://quizlet.com/483285431/flashcards/embed?i=2ldef3&amp;amp;x=1jj1&#34; height=&#34;500&#34; width=&#34;100%&#34; style=&#34;border:0&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

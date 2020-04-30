@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.7.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Bailey Fosdick">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="As always, load libraries first.
+library(ggplot2) library(tidyverse) library(dplyr) Exercise 2.3 from Modern Statistics for Modern Biologists A sequence of three nucleotides codes for one amino acid. There are 4 nucleotides, thus \(4^3\) would allow for 64 different amino acids, however there are only 20 amino acids requiring only 20 combinations &#43; 1 for an “end” signal. (The “start” signal is the codon, ATG, which also codes for the amino acid methionine, so the start signal does not have a separate codon.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/exercise-solution-for-chapter-2/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  <script src="/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-36719749-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           document.location = url;
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target);  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-36719749-3', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
+  
+
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="/post/exercise-solution-for-chapter-2/">
+
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="CSU MSMB Group Study">
+  <meta property="og:url" content="/post/exercise-solution-for-chapter-2/">
+  <meta property="og:title" content="Exercise solution for Chapter 2, Part 1 | CSU MSMB Group Study">
+  <meta property="og:description" content="As always, load libraries first.
+library(ggplot2) library(tidyverse) library(dplyr) Exercise 2.3 from Modern Statistics for Modern Biologists A sequence of three nucleotides codes for one amino acid. There are 4 nucleotides, thus \(4^3\) would allow for 64 different amino acids, however there are only 20 amino acids requiring only 20 combinations &#43; 1 for an “end” signal. (The “start” signal is the codon, ATG, which also codes for the amino acid methionine, so the start signal does not have a separate codon."><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
+  <meta property="twitter:image" content="img/map[gravatar:%!s(bool=false) shape:circle]"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2020-02-19T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2020-02-19T15:25:48-07:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/exercise-solution-for-chapter-2/"
+  },
+  "headline": "Exercise solution for Chapter 2, Part 1",
+  
+  "datePublished": "2020-02-19T00:00:00Z",
+  "dateModified": "2020-02-19T15:25:48-07:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Sere Williams"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "CSU MSMB Group Study",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "img//"
+    }
+  },
+  "description": "As always, load libraries first.\nlibrary(ggplot2) library(tidyverse) library(dplyr) Exercise 2.3 from Modern Statistics for Modern Biologists A sequence of three nucleotides codes for one amino acid. There are 4 nucleotides, thus \\(4^3\\) would allow for 64 different amino acids, however there are only 20 amino acids requiring only 20 combinations + 1 for an “end” signal. (The “start” signal is the codon, ATG, which also codes for the amino acid methionine, so the start signal does not have a separate codon."
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Exercise solution for Chapter 2, Part 1 | CSU MSMB Group Study</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">CSU MSMB Group Study</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">CSU MSMB Group Study</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#people"><span>People</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#experience"><span>Schedule</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Location</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/files/csu_msmb_syllabus.pdf"><span>Syllabus</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item">
+        <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Exercise solution for Chapter 2, Part 1</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  
+  <span><a href="/authors/sere-williams/">Sere Williams</a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    Feb 19, 2020
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    8 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/exercises/">exercises</a>, <a href="/categories/chapter-2/">Chapter 2</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      
+
+
+<p>As always, load libraries first.</p>
+<pre class="r"><code>library(ggplot2)
+library(tidyverse)
+library(dplyr)</code></pre>
+<div id="exercise-2.3-from-modern-statistics-for-modern-biologists" class="section level2">
+<h2>Exercise 2.3 from Modern Statistics for Modern Biologists</h2>
+<p>A sequence of three nucleotides codes for one amino acid. There are 4 nucleotides, thus <span class="math inline">\(4^3\)</span> would allow for 64 different amino acids, however there are only 20 amino acids requiring only 20 combinations + 1 for an “end” signal. (The “start” signal is the codon, ATG, which also codes for the amino acid methionine, so the start signal does not have a separate codon.) The code is redundant. But is the redundancy even among codons that code for the same amino acid? In other words, if alanine is coded by 4 different codons, do these codons code for alanine equally (each 25%), or do some codons appear more often than others? Here we use the tuberculosis genome to explore codon bias.</p>
+</div>
+<div id="a-explore-the-data-mtb" class="section level1">
+<h1>a) Explore the data, <code>mtb</code></h1>
+<p>Use <code>table</code> to tabulate the <code>AmAcid</code> and <code>Codon</code> variables.</p>
+<p>Each amino acid is encoded by 1–6 tri-nucleotide combinations.</p>
+<pre class="r"><code>mtb = read.table(&quot;example_datasets/M_tuberculosis.txt&quot;, header = TRUE)
+codon_no &lt;- rowSums(table(mtb))
+codon_no</code></pre>
+<pre><code>## Ala Arg Asn Asp Cys End Gln Glu Gly His Ile Leu Lys Met Phe Pro Ser Thr Trp Tyr 
+##   4   6   2   2   2   3   2   2   4   2   3   6   2   1   2   4   6   4   1   2 
+## Val 
+##   4</code></pre>
+<p>The <code>PerThousands</code> of each codon can be visualized, where each plot represents an amino acid and each bar represents a different codon that codes for that amino acid. But what does the <code>PerThousands</code> variable mean?</p>
+<pre class="r"><code>ggplot(mtb, aes(x=Codon, y=PerThous)) +
+  geom_col()+
+  facet_wrap(~AmAcid, scales=&quot;free&quot;) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))</code></pre>
+<p><img src="/post/2020-02-19-exercise-solution-for-chapter-2_files/figure-html/unnamed-chunk-3-1.png" width="768" /></p>
+</div>
+<div id="b-the-perthous-variable" class="section level1">
+<h1>b) The <code>PerThous</code> variable</h1>
+<p>How was the <code>PerThous</code> variable created?</p>
+<p>The sum of all of the numbers of codons gives you the total number of codons in the M. tuberculosis genome: <code>all_codons</code>. Remember that this is not the size of the M. tuberculosis genome, but the number of codons in all M. tuberculosis genes. To get the size of the genome, multiply each codon by 3 (for each nucleotide) and add all non-coding nucleotides (which we do not know from this data set).</p>
+<pre class="r"><code>all_codons = sum(mtb$Number)
+all_codons</code></pre>
+<pre><code>## [1] 1344223</code></pre>
+<p>The <code>PerThousands</code> variable is derived by dividing the number of occurrences of the codon of interest by the total number of codons. Because this number is small and hard to interpret, multiplying it by 1000 gives a value that is easy to make sense of. Here is an example for proline. The four values returned align to the four codons that each code for proline.</p>
+<pre class="r"><code>pro  =  mtb[mtb$AmAcid == &quot;Pro&quot;, &quot;Number&quot;]
+pro / all_codons * 1000</code></pre>
+<pre><code>## [1] 31.560240  6.121752  3.405685 17.032144</code></pre>
+</div>
+<div id="c-codon-bias" class="section level1">
+<h1>c) Codon bias</h1>
+<p>Write an R function that you can apply to the table to find which of the amino acids shows the strongest codon bias, i.e., the strongest departure from uniform distribution among its possible spellings.</p>
+<p>First, let’s look at the expected frequencies of each codon.</p>
+<pre class="r"><code>codon_expected &lt;- data.frame(codon_no) %&gt;%
+  rownames_to_column(var = &quot;AmAcid&quot;) %&gt;%
+  mutate(prob_codon = 1/codon_no)
+codon_expected</code></pre>
+<pre><code>##    AmAcid codon_no prob_codon
+## 1     Ala        4  0.2500000
+## 2     Arg        6  0.1666667
+## 3     Asn        2  0.5000000
+## 4     Asp        2  0.5000000
+## 5     Cys        2  0.5000000
+## 6     End        3  0.3333333
+## 7     Gln        2  0.5000000
+## 8     Glu        2  0.5000000
+## 9     Gly        4  0.2500000
+## 10    His        2  0.5000000
+## 11    Ile        3  0.3333333
+## 12    Leu        6  0.1666667
+## 13    Lys        2  0.5000000
+## 14    Met        1  1.0000000
+## 15    Phe        2  0.5000000
+## 16    Pro        4  0.2500000
+## 17    Ser        6  0.1666667
+## 18    Thr        4  0.2500000
+## 19    Trp        1  1.0000000
+## 20    Tyr        2  0.5000000
+## 21    Val        4  0.2500000</code></pre>
+<p>Next, calculate the observed frequencies for each codon seen in the data set and use the chi-squared test statistic to determine if the difference between expected and observed codon frequencies is even or if some codon sequences are used more than others.</p>
+<p>To start, you can group the data by amino acid and then determine a few things about
+the amino acid or the possible codons for it, including the total observations
+across all codons for the amino acid (<code>total</code>), the number of codons for that
+amino acid (<code>n_codons</code>), and the expected count for each codon for that amino acid
+(the total number of observations for that amino acid divided by the number of
+codons, giving an expected number that’s the same for all codons of an amino
+acid; <code>expected</code>).</p>
+<pre class="r"><code>codon_compared &lt;- mtb %&gt;% 
+  group_by(AmAcid) %&gt;% 
+  mutate(total = sum(Number),
+         n_codons = n(),
+         expected = total / n_codons)
+codon_compared</code></pre>
+<pre><code>## # A tibble: 64 x 7
+## # Groups:   AmAcid [21]
+##    AmAcid Codon Number PerThous  total n_codons expected
+##    &lt;fct&gt;  &lt;fct&gt;  &lt;int&gt;    &lt;dbl&gt;  &lt;int&gt;    &lt;int&gt;    &lt;dbl&gt;
+##  1 Gly    GGG    25874    19.2  132810        4   33202.
+##  2 Gly    GGA    13306     9.9  132810        4   33202.
+##  3 Gly    GGT    25320    18.8  132810        4   33202.
+##  4 Gly    GGC    68310    50.8  132810        4   33202.
+##  5 Glu    GAG    41103    30.6   62870        2   31435 
+##  6 Glu    GAA    21767    16.2   62870        2   31435 
+##  7 Asp    GAT    21165    15.8   77852        2   38926 
+##  8 Asp    GAC    56687    42.2   77852        2   38926 
+##  9 Val    GTG    53942    40.1  114991        4   28748.
+## 10 Val    GTA     6372     4.74 114991        4   28748.
+## # … with 54 more rows</code></pre>
+<p>The <code>mutate</code> function is used after <code>group_by</code> to do all this
+within each amino acid group of codons, but without collapsing to one row per
+amino acid, as a <code>summarize</code> call would.</p>
+<p>To convince yourself that this has worked out correctly, you can repeat
+the plot we made before and see that the bars for the expected values are
+always equal across all codons for an amino acid:</p>
+<pre class="r"><code>ggplot(codon_compared, aes(x=Codon, y=expected)) +
+     geom_col()+
+     facet_wrap(~AmAcid, scales=&quot;free&quot;) +
+     theme(axis.text.x = element_text(angle = 45, hjust = 1))</code></pre>
+<p><img src="/post/2020-02-19-exercise-solution-for-chapter-2_files/figure-html/unnamed-chunk-8-1.png" width="768" /></p>
+<p>Finally, we can calculate the chi-squared (<span class="math inline">\(\chi^2\)</span>) statistic and compare it to the
+chi-squared distribution to get the p-value when testing against the null hypothesis
+that the amino acid observations are uniformly distributed across codons. The <span class="math inline">\(\chi^2\)</span>
+is calculated as:</p>
+<p><span class="math display">\[
+\chi^2 = \sum_i{\frac{(O_i-E_i)^2}{E_i}}
+\]</span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(O_i\)</span> is the observed value of data point <span class="math inline">\(i\)</span> (<code>Number</code> in our data); and</li>
+<li><span class="math inline">\(E_i\)</span> is the expected value of data point <span class="math inline">\(i\)</span> (<code>expected</code> in our data)</li>
+</ul>
+<p>In our data, we can calculate the contribution to the total <span class="math inline">\(\chi^2\)</span> statistic
+from each data point (in this case, each codon within an amino acid) using
+<code>mutate</code>, and then
+add these values up using <code>group_by</code> to group by amino acid followed by
+<code>summarize</code> to sum up across all the data points for an amino acid.
+The other information we need to get is the number of codons for the
+amino acid, because we’ll need this to determine the degrees of freedom
+for the chi-squared distribution. Next, we used <code>mutate</code> with
+<code>pchisq</code> to determine the p-values within each amino acid group for the
+test against the null that the codons are uniformly distributed for that
+amino acid (i.e., that there isn’t codon bias). These p-values turn out to
+be super small, so we’re using a technique to get the log-transform versions of
+them instead, which we explain a bit more later. Finally, we used <code>arrange</code> to
+list the amino acids by evidence against uniform distribution of the codons,
+from most evidence against (smallest p-value so most negative log(p-value))
+to least evidence against (although still plenty of evidence against) and added
+an <code>index</code> with the ranking for each codon by adding a column with the sequence
+of numbers from 1 to the number of rows in the data (<code>n()</code>).</p>
+<pre class="r"><code>codon_compared %&gt;% 
+  filter(n_codons &gt; 1) %&gt;% 
+  group_by(AmAcid) %&gt;% 
+  mutate(chi_squared = ((Number - expected)^2/expected)) %&gt;% 
+  summarise(chi_squared = sum(chi_squared),
+            n = n()) %&gt;% 
+  mutate(p_value = pchisq(chi_squared, df = n-1, log = TRUE, lower.tail = FALSE)) %&gt;% 
+  arrange(p_value) %&gt;% 
+  mutate(rank = 1:n())</code></pre>
+<pre><code>## # A tibble: 19 x 5
+##    AmAcid chi_squared     n p_value  rank
+##    &lt;fct&gt;        &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;int&gt;
+##  1 Leu        135432.     6 -67700.     1
+##  2 Ala         75620.     4 -37805.     2
+##  3 Arg         72183.     6 -36076.     3
+##  4 Thr         58767.     4 -29378.     4
+##  5 Val         58737.     4 -29363.     5
+##  6 Ile         56070.     3 -28035.     6
+##  7 Gly         52534.     4 -26262.     7
+##  8 Pro         45400.     4 -22695.     8
+##  9 Ser         36742.     6 -18357.     9
+## 10 Asp         16208.     2  -8109.    10
+## 11 Phe         13444.     2  -6727.    11
+## 12 Asn         11404.     2  -5707.    12
+## 13 Gln          9376.     2  -4693.    13
+## 14 Lys          6382.     2  -3195.    14
+## 15 Glu          5947.     2  -2978.    15
+## 16 His          5346.     2  -2678.    16
+## 17 Tyr          4738.     2  -2373.    17
+## 18 Cys          2958.     2  -1483.    18
+## 19 End           928.     3   -464.    19</code></pre>
+<p>As you may notice, these log transforms of the p-values (which we got rather than untransformed p-values in the <code>pchisq</code> call because we used the option <code>log = TRUE</code>) are large in magnitude and negative (so very tiny once you take the exponent if you re-transformed them to p-values) values. If you tried to calculate the untransformed p-values (and we did!), this number is so small (0.00000000e+00) that it is too small for R—it shows up as exactly zero in R, even though it actually is a very tiny, but still non-zero, number. To get around this issue, we told <code>pchisq</code> to work on these p-values as log transforms, and then we left the p-value as that log-transformed value. A group of numbers that are log transformed will be in the same order as their untransformed versions, so we don’t need to convert back to figure out which amino acid had that smallest p-value. We can just sort the amino acids from most negative to less negative using these log-transformed versions of the p-values. We now have the amino acids ranked from most biased codons (1) to least (19).</p>
+</div>
+
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/exercises/">exercises</a>
+  
+  <a class="badge badge-light" href="/tags/chapter-2/">Chapter 2</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/exercise-solution-for-chapter-2/&amp;text=Exercise%20solution%20for%20Chapter%202,%20Part%201" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/exercise-solution-for-chapter-2/&amp;t=Exercise%20solution%20for%20Chapter%202,%20Part%201" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Exercise%20solution%20for%20Chapter%202,%20Part%201&amp;body=/post/exercise-solution-for-chapter-2/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/exercise-solution-for-chapter-2/&amp;title=Exercise%20solution%20for%20Chapter%202,%20Part%201" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Exercise%20solution%20for%20Chapter%202,%20Part%201%20/post/exercise-solution-for-chapter-2/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/exercise-solution-for-chapter-2/&amp;title=Exercise%20solution%20for%20Chapter%202,%20Part%201" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <img class="avatar mr-3 avatar-circle" src="/authors/sere-williams/avatar_hu7c8ca0f65f9d98110dd99020825b4ff3_120374_270x270_fill_q90_lanczos_center.jpg" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/authors/sere-williams/">Sere Williams</a></h5>
+      <h6 class="card-subtitle">Graduate Student in Cellular and Molecular Biology</h6>
+      <p class="card-text">Seré is interested in plant stress at the genetic level.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    <li>
+      <a href="mailto:sere.williams@colostate.edu" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/serewilliams" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/ser%c3%a9-williams-ms-56804571/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/chapter-2-part-2-vocabulary-quiz/">Chapter 2, part 2, vocabulary quiz</a></li>
+      
+      <li><a href="/post/chapter-2-vocabulary-quiz/">Chapter 2 Part 1 vocabulary quiz</a></li>
+      
+      <li><a href="/post/how-to-create-an-exercise-solution-blog-post/">How to create an exercise solution blog post</a></li>
+      
+      <li><a href="/post/vocabulary-for-chapter-2-8-2-12/">Vocabulary for Chapter 2, Part 2</a></li>
+      
+      <li><a href="/post/exercise-solution-for-chapter-1/">Exercise solution for Chapter 1</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.4.3/mermaid.min.js" integrity="" crossorigin="anonymous" title="mermaid"></script>
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js" integrity="sha256-1zu+3BnLYV9LdiY85uXMzii3bdrkelyp37e0ZyTAQh0=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.a0d331bcd05dbe8b31e244f796710f08.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.7.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Bailey Fosdick">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Chapter 6 covers Statistical Testing, including a review of null and alternative hypotheses (and associated distributions), types of error (I and II), as well as challenges and opportunities introduced by multiple testing.
+        Occam’s razor  Heuristic stating that the simplest explanation for a phenomenon is often the best    rejection region  Subset of possible outcomes for which probabilities under the null hypothesis fall under a low probability threshold, e.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/vocabulary-for-chapter-6/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  <script src="/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-36719749-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           document.location = url;
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target);  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-36719749-3', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
+  
+
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="/post/vocabulary-for-chapter-6/">
+
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="CSU MSMB Group Study">
+  <meta property="og:url" content="/post/vocabulary-for-chapter-6/">
+  <meta property="og:title" content="Vocabulary for Chapter 6 | CSU MSMB Group Study">
+  <meta property="og:description" content="Chapter 6 covers Statistical Testing, including a review of null and alternative hypotheses (and associated distributions), types of error (I and II), as well as challenges and opportunities introduced by multiple testing.
+        Occam’s razor  Heuristic stating that the simplest explanation for a phenomenon is often the best    rejection region  Subset of possible outcomes for which probabilities under the null hypothesis fall under a low probability threshold, e."><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
+  <meta property="twitter:image" content="img/map[gravatar:%!s(bool=false) shape:circle]"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2020-03-06T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2020-03-06T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/vocabulary-for-chapter-6/"
+  },
+  "headline": "Vocabulary for Chapter 6",
+  
+  "datePublished": "2020-03-06T00:00:00Z",
+  "dateModified": "2020-03-06T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Daniel Dean"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "CSU MSMB Group Study",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "img//"
+    }
+  },
+  "description": "Chapter 6 covers Statistical Testing, including a review of null and alternative hypotheses (and associated distributions), types of error (I and II), as well as challenges and opportunities introduced by multiple testing.\n        Occam’s razor  Heuristic stating that the simplest explanation for a phenomenon is often the best    rejection region  Subset of possible outcomes for which probabilities under the null hypothesis fall under a low probability threshold, e."
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Vocabulary for Chapter 6 | CSU MSMB Group Study</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">CSU MSMB Group Study</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">CSU MSMB Group Study</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#people"><span>People</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#experience"><span>Schedule</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Location</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/files/csu_msmb_syllabus.pdf"><span>Syllabus</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item">
+        <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Vocabulary for Chapter 6</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  
+  <span><a href="/authors/daniel-dean/">Daniel Dean</a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Mar 6, 2020
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    5 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/chapter-6/">Chapter 6</a>, <a href="/categories/vocabulary/">vocabulary</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      
+<script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
+
+
+<p>Chapter 6 covers Statistical Testing, including a review of null and alternative hypotheses (and associated distributions), types of error (I and II), as well as challenges and opportunities introduced by multiple testing.</p>
+<table class="table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+</th>
+<th style="text-align:left;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Occam’s razor
+</td>
+<td style="text-align:left;width: 30em; ">
+Heuristic stating that the simplest explanation for a phenomenon is often the best
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+rejection region
+</td>
+<td style="text-align:left;width: 30em; ">
+Subset of possible outcomes for which probabilities under the null hypothesis fall under a low probability threshold, e.g. outcomes with a null-distribution probability &lt; 0.05; if an outcome falls within this region (e.g., p &lt; 0.05), it suggests that the null hypothesis is not true.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+test statistic
+</td>
+<td style="text-align:left;width: 30em; ">
+Metric for measuring how well a null hypothesis fits the data
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+null hypothesis
+</td>
+<td style="text-align:left;width: 30em; ">
+Hypothesis describing some ‘uninteresting’ outcome (e.g., that no difference exists between certain groups of events/outcomes)
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+null distribution
+</td>
+<td style="text-align:left;width: 30em; ">
+Distribution of possible outcomes, given that the null hypothesis is true
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+alternative hypothesis
+</td>
+<td style="text-align:left;width: 30em; ">
+A hypothesis providing a different probability distribution than the null hypothesis; conceptually, holds that some difference from the null hypothesis exists (e.g. different means, frequencies, trends)
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+significance level/false positive rate/Type I error
+</td>
+<td style="text-align:left;width: 30em; ">
+Probability of incorrectly rejecting the null hypothesis due to outcomes falling within the rejection region by chance; in terms of the null distribution, total probability that the outcome could fall within the rejection region given that the null hypothesis is true.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+power
+</td>
+<td style="text-align:left;width: 30em; ">
+True positive rate of a test (i.e., probability that an outcome falls in the rejection region of the null distribution, given that the alternative hypothesis is true)
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+false negative rate/Type II error
+</td>
+<td style="text-align:left;width: 30em; ">
+Probability of incorrectly failing to reject the null hypothesis when an outcome from the alternative hypothesis distribution fails to fall within the rejection region of the null hypothesis.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+specificity
+</td>
+<td style="text-align:left;width: 30em; ">
+Complement of false positive rate (Type I error); probability of a test failing to reject the null hypothesis when it is true.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+power/sensitivity/true negative rate
+</td>
+<td style="text-align:left;width: 30em; ">
+Complement of false negative rate (Type II error); probability of correctly rejecting null hypothesis if the alternative hypothesis is true.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+assumption of independence
+</td>
+<td style="text-align:left;width: 30em; ">
+Treating every observation in a dataset as if it has no influence on the outcomes of other observations (or at least none unaccounted-for in the model).
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+p-value hacking
+</td>
+<td style="text-align:left;width: 30em; ">
+Fallaciously ‘fishing’ for significant results by running tests until a small p-value is obtained by chance; this can be deliberate or inadvertently caused by a scattershot approach to testing.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+hypothesis switching
+</td>
+<td style="text-align:left;width: 30em; ">
+Fallacy of generating and/or changing hypotheses for a set of known results until a significant result is obtained by chance.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+family-wide error rate (FWER)
+</td>
+<td style="text-align:left;width: 30em; ">
+Probability of at least one false positive occurring in repeated tests. Assuming independent tests, this is the complement of the probability of only true positives occurring, and approaches 1.0 as the number of tests approaches infinity.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+p-value histogram
+</td>
+<td style="text-align:left;width: 30em; ">
+Visualization to get a quick sense of p-value distribution of possible test outcomes for a null hypothesis. The distribution is a mixture of cases where the null hypothesis is rejected (small p-values) or retained (larger p-values).
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+false discovery rate (FDR)
+</td>
+<td style="text-align:left;width: 30em; ">
+The proportion of false positives among all cases where the null hypothesis is rejected across an entire distribution.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+local false discovery rate (fdr)
+</td>
+<td style="text-align:left;width: 30em; ">
+The probability of Type I Error at a given p-value when the distribution of the p-values is treated as a mixture model of the null distribution and alternative hypothesis distribution. This varies based on the p-value, rather than being a property of the entire distribution.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+tail-area false disovery rate (Fdr)
+</td>
+<td style="text-align:left;width: 30em; ">
+Integration-based extension of the local false discovery rate to obtain a false discovery rate for the entire distribution.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+independent filtering
+</td>
+<td style="text-align:left;width: 30em; ">
+Method to increase test power by filtering variables with criteria that are independent under the null hypothesis, but correlated under the alternative
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+independent hypothesis weighting
+</td>
+<td style="text-align:left;width: 30em; ">
+A method of improving power of multiple testing by weighting hypotheses based on their power
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Bonferroni adjustment
+</td>
+<td style="text-align:left;width: 30em; ">
+Method used to compensate for inflated Type I (false positive) error in multiple testing by dividing the test significance level/hypothesis threshold (e.g., alpha = 0.05) by the number of tests performed
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+whole genome sequencing
+</td>
+<td style="text-align:left;width: 30em; ">
+Method used to determine and record the DNA base values and order across all of an organism’s genes
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+marker gene
+</td>
+<td style="text-align:left;width: 30em; ">
+A gene used to determine membership in a group of interest (e.g., a taxon, genotype within a population, or possessing a certain metabolic trait)
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+expression level
+</td>
+<td style="text-align:left;width: 30em; ">
+The realtive abundance of transcriptions of a gene of interest present in, e.g., a cell or environment
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+reagent
+</td>
+<td style="text-align:left;width: 30em; ">
+a compound used in creating a chemical reaction like an assay
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+hypothesis testing
+</td>
+<td style="text-align:left;width: 30em; ">
+Evaluating whether outcomes are sufficently unlikely under the null hypothesis (holding that outcomes are determined fully by chance) that it can be rejected in favor of an alternative hypothesis
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+workflow
+</td>
+<td style="text-align:left;width: 30em; ">
+A sequence of steps used in carrying out a larger operation or process
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+two-sided test
+</td>
+<td style="text-align:left;width: 30em; ">
+A statistical test which rejects the null hypothesis if an observed test statistic is either too large or too small compared to that expected under the null hypothesis
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+one-sided test
+</td>
+<td style="text-align:left;width: 30em; ">
+A statistical test which rejects the null hypothesis if an observed test statistic departs from the expected range in a single, predetermined direction (i.e. larger or smaller)
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+two-sample
+</td>
+<td style="text-align:left;width: 30em; ">
+In the context of statistical testing, a situation whether the data belong to two known groups.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+unpaired
+</td>
+<td style="text-align:left;width: 30em; ">
+In the context of statistical tests, these are used when comparing groups with independent measurements (e.g. the observations for one group have no association with observations from the other group)
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+equal variances
+</td>
+<td style="text-align:left;width: 30em; ">
+When groups being compared have (substantially) equivalent levels of variability.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+dependence
+</td>
+<td style="text-align:left;width: 30em; ">
+When the outcomes of two variables are associated with one another.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+expected value
+</td>
+<td style="text-align:left;width: 30em; ">
+For a random quantity, this is the value of the mean, i.e. “average value”.
+</td>
+</tr>
+</tbody>
+</table>
+<div id="sources-consulted-or-cited" class="section level3">
+<h3>Sources Consulted or Cited</h3>
+<p><em>Some of the definitons above are based in part or whole on listed definitions in the following sources:</em></p>
+<ul>
+<li>Holmes and Huber, 2019. <em>Modern Statistics for Modern Biology.</em> Cambridge University Press,
+Cambridge, United Kingdom.</li>
+<li>Wikipedia: The Free Encyclopedia. <a href="http://en.wikipedia.org/wiki/Main_Page" class="uri">http://en.wikipedia.org/wiki/Main_Page</a></li>
+<li>Bourgon, R., Gentleman, R. &amp; Huber, W. Independent filtering increases detection power for high-throughput experiments. Proceedings of the National Academy of Sciences 107, 9546–9551 (2010).</li>
+<li>Ignatiadis, N., Klaus, B., Zaugg, J. et al. Data-driven hypothesis weighting increases detection power in genome-scale multiple testing. Nat Methods 13, 577–580 (2016). <a href="https://doi.org/10.1038/nmeth.3885" class="uri">https://doi.org/10.1038/nmeth.3885</a></li>
+<li><a href="https://www.statisticssolutions.com/bonferroni-correction/" class="uri">https://www.statisticssolutions.com/bonferroni-correction/</a></li>
+<li><a href="https://bioconductor.org/packages/release/bioc/vignettes/IHW/inst/doc/introduction_to_ihw.html" class="uri">https://bioconductor.org/packages/release/bioc/vignettes/IHW/inst/doc/introduction_to_ihw.html</a></li>
+<li><a href="https://www.statisticshowto.datasciencecentral.com/familywise-error-rate/" class="uri">https://www.statisticshowto.datasciencecentral.com/familywise-error-rate/</a></li>
+<li><a href="https://www.statisticshowto.datasciencecentral.com/probability-and-statistics/hypothesis-testing/" class="uri">https://www.statisticshowto.datasciencecentral.com/probability-and-statistics/hypothesis-testing/</a></li>
+<li><p><a href="https://www.biostars.org/p/273537/" class="uri">https://www.biostars.org/p/273537/</a></p>
+<h3 id="practice">Practice</h3>
+<iframe src="https://quizlet.com/488864042/flashcards/embed?i=2oqpc3&amp;x=1jj1" height="500" width="100%" style="border:0">
+</iframe></li>
+</ul>
+</div>
+
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/chapter-6/">Chapter 6</a>
+  
+  <a class="badge badge-light" href="/tags/vocabulary/">vocabulary</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/vocabulary-for-chapter-6/&amp;text=Vocabulary%20for%20Chapter%206" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/vocabulary-for-chapter-6/&amp;t=Vocabulary%20for%20Chapter%206" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Vocabulary%20for%20Chapter%206&amp;body=/post/vocabulary-for-chapter-6/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/vocabulary-for-chapter-6/&amp;title=Vocabulary%20for%20Chapter%206" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Vocabulary%20for%20Chapter%206%20/post/vocabulary-for-chapter-6/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/vocabulary-for-chapter-6/&amp;title=Vocabulary%20for%20Chapter%206" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <img class="avatar mr-3 avatar-circle" src="/authors/daniel-dean/avatar_hu6171ee48ab5286c6e67d6694e1627aa1_110961_270x270_fill_q90_lanczos_center.jpg" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/authors/daniel-dean/">Daniel Dean</a></h5>
+      <h6 class="card-subtitle">Graduate Student in Agriculture and Biology</h6>
+      <p class="card-text">Daniel is an MS student in Agriculture and Biology studying the effects of drought and warming on the soil microbiome using longitudinal samples from a climate research installation.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    <li>
+      <a href="mailto:daniel.alan.dean@colostate.edu" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/danieldean414" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/vocabulary-for-chapter-5/">Vocabulary for Chapter 5</a></li>
+      
+      <li><a href="/post/vocabulary-for-chapter-4/">Vocabulary for Chapter 4</a></li>
+      
+      <li><a href="/post/vocabulary-for-chapter-2-8-2-12/">Vocabulary for Chapter 2, Part 2</a></li>
+      
+      <li><a href="/post/vocabularly-for-chapter-2-part-1/">Vocabularly for Chapter 2, Part 1</a></li>
+      
+      <li><a href="/post/creating-a-vocabulary-list-blog-post/">How to create a vocabulary list blog post</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.4.3/mermaid.min.js" integrity="" crossorigin="anonymous" title="mermaid"></script>
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js" integrity="sha256-1zu+3BnLYV9LdiY85uXMzii3bdrkelyp37e0ZyTAQh0=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.a0d331bcd05dbe8b31e244f796710f08.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

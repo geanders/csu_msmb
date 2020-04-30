@@ -1,0 +1,921 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Chapter 1 | CSU MSMB Group Study</title>
+    <link>/tags/chapter-1/</link>
+      <atom:link href="/tags/chapter-1/index.xml" rel="self" type="application/rss+xml" />
+    <description>Chapter 1</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 11 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>Chapter 1</title>
+      <link>/tags/chapter-1/</link>
+    </image>
+    
+    <item>
+      <title>Exercise solution for Chapter 1</title>
+      <link>/post/exercise-solution-for-chapter-1/</link>
+      <pubDate>Tue, 11 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/post/exercise-solution-for-chapter-1/</guid>
+      <description>
+
+
+&lt;p&gt;This exercise asks us to explore the frequency of each of the four nucleotides
+(A, C, G, and T) in the genome of &lt;em&gt;C. elegans&lt;/em&gt;, a type of worm used frequently
+in scientific research.&lt;/p&gt;
+&lt;p&gt;This solution requires that several R extension packages be loaded in your R
+session. If you do not have these packages installed to your computer yet, you
+should follow &lt;a href=&#34;https://kind-neumann-789611.netlify.com/post/chapter-1-exercise-setup/&#34;&gt;instructions we’ve posted
+separately&lt;/a&gt;
+describing the required set-up for this exercise. Once you have installed these
+packages on your computer, you can load them into your current R session using
+the &lt;code&gt;library&lt;/code&gt; function:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(&amp;quot;BSgenome.Celegans.UCSC.ce2&amp;quot;)
+library(&amp;quot;Biostrings&amp;quot;)
+
+library(&amp;quot;tidyverse&amp;quot;)
+library(&amp;quot;knitr&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;part-a&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Part A&lt;/h2&gt;
+&lt;p&gt;Part A of the question asks us to explore the nucleotide frequency of the &lt;em&gt;C.
+elegans&lt;/em&gt; genome. This genome is available in the &lt;code&gt;Celegans&lt;/code&gt; data that comes with
+the &lt;code&gt;BSgenome.Clegans.UCSC.ce2&lt;/code&gt; package and is stored within a &lt;code&gt;BSgenome&lt;/code&gt; class,
+which is a special object class provided by the &lt;code&gt;Biostrings&lt;/code&gt; package.&lt;/p&gt;
+&lt;p&gt;There is a dedicated function called &lt;code&gt;letterFrequency&lt;/code&gt; in the &lt;code&gt;Biostrings&lt;/code&gt;
+package that can be used to count the frequency of letters in a string (like a
+genome) in an R object like this. In a call to this function, you must also
+include the possible letters in your “alphabet”—that is, the possible letters
+that each position in your string could take.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;(nuc_freq &amp;lt;- letterFrequency(Celegans$chrM, letters=c(&amp;quot;A&amp;quot;, &amp;quot;C&amp;quot;, &amp;quot;G&amp;quot;, &amp;quot;T&amp;quot;)))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    A    C    G    T 
+## 4335 1225 2055 6179&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To explore and plot this data, I put this summary data into a &lt;code&gt;tibble&lt;/code&gt;, so I
+could more easily use &lt;code&gt;tidyverse&lt;/code&gt; tools with the data.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;nuc_freq_df &amp;lt;- tibble(nucleotide = names(nuc_freq), 
+             n = nuc_freq)
+nuc_freq_df&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 4 x 2
+##   nucleotide     n
+##   &amp;lt;chr&amp;gt;      &amp;lt;int&amp;gt;
+## 1 A           4335
+## 2 C           1225
+## 3 G           2055
+## 4 T           6179&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In this format, you can use &lt;code&gt;tidyverse&lt;/code&gt; tools to explore the data a bit more.
+For example, you can determine the total number of nucleotides in the genome
+and, with that calculate the proportion of each nucleotide across the genome.
+Along with the &lt;code&gt;kable&lt;/code&gt; function from the &lt;code&gt;knitr&lt;/code&gt; package, I created a formatted
+table with this information:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;nuc_freq_df %&amp;gt;% 
+  mutate(prop = n / sum(n)) %&amp;gt;% 
+  kable(digits = 2, 
+        caption = &amp;quot;Nucleotide frequencies and proportions in *C. elegans*&amp;quot;,
+        col.names = c(&amp;quot;Nucleotide&amp;quot;, &amp;quot;Frequency&amp;quot;, &amp;quot;Proportion&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;caption&gt;&lt;span id=&#34;tab:unnamed-chunk-4&#34;&gt;Table 1: &lt;/span&gt;Nucleotide frequencies and proportions in &lt;em&gt;C. elegans&lt;/em&gt;&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;left&#34;&gt;Nucleotide&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Frequency&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Proportion&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;A&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;4335&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.31&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;C&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1225&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.09&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;G&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2055&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.15&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;T&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;6179&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.45&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;For some presentations, it might be clearer to present this information in a
+slightly different table format, using &lt;code&gt;pivot_longer&lt;/code&gt; and then &lt;code&gt;pivot_wider&lt;/code&gt; to
+reformat the table for presentation:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;nuc_freq_df %&amp;gt;% 
+  mutate(prop = n / sum(n),
+         n = prettyNum(n, big.mark = &amp;quot;,&amp;quot;),
+         prop = prettyNum(prop, digits = 2)) %&amp;gt;% 
+  pivot_longer(cols = c(&amp;quot;n&amp;quot;, &amp;quot;prop&amp;quot;)) %&amp;gt;% 
+  pivot_wider(names_from = &amp;quot;nucleotide&amp;quot;) %&amp;gt;% 
+  mutate(name = case_when(
+    name == &amp;quot;n&amp;quot; ~ &amp;quot;Frequency of nucleotide&amp;quot;,
+    name == &amp;quot;prop&amp;quot; ~ &amp;quot;Proportion of all nucleotides&amp;quot;
+  )) %&amp;gt;%  
+  rename(` ` = name) %&amp;gt;% 
+  kable(align = c(&amp;quot;rcccc&amp;quot;), 
+        caption = &amp;quot;Nucleotide frequencies and proportions in *C. elegans*&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;caption&gt;&lt;span id=&#34;tab:unnamed-chunk-5&#34;&gt;Table 2: &lt;/span&gt;Nucleotide frequencies and proportions in &lt;em&gt;C. elegans&lt;/em&gt;&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;A&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;C&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;G&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;T&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Frequency of nucleotide&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;4,335&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;1,225&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;2,055&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;6,179&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Proportion of all nucleotides&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;0.31&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;0.089&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;0.15&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;0.45&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Here is a plot of the frequency of each of the four nucleotides for the &lt;em&gt;C.
+elegans&lt;/em&gt; nucleotide:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(nuc_freq_df, aes(x = nucleotide, y = n)) + 
+  geom_col(fill = &amp;quot;lavender&amp;quot;, color = &amp;quot;black&amp;quot;) + 
+  theme_classic() + 
+  scale_y_continuous(label = scales::comma) + 
+  theme(axis.title = element_blank()) + 
+  labs(title = expression(paste(italic(&amp;quot;C. elegans&amp;quot;), &amp;quot; neucleotide frequency&amp;quot;)),
+       caption = expression(paste(&amp;quot;Based on data from the &amp;quot;, italic(&amp;quot;BSgenome.Celegans.UCSC.ce2&amp;quot;), 
+                                  &amp;quot; package.&amp;quot;)))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-02-11-exercise-solution-for-chapter-1_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;This graph uses a few elements to improve its appearance that you might want to
+explore if you’re not already familiar with them:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;code&gt;labs&lt;/code&gt; function is used to add both a title and a caption to the plot.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;paste&lt;/code&gt;, &lt;code&gt;expression&lt;/code&gt;, and &lt;code&gt;italic&lt;/code&gt; functions are used together to put “C.
+elegans” and an R package name in italics in some of the labels on the plot.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;scales&lt;/code&gt; package is used inside a scale layer for the &lt;code&gt;ggplot2&lt;/code&gt; code to
+make the y-axis labels a bit nicer.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;theme&lt;/code&gt; calls are used to apply a simpler overall theme than the default and to
+remove the x- and y-axis titles (with &lt;code&gt;element_blank&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;The color and fill of the bars are customized in the geom layer (&lt;code&gt;geom_col&lt;/code&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;From this plot, it certainly looks like the nucleotides are &lt;strong&gt;not&lt;/strong&gt; uniformly
+distributed in the &lt;em&gt;C. elegans&lt;/em&gt; genome. This question will be investigated more
+in the next part of the exercise.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;part-b&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Part B&lt;/h2&gt;
+&lt;p&gt;The second part of the exercise asks us to test whether the observed nucleotide
+data for &lt;em&gt;C. elegans&lt;/em&gt; is consistent with the uniform model that all nucleotide
+frequencies are the same.&lt;/p&gt;
+&lt;p&gt;First, we can simulate several datasets under this null model and see how a plot
+of nucleotide frequencies compares to the plot that we obtained with the observed
+&lt;em&gt;C. elegans&lt;/em&gt; data. To make these plots, I first simulated 20 samples under the
+null model that the distribution is uniform across the four nucleotides, using
+the &lt;code&gt;rmultinom&lt;/code&gt; function with the &lt;code&gt;size&lt;/code&gt; argument set to the number of nucleotides in
+the original &lt;em&gt;C. elegans&lt;/em&gt; genome data and the &lt;code&gt;prob&lt;/code&gt; argument set to have an equal
+probability of each nucleotide at each spot on the genome:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;(sim_nuc_freq &amp;lt;- rmultinom(n = 20, 
+                          size = sum(nuc_freq_df$n), 
+                          prob = rep(1 / 4, 4)))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13] [,14]
+## [1,] 3397 3447 3540 3504 3396 3506 3369 3451 3463  3475  3451  3484  3467  3419
+## [2,] 3523 3442 3360 3478 3549 3442 3507 3441 3459  3368  3457  3393  3420  3593
+## [3,] 3430 3456 3472 3377 3412 3467 3436 3431 3417  3522  3443  3430  3462  3461
+## [4,] 3444 3449 3422 3435 3437 3379 3482 3471 3455  3429  3443  3487  3445  3321
+##      [,15] [,16] [,17] [,18] [,19] [,20]
+## [1,]  3387  3466  3487  3455  3564  3448
+## [2,]  3406  3439  3496  3489  3323  3434
+## [3,]  3546  3341  3398  3418  3476  3440
+## [4,]  3455  3548  3413  3432  3431  3472&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Next, I moved this into a tibble so I could more easily rearrange and plot the data using
+facetting in &lt;code&gt;ggplot2&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sim_nuc_freq_df &amp;lt;- as_tibble(sim_nuc_freq) %&amp;gt;% 
+  mutate(nucleotide = c(&amp;quot;A&amp;quot;, &amp;quot;C&amp;quot;, &amp;quot;G&amp;quot;, &amp;quot;T&amp;quot;)) %&amp;gt;% 
+  pivot_longer(-nucleotide, names_to = &amp;quot;sample&amp;quot;) %&amp;gt;% 
+  mutate(sample = sample %&amp;gt;% str_remove(&amp;quot;V&amp;quot;) %&amp;gt;% as.numeric()) %&amp;gt;% 
+  arrange(sample, nucleotide)
+
+sim_nuc_freq_df %&amp;gt;% 
+  slice(1:10)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 10 x 3
+##    nucleotide sample value
+##    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt; &amp;lt;int&amp;gt;
+##  1 A               1  3397
+##  2 C               1  3523
+##  3 G               1  3430
+##  4 T               1  3444
+##  5 A               2  3447
+##  6 C               2  3442
+##  7 G               2  3456
+##  8 T               2  3449
+##  9 A               3  3540
+## 10 C               3  3360&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(sim_nuc_freq_df, aes(x = nucleotide, y = value)) + 
+  geom_col(fill = &amp;quot;lavender&amp;quot;, color = &amp;quot;black&amp;quot;) + 
+  theme_classic() + 
+  scale_y_continuous(label = scales::comma) + 
+  theme(axis.title = element_blank()) + 
+  labs(title = &amp;quot;Simulated neucleotide frequencies under a uniform model&amp;quot;) +
+  facet_wrap(~ sample) + 
+  expand_limits(y = max(nuc_freq_df$n))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-02-11-exercise-solution-for-chapter-1_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The y-axis limits were expanded here to cover the same range as that shown for the
+observed &lt;em&gt;C. elegans&lt;/em&gt; nucleotide frequencies, to help make it easier to compare these plots
+with the plot of our observed data. These plots of data simulated under the null model do
+show some variation in frequencies among the nucleotides, but it’s certainly much less than
+in the observed data for &lt;em&gt;C. elegans&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Next, I repeated this simulation process, but I increased the number of simulations to 1,000:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sim_nuc_freq_df &amp;lt;- rmultinom(n = 1000, 
+                          size = sum(nuc_freq_df$n), 
+                          prob = rep(1 / 4, 4)) %&amp;gt;% 
+  as_tibble() %&amp;gt;% 
+  mutate(nucleotide = c(&amp;quot;A&amp;quot;, &amp;quot;C&amp;quot;, &amp;quot;G&amp;quot;, &amp;quot;T&amp;quot;)) %&amp;gt;% 
+  pivot_longer(-nucleotide, names_to = &amp;quot;sample&amp;quot;) %&amp;gt;% 
+  mutate(sample = sample %&amp;gt;% str_remove(&amp;quot;V&amp;quot;) %&amp;gt;% as.numeric()) %&amp;gt;% 
+  arrange(sample, nucleotide)
+
+sim_nuc_freq_df %&amp;gt;% 
+  slice(1:10)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 10 x 3
+##    nucleotide sample value
+##    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt; &amp;lt;int&amp;gt;
+##  1 A               1  3427
+##  2 C               1  3456
+##  3 G               1  3471
+##  4 T               1  3440
+##  5 A               2  3429
+##  6 C               2  3492
+##  7 G               2  3421
+##  8 T               2  3452
+##  9 A               3  3451
+## 10 C               3  3438&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Using this dataframe of simulations, we can measure the mean, minimum, and maximum frequencies
+of each nucleotide across all 1,000 simulations:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;(sim_summary &amp;lt;- sim_nuc_freq_df %&amp;gt;% 
+  group_by(nucleotide) %&amp;gt;% 
+  summarize(mean_freq = mean(value),
+            min_freq = min(value), 
+            max_freq = max(value)))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 4 x 4
+##   nucleotide mean_freq min_freq max_freq
+##   &amp;lt;chr&amp;gt;          &amp;lt;dbl&amp;gt;    &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;
+## 1 A              3449.     3281     3602
+## 2 C              3446.     3272     3588
+## 3 G              3452.     3301     3652
+## 4 T              3447.     3266     3593&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To help compare this with the observed data, we can create a table with information from
+both the original data and the simulations under the null model:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;nuc_freq_df %&amp;gt;% 
+  left_join(sim_summary, by = &amp;quot;nucleotide&amp;quot;) %&amp;gt;% 
+  mutate_at(c(&amp;quot;mean_freq&amp;quot;, &amp;quot;min_freq&amp;quot;, &amp;quot;max_freq&amp;quot;, &amp;quot;n&amp;quot;), 
+            prettyNum, big.mark = &amp;quot;,&amp;quot;, digits = 0) %&amp;gt;% 
+  mutate(simulations = paste0(mean_freq, &amp;quot; (&amp;quot;, min_freq, &amp;quot;, &amp;quot;, max_freq, &amp;quot;)&amp;quot;)) %&amp;gt;% 
+  select(nucleotide, n, simulations) %&amp;gt;% 
+  kable(col.names = c(&amp;quot;Nucleotide&amp;quot;,              
+        &amp;quot;Frequency in C. elegans genome&amp;quot;,
+        &amp;quot;Mean frequency (minimum frequency, maximum frequency) across 1,000 simulations&amp;quot;), 
+        align = &amp;quot;c&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;center&#34;&gt;Nucleotide&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Frequency in C. elegans genome&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Mean frequency (minimum frequency, maximum frequency) across 1,000 simulations&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;A&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;4,335&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;3,449 (3,281, 3,602)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;C&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;1,225&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;3,446 (3,272, 3,588)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;G&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;2,055&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;3,452 (3,301, 3,652)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;T&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;6,179&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;3,447 (3,266, 3,593)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;This helps clarify how unusual the observed data would be under the null model—the
+counts of all four nucleotides in the &lt;em&gt;C. elegans&lt;/em&gt; genome are completely outside the
+range of frequencies in the simulated data.&lt;/p&gt;
+&lt;p&gt;Another way to look at this is with histograms of the distribution of frequencies
+of each nucleotide under the null model compared to the observed frequencies in
+the &lt;em&gt;C. elegans&lt;/em&gt; nucleotide:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(sim_nuc_freq_df, aes(x = value)) + 
+  geom_histogram(binwidth = 10) + 
+  facet_wrap(~ nucleotide) + 
+  theme_classic() + 
+  scale_x_continuous(name = &amp;quot;Frequency of nucleotide in the simulation under the null model&amp;quot;,
+                     labels = scales::comma) + 
+  scale_y_continuous(name = &amp;quot;# of simulations (out of 1,000)&amp;quot;) + 
+  geom_vline(data = nuc_freq_df, aes(xintercept = n), color = &amp;quot;red&amp;quot;) + 
+  labs(title = expression(paste(&amp;quot;Nucleotide frequency in &amp;quot;,
+                                italic(&amp;quot;C. elegans&amp;quot;), 
+                                &amp;quot; compared null model simulations&amp;quot;)),
+       caption = &amp;quot;Red line shows the frequency observed for the nucleotide in C. elegans&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-02-11-exercise-solution-for-chapter-1_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Finally, to help in answering this question, it would be interesting to look at a
+single measure for each simulation (and for the observed data) rather than comparing
+each nucleotide one at a time. Chapter 1 gives the equation for a statistic to
+measure variability in multinomial data by calculating the sum of squares for the
+differences between the observed and expected count of nucleotides for each of the
+four nucleotides in a sample (p. 12).&lt;/p&gt;
+&lt;p&gt;I calculated this statistic for the observed data and then for each of the 1,000
+simulations.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;(obs_stat &amp;lt;- nuc_freq_df %&amp;gt;% 
+  mutate(expected = mean(n),
+         stat_input = (n - expected) ^ 2 / expected) %&amp;gt;% 
+  summarize(variability_stat = sum(stat_input)))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 1 x 1
+##   variability_stat
+##              &amp;lt;dbl&amp;gt;
+## 1            4387.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sim_stat &amp;lt;- sim_nuc_freq_df %&amp;gt;% 
+  mutate(expected = mean(value), 
+         stat_input = (value - expected) ^ 2 / expected) %&amp;gt;% 
+  group_by(sample) %&amp;gt;% 
+  summarize(variability_stat = sum(stat_input))
+
+sim_stat %&amp;gt;% 
+  slice(1:5)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 5 x 2
+##   sample variability_stat
+##    &amp;lt;dbl&amp;gt;            &amp;lt;dbl&amp;gt;
+## 1      1            0.318
+## 2      2            0.882
+## 3      3            0.903
+## 4      4            0.476
+## 5      5            1.22&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here is a plot of the distribution of this statistic across the 1,000 simulations:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(sim_stat, aes(x = variability_stat)) + 
+  geom_rect(data = sim_stat, aes(xmin = quantile(variability_stat, prob = 0.025),
+                                 xmax = quantile(variability_stat, prob = 0.975),
+                                 ymin = 0, ymax = Inf), 
+            fill = &amp;quot;beige&amp;quot;, alpha = 0.5) +
+  geom_histogram(bins = 30, fill = &amp;quot;white&amp;quot;, color = &amp;quot;tan&amp;quot;, alpha = 0.5) +
+  theme_classic() + 
+  labs(title = &amp;quot;Variability from expected values&amp;quot;,
+       subtitle = &amp;quot;Values from simulations under the null&amp;quot;,
+       x = &amp;quot;Value of variability statistic&amp;quot;, 
+       y = &amp;quot;Number of simulations with given value&amp;quot;,
+       caption = &amp;quot;The shaded yellow area shows the region of the central 95% of\nstatistic values for the 1,000 simulations under the null model.&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-02-11-exercise-solution-for-chapter-1_files/figure-html/unnamed-chunk-14-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The value of this statistic for the observed nucleotide frequencies for &lt;em&gt;C.
+elegans&lt;/em&gt; is 4387, which is much larger (indicating greater variability
+from expected values under the null model) than the value observed under most of
+the simulations. It is, in fact, far outside the central 95% range of values
+observed in simulations.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Chapter 1 exercise setup</title>
+      <link>/post/chapter-1-exercise-setup/</link>
+      <pubDate>Thu, 06 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/post/chapter-1-exercise-setup/</guid>
+      <description>
+
+
+&lt;p&gt;The code instructions in the exercise statement appear to be outdated. The code below worked on my machine. Note that when asked whether I would like to update packages from the binary version, I said no. (When I said yes, &lt;code&gt;R&lt;/code&gt; gave an error.)&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;if (!requireNamespace(&amp;quot;BiocManager&amp;quot;, quietly = TRUE))
+  install.packages(&amp;quot;BiocManager&amp;quot;)
+BiocManager::install(c(&amp;quot;Biostrings&amp;quot;, &amp;quot;BSgenome.Celegans.UCSC.ce2&amp;quot;,&amp;quot;BSgenome&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can see the various data genome data sets available by loading the &lt;code&gt;BSgenome&lt;/code&gt; library and typing &lt;code&gt;available.genomes()&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Once you have the needed packages installed, you can access the sequence data for this exercise via the following commands.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;suppressMessages(library(&amp;quot;BSgenome.Celegans.UCSC.ce2&amp;quot;))
+Celegans&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Worm genome:
+## # organism: Caenorhabditis elegans (Worm)
+## # provider: UCSC
+## # provider version: ce2
+## # release date: Mar. 2004
+## # release name: WormBase v. WS120
+## # 7 sequences:
+## #   chrI   chrII  chrIII chrIV  chrV   chrX   chrM                              
+## # (use &amp;#39;seqnames()&amp;#39; to see all the sequence names, use the &amp;#39;$&amp;#39; or &amp;#39;[[&amp;#39; operator
+## # to access a given sequence)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;seqnames(Celegans)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;chrI&amp;quot;   &amp;quot;chrII&amp;quot;  &amp;quot;chrIII&amp;quot; &amp;quot;chrIV&amp;quot;  &amp;quot;chrV&amp;quot;   &amp;quot;chrX&amp;quot;   &amp;quot;chrM&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Celegans$chrM&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   13794-letter &amp;quot;DNAString&amp;quot; instance
+## seq: CAGTAAATAGTTTAATAAAAATATAGCATTTGGGTT...TATTTATAGATATATACTTTGTATATATCTATATTA&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;class(Celegans$chrM)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;DNAString&amp;quot;
+## attr(,&amp;quot;package&amp;quot;)
+## [1] &amp;quot;Biostrings&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;length(Celegans$chrM)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 13794&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The Biostrings packages provides functions to summarize the sequence. For example:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(&amp;quot;Biostrings&amp;quot;)
+lfM = letterFrequency(Celegans$chrM, letters=c(&amp;quot;A&amp;quot;, &amp;quot;C&amp;quot;, &amp;quot;G&amp;quot;, &amp;quot;T&amp;quot;))
+lfM&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    A    C    G    T 
+## 4335 1225 2055 6179&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sum(lfM)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 13794&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Chapter 1 vocabulary quiz</title>
+      <link>/post/chapter-1-vocabulary-quiz/</link>
+      <pubDate>Thu, 06 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/post/chapter-1-vocabulary-quiz/</guid>
+      <description>
+
+
+&lt;p&gt;The vocabulary quiz will be live here during the start of the course.&lt;/p&gt;
+&lt;iframe src=&#34;https://docs.google.com/forms/d/e/1FAIpQLSc6dQBUXr_diDWTwwGfUe3z39zwCQH56R0tNljKlcKr9zzyGg/viewform?embedded=true&#34; width=&#34;640&#34; height=&#34;3200&#34; frameborder=&#34;0&#34; marginheight=&#34;0&#34; marginwidth=&#34;0&#34;&gt;
+Loading…
+&lt;/iframe&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Vocabulary for Chapter 1</title>
+      <link>/post/vocabulary-for-chapter-1/</link>
+      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>/post/vocabulary-for-chapter-1/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Chapter 1 covers generative modeling for discrete data. It introduces a number of terms covering
+probablity and statistical modeling, as well as a few biological terms. The vocabulary words for
+Chapter 1 are:&lt;/p&gt;
+&lt;table class=&#34;table table-striped table-hover table-condensed&#34; style=&#34;margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+probability model
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A mathematical description of the possible outcomes of an experiment and the probability of each of those outcomes.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+vector
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In programming, a one-dimensional array of data, all with the same data type.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+discrete event
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In statistics, an event that can take a finite or countable number of values (e.g., number of deaths in a community by day).
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+categorical variable
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A variable that can belong to one of a finite set of levels.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+levels
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of a categorical variable, the set of values to which the variable can be assigned.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+factor
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of statistical programming, a data type that can take one of a limited number of possible values (e.g., sex, nationality).
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+exchangeable
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A property of a vector of random variables that implies the order in which the variables appear in the vector doesn’t matter.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+sufficient statistic
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A (summary) statistic that contains all the information about the model parameters that is in the original, uncondensed form of the data.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Bernoulli distribution
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A probability distribution describing a random variable that can take on two possible outcomes (e.g., win / loss).
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+parameter
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A numerical value that describes a population.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+complementary
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A description of two events who are mutually exclusive and whose probabilities sum to one (i.e., either one event or the other is guaranteed to happen, but not both).
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+binomial random variable
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A variable whose values occur according to a binomial probability distribution.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+probability mass distribution
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A function giving the probability that a discrete random variable is equal to a given value.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Poisson distribution
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A probability distribution for count data that has support on the non-negative integers. This distribution is also used to approximate a binomial distribution when the probability of success is small and the number of trials is large.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+epitope / antigen determinent
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Site on a macromolecular antigen to which an antibody binds. This is the part of an antigen that is recognized by the immune system.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Enzyme-linked immunosorbent assay (ELISA)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+An assay that is used to detect specific epitopes at different positions along a protein.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+conditional on
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Given
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+cumulative distribution function
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A function giving the probability that a random variable is less than any specified value.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+extreme value analysis
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Analysis focused on the behavior of the very large or the very small outcomes of a random distribution, allowing an exploration of the probability of rare events.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+rare event
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Something that occurs with a very low probability.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+rank statistic
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A data vector sorted least to greatest.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Monte Carlo method
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A method that uses computer simulation from a generative model to determine probabilities of events.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+probability or generative modeling
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A method of modeling where all the parameters are known and the mathematical theory allows us to work by deduction.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+deduction
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A top-down method of reasoning, starting from a theory or principle rather than from data.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+statistical modeling
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A method of modeling where the distribution of the data is not known.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+fit
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of statistical modeling, estimating the parameters of a model based on observed data.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+multinomial
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A generalization of the binomial distribution to cases where there are a finite set of possible outcomes (e.g., a roll of a die).
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+power / true positive rate
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+The probability of detecting something if it is there.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+null hypothesis
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Often, a hypothesis of “no association” that is used as a counterpart to a more interesting alternative hypothesis in hypothesis testing.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+matrix
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In programming, a two-dimensional array of data, all with the same data type.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+expected value
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+The average (mean) value of a random variable.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+variability / spread / dispersion
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In statistics, the amount by which a set of observations deviate from their mean.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+statistic
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A numerical characteristic of a sample and known constants (i.e. no unknown parameters).
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+null distribution
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+The probability distribution under the null hypothesis.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+alternative
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of a generating process and hypothesis testing, the generating process that is considered in comparison to the generating process under the null hypothesis.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+chi-squared distribution
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A distribution on the non-negative real numbers that is often used in assessing goodness-of-fit (e.g. models fit to contingency tables).
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+p-value
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+The probability of seeing the observed data or something more extreme under the generative model associated with the null hypothesis.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+probability density function
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A function giving the relative likelihood that a continuous random variable is equal to a given value. When this function is integrated over the sample space, it equals 1.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+default
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of arguments to an R function, the value that is used if no custom value is specified.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+C. elegans genome nucleotide frequency
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+How often adenine, cytosine, guanine, and thymine occur in the DNA of a roundwork often used in scientific research.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Bioconductor
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Open-source software that provides contributed programs for bioinformatic data analysis.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+codon
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A three-nucleotide sequence that specifies the amino acid to be created next (or to start or stop synthesis).
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+DNA read
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+An inferred sequence of base pairs for a single DNA fragment, based on sequencing.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+nucleotide
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of DNA, one of four compounds (adenine (A); cytosince (C); guanine (G); and tymine (T)) that make up the basic information unit.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+genome
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+An organism’s complete set of DNA, including all of its genes.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+replication cycle
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In biology, the process that begins with the infection of a host cell by a virus and ends with the release of mature progeny virus particles.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+point mutation
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A change, addition, or deletion of a single nucleotide in a gene sequence.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+genotype
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+The genetic make-up of an individual’s cells, including how the individual’s genetic make-up differs from others’.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+diploid
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Having genetic material in two complete sets of chromosomes, from two parents.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+protein
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A compound made up of amino acids; one of the four types of macromolecules that make up living organisms.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+antibody
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A type of protein made by certain white blood cells in response to an antigen.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+antigen
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A foreign substance in the body to which the immune system reacts.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div id=&#34;sources-consulted-or-cited&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Sources consulted or cited&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Some of the definitions above are based in part or whole on listed definitions
+in the following sources.&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Holmes and Huber, 2019. &lt;em&gt;Modern Statistics for Modern Biology.&lt;/em&gt; Cambridge University Press,
+Cambridge, United Kingdom.&lt;/li&gt;
+&lt;li&gt;Everitt and Skrondal, 2010. &lt;em&gt;The Cambridge Dictionary of Statistics (Fourth Edition).&lt;/em&gt; Cambridge University Press, Cambridge, United Kingdom.&lt;/li&gt;
+&lt;li&gt;Bioconductor: Open Source Software for Bioinformatics. &lt;a href=&#34;https://www.bioconductor.org/&#34; class=&#34;uri&#34;&gt;https://www.bioconductor.org/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Wikipedia: The Free Encyclopedia. &lt;a href=&#34;https://en.wikipedia.org/wiki/Main_Page&#34; class=&#34;uri&#34;&gt;https://en.wikipedia.org/wiki/Main_Page&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;NIH Genetics Home Reference. &lt;a href=&#34;https://ghr.nlm.nih.gov/&#34; class=&#34;uri&#34;&gt;https://ghr.nlm.nih.gov/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;NCI Dictionary of Cancer Terms. &lt;a href=&#34;https://www.cancer.gov/publications/dictionaries/cancer-terms&#34; class=&#34;uri&#34;&gt;https://www.cancer.gov/publications/dictionaries/cancer-terms&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;practice&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Practice&lt;/h3&gt;
+&lt;iframe src=&#34;https://quizlet.com/473473135/flashcards/embed?i=2ldef3&amp;amp;x=1jj1&#34; height=&#34;500&#34; width=&#34;100%&#34; style=&#34;border:0&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

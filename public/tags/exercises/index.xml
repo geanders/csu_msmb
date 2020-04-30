@@ -1,0 +1,674 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>exercises | CSU MSMB Group Study</title>
+    <link>/tags/exercises/</link>
+      <atom:link href="/tags/exercises/index.xml" rel="self" type="application/rss+xml" />
+    <description>exercises</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 19 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>exercises</title>
+      <link>/tags/exercises/</link>
+    </image>
+    
+    <item>
+      <title>Exercise solution for Chapter 2, Part 1</title>
+      <link>/post/exercise-solution-for-chapter-2/</link>
+      <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/post/exercise-solution-for-chapter-2/</guid>
+      <description>
+
+
+&lt;p&gt;As always, load libraries first.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)
+library(tidyverse)
+library(dplyr)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;exercise-2.3-from-modern-statistics-for-modern-biologists&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Exercise 2.3 from Modern Statistics for Modern Biologists&lt;/h2&gt;
+&lt;p&gt;A sequence of three nucleotides codes for one amino acid. There are 4 nucleotides, thus &lt;span class=&#34;math inline&#34;&gt;\(4^3\)&lt;/span&gt; would allow for 64 different amino acids, however there are only 20 amino acids requiring only 20 combinations + 1 for an “end” signal. (The “start” signal is the codon, ATG, which also codes for the amino acid methionine, so the start signal does not have a separate codon.) The code is redundant. But is the redundancy even among codons that code for the same amino acid? In other words, if alanine is coded by 4 different codons, do these codons code for alanine equally (each 25%), or do some codons appear more often than others? Here we use the tuberculosis genome to explore codon bias.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;a-explore-the-data-mtb&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;a) Explore the data, &lt;code&gt;mtb&lt;/code&gt;&lt;/h1&gt;
+&lt;p&gt;Use &lt;code&gt;table&lt;/code&gt; to tabulate the &lt;code&gt;AmAcid&lt;/code&gt; and &lt;code&gt;Codon&lt;/code&gt; variables.&lt;/p&gt;
+&lt;p&gt;Each amino acid is encoded by 1–6 tri-nucleotide combinations.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtb = read.table(&amp;quot;example_datasets/M_tuberculosis.txt&amp;quot;, header = TRUE)
+codon_no &amp;lt;- rowSums(table(mtb))
+codon_no&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Ala Arg Asn Asp Cys End Gln Glu Gly His Ile Leu Lys Met Phe Pro Ser Thr Trp Tyr 
+##   4   6   2   2   2   3   2   2   4   2   3   6   2   1   2   4   6   4   1   2 
+## Val 
+##   4&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;code&gt;PerThousands&lt;/code&gt; of each codon can be visualized, where each plot represents an amino acid and each bar represents a different codon that codes for that amino acid. But what does the &lt;code&gt;PerThousands&lt;/code&gt; variable mean?&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(mtb, aes(x=Codon, y=PerThous)) +
+  geom_col()+
+  facet_wrap(~AmAcid, scales=&amp;quot;free&amp;quot;) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-02-19-exercise-solution-for-chapter-2_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;768&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;b-the-perthous-variable&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;b) The &lt;code&gt;PerThous&lt;/code&gt; variable&lt;/h1&gt;
+&lt;p&gt;How was the &lt;code&gt;PerThous&lt;/code&gt; variable created?&lt;/p&gt;
+&lt;p&gt;The sum of all of the numbers of codons gives you the total number of codons in the M. tuberculosis genome: &lt;code&gt;all_codons&lt;/code&gt;. Remember that this is not the size of the M. tuberculosis genome, but the number of codons in all M. tuberculosis genes. To get the size of the genome, multiply each codon by 3 (for each nucleotide) and add all non-coding nucleotides (which we do not know from this data set).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;all_codons = sum(mtb$Number)
+all_codons&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1344223&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;code&gt;PerThousands&lt;/code&gt; variable is derived by dividing the number of occurrences of the codon of interest by the total number of codons. Because this number is small and hard to interpret, multiplying it by 1000 gives a value that is easy to make sense of. Here is an example for proline. The four values returned align to the four codons that each code for proline.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pro  =  mtb[mtb$AmAcid == &amp;quot;Pro&amp;quot;, &amp;quot;Number&amp;quot;]
+pro / all_codons * 1000&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 31.560240  6.121752  3.405685 17.032144&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;c-codon-bias&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;c) Codon bias&lt;/h1&gt;
+&lt;p&gt;Write an R function that you can apply to the table to find which of the amino acids shows the strongest codon bias, i.e., the strongest departure from uniform distribution among its possible spellings.&lt;/p&gt;
+&lt;p&gt;First, let’s look at the expected frequencies of each codon.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;codon_expected &amp;lt;- data.frame(codon_no) %&amp;gt;%
+  rownames_to_column(var = &amp;quot;AmAcid&amp;quot;) %&amp;gt;%
+  mutate(prob_codon = 1/codon_no)
+codon_expected&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    AmAcid codon_no prob_codon
+## 1     Ala        4  0.2500000
+## 2     Arg        6  0.1666667
+## 3     Asn        2  0.5000000
+## 4     Asp        2  0.5000000
+## 5     Cys        2  0.5000000
+## 6     End        3  0.3333333
+## 7     Gln        2  0.5000000
+## 8     Glu        2  0.5000000
+## 9     Gly        4  0.2500000
+## 10    His        2  0.5000000
+## 11    Ile        3  0.3333333
+## 12    Leu        6  0.1666667
+## 13    Lys        2  0.5000000
+## 14    Met        1  1.0000000
+## 15    Phe        2  0.5000000
+## 16    Pro        4  0.2500000
+## 17    Ser        6  0.1666667
+## 18    Thr        4  0.2500000
+## 19    Trp        1  1.0000000
+## 20    Tyr        2  0.5000000
+## 21    Val        4  0.2500000&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Next, calculate the observed frequencies for each codon seen in the data set and use the chi-squared test statistic to determine if the difference between expected and observed codon frequencies is even or if some codon sequences are used more than others.&lt;/p&gt;
+&lt;p&gt;To start, you can group the data by amino acid and then determine a few things about
+the amino acid or the possible codons for it, including the total observations
+across all codons for the amino acid (&lt;code&gt;total&lt;/code&gt;), the number of codons for that
+amino acid (&lt;code&gt;n_codons&lt;/code&gt;), and the expected count for each codon for that amino acid
+(the total number of observations for that amino acid divided by the number of
+codons, giving an expected number that’s the same for all codons of an amino
+acid; &lt;code&gt;expected&lt;/code&gt;).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;codon_compared &amp;lt;- mtb %&amp;gt;% 
+  group_by(AmAcid) %&amp;gt;% 
+  mutate(total = sum(Number),
+         n_codons = n(),
+         expected = total / n_codons)
+codon_compared&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 64 x 7
+## # Groups:   AmAcid [21]
+##    AmAcid Codon Number PerThous  total n_codons expected
+##    &amp;lt;fct&amp;gt;  &amp;lt;fct&amp;gt;  &amp;lt;int&amp;gt;    &amp;lt;dbl&amp;gt;  &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;    &amp;lt;dbl&amp;gt;
+##  1 Gly    GGG    25874    19.2  132810        4   33202.
+##  2 Gly    GGA    13306     9.9  132810        4   33202.
+##  3 Gly    GGT    25320    18.8  132810        4   33202.
+##  4 Gly    GGC    68310    50.8  132810        4   33202.
+##  5 Glu    GAG    41103    30.6   62870        2   31435 
+##  6 Glu    GAA    21767    16.2   62870        2   31435 
+##  7 Asp    GAT    21165    15.8   77852        2   38926 
+##  8 Asp    GAC    56687    42.2   77852        2   38926 
+##  9 Val    GTG    53942    40.1  114991        4   28748.
+## 10 Val    GTA     6372     4.74 114991        4   28748.
+## # … with 54 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;code&gt;mutate&lt;/code&gt; function is used after &lt;code&gt;group_by&lt;/code&gt; to do all this
+within each amino acid group of codons, but without collapsing to one row per
+amino acid, as a &lt;code&gt;summarize&lt;/code&gt; call would.&lt;/p&gt;
+&lt;p&gt;To convince yourself that this has worked out correctly, you can repeat
+the plot we made before and see that the bars for the expected values are
+always equal across all codons for an amino acid:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(codon_compared, aes(x=Codon, y=expected)) +
+     geom_col()+
+     facet_wrap(~AmAcid, scales=&amp;quot;free&amp;quot;) +
+     theme(axis.text.x = element_text(angle = 45, hjust = 1))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-02-19-exercise-solution-for-chapter-2_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;768&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Finally, we can calculate the chi-squared (&lt;span class=&#34;math inline&#34;&gt;\(\chi^2\)&lt;/span&gt;) statistic and compare it to the
+chi-squared distribution to get the p-value when testing against the null hypothesis
+that the amino acid observations are uniformly distributed across codons. The &lt;span class=&#34;math inline&#34;&gt;\(\chi^2\)&lt;/span&gt;
+is calculated as:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\chi^2 = \sum_i{\frac{(O_i-E_i)^2}{E_i}}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;where:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(O_i\)&lt;/span&gt; is the observed value of data point &lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt; (&lt;code&gt;Number&lt;/code&gt; in our data); and&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(E_i\)&lt;/span&gt; is the expected value of data point &lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt; (&lt;code&gt;expected&lt;/code&gt; in our data)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In our data, we can calculate the contribution to the total &lt;span class=&#34;math inline&#34;&gt;\(\chi^2\)&lt;/span&gt; statistic
+from each data point (in this case, each codon within an amino acid) using
+&lt;code&gt;mutate&lt;/code&gt;, and then
+add these values up using &lt;code&gt;group_by&lt;/code&gt; to group by amino acid followed by
+&lt;code&gt;summarize&lt;/code&gt; to sum up across all the data points for an amino acid.
+The other information we need to get is the number of codons for the
+amino acid, because we’ll need this to determine the degrees of freedom
+for the chi-squared distribution. Next, we used &lt;code&gt;mutate&lt;/code&gt; with
+&lt;code&gt;pchisq&lt;/code&gt; to determine the p-values within each amino acid group for the
+test against the null that the codons are uniformly distributed for that
+amino acid (i.e., that there isn’t codon bias). These p-values turn out to
+be super small, so we’re using a technique to get the log-transform versions of
+them instead, which we explain a bit more later. Finally, we used &lt;code&gt;arrange&lt;/code&gt; to
+list the amino acids by evidence against uniform distribution of the codons,
+from most evidence against (smallest p-value so most negative log(p-value))
+to least evidence against (although still plenty of evidence against) and added
+an &lt;code&gt;index&lt;/code&gt; with the ranking for each codon by adding a column with the sequence
+of numbers from 1 to the number of rows in the data (&lt;code&gt;n()&lt;/code&gt;).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;codon_compared %&amp;gt;% 
+  filter(n_codons &amp;gt; 1) %&amp;gt;% 
+  group_by(AmAcid) %&amp;gt;% 
+  mutate(chi_squared = ((Number - expected)^2/expected)) %&amp;gt;% 
+  summarise(chi_squared = sum(chi_squared),
+            n = n()) %&amp;gt;% 
+  mutate(p_value = pchisq(chi_squared, df = n-1, log = TRUE, lower.tail = FALSE)) %&amp;gt;% 
+  arrange(p_value) %&amp;gt;% 
+  mutate(rank = 1:n())&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 19 x 5
+##    AmAcid chi_squared     n p_value  rank
+##    &amp;lt;fct&amp;gt;        &amp;lt;dbl&amp;gt; &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt; &amp;lt;int&amp;gt;
+##  1 Leu        135432.     6 -67700.     1
+##  2 Ala         75620.     4 -37805.     2
+##  3 Arg         72183.     6 -36076.     3
+##  4 Thr         58767.     4 -29378.     4
+##  5 Val         58737.     4 -29363.     5
+##  6 Ile         56070.     3 -28035.     6
+##  7 Gly         52534.     4 -26262.     7
+##  8 Pro         45400.     4 -22695.     8
+##  9 Ser         36742.     6 -18357.     9
+## 10 Asp         16208.     2  -8109.    10
+## 11 Phe         13444.     2  -6727.    11
+## 12 Asn         11404.     2  -5707.    12
+## 13 Gln          9376.     2  -4693.    13
+## 14 Lys          6382.     2  -3195.    14
+## 15 Glu          5947.     2  -2978.    15
+## 16 His          5346.     2  -2678.    16
+## 17 Tyr          4738.     2  -2373.    17
+## 18 Cys          2958.     2  -1483.    18
+## 19 End           928.     3   -464.    19&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As you may notice, these log transforms of the p-values (which we got rather than untransformed p-values in the &lt;code&gt;pchisq&lt;/code&gt; call because we used the option &lt;code&gt;log = TRUE&lt;/code&gt;) are large in magnitude and negative (so very tiny once you take the exponent if you re-transformed them to p-values) values. If you tried to calculate the untransformed p-values (and we did!), this number is so small (0.00000000e+00) that it is too small for R—it shows up as exactly zero in R, even though it actually is a very tiny, but still non-zero, number. To get around this issue, we told &lt;code&gt;pchisq&lt;/code&gt; to work on these p-values as log transforms, and then we left the p-value as that log-transformed value. A group of numbers that are log transformed will be in the same order as their untransformed versions, so we don’t need to convert back to figure out which amino acid had that smallest p-value. We can just sort the amino acids from most negative to less negative using these log-transformed versions of the p-values. We now have the amino acids ranked from most biased codons (1) to least (19).&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to create an exercise solution blog post</title>
+      <link>/post/how-to-create-an-exercise-solution-blog-post/</link>
+      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/post/how-to-create-an-exercise-solution-blog-post/</guid>
+      <description>
+
+
+&lt;p&gt;Each of you will be responsible once or twice over the semester to create
+a blog post that provides a clean, clearly-presented solution to the
+in-class exercise for the week. This blog post provides the technical
+instructions for writing and submitting that exercise.&lt;/p&gt;
+&lt;p&gt;Your exercise solution should be posted &lt;strong&gt;before&lt;/strong&gt; the next class meeting.
+Since it will need to be reviewed by the faculty before it can be officially
+posted, please plan to submit it by the &lt;strong&gt;Tuesday after&lt;/strong&gt; the class for your
+exercise. Student assignments for the exercises are given in the
+Schedule section of our course website.&lt;/p&gt;
+&lt;div id=&#34;overview-of-creating-a-post&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Overview of creating a post&lt;/h2&gt;
+&lt;p&gt;You will be submitting your exercise solution as a blog post. Creating
+one for our website will follow all the same steps as creating a blog
+post for a vocabulary list, just with different content. Please read
+the &lt;a href=&#34;https://kind-neumann-789611.netlify.com/post/creating-a-vocabulary-list-blog-post/&#34;&gt;post on creating a vocabulary list&lt;/a&gt;
+and follow the steps there to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Update your fork of the website&lt;/li&gt;
+&lt;li&gt;Make a new blog post&lt;/li&gt;
+&lt;li&gt;Use RMarkdown syntax to write the blog post&lt;/li&gt;
+&lt;li&gt;Submit the blog post&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;content-for-the-blog-post&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Content for the blog post&lt;/h2&gt;
+&lt;p&gt;The blog post should provide a walk-through of the solution to that week’s in-course
+exercise. We have posted an example for &lt;a href=&#34;https://kind-neumann-789611.netlify.com/post/exercise-solution-for-chapter-1/&#34;&gt;the exercise for Chapter 1&lt;/a&gt;
+to give you an idea of what you should aim to write.&lt;/p&gt;
+&lt;p&gt;Generally, this exercise will be a resource for everyone in the class, to make sure
+they’ve understood the exercise, as well as to see how someone else tackled the problem.
+Your solution should cover all parts of the exercise (for example, if there’s a
+part A and B, you should cover both). You can start by writing it as you would if you
+were assigned the exercise as a homework problem, but then you should do a second step
+of revision to provide some context and dig a bit deeper into how you tackled
+the question. Since we are only requiring you to write up exercise answers once
+or twice over the semester (rather than submitting homework for exercises every
+week), we expect this product to be more in-depth and polished than a typical
+homework solution.&lt;/p&gt;
+&lt;p&gt;First, make sure that you have provided text explaining what the
+exercise asks for, in case the reader hasn’t recently read the exercise prompt.
+Second, please add a few details either about how you tackled the problem through code
+or how the statistical principles covered in the exercise could apply to other problems
+you’ve come across in your research or coursework.&lt;/p&gt;
+&lt;p&gt;To help in preparing your post, plan to spend the exercise time in class during the
+week of your exercise visiting the different groups of students working on the
+exercise. You can talk to them about how they’re approaching the problem, how they
+interpret it, etc., to help you develop your own answer.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;tips&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Tips&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Be sure to refresh yourself on all the Markdown formatting tags you can use to improve
+the appearance of your post. Be sure to include things like section headings and
+italics or bold as appropriate. RStudio’s website has some nice cheatsheets on
+RMarkdown that can help.&lt;/li&gt;
+&lt;li&gt;Make sure you include R code if appropriate. If you put parentheses around an
+assignment expression in R, it will print out the assigned object and make the
+assignment in the same call—you might find this useful in writing concise code
+while still showing what’s in the objects you create.&lt;/li&gt;
+&lt;li&gt;Use the &lt;code&gt;$&lt;/code&gt; and &lt;code&gt;$$&lt;/code&gt; tags in RMarkdown to include mathematical equations in your blog post
+when appropriate.&lt;/li&gt;
+&lt;li&gt;If you need to read in a dataset for R code in your blog post, save it in the
+website directory’s “content/post/example_datasets” subdirectory. If your data
+comes from an online source or from an R library, you won’t need to do this,
+only if you need a “local” copy of the datafile to run your RMarkdown code.&lt;/li&gt;
+&lt;li&gt;You are welcome to draw from (and cite) other statistics textbooks or dictionaries
+if you’d like to in explaining the problem and your approach to it.&lt;/li&gt;
+&lt;li&gt;For the code, look at vignettes and helpfiles, especially for packages you are not
+familiar with.&lt;/li&gt;
+&lt;li&gt;For a lot of Bioconductor packages, object-oriented programming is used pretty
+heavily. This means that associated data in R packages will often be stored in a
+format that you haven’t used yet. Look up more information on data classes used in
+your exercise if you aren’t familiar with them. You can use the &lt;code&gt;class&lt;/code&gt; function
+to determine the class of an object as well as the name of the package that defines
+that class. The &lt;code&gt;str&lt;/code&gt; function is often helpful for exploring a data object class, as well.
+Many of the Bioconductor object classes will have special &lt;em&gt;accessor methods&lt;/em&gt;, which are
+functions that allow you to extract certain elements from the object—check the helpfile
+for the object class, as these methods are often listed there with examples.&lt;/li&gt;
+&lt;li&gt;Googling can also be very helpful for learning more about functions, packages, and
+datasets in R, especially if you don’t yet know what package the item is from.&lt;/li&gt;
+&lt;li&gt;Most Bioconductor packages have very nice vignettes available online and from your
+R session once you have installed the package. These are a great place to start to find
+out more about how to use the functions and object classes that come with the package.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Exercise solution for Chapter 1</title>
+      <link>/post/exercise-solution-for-chapter-1/</link>
+      <pubDate>Tue, 11 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/post/exercise-solution-for-chapter-1/</guid>
+      <description>
+
+
+&lt;p&gt;This exercise asks us to explore the frequency of each of the four nucleotides
+(A, C, G, and T) in the genome of &lt;em&gt;C. elegans&lt;/em&gt;, a type of worm used frequently
+in scientific research.&lt;/p&gt;
+&lt;p&gt;This solution requires that several R extension packages be loaded in your R
+session. If you do not have these packages installed to your computer yet, you
+should follow &lt;a href=&#34;https://kind-neumann-789611.netlify.com/post/chapter-1-exercise-setup/&#34;&gt;instructions we’ve posted
+separately&lt;/a&gt;
+describing the required set-up for this exercise. Once you have installed these
+packages on your computer, you can load them into your current R session using
+the &lt;code&gt;library&lt;/code&gt; function:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(&amp;quot;BSgenome.Celegans.UCSC.ce2&amp;quot;)
+library(&amp;quot;Biostrings&amp;quot;)
+
+library(&amp;quot;tidyverse&amp;quot;)
+library(&amp;quot;knitr&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;part-a&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Part A&lt;/h2&gt;
+&lt;p&gt;Part A of the question asks us to explore the nucleotide frequency of the &lt;em&gt;C.
+elegans&lt;/em&gt; genome. This genome is available in the &lt;code&gt;Celegans&lt;/code&gt; data that comes with
+the &lt;code&gt;BSgenome.Clegans.UCSC.ce2&lt;/code&gt; package and is stored within a &lt;code&gt;BSgenome&lt;/code&gt; class,
+which is a special object class provided by the &lt;code&gt;Biostrings&lt;/code&gt; package.&lt;/p&gt;
+&lt;p&gt;There is a dedicated function called &lt;code&gt;letterFrequency&lt;/code&gt; in the &lt;code&gt;Biostrings&lt;/code&gt;
+package that can be used to count the frequency of letters in a string (like a
+genome) in an R object like this. In a call to this function, you must also
+include the possible letters in your “alphabet”—that is, the possible letters
+that each position in your string could take.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;(nuc_freq &amp;lt;- letterFrequency(Celegans$chrM, letters=c(&amp;quot;A&amp;quot;, &amp;quot;C&amp;quot;, &amp;quot;G&amp;quot;, &amp;quot;T&amp;quot;)))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    A    C    G    T 
+## 4335 1225 2055 6179&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To explore and plot this data, I put this summary data into a &lt;code&gt;tibble&lt;/code&gt;, so I
+could more easily use &lt;code&gt;tidyverse&lt;/code&gt; tools with the data.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;nuc_freq_df &amp;lt;- tibble(nucleotide = names(nuc_freq), 
+             n = nuc_freq)
+nuc_freq_df&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 4 x 2
+##   nucleotide     n
+##   &amp;lt;chr&amp;gt;      &amp;lt;int&amp;gt;
+## 1 A           4335
+## 2 C           1225
+## 3 G           2055
+## 4 T           6179&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In this format, you can use &lt;code&gt;tidyverse&lt;/code&gt; tools to explore the data a bit more.
+For example, you can determine the total number of nucleotides in the genome
+and, with that calculate the proportion of each nucleotide across the genome.
+Along with the &lt;code&gt;kable&lt;/code&gt; function from the &lt;code&gt;knitr&lt;/code&gt; package, I created a formatted
+table with this information:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;nuc_freq_df %&amp;gt;% 
+  mutate(prop = n / sum(n)) %&amp;gt;% 
+  kable(digits = 2, 
+        caption = &amp;quot;Nucleotide frequencies and proportions in *C. elegans*&amp;quot;,
+        col.names = c(&amp;quot;Nucleotide&amp;quot;, &amp;quot;Frequency&amp;quot;, &amp;quot;Proportion&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;caption&gt;&lt;span id=&#34;tab:unnamed-chunk-4&#34;&gt;Table 1: &lt;/span&gt;Nucleotide frequencies and proportions in &lt;em&gt;C. elegans&lt;/em&gt;&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;left&#34;&gt;Nucleotide&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Frequency&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Proportion&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;A&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;4335&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.31&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;C&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1225&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.09&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;G&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2055&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.15&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;T&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;6179&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.45&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;For some presentations, it might be clearer to present this information in a
+slightly different table format, using &lt;code&gt;pivot_longer&lt;/code&gt; and then &lt;code&gt;pivot_wider&lt;/code&gt; to
+reformat the table for presentation:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;nuc_freq_df %&amp;gt;% 
+  mutate(prop = n / sum(n),
+         n = prettyNum(n, big.mark = &amp;quot;,&amp;quot;),
+         prop = prettyNum(prop, digits = 2)) %&amp;gt;% 
+  pivot_longer(cols = c(&amp;quot;n&amp;quot;, &amp;quot;prop&amp;quot;)) %&amp;gt;% 
+  pivot_wider(names_from = &amp;quot;nucleotide&amp;quot;) %&amp;gt;% 
+  mutate(name = case_when(
+    name == &amp;quot;n&amp;quot; ~ &amp;quot;Frequency of nucleotide&amp;quot;,
+    name == &amp;quot;prop&amp;quot; ~ &amp;quot;Proportion of all nucleotides&amp;quot;
+  )) %&amp;gt;%  
+  rename(` ` = name) %&amp;gt;% 
+  kable(align = c(&amp;quot;rcccc&amp;quot;), 
+        caption = &amp;quot;Nucleotide frequencies and proportions in *C. elegans*&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;caption&gt;&lt;span id=&#34;tab:unnamed-chunk-5&#34;&gt;Table 2: &lt;/span&gt;Nucleotide frequencies and proportions in &lt;em&gt;C. elegans&lt;/em&gt;&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;A&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;C&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;G&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;T&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Frequency of nucleotide&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;4,335&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;1,225&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;2,055&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;6,179&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Proportion of all nucleotides&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;0.31&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;0.089&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;0.15&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;0.45&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Here is a plot of the frequency of each of the four nucleotides for the &lt;em&gt;C.
+elegans&lt;/em&gt; nucleotide:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(nuc_freq_df, aes(x = nucleotide, y = n)) + 
+  geom_col(fill = &amp;quot;lavender&amp;quot;, color = &amp;quot;black&amp;quot;) + 
+  theme_classic() + 
+  scale_y_continuous(label = scales::comma) + 
+  theme(axis.title = element_blank()) + 
+  labs(title = expression(paste(italic(&amp;quot;C. elegans&amp;quot;), &amp;quot; neucleotide frequency&amp;quot;)),
+       caption = expression(paste(&amp;quot;Based on data from the &amp;quot;, italic(&amp;quot;BSgenome.Celegans.UCSC.ce2&amp;quot;), 
+                                  &amp;quot; package.&amp;quot;)))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-02-11-exercise-solution-for-chapter-1_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;This graph uses a few elements to improve its appearance that you might want to
+explore if you’re not already familiar with them:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;code&gt;labs&lt;/code&gt; function is used to add both a title and a caption to the plot.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;paste&lt;/code&gt;, &lt;code&gt;expression&lt;/code&gt;, and &lt;code&gt;italic&lt;/code&gt; functions are used together to put “C.
+elegans” and an R package name in italics in some of the labels on the plot.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;scales&lt;/code&gt; package is used inside a scale layer for the &lt;code&gt;ggplot2&lt;/code&gt; code to
+make the y-axis labels a bit nicer.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;theme&lt;/code&gt; calls are used to apply a simpler overall theme than the default and to
+remove the x- and y-axis titles (with &lt;code&gt;element_blank&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;The color and fill of the bars are customized in the geom layer (&lt;code&gt;geom_col&lt;/code&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;From this plot, it certainly looks like the nucleotides are &lt;strong&gt;not&lt;/strong&gt; uniformly
+distributed in the &lt;em&gt;C. elegans&lt;/em&gt; genome. This question will be investigated more
+in the next part of the exercise.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;part-b&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Part B&lt;/h2&gt;
+&lt;p&gt;The second part of the exercise asks us to test whether the observed nucleotide
+data for &lt;em&gt;C. elegans&lt;/em&gt; is consistent with the uniform model that all nucleotide
+frequencies are the same.&lt;/p&gt;
+&lt;p&gt;First, we can simulate several datasets under this null model and see how a plot
+of nucleotide frequencies compares to the plot that we obtained with the observed
+&lt;em&gt;C. elegans&lt;/em&gt; data. To make these plots, I first simulated 20 samples under the
+null model that the distribution is uniform across the four nucleotides, using
+the &lt;code&gt;rmultinom&lt;/code&gt; function with the &lt;code&gt;size&lt;/code&gt; argument set to the number of nucleotides in
+the original &lt;em&gt;C. elegans&lt;/em&gt; genome data and the &lt;code&gt;prob&lt;/code&gt; argument set to have an equal
+probability of each nucleotide at each spot on the genome:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;(sim_nuc_freq &amp;lt;- rmultinom(n = 20, 
+                          size = sum(nuc_freq_df$n), 
+                          prob = rep(1 / 4, 4)))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13] [,14]
+## [1,] 3397 3447 3540 3504 3396 3506 3369 3451 3463  3475  3451  3484  3467  3419
+## [2,] 3523 3442 3360 3478 3549 3442 3507 3441 3459  3368  3457  3393  3420  3593
+## [3,] 3430 3456 3472 3377 3412 3467 3436 3431 3417  3522  3443  3430  3462  3461
+## [4,] 3444 3449 3422 3435 3437 3379 3482 3471 3455  3429  3443  3487  3445  3321
+##      [,15] [,16] [,17] [,18] [,19] [,20]
+## [1,]  3387  3466  3487  3455  3564  3448
+## [2,]  3406  3439  3496  3489  3323  3434
+## [3,]  3546  3341  3398  3418  3476  3440
+## [4,]  3455  3548  3413  3432  3431  3472&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Next, I moved this into a tibble so I could more easily rearrange and plot the data using
+facetting in &lt;code&gt;ggplot2&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sim_nuc_freq_df &amp;lt;- as_tibble(sim_nuc_freq) %&amp;gt;% 
+  mutate(nucleotide = c(&amp;quot;A&amp;quot;, &amp;quot;C&amp;quot;, &amp;quot;G&amp;quot;, &amp;quot;T&amp;quot;)) %&amp;gt;% 
+  pivot_longer(-nucleotide, names_to = &amp;quot;sample&amp;quot;) %&amp;gt;% 
+  mutate(sample = sample %&amp;gt;% str_remove(&amp;quot;V&amp;quot;) %&amp;gt;% as.numeric()) %&amp;gt;% 
+  arrange(sample, nucleotide)
+
+sim_nuc_freq_df %&amp;gt;% 
+  slice(1:10)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 10 x 3
+##    nucleotide sample value
+##    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt; &amp;lt;int&amp;gt;
+##  1 A               1  3397
+##  2 C               1  3523
+##  3 G               1  3430
+##  4 T               1  3444
+##  5 A               2  3447
+##  6 C               2  3442
+##  7 G               2  3456
+##  8 T               2  3449
+##  9 A               3  3540
+## 10 C               3  3360&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(sim_nuc_freq_df, aes(x = nucleotide, y = value)) + 
+  geom_col(fill = &amp;quot;lavender&amp;quot;, color = &amp;quot;black&amp;quot;) + 
+  theme_classic() + 
+  scale_y_continuous(label = scales::comma) + 
+  theme(axis.title = element_blank()) + 
+  labs(title = &amp;quot;Simulated neucleotide frequencies under a uniform model&amp;quot;) +
+  facet_wrap(~ sample) + 
+  expand_limits(y = max(nuc_freq_df$n))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-02-11-exercise-solution-for-chapter-1_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The y-axis limits were expanded here to cover the same range as that shown for the
+observed &lt;em&gt;C. elegans&lt;/em&gt; nucleotide frequencies, to help make it easier to compare these plots
+with the plot of our observed data. These plots of data simulated under the null model do
+show some variation in frequencies among the nucleotides, but it’s certainly much less than
+in the observed data for &lt;em&gt;C. elegans&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Next, I repeated this simulation process, but I increased the number of simulations to 1,000:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sim_nuc_freq_df &amp;lt;- rmultinom(n = 1000, 
+                          size = sum(nuc_freq_df$n), 
+                          prob = rep(1 / 4, 4)) %&amp;gt;% 
+  as_tibble() %&amp;gt;% 
+  mutate(nucleotide = c(&amp;quot;A&amp;quot;, &amp;quot;C&amp;quot;, &amp;quot;G&amp;quot;, &amp;quot;T&amp;quot;)) %&amp;gt;% 
+  pivot_longer(-nucleotide, names_to = &amp;quot;sample&amp;quot;) %&amp;gt;% 
+  mutate(sample = sample %&amp;gt;% str_remove(&amp;quot;V&amp;quot;) %&amp;gt;% as.numeric()) %&amp;gt;% 
+  arrange(sample, nucleotide)
+
+sim_nuc_freq_df %&amp;gt;% 
+  slice(1:10)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 10 x 3
+##    nucleotide sample value
+##    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt; &amp;lt;int&amp;gt;
+##  1 A               1  3427
+##  2 C               1  3456
+##  3 G               1  3471
+##  4 T               1  3440
+##  5 A               2  3429
+##  6 C               2  3492
+##  7 G               2  3421
+##  8 T               2  3452
+##  9 A               3  3451
+## 10 C               3  3438&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Using this dataframe of simulations, we can measure the mean, minimum, and maximum frequencies
+of each nucleotide across all 1,000 simulations:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;(sim_summary &amp;lt;- sim_nuc_freq_df %&amp;gt;% 
+  group_by(nucleotide) %&amp;gt;% 
+  summarize(mean_freq = mean(value),
+            min_freq = min(value), 
+            max_freq = max(value)))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 4 x 4
+##   nucleotide mean_freq min_freq max_freq
+##   &amp;lt;chr&amp;gt;          &amp;lt;dbl&amp;gt;    &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;
+## 1 A              3449.     3281     3602
+## 2 C              3446.     3272     3588
+## 3 G              3452.     3301     3652
+## 4 T              3447.     3266     3593&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To help compare this with the observed data, we can create a table with information from
+both the original data and the simulations under the null model:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;nuc_freq_df %&amp;gt;% 
+  left_join(sim_summary, by = &amp;quot;nucleotide&amp;quot;) %&amp;gt;% 
+  mutate_at(c(&amp;quot;mean_freq&amp;quot;, &amp;quot;min_freq&amp;quot;, &amp;quot;max_freq&amp;quot;, &amp;quot;n&amp;quot;), 
+            prettyNum, big.mark = &amp;quot;,&amp;quot;, digits = 0) %&amp;gt;% 
+  mutate(simulations = paste0(mean_freq, &amp;quot; (&amp;quot;, min_freq, &amp;quot;, &amp;quot;, max_freq, &amp;quot;)&amp;quot;)) %&amp;gt;% 
+  select(nucleotide, n, simulations) %&amp;gt;% 
+  kable(col.names = c(&amp;quot;Nucleotide&amp;quot;,              
+        &amp;quot;Frequency in C. elegans genome&amp;quot;,
+        &amp;quot;Mean frequency (minimum frequency, maximum frequency) across 1,000 simulations&amp;quot;), 
+        align = &amp;quot;c&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;center&#34;&gt;Nucleotide&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Frequency in C. elegans genome&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Mean frequency (minimum frequency, maximum frequency) across 1,000 simulations&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;A&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;4,335&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;3,449 (3,281, 3,602)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;C&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;1,225&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;3,446 (3,272, 3,588)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;G&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;2,055&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;3,452 (3,301, 3,652)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;center&#34;&gt;T&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;6,179&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;3,447 (3,266, 3,593)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;This helps clarify how unusual the observed data would be under the null model—the
+counts of all four nucleotides in the &lt;em&gt;C. elegans&lt;/em&gt; genome are completely outside the
+range of frequencies in the simulated data.&lt;/p&gt;
+&lt;p&gt;Another way to look at this is with histograms of the distribution of frequencies
+of each nucleotide under the null model compared to the observed frequencies in
+the &lt;em&gt;C. elegans&lt;/em&gt; nucleotide:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(sim_nuc_freq_df, aes(x = value)) + 
+  geom_histogram(binwidth = 10) + 
+  facet_wrap(~ nucleotide) + 
+  theme_classic() + 
+  scale_x_continuous(name = &amp;quot;Frequency of nucleotide in the simulation under the null model&amp;quot;,
+                     labels = scales::comma) + 
+  scale_y_continuous(name = &amp;quot;# of simulations (out of 1,000)&amp;quot;) + 
+  geom_vline(data = nuc_freq_df, aes(xintercept = n), color = &amp;quot;red&amp;quot;) + 
+  labs(title = expression(paste(&amp;quot;Nucleotide frequency in &amp;quot;,
+                                italic(&amp;quot;C. elegans&amp;quot;), 
+                                &amp;quot; compared null model simulations&amp;quot;)),
+       caption = &amp;quot;Red line shows the frequency observed for the nucleotide in C. elegans&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-02-11-exercise-solution-for-chapter-1_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Finally, to help in answering this question, it would be interesting to look at a
+single measure for each simulation (and for the observed data) rather than comparing
+each nucleotide one at a time. Chapter 1 gives the equation for a statistic to
+measure variability in multinomial data by calculating the sum of squares for the
+differences between the observed and expected count of nucleotides for each of the
+four nucleotides in a sample (p. 12).&lt;/p&gt;
+&lt;p&gt;I calculated this statistic for the observed data and then for each of the 1,000
+simulations.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;(obs_stat &amp;lt;- nuc_freq_df %&amp;gt;% 
+  mutate(expected = mean(n),
+         stat_input = (n - expected) ^ 2 / expected) %&amp;gt;% 
+  summarize(variability_stat = sum(stat_input)))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 1 x 1
+##   variability_stat
+##              &amp;lt;dbl&amp;gt;
+## 1            4387.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sim_stat &amp;lt;- sim_nuc_freq_df %&amp;gt;% 
+  mutate(expected = mean(value), 
+         stat_input = (value - expected) ^ 2 / expected) %&amp;gt;% 
+  group_by(sample) %&amp;gt;% 
+  summarize(variability_stat = sum(stat_input))
+
+sim_stat %&amp;gt;% 
+  slice(1:5)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 5 x 2
+##   sample variability_stat
+##    &amp;lt;dbl&amp;gt;            &amp;lt;dbl&amp;gt;
+## 1      1            0.318
+## 2      2            0.882
+## 3      3            0.903
+## 4      4            0.476
+## 5      5            1.22&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here is a plot of the distribution of this statistic across the 1,000 simulations:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(sim_stat, aes(x = variability_stat)) + 
+  geom_rect(data = sim_stat, aes(xmin = quantile(variability_stat, prob = 0.025),
+                                 xmax = quantile(variability_stat, prob = 0.975),
+                                 ymin = 0, ymax = Inf), 
+            fill = &amp;quot;beige&amp;quot;, alpha = 0.5) +
+  geom_histogram(bins = 30, fill = &amp;quot;white&amp;quot;, color = &amp;quot;tan&amp;quot;, alpha = 0.5) +
+  theme_classic() + 
+  labs(title = &amp;quot;Variability from expected values&amp;quot;,
+       subtitle = &amp;quot;Values from simulations under the null&amp;quot;,
+       x = &amp;quot;Value of variability statistic&amp;quot;, 
+       y = &amp;quot;Number of simulations with given value&amp;quot;,
+       caption = &amp;quot;The shaded yellow area shows the region of the central 95% of\nstatistic values for the 1,000 simulations under the null model.&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-02-11-exercise-solution-for-chapter-1_files/figure-html/unnamed-chunk-14-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The value of this statistic for the observed nucleotide frequencies for &lt;em&gt;C.
+elegans&lt;/em&gt; is 4387, which is much larger (indicating greater variability
+from expected values under the null model) than the value observed under most of
+the simulations. It is, in fact, far outside the central 95% range of values
+observed in simulations.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

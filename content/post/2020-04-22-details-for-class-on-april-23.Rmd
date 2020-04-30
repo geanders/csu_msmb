@@ -1,0 +1,49 @@
+---
+title: Details for class on April 23
+author: Bailey Fosdick
+date: '2020-04-22'
+slug: details-for-class-on-april-23
+categories:
+  - class meeting
+tags:
+  - class meeting
+subtitle: ''
+summary: ''
+authors: [bailey-fosdick]
+lastmod: '2020-04-22T19:44:57-06:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+## Links for April 23
+
+Large group: [meeting link](https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZWY5MTczNDUtOTIzYS00ZGUyLTk4ODctMjdhZWI4MmE4NjMx%40thread.v2/0?context=%7b%22Tid%22%3a%22afb58802-ff7a-4bb1-ab21-367ff2ecfc8b%22%2c%22Oid%22%3a%2205ade929-16e7-49a7-96bb-775f26ed73d5%22%7d)
+
+- Group 1 (Sierra, Sarah, Daniel, Sere): [meeting link](https://teams.microsoft.com/l/meetup-join/19%3ameeting_NjA3Y2Q5MDYtYTM5OS00MzAyLWEwMzAtMzdmNWMzYzhmMTUw%40thread.v2/0?context=%7b%22Tid%22%3a%22afb58802-ff7a-4bb1-ab21-367ff2ecfc8b%22%2c%22Oid%22%3a%2205ade929-16e7-49a7-96bb-775f26ed73d5%22%7d)
+- Group 2 (Mikaela, Sherry, James): [meeting link](https://teams.microsoft.com/l/meetup-join/19%3ameeting_M2I3YmViYjMtNWJlNC00M2E5LTg5NTItNzI0N2VlYmVkNzUz%40thread.v2/0?context=%7b%22Tid%22%3a%22afb58802-ff7a-4bb1-ab21-367ff2ecfc8b%22%2c%22Oid%22%3a%2205ade929-16e7-49a7-96bb-775f26ed73d5%22%7d)
+- Group 3 (Burton, Camron, Amy): [meeting link](https://teams.microsoft.com/l/meetup-join/19%3ameeting_YjE4ZGJhNjItYTViMS00MjZjLTk4NWUtMjBhY2E3OTJiOGQw%40thread.v2/0?context=%7b%22Tid%22%3a%22afb58802-ff7a-4bb1-ab21-367ff2ecfc8b%22%2c%22Oid%22%3a%2205ade929-16e7-49a7-96bb-775f26ed73d5%22%7d)
+
+
+## Additional links 
+
+- Link for HIV amino acid sequences: https://www.hiv.lanl.gov/content/sequence/NEWALIGN/align.html
+- Online book on `ggtree`: https://yulab-smu.github.io/treedata-book/
+- Introductory vignette for `phangorn`: https://cran.r-project.org/web/packages/phangorn/vignettes/Trees.pdf
+- Vignette for `ape`: https://cran.r-project.org/web/packages/ape/vignettes/MoranI.pdf
+- Online book with (much!) more on studying networks: http://networksciencebook.com/
+- Relevant COVID-19 article: https://www.thelancet.com/journals/laninf/article/PIIS1473-3099(20)30273-5/fulltext#.Xp_6SyUko0Y.twitter
+
+## Slido comments
+
+- https://admin.sli.do/event/lkcufqsv/questions
+
+## Vocabulary quiz for April 23 
+
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSetjCYOqAoDU3J-6mVx8QEbTWfjy1u7u26Dl40dOGARA4Hm4A/viewform?embedded=true" width="640" height="2907" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
+
+

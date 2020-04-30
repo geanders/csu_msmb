@@ -20,6 +20,7 @@ image:
   preview_only: no
 projects: []
 ---
+
 Chapter 5 covers Clustering Analysis for large scale data anlysis like DNA/RNA sequencing outputs. These methods produce so much data that more unbiased approaches are required when attempting to make correlations. 
 
 ```{r, echo=F, message=F, warning=F}
@@ -59,4 +60,4 @@ Cambridge, United Kingdom.
 
 ### Practice
 
-<iframe src="https://quizlet.com/488864042/match/embed?i=2oqpc3&x=1jj1" height="500" width="100%" style="border:0"></iframe>
+<iframe src="https://quizlet.com/488864042/flashcards/embed?i=2oqpc3&x=1jj1" height="500" width="100%" style="border:0"></iframe>

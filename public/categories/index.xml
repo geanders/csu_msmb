@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories | CSU MSMB Group Study</title>
+    <link>/categories/</link>
+      <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <description>Categories</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 28 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>Categories</title>
+      <link>/categories/</link>
+    </image>
+    
+    <item>
+      <title>class meeting</title>
+      <link>/categories/class-meeting/</link>
+      <pubDate>Tue, 28 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/class-meeting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chapter 11</title>
+      <link>/categories/chapter-11/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/chapter-11/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vocabulary</title>
+      <link>/categories/vocabulary/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/vocabulary/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chapter 10</title>
+      <link>/categories/chapter-10/</link>
+      <pubDate>Wed, 22 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/chapter-10/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chapter 9</title>
+      <link>/categories/chapter-9/</link>
+      <pubDate>Fri, 10 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/chapter-9/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>chapter 8</title>
+      <link>/categories/chapter-8/</link>
+      <pubDate>Mon, 06 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/chapter-8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chapter 7</title>
+      <link>/categories/chapter-7/</link>
+      <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/chapter-7/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chapter 6</title>
+      <link>/categories/chapter-6/</link>
+      <pubDate>Thu, 12 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/chapter-6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>quiz</title>
+      <link>/categories/quiz/</link>
+      <pubDate>Thu, 12 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/quiz/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chapter 5</title>
+      <link>/categories/chapter-5/</link>
+      <pubDate>Thu, 05 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/chapter-5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chapter 4</title>
+      <link>/categories/chapter-4/</link>
+      <pubDate>Thu, 27 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/chapter-4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chapter 2</title>
+      <link>/categories/chapter-2/</link>
+      <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/chapter-2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>exercises</title>
+      <link>/categories/exercises/</link>
+      <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/exercises/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>blogdown</title>
+      <link>/categories/blogdown/</link>
+      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/blogdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>github</title>
+      <link>/categories/github/</link>
+      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>instructions</title>
+      <link>/categories/instructions/</link>
+      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/instructions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chapter 1</title>
+      <link>/categories/chapter-1/</link>
+      <pubDate>Tue, 11 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/categories/chapter-1/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,23 @@
+segmentation	partitioning an image to assign a label to every pixel or group of pixels with similar characteristics
+slot	a part, element, or "property" of an object in the context of object-oriented programming in R
+classification	the process of grouping observations in a dataset by their similarities in terms of measured characteristics
+feature extraction	the process of building derived values to describe observations or features from the initial set of measured data, with the aim of creating a new set of characteristics that is informative.
+spatial point process	mechanism that generates a random collection of coordinates or points randomly located along an underlying mathematical space. There is at most one point observed at any location.
+Poisson process	mechanism that generates instantaneous events (in time and/or space) based on the Poisson distribution
+Ripley's K function	a descriptive statistic for detecting the deviations from spatial homogeneity that can help determine if points are random, dispersed, or clustered
+pair correlation function	a description of how the point density varies as a function of distance from the point of reference
+spatial transformation	changes to a coordinate system that provides a new approach to defining variation of material parameters
+linear filter	a tool for refining an image such that the output pixel is a combination of the time-varying input pixels subject to the constraint of linearity
+dynamic range	the ratio or logarithmic value of the difference between the largest and smallest values
+noise reduction	the process of removing the undesirable variation in image pixelation 
+adaptive thresholding	segmenting an image using smaller regions that are defined by the range of local intensity values
+binary image	an image consisting of pixels that can only have one of exactly two values, usually black and white
+morphological operation	image processing in which each individual pixel in the image is adjusted based on the other pixels in the neighborhood
+Voronoi tessellation	partitioning an image plane into regions closest to each set of points. Line segments are formed equidistant to the two nearest points
+convex hull	the smallest polygon that encloses all of the points of interest in a set
+spatial dependence	the propensity for nearby points to influence each other and possess similar attributes
+virion	infectious nucleic acid surrounded by a protective protein capsid
+actin	globular proteins that form the microfilaments essential for cell mobility and division
+macrophages	immune cells responsible for engulfing potential pathogens and other lymphatic particles
+dendritic cells	immune cells responsible for processing foreign material and presenting it to other cells in the immune system
+light sheet microscopy	a method that illuminates a specimen in a single plane and detected from the perpendicular direction

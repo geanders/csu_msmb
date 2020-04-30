@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Chapter 11 | CSU MSMB Group Study</title>
+    <link>/categories/chapter-11/</link>
+      <atom:link href="/categories/chapter-11/index.xml" rel="self" type="application/rss+xml" />
+    <description>Chapter 11</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 24 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>Chapter 11</title>
+      <link>/categories/chapter-11/</link>
+    </image>
+    
+    <item>
+      <title>Vocabulary for Chapter 11</title>
+      <link>/post/vocabulary-for-chapter-11/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/post/vocabulary-for-chapter-11/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Chapter 11 is focused on learning how to read, write, and manipulate images in R. The first sections are helping the reader understand when to apply different filters and transformations to an image and why it is necessary. It then touches on segmentation and feature extraction, two components that are utilized to simplify an image for machine learning and recognition. Finally, statistal methods are introduced to analyze spacial distributions and spatial point process is introduced on a basic level.&lt;/p&gt;
+&lt;p&gt;The vocabulary words for Chapter 11 are:&lt;/p&gt;
+&lt;table class=&#34;table table-striped table-hover table-condensed&#34; style=&#34;margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+segmentation
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+partitioning an image to assign a label to every pixel or group of pixels with similar characteristics
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+slot
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a part, element, or “property” of an object in the context of object-oriented programming in R
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+classification
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+the process of grouping observations in a dataset by their similarities in terms of measured characteristics
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+feature extraction
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+the process of building derived values to describe observations or features from the initial set of measured data, with the aim of creating a new set of characteristics that is informative.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+spatial point process
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+mechanism that generates a random collection of coordinates or points randomly located along an underlying mathematical space. There is at most one point observed at any location.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Poisson process
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+mechanism that generates instantaneous events (in time and/or space) based on the Poisson distribution
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Ripley’s K function
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a descriptive statistic for detecting the deviations from spatial homogeneity that can help determine if points are random, dispersed, or clustered
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+pair correlation function
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a description of how the point density varies as a function of distance from the point of reference
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+spatial transformation
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+changes to a coordinate system that provides a new approach to defining variation of material parameters
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+linear filter
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a tool for refining an image such that the output pixel is a combination of the time-varying input pixels subject to the constraint of linearity
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+dynamic range
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+the ratio or logarithmic value of the difference between the largest and smallest values
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+noise reduction
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+the process of removing the undesirable variation in image pixelation
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+adaptive thresholding
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+segmenting an image using smaller regions that are defined by the range of local intensity values
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+binary image
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+an image consisting of pixels that can only have one of exactly two values, usually black and white
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+morphological operation
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+image processing in which each individual pixel in the image is adjusted based on the other pixels in the neighborhood
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Voronoi tessellation
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+partitioning an image plane into regions closest to each set of points. Line segments are formed equidistant to the two nearest points
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+convex hull
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+the smallest polygon that encloses all of the points of interest in a set
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+spatial dependence
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+the propensity for nearby points to influence each other and possess similar attributes
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+virion
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+infectious nucleic acid surrounded by a protective protein capsid
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+actin
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+globular proteins that form the microfilaments essential for cell mobility and division
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+macrophages
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+immune cells responsible for engulfing potential pathogens and other lymphatic particles
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+dendritic cells
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+immune cells responsible for processing foreign material and presenting it to other cells in the immune system
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+light sheet microscopy
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+a method that illuminates a specimen in a single plane and detected from the perpendicular direction
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div id=&#34;sources-consulted&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Sources Consulted&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.cso.ie/en/methods/classifications/classificationsexplained/&#34; class=&#34;uri&#34;&gt;https://www.cso.ie/en/methods/classifications/classificationsexplained/&lt;/a&gt;
+&lt;a href=&#34;http://www.stat.umn.edu/geyer/8501/points.pdf&#34; class=&#34;uri&#34;&gt;http://www.stat.umn.edu/geyer/8501/points.pdf&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4528837/&#34; class=&#34;uri&#34;&gt;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4528837/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.e-education.psu.edu/natureofgeoinfo/c1_p18.html&#34; class=&#34;uri&#34;&gt;https://www.e-education.psu.edu/natureofgeoinfo/c1_p18.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.leica-microsystems.com/science-lab/topics/light-sheet-microscopy/&#34; class=&#34;uri&#34;&gt;https://www.leica-microsystems.com/science-lab/topics/light-sheet-microscopy/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.mathworks.com/help/images/morphological-filtering.html&#34; class=&#34;uri&#34;&gt;https://www.mathworks.com/help/images/morphological-filtering.html&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;practice&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Practice&lt;/h3&gt;
+&lt;iframe src=&#34;https://quizlet.com/504650205/flashcards/embed?i=22uyf&amp;amp;x=1jj1&#34; height=&#34;500&#34; width=&#34;100%&#34; style=&#34;border:0&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

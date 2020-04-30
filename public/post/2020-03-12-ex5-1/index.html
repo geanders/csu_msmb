@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.7.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Bailey Fosdick">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="This exercise asks us to interpret and validate the consistency within our clusters of data. To do this, we will employ the silhouette index, which gives us a silhouette value measuring how similar an object is to its own cluster compared to other clusters.
+The silhouette index is as follows:
+\[\displaystyle S(i) = \frac{B(i) - A(i)}{max_i(A(i), B(i))} \]
+The solution to this exercise requires the following R packages to be loaded into your environment.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/2020-03-12-ex5-1/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  <script src="/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-36719749-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           document.location = url;
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target);  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-36719749-3', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
+  
+
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="/post/2020-03-12-ex5-1/">
+
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="CSU MSMB Group Study">
+  <meta property="og:url" content="/post/2020-03-12-ex5-1/">
+  <meta property="og:title" content="Exercise Solution for 5.1 | CSU MSMB Group Study">
+  <meta property="og:description" content="This exercise asks us to interpret and validate the consistency within our clusters of data. To do this, we will employ the silhouette index, which gives us a silhouette value measuring how similar an object is to its own cluster compared to other clusters.
+The silhouette index is as follows:
+\[\displaystyle S(i) = \frac{B(i) - A(i)}{max_i(A(i), B(i))} \]
+The solution to this exercise requires the following R packages to be loaded into your environment."><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
+  <meta property="twitter:image" content="img/map[gravatar:%!s(bool=false) shape:circle]"><meta property="og:locale" content="en-us">
+  
+    
+    
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/2020-03-12-ex5-1/"
+  },
+  "headline": "Exercise Solution for 5.1",
+  
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Bailey Fosdick"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "CSU MSMB Group Study",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "img//"
+    }
+  },
+  "description": "This exercise asks us to interpret and validate the consistency within our clusters of data. To do this, we will employ the silhouette index, which gives us a silhouette value measuring how similar an object is to its own cluster compared to other clusters.\nThe silhouette index is as follows:\n\\[\\displaystyle S(i) = \\frac{B(i) - A(i)}{max_i(A(i), B(i))} \\]\nThe solution to this exercise requires the following R packages to be loaded into your environment."
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Exercise Solution for 5.1 | CSU MSMB Group Study</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">CSU MSMB Group Study</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">CSU MSMB Group Study</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#people"><span>People</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#experience"><span>Schedule</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Location</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/files/csu_msmb_syllabus.pdf"><span>Syllabus</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item">
+        <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Exercise Solution for 5.1</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Jan 1, 0001
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    5 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      
+
+
+<p>This exercise asks us to interpret and validate the consistency within our clusters of data. To do this, we will employ the silhouette index, which gives us a silhouette value measuring how similar an object is to its own cluster compared to other clusters.</p>
+<p>The <strong>silhouette index</strong> is as follows:</p>
+<p><span class="math display">\[\displaystyle S(i) = \frac{B(i) - A(i)}{max_i(A(i), B(i))} \]</span></p>
+<p>The solution to this exercise requires the following R packages to be loaded into your environment.</p>
+<div id="required-libraries" class="section level2">
+<h2>Required Libraries</h2>
+<pre class="r"><code>library(&quot;cluster&quot;)
+library(dplyr)
+library(ggplot2)
+library(purrr)</code></pre>
+</div>
+<div id="part-a" class="section level2">
+<h2>Part A</h2>
+<p>Question 5.1.a asks us to compute the silhouette index for the simdat data that was simulated in Section <strong>5.7</strong>. The code is as follows:</p>
+<pre class="r"><code>set.seed(1)
+
+simdat = lapply(c(0, 8), function(mx) {
+  lapply(c(0,8), function(my) {
+    tibble(x = rnorm(100, mean = mx, sd = 2),
+           y = rnorm(100, mean = my, sd = 2),
+           class = paste(mx, my, sep = &quot;:&quot;))
+   }) %&gt;% bind_rows
+}) %&gt;% bind_rows
+
+simdatxy = simdat[, c(&quot;x&quot;, &quot;y&quot;)]
+
+wss = tibble(k = 1:8, value = NA_real_)
+
+wss$value[1] = sum(scale(simdatxy, scale = FALSE)^2)
+
+for (i in 2:nrow(wss)) {
+  km  = kmeans(simdatxy, centers = wss$k[i])
+  wss$value[i] = sum(km$withinss)
+}
+
+ggplot(wss, aes(x = k, y = value)) + geom_col()</code></pre>
+<p><img src="/post/2020-03-12-ex5-1_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>The provided code is used to simulate data coming from four separate groups. They use the pipe operator to concatenate four different, randomly generated, data sets. The ggplot2 package is used to take a look at the data as a barchart with the k-means method and k = 4.</p>
+<pre class="r"><code>pam4 = pam(simdatxy, 4)
+sil = silhouette(pam4, 4, border = NA)
+plot(sil, col=c(&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;,&quot;purple&quot;), main=&quot;Silhouette&quot;)</code></pre>
+<p><img src="/post/2020-03-12-ex5-1_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>Next up is the code necessary to plot the silhouette index. The “silhouette” function comes from the “cluster” package, and the resulting graph provides an average silhouette width for k = 4 clusters.</p>
+<div id="computing-the-silhouette-index" class="section level3">
+<h3>Computing the Silhouette Index</h3>
+<pre class="r"><code>summary(sil)$avg.width</code></pre>
+<pre><code>## [1] 0.4985801</code></pre>
+</div>
+</div>
+<div id="part-b" class="section level2">
+<h2>Part B</h2>
+<p>Question 5.1.b asks us to change the number of clusters <em>k</em> and assess which <em>k</em> value produces the best silhouette index.</p>
+<p>The silhouette value is a measure of how similar a cluster is to its own cluster when compared to other clusters. Values can range from -1 to +1. A high value tells us that the object is better matched to its on cluster and more poorly matched to neighboring clusters.</p>
+<p>In this example, there are a couple of ways to assess which k gives the best silhouette index.One method would be trial and error and determining which k-value produces the highest silhouette index. This method works out for this example, but is impractical for much larger and complex datasets. Included below is the code for testing multiple different k-values and the resulting coefficient values.</p>
+<pre class="r"><code>pam2 = pam(simdatxy, 2)
+sil2 = silhouette(pam2, 2)
+plot(sil2, col=c(&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;,&quot;purple&quot;), main=&quot;Silhouette&quot;)</code></pre>
+<p><img src="/post/2020-03-12-ex5-1_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<pre class="r"><code>pam3 = pam(simdatxy, 3)
+sil3 = silhouette(pam3, 3)
+plot(sil3, col=c(&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;,&quot;purple&quot;), main=&quot;Silhouette&quot;)</code></pre>
+<p><img src="/post/2020-03-12-ex5-1_files/figure-html/unnamed-chunk-5-2.png" width="672" /></p>
+<pre class="r"><code>pam4 = pam(simdatxy, 4)
+sil = silhouette(pam4, 4)
+plot(sil, col=c(&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;,&quot;purple&quot;), main=&quot;Silhouette&quot;)</code></pre>
+<p><img src="/post/2020-03-12-ex5-1_files/figure-html/unnamed-chunk-5-3.png" width="672" /></p>
+<pre class="r"><code>pam12 = pam(simdatxy, 12)
+sil12 = silhouette(pam12, 12)
+plot(sil12, col=c(&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;,&quot;purple&quot;), main=&quot;Silhouette&quot;)</code></pre>
+<p><img src="/post/2020-03-12-ex5-1_files/figure-html/unnamed-chunk-5-4.png" width="672" /></p>
+<pre class="r"><code>pam40 = pam(simdatxy, 40)
+sil40 = silhouette(pam40, 40)
+plot(sil40, col=c(&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;,&quot;purple&quot;), main=&quot;Silhouette&quot;)</code></pre>
+<p><img src="/post/2020-03-12-ex5-1_files/figure-html/unnamed-chunk-5-5.png" width="672" /></p>
+<p>This trial and error method indicates that the highest silhouette index (that was tested) is achieved with k = 4.</p>
+<p>A different (seemingly more appropriate) method is to write a piece of code that will test a range of k-values automatically. This next piece of code is adapted from Amy Fox and the group that she worked with during class. This is a much more practical method that provides a clear answer of which <em>k</em> gives the best silhouette index.</p>
+<pre class="r"><code>k &lt;- c(2:10)
+df_test &lt;- data.frame()
+for (i in 2:10){
+  
+  pam_run &lt;- pam(simdatxy, i)
+  sil_run &lt;- silhouette(pam_run, i)
+  
+  row_to_add &lt;- data.frame(i, width = summary(sil_run)$avg.width)
+  
+  df_test &lt;- rbind(df_test, row_to_add)
+}
+df_test</code></pre>
+<pre><code>##    i     width
+## 1  2 0.4067400
+## 2  3 0.4000560
+## 3  4 0.4985801
+## 4  5 0.4401518
+## 5  6 0.3957347
+## 6  7 0.3717875
+## 7  8 0.3699929
+## 8  9 0.3670770
+## 9 10 0.3516570</code></pre>
+<pre class="r"><code>ggplot(df_test, aes(i, width)) +
+  geom_point() +
+  geom_line() +
+  xlab(&quot;k&quot;) +
+  ylab(&quot;Silhouette Index&quot;) +
+  ggtitle(&quot;Testing different k values for Silhouette Index&quot;)</code></pre>
+<p><img src="/post/2020-03-12-ex5-1_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre class="r"><code>summary(sil_run)</code></pre>
+<pre><code>## Silhouette of 400 units in 10 clusters from pam(x = simdatxy, k = i) :
+##  Cluster sizes and average silhouette widths:
+##        63        38        40        52        33        40        35        33 
+## 0.3885059 0.3273800 0.3622990 0.3703291 0.3573781 0.3257945 0.4429236 0.2807700 
+##        31        35 
+## 0.3944945 0.2335738 
+## Individual silhouette widths:
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## -0.1778  0.2389  0.3703  0.3517  0.4946  0.6623</code></pre>
+<p>The result of summary(sil_run) matches the trial and error method, but in a more efficient manner..</p>
+</div>
+<div id="part-c" class="section level2">
+<h2>Part C</h2>
+<p>The last part of this exercise asks us to repeat by calculating the silhouette index on a uniform (unclustered) data distribution over a range of values.</p>
+<p>Here, a new data set is generated without clustering the randomly genereated data.</p>
+<pre class="r"><code>set.seed(1)
+
+simdat1 = lapply(c(1), function(mx) {
+  lapply(c(1), function(my) {
+    tibble(x = rnorm(100, mean = mx, sd = 2),
+           y = rnorm(100, mean = my, sd = 2),
+           class = paste(mx, my, sep = &quot;:&quot;))
+   }) %&gt;% bind_rows
+}) %&gt;% bind_rows
+
+simdatxy1 = simdat1[, c(&quot;x&quot;, &quot;y&quot;)]
+
+ggplot(simdatxy1, aes(x = x, y = y)) +
+  geom_point()</code></pre>
+<p><img src="/post/2020-03-12-ex5-1_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<pre class="r"><code>pam4.1 = pam(simdatxy1, 4)
+sil.1 = silhouette(pam4.1, 4)
+plot(sil.1, col=c(&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;,&quot;purple&quot;), main=&quot;Silhouette&quot;)</code></pre>
+<p><img src="/post/2020-03-12-ex5-1_files/figure-html/unnamed-chunk-7-2.png" width="672" /></p>
+<p>The average silhouette width is 0.33, which is much lower than the clustered value of 0.50 that we see with the first simulation.</p>
+</div>
+
+    </div>
+
+    
+
+
+
+
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/2020-03-12-ex5-1/&amp;text=Exercise%20Solution%20for%205.1" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/2020-03-12-ex5-1/&amp;t=Exercise%20Solution%20for%205.1" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Exercise%20Solution%20for%205.1&amp;body=/post/2020-03-12-ex5-1/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/2020-03-12-ex5-1/&amp;title=Exercise%20Solution%20for%205.1" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Exercise%20Solution%20for%205.1%20/post/2020-03-12-ex5-1/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/2020-03-12-ex5-1/&amp;title=Exercise%20Solution%20for%205.1" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <img class="avatar mr-3 avatar-circle" src="/authors/bailey-fosdick/avatar_hu9002468d47b2144058120eece0ee033b_15754_270x270_fill_q90_lanczos_center.jpg" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/authors/bailey-fosdick/">Bailey Fosdick</a></h5>
+      <h6 class="card-subtitle">Assistant Professor of Statistics</h6>
+      <p class="card-text">My research interests include the development of statistical methods for analyzing network data, with particular attention to applications in ecology and the social sciences.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    <li>
+      <a href="mailto:bailey.fosdick@colostate.edu" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/baileyfosdick" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=0VlQno0AAAAJ&amp;hl=en&amp;oi=ao" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/baileyfosdick" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.4.3/mermaid.min.js" integrity="" crossorigin="anonymous" title="mermaid"></script>
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js" integrity="sha256-1zu+3BnLYV9LdiY85uXMzii3bdrkelyp37e0ZyTAQh0=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.a0d331bcd05dbe8b31e244f796710f08.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

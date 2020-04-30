@@ -1,0 +1,63 @@
+---
+title: "Vocabulary for Chapter 9"
+author: "Sere Williams"
+date: '2020-04-10'
+slug: vocabulary-for-chapter-9
+draft: no
+categories:
+  - vocabulary
+  - Chapter 9
+tags:
+  - vocabulary
+  - Chapter 9
+subtitle: ''
+summary: ''
+authors: [sere-williams]
+lastmod: '2020-04-10T14:41:31-06:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+Chapter 9 covers multivariate methods for heterogenous data. It builds on methods covered in Chapter 7, like dimension reduction, by extending these ideas to more complex, heterogenous data.
+
+The vocabulary words for Chapter 9 are:
+
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+#load packages
+library(knitr)
+library(dplyr)
+library(readr)
+library(kableExtra)
+
+# Read in vocabulary from tsv into a dataframe
+# This is where you'll need to replace the file name with your own
+vocab <- read_tsv("vocab_lists/chapter_9.tsv",
+                  col_names = c("term", "definition"))
+
+# Print the dataframe as a nice-looking table
+vocab %>% 
+  kable(align = c("rl"), 
+        col.names = c("", "")) %>% 
+  kable_styling(bootstrap_options = c("striped", "hover",
+                                      "condensed")) %>% 
+  column_spec(1, bold = T, border_right = T) %>%
+  column_spec(2, width = "30em")
+```
+
+### Sources consulted or cited
+
+Some of the definitions above are based in part or whole on listed definitions in the following sources.
+
+- Holmes and Huber, 2019. Modern Statistics for Modern Biology. Cambridge University Press, Cambridge, United Kingdom.
+- http://www.econ.upf.edu/~michael/stanford/maeb4.pdf
+- https://statisticsbyjim.com/regression/difference-between-linear-nonlinear-regression-models/
+- https://www.wikipedia.org
+
+### Practice
+
+<iframe src="https://quizlet.com/501633373/flashcards/embed?i=2stug3&x=1jj1" height="500" width="100%" style="border:0"></iframe>
+
