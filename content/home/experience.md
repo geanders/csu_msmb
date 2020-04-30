@@ -198,7 +198,7 @@ date_format = "   "
   date_end = "2020-01-21"
   description = """
   
-  Exercise for Chapter:
+  Exercise for Chapter: Read in the data from Section 11.15. Conduct the analyses for spatial dependence (11.17) using different cell types than those used in the book's code.
   
   Student responsibilities:
 
