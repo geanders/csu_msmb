@@ -3,6 +3,46 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/categories/</loc>
+    <lastmod>2020-05-04T19:46:32-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/chapter-12/</loc>
+    <lastmod>2020-05-04T19:46:32-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-05-04T19:46:32-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-05-04T19:46:32-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-05-04T19:46:32-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/vocabulary/</loc>
+    <lastmod>2020-05-04T19:46:32-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/vocabulary/</loc>
+    <lastmod>2020-05-04T19:46:32-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/vocabulary-for-chapter-12/</loc>
+    <lastmod>2020-05-04T19:46:32-06:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/authors/bailey-fosdick/</loc>
     <lastmod>2020-04-28T14:52:19-06:00</lastmod>
   </url>
@@ -13,7 +53,7 @@
   </url>
   
   <url>
-    <loc>/categories/</loc>
+    <loc>/tags/class-meeting/</loc>
     <lastmod>2020-04-28T14:52:19-06:00</lastmod>
   </url>
   
@@ -23,27 +63,7 @@
   </url>
   
   <url>
-    <loc>/tags/class-meeting/</loc>
-    <lastmod>2020-04-28T14:52:19-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2020-04-28T14:52:19-06:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/post/details-for-class-on-april-30/</loc>
-    <lastmod>2020-04-28T14:52:19-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2020-04-28T14:52:19-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
     <lastmod>2020-04-28T14:52:19-06:00</lastmod>
   </url>
   
@@ -54,16 +74,6 @@
   
   <url>
     <loc>/categories/chapter-11/</loc>
-    <lastmod>2020-04-24T16:38:10-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/vocabulary/</loc>
-    <lastmod>2020-04-24T16:38:10-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/vocabulary/</loc>
     <lastmod>2020-04-24T16:38:10-06:00</lastmod>
   </url>
   
@@ -178,12 +188,12 @@
   </url>
   
   <url>
-    <loc>/categories/chapter-6/</loc>
+    <loc>/tags/chapter-6/</loc>
     <lastmod>2020-03-12T13:17:23-06:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/chapter-6/</loc>
+    <loc>/categories/chapter-6/</loc>
     <lastmod>2020-03-12T13:17:23-06:00</lastmod>
   </url>
   
@@ -303,12 +313,12 @@
   </url>
   
   <url>
-    <loc>/categories/blogdown/</loc>
+    <loc>/tags/blogdown/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/blogdown/</loc>
+    <loc>/categories/blogdown/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
@@ -333,12 +343,12 @@
   </url>
   
   <url>
-    <loc>/tags/instructions/</loc>
+    <loc>/categories/instructions/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/instructions/</loc>
+    <loc>/tags/instructions/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
