@@ -1,0 +1,111 @@
+---
+title: "chapter_7"
+author: "Sherry WeMott"
+date: "4/9/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+```{r}
+library(pasilla)
+library(tidyverse)
+```
+
+```{r}
+fn = system.file("extdata", "pasilla_gene_counts.tsv",
+                  package = "pasilla", mustWork = TRUE)
+counts = as.matrix(read.csv(fn, sep = "\t", row.names = "gene_id"))
+
+dim(counts)
+
+counts[ 2000+(0:3), ]
+```
+
+```{r}
+library("ggplot2")
+library("matrixStats")
+
+sf = estimateSizeFactorsForMatrix(counts)
+ncounts  = counts / matrix(sf,
+   byrow = TRUE, ncol = ncol(counts), nrow = nrow(counts))
+uncounts = ncounts[, grep("^untreated", colnames(ncounts)),
+                     drop = FALSE]
+ggplot(tibble(
+        mean = rowMeans(uncounts),
+        var  = rowVars( uncounts)),
+     aes(x = log(mean), y = log(var))) +
+  geom_hex() + coord_fixed() + theme(legend.position = "none") +
+  geom_abline(slope = 1:2, color = c("forestgreen", "red"))
+?estimateSizeFactors
+
+```
+
+```{r}
+annotationFile = system.file("extdata",
+  "pasilla_sample_annotation.csv",
+  package = "pasilla", mustWork = TRUE)
+pasillaSampleAnno = readr::read_csv(annotationFile)
+pasillaSampleAnno
+
+```
+
+```{r}
+library("dplyr")
+pasillaSampleAnno = mutate(pasillaSampleAnno,
+condition = factor(condition, levels = c("untreated", "treated")),
+type = factor(sub("-.*", "", type), levels = c("single", "paired")))
+
+```
+
+```{r}
+
+mt = match(colnames(counts), sub("fb$", "", pasillaSampleAnno$file))
+stopifnot(!any(is.na(mt)))
+
+library("DESeq2")
+pasilla = DESeqDataSetFromMatrix(
+  countData = counts,
+  colData   = pasillaSampleAnno[mt, ],
+  design    = ~ condition)
+class(pasilla)
+
+is(pasilla, "SummarizedExperiment")
+```
+```{r}
+pasilla = DESeq(pasilla)
+
+res = results(pasilla)
+res[order(res$padj), ] %>% head
+```
+
+```{r}
+
+ggplot(as(res, "data.frame"), aes(x = pvalue)) +
+  geom_histogram(binwidth = 0.01, fill = "Royalblue", boundary = 0)
+```
+
+```{r}
+
+plotMA(pasilla, ylim = c( -2, 2))
+```
+
+```{r}
+pas_rlog = rlogTransformation(pasilla)
+plotPCA(pas_rlog, intgroup=c("condition", "type")) + coord_fixed()
+
+library("pheatmap")
+select = order(rowMeans(assay(pas_rlog)), decreasing = TRUE)[1:30]
+pheatmap( assay(pas_rlog)[select, ],
+     scale = "row",
+     annotation_col = as.data.frame(
+        colData(pas_rlog)[, c("condition", "type")] ))
+
+```
+
+```{r}
+
+
+```

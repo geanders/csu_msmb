@@ -1,0 +1,25 @@
+---
+title: "chapter_7"
+author: "Sherry WeMott"
+date: "4/9/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+```{r}
+library(pasilla)
+library(tidyverse)
+```
+
+```{r}
+fn = system.file("extdata", "pasilla_gene_counts.tsv",
+                  package = "pasilla", mustWork = TRUE)
+counts = as.matrix(read.csv(fn, sep = "\t", row.names = "gene_id"))
+
+dim(counts)
+
+counts[ 2000+(0:3), ]
+```
