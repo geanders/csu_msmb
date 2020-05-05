@@ -5,6 +5,540 @@
     <link>/authors/sarah-cooper/</link>
       <atom:link href="/authors/sarah-cooper/index.xml" rel="self" type="application/rss+xml" />
     <description>CSU MSMB Group Study</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 22 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Vocabulary for Chapter 10</title>
+      <link>/post/vocabulary-for-chapter-10/</link>
+      <pubDate>Wed, 22 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/post/vocabulary-for-chapter-10/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Chapter 10 discusses the use of networks and trees to visualize biological data. It covers the main components of each and how different data sets can be appropriately transformed into specific networks and trees based on what you are trying to present. The vocabulary words for Chapter 10 are:&lt;/p&gt;
+&lt;table class=&#34;table table-striped table-hover table-condensed&#34; style=&#34;margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Graph
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A structure formed by a set of nodes or vertices and a set of edges between these vertices
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Adjacency matrix
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+The matrix representation of edges of a graph with as many rows as nodes in the graph
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Network
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A weighted, directed graph
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Sparse
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of graphs, a term to describe a graph when the number of edges is similar to the number of nodes
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Dense
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of graphs, a term to describe a graph when the number of edges is (approximately) a quadratic function of the nodes
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Arrows/directed edges
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Graph edges that directionally connect nodes
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Annotation variables
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Graph visualization characteristics that help to demonstrate strength of a link in a graph by changing the width of the edge or covariates associated to the size or color of the node
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Graph layouts
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Different ways to plot a graph, either for aesthetic or practical reasons
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Binary data
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Data in which each observation can take only one of two values (e.g., 0 or 1)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Differentially expressed genes
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A term to describe changes in gene expression levels between different experimental groups
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Bipartite graph
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A graph where each edge connects a node
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Overrepresented or enriched
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of gene expresion, a term to describe increased expression of a gene / set of genes of interest
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Gene Ontology (GO)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A resource aimed to unify the vocabulary to describe genes and gene product attributes across all species
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Fisher’s exact test / Hypergeometric testing
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Two-way table testing used to account for the fact that some categories are extremely numerous and others are rarer
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Known skeleton graph
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A graph that projects significance scores such as p-values
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Perturbation
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of a network, an alteration of the function of a biological system, induced by external or internal mechanisms
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Hotspots
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of a graph, areas with high event density
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Rooted binary tree
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A data tree in which each node has at most two children
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Cycles
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of graphs, another word for loops: either self-loops or ones that go through several vertices
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Ancestral taxa
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Correspond to inner nodes and are inferred from the contemporaneous data on the tips
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Contemporaneous
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of data for phylogenetic tress, organisms at terminal nodes that exist at the same time and are related to each other, thus revealing information about their common ancestors
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+OTUs (Operational Taxonomic Units)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A method of clustering organisms based on DNA similarity of a certain taxonomic marker gene (Tips of the tree)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Parameter
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of statistics, numerical value that describes a population
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Gene trees
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Structures produced when different genes show differences in their evolutionary histories
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Markov chain
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A sequence where given the current state, the next state is conditionally independent of all previous states
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Molecular clock hypothesis
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A term that describes a technique that uses the mutation rate to infer what happened to a species historically
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Non-identifiability
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+The inability to distinguish a parameterization of a model based on observed data
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Time homogeneity
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of Markov chains, the state of the mutation rate being constant across history
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Generator
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of Markov chains, the instantaneous change probability matrix describing transitions between steps of the chain
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Transition matrix
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A matrix that contains all probabilities of any state changes for a Markov chain
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Parsimony tree
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A structure created using nonparametric method that minimizes the number of changes necessary to explain the data
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Maximum likelihood tree
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A structure created using a parametric method that uses efficient optimization algorithms to maximize the likelihood of a tree under the model assumptions.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Bayesian posterior distributions for trees
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A method that uses MCMC to find posterior distributions of the phylogenies
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Distance-based methods
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Semi-parametric methods similar to the hierarchical clustering algorithms but use the parametric evolutionary models
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Aligning
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Arranging different sequences of DNA, RNA, or protein together to identify similarities or differences between them
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+indel (inserted-deleted) event
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Insertion or deletion of bases in the genome of an organism
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Filtering operations
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of low-quality rRNA reads, the removal of low-quality reads and trimming of remaining reads to a consistent length
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Interactive
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of a plot, enabling direct actions on a graphical plot to change elements and link multiple plots
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Spanning tree
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A tree that goes through all points at least once
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Minimum spanning tree (MST)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Given distances between vertices, a tree that spans all the points and has the minimum total length
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Jitter
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+To slightly move coordinates on a graph to avoid too much overlapping
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Undirected network
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A term describing a graph without arrows between nodes
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Associated
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A term indicating that two variables are related
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Friedman-Rafsky tests
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Tests for two/multiple sample segregation on a minimum spanning tree
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Pure edges
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of graphs, edges whose two nodes have the same level of the factor variable
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Microbiome
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+The aggregate of all microbiota that reside on or within an organism tissues and biofluids along with the corresponding anatomical sites in which they reside
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Exponential random graph models (ERGMs)
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+Models that can be used to predict vertex covariates
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Protein interaction networks
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of graphing, a way to visualize observed protein-protein interactions
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Phylogenetic tree
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A tree used to visualize evolutionary relationships among species
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Strain
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+In the context of a virus, a genetic variant or subtype
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Taxa
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A group of one or more populations of an organism making up a single unit, typically disected to the level of genus and species
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
+Protein
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+A compound made up of amino acids; one of the four types of macromolecules that make up living organisms.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div id=&#34;sources-consulted-or-cited&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Sources consulted or cited&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Some of the definitions above are based in part or whole on listed definitions
+in the following sources.&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Holmes and Huber, 2019. &lt;em&gt;Modern Statistics for Modern Biology.&lt;/em&gt; Cambridge University Press,
+Cambridge, United Kingdom.&lt;/li&gt;
+&lt;li&gt;Everitt and Skrondal, 2010. &lt;em&gt;The Cambridge Dictionary of Statistics (Fourth Edition).&lt;/em&gt; Cambridge University Press, Cambridge, United Kingdom.&lt;/li&gt;
+&lt;li&gt;Wikipedia: The Free Encyclopedia. &lt;a href=&#34;http://en.wikipedia.org/wiki/Main_Page&#34; class=&#34;uri&#34;&gt;http://en.wikipedia.org/wiki/Main_Page&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;practice&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Practice&lt;/h3&gt;
+&lt;iframe src=&#34;https://quizlet.com/333490771/flashcards/embed?i=km5j1&amp;amp;x=1jj1&#34; height=&#34;500&#34; width=&#34;100%&#34; style=&#34;border:0&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Exercise solution for Chapter 2, Part 2</title>
+      <link>/post/ex-2-6/</link>
+      <pubDate>Mon, 24 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/post/ex-2-6/</guid>
+      <description>
+
+
+&lt;div id=&#34;picking-a-prior&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Picking a prior&lt;/h1&gt;
+&lt;p&gt;The first part of the exercise asks you to:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“Choose your own prior for the parameters of the beta distribution. You can do this by sketching it here: &lt;a href=&#34;https://jhubiostatistics.shinyapps.io/drawyourprior&#34; class=&#34;uri&#34;&gt;https://jhubiostatistics.shinyapps.io/drawyourprior&lt;/a&gt;. Once you have set up a prior, re-analyse the data from Section 2.9.2, where we saw Y = 40 successes out of n = 300 trials. Compare your posterior distribution to the one we obtained in that section using a QQ-plot.”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;After sketching a plot on the online web app, I chose the parameters to set up a prior: &lt;span class=&#34;math inline&#34;&gt;\(\alpha = 2.47\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta = 8.5\)&lt;/span&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;using-this-prior&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Using this prior&lt;/h1&gt;
+&lt;p&gt;Next, I replaced the original values for &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; used in the example in the text with my own from the shape I drew with the online app.&lt;/p&gt;
+&lt;p&gt;To be able to use the &lt;code&gt;loglikelihood&lt;/code&gt; function from the text, I first needed to redefine it here:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;loglikelihood = function(theta, n = 300, k = 40) { ## Function definition from the textbook
+  115 + k * log(theta) + (n - k) * log(1 - theta)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then, I created a vector of &lt;span class=&#34;math inline&#34;&gt;\(\theta\)&lt;/span&gt; values between 0 and 1, spaced 0.001 units wide. The plot below shows …&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;thetas = seq(0, 1, by = 0.001)
+plot(thetas, loglikelihood(thetas), xlab = expression(theta),
+     ylab = expression(paste(&amp;quot;log f(&amp;quot;, theta, &amp;quot; | y)&amp;quot;)),type = &amp;quot;l&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-02-24-ex2-6_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Next, I used &lt;code&gt;rbeta&lt;/code&gt; to draw 1,000,000 random samples from a beta distribution with my new picks for the parameters:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;rtheta = rbeta(1000000, shape1 = 2.47, shape2 = 8.5)
+y = vapply(rtheta, function(th) {
+  rbinom(1, prob = th, size = 300)
+}, numeric(1))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This plot shows … :&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;hist(y, breaks = 50, col = &amp;quot;orange&amp;quot;, main = &amp;quot;&amp;quot;, xlab = &amp;quot;&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-02-24-ex2-6_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;After running the above, for each of these &lt;span class=&#34;math inline&#34;&gt;\(\theta\)&lt;/span&gt; values, we then generate a random sample of &lt;span class=&#34;math inline&#34;&gt;\(Y\)&lt;/span&gt; as observed in this histogram (with orange bars). Our next step is to use this information to generate a posterior distribution of theta at a fixed Y value. In this example they used &lt;span class=&#34;math inline&#34;&gt;\(Y=40\)&lt;/span&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;thetaPostEmp = rtheta[ y == 40 ]
+hist(thetaPostEmp, breaks = 40, col = &amp;quot;chartreuse4&amp;quot;, main = &amp;quot;&amp;quot;,
+     probability = TRUE, xlab = expression(&amp;quot;posterior&amp;quot;~theta), ylim=c(0,40))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-02-24-ex2-6_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;densPostTheory  =  dbeta(thetas, 42.47, 268.5)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;hist(thetaPostEmp, breaks = 40, col = &amp;quot;chartreuse4&amp;quot;, main = &amp;quot;&amp;quot;,
+  probability = TRUE, xlab = expression(&amp;quot;posterior&amp;quot;~theta))
+lines(thetas, densPostTheory, type=&amp;quot;l&amp;quot;, lwd = 3)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-02-24-ex2-6_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;After running the above, for each of these thetas, we generated simulated values for the posterior distribution of &lt;span class=&#34;math inline&#34;&gt;\(\theta\)&lt;/span&gt; at &lt;span class=&#34;math inline&#34;&gt;\(Y=40\)&lt;/span&gt; as observed in this histogram (with green bars). We can also check the means of both distributions computed above.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(thetaPostMC)
+#0.1365705
+dtheta = thetas[2]-thetas[1]
+sum(thetas * densPostTheory * dtheta)
+#0.1365727&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;#We can use Monte Carlo integration instead and then check the agreement between our Monte Carlo sample thetaPostMC and our sample thetaPostEmp with a QQ plot&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;thetaPostMC = rbeta(n = 1e6, 42.47, 268.5)
+mean(thetaPostMC)
+#0.1365902
+
+qqplot(thetaPostMC, thetaPostEmp, type = &amp;quot;l&amp;quot;, asp = 1)
+abline(a = 0, b = 1, col = &amp;quot;blue&amp;quot;)
+
+densPost2 = dbeta(thetas, 42.47, 268.5)
+mcPost2   = rbeta(1e6, 42.47, 268.5)
+
+sum(thetas * densPost2 * dtheta)  # mean, by numeric integration
+# [1] 0.1365727
+mean(mcPost2)                     # mean, by MC
+# [1] 0.1365778
+thetas[which.max(densPost2)]      # MAP estimate
+# [1] 0.134
+
+quantile(mcPost2, c(0.025, 0.975))
+#     2.5%     97.5% 
+#0.1006757 0.1768317 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>

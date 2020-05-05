@@ -1,0 +1,40 @@
+multidimensional scaling (MDS)	a linear dimension reduction method applied in cases where distances between observations are available
+clusters	in the context of data analysis, data points that group together
+robust	in the context of a statistical method, a 'sturdy' estimator that is not heavily influenced by outliers
+outlier	a single data point with large distances to other data points, thus potentially dominating and skewing the analysis
+breakdown point	a measure of the robustness of an estimator; larger values indicate more robust estimators
+non-metric multidimensional scaling (NMDS)	a robust ordination method which attempts to embed data points in a new space while maintaining their respective order to one another
+metadata	information, data, or descriptions that characterize other data
+batch effects	hidden factors that affect the data but are not documented; e.g. running samples at the same time have a degree of similarity from being run in the same batch
+confounded effects	a term describing when there is uncertainty in the source of variation impacting data
+supplementary	in the context of variables for a statistical model, categorical variables added to continuous variables in heterogenous data
+supplementary points	points created using the group-means of points in each of the groups
+interactive	in the context of plots, data visualizations that can be manipulated in real time by the observer
+contingency table	the result of counting the co-occurrence of any pair of categorical variables measured in a set of observations; for example, two phenotypes
+chi-square distance	weighted Eucledian distance using relative counts and standardized by the mean, not the variance
+biplots	a type of exploratory graph that displays information on both the observations and the variables of a data matrix
+co-occurence matrix	a matrix that captures the extent to which variables are jointly observed in observations
+correspondence analysis (CA) / dual scaling	a method for computing low dimensional projections that explain dependencies in categorical data
+ordination method	a method which enables one to detect and interpret a hidden ordering, gradient or latent variable in the data
+clustering	in the context of statistical methods, a way to detect and interpret a hidden factor/categorical variable
+kernel	a linear algorithm designed to determine a non-linear decision boundary; used in pattern analysis to better understand general types of relations like clusters, rankings, principal components, or correlations
+local linear embedding (LLE)	a nonlinear method for estimating nonlinear trajectories by points in the relevant state spaces
+isomap	a nonlinear method for estimating nonlinear trajectories by points in the relevant state spaces
+inertia	in the context of counts in a contingency table, the weighted sum of the squares of distances between observed and expected frequencies
+covariance	measure of the joint variability of two random variables
+matrix association	correlation of vectors derived from matrices based on dissimilarity
+RV coefficient	the global measure of similarity of two data tables as opposed to two vectors; correlation coefficient for tables
+penalty	a method to constrain the typical optimization algorithm, added to interpret correlation when there are too many degrees of freedom
+sparsity penalty	an approach to maintain the number of non-zero coefficients to a minimum
+heterogenous data	a mixture of many continuous and a few categorical variables 
+canonical correlation	a method for finding a few linear combinations of variables from each table that are as correlated as possible
+nonlinear	a regression equation where the equation is not 'linear in the parameters,' meaning the relationship between parameters cannot be calulated by multiplying, exponentiating, or transforming independent variables
+species tree	a simplified term for a diagram showing the relatedness of organisms based on biological, often genetic sequence, information
+assay	an investigative (analytic) procedure in laboratory medicine, pharmacology, environmental biology and molecular biology for qualitatively assessing or quantitatively measuring the presence, amount, or functional activity of a target entity (the analyte)
+protocol	a predefined written procedural method of conducting experiments
+microarray	a 'lab-on-a-chip' method to assess many samples at once, often used in gene expression studies
+taxon	a group of one or more populations of an organism making up a single unit, typically disected to the level of genus and species
+mutation	an alteration in the nucleotide sequence of the genome of an organism or virus
+phenotype	a visually observed genetic trait or characteristic
+cell development	the process of a cell transitioning from one state to another, such as in the case of a cell transitioning from growth to division in mitosis
+metabolite	an intermediate or end product of metabolism; typically a small, organic molecule

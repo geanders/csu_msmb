@@ -1,0 +1,24 @@
+statistical inference / up / statistical approach	An upward-reasoning approach that start with data and works towards defining a model that might possibly explain the data.
+deduction	Starting from a mathematical/statistical model with known parameters and computing the probability of observing an event.
+null model	The model associated with the null hypothesis, which formulates an "uninteresting" baseline.
+goodness-of-fit	Evaluation of whether a theorectical distribution/model is appropriate for a data set.
+rootogram	Diagram to assess model goodness-of-fit for a data set. Bar chart where the bars "hang" from their theorectical values and will approximately line up with horizontal axis if the model is a good fit to the data.
+maximum likelihood estimator (MLE)	A rule, or mathematical formula, that outputs an estimate of a parameter for a model, where that estimate maximizes the probability of the observed data.
+conservative (approach)	An analysis approach that errs on the side of caution to avoid concluding an alternative hypothesis (e.g. detecting a signal) when it is not true.
+vectorization	In regard to function evaluation, if a vector is supplied to a function that expects a scalar, R will apply the function to each element of the vector.
+likelihood function	The probability of the data under a model expressed as a function of the model parameter(s).
+estimation	Process of using data to perform inference on population parameters. 
+statistical testing	Formal decision process to determine if a null model is appropriate for the observed data.
+regression	Relating how an outcome measure depends on one or more covariates.
+residual	Deviation between the observed data and the expected value of the data point according to a model.  
+generalized linear model	A class of models for non-continuous or non-negative data that allows regression of an outcome on observed covariates.  An extension of linear regression.
+chi-squared distribution	A distribution on the non-negative real numbers that is often used in assessing goodness-of-fit (e.g. models fit to contingency tables).
+quantile-quantile (QQ) plot	Used to compare two distributions (or samples). Deviations in the plot from the y=x line suggest differences between the two distributions.
+quantile	Value corresponding to a percentile of a distribution.
+empirical cumulative distribution function (ECDF)	Function with input value x gives as output the probability that a random variable from the distribution is less than or equal to x.  Function is defined using a sample and assigning probability 1/n to each data point. 
+chi-squared statistic	A summary statistic of a data set that has a theorectical chi-squared distribution.
+base pairing	The pattern that adenine (A) and thymine (T) are paired (appear with equal frequency) in the DNA of an organism, and similarly cytosine (C) and guianine (G) are paired.
+contingency table	Table of counts summarizing the number of times combinations of factor levels were observed in the data set.
+Hardy-Weinberg equilibrium (HWE)	Assuming random mating, this principle characterizes the distribution of genotype frequencies as a function of the relative frequencies of each allele. 
+position weight matrix (PWM) / position-specific scoring matrix (PSSM)	Table giving the probability of each nucleotide at each position
+sequence logo	A graphical summary of the position weight matrix or position-specific scoring matrix.

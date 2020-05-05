@@ -1,0 +1,151 @@
+---
+title: "Exercise Solution for 5.1"
+author5.1: "Camron Pearce"
+date: "3/12/2020"
+output: html_document
+---
+
+
+
+<p>This exercise asks us to interpret and validate the consistency within our clusters of data. To do this, we will employ the silhouette index, which gives us a silhouette value measuring how similar an object is to its own cluster compared to other clusters.</p>
+<p>The <strong>silhouette index</strong> is as follows:</p>
+<p><span class="math display">\[\displaystyle S(i) = \frac{B(i) - A(i)}{max_i(A(i), B(i))} \]</span></p>
+<p>The solution to this exercise requires the following R packages to be loaded into your environment.</p>
+<div id="required-libraries" class="section level2">
+<h2>Required Libraries</h2>
+<pre class="r"><code>library(&quot;cluster&quot;)
+library(dplyr)
+library(ggplot2)
+library(purrr)</code></pre>
+</div>
+<div id="part-a" class="section level2">
+<h2>Part A</h2>
+<p>Question 5.1.a asks us to compute the silhouette index for the simdat data that was simulated in Section <strong>5.7</strong>. The code is as follows:</p>
+<pre class="r"><code>set.seed(1)
+
+simdat = lapply(c(0, 8), function(mx) {
+  lapply(c(0,8), function(my) {
+    tibble(x = rnorm(100, mean = mx, sd = 2),
+           y = rnorm(100, mean = my, sd = 2),
+           class = paste(mx, my, sep = &quot;:&quot;))
+   }) %&gt;% bind_rows
+}) %&gt;% bind_rows
+
+simdatxy = simdat[, c(&quot;x&quot;, &quot;y&quot;)]
+
+wss = tibble(k = 1:8, value = NA_real_)
+
+wss$value[1] = sum(scale(simdatxy, scale = FALSE)^2)
+
+for (i in 2:nrow(wss)) {
+  km  = kmeans(simdatxy, centers = wss$k[i])
+  wss$value[i] = sum(km$withinss)
+}
+
+ggplot(wss, aes(x = k, y = value)) + geom_col()</code></pre>
+<p><img src="/post/2020-03-12-ex5-1_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>The provided code is used to simulate data coming from four separate groups. They use the pipe operator to concatenate four different, randomly generated, data sets. The ggplot2 package is used to take a look at the data as a barchart with the k-means method and k = 4.</p>
+<pre class="r"><code>pam4 = pam(simdatxy, 4)
+sil = silhouette(pam4, 4, border = NA)
+plot(sil, col=c(&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;,&quot;purple&quot;), main=&quot;Silhouette&quot;)</code></pre>
+<p><img src="/post/2020-03-12-ex5-1_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>Next up is the code necessary to plot the silhouette index. The “silhouette” function comes from the “cluster” package, and the resulting graph provides an average silhouette width for k = 4 clusters.</p>
+<div id="computing-the-silhouette-index" class="section level3">
+<h3>Computing the Silhouette Index</h3>
+<pre class="r"><code>summary(sil)$avg.width</code></pre>
+<pre><code>## [1] 0.4985801</code></pre>
+</div>
+</div>
+<div id="part-b" class="section level2">
+<h2>Part B</h2>
+<p>Question 5.1.b asks us to change the number of clusters <em>k</em> and assess which <em>k</em> value produces the best silhouette index.</p>
+<p>The silhouette value is a measure of how similar a cluster is to its own cluster when compared to other clusters. Values can range from -1 to +1. A high value tells us that the object is better matched to its on cluster and more poorly matched to neighboring clusters.</p>
+<p>In this example, there are a couple of ways to assess which k gives the best silhouette index.One method would be trial and error and determining which k-value produces the highest silhouette index. This method works out for this example, but is impractical for much larger and complex datasets. Included below is the code for testing multiple different k-values and the resulting coefficient values.</p>
+<pre class="r"><code>pam2 = pam(simdatxy, 2)
+sil2 = silhouette(pam2, 2)
+plot(sil2, col=c(&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;,&quot;purple&quot;), main=&quot;Silhouette&quot;)</code></pre>
+<p><img src="/post/2020-03-12-ex5-1_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<pre class="r"><code>pam3 = pam(simdatxy, 3)
+sil3 = silhouette(pam3, 3)
+plot(sil3, col=c(&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;,&quot;purple&quot;), main=&quot;Silhouette&quot;)</code></pre>
+<p><img src="/post/2020-03-12-ex5-1_files/figure-html/unnamed-chunk-5-2.png" width="672" /></p>
+<pre class="r"><code>pam4 = pam(simdatxy, 4)
+sil = silhouette(pam4, 4)
+plot(sil, col=c(&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;,&quot;purple&quot;), main=&quot;Silhouette&quot;)</code></pre>
+<p><img src="/post/2020-03-12-ex5-1_files/figure-html/unnamed-chunk-5-3.png" width="672" /></p>
+<pre class="r"><code>pam12 = pam(simdatxy, 12)
+sil12 = silhouette(pam12, 12)
+plot(sil12, col=c(&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;,&quot;purple&quot;), main=&quot;Silhouette&quot;)</code></pre>
+<p><img src="/post/2020-03-12-ex5-1_files/figure-html/unnamed-chunk-5-4.png" width="672" /></p>
+<pre class="r"><code>pam40 = pam(simdatxy, 40)
+sil40 = silhouette(pam40, 40)
+plot(sil40, col=c(&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;,&quot;purple&quot;), main=&quot;Silhouette&quot;)</code></pre>
+<p><img src="/post/2020-03-12-ex5-1_files/figure-html/unnamed-chunk-5-5.png" width="672" /></p>
+<p>This trial and error method indicates that the highest silhouette index (that was tested) is achieved with k = 4.</p>
+<p>A different (seemingly more appropriate) method is to write a piece of code that will test a range of k-values automatically. This next piece of code is adapted from Amy Fox and the group that she worked with during class. This is a much more practical method that provides a clear answer of which <em>k</em> gives the best silhouette index.</p>
+<pre class="r"><code>k &lt;- c(2:10)
+df_test &lt;- data.frame()
+for (i in 2:10){
+  
+  pam_run &lt;- pam(simdatxy, i)
+  sil_run &lt;- silhouette(pam_run, i)
+  
+  row_to_add &lt;- data.frame(i, width = summary(sil_run)$avg.width)
+  
+  df_test &lt;- rbind(df_test, row_to_add)
+}
+df_test</code></pre>
+<pre><code>##    i     width
+## 1  2 0.4067400
+## 2  3 0.4000560
+## 3  4 0.4985801
+## 4  5 0.4401518
+## 5  6 0.3957347
+## 6  7 0.3717875
+## 7  8 0.3699929
+## 8  9 0.3670770
+## 9 10 0.3516570</code></pre>
+<pre class="r"><code>ggplot(df_test, aes(i, width)) +
+  geom_point() +
+  geom_line() +
+  xlab(&quot;k&quot;) +
+  ylab(&quot;Silhouette Index&quot;) +
+  ggtitle(&quot;Testing different k values for Silhouette Index&quot;)</code></pre>
+<p><img src="/post/2020-03-12-ex5-1_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre class="r"><code>summary(sil_run)</code></pre>
+<pre><code>## Silhouette of 400 units in 10 clusters from pam(x = simdatxy, k = i) :
+##  Cluster sizes and average silhouette widths:
+##        63        38        40        52        33        40        35        33 
+## 0.3885059 0.3273800 0.3622990 0.3703291 0.3573781 0.3257945 0.4429236 0.2807700 
+##        31        35 
+## 0.3944945 0.2335738 
+## Individual silhouette widths:
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## -0.1778  0.2389  0.3703  0.3517  0.4946  0.6623</code></pre>
+<p>The result of summary(sil_run) matches the trial and error method, but in a more efficient manner..</p>
+</div>
+<div id="part-c" class="section level2">
+<h2>Part C</h2>
+<p>The last part of this exercise asks us to repeat by calculating the silhouette index on a uniform (unclustered) data distribution over a range of values.</p>
+<p>Here, a new data set is generated without clustering the randomly genereated data.</p>
+<pre class="r"><code>set.seed(1)
+
+simdat1 = lapply(c(1), function(mx) {
+  lapply(c(1), function(my) {
+    tibble(x = rnorm(100, mean = mx, sd = 2),
+           y = rnorm(100, mean = my, sd = 2),
+           class = paste(mx, my, sep = &quot;:&quot;))
+   }) %&gt;% bind_rows
+}) %&gt;% bind_rows
+
+simdatxy1 = simdat1[, c(&quot;x&quot;, &quot;y&quot;)]
+
+ggplot(simdatxy1, aes(x = x, y = y)) +
+  geom_point()</code></pre>
+<p><img src="/post/2020-03-12-ex5-1_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<pre class="r"><code>pam4.1 = pam(simdatxy1, 4)
+sil.1 = silhouette(pam4.1, 4)
+plot(sil.1, col=c(&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;,&quot;purple&quot;), main=&quot;Silhouette&quot;)</code></pre>
+<p><img src="/post/2020-03-12-ex5-1_files/figure-html/unnamed-chunk-7-2.png" width="672" /></p>
+<p>The average silhouette width is 0.33, which is much lower than the clustered value of 0.50 that we see with the first simulation.</p>
+</div>

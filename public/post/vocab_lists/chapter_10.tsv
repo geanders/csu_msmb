@@ -1,0 +1,52 @@
+Graph	A structure formed by a set of nodes or vertices and a set of edges between these vertices
+Adjacency matrix	The matrix representation of edges of a graph with as many rows as nodes in the graph
+Network	A weighted, directed graph
+Sparse	In the context of graphs, a term to describe a graph when the number of edges is similar to the number of nodes
+Dense	In the context of graphs, a  term to describe a graph when the number of edges is (approximately) a quadratic function of the nodes
+Arrows/directed edges	Graph edges that directionally connect nodes
+Annotation variables	Graph visualization characteristics that help to demonstrate strength of a link in a graph by changing the width of the edge or covariates associated to the size or color of the node
+Graph layouts	Different ways to plot a graph, either for aesthetic or practical reasons
+Binary data	Data in which each observation can take only one of two values (e.g., 0 or 1)
+Differentially expressed genes	A term to describe changes in gene expression levels between different experimental groups
+Bipartite graph	A graph where each edge connects a node
+Overrepresented or enriched	In the context of gene expresion, a term to describe increased expression of a gene / set of genes of interest
+Gene Ontology (GO)	A resource aimed to unify the vocabulary to describe genes and gene product attributes across all species
+Fisher's exact test / Hypergeometric testing	Two-way table testing used to account for the fact that some categories are extremely numerous and others are rarer
+Known skeleton graph	A graph that projects significance scores such as p-values
+Perturbation	In the context of a network, an alteration of the function of a biological system, induced by external or internal mechanisms
+Hotspots	In the context of a graph, areas with high event density
+Rooted binary tree	A data tree in which each node has at most two children
+Cycles	In the context of graphs, another word for loops: either self-loops or ones that go through several vertices
+Ancestral taxa	Correspond to inner nodes and are inferred from the contemporaneous data on the tips
+Contemporaneous	In the context of data for phylogenetic tress, organisms at terminal nodes that exist at the same time and are related to each other, thus revealing information about their common ancestors 
+OTUs (Operational Taxonomic Units)	A method of clustering organisms based on DNA similarity of a certain taxonomic marker gene (Tips of the tree)
+Parameter	In the context of statistics, numerical value that describes a population
+Gene trees	Structures produced when different genes show differences in their evolutionary histories
+Markov chain	A sequence where given the current state, the next state is conditionally independent of all previous states
+Molecular clock hypothesis	A term that describes a technique that uses the mutation rate to infer what happened to a species historically
+Non-identifiability	The inability to distinguish a parameterization of a model based on observed data
+Time homogeneity	In the context of Markov chains, the state of the mutation rate being constant across history
+Generator	In the context of Markov chains, the instantaneous change probability matrix describing transitions between steps of the chain
+Transition matrix	A matrix that contains all probabilities of any state changes for a Markov chain
+Parsimony tree	A structure created using nonparametric method that minimizes the number of changes necessary to explain the data
+Maximum likelihood tree	A structure created using a parametric method that uses efficient optimization algorithms to maximize the likelihood of a tree under the model assumptions.
+Bayesian posterior distributions for trees	A method that uses MCMC to find posterior distributions of the phylogenies
+Distance-based methods	Semi-parametric methods similar to the hierarchical clustering algorithms but use the parametric evolutionary models
+Aligning	Arranging different sequences of DNA, RNA, or protein together to identify similarities or differences between them
+indel (inserted-deleted) event	Insertion or deletion of bases in the genome of an organism
+Filtering operations	In the context of low-quality rRNA reads, the removal of low-quality reads and trimming of remaining reads to a consistent length
+Interactive	In the context of a plot, enabling direct actions on a graphical plot to change elements and link multiple plots
+Spanning tree	A tree that goes through all points at least once
+Minimum spanning tree (MST)	Given distances between vertices, a tree that spans all the points and has the minimum total length
+Jitter	To slightly move coordinates on a graph to avoid too much overlapping
+Undirected network 	A term describing a graph without arrows between nodes
+Associated	A term indicating that two variables are related
+Friedman-Rafsky tests	Tests for two/multiple sample segregation on a minimum spanning tree
+Pure edges	In the context of graphs, edges whose two nodes have the same level of the factor variable
+Microbiome	The aggregate of all microbiota that reside on or within an organism tissues and biofluids along with the corresponding anatomical sites in which they reside
+Exponential random graph models (ERGMs)	Models that can be used to predict vertex covariates
+Protein interaction networks	In the context of graphing, a way to visualize observed protein-protein interactions
+Phylogenetic tree	A tree used to visualize evolutionary relationships among species
+Strain	In the context of a virus, a genetic variant or subtype
+Taxa	A group of one or more populations of an organism making up a single unit, typically disected to the level of genus and species
+Protein	A compound made up of amino acids; one of the four types of macromolecules that make up living organisms.

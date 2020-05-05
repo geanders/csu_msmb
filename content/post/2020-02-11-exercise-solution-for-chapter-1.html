@@ -1,0 +1,394 @@
+---
+title: Exercise solution for Chapter 1
+author: Brooke Anderson
+date: '2020-02-11'
+slug: exercise-solution-for-chapter-1
+categories:
+  - exercises
+  - Chapter 1
+tags:
+  - exercises
+  - Chapter 1
+subtitle: ''
+summary: ''
+authors: [brooke-anderson]
+lastmod: '2020-02-11T20:22:07-07:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+
+<p>This exercise asks us to explore the frequency of each of the four nucleotides
+(A, C, G, and T) in the genome of <em>C. elegans</em>, a type of worm used frequently
+in scientific research.</p>
+<p>This solution requires that several R extension packages be loaded in your R
+session. If you do not have these packages installed to your computer yet, you
+should follow <a href="https://kind-neumann-789611.netlify.com/post/chapter-1-exercise-setup/">instructions we’ve posted
+separately</a>
+describing the required set-up for this exercise. Once you have installed these
+packages on your computer, you can load them into your current R session using
+the <code>library</code> function:</p>
+<pre class="r"><code>library(&quot;BSgenome.Celegans.UCSC.ce2&quot;)
+library(&quot;Biostrings&quot;)
+
+library(&quot;tidyverse&quot;)
+library(&quot;knitr&quot;)</code></pre>
+<div id="part-a" class="section level2">
+<h2>Part A</h2>
+<p>Part A of the question asks us to explore the nucleotide frequency of the <em>C.
+elegans</em> genome. This genome is available in the <code>Celegans</code> data that comes with
+the <code>BSgenome.Clegans.UCSC.ce2</code> package and is stored within a <code>BSgenome</code> class,
+which is a special object class provided by the <code>Biostrings</code> package.</p>
+<p>There is a dedicated function called <code>letterFrequency</code> in the <code>Biostrings</code>
+package that can be used to count the frequency of letters in a string (like a
+genome) in an R object like this. In a call to this function, you must also
+include the possible letters in your “alphabet”—that is, the possible letters
+that each position in your string could take.</p>
+<pre class="r"><code>(nuc_freq &lt;- letterFrequency(Celegans$chrM, letters=c(&quot;A&quot;, &quot;C&quot;, &quot;G&quot;, &quot;T&quot;)))</code></pre>
+<pre><code>##    A    C    G    T 
+## 4335 1225 2055 6179</code></pre>
+<p>To explore and plot this data, I put this summary data into a <code>tibble</code>, so I
+could more easily use <code>tidyverse</code> tools with the data.</p>
+<pre class="r"><code>nuc_freq_df &lt;- tibble(nucleotide = names(nuc_freq), 
+             n = nuc_freq)
+nuc_freq_df</code></pre>
+<pre><code>## # A tibble: 4 x 2
+##   nucleotide     n
+##   &lt;chr&gt;      &lt;int&gt;
+## 1 A           4335
+## 2 C           1225
+## 3 G           2055
+## 4 T           6179</code></pre>
+<p>In this format, you can use <code>tidyverse</code> tools to explore the data a bit more.
+For example, you can determine the total number of nucleotides in the genome
+and, with that calculate the proportion of each nucleotide across the genome.
+Along with the <code>kable</code> function from the <code>knitr</code> package, I created a formatted
+table with this information:</p>
+<pre class="r"><code>nuc_freq_df %&gt;% 
+  mutate(prop = n / sum(n)) %&gt;% 
+  kable(digits = 2, 
+        caption = &quot;Nucleotide frequencies and proportions in *C. elegans*&quot;,
+        col.names = c(&quot;Nucleotide&quot;, &quot;Frequency&quot;, &quot;Proportion&quot;))</code></pre>
+<table>
+<caption><span id="tab:unnamed-chunk-4">Table 1: </span>Nucleotide frequencies and proportions in <em>C. elegans</em></caption>
+<thead>
+<tr class="header">
+<th align="left">Nucleotide</th>
+<th align="right">Frequency</th>
+<th align="right">Proportion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">A</td>
+<td align="right">4335</td>
+<td align="right">0.31</td>
+</tr>
+<tr class="even">
+<td align="left">C</td>
+<td align="right">1225</td>
+<td align="right">0.09</td>
+</tr>
+<tr class="odd">
+<td align="left">G</td>
+<td align="right">2055</td>
+<td align="right">0.15</td>
+</tr>
+<tr class="even">
+<td align="left">T</td>
+<td align="right">6179</td>
+<td align="right">0.45</td>
+</tr>
+</tbody>
+</table>
+<p>For some presentations, it might be clearer to present this information in a
+slightly different table format, using <code>pivot_longer</code> and then <code>pivot_wider</code> to
+reformat the table for presentation:</p>
+<pre class="r"><code>nuc_freq_df %&gt;% 
+  mutate(prop = n / sum(n),
+         n = prettyNum(n, big.mark = &quot;,&quot;),
+         prop = prettyNum(prop, digits = 2)) %&gt;% 
+  pivot_longer(cols = c(&quot;n&quot;, &quot;prop&quot;)) %&gt;% 
+  pivot_wider(names_from = &quot;nucleotide&quot;) %&gt;% 
+  mutate(name = case_when(
+    name == &quot;n&quot; ~ &quot;Frequency of nucleotide&quot;,
+    name == &quot;prop&quot; ~ &quot;Proportion of all nucleotides&quot;
+  )) %&gt;%  
+  rename(` ` = name) %&gt;% 
+  kable(align = c(&quot;rcccc&quot;), 
+        caption = &quot;Nucleotide frequencies and proportions in *C. elegans*&quot;)</code></pre>
+<table>
+<caption><span id="tab:unnamed-chunk-5">Table 2: </span>Nucleotide frequencies and proportions in <em>C. elegans</em></caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="center">A</th>
+<th align="center">C</th>
+<th align="center">G</th>
+<th align="center">T</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Frequency of nucleotide</td>
+<td align="center">4,335</td>
+<td align="center">1,225</td>
+<td align="center">2,055</td>
+<td align="center">6,179</td>
+</tr>
+<tr class="even">
+<td>Proportion of all nucleotides</td>
+<td align="center">0.31</td>
+<td align="center">0.089</td>
+<td align="center">0.15</td>
+<td align="center">0.45</td>
+</tr>
+</tbody>
+</table>
+<p>Here is a plot of the frequency of each of the four nucleotides for the <em>C.
+elegans</em> nucleotide:</p>
+<pre class="r"><code>ggplot(nuc_freq_df, aes(x = nucleotide, y = n)) + 
+  geom_col(fill = &quot;lavender&quot;, color = &quot;black&quot;) + 
+  theme_classic() + 
+  scale_y_continuous(label = scales::comma) + 
+  theme(axis.title = element_blank()) + 
+  labs(title = expression(paste(italic(&quot;C. elegans&quot;), &quot; neucleotide frequency&quot;)),
+       caption = expression(paste(&quot;Based on data from the &quot;, italic(&quot;BSgenome.Celegans.UCSC.ce2&quot;), 
+                                  &quot; package.&quot;)))</code></pre>
+<p><img src="/post/2020-02-11-exercise-solution-for-chapter-1_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>This graph uses a few elements to improve its appearance that you might want to
+explore if you’re not already familiar with them:</p>
+<ul>
+<li>The <code>labs</code> function is used to add both a title and a caption to the plot.</li>
+<li>The <code>paste</code>, <code>expression</code>, and <code>italic</code> functions are used together to put “C.
+elegans” and an R package name in italics in some of the labels on the plot.</li>
+<li>The <code>scales</code> package is used inside a scale layer for the <code>ggplot2</code> code to
+make the y-axis labels a bit nicer.</li>
+<li><code>theme</code> calls are used to apply a simpler overall theme than the default and to
+remove the x- and y-axis titles (with <code>element_blank</code>).</li>
+<li>The color and fill of the bars are customized in the geom layer (<code>geom_col</code>).</li>
+</ul>
+<p>From this plot, it certainly looks like the nucleotides are <strong>not</strong> uniformly
+distributed in the <em>C. elegans</em> genome. This question will be investigated more
+in the next part of the exercise.</p>
+</div>
+<div id="part-b" class="section level2">
+<h2>Part B</h2>
+<p>The second part of the exercise asks us to test whether the observed nucleotide
+data for <em>C. elegans</em> is consistent with the uniform model that all nucleotide
+frequencies are the same.</p>
+<p>First, we can simulate several datasets under this null model and see how a plot
+of nucleotide frequencies compares to the plot that we obtained with the observed
+<em>C. elegans</em> data. To make these plots, I first simulated 20 samples under the
+null model that the distribution is uniform across the four nucleotides, using
+the <code>rmultinom</code> function with the <code>size</code> argument set to the number of nucleotides in
+the original <em>C. elegans</em> genome data and the <code>prob</code> argument set to have an equal
+probability of each nucleotide at each spot on the genome:</p>
+<pre class="r"><code>(sim_nuc_freq &lt;- rmultinom(n = 20, 
+                          size = sum(nuc_freq_df$n), 
+                          prob = rep(1 / 4, 4)))</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13] [,14]
+## [1,] 3397 3447 3540 3504 3396 3506 3369 3451 3463  3475  3451  3484  3467  3419
+## [2,] 3523 3442 3360 3478 3549 3442 3507 3441 3459  3368  3457  3393  3420  3593
+## [3,] 3430 3456 3472 3377 3412 3467 3436 3431 3417  3522  3443  3430  3462  3461
+## [4,] 3444 3449 3422 3435 3437 3379 3482 3471 3455  3429  3443  3487  3445  3321
+##      [,15] [,16] [,17] [,18] [,19] [,20]
+## [1,]  3387  3466  3487  3455  3564  3448
+## [2,]  3406  3439  3496  3489  3323  3434
+## [3,]  3546  3341  3398  3418  3476  3440
+## [4,]  3455  3548  3413  3432  3431  3472</code></pre>
+<p>Next, I moved this into a tibble so I could more easily rearrange and plot the data using
+facetting in <code>ggplot2</code>:</p>
+<pre class="r"><code>sim_nuc_freq_df &lt;- as_tibble(sim_nuc_freq) %&gt;% 
+  mutate(nucleotide = c(&quot;A&quot;, &quot;C&quot;, &quot;G&quot;, &quot;T&quot;)) %&gt;% 
+  pivot_longer(-nucleotide, names_to = &quot;sample&quot;) %&gt;% 
+  mutate(sample = sample %&gt;% str_remove(&quot;V&quot;) %&gt;% as.numeric()) %&gt;% 
+  arrange(sample, nucleotide)
+
+sim_nuc_freq_df %&gt;% 
+  slice(1:10)</code></pre>
+<pre><code>## # A tibble: 10 x 3
+##    nucleotide sample value
+##    &lt;chr&gt;       &lt;dbl&gt; &lt;int&gt;
+##  1 A               1  3397
+##  2 C               1  3523
+##  3 G               1  3430
+##  4 T               1  3444
+##  5 A               2  3447
+##  6 C               2  3442
+##  7 G               2  3456
+##  8 T               2  3449
+##  9 A               3  3540
+## 10 C               3  3360</code></pre>
+<pre class="r"><code>ggplot(sim_nuc_freq_df, aes(x = nucleotide, y = value)) + 
+  geom_col(fill = &quot;lavender&quot;, color = &quot;black&quot;) + 
+  theme_classic() + 
+  scale_y_continuous(label = scales::comma) + 
+  theme(axis.title = element_blank()) + 
+  labs(title = &quot;Simulated neucleotide frequencies under a uniform model&quot;) +
+  facet_wrap(~ sample) + 
+  expand_limits(y = max(nuc_freq_df$n))</code></pre>
+<p><img src="/post/2020-02-11-exercise-solution-for-chapter-1_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>The y-axis limits were expanded here to cover the same range as that shown for the
+observed <em>C. elegans</em> nucleotide frequencies, to help make it easier to compare these plots
+with the plot of our observed data. These plots of data simulated under the null model do
+show some variation in frequencies among the nucleotides, but it’s certainly much less than
+in the observed data for <em>C. elegans</em>.</p>
+<p>Next, I repeated this simulation process, but I increased the number of simulations to 1,000:</p>
+<pre class="r"><code>sim_nuc_freq_df &lt;- rmultinom(n = 1000, 
+                          size = sum(nuc_freq_df$n), 
+                          prob = rep(1 / 4, 4)) %&gt;% 
+  as_tibble() %&gt;% 
+  mutate(nucleotide = c(&quot;A&quot;, &quot;C&quot;, &quot;G&quot;, &quot;T&quot;)) %&gt;% 
+  pivot_longer(-nucleotide, names_to = &quot;sample&quot;) %&gt;% 
+  mutate(sample = sample %&gt;% str_remove(&quot;V&quot;) %&gt;% as.numeric()) %&gt;% 
+  arrange(sample, nucleotide)
+
+sim_nuc_freq_df %&gt;% 
+  slice(1:10)</code></pre>
+<pre><code>## # A tibble: 10 x 3
+##    nucleotide sample value
+##    &lt;chr&gt;       &lt;dbl&gt; &lt;int&gt;
+##  1 A               1  3427
+##  2 C               1  3456
+##  3 G               1  3471
+##  4 T               1  3440
+##  5 A               2  3429
+##  6 C               2  3492
+##  7 G               2  3421
+##  8 T               2  3452
+##  9 A               3  3451
+## 10 C               3  3438</code></pre>
+<p>Using this dataframe of simulations, we can measure the mean, minimum, and maximum frequencies
+of each nucleotide across all 1,000 simulations:</p>
+<pre class="r"><code>(sim_summary &lt;- sim_nuc_freq_df %&gt;% 
+  group_by(nucleotide) %&gt;% 
+  summarize(mean_freq = mean(value),
+            min_freq = min(value), 
+            max_freq = max(value)))</code></pre>
+<pre><code>## # A tibble: 4 x 4
+##   nucleotide mean_freq min_freq max_freq
+##   &lt;chr&gt;          &lt;dbl&gt;    &lt;int&gt;    &lt;int&gt;
+## 1 A              3449.     3281     3602
+## 2 C              3446.     3272     3588
+## 3 G              3452.     3301     3652
+## 4 T              3447.     3266     3593</code></pre>
+<p>To help compare this with the observed data, we can create a table with information from
+both the original data and the simulations under the null model:</p>
+<pre class="r"><code>nuc_freq_df %&gt;% 
+  left_join(sim_summary, by = &quot;nucleotide&quot;) %&gt;% 
+  mutate_at(c(&quot;mean_freq&quot;, &quot;min_freq&quot;, &quot;max_freq&quot;, &quot;n&quot;), 
+            prettyNum, big.mark = &quot;,&quot;, digits = 0) %&gt;% 
+  mutate(simulations = paste0(mean_freq, &quot; (&quot;, min_freq, &quot;, &quot;, max_freq, &quot;)&quot;)) %&gt;% 
+  select(nucleotide, n, simulations) %&gt;% 
+  kable(col.names = c(&quot;Nucleotide&quot;,              
+        &quot;Frequency in C. elegans genome&quot;,
+        &quot;Mean frequency (minimum frequency, maximum frequency) across 1,000 simulations&quot;), 
+        align = &quot;c&quot;)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Nucleotide</th>
+<th align="center">Frequency in C. elegans genome</th>
+<th align="center">Mean frequency (minimum frequency, maximum frequency) across 1,000 simulations</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">A</td>
+<td align="center">4,335</td>
+<td align="center">3,449 (3,281, 3,602)</td>
+</tr>
+<tr class="even">
+<td align="center">C</td>
+<td align="center">1,225</td>
+<td align="center">3,446 (3,272, 3,588)</td>
+</tr>
+<tr class="odd">
+<td align="center">G</td>
+<td align="center">2,055</td>
+<td align="center">3,452 (3,301, 3,652)</td>
+</tr>
+<tr class="even">
+<td align="center">T</td>
+<td align="center">6,179</td>
+<td align="center">3,447 (3,266, 3,593)</td>
+</tr>
+</tbody>
+</table>
+<p>This helps clarify how unusual the observed data would be under the null model—the
+counts of all four nucleotides in the <em>C. elegans</em> genome are completely outside the
+range of frequencies in the simulated data.</p>
+<p>Another way to look at this is with histograms of the distribution of frequencies
+of each nucleotide under the null model compared to the observed frequencies in
+the <em>C. elegans</em> nucleotide:</p>
+<pre class="r"><code>ggplot(sim_nuc_freq_df, aes(x = value)) + 
+  geom_histogram(binwidth = 10) + 
+  facet_wrap(~ nucleotide) + 
+  theme_classic() + 
+  scale_x_continuous(name = &quot;Frequency of nucleotide in the simulation under the null model&quot;,
+                     labels = scales::comma) + 
+  scale_y_continuous(name = &quot;# of simulations (out of 1,000)&quot;) + 
+  geom_vline(data = nuc_freq_df, aes(xintercept = n), color = &quot;red&quot;) + 
+  labs(title = expression(paste(&quot;Nucleotide frequency in &quot;,
+                                italic(&quot;C. elegans&quot;), 
+                                &quot; compared null model simulations&quot;)),
+       caption = &quot;Red line shows the frequency observed for the nucleotide in C. elegans&quot;)</code></pre>
+<p><img src="/post/2020-02-11-exercise-solution-for-chapter-1_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>Finally, to help in answering this question, it would be interesting to look at a
+single measure for each simulation (and for the observed data) rather than comparing
+each nucleotide one at a time. Chapter 1 gives the equation for a statistic to
+measure variability in multinomial data by calculating the sum of squares for the
+differences between the observed and expected count of nucleotides for each of the
+four nucleotides in a sample (p. 12).</p>
+<p>I calculated this statistic for the observed data and then for each of the 1,000
+simulations.</p>
+<pre class="r"><code>(obs_stat &lt;- nuc_freq_df %&gt;% 
+  mutate(expected = mean(n),
+         stat_input = (n - expected) ^ 2 / expected) %&gt;% 
+  summarize(variability_stat = sum(stat_input)))</code></pre>
+<pre><code>## # A tibble: 1 x 1
+##   variability_stat
+##              &lt;dbl&gt;
+## 1            4387.</code></pre>
+<pre class="r"><code>sim_stat &lt;- sim_nuc_freq_df %&gt;% 
+  mutate(expected = mean(value), 
+         stat_input = (value - expected) ^ 2 / expected) %&gt;% 
+  group_by(sample) %&gt;% 
+  summarize(variability_stat = sum(stat_input))
+
+sim_stat %&gt;% 
+  slice(1:5)</code></pre>
+<pre><code>## # A tibble: 5 x 2
+##   sample variability_stat
+##    &lt;dbl&gt;            &lt;dbl&gt;
+## 1      1            0.318
+## 2      2            0.882
+## 3      3            0.903
+## 4      4            0.476
+## 5      5            1.22</code></pre>
+<p>Here is a plot of the distribution of this statistic across the 1,000 simulations:</p>
+<pre class="r"><code>ggplot(sim_stat, aes(x = variability_stat)) + 
+  geom_rect(data = sim_stat, aes(xmin = quantile(variability_stat, prob = 0.025),
+                                 xmax = quantile(variability_stat, prob = 0.975),
+                                 ymin = 0, ymax = Inf), 
+            fill = &quot;beige&quot;, alpha = 0.5) +
+  geom_histogram(bins = 30, fill = &quot;white&quot;, color = &quot;tan&quot;, alpha = 0.5) +
+  theme_classic() + 
+  labs(title = &quot;Variability from expected values&quot;,
+       subtitle = &quot;Values from simulations under the null&quot;,
+       x = &quot;Value of variability statistic&quot;, 
+       y = &quot;Number of simulations with given value&quot;,
+       caption = &quot;The shaded yellow area shows the region of the central 95% of\nstatistic values for the 1,000 simulations under the null model.&quot;)</code></pre>
+<p><img src="/post/2020-02-11-exercise-solution-for-chapter-1_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p>The value of this statistic for the observed nucleotide frequencies for <em>C.
+elegans</em> is 4387, which is much larger (indicating greater variability
+from expected values under the null model) than the value observed under most of
+the simulations. It is, in fact, far outside the central 95% range of values
+observed in simulations.</p>
+</div>

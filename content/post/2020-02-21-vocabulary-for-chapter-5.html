@@ -1,0 +1,551 @@
+---
+title: Vocabulary for Chapter 5
+author: "Burton Karger"
+date: '2020-02-21'
+slug: vocabulary-for-chapter-5
+categories:
+  - Chapter 5
+  - vocabulary
+tags:
+  - Chapter 5
+  - vocabulary
+subtitle: ''
+summary: ''
+authors: [burton-karger]
+lastmod: '2020-02-21T14:41:22-07:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+<script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
+
+
+<p>Chapter 5 covers Clustering Analysis for large scale data anlysis like DNA/RNA sequencing outputs. These methods produce so much data that more unbiased approaches are required when attempting to make correlations.</p>
+<table class="table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+</th>
+<th style="text-align:left;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+unsupervised method
+</td>
+<td style="text-align:left;width: 30em; ">
+A learning method where all variables are treated with the same status, rather than one variable being considered as an outcome or target.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+status
+</td>
+<td style="text-align:left;width: 30em; ">
+A variable’s classification as an outcome/predictor (e.g. independent/dependent) in an analysis.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+distance
+</td>
+<td style="text-align:left;width: 30em; ">
+A measure of the difference between two random variables.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+The Euclidean distance
+</td>
+<td style="text-align:left;width: 30em; ">
+A distance metric equal to the “ordinary” straight-line distance between two points.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Manhattan distance
+</td>
+<td style="text-align:left;width: 30em; ">
+A distance metric equal to the sum of the absolute differences between the coordinate values for two points.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Maximum distance
+</td>
+<td style="text-align:left;width: 30em; ">
+A distance metric equal to the largest absolute difference between the coordinate values for two points.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Weighted Euclidean distance
+</td>
+<td style="text-align:left;width: 30em; ">
+A distance metric, which is a generalization of the ordinary Euclidean distance, that differentially weights the differences between the coordinate values for two points.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Minkowski distance
+</td>
+<td style="text-align:left;width: 30em; ">
+A distance metric equal to the mth root of the sum of the absolute differences between the coordinate values each raised to the mth power.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Edit or Hamming distance
+</td>
+<td style="text-align:left;width: 30em; ">
+A distance metric for comparing character sequences that counts the number of differences between two character strings.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Binary distance
+</td>
+<td style="text-align:left;width: 30em; ">
+A distance metric for binary strings based on the proportion of features having only one bit on amongst those features that have at least one bit on.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Jaccard distance
+</td>
+<td style="text-align:left;width: 30em; ">
+A distance metric that quantifies how dissimilar two sets are.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+co-occurrence
+</td>
+<td style="text-align:left;width: 30em; ">
+The fact of two or more things occurring together or simultaneously.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Jaccard index
+</td>
+<td style="text-align:left;width: 30em; ">
+A statistic used in quantifying the similarities between sample sets, which is formally defined as the size of the intersection between two sets divided by the size of the union of the sets.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Jaccard dissimilarity
+</td>
+<td style="text-align:left;width: 30em; ">
+1 - the Jaccard index.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Correlation-based distance
+</td>
+<td style="text-align:left;width: 30em; ">
+A distance metric that measures two objects to be similar if their features are highly correlated, even though the observed values may be far apart in terms of Euclidean distance.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Clusters of Differentiation (CDs)
+</td>
+<td style="text-align:left;width: 30em; ">
+At different stages of their development, immune cells express unique combinations of proteins on their surfaces.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Rectangular gating
+</td>
+<td style="text-align:left;width: 30em; ">
+A method of identifying groups of cells from a flow cytometry experiment using either a line (one-dimensional) or the quadrants created by two perpendicular lines (two-dimensional)
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Hyperbolic Arcsine (asinh)
+</td>
+<td style="text-align:left;width: 30em; ">
+A transform function often preferred over the log tranform for flow cytometry data because it can be applied to negative values.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+density-based clustering (dbscan)
+</td>
+<td style="text-align:left;width: 30em; ">
+The dbscan method clusters points in dense regions according to the density-connectedness criterion. It looks at small neighborhood spheres to see if points are connected.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+curse of dimensionality
+</td>
+<td style="text-align:left;width: 30em; ">
+When the dimensionality increases, the volume of the space increases so fast that the available data become sparse
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+density-reachability
+</td>
+<td style="text-align:left;width: 30em; ">
+A fundamental criterion in dbscan that quantifies whether two points are close enough together and surrounded by sufficiently many other points.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+recursive partitioning methods
+</td>
+<td style="text-align:left;width: 30em; ">
+A class of methods for dividing heterogeneous populations into more homogeneous subgroups, often used to make decision trees, that starts by separating the whole population into a few groups and iteratively continues separating each into subgroups.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+minimal jump method/single linkage method/nearest neighbor method
+</td>
+<td style="text-align:left;width: 30em; ">
+A clustering method that computes the distance between clusters as the smallest distance between any two points in the two clusters.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+maximum jump method/complete linkage method
+</td>
+<td style="text-align:left;width: 30em; ">
+A clustering method that defines the distance between clusters as the largest distance between any two objects in the two clusters.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+average linkage method
+</td>
+<td style="text-align:left;width: 30em; ">
+A clustering method that defines the distance between clusters as the average distance between a point in one cluster and another point in the other cluster.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Ward’s method
+</td>
+<td style="text-align:left;width: 30em; ">
+A clustering method that takes an analysis of variance approach, where the goal is to minimize the variance within clusters. This method is very efficient, however, it tends to break the clusters up into ones of smaller sizes.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Within-groups sum of squares (WSS)
+</td>
+<td style="text-align:left;width: 30em; ">
+A measure of the variability among data points within an identified cluster.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Calinski-Harabasz index
+</td>
+<td style="text-align:left;width: 30em; ">
+Quantifies the relative variability between groups (between group sum of squares) and within groups (within-groups sum of sqaures), similar to the F statistic used in analysis of variance.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Between-groups sum of squares (BSS)
+</td>
+<td style="text-align:left;width: 30em; ">
+A measure of the variability between clusters.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+gap statistic
+</td>
+<td style="text-align:left;width: 30em; ">
+A metric used to perform model selection which quantifies the amount of model fit improvement when using a more complex model. These can be used to select the number of clusters for a data set.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+technical / batch effects
+</td>
+<td style="text-align:left;width: 30em; ">
+Depedence in data observations that results from technical differences between samples, such as the type of sequencing machine or the technician that ran the sample, rather than from scientifically interesting causes.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+computational complexity
+</td>
+<td style="text-align:left;width: 30em; ">
+A measure of the computational resources needed to run an algorithm.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+noise
+</td>
+<td style="text-align:left;width: 30em; ">
+Unexplained variability within a data sample.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+operational taxonomic unit (OTU)
+</td>
+<td style="text-align:left;width: 30em; ">
+A method of clustering organisms based on DNA sequence similarity of a certain taxonomic marker gene.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+bias
+</td>
+<td style="text-align:left;width: 30em; ">
+The tendency of a statistic to overestimate or underestimate a parameter.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+representativeness heuristic
+</td>
+<td style="text-align:left;width: 30em; ">
+A method of learning or discovery that assesses similarity of objects and organizes them based around a category prototype (e.g., like goes with like, and causes and effects should resemble each other).
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+rare variants
+</td>
+<td style="text-align:left;width: 30em; ">
+An alternative form of a gene that occur just once or twice in an individual sample but more often across all samples.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+insertion-deletion (indel)
+</td>
+<td style="text-align:left;width: 30em; ">
+insertion or deletion of bases in the genome of an organism.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+neighboring cluster
+</td>
+<td style="text-align:left;width: 30em; ">
+The cluster with the lowest average dissimilarity to a given cluster.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+silhouette index
+</td>
+<td style="text-align:left;width: 30em; ">
+A metric quantifying the degree to which a given data point belongs to its designated cluster.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Microbiome
+</td>
+<td style="text-align:left;width: 30em; ">
+The aggregate of all microbiota that reside on or within an organim’s tissues and biofluids along with the corresponding anatomical sites in which they reside.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+filtering
+</td>
+<td style="text-align:left;width: 30em; ">
+in the context of low-quality rRNA reads removal of low-quality reads and trimming them to a consistent length
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Histopathology
+</td>
+<td style="text-align:left;width: 30em; ">
+The microscopic examination of tissue in order to study the manifestations of disease.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Molecular signature
+</td>
+<td style="text-align:left;width: 30em; ">
+Sets of genes, proteins, genetic variants or other variables that can be used as markers for a particular phenotype
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Gene expression data
+</td>
+<td style="text-align:left;width: 30em; ">
+Gene expression measurements : from gene¬scale to genome¬scale
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Single-cell RNA-Seq experiment
+</td>
+<td style="text-align:left;width: 30em; ">
+a measurement of the gene expression profiles of individual cells.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+gene transcript
+</td>
+<td style="text-align:left;width: 30em; ">
+An RNA molecule of defined size over the length of a gene.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+cell lineage dynamics
+</td>
+<td style="text-align:left;width: 30em; ">
+Visualized with tools such as scRNA-seq to track individual cells through their natural progression.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Flow cytometry
+</td>
+<td style="text-align:left;width: 30em; ">
+A technique for identifying and sorting cells and their components (such as DNA) by staining with a fluorescent dye and detecting the fluorescence usually by laser beam illumination
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Mass cytometry
+</td>
+<td style="text-align:left;width: 30em; ">
+A variation of flow cytometry in which antibodies are labeled with heavy metal ion tags rather than fluorochromes. Readout is by time-of-flight mass spectrometry.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Immune cells
+</td>
+<td style="text-align:left;width: 30em; ">
+cells that are part of the immune system and help the body fight infections and other diseases
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+CD marker / antigen marker
+</td>
+<td style="text-align:left;width: 30em; ">
+are specific types of molecules found on the surface of cells that help differentiate one cell type from another.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+CD4
+</td>
+<td style="text-align:left;width: 30em; ">
+A glycoprotein found on the surface of immune cells such as T helper cells, monocytes, macrophages, and dendritic cells.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+helper T cells
+</td>
+<td style="text-align:left;width: 30em; ">
+A type of T cell that provides help to other cells in the immune response by recognizing foreign antigens and secreting substances called cytokines that activate T and B cells
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Isotope
+</td>
+<td style="text-align:left;width: 30em; ">
+Two or more forms of the same element that contain equal numbers of protons but different numbers of neutrons in their nuclei, and hence differ in relative atomic mass but not in chemical properties;
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Inner cell mass (ICM)
+</td>
+<td style="text-align:left;width: 30em; ">
+Pluripotent cell lineage in the blastocyst. forms within the blastocyst, prior to its implantation within the uterus.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Blastocyst
+</td>
+<td style="text-align:left;width: 30em; ">
+A thin-walled hollow structure in early embryonic development that contains a cluster of cells called the inner cell mass from which the embryo arises.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Pluripotent epiblast (EPI)
+</td>
+<td style="text-align:left;width: 30em; ">
+The functional progenitors of soma and germ cells which later differentiate into three layers: definitive endoderm, mesoderm and ectoderm
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+primitive endoderm (PE)
+</td>
+<td style="text-align:left;width: 30em; ">
+The second extraembryonic tissue to form during embryogenesis in mammals. The PE develops from pluripotent cells of the blastocyst inner cell mass
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+variable regions
+</td>
+<td style="text-align:left;width: 30em; ">
+in the context of taxon identification of bacteria bacterial 16S ribosomal RNA (rRNA) genes contain nine “hypervariable regions” (V1 – V9) that demonstrate considerable sequence diversity among different bacteria.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;font-weight: bold;border-right:1px solid;">
+Chimera
+</td>
+<td style="text-align:left;width: 30em; ">
+An organism or tissue that contains at least two different sets of DNA, most often originating from the fusion of as many different zygotes (fertilized eggs).
+</td>
+</tr>
+</tbody>
+</table>
+<div id="sources-consulted-or-cited" class="section level3">
+<h3>Sources Consulted or Cited</h3>
+<p><em>Some of the definitons above are based in part or whole on listed definitions in the following sources:</em></p>
+<ul>
+<li>Holmes and Huber, 2019. <em>Modern Statistics for Modern Biology.</em> Cambridge University Press,
+Cambridge, United Kingdom.</li>
+<li>Wikipedia: The Free Encyclopedia. <a href="http://en.wikipedia.org/wiki/Main_Page" class="uri">http://en.wikipedia.org/wiki/Main_Page</a></li>
+<li><a href="https://academic.oup.com/biolreprod/article/85/5/946/2530522" class="uri">https://academic.oup.com/biolreprod/article/85/5/946/2530522</a></li>
+<li><a href="https://discovery.lifemapsc.com/in-vivo-development/inner-cell-mass/inner-cell-mass" class="uri">https://discovery.lifemapsc.com/in-vivo-development/inner-cell-mass/inner-cell-mass</a></li>
+<li><a href="https://study.com/academy/lesson/inner-cell-mass-icm-definition-function-quiz.html" class="uri">https://study.com/academy/lesson/inner-cell-mass-icm-definition-function-quiz.html</a></li>
+<li><a href="https://www.sciencedirect.com/" class="uri">https://www.sciencedirect.com/</a></li>
+<li><a href="https://www.medicinenet.com/" class="uri">https://www.medicinenet.com/</a></li>
+<li><a href="https://www.niaid.nih.gov/" class="uri">https://www.niaid.nih.gov/</a></li>
+<li><a href="https://iti.stanford.edu/" class="uri">https://iti.stanford.edu/</a></li>
+<li><a href="https://sysbiowiki.soe.ucsc.edu/node/323" class="uri">https://sysbiowiki.soe.ucsc.edu/node/323</a></li>
+<li><a href="https://www.statisticshowto.datasciencecentral.com/between-group-variation/" class="uri">https://www.statisticshowto.datasciencecentral.com/between-group-variation/</a></li>
+<li><a href="https://vsoch.github.io/2013/the-gap-statistic/" class="uri">https://vsoch.github.io/2013/the-gap-statistic/</a></li>
+</ul>
+</div>
+<div id="practice" class="section level3">
+<h3>Practice</h3>
+<iframe src="https://quizlet.com/488864042/flashcards/embed?i=2oqpc3&amp;x=1jj1" height="500" width="100%" style="border:0">
+</iframe>
+</div>

@@ -21,14 +21,14 @@
   
   
 
-  <meta name="author" content="Brooke Anderson">
+  <meta name="author" content="Bailey Fosdick">
 
   
   
   
     
   
-  <meta name="description" content="Assistant Professor of Epidemiology">
+  <meta name="description" content="Assistant Professor of Statistics">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/">
@@ -209,6 +209,42 @@
 
 
 
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-36719749-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           document.location = url;
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target);  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-36719749-3', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
   
 
 
@@ -236,10 +272,10 @@
   <meta property="og:site_name" content="CSU MSMB Group Study">
   <meta property="og:url" content="/post/">
   <meta property="og:title" content="Posts | CSU MSMB Group Study">
-  <meta property="og:description" content="Assistant Professor of Epidemiology"><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
+  <meta property="og:description" content="Assistant Professor of Statistics"><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
   <meta property="twitter:image" content="img/map[gravatar:%!s(bool=false) shape:circle]"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2020-01-28T00:00:00&#43;00:00">
+    <meta property="og:updated_time" content="2020-04-28T00:00:00&#43;00:00">
   
 
   
@@ -547,21 +583,14 @@
 
 
 
-  
-
 
 <div class="media stream-item">
   <div class="media-body">
 
     <h3 class="article-title mb-0 mt-0">
-      <a href="/post/tips-on-writing-a-vocabulary-list/" >Tips on writing a vocabulary list</a>
+      <a href="/post/details-for-class-on-april-30/" >Details for class on April 30</a>
     </h3>
 
-    
-    <div class="article-style">
-      Here are some tips on writing up the vocabulary list for a chapter:
- You should include all words in the chapter that are given in …
-    </div>
     
 
     <div class="stream-meta article-metadata">
@@ -576,6 +605,19 @@
 
   
   
+  
+  
+  <div>
+    
+
+
+
+  
+  <span><a href="/authors/bailey-fosdick/">Bailey Fosdick</a></span>
+
+  </div>
+  
+  
 
   
   <span class="article-date">
@@ -585,7 +627,7 @@
           Last updated on
       
     
-    Jan 13, 2020
+    Apr 28, 2020
   </span>
   
 
@@ -594,7 +636,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    1 min read
   </span>
   
 
@@ -606,7 +648,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/vocabulary/">vocabulary</a>, <a href="/categories/instructions/">instructions</a></span>
+    <i class="fas fa-folder mr-1"></i><a href="/categories/class-meeting/">class meeting</a></span>
   
 
 </div>
@@ -646,12 +688,12 @@
   <div class="media-body">
 
     <h3 class="article-title mb-0 mt-0">
-      <a href="/post/add-profile-details/" >How to add your profile details to our course website</a>
+      <a href="/post/vocabulary-for-chapter-11/" >Vocabulary for Chapter 11</a>
     </h3>
 
     
     <div class="article-style">
-      One goal of this course is to continue developing your data science programming skills. This will include plenty of work on R …
+      Chapter 11 is focused on learning how to read, write, and manipulate images in R. The first sections are helping the reader understand …
     </div>
     
 
@@ -675,7 +717,7 @@
 
 
   
-  <span><a href="/authors/brooke-anderson/">Brooke Anderson</a></span>
+  <span><a href="/authors/camron-pearce/">Camron Pearce</a></span>
 
   </div>
   
@@ -689,7 +731,7 @@
           Last updated on
       
     
-    Jan 13, 2020
+    Apr 24, 2020
   </span>
   
 
@@ -698,7 +740,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    18 min read
+    3 min read
   </span>
   
 
@@ -710,7 +752,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/blogdown/">blogdown</a>, <a href="/categories/github/">github</a></span>
+    <i class="fas fa-folder mr-1"></i><a href="/categories/vocabulary/">vocabulary</a>, <a href="/categories/chapter-11/">Chapter 11</a></span>
   
 
 </div>
@@ -750,12 +792,13 @@
   <div class="media-body">
 
     <h3 class="article-title mb-0 mt-0">
-      <a href="/post/vocabulary-for-chapter-1/" >Vocabulary for Chapter 1</a>
+      <a href="/post/details-for-class-on-april-23/" >Details for class on April 23</a>
     </h3>
 
     
     <div class="article-style">
-      Chapter 1 covers generative modeling for discrete data. It introduces a number of terms covering probablity and statistical modeling, …
+      Links for April 23 Large group: meeting link
+ Group 1 (Sierra, Sarah, Daniel, Sere): meeting link Group 2 (Mikaela, Sherry, James): …
     </div>
     
 
@@ -771,6 +814,19 @@
 
   
   
+  
+  
+  <div>
+    
+
+
+
+  
+  <span><a href="/authors/bailey-fosdick/">Bailey Fosdick</a></span>
+
+  </div>
+  
+  
 
   
   <span class="article-date">
@@ -780,7 +836,111 @@
           Last updated on
       
     
-    Jan 13, 2020
+    Apr 22, 2020
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/class-meeting/">class meeting</a></span>
+  
+
+</div>
+
+      
+    </div>
+
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+  </div>
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/vocabulary-for-chapter-10/" >Vocabulary for Chapter 10</a>
+    </h3>
+
+    
+    <div class="article-style">
+      Chapter 10 discusses the use of networks and trees to visualize biological data. It covers the main components of each and how …
+    </div>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  
+  <span><a href="/authors/sarah-cooper/">Sarah Cooper</a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    Apr 14, 2020
   </span>
   
 
@@ -801,7 +961,619 @@
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/categories/vocabulary/">vocabulary</a>, <a href="/categories/chapter-1/">Chapter 1</a></span>
+    <i class="fas fa-folder mr-1"></i><a href="/categories/vocabulary/">vocabulary</a>, <a href="/categories/chapter-10/">Chapter 10</a></span>
+  
+
+</div>
+
+      
+    </div>
+
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+  </div>
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/details-for-class-april-16/" >Details for class April 16</a>
+    </h3>
+
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  
+  <span><a href="/authors/bailey-fosdick/">Bailey Fosdick</a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    Apr 16, 2020
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/class-meeting/">class meeting</a></span>
+  
+
+</div>
+
+      
+    </div>
+
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+  </div>
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/vocabulary-for-chapter-9/" >Vocabulary for Chapter 9</a>
+    </h3>
+
+    
+    <div class="article-style">
+      Chapter 9 covers multivariate methods for heterogenous data. It builds on methods covered in Chapter 7, like dimension reduction, by …
+    </div>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  
+  <span><a href="/authors/sere-williams/">Sere Williams</a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    Apr 10, 2020
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/vocabulary/">vocabulary</a>, <a href="/categories/chapter-9/">Chapter 9</a></span>
+  
+
+</div>
+
+      
+    </div>
+
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+  </div>
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/details-for-class-on-april-9/" >Details for class on April 9</a>
+    </h3>
+
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  
+  <span><a href="/authors/bailey-fosdick/">Bailey Fosdick</a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    Apr 8, 2020
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/class-meeting/">class meeting</a></span>
+  
+
+</div>
+
+      
+    </div>
+
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+  </div>
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/chapter-8-vocabulary-list/" >Chapter 8 Vocabulary List</a>
+    </h3>
+
+    
+    <div class="article-style">
+      Chapter 8 covers high-throughput count data, like data generated through RNA-seq. It introduces a number of tools that are useful for …
+    </div>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  
+  <span><a href="/authors/mikaela-elder/">Mikaela Elder</a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    Apr 6, 2020
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    6 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/vocabulary/">vocabulary</a>, <a href="/categories/chapter-8/">chapter 8</a></span>
+  
+
+</div>
+
+      
+    </div>
+
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+  </div>
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/details-for-class-on-april-2/" >Details for class on April 2</a>
+    </h3>
+
+    
+    <div class="article-style">
+      General course information We are going to try meeting each week using Microsoft Teams during our usual time on Thursdays, 3-5pm. The …
+    </div>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  
+  <span><a href="/authors/bailey-fosdick/">Bailey Fosdick</a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    Mar 31, 2020
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/class-meeting/">class meeting</a></span>
+  
+
+</div>
+
+      
+    </div>
+
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+  </div>
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/vocabulary-for-chapter-7/" >Vocabulary for Chapter 7</a>
+    </h3>
+
+    
+    <div class="article-style">
+      Chapter 7 covers multivariate analysis, with a focus on principal component analysis and dimension reduction in general. …
+    </div>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  
+  <span><a href="/authors/zach_laubach/">Zach Laubach</a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    Mar 30, 2020
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    5 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/chapter-7/">Chapter 7</a>, <a href="/categories/vocabulary/">vocabulary</a></span>
   
 
 </div>
@@ -822,6 +1594,15 @@
   
 
   
+<nav>
+  <ul class="pagination justify-content-center">
+    
+    
+    <li class="page-item"><a class="page-link" href="/post/page/2/">&raquo;</a></li>
+    
+  </ul>
+</nav>
+
 
 
 </div>

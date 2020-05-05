@@ -21,14 +21,14 @@
   
   
 
-  <meta name="author" content="Brooke Anderson">
+  <meta name="author" content="Bailey Fosdick">
 
   
   
   
     
   
-  <meta name="description" content="Assistant Professor of Epidemiology">
+  <meta name="description" content="Assistant Professor of Statistics">
 
   
   <link rel="alternate" hreflang="en-us" href="/categories/vocabulary/">
@@ -209,6 +209,42 @@
 
 
 
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-36719749-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           document.location = url;
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target);  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-36719749-3', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
   
 
 
@@ -236,10 +272,10 @@
   <meta property="og:site_name" content="CSU MSMB Group Study">
   <meta property="og:url" content="/categories/vocabulary/">
   <meta property="og:title" content="vocabulary | CSU MSMB Group Study">
-  <meta property="og:description" content="Assistant Professor of Epidemiology"><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
+  <meta property="og:description" content="Assistant Professor of Statistics"><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
   <meta property="twitter:image" content="img/map[gravatar:%!s(bool=false) shape:circle]"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2020-01-28T00:00:00&#43;00:00">
+    <meta property="og:updated_time" content="2020-04-24T00:00:00&#43;00:00">
   
 
   
@@ -533,27 +569,115 @@
   
   
   <div>
-    <h2><a href="/post/tips-on-writing-a-vocabulary-list/">Tips on writing a vocabulary list</a></h2>
+    <h2><a href="/post/vocabulary-for-chapter-11/">Vocabulary for Chapter 11</a></h2>
     <div class="article-style">
       
-      Here are some tips on writing up the vocabulary list for a chapter:
- You should include all words in the chapter that are given in bold. Be sure to look for bolded terms in the sidenotes and end-of-chapter exercises, too! Occassionally, the authors use bold for subheadings (see the “Why R and Bioconductor?” section in the Introduction or the “Summary of this chapter” section of Chapter 1). These subheadings do not need to be included in the vocabulary list for the chapter.
+      Chapter 11 is focused on learning how to read, write, and manipulate images in R. The first sections are helping the reader understand when to apply different filters and transformations to an image and why it is necessary. It then touches on segmentation and feature extraction, two components that are utilized to simplify an image for machine learning and recognition. Finally, statistal methods are introduced to analyze spacial distributions and spatial point process is introduced on a basic level.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="/post/vocabulary-for-chapter-1/">Vocabulary for Chapter 1</a></h2>
+    <h2><a href="/post/vocabulary-for-chapter-10/">Vocabulary for Chapter 10</a></h2>
     <div class="article-style">
       
-      Chapter 1 covers generative modeling for discrete data. It introduces a number of terms covering probablity and statistical modeling, as well as a few biological terms. The vocabulary words for Chapter 1 are:
-        probability model  A mathematical description of the possible outcomes of an experiment and the probability of each of those outcomes.    vector  In programming, a one-dimensional array of data, all with the same data type.
+      Chapter 10 discusses the use of networks and trees to visualize biological data. It covers the main components of each and how different data sets can be appropriately transformed into specific networks and trees based on what you are trying to present. The vocabulary words for Chapter 10 are:
+        Graph  A structure formed by a set of nodes or vertices and a set of edges between these vertices    Adjacency matrix  The matrix representation of edges of a graph with as many rows as nodes in the graph    Network  A weighted, directed graph    Sparse  In the context of graphs, a term to describe a graph when the number of edges is similar to the number of nodes    Dense  In the context of graphs, a term to describe a graph when the number of edges is (approximately) a quadratic function of the nodes    Arrows/directed edges  Graph edges that directionally connect nodes    Annotation variables  Graph visualization characteristics that help to demonstrate strength of a link in a graph by changing the width of the edge or covariates associated to the size or color of the node    Graph layouts  Different ways to plot a graph, either for aesthetic or practical reasons    Binary data  Data in which each observation can take only one of two values (e.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/vocabulary-for-chapter-9/">Vocabulary for Chapter 9</a></h2>
+    <div class="article-style">
+      
+      Chapter 9 covers multivariate methods for heterogenous data. It builds on methods covered in Chapter 7, like dimension reduction, by extending these ideas to more complex, heterogenous data.
+The vocabulary words for Chapter 9 are:
+        multidimensional scaling (MDS)  a linear dimension reduction method applied in cases where distances between observations are available    clusters  in the context of data analysis, data points that group together    robust  in the context of a statistical method, a ‘sturdy’ estimator that is not heavily influenced by outliers    outlier  a single data point with large distances to other data points, thus potentially dominating and skewing the analysis    breakdown point  a measure of the robustness of an estimator; larger values indicate more robust estimators    non-metric multidimensional scaling (NMDS)  a robust ordination method which attempts to embed data points in a new space while maintaining their respective order to one another    metadata  information, data, or descriptions that characterize other data    batch effects  hidden factors that affect the data but are not documented; e.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/chapter-8-vocabulary-list/">Chapter 8 Vocabulary List</a></h2>
+    <div class="article-style">
+      
+      Chapter 8 covers high-throughput count data, like data generated through RNA-seq. It introduces a number of tools that are useful for analyzing this type of data. The vocabulary terms for Chapter 8 are:
+        RNA-Seq  sequencing of RNA molecules found in a population of cells or in a tissue    ChIP-Seq  sequencing of DNA regions that are bound to particular DNA-binding proteins (selected by immunoprecipitation)    RIP-Seq  sequencing of RNA molecules, or regions of them, bound to a particular RNA-binding protein    DNA-Seq  sequencing of genomic DNA    HiC  high-throughput chromatin conformation capture; a technique that aims to map the 3D spatial arrangement of DNA    cDNA  complementary DNA made from RNA templates and reverse transcriptase; used in RNA-Seq    genetic screens  a technique looking at the proliferation or survival of cells upon gene knockdown, knockout, or modification    read  the sequence obtained from a fragment    sequencing library  the collection of DNA molecules used as input for the sequencing machine    fragments  molecules being sequenced during a sequencing analysis    count table  a matrix with the tallies of the number of occurrences of subpopulations from a larger population/sample    dynamic range  a ratio between the maximum and minimum values    heteroskedasticity  a phenomenon where the variance and distribution shape of the data in different parts of the dynamic range are very different    normalization  a technique that adjusts for the nature and magnitude of systematic sampling biases    rare events  occurrences in the tail(s) of a distribution; observations that are extraordinarily high or low    dispersion  a measure of the spread of the data; a common measure is the standard deviation or variance    gamma-Poisson  negative binomial distribution with 2 parameters; 𝛼 and 𝛽    systematic biases  systematic distortions that affect the data generation and need to be accounted for in the analysis; one example would be variations in the total number of reads for each sample in a sequencing experiment    metadata  a set of data that describes or gives information about other data    multifactorial design  an experimental design with more than one independent variable    balanced  in the context of study design, these are where there is an equal number of observations of all combinations of factors being tested    differential expression analysis  a type of analysis that uses the normalized read count data to investigate quantitative changes in expression levels between different experimental groups    intercept  a coefficient representing the base level of the measurement in the negative control    design factors  binary indicator variables    interaction effect  a parameter in a model that accounts for the effects of two experimental factors that combine in a more complicated fashion than a simple summation    design matrix  a matrix encoding the design of an experiment where the columns correspond to experimental factors and the rows correspond to different experimental conditions    residuals  a term in a model that reflects the experimental fluctuations (i.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/vocabulary-for-chapter-7/">Vocabulary for Chapter 7</a></h2>
+    <div class="article-style">
+      
+      Chapter 7 covers multivariate analysis, with a focus on principal component analysis and dimension reduction in general.
+        principal component analysis (PCA)  an unsupervised ordination method used to reduce the dimensionality of data by creating scores that maximize the explained variation in the data    matrix  a two dimensional arrangement of rows and columns used to store data    mass spectroscopy  a measurement procedure based on the mass-to-charge ratio of ions, often used to measure metabolite abundance    correlation coefficient  a measure of how two variables co-vary, reported as a single summary value    centering  subtracting the mean of the data so the new mean is 0    scaling / standardizing  dividing data values by the data’s standard deviation so the new standard deviation is 1    data simplification  a broadly applicable term referring to the process of summarizing or reducing the dimensions of multivariate data    dimension reduction  summarizing data to reduce the number of variables for downstream analyses    principal scores  a normally distributed z-score assigned to each subject that corresponds with the specific ordering and weighting of original variables within a given principal component    unsupervised learning  a machine learning method used to find patterns in the data without a priori variable ranking or labeling    status  in the context of variables in a statistical learning algorithm, a ranking or labeling of variables (e.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/vocabulary-for-chapter-6/">Vocabulary for Chapter 6</a></h2>
+    <div class="article-style">
+      
+      Chapter 6 covers Statistical Testing, including a review of null and alternative hypotheses (and associated distributions), types of error (I and II), as well as challenges and opportunities introduced by multiple testing.
+        Occam’s razor  Heuristic stating that the simplest explanation for a phenomenon is often the best    rejection region  Subset of possible outcomes for which probabilities under the null hypothesis fall under a low probability threshold, e.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/vocabulary-for-chapter-5/">Vocabulary for Chapter 5</a></h2>
+    <div class="article-style">
+      
+      Chapter 5 covers Clustering Analysis for large scale data anlysis like DNA/RNA sequencing outputs. These methods produce so much data that more unbiased approaches are required when attempting to make correlations.
+        unsupervised method  A learning method where all variables are treated with the same status, rather than one variable being considered as an outcome or target.    status  A variable’s classification as an outcome/predictor (e.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/vocabulary-for-chapter-4/">Vocabulary for Chapter 4</a></h2>
+    <div class="article-style">
+      
+      Chapter 4 covers how to generate both finite and infinite mixture models from various distributions. It introduces a number of terms relating to these models. The vocabulary words for Chapter 4 are:
+        finite mixture  in the context of statistic, when the distribution of interest is a combination of a few different probability distributions    infinite mixture  in the context of statistic, when the distribution of interest is a combination of many probability distributions (as many or more probability distributions as observations)    mixture model  a model for a combination of two or more different probability distributions    probability density function  a function giving the relative likelihood that a continuous random variable is equal to a given value.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/vocabulary-for-chapter-2-8-2-12/">Vocabulary for Chapter 2, Part 2</a></h2>
+    <div class="article-style">
+      
+      These sections introduced Markov chains and the Bayesian paradigm. Markov chain transitions were used to model dependencies along DNA sequences. The vocabulary terms are:
+        Markov chain  a sequence where given the current state, the next state is conditionally independent of all previous states    Bayesian paradigm  approaching statistics from the perspective that probability can be viewed as a degree of belief in an event    Beta distribution  a probability distribution defined on the interval [0, 1] often used to model probabilities in Bayesian statistics    Exponential distribution  a probability distribution defined on the positive real numbers that can be used to model the time between events in a Poisson point process    Prior  a probability distribution describing our knowledge of a hypothesis/parameter before incorporating new data    Posterior  a probability distribution describing our knowledge of a hypothesis/parameter after incorporating new data    Haplotype  a collection of DNA sequence variants (e.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/vocabularly-for-chapter-2-part-1/">Vocabularly for Chapter 2, Part 1</a></h2>
+    <div class="article-style">
+      
+      Vocabulary for the first part of Chapter 2
       
     </div>
   </div>
   
 
   
+<nav>
+  <ul class="pagination justify-content-center">
+    
+    
+    <li class="page-item"><a class="page-link" href="/categories/vocabulary/page/2/">&raquo;</a></li>
+    
+  </ul>
+</nav>
+
 
 </div>
 
