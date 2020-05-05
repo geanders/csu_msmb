@@ -1,0 +1,38 @@
+predictors	whether a property of interest (disease type, cell type, the prognosis of a patient) can be "predicted", given one or more of these properties
+overfitting 	the production of an analysis that corresponds too closely or exactly to a particular set of data, and may therefore fail to fit additional data or predict future obervations reliably
+generalization	refers to how well the concepts learned by a machine learning model apply to specific examples not seen by the model when it was learning. 
+statistical learning	framework for machine learning drawing from the fields of statistics and functional analysis. Deals with the problem of finding a predictive function based on data. 
+objective response (in context of supervised learning)	a measurable response
+kernel methods	do not need features at all; instead, use distances or measures of similarity between objects.
+regression	statistical method that attempts to determine the strength and character of the relationship between one dependent variable (usually denoted by Y) and a series of other variables (known as independent variables)
+classification	analysis for categorical response variables in the framework of supervised learning
+linear discriminant analysis (LDA)	a common technique used supervised learning classification problems;  a dimensionality reduction technique used as a preprocessing step in Machine Learning and pattern classification applications.
+misclassification rate (MCR)	in regards to statistical learning, the fraction of times the prediction is wrong
+leave-one out cross-validation	K-fold cross validation taken to its logical extreme, with K equal to N, the number of data points in the set
+k-fold cross-validation	observations are repeatedly split into a training set of size around n(k-1)/k and a test set of size of around n/k
+curse of dimensionality	refers to the fact that high-dimensional spaces are very hard, if not impossible, to sample thoroughly
+confusion table	in the field of machine learning and specifically the problem of statistical classification, a specific table layout that allows visualization of the performance of an algorithm, typically a supervised learning one
+sensitvity	true positivity rate or recall, related to the misclassification of healthy as ill
+specificity	true negative rate, the probability of misclassification of ill as healthy
+receiver operating characteristic (ROC)/precision recall curves	a graphical plot that illustrates the diagnostic ability of a binary classifier system as its discrimination threshold is varied
+Jaccard index	a statistic used in quantifying the similarities between sample sets, which is formally defined as the size of the intersection between two sets divided by the size of the union of the sets
+mean-squared error (MSE)	the average squared error
+risk function/cost function/objective function	the expected value of a loss of function
+bias	measures how different the average of all the different estimates is from the truth
+variance	how much an individual estimate might scatter from the average value 
+penalization	a tool to actively control and exploit the variance-bias tradeoff
+regularization	methods used to to ensure stable estimates
+logistic regression	classification algorithm used to assign observations to a discrete set of classes
+penalty function	a term added to the objective function that consists of a penalty parameter multiplied by a measure of violation of the contstraints
+ridge regression	the cost function is altered by adding a penalty equivalent to square of the magnitude of the coefficients, shrinks coefficients and helps reduce model complexity and mutli-collinearity
+lasso (in the context of statistical regression modeling)	least absolute shrinkage and selection operator, helps in reducing over-fitting and in feature selection
+elastic net	in the fitting of linear or logistic regression models, a regularized regression method that linearly combines the L1 and L2 penalties of the lasso and ridge methods
+ExperimentalHub (in the context of Bioconductor)	provides a central location where curated data from experiments, publications or training courses can be accessed
+kingdom	the second highest taxonomic rank, just below domain
+phylum	a level of classification of taxonomic rank below kingdom and above class
+species	the basic unit of classification and a taxonomic rank of an organism, as well as unit of biodiversity 
+diagnostic plot	plots that help you evaluate the assumption of a regression analysis
+tuning parameters	sometimes called a penalty parameter, controls the strength of the penalty term in ridge and lasso regression. Basically the amount of shrinkage, where data values are shrunk towards a central point, like the mean
+p-value hacking	manipulation of the data until finding a statistic that yields a desired result
+workflow (in the context of a computational analysis)	chains software tools together in a series of steps that operate on data
+scale invariance	a feature of objects or laws that do not change if scales, length, energy, or other variables, are multiplied by a common factor, and thus represent universality
