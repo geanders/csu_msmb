@@ -3,12 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/authors/sherry-wemott/</loc>
+    <lastmod>2020-05-04T19:46:32-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/authors/</loc>
+    <lastmod>2020-05-04T19:46:32-06:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/categories/</loc>
     <lastmod>2020-05-04T19:46:32-06:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/chapter-12/</loc>
+    <lastmod>2020-05-04T19:46:32-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/chapter-12/</loc>
     <lastmod>2020-05-04T19:46:32-06:00</lastmod>
   </url>
   
@@ -48,17 +63,12 @@
   </url>
   
   <url>
-    <loc>/authors/</loc>
+    <loc>/tags/class-meeting/</loc>
     <lastmod>2020-04-28T14:52:19-06:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/class-meeting/</loc>
-    <lastmod>2020-04-28T14:52:19-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/class-meeting/</loc>
     <lastmod>2020-04-28T14:52:19-06:00</lastmod>
   </url>
   
@@ -118,12 +128,12 @@
   </url>
   
   <url>
-    <loc>/tags/chapter-9/</loc>
+    <loc>/categories/chapter-9/</loc>
     <lastmod>2020-04-10T14:41:31-06:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/chapter-9/</loc>
+    <loc>/tags/chapter-9/</loc>
     <lastmod>2020-04-10T14:41:31-06:00</lastmod>
   </url>
   
@@ -168,12 +178,12 @@
   </url>
   
   <url>
-    <loc>/tags/chapter-7/</loc>
+    <loc>/categories/chapter-7/</loc>
     <lastmod>2020-03-30T21:37:37-06:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/chapter-7/</loc>
+    <loc>/tags/chapter-7/</loc>
     <lastmod>2020-03-30T21:37:37-06:00</lastmod>
   </url>
   
@@ -268,12 +278,12 @@
   </url>
   
   <url>
-    <loc>/tags/exercises/</loc>
+    <loc>/categories/exercises/</loc>
     <lastmod>2020-02-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/exercises/</loc>
+    <loc>/tags/exercises/</loc>
     <lastmod>2020-02-24T00:00:00+00:00</lastmod>
   </url>
   
@@ -313,12 +323,12 @@
   </url>
   
   <url>
-    <loc>/categories/blogdown/</loc>
+    <loc>/tags/blogdown/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/blogdown/</loc>
+    <loc>/categories/blogdown/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
@@ -343,12 +353,12 @@
   </url>
   
   <url>
-    <loc>/categories/instructions/</loc>
+    <loc>/tags/instructions/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/instructions/</loc>
+    <loc>/categories/instructions/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
@@ -422,10 +432,6 @@
   
   <url>
     <loc>/authors/mike-lyons/</loc>
-  </url>
-  
-  <url>
-    <loc>/authors/sherry-wemott/</loc>
   </url>
   
   <url>

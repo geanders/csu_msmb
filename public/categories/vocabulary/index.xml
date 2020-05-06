@@ -22,6 +22,7 @@
 
 
 &lt;p&gt;Chapter 12 covers supervised learning and the statistics of predicting categorical variables. Also discussed are the issues of overfitting and generalizability and how to “train” statistical models.&lt;/p&gt;
+&lt;p&gt;The vocabulary words for Chapter 12 are:&lt;/p&gt;
 &lt;table class=&#34;table table-striped table-hover table-condensed&#34; style=&#34;margin-left: auto; margin-right: auto;&#34;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -37,11 +38,7 @@
 predictors
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-whether a property of interest (disease type, cell type, the prognosis of a patient) can be “predicted”, given one or more of these properties
-=======
-charactersics measured for an observation that may be useful in predicting the target variable
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; 3c3fd1a... Make suggested edits to definitions
+characteristics measured for an observation that may be useful in predicting the target variable
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -342,24 +339,11 @@ a feature of objects or laws that do not change if scales, length, energy, or ot
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;The vocabulary words for Chapter 12 are:&lt;/p&gt;
 &lt;div id=&#34;sources-consulted-or-cited&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Sources consulted or cited&lt;/h3&gt;
-&lt;p&gt;&lt;em&gt;Some of the definitons above are based in part or whole on listed definitions in the following source:&lt;/em&gt;&lt;/p&gt;
-&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-&lt;ul&gt;
-&lt;li&gt;Holmes and Huber, 2019. &lt;em&gt;Modern Statistics for Modern Biology.&lt;/em&gt; Cambridge University Press,
-Cambridge, United Kingdom.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/&#34; class=&#34;uri&#34;&gt;https://en.wikipedia.org/&lt;/a&gt;
-&lt;a href=&#34;https://machinelearningmastery.com/overfitting-and-underfitting-with-machine-learning-algorithms/&#34; class=&#34;uri&#34;&gt;https://machinelearningmastery.com/overfitting-and-underfitting-with-machine-learning-algorithms/&lt;/a&gt;
-&lt;a href=&#34;https://.statisticshowto.com&#34; class=&#34;uri&#34;&gt;https://.statisticshowto.com&lt;/a&gt;
-&lt;a href=&#34;https://www.cs.cmu.edu/~schneide/tut5/node42.html&#34; class=&#34;uri&#34;&gt;https://www.cs.cmu.edu/~schneide/tut5/node42.html&lt;/a&gt;
-&lt;a href=&#34;https://towardsdatascience.com&#34; class=&#34;uri&#34;&gt;https://towardsdatascience.com&lt;/a&gt;
-&lt;a href=&#34;https://bioconductor.org&#34; class=&#34;uri&#34;&gt;https://bioconductor.org&lt;/a&gt;
-&lt;a href=&#34;https://pfern.gtihub.io&#34; class=&#34;uri&#34;&gt;https://pfern.gtihub.io&lt;/a&gt;&lt;/p&gt;
-=======
-&lt;p&gt;Holmes and Huber, 2019. &lt;em&gt;Modern Statistics for Modern Biology.&lt;/em&gt; Cambridge University Press, Cambridge, United Kingdom.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Some of the definitions above are based in part or whole on listed definitions in the following source:&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Holmes and Huber, 2019. &lt;em&gt;Modern Statistics for Modern Biology.&lt;/em&gt; Cambridge University Press,
+Cambridge, United Kingdom.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/&#34; class=&#34;uri&#34;&gt;https://en.wikipedia.org/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://machinelearningmastery.com/overfitting-and-underfitting-with-machine-learning-algorithms/&#34; class=&#34;uri&#34;&gt;https://machinelearningmastery.com/overfitting-and-underfitting-with-machine-learning-algorithms/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://.statisticshowto.com&#34; class=&#34;uri&#34;&gt;https://.statisticshowto.com&lt;/a&gt;&lt;/p&gt;
@@ -367,11 +351,10 @@ Cambridge, United Kingdom.&lt;/li&gt;
 &lt;p&gt;&lt;a href=&#34;https://towardsdatascience.com&#34; class=&#34;uri&#34;&gt;https://towardsdatascience.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://bioconductor.org&#34; class=&#34;uri&#34;&gt;https://bioconductor.org&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://pfern.gtihub.io&#34; class=&#34;uri&#34;&gt;https://pfern.gtihub.io&lt;/a&gt;&lt;/p&gt;
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; 3c3fd1a... Make suggested edits to definitions
 &lt;/div&gt;
 &lt;div id=&#34;practice&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Practice&lt;/h3&gt;
-&lt;iframe src=&#34;https://quizlet.com/506486027/match/embed?i=takib&amp;amp;x=1jj1&#34; height=&#34;500&#34; width=&#34;100%&#34; style=&#34;border:0&#34;&gt;
+&lt;iframe src=&#34;https://quizlet.com/506486027/flashcards/embed?i=takib&amp;amp;x=1jj1&#34; height=&#34;500&#34; width=&#34;100%&#34; style=&#34;border:0&#34;&gt;
 &lt;/iframe&gt;
 &lt;/div&gt;
 </description>

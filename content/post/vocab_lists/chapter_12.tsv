@@ -1,4 +1,4 @@
-predictors	charactersics measured for an observation that may be useful in predicting the target variable
+predictors	characteristics measured for an observation that may be useful in predicting the target variable
 overfitting 	the production of an analysis that corresponds too closely or exactly to a particular set of data, and may therefore fail to fit additional data or predict future obervations reliably
 generalization	refers to how well the concepts learned by a machine learning model apply to specific examples not seen by the model when it was learning
 statistical learning	framework for machine learning drawing from the fields of statistics and functional analysis. Deals with the problem of finding a predictive function based on data 

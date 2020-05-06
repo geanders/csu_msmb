@@ -1,6 +1,6 @@
 ---
 title: Vocabulary for Chapter 12
-author: Sherry WeMott
+author: "Sherry WeMott"
 date: '2020-05-04'
 slug: vocabulary-for-chapter-12
 categories:
@@ -8,9 +8,10 @@ categories:
   - Chapter 12
 tags:
   - vocabulary
+  - Chapter 12
 subtitle: ''
 summary: ''
-authors: []
+authors: [sherry-wemott]
 lastmod: '2020-05-04T19:46:32-06:00'
 featured: no
 image:
@@ -20,6 +21,8 @@ image:
 projects: []
 ---
 Chapter 12 covers supervised learning and the statistics of predicting categorical variables. Also discussed are the issues of overfitting and generalizability and how to "train" statistical models. 
+
+The vocabulary words for Chapter 12 are: 
 
 ```{r, echo=F, message=F, warning=F}
 library(readr)
@@ -37,11 +40,10 @@ vocab %>%
     column_spec(1, bold=T, border_right=T) %>%
     column_spec(2, width="30em")
 ```
-The vocabulary words for Chapter 12 are: 
 
 ### Sources consulted or cited 
 
-*Some of the definitons above are based in part or whole on listed definitions in the following source:*
+*Some of the definitions above are based in part or whole on listed definitions in the following source:*
 
 Holmes and Huber, 2019. *Modern Statistics for Modern Biology.* Cambridge University Press, 
 Cambridge, United Kingdom.
@@ -62,5 +64,5 @@ https://pfern.gtihub.io
 
 ### Practice
 
-<iframe src="https://quizlet.com/506486027/match/embed?i=takib&x=1jj1" height="500" width="100%" style="border:0"></iframe>
+<iframe src="https://quizlet.com/506486027/flashcards/embed?i=takib&x=1jj1" height="500" width="100%" style="border:0"></iframe>
 
