@@ -39,7 +39,11 @@ projects: []
 predictors
 </td>
 <td style="text-align:left;width: 30em; ">
+<<<<<<< HEAD
 whether a property of interest (disease type, cell type, the prognosis of a patient) can be “predicted”, given one or more of these properties
+=======
+charactersics measured for an observation that may be useful in predicting the target variable
+>>>>>>> 3c3fd1a... Make suggested edits to definitions
 </td>
 </tr>
 <tr>
@@ -55,7 +59,7 @@ the production of an analysis that corresponds too closely or exactly to a parti
 generalization
 </td>
 <td style="text-align:left;width: 30em; ">
-refers to how well the concepts learned by a machine learning model apply to specific examples not seen by the model when it was learning.
+refers to how well the concepts learned by a machine learning model apply to specific examples not seen by the model when it was learning
 </td>
 </tr>
 <tr>
@@ -63,15 +67,15 @@ refers to how well the concepts learned by a machine learning model apply to spe
 statistical learning
 </td>
 <td style="text-align:left;width: 30em; ">
-framework for machine learning drawing from the fields of statistics and functional analysis. Deals with the problem of finding a predictive function based on data.
+framework for machine learning drawing from the fields of statistics and functional analysis. Deals with the problem of finding a predictive function based on data
 </td>
 </tr>
 <tr>
 <td style="text-align:right;font-weight: bold;border-right:1px solid;">
-objective response (in context of supervised learning)
+objective response
 </td>
 <td style="text-align:left;width: 30em; ">
-a measurable response
+in the context of supervised learning, a measurable response
 </td>
 </tr>
 <tr>
@@ -79,7 +83,7 @@ a measurable response
 kernel methods
 </td>
 <td style="text-align:left;width: 30em; ">
-do not need features at all; instead, use distances or measures of similarity between objects.
+class of algorithms for pattern analysis, whose best known member is the support vector machine (SVM). These use kernel functions, which enable them to operate in a high-dimensional, implicit feature space without ever computing the coordinates of the data in that space
 </td>
 </tr>
 <tr>
@@ -95,7 +99,7 @@ statistical method that attempts to determine the strength and character of the 
 classification
 </td>
 <td style="text-align:left;width: 30em; ">
-analysis for categorical response variables in the framework of supervised learning
+the process of grouping observations in a dataset by their similarities in terms of measured characteristics
 </td>
 </tr>
 <tr>
@@ -103,7 +107,7 @@ analysis for categorical response variables in the framework of supervised learn
 linear discriminant analysis (LDA)
 </td>
 <td style="text-align:left;width: 30em; ">
-a common technique used supervised learning classification problems; a dimensionality reduction technique used as a preprocessing step in Machine Learning and pattern classification applications.
+a common technique used both for supervised learning classification and as a pre-processing dimension reduction step that finds a linear combination of features to help in classification
 </td>
 </tr>
 <tr>
@@ -111,7 +115,7 @@ a common technique used supervised learning classification problems; a dimension
 misclassification rate (MCR)
 </td>
 <td style="text-align:left;width: 30em; ">
-in regards to statistical learning, the fraction of times the prediction is wrong
+in regards to statistical learning, the fraction of times the prediction is wrong, specifically when relating to classification of models
 </td>
 </tr>
 <tr>
@@ -119,7 +123,7 @@ in regards to statistical learning, the fraction of times the prediction is wron
 leave-one out cross-validation
 </td>
 <td style="text-align:left;width: 30em; ">
-K-fold cross validation taken to its logical extreme, with K equal to N, the number of data points in the set
+k-fold cross validation taken to its logical extreme, with K equal to N, the number of data points in the set
 </td>
 </tr>
 <tr>
@@ -127,7 +131,7 @@ K-fold cross validation taken to its logical extreme, with K equal to N, the num
 k-fold cross-validation
 </td>
 <td style="text-align:left;width: 30em; ">
-observations are repeatedly split into a training set of size around n(k-1)/k and a test set of size of around n/k
+a technique where observations are repeatedly split into a training set of size around n(k-1)/k and a test set of size of around n/k. Mainly used in prediction when one wants to estimate how accurately a predictive model will perform in practice
 </td>
 </tr>
 <tr>
@@ -135,7 +139,7 @@ observations are repeatedly split into a training set of size around n(k-1)/k an
 curse of dimensionality
 </td>
 <td style="text-align:left;width: 30em; ">
-refers to the fact that high-dimensional spaces are very hard, if not impossible, to sample thoroughly
+refers to the fact that high-dimensional spaces are very hard, if not impossible, to sample thoroughly, because data in any particular region becomes very sparse as dimensions increase
 </td>
 </tr>
 <tr>
@@ -143,7 +147,7 @@ refers to the fact that high-dimensional spaces are very hard, if not impossible
 confusion table
 </td>
 <td style="text-align:left;width: 30em; ">
-in the field of machine learning and specifically the problem of statistical classification, a specific table layout that allows visualization of the performance of an algorithm, typically a supervised learning one
+in the field of machine learning and specifically the problem of statistical classification, a specific table layout that allows visualization of the performance of an algorithm, typically a supervised learning one. By counting the number of observations truly within each class versus the number predicted by the model to be in each class
 </td>
 </tr>
 <tr>
@@ -151,7 +155,7 @@ in the field of machine learning and specifically the problem of statistical cla
 sensitvity
 </td>
 <td style="text-align:left;width: 30em; ">
-true positivity rate or recall, related to the misclassification of healthy as ill
+true positivity rate or recall, measures the proportion of actual positives that are correctly identified as such
 </td>
 </tr>
 <tr>
@@ -159,12 +163,12 @@ true positivity rate or recall, related to the misclassification of healthy as i
 specificity
 </td>
 <td style="text-align:left;width: 30em; ">
-true negative rate, the probability of misclassification of ill as healthy
+true negative rate, the probability, measures the proportion of actual negatives that are correctly identified as negative
 </td>
 </tr>
 <tr>
 <td style="text-align:right;font-weight: bold;border-right:1px solid;">
-receiver operating characteristic (ROC)/precision recall curves
+receiver operating characteristic(ROC)/precision recall curve
 </td>
 <td style="text-align:left;width: 30em; ">
 a graphical plot that illustrates the diagnostic ability of a binary classifier system as its discrimination threshold is varied
@@ -191,7 +195,7 @@ the average squared error
 risk function/cost function/objective function
 </td>
 <td style="text-align:left;width: 30em; ">
-the expected value of a loss of function
+the function that you optimize during the training of a predictive model (e.g., the maximum likelihood function for a classic regression model)
 </td>
 </tr>
 <tr>
@@ -199,7 +203,7 @@ the expected value of a loss of function
 bias
 </td>
 <td style="text-align:left;width: 30em; ">
-measures how different the average of all the different estimates is from the truth
+a measure of how different the average of all the different estimates is from the truth
 </td>
 </tr>
 <tr>
@@ -223,7 +227,7 @@ a tool to actively control and exploit the variance-bias tradeoff
 regularization
 </td>
 <td style="text-align:left;width: 30em; ">
-methods used to to ensure stable estimates
+a method used to to ensure stable estimates by helping to prevent overfitting of the model to the training data
 </td>
 </tr>
 <tr>
@@ -231,7 +235,7 @@ methods used to to ensure stable estimates
 logistic regression
 </td>
 <td style="text-align:left;width: 30em; ">
-classification algorithm used to assign observations to a discrete set of classes
+a statistical model that in its basic form uses a logistic function to model a binary dependent variable. A binary logistic model has a dependent variable with two possible values (e.g, healthy/sick) which are represented by indicator variables (0,1)
 </td>
 </tr>
 <tr>
@@ -239,7 +243,7 @@ classification algorithm used to assign observations to a discrete set of classe
 penalty function
 </td>
 <td style="text-align:left;width: 30em; ">
-a term added to the objective function that consists of a penalty parameter multiplied by a measure of violation of the contstraints
+a term added to the objective function that consists of a penalty parameter multiplied by a measure of violation of the constraints
 </td>
 </tr>
 <tr>
@@ -247,15 +251,15 @@ a term added to the objective function that consists of a penalty parameter mult
 ridge regression
 </td>
 <td style="text-align:left;width: 30em; ">
-the cost function is altered by adding a penalty equivalent to square of the magnitude of the coefficients, shrinks coefficients and helps reduce model complexity and mutli-collinearity
+a method of regression in which the cost function is altered by adding a penalty equivalent to square of the magnitude of the coefficients. Doing this shrinks coefficients and helps reduce model complexity and mutli-collinearity
 </td>
 </tr>
 <tr>
 <td style="text-align:right;font-weight: bold;border-right:1px solid;">
-lasso (in the context of statistical regression modeling)
+lasso
 </td>
 <td style="text-align:left;width: 30em; ">
-least absolute shrinkage and selection operator, helps in reducing over-fitting and in feature selection
+in the context of statistical regression modeling, Least Absolute Shrinkage and Selection Operator that is used in one type of regression modeling to reduce over-fitting and select useful features of hte data for predicting the outcome
 </td>
 </tr>
 <tr>
@@ -268,10 +272,10 @@ in the fitting of linear or logistic regression models, a regularized regression
 </tr>
 <tr>
 <td style="text-align:right;font-weight: bold;border-right:1px solid;">
-ExperimentalHub (in the context of Bioconductor)
+ExperimentalHub
 </td>
 <td style="text-align:left;width: 30em; ">
-provides a central location where curated data from experiments, publications or training courses can be accessed
+in the context of Bioconductor, provides a central location where curated data from experiments, publications or training courses can be accessed
 </td>
 </tr>
 <tr>
@@ -300,10 +304,10 @@ the basic unit of classification and a taxonomic rank of an organism, as well as
 </tr>
 <tr>
 <td style="text-align:right;font-weight: bold;border-right:1px solid;">
-diagnostic plot
+diagnostic plots
 </td>
 <td style="text-align:left;width: 30em; ">
-plots that help you evaluate the assumption of a regression analysis
+statistical influence plots that help to visualize how well a model fits the data (e.g. Normal Q-Q, Residuals vs Fitted)
 </td>
 </tr>
 <tr>
@@ -311,7 +315,7 @@ plots that help you evaluate the assumption of a regression analysis
 tuning parameters
 </td>
 <td style="text-align:left;width: 30em; ">
-sometimes called a penalty parameter, controls the strength of the penalty term in ridge and lasso regression. Basically the amount of shrinkage, where data values are shrunk towards a central point, like the mean
+parameters that control the strength of the penalty term in certain types of regression algorithms (e.g., ridge and lasso regression), controlling the amount of shrinkage (where parameter estimates are shrunk towards a central point, like the mean) when fitting the mode
 </td>
 </tr>
 <tr>
@@ -324,10 +328,10 @@ manipulation of the data until finding a statistic that yields a desired result
 </tr>
 <tr>
 <td style="text-align:right;font-weight: bold;border-right:1px solid;">
-workflow (in the context of a computational analysis)
+workflow
 </td>
 <td style="text-align:left;width: 30em; ">
-chains software tools together in a series of steps that operate on data
+in the context of a computational analysis, the chaining of software tools together in a series of steps that operate on data
 </td>
 </tr>
 <tr>
@@ -344,6 +348,7 @@ a feature of objects or laws that do not change if scales, length, energy, or ot
 <div id="sources-consulted-or-cited" class="section level3">
 <h3>Sources consulted or cited</h3>
 <p><em>Some of the definitons above are based in part or whole on listed definitions in the following source:</em></p>
+<<<<<<< HEAD
 <ul>
 <li>Holmes and Huber, 2019. <em>Modern Statistics for Modern Biology.</em> Cambridge University Press,
 Cambridge, United Kingdom.</li>
@@ -355,9 +360,19 @@ Cambridge, United Kingdom.</li>
 <a href="https://towardsdatascience.com" class="uri">https://towardsdatascience.com</a>
 <a href="https://bioconductor.org" class="uri">https://bioconductor.org</a>
 <a href="https://pfern.gtihub.io" class="uri">https://pfern.gtihub.io</a></p>
+=======
+<p>Holmes and Huber, 2019. <em>Modern Statistics for Modern Biology.</em> Cambridge University Press, Cambridge, United Kingdom.</p>
+<p><a href="https://en.wikipedia.org/" class="uri">https://en.wikipedia.org/</a></p>
+<p><a href="https://machinelearningmastery.com/overfitting-and-underfitting-with-machine-learning-algorithms/" class="uri">https://machinelearningmastery.com/overfitting-and-underfitting-with-machine-learning-algorithms/</a></p>
+<p><a href="https://.statisticshowto.com" class="uri">https://.statisticshowto.com</a></p>
+<p><a href="https://www.cs.cmu.edu/~schneide/tut5/node42.html" class="uri">https://www.cs.cmu.edu/~schneide/tut5/node42.html</a></p>
+<p><a href="https://towardsdatascience.com" class="uri">https://towardsdatascience.com</a></p>
+<p><a href="https://bioconductor.org" class="uri">https://bioconductor.org</a></p>
+<p><a href="https://pfern.gtihub.io" class="uri">https://pfern.gtihub.io</a></p>
+>>>>>>> 3c3fd1a... Make suggested edits to definitions
 </div>
 <div id="practice" class="section level3">
 <h3>Practice</h3>
-<iframe src="https://quizlet.com/506392624/match/embed?i=takib&amp;x=1jj1" height="500" width="100%" style="border:0">
+<iframe src="https://quizlet.com/506486027/match/embed?i=takib&amp;x=1jj1" height="500" width="100%" style="border:0">
 </iframe>
 </div>

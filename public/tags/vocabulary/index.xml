@@ -37,7 +37,11 @@
 predictors
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
 whether a property of interest (disease type, cell type, the prognosis of a patient) can be “predicted”, given one or more of these properties
+=======
+charactersics measured for an observation that may be useful in predicting the target variable
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 3c3fd1a... Make suggested edits to definitions
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -53,7 +57,7 @@ the production of an analysis that corresponds too closely or exactly to a parti
 generalization
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-refers to how well the concepts learned by a machine learning model apply to specific examples not seen by the model when it was learning.
+refers to how well the concepts learned by a machine learning model apply to specific examples not seen by the model when it was learning
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -61,15 +65,15 @@ refers to how well the concepts learned by a machine learning model apply to spe
 statistical learning
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-framework for machine learning drawing from the fields of statistics and functional analysis. Deals with the problem of finding a predictive function based on data.
+framework for machine learning drawing from the fields of statistics and functional analysis. Deals with the problem of finding a predictive function based on data
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
-objective response (in context of supervised learning)
+objective response
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-a measurable response
+in the context of supervised learning, a measurable response
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -77,7 +81,7 @@ a measurable response
 kernel methods
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-do not need features at all; instead, use distances or measures of similarity between objects.
+class of algorithms for pattern analysis, whose best known member is the support vector machine (SVM). These use kernel functions, which enable them to operate in a high-dimensional, implicit feature space without ever computing the coordinates of the data in that space
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -93,7 +97,7 @@ statistical method that attempts to determine the strength and character of the 
 classification
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-analysis for categorical response variables in the framework of supervised learning
+the process of grouping observations in a dataset by their similarities in terms of measured characteristics
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -101,7 +105,7 @@ analysis for categorical response variables in the framework of supervised learn
 linear discriminant analysis (LDA)
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-a common technique used supervised learning classification problems; a dimensionality reduction technique used as a preprocessing step in Machine Learning and pattern classification applications.
+a common technique used both for supervised learning classification and as a pre-processing dimension reduction step that finds a linear combination of features to help in classification
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -109,7 +113,7 @@ a common technique used supervised learning classification problems; a dimension
 misclassification rate (MCR)
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-in regards to statistical learning, the fraction of times the prediction is wrong
+in regards to statistical learning, the fraction of times the prediction is wrong, specifically when relating to classification of models
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -117,7 +121,7 @@ in regards to statistical learning, the fraction of times the prediction is wron
 leave-one out cross-validation
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-K-fold cross validation taken to its logical extreme, with K equal to N, the number of data points in the set
+k-fold cross validation taken to its logical extreme, with K equal to N, the number of data points in the set
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -125,7 +129,7 @@ K-fold cross validation taken to its logical extreme, with K equal to N, the num
 k-fold cross-validation
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-observations are repeatedly split into a training set of size around n(k-1)/k and a test set of size of around n/k
+a technique where observations are repeatedly split into a training set of size around n(k-1)/k and a test set of size of around n/k. Mainly used in prediction when one wants to estimate how accurately a predictive model will perform in practice
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -133,7 +137,7 @@ observations are repeatedly split into a training set of size around n(k-1)/k an
 curse of dimensionality
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-refers to the fact that high-dimensional spaces are very hard, if not impossible, to sample thoroughly
+refers to the fact that high-dimensional spaces are very hard, if not impossible, to sample thoroughly, because data in any particular region becomes very sparse as dimensions increase
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -141,7 +145,7 @@ refers to the fact that high-dimensional spaces are very hard, if not impossible
 confusion table
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-in the field of machine learning and specifically the problem of statistical classification, a specific table layout that allows visualization of the performance of an algorithm, typically a supervised learning one
+in the field of machine learning and specifically the problem of statistical classification, a specific table layout that allows visualization of the performance of an algorithm, typically a supervised learning one. By counting the number of observations truly within each class versus the number predicted by the model to be in each class
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -149,7 +153,7 @@ in the field of machine learning and specifically the problem of statistical cla
 sensitvity
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-true positivity rate or recall, related to the misclassification of healthy as ill
+true positivity rate or recall, measures the proportion of actual positives that are correctly identified as such
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -157,12 +161,12 @@ true positivity rate or recall, related to the misclassification of healthy as i
 specificity
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-true negative rate, the probability of misclassification of ill as healthy
+true negative rate, the probability, measures the proportion of actual negatives that are correctly identified as negative
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
-receiver operating characteristic (ROC)/precision recall curves
+receiver operating characteristic(ROC)/precision recall curve
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
 a graphical plot that illustrates the diagnostic ability of a binary classifier system as its discrimination threshold is varied
@@ -189,7 +193,7 @@ the average squared error
 risk function/cost function/objective function
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-the expected value of a loss of function
+the function that you optimize during the training of a predictive model (e.g., the maximum likelihood function for a classic regression model)
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -197,7 +201,7 @@ the expected value of a loss of function
 bias
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-measures how different the average of all the different estimates is from the truth
+a measure of how different the average of all the different estimates is from the truth
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -221,7 +225,7 @@ a tool to actively control and exploit the variance-bias tradeoff
 regularization
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-methods used to to ensure stable estimates
+a method used to to ensure stable estimates by helping to prevent overfitting of the model to the training data
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -229,7 +233,7 @@ methods used to to ensure stable estimates
 logistic regression
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-classification algorithm used to assign observations to a discrete set of classes
+a statistical model that in its basic form uses a logistic function to model a binary dependent variable. A binary logistic model has a dependent variable with two possible values (e.g, healthy/sick) which are represented by indicator variables (0,1)
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -237,7 +241,7 @@ classification algorithm used to assign observations to a discrete set of classe
 penalty function
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-a term added to the objective function that consists of a penalty parameter multiplied by a measure of violation of the contstraints
+a term added to the objective function that consists of a penalty parameter multiplied by a measure of violation of the constraints
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -245,15 +249,15 @@ a term added to the objective function that consists of a penalty parameter mult
 ridge regression
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-the cost function is altered by adding a penalty equivalent to square of the magnitude of the coefficients, shrinks coefficients and helps reduce model complexity and mutli-collinearity
+a method of regression in which the cost function is altered by adding a penalty equivalent to square of the magnitude of the coefficients. Doing this shrinks coefficients and helps reduce model complexity and mutli-collinearity
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
-lasso (in the context of statistical regression modeling)
+lasso
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-least absolute shrinkage and selection operator, helps in reducing over-fitting and in feature selection
+in the context of statistical regression modeling, Least Absolute Shrinkage and Selection Operator that is used in one type of regression modeling to reduce over-fitting and select useful features of hte data for predicting the outcome
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -266,10 +270,10 @@ in the fitting of linear or logistic regression models, a regularized regression
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
-ExperimentalHub (in the context of Bioconductor)
+ExperimentalHub
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-provides a central location where curated data from experiments, publications or training courses can be accessed
+in the context of Bioconductor, provides a central location where curated data from experiments, publications or training courses can be accessed
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -298,10 +302,10 @@ the basic unit of classification and a taxonomic rank of an organism, as well as
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
-diagnostic plot
+diagnostic plots
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-plots that help you evaluate the assumption of a regression analysis
+statistical influence plots that help to visualize how well a model fits the data (e.g. Normal Q-Q, Residuals vs Fitted)
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -309,7 +313,7 @@ plots that help you evaluate the assumption of a regression analysis
 tuning parameters
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-sometimes called a penalty parameter, controls the strength of the penalty term in ridge and lasso regression. Basically the amount of shrinkage, where data values are shrunk towards a central point, like the mean
+parameters that control the strength of the penalty term in certain types of regression algorithms (e.g., ridge and lasso regression), controlling the amount of shrinkage (where parameter estimates are shrunk towards a central point, like the mean) when fitting the mode
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -322,10 +326,10 @@ manipulation of the data until finding a statistic that yields a desired result
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:right;font-weight: bold;border-right:1px solid;&#34;&gt;
-workflow (in the context of a computational analysis)
+workflow
 &lt;/td&gt;
 &lt;td style=&#34;text-align:left;width: 30em; &#34;&gt;
-chains software tools together in a series of steps that operate on data
+in the context of a computational analysis, the chaining of software tools together in a series of steps that operate on data
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -342,6 +346,7 @@ a feature of objects or laws that do not change if scales, length, energy, or ot
 &lt;div id=&#34;sources-consulted-or-cited&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Sources consulted or cited&lt;/h3&gt;
 &lt;p&gt;&lt;em&gt;Some of the definitons above are based in part or whole on listed definitions in the following source:&lt;/em&gt;&lt;/p&gt;
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
 &lt;ul&gt;
 &lt;li&gt;Holmes and Huber, 2019. &lt;em&gt;Modern Statistics for Modern Biology.&lt;/em&gt; Cambridge University Press,
 Cambridge, United Kingdom.&lt;/li&gt;
@@ -353,10 +358,20 @@ Cambridge, United Kingdom.&lt;/li&gt;
 &lt;a href=&#34;https://towardsdatascience.com&#34; class=&#34;uri&#34;&gt;https://towardsdatascience.com&lt;/a&gt;
 &lt;a href=&#34;https://bioconductor.org&#34; class=&#34;uri&#34;&gt;https://bioconductor.org&lt;/a&gt;
 &lt;a href=&#34;https://pfern.gtihub.io&#34; class=&#34;uri&#34;&gt;https://pfern.gtihub.io&lt;/a&gt;&lt;/p&gt;
+=======
+&lt;p&gt;Holmes and Huber, 2019. &lt;em&gt;Modern Statistics for Modern Biology.&lt;/em&gt; Cambridge University Press, Cambridge, United Kingdom.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/&#34; class=&#34;uri&#34;&gt;https://en.wikipedia.org/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://machinelearningmastery.com/overfitting-and-underfitting-with-machine-learning-algorithms/&#34; class=&#34;uri&#34;&gt;https://machinelearningmastery.com/overfitting-and-underfitting-with-machine-learning-algorithms/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://.statisticshowto.com&#34; class=&#34;uri&#34;&gt;https://.statisticshowto.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.cs.cmu.edu/~schneide/tut5/node42.html&#34; class=&#34;uri&#34;&gt;https://www.cs.cmu.edu/~schneide/tut5/node42.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://towardsdatascience.com&#34; class=&#34;uri&#34;&gt;https://towardsdatascience.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://bioconductor.org&#34; class=&#34;uri&#34;&gt;https://bioconductor.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://pfern.gtihub.io&#34; class=&#34;uri&#34;&gt;https://pfern.gtihub.io&lt;/a&gt;&lt;/p&gt;
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 3c3fd1a... Make suggested edits to definitions
 &lt;/div&gt;
 &lt;div id=&#34;practice&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Practice&lt;/h3&gt;
-&lt;iframe src=&#34;https://quizlet.com/506392624/match/embed?i=takib&amp;amp;x=1jj1&#34; height=&#34;500&#34; width=&#34;100%&#34; style=&#34;border:0&#34;&gt;
+&lt;iframe src=&#34;https://quizlet.com/506486027/match/embed?i=takib&amp;amp;x=1jj1&#34; height=&#34;500&#34; width=&#34;100%&#34; style=&#34;border:0&#34;&gt;
 &lt;/iframe&gt;
 &lt;/div&gt;
 </description>
