@@ -43,18 +43,24 @@ The vocabulary words for Chapter 12 are:
 
 *Some of the definitons above are based in part or whole on listed definitions in the following source:*
 
-- Holmes and Huber, 2019. *Modern Statistics for Modern Biology.* Cambridge University Press, 
+Holmes and Huber, 2019. *Modern Statistics for Modern Biology.* Cambridge University Press, 
 Cambridge, United Kingdom.
 
 https://en.wikipedia.org/
+
 https://machinelearningmastery.com/overfitting-and-underfitting-with-machine-learning-algorithms/
+
 https://.statisticshowto.com
+
 https://www.cs.cmu.edu/~schneide/tut5/node42.html
+
 https://towardsdatascience.com
+
 https://bioconductor.org
+
 https://pfern.gtihub.io
 
 ### Practice
 
-<iframe src="https://quizlet.com/506392624/match/embed?i=takib&x=1jj1" height="500" width="100%" style="border:0"></iframe>
+<iframe src="https://quizlet.com/506486027/match/embed?i=takib&x=1jj1" height="500" width="100%" style="border:0"></iframe>
 
