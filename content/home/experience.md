@@ -215,7 +215,7 @@ date_format = "   "
   date_end = "2020-01-20"
   description = """
   
-  Exercise for Chapter:
+  Exercise for Chapter: Exercise 12.2 (p. 335), starts with "Use glmnet..."
   
   Student responsibilities:
 

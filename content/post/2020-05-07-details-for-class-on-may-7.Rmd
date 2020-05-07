@@ -3,7 +3,6 @@ title: Details for class on May 7
 author: Bailey Fosdick
 date: '2020-05-07'
 slug: details-for-class-on-may-7
-draft: yes
 categories:
   - class meeting
 tags:
@@ -30,10 +29,7 @@ Large group: [meeting link](https://teams.microsoft.com/l/meetup-join/19%3ameeti
 - Group 3 (Amy, Sere, Mikaela): [meeting link](https://teams.microsoft.com/l/meetup-join/19%3ameeting_YjE4ZGJhNjItYTViMS00MjZjLTk4NWUtMjBhY2E3OTJiOGQw%40thread.v2/0?context=%7b%22Tid%22%3a%22afb58802-ff7a-4bb1-ab21-367ff2ecfc8b%22%2c%22Oid%22%3a%2205ade929-16e7-49a7-96bb-775f26ed73d5%22%7d)
 
 
-## Additional links
-
-
 ## Vocabulary quiz for May 7
 
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdyhEmMFLukgfMVzG2SNBbqXk4wYr0bzcTQM5KbxQUYsc0pIg/viewform?embedded=true" width="640" height="2972" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSexbNrbbdBDfOFImZiNHIMs4eOvL_DEA3eNPHjDrzZ4aatb0g/viewform?embedded=true" width="640" height="3297" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 
