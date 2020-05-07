@@ -5,12 +5,38 @@
     <link>/</link>
       <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <description>CSU MSMB Group Study</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 04 May 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 07 May 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>CSU MSMB Group Study</title>
       <link>/</link>
     </image>
+    
+    <item>
+      <title>Details for class on May 7</title>
+      <link>/post/details-for-class-on-may-7/</link>
+      <pubDate>Thu, 07 May 2020 00:00:00 +0000</pubDate>
+      <guid>/post/details-for-class-on-may-7/</guid>
+      <description>
+
+
+&lt;div id=&#34;links-for-may-7&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Links for May 7&lt;/h2&gt;
+&lt;p&gt;Large group: &lt;a href=&#34;https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZWY5MTczNDUtOTIzYS00ZGUyLTk4ODctMjdhZWI4MmE4NjMx%40thread.v2/0?context=%7b%22Tid%22%3a%22afb58802-ff7a-4bb1-ab21-367ff2ecfc8b%22%2c%22Oid%22%3a%2205ade929-16e7-49a7-96bb-775f26ed73d5%22%7d&#34;&gt;meeting link&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Group 1 (Sierra, Camron, Sherry, James): &lt;a href=&#34;https://teams.microsoft.com/l/meetup-join/19%3ameeting_NjA3Y2Q5MDYtYTM5OS00MzAyLWEwMzAtMzdmNWMzYzhmMTUw%40thread.v2/0?context=%7b%22Tid%22%3a%22afb58802-ff7a-4bb1-ab21-367ff2ecfc8b%22%2c%22Oid%22%3a%2205ade929-16e7-49a7-96bb-775f26ed73d5%22%7d&#34;&gt;meeting link&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Group 2 (Sarah, Burton, Daniel): &lt;a href=&#34;https://teams.microsoft.com/l/meetup-join/19%3ameeting_M2I3YmViYjMtNWJlNC00M2E5LTg5NTItNzI0N2VlYmVkNzUz%40thread.v2/0?context=%7b%22Tid%22%3a%22afb58802-ff7a-4bb1-ab21-367ff2ecfc8b%22%2c%22Oid%22%3a%2205ade929-16e7-49a7-96bb-775f26ed73d5%22%7d&#34;&gt;meeting link&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Group 3 (Amy, Sere, Mikaela): &lt;a href=&#34;https://teams.microsoft.com/l/meetup-join/19%3ameeting_YjE4ZGJhNjItYTViMS00MjZjLTk4NWUtMjBhY2E3OTJiOGQw%40thread.v2/0?context=%7b%22Tid%22%3a%22afb58802-ff7a-4bb1-ab21-367ff2ecfc8b%22%2c%22Oid%22%3a%2205ade929-16e7-49a7-96bb-775f26ed73d5%22%7d&#34;&gt;meeting link&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;vocabulary-quiz-for-may-7&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Vocabulary quiz for May 7&lt;/h2&gt;
+&lt;iframe src=&#34;https://docs.google.com/forms/d/e/1FAIpQLSexbNrbbdBDfOFImZiNHIMs4eOvL_DEA3eNPHjDrzZ4aatb0g/viewform?embedded=true&#34; width=&#34;640&#34; height=&#34;3297&#34; frameborder=&#34;0&#34; marginheight=&#34;0&#34; marginwidth=&#34;0&#34;&gt;
+Loading…
+&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Vocabulary for Chapter 12</title>
@@ -2849,6 +2875,83 @@ Loading…
 &lt;iframe src=&#34;https://docs.google.com/forms/d/e/1FAIpQLSd7UnxDl9NTR8vvqgeWzallGB5IJdM5_s1BRRWWtyTtuDVKTw/viewform?embedded=true&#34; width=&#34;640&#34; height=&#34;2787&#34; frameborder=&#34;0&#34; marginheight=&#34;0&#34; marginwidth=&#34;0&#34;&gt;
 Loading…
 &lt;/iframe&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Exercise solution for Chapter 2, Part 2</title>
+      <link>/post/ex-2-6/</link>
+      <pubDate>Mon, 24 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/post/ex-2-6/</guid>
+      <description>
+
+
+&lt;div id=&#34;picking-a-prior&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Picking a prior&lt;/h1&gt;
+&lt;p&gt;The first part of the exercise asks you to:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“Choose your own prior for the parameters of the beta distribution. You can do this by sketching it here: &lt;a href=&#34;https://jhubiostatistics.shinyapps.io/drawyourprior&#34; class=&#34;uri&#34;&gt;https://jhubiostatistics.shinyapps.io/drawyourprior&lt;/a&gt;. Once you have set up a prior, re-analyse the data from Section 2.9.2, where we saw Y = 40 successes out of n = 300 trials. Compare your posterior distribution to the one we obtained in that section using a QQ-plot.”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;After sketching a plot on the online web app, I chose the parameters to set up a prior: &lt;span class=&#34;math inline&#34;&gt;\(\alpha = 2.47\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta = 8.5\)&lt;/span&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;using-this-prior&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Using this prior&lt;/h1&gt;
+&lt;p&gt;Next, I replaced the original values for &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; used in the example in the text with my own from the shape I drew with the online app.&lt;/p&gt;
+&lt;p&gt;To be able to use the &lt;code&gt;loglikelihood&lt;/code&gt; function from the text, I first needed to redefine it here:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;loglikelihood = function(theta, n = 300, k = 40) { ## Function definition from the textbook
+  115 + k * log(theta) + (n - k) * log(1 - theta)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then, I created a vector of &lt;span class=&#34;math inline&#34;&gt;\(\theta\)&lt;/span&gt; values between 0 and 1, spaced 0.001 units wide. The plot below shows …&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;thetas = seq(0, 1, by = 0.001)
+plot(thetas, loglikelihood(thetas), xlab = expression(theta),
+     ylab = expression(paste(&amp;quot;log f(&amp;quot;, theta, &amp;quot; | y)&amp;quot;)),type = &amp;quot;l&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-02-24-ex2-6_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Next, I used &lt;code&gt;rbeta&lt;/code&gt; to draw 1,000,000 random samples from a beta distribution with my new picks for the parameters:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;rtheta = rbeta(1000000, shape1 = 2.47, shape2 = 8.5)
+y = vapply(rtheta, function(th) {
+  rbinom(1, prob = th, size = 300)
+}, numeric(1))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This plot shows … :&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;hist(y, breaks = 50, col = &amp;quot;orange&amp;quot;, main = &amp;quot;&amp;quot;, xlab = &amp;quot;&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-02-24-ex2-6_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;After running the above, for each of these &lt;span class=&#34;math inline&#34;&gt;\(\theta\)&lt;/span&gt; values, we then generate a random sample of &lt;span class=&#34;math inline&#34;&gt;\(Y\)&lt;/span&gt; as observed in this histogram (with orange bars). Our next step is to use this information to generate a posterior distribution of theta at a fixed Y value. In this example they used &lt;span class=&#34;math inline&#34;&gt;\(Y=40\)&lt;/span&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;thetaPostEmp = rtheta[ y == 40 ]
+hist(thetaPostEmp, breaks = 40, col = &amp;quot;chartreuse4&amp;quot;, main = &amp;quot;&amp;quot;,
+     probability = TRUE, xlab = expression(&amp;quot;posterior&amp;quot;~theta), ylim=c(0,40))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-02-24-ex2-6_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;densPostTheory  =  dbeta(thetas, 42.47, 268.5)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;hist(thetaPostEmp, breaks = 40, col = &amp;quot;chartreuse4&amp;quot;, main = &amp;quot;&amp;quot;,
+  probability = TRUE, xlab = expression(&amp;quot;posterior&amp;quot;~theta))
+lines(thetas, densPostTheory, type=&amp;quot;l&amp;quot;, lwd = 3)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-02-24-ex2-6_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;After running the above, for each of these thetas, we generated simulated values for the posterior distribution of &lt;span class=&#34;math inline&#34;&gt;\(\theta\)&lt;/span&gt; at &lt;span class=&#34;math inline&#34;&gt;\(Y=40\)&lt;/span&gt; as observed in this histogram (with green bars). We can also check the means of both distributions computed above.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(thetaPostMC)
+#0.1365705
+dtheta = thetas[2]-thetas[1]
+sum(thetas * densPostTheory * dtheta)
+#0.1365727&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;#We can use Monte Carlo integration instead and then check the agreement between our Monte Carlo sample thetaPostMC and our sample thetaPostEmp with a QQ plot&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;thetaPostMC = rbeta(n = 1e6, 42.47, 268.5)
+mean(thetaPostMC)
+#0.1365902
+
+qqplot(thetaPostMC, thetaPostEmp, type = &amp;quot;l&amp;quot;, asp = 1)
+abline(a = 0, b = 1, col = &amp;quot;blue&amp;quot;)
+
+densPost2 = dbeta(thetas, 42.47, 268.5)
+mcPost2   = rbeta(1e6, 42.47, 268.5)
+
+sum(thetas * densPost2 * dtheta)  # mean, by numeric integration
+# [1] 0.1365727
+mean(mcPost2)                     # mean, by MC
+# [1] 0.1365778
+thetas[which.max(densPost2)]      # MAP estimate
+# [1] 0.134
+
+quantile(mcPost2, c(0.025, 0.975))
+#     2.5%     97.5% 
+#0.1006757 0.1768317 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 </description>
     </item>
     
@@ -6189,6 +6292,24 @@ Cambridge, United Kingdom.&lt;/li&gt;
 &lt;iframe src=&#34;https://quizlet.com/473473135/flashcards/embed?i=2ldef3&amp;amp;x=1jj1&#34; height=&#34;500&#34; width=&#34;100%&#34; style=&#34;border:0&#34;&gt;
 &lt;/iframe&gt;
 &lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Privacy Policy</title>
+      <link>/privacy/</link>
+      <pubDate>Thu, 28 Jun 2018 00:00:00 +0100</pubDate>
+      <guid>/privacy/</guid>
+      <description>&lt;p&gt;&amp;hellip;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Terms</title>
+      <link>/terms/</link>
+      <pubDate>Thu, 28 Jun 2018 00:00:00 +0100</pubDate>
+      <guid>/terms/</guid>
+      <description>&lt;p&gt;&amp;hellip;&lt;/p&gt;
 </description>
     </item>
     
