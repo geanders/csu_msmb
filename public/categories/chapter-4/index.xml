@@ -5,12 +5,27 @@
     <link>/categories/chapter-4/</link>
       <atom:link href="/categories/chapter-4/index.xml" rel="self" type="application/rss+xml" />
     <description>Chapter 4</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 20 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 27 Feb 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Chapter 4</title>
       <link>/categories/chapter-4/</link>
     </image>
+    
+    <item>
+      <title>Chapter 4 vocabulary quiz</title>
+      <link>/post/chapter-4-vocabulary-quiz/</link>
+      <pubDate>Thu, 27 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/post/chapter-4-vocabulary-quiz/</guid>
+      <description>
+
+
+&lt;p&gt;The vocabulary quiz will be live here during the start of the course.&lt;/p&gt;
+&lt;iframe src=&#34;https://docs.google.com/forms/d/e/1FAIpQLSd7UnxDl9NTR8vvqgeWzallGB5IJdM5_s1BRRWWtyTtuDVKTw/viewform?embedded=true&#34; width=&#34;640&#34; height=&#34;2787&#34; frameborder=&#34;0&#34; marginheight=&#34;0&#34; marginwidth=&#34;0&#34;&gt;
+Loading…
+&lt;/iframe&gt;
+</description>
+    </item>
     
     <item>
       <title>Vocabulary for Chapter 4</title>
@@ -340,9 +355,11 @@ a calculus procedure that uses random variables to approximate the expected valu
 &lt;/table&gt;
 &lt;div id=&#34;sources-consulted-or-cited&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Sources consulted or cited&lt;/h3&gt;
-&lt;p&gt;&lt;em&gt;Some of the definitions above are based in part or whole on listed definitions in the following sources.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Some of the definitions above are based in part or whole on listed definitions
+in the following sources.&lt;/em&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Holmes and Huber, 2019. &lt;em&gt;Modern Statistics for Modern Biology.&lt;/em&gt; Cambridge University Press, Cambridge, United Kingdom.&lt;/li&gt;
+&lt;li&gt;Holmes and Huber, 2019. &lt;em&gt;Modern Statistics for Modern Biology.&lt;/em&gt; Cambridge University Press,
+Cambridge, United Kingdom.&lt;/li&gt;
 &lt;li&gt;Everitt and Skrondal, 2010. &lt;em&gt;The Cambridge Dictionary of Statistics (Fourth Edition).&lt;/em&gt; Cambridge University Press, Cambridge, United Kingdom.&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Zero-Inflated Poisson Regression.&lt;/em&gt; Institute for Digital Research and Education Statistical Consulting. &lt;a href=&#34;https://stats.idre.ucla.edu/r/dae/zip/&#34; class=&#34;uri&#34;&gt;https://stats.idre.ucla.edu/r/dae/zip/&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;Berrar, 2019. &lt;em&gt;Introduction to Non-parametric Bootstrap.&lt;/em&gt; Research Gate. &lt;a href=&#34;https://www.researchgate.net/&#34; class=&#34;uri&#34;&gt;https://www.researchgate.net/&lt;/a&gt;&lt;/li&gt;
@@ -358,7 +375,7 @@ a calculus procedure that uses random variables to approximate the expected valu
 &lt;/div&gt;
 &lt;div id=&#34;practice&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Practice&lt;/h3&gt;
-&lt;iframe src=&#34;https://quizlet.com/485299672/match/embed?i=2r4ib&amp;amp;x=1jj1&#34; height=&#34;500&#34; width=&#34;100%&#34; style=&#34;border:0&#34;&gt;
+&lt;iframe src=&#34;https://quizlet.com/485299672/flashcards/embed?i=2r4ib&amp;amp;x=1jj1&#34; height=&#34;500&#34; width=&#34;100%&#34; style=&#34;border:0&#34;&gt;
 &lt;/iframe&gt;
 &lt;/div&gt;
 </description>

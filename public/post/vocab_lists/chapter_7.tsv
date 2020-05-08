@@ -1,0 +1,43 @@
+principal component analysis (PCA)	an unsupervised ordination method used to reduce the dimensionality of data by creating scores that maximize the explained variation in the data
+matrix	a two dimensional arrangement of rows and columns used to store data
+mass spectroscopy	a measurement procedure based on the mass-to-charge ratio of ions, often used to measure metabolite abundance
+correlation coefficient	a measure of how two variables co-vary, reported as a single summary value
+centering	subtracting the mean of the data so the new mean is 0
+scaling / standardizing	dividing data values by the data's standard deviation so the new standard deviation is 1
+data simplification	a broadly applicable term referring to the process of summarizing or reducing the dimensions of multivariate data
+dimension reduction	summarizing data to reduce the number of variables for downstream analyses
+principal scores	a normally distributed z-score assigned to each subject that corresponds with the specific ordering and weighting of original variables within a given principal component
+unsupervised learning	a machine learning method used to find patterns in the data without a priori variable ranking or labeling
+status	in the context of variables in a statistical learning algorithm, a ranking or labeling of variables (e.g., to consider one variable as the outcome or goal and the rest as potential predictive variables)
+projection	a representation of data from a higher dimensional space to a lower dimensional space
+linear	in the context of a statistical technique, a description that describes the search for relationships between variables that can be expressed as a linear combination of predictors
+regression line	a linear function of the form y = mx + b which is used to project two-dimensional data onto a 1 dimensional line
+linear regression	a supervised method that models the relationship between explanatory and response variables by minimizing the residual sum of squares with respect to the response variable
+supervised learning	in the context of a statistical learning technique, a machine learning method that uses specified, user defined inputs to map patterns (input/output associations) in data
+predictor	an independent, explanatory, or 'x' variable in a model
+response	an outcome or 'y' variable in a model that is thought to be affected by a predictor
+principal components	uncorrelated latent variables created by the PCA procedure, of which there are as many as there are original variables entered into the procedure
+inertia	in the context of variability of points, the total variance of a point cloud based on the sum of squares of the projection of points 
+linear combination	mathematical expression in which terms are scaled by constants and then added together
+loadings	in the context of principal components, these values quantify the weight of each original variable in a principal component
+singular value decomposition (SVD)	a way to decompose a rectangular matrix by factoring it into three different matrices in a way that has some useful mathematical applications
+rank	in the context of a matrix, the maximum number of linearly independent column or row vectors
+norm	in the context of a vector, a positive scalar quantity reflecting its size/magnitude
+singular value	a non-negative, normalizing value from a singular value decomposition quantifying the relative importance of the corresponding singular vectors
+orthonormal	the characteristic of a set of vectors that are both orthogonal (uncorrelated) and normalized
+principal plane	a 2-dimensional space across which the data are most spread out or variable 
+ trace	in the context of matrices, the sum of the diagonal elements of a square matrix
+ supplementary information	extra information or instruction to help clarify research question, procedure or results
+metadata	information, data, or descriptions that characterize other data
+biplot	a type of exploratory graph that displays information on both the observations and the variables of a data matrix
+biometric characteristics	physical, physiological, demographic, or behavioral features of an organism that can be measured and quantified
+proliferation rate	speed at which the number of cells increase through the process of cellular division
+gene expression profile	a snapshot measure of the level of activity/expression (transcription) of a collection (thousands) of genes, representing a global measure of gene function
+T-cell populations	groups of differentiated white blood cells that function in immune response
+operational taxonomic units (OTUs)	clusters of closely related species of bacteria based on sequence similarity
+transcriptome data	the complete set of all RNA molecules measured from a biological sample generated from genome-wide sequencing methods, like RNA-seq
+sequence read	an inferred sequence of base pairs, or fragments of the genome, generated from one of many genomics methods
+proteomic profile	a snapshot measure of the levels of all proteins measured in a biological sample 
+molecule	two or more chemically bond atoms that lack a charge
+m/z ratio	mass to charge ratio used in mass spectrometry to differentiation molecules
+wild-type	a normal allele or phenotype that occurs under natural conditions

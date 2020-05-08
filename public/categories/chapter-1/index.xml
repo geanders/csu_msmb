@@ -20,8 +20,16 @@
       <description>
 
 
-&lt;p&gt;This exercise asks us to explore the frequency of each of the four nucleotides (A, C, G, and T) in the genome of &lt;em&gt;C. elegans&lt;/em&gt;, a type of worm used frequently in scientific research.&lt;/p&gt;
-&lt;p&gt;This solution requires that several R extension packages be loaded in your R session. If you do not have these packages installed to your computer yet, you should follow &lt;a href=&#34;https://kind-neumann-789611.netlify.com/post/chapter-1-exercise-setup/&#34;&gt;instructions we’ve posted separately&lt;/a&gt; describing the required set-up for this exercise. Once you have installed these packages on your computer, you can load them into your current R session using the &lt;code&gt;library&lt;/code&gt; function:&lt;/p&gt;
+&lt;p&gt;This exercise asks us to explore the frequency of each of the four nucleotides
+(A, C, G, and T) in the genome of &lt;em&gt;C. elegans&lt;/em&gt;, a type of worm used frequently
+in scientific research.&lt;/p&gt;
+&lt;p&gt;This solution requires that several R extension packages be loaded in your R
+session. If you do not have these packages installed to your computer yet, you
+should follow &lt;a href=&#34;https://kind-neumann-789611.netlify.com/post/chapter-1-exercise-setup/&#34;&gt;instructions we’ve posted
+separately&lt;/a&gt;
+describing the required set-up for this exercise. Once you have installed these
+packages on your computer, you can load them into your current R session using
+the &lt;code&gt;library&lt;/code&gt; function:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(&amp;quot;BSgenome.Celegans.UCSC.ce2&amp;quot;)
 library(&amp;quot;Biostrings&amp;quot;)
 
@@ -29,12 +37,20 @@ library(&amp;quot;tidyverse&amp;quot;)
 library(&amp;quot;knitr&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;part-a&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Part A&lt;/h2&gt;
-&lt;p&gt;Part A of the question asks us to explore the nucleotide frequency of the &lt;em&gt;C. elegans&lt;/em&gt; genome. This genome is available in the &lt;code&gt;Celegans&lt;/code&gt; data that comes with the &lt;code&gt;BSgenome.Clegans.UCSC.ce2&lt;/code&gt; package and is stored within a &lt;code&gt;BSgenome&lt;/code&gt; class, which is a special object class provided by the &lt;code&gt;Biostrings&lt;/code&gt; package.&lt;/p&gt;
-&lt;p&gt;There is a dedicated function called &lt;code&gt;letterFrequency&lt;/code&gt; in the &lt;code&gt;Biostrings&lt;/code&gt; package that can be used to count the frequency of letters in a string (like a genome) in an R object like this. In a call to this function, you must also include the possible letters in your “alphabet”—that is, the possible letters that each position in your string could take.&lt;/p&gt;
+&lt;p&gt;Part A of the question asks us to explore the nucleotide frequency of the &lt;em&gt;C.
+elegans&lt;/em&gt; genome. This genome is available in the &lt;code&gt;Celegans&lt;/code&gt; data that comes with
+the &lt;code&gt;BSgenome.Clegans.UCSC.ce2&lt;/code&gt; package and is stored within a &lt;code&gt;BSgenome&lt;/code&gt; class,
+which is a special object class provided by the &lt;code&gt;Biostrings&lt;/code&gt; package.&lt;/p&gt;
+&lt;p&gt;There is a dedicated function called &lt;code&gt;letterFrequency&lt;/code&gt; in the &lt;code&gt;Biostrings&lt;/code&gt;
+package that can be used to count the frequency of letters in a string (like a
+genome) in an R object like this. In a call to this function, you must also
+include the possible letters in your “alphabet”—that is, the possible letters
+that each position in your string could take.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;(nuc_freq &amp;lt;- letterFrequency(Celegans$chrM, letters=c(&amp;quot;A&amp;quot;, &amp;quot;C&amp;quot;, &amp;quot;G&amp;quot;, &amp;quot;T&amp;quot;)))&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##    A    C    G    T 
 ## 4335 1225 2055 6179&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;To explore and plot this data, I put this summary data into a &lt;code&gt;tibble&lt;/code&gt;, so I could more easily use &lt;code&gt;tidyverse&lt;/code&gt; tools with the data.&lt;/p&gt;
+&lt;p&gt;To explore and plot this data, I put this summary data into a &lt;code&gt;tibble&lt;/code&gt;, so I
+could more easily use &lt;code&gt;tidyverse&lt;/code&gt; tools with the data.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;nuc_freq_df &amp;lt;- tibble(nucleotide = names(nuc_freq), 
              n = nuc_freq)
 nuc_freq_df&lt;/code&gt;&lt;/pre&gt;
@@ -45,7 +61,11 @@ nuc_freq_df&lt;/code&gt;&lt;/pre&gt;
 ## 2 C           1225
 ## 3 G           2055
 ## 4 T           6179&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;In this format, you can use &lt;code&gt;tidyverse&lt;/code&gt; tools to explore the data a bit more. For example, you can determine the total number of nucleotides in the genome and, with that calculate the proportion of each nucleotide across the genome. Along with the &lt;code&gt;kable&lt;/code&gt; function from the &lt;code&gt;knitr&lt;/code&gt; package, I created a formatted table with this information:&lt;/p&gt;
+&lt;p&gt;In this format, you can use &lt;code&gt;tidyverse&lt;/code&gt; tools to explore the data a bit more.
+For example, you can determine the total number of nucleotides in the genome
+and, with that calculate the proportion of each nucleotide across the genome.
+Along with the &lt;code&gt;kable&lt;/code&gt; function from the &lt;code&gt;knitr&lt;/code&gt; package, I created a formatted
+table with this information:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;nuc_freq_df %&amp;gt;% 
   mutate(prop = n / sum(n)) %&amp;gt;% 
   kable(digits = 2, 
@@ -83,7 +103,9 @@ nuc_freq_df&lt;/code&gt;&lt;/pre&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;For some presentations, it might be clearer to present this information in a slightly different table format, using &lt;code&gt;pivot_longer&lt;/code&gt; and then &lt;code&gt;pivot_wider&lt;/code&gt; to reformat the table for presentation:&lt;/p&gt;
+&lt;p&gt;For some presentations, it might be clearer to present this information in a
+slightly different table format, using &lt;code&gt;pivot_longer&lt;/code&gt; and then &lt;code&gt;pivot_wider&lt;/code&gt; to
+reformat the table for presentation:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;nuc_freq_df %&amp;gt;% 
   mutate(prop = n / sum(n),
          n = prettyNum(n, big.mark = &amp;quot;,&amp;quot;),
@@ -125,7 +147,8 @@ nuc_freq_df&lt;/code&gt;&lt;/pre&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;Here is a plot of the frequency of each of the four nucleotides for the &lt;em&gt;C. elegans&lt;/em&gt; nucleotide:&lt;/p&gt;
+&lt;p&gt;Here is a plot of the frequency of each of the four nucleotides for the &lt;em&gt;C.
+elegans&lt;/em&gt; nucleotide:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(nuc_freq_df, aes(x = nucleotide, y = n)) + 
   geom_col(fill = &amp;quot;lavender&amp;quot;, color = &amp;quot;black&amp;quot;) + 
   theme_classic() + 
@@ -135,34 +158,49 @@ nuc_freq_df&lt;/code&gt;&lt;/pre&gt;
        caption = expression(paste(&amp;quot;Based on data from the &amp;quot;, italic(&amp;quot;BSgenome.Celegans.UCSC.ce2&amp;quot;), 
                                   &amp;quot; package.&amp;quot;)))&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/2020-02-11-exercise-solution-for-chapter-1_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;This graph uses a few elements to improve its appearance that you might want to explore if you’re not already familiar with them:&lt;/p&gt;
+&lt;p&gt;This graph uses a few elements to improve its appearance that you might want to
+explore if you’re not already familiar with them:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;The &lt;code&gt;labs&lt;/code&gt; function is used to add both a title and a caption to the plot.&lt;/li&gt;
-&lt;li&gt;The &lt;code&gt;paste&lt;/code&gt;, &lt;code&gt;expression&lt;/code&gt;, and &lt;code&gt;italic&lt;/code&gt; functions are used together to put “C. elegans” and an R package name in italics in some of the labels on the plot.&lt;/li&gt;
-&lt;li&gt;The &lt;code&gt;scales&lt;/code&gt; package is used inside a scale layer for the &lt;code&gt;ggplot2&lt;/code&gt; code to make the y-axis labels a bit nicer.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;theme&lt;/code&gt; calls are used to apply a simpler overall theme than the default and to remove the x- and y-axis titles (with &lt;code&gt;element_blank&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;paste&lt;/code&gt;, &lt;code&gt;expression&lt;/code&gt;, and &lt;code&gt;italic&lt;/code&gt; functions are used together to put “C.
+elegans” and an R package name in italics in some of the labels on the plot.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;scales&lt;/code&gt; package is used inside a scale layer for the &lt;code&gt;ggplot2&lt;/code&gt; code to
+make the y-axis labels a bit nicer.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;theme&lt;/code&gt; calls are used to apply a simpler overall theme than the default and to
+remove the x- and y-axis titles (with &lt;code&gt;element_blank&lt;/code&gt;).&lt;/li&gt;
 &lt;li&gt;The color and fill of the bars are customized in the geom layer (&lt;code&gt;geom_col&lt;/code&gt;).&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;From this plot, it certainly looks like the nucleotides are &lt;strong&gt;not&lt;/strong&gt; uniformly distributed in the &lt;em&gt;C. elegans&lt;/em&gt; genome. This question will be investigated more in the next part of the exercise.&lt;/p&gt;
+&lt;p&gt;From this plot, it certainly looks like the nucleotides are &lt;strong&gt;not&lt;/strong&gt; uniformly
+distributed in the &lt;em&gt;C. elegans&lt;/em&gt; genome. This question will be investigated more
+in the next part of the exercise.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;part-b&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Part B&lt;/h2&gt;
-&lt;p&gt;The second part of the exercise asks us to test whether the observed nucleotide data for &lt;em&gt;C. elegans&lt;/em&gt; is consistent with the uniform model that all nucleotide frequencies are the same.&lt;/p&gt;
-&lt;p&gt;First, we can simulate several datasets under this null model and see how a plot of nucleotide frequencies compares to the plot that we obtained with the observed &lt;em&gt;C. elegans&lt;/em&gt; data. To make these plots, I first simulated 20 samples under the null model that the distribution is uniform across the four nucleotides, using the &lt;code&gt;rmultinom&lt;/code&gt; function with the &lt;code&gt;size&lt;/code&gt; argument set to the number of nucleotides in the original &lt;em&gt;C. elegans&lt;/em&gt; genome data and the &lt;code&gt;prob&lt;/code&gt; argument set to have an equal probability of each nucleotide at each spot on the genome:&lt;/p&gt;
+&lt;p&gt;The second part of the exercise asks us to test whether the observed nucleotide
+data for &lt;em&gt;C. elegans&lt;/em&gt; is consistent with the uniform model that all nucleotide
+frequencies are the same.&lt;/p&gt;
+&lt;p&gt;First, we can simulate several datasets under this null model and see how a plot
+of nucleotide frequencies compares to the plot that we obtained with the observed
+&lt;em&gt;C. elegans&lt;/em&gt; data. To make these plots, I first simulated 20 samples under the
+null model that the distribution is uniform across the four nucleotides, using
+the &lt;code&gt;rmultinom&lt;/code&gt; function with the &lt;code&gt;size&lt;/code&gt; argument set to the number of nucleotides in
+the original &lt;em&gt;C. elegans&lt;/em&gt; genome data and the &lt;code&gt;prob&lt;/code&gt; argument set to have an equal
+probability of each nucleotide at each spot on the genome:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;(sim_nuc_freq &amp;lt;- rmultinom(n = 20, 
                           size = sum(nuc_freq_df$n), 
                           prob = rep(1 / 4, 4)))&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13] [,14]
-## [1,] 3429 3384 3502 3424 3480 3374 3347 3397 3488  3444  3396  3514  3445  3436
-## [2,] 3464 3394 3464 3367 3429 3402 3494 3507 3399  3455  3496  3449  3458  3393
-## [3,] 3432 3530 3356 3529 3476 3535 3507 3447 3486  3452  3465  3432  3480  3470
-## [4,] 3469 3486 3472 3474 3409 3483 3446 3443 3421  3443  3437  3399  3411  3495
+## [1,] 3397 3447 3540 3504 3396 3506 3369 3451 3463  3475  3451  3484  3467  3419
+## [2,] 3523 3442 3360 3478 3549 3442 3507 3441 3459  3368  3457  3393  3420  3593
+## [3,] 3430 3456 3472 3377 3412 3467 3436 3431 3417  3522  3443  3430  3462  3461
+## [4,] 3444 3449 3422 3435 3437 3379 3482 3471 3455  3429  3443  3487  3445  3321
 ##      [,15] [,16] [,17] [,18] [,19] [,20]
-## [1,]  3505  3564  3445  3455  3425  3469
-## [2,]  3548  3330  3499  3433  3424  3530
-## [3,]  3312  3421  3416  3468  3551  3434
-## [4,]  3429  3479  3434  3438  3394  3361&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Next, I moved this into a tibble so I could more easily rearrange and plot the data using facetting in &lt;code&gt;ggplot2&lt;/code&gt;:&lt;/p&gt;
+## [1,]  3387  3466  3487  3455  3564  3448
+## [2,]  3406  3439  3496  3489  3323  3434
+## [3,]  3546  3341  3398  3418  3476  3440
+## [4,]  3455  3548  3413  3432  3431  3472&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Next, I moved this into a tibble so I could more easily rearrange and plot the data using
+facetting in &lt;code&gt;ggplot2&lt;/code&gt;:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sim_nuc_freq_df &amp;lt;- as_tibble(sim_nuc_freq) %&amp;gt;% 
   mutate(nucleotide = c(&amp;quot;A&amp;quot;, &amp;quot;C&amp;quot;, &amp;quot;G&amp;quot;, &amp;quot;T&amp;quot;)) %&amp;gt;% 
   pivot_longer(-nucleotide, names_to = &amp;quot;sample&amp;quot;) %&amp;gt;% 
@@ -174,16 +212,16 @@ sim_nuc_freq_df %&amp;gt;%
 &lt;pre&gt;&lt;code&gt;## # A tibble: 10 x 3
 ##    nucleotide sample value
 ##    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt; &amp;lt;int&amp;gt;
-##  1 A               1  3429
-##  2 C               1  3464
-##  3 G               1  3432
-##  4 T               1  3469
-##  5 A               2  3384
-##  6 C               2  3394
-##  7 G               2  3530
-##  8 T               2  3486
-##  9 A               3  3502
-## 10 C               3  3464&lt;/code&gt;&lt;/pre&gt;
+##  1 A               1  3397
+##  2 C               1  3523
+##  3 G               1  3430
+##  4 T               1  3444
+##  5 A               2  3447
+##  6 C               2  3442
+##  7 G               2  3456
+##  8 T               2  3449
+##  9 A               3  3540
+## 10 C               3  3360&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(sim_nuc_freq_df, aes(x = nucleotide, y = value)) + 
   geom_col(fill = &amp;quot;lavender&amp;quot;, color = &amp;quot;black&amp;quot;) + 
   theme_classic() + 
@@ -193,7 +231,11 @@ sim_nuc_freq_df %&amp;gt;%
   facet_wrap(~ sample) + 
   expand_limits(y = max(nuc_freq_df$n))&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/2020-02-11-exercise-solution-for-chapter-1_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;The y-axis limits were expanded here to cover the same range as that shown for the observed &lt;em&gt;C. elegans&lt;/em&gt; nucleotide frequencies, to help make it easier to compare these plots with the plot of our observed data. These plots of data simulated under the null model do show some variation in frequencies among the nucleotides, but it’s certainly much less than in the observed data for &lt;em&gt;C. elegans&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;The y-axis limits were expanded here to cover the same range as that shown for the
+observed &lt;em&gt;C. elegans&lt;/em&gt; nucleotide frequencies, to help make it easier to compare these plots
+with the plot of our observed data. These plots of data simulated under the null model do
+show some variation in frequencies among the nucleotides, but it’s certainly much less than
+in the observed data for &lt;em&gt;C. elegans&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Next, I repeated this simulation process, but I increased the number of simulations to 1,000:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sim_nuc_freq_df &amp;lt;- rmultinom(n = 1000, 
                           size = sum(nuc_freq_df$n), 
@@ -209,17 +251,18 @@ sim_nuc_freq_df %&amp;gt;%
 &lt;pre&gt;&lt;code&gt;## # A tibble: 10 x 3
 ##    nucleotide sample value
 ##    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt; &amp;lt;int&amp;gt;
-##  1 A               1  3454
-##  2 C               1  3403
-##  3 G               1  3464
-##  4 T               1  3473
-##  5 A               2  3426
-##  6 C               2  3485
-##  7 G               2  3500
-##  8 T               2  3383
-##  9 A               3  3450
-## 10 C               3  3459&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Using this dataframe of simulations, we can measure the mean, minimum, and maximum frequencies of each nucleotide across all 1,000 simulations:&lt;/p&gt;
+##  1 A               1  3427
+##  2 C               1  3456
+##  3 G               1  3471
+##  4 T               1  3440
+##  5 A               2  3429
+##  6 C               2  3492
+##  7 G               2  3421
+##  8 T               2  3452
+##  9 A               3  3451
+## 10 C               3  3438&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Using this dataframe of simulations, we can measure the mean, minimum, and maximum frequencies
+of each nucleotide across all 1,000 simulations:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;(sim_summary &amp;lt;- sim_nuc_freq_df %&amp;gt;% 
   group_by(nucleotide) %&amp;gt;% 
   summarize(mean_freq = mean(value),
@@ -228,11 +271,12 @@ sim_nuc_freq_df %&amp;gt;%
 &lt;pre&gt;&lt;code&gt;## # A tibble: 4 x 4
 ##   nucleotide mean_freq min_freq max_freq
 ##   &amp;lt;chr&amp;gt;          &amp;lt;dbl&amp;gt;    &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;
-## 1 A              3448.     3290     3599
-## 2 C              3448.     3255     3613
-## 3 G              3449.     3280     3645
-## 4 T              3448.     3286     3616&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;To help compare this with the observed data, we can create a table with information from both the original data and the simulations under the null model:&lt;/p&gt;
+## 1 A              3449.     3281     3602
+## 2 C              3446.     3272     3588
+## 3 G              3452.     3301     3652
+## 4 T              3447.     3266     3593&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To help compare this with the observed data, we can create a table with information from
+both the original data and the simulations under the null model:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;nuc_freq_df %&amp;gt;% 
   left_join(sim_summary, by = &amp;quot;nucleotide&amp;quot;) %&amp;gt;% 
   mutate_at(c(&amp;quot;mean_freq&amp;quot;, &amp;quot;min_freq&amp;quot;, &amp;quot;max_freq&amp;quot;, &amp;quot;n&amp;quot;), 
@@ -255,27 +299,31 @@ sim_nuc_freq_df %&amp;gt;%
 &lt;tr class=&#34;odd&#34;&gt;
 &lt;td align=&#34;center&#34;&gt;A&lt;/td&gt;
 &lt;td align=&#34;center&#34;&gt;4,335&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;3,448 (3,290, 3,599)&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;3,449 (3,281, 3,602)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
 &lt;td align=&#34;center&#34;&gt;C&lt;/td&gt;
 &lt;td align=&#34;center&#34;&gt;1,225&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;3,448 (3,255, 3,613)&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;3,446 (3,272, 3,588)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;odd&#34;&gt;
 &lt;td align=&#34;center&#34;&gt;G&lt;/td&gt;
 &lt;td align=&#34;center&#34;&gt;2,055&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;3,449 (3,280, 3,645)&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;3,452 (3,301, 3,652)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
 &lt;td align=&#34;center&#34;&gt;T&lt;/td&gt;
 &lt;td align=&#34;center&#34;&gt;6,179&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;3,448 (3,286, 3,616)&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;3,447 (3,266, 3,593)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;This helps clarify how unusual the observed data would be under the null model—the counts of all four nucleotides in the &lt;em&gt;C. elegans&lt;/em&gt; genome are completely outside the range of frequencies in the simulated data.&lt;/p&gt;
-&lt;p&gt;Another way to look at this is with histograms of the distribution of frequencies of each nucleotide under the null model compared to the observed frequencies in the &lt;em&gt;C. elegans&lt;/em&gt; nucleotide:&lt;/p&gt;
+&lt;p&gt;This helps clarify how unusual the observed data would be under the null model—the
+counts of all four nucleotides in the &lt;em&gt;C. elegans&lt;/em&gt; genome are completely outside the
+range of frequencies in the simulated data.&lt;/p&gt;
+&lt;p&gt;Another way to look at this is with histograms of the distribution of frequencies
+of each nucleotide under the null model compared to the observed frequencies in
+the &lt;em&gt;C. elegans&lt;/em&gt; nucleotide:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(sim_nuc_freq_df, aes(x = value)) + 
   geom_histogram(binwidth = 10) + 
   facet_wrap(~ nucleotide) + 
@@ -289,8 +337,14 @@ sim_nuc_freq_df %&amp;gt;%
                                 &amp;quot; compared null model simulations&amp;quot;)),
        caption = &amp;quot;Red line shows the frequency observed for the nucleotide in C. elegans&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/2020-02-11-exercise-solution-for-chapter-1_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Finally, to help in answering this question, it would be interesting to look at a single measure for each simulation (and for the observed data) rather than comparing each nucleotide one at a time. Chapter 1 gives the equation for a statistic to measure variability in multinomial data by calculating the sum of squares for the differences between the observed and expected count of nucleotides for each of the four nucleotides in a sample (p. 12).&lt;/p&gt;
-&lt;p&gt;I calculated this statistic for the observed data and then for each of the 1,000 simulations.&lt;/p&gt;
+&lt;p&gt;Finally, to help in answering this question, it would be interesting to look at a
+single measure for each simulation (and for the observed data) rather than comparing
+each nucleotide one at a time. Chapter 1 gives the equation for a statistic to
+measure variability in multinomial data by calculating the sum of squares for the
+differences between the observed and expected count of nucleotides for each of the
+four nucleotides in a sample (p. 12).&lt;/p&gt;
+&lt;p&gt;I calculated this statistic for the observed data and then for each of the 1,000
+simulations.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;(obs_stat &amp;lt;- nuc_freq_df %&amp;gt;% 
   mutate(expected = mean(n),
          stat_input = (n - expected) ^ 2 / expected) %&amp;gt;% 
@@ -310,11 +364,11 @@ sim_stat %&amp;gt;%
 &lt;pre&gt;&lt;code&gt;## # A tibble: 5 x 2
 ##   sample variability_stat
 ##    &amp;lt;dbl&amp;gt;            &amp;lt;dbl&amp;gt;
-## 1      1            0.853
-## 2      2            2.55 
-## 3      3            0.431
-## 4      4            4.64 
-## 5      5            2.30&lt;/code&gt;&lt;/pre&gt;
+## 1      1            0.318
+## 2      2            0.882
+## 3      3            0.903
+## 4      4            0.476
+## 5      5            1.22&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Here is a plot of the distribution of this statistic across the 1,000 simulations:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(sim_stat, aes(x = variability_stat)) + 
   geom_rect(data = sim_stat, aes(xmin = quantile(variability_stat, prob = 0.025),
@@ -329,7 +383,11 @@ sim_stat %&amp;gt;%
        y = &amp;quot;Number of simulations with given value&amp;quot;,
        caption = &amp;quot;The shaded yellow area shows the region of the central 95% of\nstatistic values for the 1,000 simulations under the null model.&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/2020-02-11-exercise-solution-for-chapter-1_files/figure-html/unnamed-chunk-14-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;The value of this statistic for the observed nucleotide frequencies for &lt;em&gt;C. elegans&lt;/em&gt; is 4387, which is much larger (indicating greater variability from expected values under the null model) than the value observed under most of the simulations. It is, in fact, far outside the central 95% range of values observed in simulations.&lt;/p&gt;
+&lt;p&gt;The value of this statistic for the observed nucleotide frequencies for &lt;em&gt;C.
+elegans&lt;/em&gt; is 4387, which is much larger (indicating greater variability
+from expected values under the null model) than the value observed under most of
+the simulations. It is, in fact, far outside the central 95% range of values
+observed in simulations.&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -406,7 +464,9 @@ Loading…
 &lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
 
 
-&lt;p&gt;Chapter 1 covers generative modeling for discrete data. It introduces a number of terms covering probablity and statistical modeling, as well as a few biological terms. The vocabulary words for Chapter 1 are:&lt;/p&gt;
+&lt;p&gt;Chapter 1 covers generative modeling for discrete data. It introduces a number of terms covering
+probablity and statistical modeling, as well as a few biological terms. The vocabulary words for
+Chapter 1 are:&lt;/p&gt;
 &lt;table class=&#34;table table-striped table-hover table-condensed&#34; style=&#34;margin-left: auto; margin-right: auto;&#34;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -837,9 +897,11 @@ A foreign substance in the body to which the immune system reacts.
 &lt;/table&gt;
 &lt;div id=&#34;sources-consulted-or-cited&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Sources consulted or cited&lt;/h3&gt;
-&lt;p&gt;&lt;em&gt;Some of the definitions above are based in part or whole on listed definitions in the following sources.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Some of the definitions above are based in part or whole on listed definitions
+in the following sources.&lt;/em&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Holmes and Huber, 2019. &lt;em&gt;Modern Statistics for Modern Biology.&lt;/em&gt; Cambridge University Press, Cambridge, United Kingdom.&lt;/li&gt;
+&lt;li&gt;Holmes and Huber, 2019. &lt;em&gt;Modern Statistics for Modern Biology.&lt;/em&gt; Cambridge University Press,
+Cambridge, United Kingdom.&lt;/li&gt;
 &lt;li&gt;Everitt and Skrondal, 2010. &lt;em&gt;The Cambridge Dictionary of Statistics (Fourth Edition).&lt;/em&gt; Cambridge University Press, Cambridge, United Kingdom.&lt;/li&gt;
 &lt;li&gt;Bioconductor: Open Source Software for Bioinformatics. &lt;a href=&#34;https://www.bioconductor.org/&#34; class=&#34;uri&#34;&gt;https://www.bioconductor.org/&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Wikipedia: The Free Encyclopedia. &lt;a href=&#34;https://en.wikipedia.org/wiki/Main_Page&#34; class=&#34;uri&#34;&gt;https://en.wikipedia.org/wiki/Main_Page&lt;/a&gt;&lt;/li&gt;

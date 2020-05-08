@@ -1,0 +1,61 @@
+unsupervised method	A learning method where all variables are treated with the same status, rather than one variable being considered as an outcome or target.
+status	A variable's classification as an outcome/predictor (e.g. independent/dependent) in an analysis.
+distance	A measure of the difference between two random variables.
+The Euclidean distance	A distance metric equal to the "ordinary" straight-line distance between two points.
+Manhattan distance	A distance metric equal to the sum of the absolute differences between the coordinate values for two points.
+Maximum distance	A distance metric equal to the largest absolute difference between the coordinate values for two points.
+Weighted Euclidean distance	A distance metric, which is a generalization of the ordinary Euclidean distance, that differentially weights the differences between the coordinate values for two points. 
+Minkowski distance	A distance metric equal to the mth root of the sum of the absolute differences between the coordinate values each raised to the mth power.
+Edit or Hamming distance	A distance metric for comparing character sequences that counts the number of differences between two character strings.
+Binary distance	A distance metric for binary strings based on the proportion of features having only one bit on amongst those features that have at least one bit on.
+Jaccard distance	A distance metric that quantifies how dissimilar two sets are.
+co-occurrence	The fact of two or more things occurring together or simultaneously.
+Jaccard index	A statistic used in quantifying the similarities between sample sets, which is formally defined as the size of the intersection between two sets divided by the size of the union of the sets.
+Jaccard dissimilarity	1 - the Jaccard index. 
+Correlation-based distance	A distance metric that measures two objects to be similar if their features are highly correlated, even though the observed values may be far apart in terms of Euclidean distance. 
+Clusters of Differentiation (CDs)	At different stages of their development, immune cells express unique combinations of proteins on their surfaces.
+Rectangular gating	A method of identifying groups of cells from a flow cytometry experiment using either a line (one-dimensional) or the quadrants created by two perpendicular lines (two-dimensional)
+Hyperbolic Arcsine (asinh)	A transform function often preferred over the log tranform for flow cytometry data because it can be applied to negative values.
+density-based clustering (dbscan)	The dbscan method clusters points in dense regions according to the density-connectedness criterion. It looks at small neighborhood spheres to see if points are connected.
+curse of dimensionality	When the dimensionality increases, the volume of the space increases so fast that the available data become sparse
+density-reachability	A fundamental criterion in dbscan that quantifies whether two points are close enough together and surrounded by sufficiently many other points. 
+recursive partitioning methods	A class of methods for dividing heterogeneous populations into more homogeneous subgroups, often used to make decision trees, that starts by separating the whole population into a few groups and iteratively continues separating each into subgroups.
+minimal jump method/single linkage method/nearest neighbor method	A clustering method that computes the distance between clusters as the smallest distance between any two points in the two clusters.
+maximum jump method/complete linkage method	A clustering method that defines the distance between clusters as the largest distance between any two objects in the two clusters.
+average linkage method	A clustering method that defines the distance between clusters as the average distance between a point in one cluster and another point in the other cluster.
+Ward's method	A clustering method that takes an analysis of variance approach, where the goal is to minimize the variance within clusters. This method is very efficient, however, it tends to break the clusters up into ones of smaller sizes.
+Within-groups sum of squares (WSS)	A measure of the variability among data points within an identified cluster.
+Calinski-Harabasz index	Quantifies the relative variability between groups (between group sum of squares) and within groups (within-groups sum of sqaures), similar to the F statistic used in analysis of variance.
+Between-groups sum of squares (BSS)	A measure of the variability between clusters. 
+gap statistic	A metric used to perform model selection which quantifies the amount of model fit improvement when using a more complex model.  These can be used to select the number of clusters for a data set.
+technical / batch effects	Depedence in data observations that results from technical differences between samples, such as the type of sequencing machine or the technician that ran the sample, rather than from scientifically interesting causes.
+computational complexity	A measure of the computational resources needed to run an algorithm.
+noise	Unexplained variability within a data sample. 
+operational taxonomic unit (OTU)	A method of clustering organisms based on DNA sequence similarity of a certain taxonomic marker gene. 
+bias	The tendency of a statistic to overestimate or underestimate a parameter.
+representativeness heuristic	A method of learning or discovery that assesses similarity of objects and organizes them based around a category prototype (e.g., like goes with like, and causes and effects should resemble each other).
+rare variants	An alternative form of a gene that occur just once or twice in an individual sample but more often across all samples.
+insertion-deletion (indel)	insertion or deletion of bases in the genome of an organism. 
+neighboring cluster	The cluster with the lowest average dissimilarity to a given cluster.
+silhouette index	A metric quantifying the degree to which a given data point belongs to its designated cluster.
+Microbiome	The aggregate of all microbiota that reside on or within an organim's tissues and biofluids along with the corresponding anatomical sites in which they reside.
+filtering 	in the context of low-quality rRNA reads removal of low-quality reads and trimming them to a consistent length
+Histopathology	The microscopic examination of tissue in order to study the manifestations of disease.
+Molecular signature	Sets of genes, proteins, genetic variants or other variables that can be used as markers for a particular phenotype
+Gene expression data	Gene expression measurements : from gene¬scale to genome¬scale
+Single-cell RNA-Seq experiment	a measurement of the gene expression profiles of individual cells.
+gene transcript	An RNA molecule of defined size over the length of a gene.
+cell lineage dynamics	Visualized with tools such as scRNA-seq to track individual cells through their natural progression. 
+Flow cytometry	A technique for identifying and sorting cells and their components (such as DNA) by staining with a fluorescent dye and detecting the fluorescence usually by laser beam illumination
+Mass cytometry	A variation of flow cytometry in which antibodies are labeled with heavy metal ion tags rather than fluorochromes.  Readout is by time-of-flight mass spectrometry. 
+Immune cells	cells that are part of the immune system and help the body fight infections and other diseases
+CD marker / antigen marker	are specific types of molecules found on the surface of cells that help differentiate one cell type from another.
+CD4	A glycoprotein found on the surface of immune cells such as T helper cells, monocytes, macrophages, and dendritic cells.
+helper T cells	A type of T cell that provides help to other cells in the immune response by recognizing foreign antigens and secreting substances called cytokines that activate T and B cells
+Isotope	Two or more forms of the same element that contain equal numbers of protons but different numbers of neutrons in their nuclei, and hence differ in relative atomic mass but not in chemical properties;
+Inner cell mass (ICM)	Pluripotent cell lineage in the blastocyst. forms within the blastocyst, prior to its implantation within the uterus. 
+Blastocyst	A thin-walled hollow structure in early embryonic development that contains a cluster of cells called the inner cell mass from which the embryo arises.
+Pluripotent epiblast (EPI)	The functional progenitors of soma and germ cells which later differentiate into three layers: definitive endoderm, mesoderm and ectoderm
+primitive endoderm (PE)	The second extraembryonic tissue to form during embryogenesis in mammals. The PE develops from pluripotent cells of the blastocyst inner cell mass
+variable regions	in the context of taxon identification of bacteria bacterial 16S ribosomal RNA (rRNA) genes contain nine “hypervariable regions” (V1 – V9) that demonstrate considerable sequence diversity among different bacteria.
+Chimera	An organism or tissue that contains at least two different sets of DNA, most often originating from the fusion of as many different zygotes (fertilized eggs). 

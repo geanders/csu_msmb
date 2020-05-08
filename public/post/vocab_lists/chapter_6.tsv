@@ -1,0 +1,35 @@
+Occam's razor	Heuristic stating that the simplest explanation for a phenomenon is often the best
+rejection region	Subset of possible outcomes for which probabilities under the null hypothesis fall under a low probability threshold, e.g. outcomes with a null-distribution probability < 0.05; if an outcome falls within this region (e.g., p < 0.05), it suggests that the null hypothesis is not true.
+test statistic	Metric for measuring how well a null hypothesis fits the data
+null hypothesis	Hypothesis describing some 'uninteresting' outcome (e.g., that no difference exists between certain groups of events/outcomes)
+null distribution	Distribution of possible outcomes, given that the null hypothesis is true
+alternative hypothesis	A hypothesis providing a different probability distribution than the null hypothesis; conceptually, holds that some difference from the null hypothesis exists (e.g. different means, frequencies, trends)
+significance level/false positive rate/Type I error	Probability of incorrectly rejecting the null hypothesis due to outcomes falling within the rejection region by chance; in terms of the null distribution, total probability that the outcome could fall within the rejection region given that the null hypothesis is true.
+power	True positive rate of a test (i.e., probability that an outcome falls in the rejection region of the null distribution, given that the alternative hypothesis is true)
+false negative rate/Type II error	Probability of incorrectly failing to reject the null hypothesis when an outcome from the alternative hypothesis distribution fails to fall within the rejection region of the null hypothesis.
+specificity	Complement of false positive rate (Type I error); probability of a test failing to reject the null hypothesis when it is true.
+power/sensitivity/true negative rate	Complement of false negative rate (Type II error); probability of correctly rejecting null hypothesis if the alternative hypothesis is true.
+assumption of independence	Treating every observation in a dataset as if it has no influence on the outcomes of other observations (or at least none unaccounted-for in the model).
+p-value hacking	Fallaciously 'fishing' for significant results by running tests until a small p-value is obtained by chance; this can be deliberate or inadvertently caused by a scattershot approach to testing.
+hypothesis switching	Fallacy of generating and/or changing hypotheses for a set of known results until a significant result is obtained by chance.
+family-wide error rate (FWER)	Probability of at least one false positive occurring in repeated tests. Assuming independent tests, this is the complement of the probability of only true positives occurring, and approaches 1.0 as the number of tests approaches infinity.
+p-value histogram	Visualization to get a quick sense of p-value distribution of possible test outcomes for a null hypothesis. The distribution is a mixture of cases where the null hypothesis is rejected (small p-values) or retained (larger p-values).
+false discovery rate (FDR)	The proportion of false positives among all cases where the null hypothesis is rejected across an entire distribution.
+local false discovery rate (fdr)	The probability of Type I Error at a given p-value when the distribution of the p-values is treated as a mixture model of the null distribution and alternative hypothesis distribution. This varies based on the p-value, rather than being a property of the entire distribution.
+tail-area false disovery rate (Fdr)	Integration-based extension of the local false discovery rate to obtain a false discovery rate for the entire distribution.
+independent filtering	Method to increase test power by filtering variables with criteria that are independent under the null hypothesis, but correlated under the alternative
+independent hypothesis weighting	A method of improving power of multiple testing by weighting hypotheses based on their power
+Bonferroni adjustment	Method used to compensate for inflated Type I (false positive) error in multiple testing by dividing the test significance level/hypothesis threshold (e.g., alpha = 0.05) by the number of tests performed
+whole genome sequencing	Method used to determine and record the DNA base values and order across all of an organism's genes
+marker gene	A gene used to determine membership in a group of interest (e.g., a taxon, genotype within a population, or possessing a certain metabolic trait)
+expression level	The realtive abundance of transcriptions of a gene of interest present in, e.g., a cell or environment
+reagent	a compound used in creating a chemical reaction like an assay
+hypothesis testing	Evaluating whether outcomes are sufficently unlikely under the null hypothesis (holding that outcomes are determined fully by chance) that it can be rejected in favor of an alternative hypothesis
+workflow	A sequence of steps used in carrying out a larger operation or process
+two-sided test	A statistical test which rejects the null hypothesis if an observed test statistic is either too large or too small compared to that expected under the null hypothesis
+one-sided test	A statistical test which rejects the null hypothesis if an observed test statistic departs from the expected range in a single, predetermined direction (i.e. larger or smaller)
+two-sample	In the context of statistical testing, a situation whether the data belong to two known groups. 
+unpaired	In the context of statistical tests, these are used when comparing groups with independent measurements (e.g. the observations for one group have no association with observations from the other group)
+equal variances	When groups being compared have (substantially) equivalent levels of variability.
+dependence	When the outcomes of two variables are associated with one another. 
+expected value	For a random quantity, this is the value of the mean, i.e. "average value".  

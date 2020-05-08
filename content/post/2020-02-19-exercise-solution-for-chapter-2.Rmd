@@ -3,12 +3,12 @@ title: Exercise solution for Chapter 2, Part 1
 author: Sere Williams
 date: '2020-02-19'
 slug: exercise-solution-for-chapter-2
-draft: yes
+draft: no
 categories:
-  - Exercise solutions
+  - exercises
   - Chapter 2
 tags:
-  - Exercise solutions
+  - exercises
   - Chapter 2
 subtitle: ''
 summary: ''
@@ -21,22 +21,28 @@ image:
   preview_only: no
 projects: []
 ---
-As always, load libraries first.
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE, echo = TRUE}
 knitr::opts_chunk$set(echo = TRUE)
+```
+
+As always, load libraries first.
+```{r message = FALSE}
 library(ggplot2)
 library(tidyverse)
 library(dplyr)
 ```
 
+
 ## Exercise 2.3 from Modern Statistics for Modern Biologists
 
-A sequence of three nucleotides codes for one amino acid. There are 4 nucleotides, thus 4^3 would allow for 64 different amino acids, however there are only 20 amino acids requiring only 20 combinations + 1 for an end signal. The code is redundant. Here we use the tuberculosis genome to understand codon bias. 
+A sequence of three nucleotides codes for one amino acid. There are 4 nucleotides, thus $4^3$ would allow for 64 different amino acids, however there are only 20 amino acids requiring only 20 combinations + 1 for an "end" signal. (The "start" signal is the codon, ATG, which also codes for the amino acid methionine, so the start signal does not have a separate codon.) The code is redundant. But is the redundancy even among codons that code for the same amino acid? In other words, if alanine is coded by 4 different codons, do these codons code for alanine equally (each 25%), or do some codons appear more often than others? Here we use the tuberculosis genome to explore codon bias. 
 
-# a) Explore the data `mtb` using table to tabulate the AmAcid and Codon variables.
+# a) Explore the data, `mtb` 
 
-Each amino acid is encoded by 1-6 tri-nucleotide combinations. 
+Use `table` to tabulate the `AmAcid` and `Codon` variables.
+
+Each amino acid is encoded by 1--6 tri-nucleotide combinations. 
 
 ```{r}
 mtb = read.table("example_datasets/M_tuberculosis.txt", header = TRUE)
@@ -44,86 +50,123 @@ codon_no <- rowSums(table(mtb))
 codon_no
 ```
 
-The PerThousands of each codon can be visualized, where each bar represents a different codon. But what does the "PerThousands" variable mean?
+The `PerThousands` of each codon can be visualized, where each plot represents an amino acid and each bar represents a different codon that codes for that amino acid. But what does the `PerThousands` variable mean?
 
-```{r, fig.width=8, fig.height=6}
+```{r, fig.height=6, fig.width=8}
 ggplot(mtb, aes(x=Codon, y=PerThous)) +
   geom_col()+
   facet_wrap(~AmAcid, scales="free") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
-# b) How was the PerThous variable created?
+# b) The `PerThous` variable
 
-The sum of all of the numbers of codons gives you the total number of codons in the M. tuberculosis genome: `all_codons`. Remember that this is not the size of the M. tuberculosis genome, but the number of codons in all M. tuberculosis genes. To get the size of the genome you'd have to multiply each codon by 3 (for each nucleotide) and add non-coding nucleotides (which we do not know from this dataset).
+How was the `PerThous` variable created? 
+
+The sum of all of the numbers of codons gives you the total number of codons in the M. tuberculosis genome: `all_codons`. Remember that this is not the size of the M. tuberculosis genome, but the number of codons in all M. tuberculosis genes. To get the size of the genome, multiply each codon by 3 (for each nucleotide) and add all non-coding nucleotides (which we do not know from this data set).
 
 ```{r}
 all_codons = sum(mtb$Number)
 all_codons
 ```
 
-The PerThousands variable is derived by dividing the number of occurances of the codon of interest by the total number of codons. Because this number is then small and hard to intrepret, multipling it by 1000 gives a value that is easy to make sense of quickly. Here is an example for proline. The four values returned align to the four codons that each code for proline. 
+The `PerThousands` variable is derived by dividing the number of occurrences of the codon of interest by the total number of codons. Because this number is small and hard to interpret, multiplying it by 1000 gives a value that is easy to make sense of. Here is an example for proline. The four values returned align to the four codons that each code for proline. 
 
 ```{r}
 pro  =  mtb[mtb$AmAcid == "Pro", "Number"]
 pro / all_codons * 1000
 ```
 
-# c) Write an R function that you can apply to the table to find which of the amino acids shows the strongest codon bias, i.e., the strongest departure from uniform distribution among its possible spellings.
+# c) Codon bias
+
+Write an R function that you can apply to the table to find which of the amino acids shows the strongest codon bias, i.e., the strongest departure from uniform distribution among its possible spellings.
 
 First, let's look at the expected frequencies of each codon. 
 
 ```{r}
 codon_expected <- data.frame(codon_no) %>%
-  rownames_to_column() %>%
-  rename(`AmAcid` = rowname) %>%
+  rownames_to_column(var = "AmAcid") %>%
   mutate(prob_codon = 1/codon_no)
 codon_expected
 ```
 
-Next, calculate the observed frequencies for each codon seen in the dataset:
+Next, calculate the observed frequencies for each codon seen in the data set and use the chi-squared test statistic to determine if the difference between expected and observed codon frequencies is even or if some codon sequences are used more than others. 
+
+To start, you can group the data by amino acid and then determine a few things about 
+the amino acid or the possible codons for it, including the total observations 
+across all codons for the amino acid (`total`), the number of codons for that 
+amino acid (`n_codons`), and the expected count for each codon for that amino acid
+(the total number of observations for that amino acid divided by the number of 
+codons, giving an expected number that's the same for all codons of an amino 
+acid; `expected`). 
 
 ```{r}
-codon_observed <- full_join(mtb, codon_expected, by = "AmAcid") %>%
-  group_by(AmAcid) %>%
-  mutate(am_length = sum(Number))%>%
-  mutate(prob_observed = Number / am_length) %>%
-  select(-codon_no, -am_length) %>%
-  mutate(expected_PerThous = Number*prob_codon)
-codon_observed
+codon_compared <- mtb %>% 
+  group_by(AmAcid) %>% 
+  mutate(total = sum(Number),
+         n_codons = n(),
+         expected = total / n_codons)
+codon_compared
 ```
 
-Using the chi-squared distribution, a chi-squared test statistic can be used to show codon bias. 
+The `mutate` function is used after `group_by` to do all this
+within each amino acid group of codons, but without collapsing to one row per
+amino acid, as a `summarize` call would.
 
-```{r eval = FALSE}
-chi_stat <- data.frame(chi_squared = ((codon_observed$Number - codon_observed$expected_PerThous)^2)/(codon_observed$expected_PerThous))
-chi_stat
+To convince yourself that this has worked out correctly, you can repeat
+the plot we made before and see that the bars for the expected values are
+always equal across all codons for an amino acid: 
 
-#I'm getting an error here. I'm not sure what is wrong.
-codon_observed <- codon_observed() %>%
-  mutate(chi-squared = ((codon_observed$Number - codon_observed$expected_PerThous)^2)/(codon_observed$expected_PerThous)) %>% 
-  select(-prob_codon, -prob_observed)
-codon_observed
-
-#Also an error here. 
-codon_observed <- codon_observed() %>%
-  mutate(chi-squared = chi_stat$chi_squared) %>% 
-  select(-prob_codon, -prob_observed)
-codon_observed
-
-
-#Additional ideas from students in class. I'm not able to run it, but I like the idea of using a function.  
-stat = function(codon_expected, exptd = 20 * pvec) {
-   sum((codon_df - exptd)^2 / exptd)
-}
-
-stat
-
-B = 1000
-simulstat = replicate(B, {
-  randomtab10 = sapply(stat, function(s) { rmultinom(1, s, p0) })
-  stat(randomtab10, expectedtab10)
-})
-S1 = stat(tab10, expectedtab10)
-sum(simulstat >= S1)
+```{r, fig.height=6, fig.width=8}
+ggplot(codon_compared, aes(x=Codon, y=expected)) +
+     geom_col()+
+     facet_wrap(~AmAcid, scales="free") +
+     theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
+
+Finally, we can calculate the chi-squared ($\chi^2$) statistic and compare it to the
+chi-squared distribution to get the p-value when testing against the null hypothesis
+that the amino acid observations are uniformly distributed across codons. The $\chi^2$
+is calculated as: 
+
+$$
+\chi^2 = \sum_i{\frac{(O_i-E_i)^2}{E_i}}
+$$
+
+where: 
+
+- $O_i$ is the observed value of data point $i$ (`Number` in our data); and 
+- $E_i$ is the expected value of data point $i$ (`expected` in our data)
+
+In our data, we can calculate the contribution to the total $\chi^2$ statistic 
+from each data point (in this case, each codon within an amino acid) using 
+`mutate`, and then 
+add these values up using `group_by` to group by amino acid followed by 
+`summarize` to sum up across all the data points for an amino acid. 
+The other information we need to get is the number of codons for the 
+amino acid, because we'll need this to determine the degrees of freedom
+for the chi-squared distribution. Next, we used `mutate` with 
+`pchisq` to determine the p-values within each amino acid group for the 
+test against the null that the codons are uniformly distributed for that 
+amino acid (i.e., that there isn't codon bias). These p-values turn out to 
+be super small, so we're using a technique to get the log-transform versions of 
+them instead, which we explain a bit more later. Finally, we used `arrange` to 
+list the amino acids by evidence against uniform distribution of the codons, 
+from most evidence against (smallest p-value so most negative log(p-value))
+to least evidence against (although still plenty of evidence against) and added
+an `index` with the ranking for each codon by adding a column with the sequence
+of numbers from 1 to the number of rows in the data (`n()`). 
+
+```{r}
+codon_compared %>% 
+  filter(n_codons > 1) %>% 
+  group_by(AmAcid) %>% 
+  mutate(chi_squared = ((Number - expected)^2/expected)) %>% 
+  summarise(chi_squared = sum(chi_squared),
+            n = n()) %>% 
+  mutate(p_value = pchisq(chi_squared, df = n-1, log = TRUE, lower.tail = FALSE)) %>% 
+  arrange(p_value) %>% 
+  mutate(rank = 1:n())
+```
+
+As you may notice, these log transforms of the p-values (which we got rather than untransformed p-values in the `pchisq` call because we used the option `log = TRUE`) are large in magnitude and negative (so very tiny once you take the exponent if you re-transformed them to p-values) values. If you tried to calculate the untransformed p-values (and we did!), this number is so small (0.00000000e+00) that it is too small for R---it shows up as exactly zero in R, even though it actually is a very tiny, but still non-zero, number. To get around this issue, we told `pchisq` to work on these p-values as log transforms, and then we left the p-value as that log-transformed value. A group of numbers that are log transformed will be in the same order as their untransformed versions, so we don't need to convert back to figure out which amino acid had that smallest p-value. We can just sort the amino acids from most negative to less negative using these log-transformed versions of the p-values. We now have the amino acids ranked from most biased codons (1) to least (19). 

@@ -21,14 +21,14 @@
   
   
 
-  <meta name="author" content="Sere Williams">
+  <meta name="author" content="Sherry WeMott">
 
   
   
   
     
   
-  <meta name="description" content="Graduate Student in Cellular and Molecular Biology">
+  <meta name="description" content="Graduate Student in Environmental Epidemiology">
 
   
   <link rel="alternate" hreflang="en-us" href="/tags/chapter-2/">
@@ -272,10 +272,10 @@
   <meta property="og:site_name" content="CSU MSMB Group Study">
   <meta property="og:url" content="/tags/chapter-2/">
   <meta property="og:title" content="Chapter 2 | CSU MSMB Group Study">
-  <meta property="og:description" content="Graduate Student in Cellular and Molecular Biology"><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
+  <meta property="og:description" content="Graduate Student in Environmental Epidemiology"><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
   <meta property="twitter:image" content="img/map[gravatar:%!s(bool=false) shape:circle]"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2020-02-19T00:00:00&#43;00:00">
+    <meta property="og:updated_time" content="2020-02-24T00:00:00&#43;00:00">
   
 
   
@@ -569,6 +569,16 @@
   
   
   <div>
+    <h2><a href="/post/ex-2-6/">Exercise solution for Chapter 2, Part 2</a></h2>
+    <div class="article-style">
+      
+      Picking a prior The first part of the exercise asks you to:
+ “Choose your own prior for the parameters of the beta distribution. You can do this by sketching it here: https://jhubiostatistics.shinyapps.io/drawyourprior. Once you have set up a prior, re-analyse the data from Section 2.9.2, where we saw Y = 40 successes out of n = 300 trials. Compare your posterior distribution to the one we obtained in that section using a QQ-plot.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/chapter-2-part-2-vocabulary-quiz/">Chapter 2, part 2, vocabulary quiz</a></h2>
     <div class="article-style">
       
@@ -583,8 +593,7 @@ Loading…
     <div class="article-style">
       
       As always, load libraries first.
-Exercise 2.3 from Modern Statistics for Modern Biologists A sequence of three nucleotides codes for one amino acid. There are 4 nucleotides, thus 4^3 would allow for 64 different amino acids, however there are only 20 amino acids requiring only 20 combinations + 1 for an end signal. The code is redundant. Here we use the tuberculosis genome to understand codon bias.
- a) Explore the data mtb using table to tabulate the AmAcid and Codon variables.
+library(ggplot2) library(tidyverse) library(dplyr) Exercise 2.3 from Modern Statistics for Modern Biologists A sequence of three nucleotides codes for one amino acid. There are 4 nucleotides, thus \(4^3\) would allow for 64 different amino acids, however there are only 20 amino acids requiring only 20 combinations + 1 for an “end” signal. (The “start” signal is the codon, ATG, which also codes for the amino acid methionine, so the start signal does not have a separate codon.
       
     </div>
   </div>

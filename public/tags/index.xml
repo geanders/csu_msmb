@@ -5,7 +5,7 @@
     <link>/tags/</link>
       <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <description>Tags</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 20 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 07 May 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Tags</title>
@@ -13,42 +13,106 @@
     </image>
     
     <item>
-      <title>Chapter 4</title>
-      <link>/tags/chapter-4/</link>
-      <pubDate>Thu, 20 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>/tags/chapter-4/</guid>
+      <title>class meeting</title>
+      <link>/tags/class-meeting/</link>
+      <pubDate>Thu, 07 May 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/class-meeting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chapter 12</title>
+      <link>/tags/chapter-12/</link>
+      <pubDate>Mon, 04 May 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/chapter-12/</guid>
       <description></description>
     </item>
     
     <item>
       <title>vocabulary</title>
       <link>/tags/vocabulary/</link>
-      <pubDate>Thu, 20 Feb 2020 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 04 May 2020 00:00:00 +0000</pubDate>
       <guid>/tags/vocabulary/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Chapter 2</title>
-      <link>/tags/chapter-2/</link>
-      <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>/tags/chapter-2/</guid>
+      <title>Chapter 10</title>
+      <link>/tags/chapter-10/</link>
+      <pubDate>Wed, 22 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/chapter-10/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Exercise solutions</title>
-      <link>/tags/exercise-solutions/</link>
-      <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>/tags/exercise-solutions/</guid>
+      <title>Chapter 9</title>
+      <link>/tags/chapter-9/</link>
+      <pubDate>Fri, 10 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/chapter-9/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>chapter 8</title>
+      <link>/tags/chapter-8/</link>
+      <pubDate>Mon, 06 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/chapter-8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chapter 7</title>
+      <link>/tags/chapter-7/</link>
+      <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/chapter-7/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chapter 6</title>
+      <link>/tags/chapter-6/</link>
+      <pubDate>Thu, 12 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/chapter-6/</guid>
       <description></description>
     </item>
     
     <item>
       <title>quiz</title>
       <link>/tags/quiz/</link>
-      <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 12 Mar 2020 00:00:00 +0000</pubDate>
       <guid>/tags/quiz/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chapter 5</title>
+      <link>/tags/chapter-5/</link>
+      <pubDate>Thu, 05 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/chapter-5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chapter 4</title>
+      <link>/tags/chapter-4/</link>
+      <pubDate>Thu, 27 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/chapter-4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chapter 2</title>
+      <link>/tags/chapter-2/</link>
+      <pubDate>Mon, 24 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/chapter-2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>exercises</title>
+      <link>/tags/exercises/</link>
+      <pubDate>Mon, 24 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/exercises/</guid>
       <description></description>
     </item>
     
@@ -57,14 +121,6 @@
       <link>/tags/blogdown/</link>
       <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
       <guid>/tags/blogdown/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>exercises</title>
-      <link>/tags/exercises/</link>
-      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>/tags/exercises/</guid>
       <description></description>
     </item>
     
