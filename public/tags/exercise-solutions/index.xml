@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Exercise solutions | CSU MSMB Group Study</title>
+    <link>/tags/exercise-solutions/</link>
+      <atom:link href="/tags/exercise-solutions/index.xml" rel="self" type="application/rss+xml" />
+    <description>Exercise solutions</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 12 May 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>Exercise solutions</title>
+      <link>/tags/exercise-solutions/</link>
+    </image>
+    
+    <item>
+      <title>Exercise Solution for Chapter 12</title>
+      <link>/post/exercise-solution-for-chapter-12/</link>
+      <pubDate>Tue, 12 May 2020 00:00:00 +0000</pubDate>
+      <guid>/post/exercise-solution-for-chapter-12/</guid>
+      <description>
+
+
+&lt;div id=&#34;exercise-12.2-from-modern-statistics-for-modern-biologists&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Exercise 12.2 from Modern Statistics for Modern Biologists&lt;/h2&gt;
+&lt;p&gt;Use glmnet for a prediction of a continous variable, i.e., for regression. Use the prostate cancer data from Chapter 3 of (Hastie, Tibshirani, and Friedman 2008). The data are available in the CRAN package ElemStatLearn. Explore the effects of using ridge versus lasso penalty.&lt;/p&gt;
+&lt;p&gt;Here are the packages that need to be installed.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(dplyr)
+library(glmnet)
+library(ggplot2)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data-for-the-exercise&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Data for the exercise&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;ElemStatPackage&lt;/code&gt; has been orphaned and isn’t on CRAN anymore. However, it’s up on GitHub, so I grabbed the data file you’ll need from there. You can download it yourself at: &lt;a href=&#34;https://github.com/cran/ElemStatLearn/blob/master/data/prostate.RData&#34; class=&#34;uri&#34;&gt;https://github.com/cran/ElemStatLearn/blob/master/data/prostate.RData&lt;/a&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;load(&amp;quot;./example_datasets/prostate.RData&amp;quot;)
+
+prostate %&amp;gt;% 
+  head()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##       lcavol  lweight age      lbph svi       lcp gleason pgg45       lpsa
+## 1 -0.5798185 2.769459  50 -1.386294   0 -1.386294       6     0 -0.4307829
+## 2 -0.9942523 3.319626  58 -1.386294   0 -1.386294       6     0 -0.1625189
+## 3 -0.5108256 2.691243  74 -1.386294   0 -1.386294       7    20 -0.1625189
+## 4 -1.2039728 3.282789  58 -1.386294   0 -1.386294       6     0 -0.1625189
+## 5  0.7514161 3.432373  62 -1.386294   0 -1.386294       6     0  0.3715636
+## 6 -1.0498221 3.228826  50 -1.386294   0 -1.386294       6     0  0.7654678
+##   train
+## 1  TRUE
+## 2  TRUE
+## 3  TRUE
+## 4  TRUE
+## 5  TRUE
+## 6  TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here’s a description of the data, from the archived help files:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“Data to examine the correlation between the level of prostate-specific antigen and a number of clinical measures in men who were about to receive a radical prostatectomy.”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Here’s what the variables mean:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;lcavol&lt;/code&gt;: log cancer volume&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lweight&lt;/code&gt;: log prostate weight&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;age&lt;/code&gt;: in years&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lbph&lt;/code&gt;: log of the amount of benign prostatic hyperplasia&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;svi&lt;/code&gt;: seminal vesicle invasion&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lcp&lt;/code&gt;: log of capsular penetration&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;gleason&lt;/code&gt;: a numeric vector with the Gleason score&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pgg45&lt;/code&gt;: percent of Gleason score 4 or 5&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lpsa&lt;/code&gt;: response (the thing you are trying to predict), the level of prostate-specific antigen&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;train&lt;/code&gt;: a logical vector, of whether the data was to be part of the training dataset (TRUE) or the testing one (FALSE)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So, you’re trying to predict the values of &lt;code&gt;lpsa&lt;/code&gt; based on the variables &lt;code&gt;lcavol&lt;/code&gt; through &lt;code&gt;pgg45&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;We will first split the data into testing and training data.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;prostate_train &amp;lt;- prostate %&amp;gt;%
+  filter(train == TRUE)
+
+prostate_test &amp;lt;- prostate %&amp;gt;%
+  filter(train == FALSE)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;There are 67 samples in the training set and 30 samples in the testing set.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;fit-generaltized-linear-model-glmnet-with-lasso-and-ridge-penalties&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Fit generaltized linear model (glmnet) with Lasso and Ridge penalties&lt;/h2&gt;
+&lt;p&gt;Based on the glmnet package, when alpha = 1 the lasso penalty is used, if alpha = 0, then ridge penalty is used. A great resource for the glmnet package can be found here: &lt;a href=&#34;https://web.stanford.edu/~hastie/glmnet/glmnet_alpha.html&#34; class=&#34;uri&#34;&gt;https://web.stanford.edu/~hastie/glmnet/glmnet_alpha.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Here, we use a matrix of all of the predictors (&lt;code&gt;x&lt;/code&gt;) to try to predict the &lt;code&gt;lpsa&lt;/code&gt; column (&lt;code&gt;y&lt;/code&gt;).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Lasso 
+lasso_glmnet &amp;lt;- glmnet(x = prostate_train %&amp;gt;% dplyr::select(lcavol:pgg45) %&amp;gt;% as.matrix(), 
+                    y = prostate_train %&amp;gt;% pull(lpsa), 
+                    family = &amp;quot;gaussian&amp;quot;, alpha = 1)
+
+plot(lasso_glmnet, label = TRUE)
+title(&amp;quot;Lasso Penalty&amp;quot;, line = -2.5)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-05-12-exercise-solution-for-chapter-12_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Ridge
+ridge_glmnet &amp;lt;- glmnet(x = prostate_train %&amp;gt;% dplyr::select(lcavol:pgg45) %&amp;gt;% as.matrix(), 
+                    y = prostate_train %&amp;gt;% pull(lpsa), 
+                    family = &amp;quot;gaussian&amp;quot;, alpha = 0)
+
+plot(ridge_glmnet, label = TRUE)
+title(&amp;quot;Ridge Penalty&amp;quot;, line = -1.5)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-05-12-exercise-solution-for-chapter-12_files/figure-html/unnamed-chunk-4-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;In the plots show the coefficients as L1- norm increases. The top axis shows the number of nonzero coefficients correspoding to the lamba at the current L1 norm. From these plots we can see that the variables 1 (log cancer volume), 2 (log prostate weight), and 5 (seminal vesicle invasion) are good predictors for the level of prostate-specific antigen (lpsa response).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;cross-validation&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Cross Validation&lt;/h2&gt;
+&lt;p&gt;We then want to perform cross-validation on the dataset. We use the cv.glmnet function to do this. Again we input a matrix of all of the predictors (&lt;code&gt;x&lt;/code&gt;) to look at the lpsa response (&lt;code&gt;y&lt;/code&gt;).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(2)
+
+# Lasso
+cvglmnet_lasso &amp;lt;- cv.glmnet(x = prostate_train %&amp;gt;% dplyr::select(lcavol:pgg45) %&amp;gt;% as.matrix(), 
+                    y = prostate_train %&amp;gt;% pull(lpsa), 
+                    family = &amp;quot;gaussian&amp;quot;, alpha = 0)
+cvglmnet_lasso&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Call:  cv.glmnet(x = prostate_train %&amp;gt;% dplyr::select(lcavol:pgg45) %&amp;gt;%      as.matrix(), y = prostate_train %&amp;gt;% pull(lpsa), family = &amp;quot;gaussian&amp;quot;,      alpha = 0) 
+## 
+## Measure: Mean-Squared Error 
+## 
+##     Lambda Measure      SE Nonzero
+## min 0.0879  0.5939 0.09857       8
+## 1se 0.9873  0.6873 0.08098       8&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(cvglmnet_lasso)
+title(&amp;quot;Lasso Cross Validation&amp;quot;, line = -1.5)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-05-12-exercise-solution-for-chapter-12_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Ridge
+cvglmnet_ridge &amp;lt;- cv.glmnet(x = prostate_train %&amp;gt;% dplyr::select(lcavol:pgg45) %&amp;gt;% as.matrix(), 
+                    y = prostate_train %&amp;gt;% pull(lpsa), 
+                    family = &amp;quot;gaussian&amp;quot;, alpha = 1)
+cvglmnet_ridge&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Call:  cv.glmnet(x = prostate_train %&amp;gt;% dplyr::select(lcavol:pgg45) %&amp;gt;%      as.matrix(), y = prostate_train %&amp;gt;% pull(lpsa), family = &amp;quot;gaussian&amp;quot;,      alpha = 1) 
+## 
+## Measure: Mean-Squared Error 
+## 
+##      Lambda Measure      SE Nonzero
+## min 0.01336  0.5753 0.07244       7
+## 1se 0.13673  0.6408 0.09222       5&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(cvglmnet_ridge)
+title(&amp;quot;Ridge Cross Validation&amp;quot;, line = -1.5)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-05-12-exercise-solution-for-chapter-12_files/figure-html/unnamed-chunk-5-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;In the data output, &lt;code&gt;1se&lt;/code&gt; means the data point what is within 2 standard error of the minimum lambda (&lt;code&gt;min&lt;/code&gt;). This it the value that the model suggests that we use (indicated by the 2nd dotted line on the plots.) The &lt;code&gt;1se Measure&lt;/code&gt; is similar to the mean squared error. If the measure is small, then the model is better. When comparing the &lt;code&gt;Measure&lt;/code&gt; of the &lt;code&gt;1se&lt;/code&gt; between the two penalties, we can see that the Ridge Penalty has a smaller 1se Measure, showing that it performs better.&lt;/p&gt;
+&lt;p&gt;The Nonzero column describes the nonzero coefficients, or the number of predictors that are important in the particular model. There were a total of 8 predictors as the input. The Lasso penalty shows that all 8 predictors are important in building the model, but the Ridge penalty only uses 5 predictors.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;lasso-prediction&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Lasso Prediction&lt;/h2&gt;
+&lt;p&gt;As we used the training data to build the model, we can then test the generalized linear model with the lasso penalty on the testing data.&lt;/p&gt;
+&lt;p&gt;We start by using the &lt;code&gt;predict&lt;/code&gt; function to use the model to predict the lpsa on the testing data. We can then see the correlation between the predicted values and actual values.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;s0 &amp;lt;- cvglmnet_lasso$lambda.1se 
+
+lasso_predict &amp;lt;- predict(cvglmnet_lasso, newx = prostate_test%&amp;gt;% dplyr::select(lcavol:pgg45) %&amp;gt;% as.matrix(), s = s0)
+
+# create a data frame of the actual lpsa values and the predicted lpsa values
+actual_lasso_predict_df &amp;lt;- data.frame(prediction = as.vector(lasso_predict), actual = prostate_test$lpsa)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can then see how correlated the prediction and real data are using the &lt;code&gt;cor&lt;/code&gt; function.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# look at the correlation of the prediction and real data
+cor(actual_lasso_predict_df)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##            prediction    actual
+## prediction  1.0000000 0.7277086
+## actual      0.7277086 1.0000000&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The output shows that the actual and predicted values are 72% correlated.&lt;/p&gt;
+&lt;p&gt;We can then fit a linear line to the prediction and actual data and look at the r&lt;sup&gt;2&lt;/sup&gt; value.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;lm(actual_lasso_predict_df) %&amp;gt;%
+  summary()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Call:
+## lm(formula = actual_lasso_predict_df)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.80115 -0.24539 -0.05877  0.24141  0.93424 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&amp;gt;|t|)    
+## (Intercept)  1.40143    0.20585   6.808 2.14e-07 ***
+## actual       0.42246    0.07525   5.614 5.19e-06 ***
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## Residual standard error: 0.4223 on 28 degrees of freedom
+## Multiple R-squared:  0.5296, Adjusted R-squared:  0.5128 
+## F-statistic: 31.52 on 1 and 28 DF,  p-value: 5.194e-06&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The adjusted r&lt;sup&gt;2&lt;/sup&gt; value = 0.513.&lt;/p&gt;
+&lt;p&gt;Finally, we can plot the actual vs. predicted values on a scatter plot. If the actual and predicted values match up exactly, they would sit on the y = x line.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(actual_lasso_predict_df, aes(x = actual, y = prediction)) +
+  geom_point(color = &amp;quot;#00B0F6&amp;quot;, size = 2) +
+  geom_abline(slope=1, intercept=0)+
+  ggtitle(&amp;quot;Lasso Prediction&amp;quot;) +
+  theme_light()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-05-12-exercise-solution-for-chapter-12_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ridge-prediction&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Ridge Prediction&lt;/h2&gt;
+&lt;p&gt;We can then perform the same functions using the generalized linear model with the ridge penalty to test on the testing data.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;s0 &amp;lt;- cvglmnet_ridge$lambda.1se 
+
+ridge_predict &amp;lt;- predict(cvglmnet_ridge, newx = prostate_test%&amp;gt;% dplyr::select(lcavol:pgg45) %&amp;gt;% as.matrix(), s = s0)
+
+# create a data frame of the predicted values and actual values
+actual_ridge_predict_df &amp;lt;- data.frame(prediction = as.vector(ridge_predict), actual = prostate_test$lpsa) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can then see how correlated the prediction and real data are using the &lt;code&gt;cor&lt;/code&gt; function again.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cor(actual_ridge_predict_df)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##            prediction    actual
+## prediction  1.0000000 0.7765403
+## actual      0.7765403 1.0000000&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The ridge prediction and acutal values are 77% correlated.&lt;/p&gt;
+&lt;p&gt;We can then fit a linear line to the prediction and actual data and look at the r&lt;sup&gt;2&lt;/sup&gt; value&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;lm(actual_ridge_predict_df) %&amp;gt;%
+  summary()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Call:
+## lm(formula = actual_ridge_predict_df)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -0.8438 -0.2155 -0.0225  0.2252  0.6732 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&amp;gt;|t|)    
+## (Intercept)  1.33258    0.19271   6.915 1.62e-07 ***
+## actual       0.45941    0.07044   6.522 4.55e-07 ***
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## Residual standard error: 0.3953 on 28 degrees of freedom
+## Multiple R-squared:  0.603,  Adjusted R-squared:  0.5888 
+## F-statistic: 42.53 on 1 and 28 DF,  p-value: 4.551e-07&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The adjusted r&lt;sup&gt;2&lt;/sup&gt; value = 0.589&lt;/p&gt;
+&lt;p&gt;Finally, we can plot the actual vs. predicted values on a scatter plot. If the actual and predicted values matched up exactly, they would sit on the y = x line.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(actual_ridge_predict_df, aes(x = actual, y = prediction)) +
+  geom_point(color = &amp;quot;#FF62BC&amp;quot;, size = 2) +
+  geom_abline(slope=1, intercept=0) +
+  ggtitle(&amp;quot;Ridge Prediction&amp;quot;) +
+  theme_light()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-05-12-exercise-solution-for-chapter-12_files/figure-html/unnamed-chunk-13-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;conclusion&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Comparing the Lasso and Ridge Penalty, based on the cross-validation, the ridge penalty had a smaller 1se Measure, showing that it performs better. When looking at the actual predictions on the testing data, the ridge penalty had a higher correlation between the predicted and acutal values (77%) compared to the lasso penatly correlation (72%). Further, when fitting a linear model to the actual and predicted values, the r&lt;sup&gt;2&lt;/sup&gt; values were highter for the ridge penalty (0.589) versus the lasso penalty (0.513). In conclusion, the &lt;strong&gt;ridge penalty performed better on this particular data set.&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

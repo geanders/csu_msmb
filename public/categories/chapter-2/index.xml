@@ -64,7 +64,9 @@ lines(thetas, densPostTheory, type=&amp;quot;l&amp;quot;, lwd = 3)&lt;/code&gt;&
 dtheta = thetas[2]-thetas[1]
 sum(thetas * densPostTheory * dtheta)
 #0.1365727&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;#We can use Monte Carlo integration instead and then check the agreement between our Monte Carlo sample thetaPostMC and our sample thetaPostEmp with a QQ plot&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;we-can-use-monte-carlo-integration-instead-and-then-check-the-agreement-between-our-monte-carlo-sample-thetapostmc-and-our-sample-thetapostemp-with-a-qq-plot&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;We can use Monte Carlo integration instead and then check the agreement between our Monte Carlo sample thetaPostMC and our sample thetaPostEmp with a QQ plot&lt;/h1&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;thetaPostMC = rbeta(n = 1e6, 42.47, 268.5)
 mean(thetaPostMC)
 #0.1365902
