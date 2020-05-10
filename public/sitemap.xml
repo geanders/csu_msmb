@@ -3,37 +3,52 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/categories/</loc>
-    <lastmod>2020-05-07T13:02:51-06:00</lastmod>
+    <loc>/authors/bailey-fosdick/</loc>
+    <lastmod>2020-05-08T09:52:41-06:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/class-meeting/</loc>
-    <lastmod>2020-05-07T13:02:51-06:00</lastmod>
+    <loc>/authors/</loc>
+    <lastmod>2020-05-08T09:52:41-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+    <lastmod>2020-05-08T09:52:41-06:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/class-meeting/</loc>
-    <lastmod>2020-05-07T13:02:51-06:00</lastmod>
+    <lastmod>2020-05-08T09:52:41-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/class-meeting/</loc>
+    <lastmod>2020-05-08T09:52:41-06:00</lastmod>
   </url>
   
   <url>
     <loc>/</loc>
-    <lastmod>2020-05-07T13:02:51-06:00</lastmod>
+    <lastmod>2020-05-08T09:52:41-06:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/details-for-class-on-may-7/</loc>
-    <lastmod>2020-05-07T13:02:51-06:00</lastmod>
+    <loc>/post/details-for-class-on-may-14/</loc>
+    <lastmod>2020-05-08T09:52:41-06:00</lastmod>
   </url>
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2020-05-07T13:02:51-06:00</lastmod>
+    <lastmod>2020-05-08T09:52:41-06:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/</loc>
+    <lastmod>2020-05-08T09:52:41-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/details-for-class-on-may-7/</loc>
     <lastmod>2020-05-07T13:02:51-06:00</lastmod>
   </url>
   
@@ -43,7 +58,7 @@
   </url>
   
   <url>
-    <loc>/authors/</loc>
+    <loc>/categories/chapter-12/</loc>
     <lastmod>2020-05-04T19:46:32-06:00</lastmod>
   </url>
   
@@ -53,7 +68,7 @@
   </url>
   
   <url>
-    <loc>/categories/chapter-12/</loc>
+    <loc>/tags/vocabulary/</loc>
     <lastmod>2020-05-04T19:46:32-06:00</lastmod>
   </url>
   
@@ -63,18 +78,8 @@
   </url>
   
   <url>
-    <loc>/tags/vocabulary/</loc>
-    <lastmod>2020-05-04T19:46:32-06:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/post/vocabulary-for-chapter-12/</loc>
     <lastmod>2020-05-04T19:46:32-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/bailey-fosdick/</loc>
-    <lastmod>2020-04-28T14:52:19-06:00</lastmod>
   </url>
   
   <url>
@@ -153,12 +158,12 @@
   </url>
   
   <url>
-    <loc>/categories/chapter-7/</loc>
+    <loc>/tags/chapter-7/</loc>
     <lastmod>2020-04-05T17:52:49-06:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/chapter-7/</loc>
+    <loc>/categories/chapter-7/</loc>
     <lastmod>2020-04-05T17:52:49-06:00</lastmod>
   </url>
   
@@ -363,12 +368,12 @@
   </url>
   
   <url>
-    <loc>/tags/instructions/</loc>
+    <loc>/categories/instructions/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/instructions/</loc>
+    <loc>/tags/instructions/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
@@ -378,12 +383,12 @@
   </url>
   
   <url>
-    <loc>/categories/chapter-1/</loc>
+    <loc>/tags/chapter-1/</loc>
     <lastmod>2020-02-11T20:22:07-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/chapter-1/</loc>
+    <loc>/categories/chapter-1/</loc>
     <lastmod>2020-02-11T20:22:07-07:00</lastmod>
   </url>
   

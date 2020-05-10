@@ -10,7 +10,7 @@ tags:
   - class meeting
 subtitle: ''
 summary: ''
-authors: []
+authors: [bailey-fosdick]
 lastmod: '2020-05-08T09:52:41-06:00'
 featured: no
 image:
