@@ -5,12 +5,201 @@
     <link>/authors/sierra-pugh/</link>
       <atom:link href="/authors/sierra-pugh/index.xml" rel="self" type="application/rss+xml" />
     <description>CSU MSMB Group Study</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 13 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 09 Apr 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>CSU MSMB Group Study</title>
       <link>/authors/sierra-pugh/</link>
     </image>
+    
+    <item>
+      <title>Exercise solution for Chapter 7</title>
+      <link>/post/exercise-solution-for-chapter-7/</link>
+      <pubDate>Thu, 09 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/post/exercise-solution-for-chapter-7/</guid>
+      <description>
+
+
+&lt;div id=&#34;exercise-7.4-from-modern-statistics-for-modern-biology&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Exercise 7.4 from Modern Statistics for Modern Biology&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Let’s revisit the Hiiragi data and compare the weighted and unweighted approaches. 7.4a Make a correlation circle for the unweighted Hiiragi data &lt;code&gt;xwt&lt;/code&gt;. Which genes have the best projections on the first principal plane (best approximation)? 7.4b Make a biplot showing the labels of the extreme gene-variables that explain most of the variance in the first plane. Add the the sample-points.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div id=&#34;read-in-and-clean-data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Read in and clean data&lt;/h2&gt;
+&lt;p&gt;We start by loading the libraries:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(&amp;quot;Hiiragi2013&amp;quot;)
+library(&amp;quot;ade4&amp;quot;)
+library(&amp;quot;factoextra&amp;quot;)
+library(&amp;quot;pander&amp;quot;)
+library(&amp;quot;knitr&amp;quot;)
+library(&amp;quot;tidyverse&amp;quot;)
+library(&amp;quot;ggrepel&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can install the libraries using &lt;code&gt;install.packages&lt;/code&gt; for the &lt;code&gt;ade4&lt;/code&gt; and &lt;code&gt;factoextra&lt;/code&gt; packages and such, and the following line for &lt;code&gt;Hiiragi2013&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;BiocManager::install(&amp;quot;Hiiragi2013&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We will analyze data from the &lt;code&gt;Hiiragi2013&lt;/code&gt; package containing a gene expression microarray dataset describing the transcriptomes of about 100 cells from mouse embryos at different times during early development.&lt;/p&gt;
+&lt;p&gt;I copied the code from the textbook to clean the data. A tidyverse version of this code is available on
+&lt;a href=&#34;https://github.com/geanders/csu_msmb_practice/blob/master/ch_7_examples.pdf&#34;&gt;Brooke Andersons’s github&lt;/a&gt;. In either case, we select the wildtype (WT) samples. Then we select the 100 features with the largest variance.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data(&amp;quot;x&amp;quot;, package = &amp;quot;Hiiragi2013&amp;quot;)
+xwt &amp;lt;- x[, x$genotype == &amp;quot;WT&amp;quot;]
+sel &amp;lt;- order(rowVars(Biobase::exprs(xwt)), decreasing = TRUE)[1:100]
+xwt &amp;lt;- xwt[sel, ]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The resulting data is of the &lt;code&gt;ExpressionSet&lt;/code&gt; class, a class designed to combine many types of data such as microarray data, metadata, and protocol information. The data is shown below. I transposed the data so the rows correspond to samples and the first 101 columns correspond to different genes. I only showed the first the columns and then skipped to the end for brevity. The last columns give additional data about each sample, such as the total number of cells and the scan date.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;kable(head(as.data.frame(xwt)[,c(1:3,102:108)]))&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;X1434584_a_at&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;X1437325_x_at&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;X1420085_at&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Embryonic.day&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Total.number.of.cells&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;lineage&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;genotype&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;ScanDate&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;sampleGroup&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;sampleColour&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;1 E3.25&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;13.24888&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2.332223&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3.027715&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;E3.25&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;32&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;WT&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2011-03-16&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;E3.25&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;#CAB2D6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;2 E3.25&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;11.98757&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2.475742&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;9.293017&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;E3.25&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;32&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;WT&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2011-03-16&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;E3.25&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;#CAB2D6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;3 E3.25&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;12.72695&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.955642&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2.940142&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;E3.25&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;32&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;WT&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2011-03-16&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;E3.25&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;#CAB2D6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;4 E3.25&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;12.51926&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2.061255&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;9.715243&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;E3.25&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;32&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;WT&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2011-03-16&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;E3.25&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;#CAB2D6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;5 E3.25&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;12.01299&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2.308667&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;8.924228&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;E3.25&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;32&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;WT&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2011-03-16&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;E3.25&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;#CAB2D6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;6 E3.25&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;10.50750&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2.202948&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;11.325952&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;E3.25&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;32&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;WT&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2011-03-16&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;E3.25&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;#CAB2D6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div id=&#34;a-make-a-correlation-circle&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;a) Make a correlation circle&lt;/h2&gt;
+&lt;p&gt;Next we plot a correlation circle. This allows us to plot the original genes projected onto the first two principal axes. We can interpret the angles between the vectors as a measure of the correlation between the two corresponding genes. The length of the arrows indicates the correlation of a gene with the first principal axes. This allows us to visualize the correlation between genes, as well as see which genes are best described by our first two principal components. The first principal component is the linear combination of the genes with maximum variance. The second principal component is the linear combination of the genes with maximum variance while being orthogonal to the first principal component.&lt;/p&gt;
+&lt;p&gt;First I used &lt;code&gt;dudi.pca&lt;/code&gt; to perform principal component analysis and get a pca and dudi class object. In the text book, they performed a weighted PCA because the groups had very different sample sizes ranging from 4 to 36. A weighted analysis would give the groups equal weight, while an unweighted would give each observation equal weight (and thus give less weight to groups with less members). We are interested in the difference in the genes at the various developmental phases, so in general it would make sense to do a weighted analysis in order to let each developmental phase group have an equal say. To compare the weighted with an unweighted PCA I didn’t use the &lt;code&gt;row.w&lt;/code&gt; option as the textbook did in order to fit an unweighted PCA.&lt;/p&gt;
+&lt;p&gt;In the following code &lt;code&gt;t&lt;/code&gt; takes the transpose so the rows correspond to samples. The &lt;code&gt;exprs&lt;/code&gt; function is used to access the expression and error measurements of the data. I chose to center and scale the data, meaning make each column have a mean of 0 and a variance of 1. The &lt;code&gt;scannf&lt;/code&gt; option prevents the function from plotting a scree plot and &lt;code&gt;nf&lt;/code&gt; tells it to keep two axes (i.e. 2 principal components).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pcaMouse &amp;lt;- dudi.pca(as.data.frame(t(Biobase::exprs(xwt))),
+                            center = TRUE, scale = TRUE, nf = 2, scannf = FALSE)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then I used the &lt;code&gt;fviz_pca_var&lt;/code&gt; function to plot the correlation circle. I used &lt;code&gt;geom= &#34;arrow&#34;&lt;/code&gt; to remove the labels of each arrow as they were all overlapping. The default for this argument is to print both arrows and text labels for each line.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fviz_pca_var(pcaMouse, col.circle = &amp;quot;black&amp;quot;,geom= &amp;quot;arrow&amp;quot;) + ggtitle(&amp;quot;&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-04-09-exercise-solution-for-chapter-7_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;We can compare that plot to the one below showing the correlation circle from a weighted analysis. We can see in the weighted analysis the first principal plane does a better job of explaining the variation as indicated by the percent of variation explained by each dimension as well as the length of the arrows.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tab = table(xwt$sampleGroup)
+xwt$weight = 1 / as.numeric(tab[xwt$sampleGroup])
+pcaMouseWeighted &amp;lt;- dudi.pca(as.data.frame(t(Biobase::exprs(xwt))),
+                    row.w = xwt$weight,
+                    center = TRUE, scale = TRUE, nf = 2, scannf = FALSE)
+fviz_pca_var(pcaMouseWeighted, col.circle = &amp;quot;black&amp;quot;,geom= &amp;quot;arrow&amp;quot;) + ggtitle(&amp;quot;&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-04-09-exercise-solution-for-chapter-7_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The genes that have the best projections on the first principal plane (meaning those with the strongest correlation with the principal axes) are those with the longest arrows on the plots above. I extracted the genes with arrow lengths greater than 0.8 from the unweighted PCA plot with the following code:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;corrCircle &amp;lt;- fviz_pca_var(pcaMouse, col.circle = &amp;quot;black&amp;quot;)$data
+arrowLengths &amp;lt;- sqrt(corrCircle$x^2+corrCircle$y^2)
+cutoff &amp;lt;- 0.8
+kpInd &amp;lt;- order(arrowLengths, decreasing=TRUE)[1:sum(arrowLengths&amp;gt;cutoff)]
+genes &amp;lt;- corrCircle[kpInd,&amp;quot;name&amp;quot;]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;genes&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;1456270_s_at&lt;/em&gt;, &lt;em&gt;1450624_at&lt;/em&gt;, &lt;em&gt;1449134_s_at&lt;/em&gt;, &lt;em&gt;1418153_at&lt;/em&gt;, &lt;em&gt;1420085_at&lt;/em&gt;, &lt;em&gt;1420086_x_at&lt;/em&gt;, &lt;em&gt;1434584_a_at&lt;/em&gt;, &lt;em&gt;1450843_a_at&lt;/em&gt;, &lt;em&gt;1429483_at&lt;/em&gt;, &lt;em&gt;1437308_s_at&lt;/em&gt;, &lt;em&gt;1456598_at&lt;/em&gt;, &lt;em&gt;1460605_at&lt;/em&gt;, &lt;em&gt;1429388_at&lt;/em&gt;, &lt;em&gt;1426990_at&lt;/em&gt;, &lt;em&gt;1436392_s_at&lt;/em&gt; and &lt;em&gt;1452270_s_at&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;To summarize, the code above saves output from the &lt;code&gt;fviz_pca_var&lt;/code&gt; function to an object called &lt;code&gt;corrCircle&lt;/code&gt;. I used the output (which included x and y coordinates) to calculate the arrow length for each gene. I then created a vector, &lt;code&gt;kpInd&lt;/code&gt;, with the indice number for genes that had a length greater then the cutoff of 0.8. Finally, I output the names of those genes with length great than 0.8. Below is a plot showing just these genes with the ``best projection,&#34; meaning they are most correlated with the plane of maximum variation.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;corrCircle %&amp;gt;% 
+  mutate(length = sqrt(x^2 + y^2)) %&amp;gt;% 
+  filter(length &amp;gt;= 0.8) %&amp;gt;% 
+  ggplot(aes(x = 0, xend = x, y = 0, yend = y)) + 
+  geom_segment(arrow = arrow(length = unit(0.1, &amp;quot;inches&amp;quot;))) + 
+  geom_label_repel(aes(x = x, y = y, label = name), 
+                   size = 2, alpha = 0.7) + 
+  coord_fixed()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-04-09-exercise-solution-for-chapter-7_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;b-make-a-biplot&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;b) Make a biplot&lt;/h2&gt;
+&lt;p&gt;Next we make a biplot to visualize samples and the genes in one plot. I used the &lt;code&gt;fviz_pca_biplot&lt;/code&gt; function. The &lt;code&gt;col.var&lt;/code&gt; and &lt;code&gt;col.ind&lt;/code&gt; options allow you to color the different genes and sample points, respectively, by particular groups. I used &lt;code&gt;label=&#34;&#34;&lt;/code&gt; to remove the labels on the vectors and points. The &lt;code&gt;above8&lt;/code&gt; variable is simply a vector of either “Less than 0.8” or “Greater than 0.8” to indicate if each gene’s vector length was less than or greater than our cutoff value on the correlation circle.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;above8 &amp;lt;- rep(&amp;quot;Less than 0.8&amp;quot;, dim(xwt)[1])
+above8[1:100 %in% kpInd] &amp;lt;- &amp;quot;Greater than 0.8&amp;quot;
+fviz_pca_biplot(pcaMouse, col.var=above8, col.ind=xwt$sampleGroup, label=&amp;quot;&amp;quot;) +
+  ggtitle(&amp;quot;&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-04-09-exercise-solution-for-chapter-7_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The colors/shapes of the point indicate the sample group of each sample point. The colors of the arrows indicate whether or not the corresponding gene had length greater than or less than 0.8 on the correlation circle.&lt;/p&gt;
+&lt;p&gt;We can see the EPI and PE groups (the groups with the fewest samples) appear more extreme in the first principle plane when using the unweighted PCA. This was not the case in the weighted PCA (shown below) because then groups were weighted equally. Here, the PCA mostly depends on the larger groups (to best understand the most observations), so the smaller groups appear more extreme on the principal plane.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;above8 &amp;lt;- rep(&amp;quot;Less than 0.8&amp;quot;, dim(xwt)[1])
+above8[1:100 %in% kpInd] &amp;lt;- &amp;quot;Greater than 0.8&amp;quot;
+fviz_pca_biplot(pcaMouseWeighted, col.var=above8, col.ind=xwt$sampleGroup, label=&amp;quot;&amp;quot;) +
+  ggtitle(&amp;quot;&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-04-09-exercise-solution-for-chapter-7_files/figure-html/unnamed-chunk-13-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Vocabulary for Chapter 2, Part 2</title>

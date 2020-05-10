@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.7.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Sherry WeMott">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Exercise 7.4 from Modern Statistics for Modern Biology  Let’s revisit the Hiiragi data and compare the weighted and unweighted approaches. 7.4a Make a correlation circle for the unweighted Hiiragi data xwt. Which genes have the best projections on the first principal plane (best approximation)? 7.4b Make a biplot showing the labels of the extreme gene-variables that explain most of the variance in the first plane. Add the the sample-points.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/exercise-solution-for-chapter-7/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  <script src="/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-36719749-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           document.location = url;
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target);  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-36719749-3', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
+  
+
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="/post/exercise-solution-for-chapter-7/">
+
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="CSU MSMB Group Study">
+  <meta property="og:url" content="/post/exercise-solution-for-chapter-7/">
+  <meta property="og:title" content="Exercise solution for Chapter 7 | CSU MSMB Group Study">
+  <meta property="og:description" content="Exercise 7.4 from Modern Statistics for Modern Biology  Let’s revisit the Hiiragi data and compare the weighted and unweighted approaches. 7.4a Make a correlation circle for the unweighted Hiiragi data xwt. Which genes have the best projections on the first principal plane (best approximation)? 7.4b Make a biplot showing the labels of the extreme gene-variables that explain most of the variance in the first plane. Add the the sample-points."><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
+  <meta property="twitter:image" content="img/map[gravatar:%!s(bool=false) shape:circle]"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2020-04-09T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2020-04-05T17:52:49-06:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/exercise-solution-for-chapter-7/"
+  },
+  "headline": "Exercise solution for Chapter 7",
+  
+  "datePublished": "2020-04-09T00:00:00Z",
+  "dateModified": "2020-04-05T17:52:49-06:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Sierra Pugh"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "CSU MSMB Group Study",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "img//"
+    }
+  },
+  "description": "Exercise 7.4 from Modern Statistics for Modern Biology  Let’s revisit the Hiiragi data and compare the weighted and unweighted approaches. 7.4a Make a correlation circle for the unweighted Hiiragi data xwt. Which genes have the best projections on the first principal plane (best approximation)? 7.4b Make a biplot showing the labels of the extreme gene-variables that explain most of the variance in the first plane. Add the the sample-points."
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Exercise solution for Chapter 7 | CSU MSMB Group Study</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">CSU MSMB Group Study</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">CSU MSMB Group Study</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#people"><span>People</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#experience"><span>Schedule</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Location</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/files/csu_msmb_syllabus.pdf"><span>Syllabus</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item">
+        <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Exercise solution for Chapter 7</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  
+  <span><a href="/authors/sierra-pugh/">Sierra Pugh</a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    Apr 5, 2020
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    7 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/exercises/">exercises</a>, <a href="/categories/chapter-7/">Chapter 7</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      
+
+
+<div id="exercise-7.4-from-modern-statistics-for-modern-biology" class="section level1">
+<h1>Exercise 7.4 from Modern Statistics for Modern Biology</h1>
+<blockquote>
+<p>Let’s revisit the Hiiragi data and compare the weighted and unweighted approaches. 7.4a Make a correlation circle for the unweighted Hiiragi data <code>xwt</code>. Which genes have the best projections on the first principal plane (best approximation)? 7.4b Make a biplot showing the labels of the extreme gene-variables that explain most of the variance in the first plane. Add the the sample-points.</p>
+</blockquote>
+<div id="read-in-and-clean-data" class="section level2">
+<h2>Read in and clean data</h2>
+<p>We start by loading the libraries:</p>
+<pre class="r"><code>library(&quot;Hiiragi2013&quot;)
+library(&quot;ade4&quot;)
+library(&quot;factoextra&quot;)
+library(&quot;pander&quot;)
+library(&quot;knitr&quot;)
+library(&quot;tidyverse&quot;)
+library(&quot;ggrepel&quot;)</code></pre>
+<p>You can install the libraries using <code>install.packages</code> for the <code>ade4</code> and <code>factoextra</code> packages and such, and the following line for <code>Hiiragi2013</code>:</p>
+<pre class="r"><code>BiocManager::install(&quot;Hiiragi2013&quot;)</code></pre>
+<p>We will analyze data from the <code>Hiiragi2013</code> package containing a gene expression microarray dataset describing the transcriptomes of about 100 cells from mouse embryos at different times during early development.</p>
+<p>I copied the code from the textbook to clean the data. A tidyverse version of this code is available on
+<a href="https://github.com/geanders/csu_msmb_practice/blob/master/ch_7_examples.pdf">Brooke Andersons’s github</a>. In either case, we select the wildtype (WT) samples. Then we select the 100 features with the largest variance.</p>
+<pre class="r"><code>data(&quot;x&quot;, package = &quot;Hiiragi2013&quot;)
+xwt &lt;- x[, x$genotype == &quot;WT&quot;]
+sel &lt;- order(rowVars(Biobase::exprs(xwt)), decreasing = TRUE)[1:100]
+xwt &lt;- xwt[sel, ]</code></pre>
+<p>The resulting data is of the <code>ExpressionSet</code> class, a class designed to combine many types of data such as microarray data, metadata, and protocol information. The data is shown below. I transposed the data so the rows correspond to samples and the first 101 columns correspond to different genes. I only showed the first the columns and then skipped to the end for brevity. The last columns give additional data about each sample, such as the total number of cells and the scan date.</p>
+<pre class="r"><code>kable(head(as.data.frame(xwt)[,c(1:3,102:108)]))</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">X1434584_a_at</th>
+<th align="right">X1437325_x_at</th>
+<th align="right">X1420085_at</th>
+<th align="left">Embryonic.day</th>
+<th align="left">Total.number.of.cells</th>
+<th align="left">lineage</th>
+<th align="left">genotype</th>
+<th align="left">ScanDate</th>
+<th align="left">sampleGroup</th>
+<th align="left">sampleColour</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1 E3.25</td>
+<td align="right">13.24888</td>
+<td align="right">2.332223</td>
+<td align="right">3.027715</td>
+<td align="left">E3.25</td>
+<td align="left">32</td>
+<td align="left"></td>
+<td align="left">WT</td>
+<td align="left">2011-03-16</td>
+<td align="left">E3.25</td>
+<td align="left">#CAB2D6</td>
+</tr>
+<tr class="even">
+<td>2 E3.25</td>
+<td align="right">11.98757</td>
+<td align="right">2.475742</td>
+<td align="right">9.293017</td>
+<td align="left">E3.25</td>
+<td align="left">32</td>
+<td align="left"></td>
+<td align="left">WT</td>
+<td align="left">2011-03-16</td>
+<td align="left">E3.25</td>
+<td align="left">#CAB2D6</td>
+</tr>
+<tr class="odd">
+<td>3 E3.25</td>
+<td align="right">12.72695</td>
+<td align="right">1.955642</td>
+<td align="right">2.940142</td>
+<td align="left">E3.25</td>
+<td align="left">32</td>
+<td align="left"></td>
+<td align="left">WT</td>
+<td align="left">2011-03-16</td>
+<td align="left">E3.25</td>
+<td align="left">#CAB2D6</td>
+</tr>
+<tr class="even">
+<td>4 E3.25</td>
+<td align="right">12.51926</td>
+<td align="right">2.061255</td>
+<td align="right">9.715243</td>
+<td align="left">E3.25</td>
+<td align="left">32</td>
+<td align="left"></td>
+<td align="left">WT</td>
+<td align="left">2011-03-16</td>
+<td align="left">E3.25</td>
+<td align="left">#CAB2D6</td>
+</tr>
+<tr class="odd">
+<td>5 E3.25</td>
+<td align="right">12.01299</td>
+<td align="right">2.308667</td>
+<td align="right">8.924228</td>
+<td align="left">E3.25</td>
+<td align="left">32</td>
+<td align="left"></td>
+<td align="left">WT</td>
+<td align="left">2011-03-16</td>
+<td align="left">E3.25</td>
+<td align="left">#CAB2D6</td>
+</tr>
+<tr class="even">
+<td>6 E3.25</td>
+<td align="right">10.50750</td>
+<td align="right">2.202948</td>
+<td align="right">11.325952</td>
+<td align="left">E3.25</td>
+<td align="left">32</td>
+<td align="left"></td>
+<td align="left">WT</td>
+<td align="left">2011-03-16</td>
+<td align="left">E3.25</td>
+<td align="left">#CAB2D6</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="a-make-a-correlation-circle" class="section level2">
+<h2>a) Make a correlation circle</h2>
+<p>Next we plot a correlation circle. This allows us to plot the original genes projected onto the first two principal axes. We can interpret the angles between the vectors as a measure of the correlation between the two corresponding genes. The length of the arrows indicates the correlation of a gene with the first principal axes. This allows us to visualize the correlation between genes, as well as see which genes are best described by our first two principal components. The first principal component is the linear combination of the genes with maximum variance. The second principal component is the linear combination of the genes with maximum variance while being orthogonal to the first principal component.</p>
+<p>First I used <code>dudi.pca</code> to perform principal component analysis and get a pca and dudi class object. In the text book, they performed a weighted PCA because the groups had very different sample sizes ranging from 4 to 36. A weighted analysis would give the groups equal weight, while an unweighted would give each observation equal weight (and thus give less weight to groups with less members). We are interested in the difference in the genes at the various developmental phases, so in general it would make sense to do a weighted analysis in order to let each developmental phase group have an equal say. To compare the weighted with an unweighted PCA I didn’t use the <code>row.w</code> option as the textbook did in order to fit an unweighted PCA.</p>
+<p>In the following code <code>t</code> takes the transpose so the rows correspond to samples. The <code>exprs</code> function is used to access the expression and error measurements of the data. I chose to center and scale the data, meaning make each column have a mean of 0 and a variance of 1. The <code>scannf</code> option prevents the function from plotting a scree plot and <code>nf</code> tells it to keep two axes (i.e. 2 principal components).</p>
+<pre class="r"><code>pcaMouse &lt;- dudi.pca(as.data.frame(t(Biobase::exprs(xwt))),
+                            center = TRUE, scale = TRUE, nf = 2, scannf = FALSE)</code></pre>
+<p>Then I used the <code>fviz_pca_var</code> function to plot the correlation circle. I used <code>geom= "arrow"</code> to remove the labels of each arrow as they were all overlapping. The default for this argument is to print both arrows and text labels for each line.</p>
+<pre class="r"><code>fviz_pca_var(pcaMouse, col.circle = &quot;black&quot;,geom= &quot;arrow&quot;) + ggtitle(&quot;&quot;) </code></pre>
+<p><img src="/post/2020-04-09-exercise-solution-for-chapter-7_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>We can compare that plot to the one below showing the correlation circle from a weighted analysis. We can see in the weighted analysis the first principal plane does a better job of explaining the variation as indicated by the percent of variation explained by each dimension as well as the length of the arrows.</p>
+<pre class="r"><code>tab = table(xwt$sampleGroup)
+xwt$weight = 1 / as.numeric(tab[xwt$sampleGroup])
+pcaMouseWeighted &lt;- dudi.pca(as.data.frame(t(Biobase::exprs(xwt))),
+                    row.w = xwt$weight,
+                    center = TRUE, scale = TRUE, nf = 2, scannf = FALSE)
+fviz_pca_var(pcaMouseWeighted, col.circle = &quot;black&quot;,geom= &quot;arrow&quot;) + ggtitle(&quot;&quot;) </code></pre>
+<p><img src="/post/2020-04-09-exercise-solution-for-chapter-7_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>The genes that have the best projections on the first principal plane (meaning those with the strongest correlation with the principal axes) are those with the longest arrows on the plots above. I extracted the genes with arrow lengths greater than 0.8 from the unweighted PCA plot with the following code:</p>
+<pre class="r"><code>corrCircle &lt;- fviz_pca_var(pcaMouse, col.circle = &quot;black&quot;)$data
+arrowLengths &lt;- sqrt(corrCircle$x^2+corrCircle$y^2)
+cutoff &lt;- 0.8
+kpInd &lt;- order(arrowLengths, decreasing=TRUE)[1:sum(arrowLengths&gt;cutoff)]
+genes &lt;- corrCircle[kpInd,&quot;name&quot;]</code></pre>
+<pre class="r"><code>genes</code></pre>
+<p><em>1456270_s_at</em>, <em>1450624_at</em>, <em>1449134_s_at</em>, <em>1418153_at</em>, <em>1420085_at</em>, <em>1420086_x_at</em>, <em>1434584_a_at</em>, <em>1450843_a_at</em>, <em>1429483_at</em>, <em>1437308_s_at</em>, <em>1456598_at</em>, <em>1460605_at</em>, <em>1429388_at</em>, <em>1426990_at</em>, <em>1436392_s_at</em> and <em>1452270_s_at</em></p>
+<p>To summarize, the code above saves output from the <code>fviz_pca_var</code> function to an object called <code>corrCircle</code>. I used the output (which included x and y coordinates) to calculate the arrow length for each gene. I then created a vector, <code>kpInd</code>, with the indice number for genes that had a length greater then the cutoff of 0.8. Finally, I output the names of those genes with length great than 0.8. Below is a plot showing just these genes with the ``best projection," meaning they are most correlated with the plane of maximum variation.</p>
+<pre class="r"><code>corrCircle %&gt;% 
+  mutate(length = sqrt(x^2 + y^2)) %&gt;% 
+  filter(length &gt;= 0.8) %&gt;% 
+  ggplot(aes(x = 0, xend = x, y = 0, yend = y)) + 
+  geom_segment(arrow = arrow(length = unit(0.1, &quot;inches&quot;))) + 
+  geom_label_repel(aes(x = x, y = y, label = name), 
+                   size = 2, alpha = 0.7) + 
+  coord_fixed()</code></pre>
+<p><img src="/post/2020-04-09-exercise-solution-for-chapter-7_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+</div>
+<div id="b-make-a-biplot" class="section level2">
+<h2>b) Make a biplot</h2>
+<p>Next we make a biplot to visualize samples and the genes in one plot. I used the <code>fviz_pca_biplot</code> function. The <code>col.var</code> and <code>col.ind</code> options allow you to color the different genes and sample points, respectively, by particular groups. I used <code>label=""</code> to remove the labels on the vectors and points. The <code>above8</code> variable is simply a vector of either “Less than 0.8” or “Greater than 0.8” to indicate if each gene’s vector length was less than or greater than our cutoff value on the correlation circle.</p>
+<pre class="r"><code>above8 &lt;- rep(&quot;Less than 0.8&quot;, dim(xwt)[1])
+above8[1:100 %in% kpInd] &lt;- &quot;Greater than 0.8&quot;
+fviz_pca_biplot(pcaMouse, col.var=above8, col.ind=xwt$sampleGroup, label=&quot;&quot;) +
+  ggtitle(&quot;&quot;) </code></pre>
+<p><img src="/post/2020-04-09-exercise-solution-for-chapter-7_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>The colors/shapes of the point indicate the sample group of each sample point. The colors of the arrows indicate whether or not the corresponding gene had length greater than or less than 0.8 on the correlation circle.</p>
+<p>We can see the EPI and PE groups (the groups with the fewest samples) appear more extreme in the first principle plane when using the unweighted PCA. This was not the case in the weighted PCA (shown below) because then groups were weighted equally. Here, the PCA mostly depends on the larger groups (to best understand the most observations), so the smaller groups appear more extreme on the principal plane.</p>
+<pre class="r"><code>above8 &lt;- rep(&quot;Less than 0.8&quot;, dim(xwt)[1])
+above8[1:100 %in% kpInd] &lt;- &quot;Greater than 0.8&quot;
+fviz_pca_biplot(pcaMouseWeighted, col.var=above8, col.ind=xwt$sampleGroup, label=&quot;&quot;) +
+  ggtitle(&quot;&quot;) </code></pre>
+<p><img src="/post/2020-04-09-exercise-solution-for-chapter-7_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+</div>
+</div>
+
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/chapter-7/">Chapter 7</a>
+  
+  <a class="badge badge-light" href="/tags/exercises/">exercises</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/exercise-solution-for-chapter-7/&amp;text=Exercise%20solution%20for%20Chapter%207" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/exercise-solution-for-chapter-7/&amp;t=Exercise%20solution%20for%20Chapter%207" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Exercise%20solution%20for%20Chapter%207&amp;body=/post/exercise-solution-for-chapter-7/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/exercise-solution-for-chapter-7/&amp;title=Exercise%20solution%20for%20Chapter%207" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Exercise%20solution%20for%20Chapter%207%20/post/exercise-solution-for-chapter-7/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/exercise-solution-for-chapter-7/&amp;title=Exercise%20solution%20for%20Chapter%207" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <img class="avatar mr-3 avatar-circle" src="/authors/sierra-pugh/avatar_hu0e1342da7a90d84f2a5d1fa13b6c5237_5815348_270x270_fill_q90_lanczos_center.jpg" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/authors/sierra-pugh/">Sierra Pugh</a></h5>
+      <h6 class="card-subtitle">Graduate Student in Statistics</h6>
+      <p class="card-text">Sierra is a Statistics PhD student.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    <li>
+      <a href="mailto:sierra.pugh@colostate.edu" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/pughs" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/vocabulary-for-chapter-7/">Vocabulary for Chapter 7</a></li>
+      
+      <li><a href="/post/ex-2-6/">Exercise solution for Chapter 2, Part 2</a></li>
+      
+      <li><a href="/post/exercise-solution-for-chapter-2/">Exercise solution for Chapter 2, Part 1</a></li>
+      
+      <li><a href="/post/how-to-create-an-exercise-solution-blog-post/">How to create an exercise solution blog post</a></li>
+      
+      <li><a href="/post/exercise-solution-for-chapter-1/">Exercise solution for Chapter 1</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.4.3/mermaid.min.js" integrity="" crossorigin="anonymous" title="mermaid"></script>
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js" integrity="sha256-1zu+3BnLYV9LdiY85uXMzii3bdrkelyp37e0ZyTAQh0=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.a0d331bcd05dbe8b31e244f796710f08.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+  <p class="powered-by">
+    
+      <a href="/privacy/">Privacy Policy</a>
+    
+    
+       &middot; 
+      <a href="/terms/">Terms</a>
+    
+  </p>
+  
+
+  <p class="powered-by">
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
