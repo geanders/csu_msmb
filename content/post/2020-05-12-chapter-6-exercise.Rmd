@@ -1,0 +1,26 @@
+---
+title: Chapter 6 Exercise
+author: Sherry WeMott
+date: '2020-05-12'
+slug: chapter-6-exercise
+categories:
+  - Chapter 6
+  - exercises
+tags:
+  - Chapter 6
+  - exercises
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-05-12T10:46:22-06:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+```{r, echo=F, message=F, warning=F}
+library(tidyverse)
+library(purrr)
+```
