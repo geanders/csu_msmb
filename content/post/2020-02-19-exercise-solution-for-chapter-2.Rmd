@@ -1,25 +1,26 @@
 ---
-title: Exercise solution for Chapter 2, Part 1
-author: Sere Williams
+title: "Exercise solution for Chapter 2, Part 1"
+author: "Sere Williams"
 date: '2020-02-19'
-slug: exercise-solution-for-chapter-2
+output: pdf_document
 draft: no
-categories:
-  - exercises
-  - Chapter 2
-tags:
-  - exercises
-  - Chapter 2
-subtitle: ''
-summary: ''
-authors: [sere-williams]
-lastmod: '2020-02-19T15:25:48-07:00'
 featured: no
 image:
   caption: ''
   focal_point: ''
   preview_only: no
+lastmod: '2020-02-19T15:25:48-07:00'
+categories:
+- exercises
+- Chapter 2
 projects: []
+slug: exercise-solution-for-chapter-2
+subtitle: ''
+summary: ''
+tags:
+- exercises
+- Chapter 2
+authors: sere-williams
 ---
 
 ```{r setup, include=FALSE, echo = TRUE}
