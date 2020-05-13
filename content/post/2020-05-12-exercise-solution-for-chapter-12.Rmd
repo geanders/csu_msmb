@@ -35,8 +35,10 @@ knitr::opts_chunk$set(echo = TRUE)
 Here are the packages that need to be installed.
 ```{r message = FALSE}
 library(dplyr)
-library(glmnet)
 library(ggplot2)
+library(glmnet) # perform generalize linear models
+library(GGally) # used for ggpairs function
+library(superheat) # used to show correlation between variables
 ```
 
 ## Data for the exercise
@@ -81,6 +83,25 @@ ggplot(prostate, aes(x = lpsa)) +
 
 Here we can see the values range from -0.4 to values of almost 6. Based on the histogram, the data seems to also fit a close to normal distribution.
 
+Before actually performing any predictions, we may want to see if any of the variables are correlated to each other. This can show if there are potentially two variables measuring similar things. We use the `ggpairs` function from the `GGally` package to do this.
+
+```{r message = FALSE, fig.width = 6, fig.height = 8}
+ggpairs(prostate)
+```
+
+Based on this plot, we can see that some variables, such as`pgg45` and `gleason`, are highly correlated. We can also see the distribution of the data in the testing and training datasets (we will discuss the testing and training column later in this exercise).
+
+We can also visually view correlations between the variables using the `cor` function and a heatmap from the`superheat` package.
+
+```{r}
+prostate %>%
+  select(-train) %>%
+  cor() %>%
+  superheat()
+```
+
+This plot shows the same data as the `ggpairs` output, but we can visually see the correlation between each of the variables. If the correlation is high and positive, then the rectange is yellow, if the correlation between two variables is low, the rectangle is purple.
+
 We will first split the data into testing and training data.
 ```{r}
 prostate_train <- prostate %>%
@@ -88,8 +109,6 @@ prostate_train <- prostate %>%
 
 prostate_test <- prostate %>%
   filter(train == FALSE)
-
-
 ```
 
 There are `r nrow(prostate_train)` samples in the training set and `r nrow(prostate_test)` samples in the testing set.
@@ -107,7 +126,7 @@ Because this data was specifically posted to teach machine learning, the authors
 
 ## Fit generalized linear model (glmnet) with Lasso and Ridge penalties
 
-Based on the `glmnet` package, when alpha = 1 the Lasso penalty is used, if alpha = 0, then Ridge penalty is used. A great resource for the `glmnet` package can be found here: <https://web.stanford.edu/~hastie/glmnet/glmnet_alpha.html>
+Based on the `glmnet` package, when `alpha = 1` the Lasso penalty is used, if `alpha = 0`, then Ridge penalty is used. A great resource for the `glmnet` package can be found here: <https://web.stanford.edu/~hastie/glmnet/glmnet_alpha.html>
 
 Here, we use a matrix of all of the predictors (`x`) to try to predict the `lpsa` column (`y`).
 
@@ -129,7 +148,7 @@ plot(ridge_glmnet, label = TRUE)
 title("Ridge Penalty", line = -1.5)
 ```
 
-In the plots show the coefficients as L1- norm increases. The top axis shows the number of nonzero coefficients correspoding to the lamba at the current L1 norm. From these plots we can see that the variables 1 (log cancer volume), 2 (log prostate weight), and 5 (seminal vesicle invasion) are good predictors for the level of prostate-specific antigen (lpsa response).
+The plots show the estimated coefficients as L1- norm increases. The top axis shows the number of nonzero coefficients correspoding to the lamba at the current L1 norm. From these plots we can see that the variables 1 (log cancer volume), 2 (log prostate weight), and 5 (seminal vesicle invasion) are good predictors for the level of prostate-specific antigen (lpsa response).
 
 
 ## Cross Validation
@@ -158,7 +177,7 @@ plot(cvglmnet_ridge)
 title("Ridge Cross Validation", line = -1.5)
 ```
 
-In the data output, `1se` means the data point what is within 2 standard error of the minimum lambda (`min`). This it the value that the model suggests that we use (indicated by the 2nd dotted line on the plots.)
+In the data output, `1se` is the data point that is within 1 standard error of the minimum $\lambda$ (`min`). This is the value that the model suggests that we use in our ultiamate predictive model (indicated by the 2nd dotted line on the plots.)
 The `1se Measure`  is similar to the mean squared error. If the measure is small, then the model is better. When comparing the `Measure` of the `1se` between the two penalties, we can see that the Ridge Penalty has a smaller `1se Measure`, showing that it performs better. 
 
 The `Nonzero` column describes the nonzero coefficients, or the number of predictors that are important in the particular model. There were a total of 8 predictors as the input. The Lasso penalty shows that all 8 predictors are important in building the model, but the Ridge penalty only uses 5 predictors.
@@ -185,13 +204,13 @@ cor(actual_lasso_predict_df)
 ```
 The output shows that the actual and predicted values are 72% correlated.
 
-We can then fit a linear line to the prediction and actual data and look at the r^2^ value.
+We can then fit a linear line to the prediction and actual data and look at the R^2^ value.
 ```{r}
 lm(actual_lasso_predict_df) %>%
   summary()
 ```
 
-The adjusted r^2^ value = 0.513.
+The adjusted R^2^ value = 0.513.
 
 Finally, we can plot the actual vs. predicted values on a scatter plot. If the actual and predicted values match up exactly, they would sit on the y = x line.
 ```{r}
@@ -220,14 +239,14 @@ We can then see how correlated the prediction and real data are using the `cor` 
 ```{r}
 cor(actual_ridge_predict_df)
 ```
-The Ridge prediction and acutal values are 77% correlated.
+The Ridge prediction and actual values are 77% correlated.
 
-We can then fit a linear line to the prediction and actual data and look at the r^2^ value
+We can then fit a linear line to the prediction and actual data and look at the R^2^ value
 ```{r}
 lm(actual_ridge_predict_df) %>%
   summary()
 ```
-The adjusted r^2^ value = 0.589
+The adjusted R^2^ value = 0.589
 
 Finally, we can plot the actual vs. predicted values on a scatter plot. If the actual and predicted values matched up exactly, they would sit on the y = x line.
 ```{r}
@@ -240,4 +259,4 @@ ggplot(actual_ridge_predict_df, aes(x = actual, y = prediction)) +
 
 ## Conclusion
 
-Comparing the Lasso and Ridge penalty, based on the cross-validation, the Ridge penalty had a smaller `1se Measure`, showing that it performs better. When looking at the actual predictions on the testing data, the Ridge penalty had a higher correlation between the predicted and acutal values (77%) compared to the Lasso penatly correlation (72%). Further, when fitting a linear model to the actual and predicted values, the r^2^ values were highter for the Ridge penalty (0.589) versus the Lasso penalty (0.513). In conclusion, the **Ridge penalty performed better on this particular data set.**
+Comparing the Lasso and Ridge penalty, based on the cross-validation, the Ridge penalty had a smaller `1se Measure`, showing that it performs better. When looking at the actual predictions on the testing data, the Ridge penalty had a higher correlation between the predicted and actual values (77%) compared to the Lasso penalty correlation (72%). Further, when fitting a linear model to the actual and predicted values, the R^2^ values were highter for the Ridge penalty (0.589) versus the Lasso penalty (0.513). In conclusion, the **Ridge penalty performed better on this particular data set.**
