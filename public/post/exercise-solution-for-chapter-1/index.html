@@ -860,15 +860,15 @@ probability of each nucleotide at each spot on the genome:</p>
                           size = sum(nuc_freq_df$n), 
                           prob = rep(1 / 4, 4)))</code></pre>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13] [,14]
-## [1,] 3397 3447 3540 3504 3396 3506 3369 3451 3463  3475  3451  3484  3467  3419
-## [2,] 3523 3442 3360 3478 3549 3442 3507 3441 3459  3368  3457  3393  3420  3593
-## [3,] 3430 3456 3472 3377 3412 3467 3436 3431 3417  3522  3443  3430  3462  3461
-## [4,] 3444 3449 3422 3435 3437 3379 3482 3471 3455  3429  3443  3487  3445  3321
+## [1,] 3540 3449 3544 3437 3447 3402 3518 3461 3412  3477  3351  3354  3524  3534
+## [2,] 3435 3447 3388 3549 3466 3443 3480 3473 3478  3432  3480  3518  3478  3490
+## [3,] 3328 3496 3447 3378 3488 3435 3459 3418 3461  3452  3523  3452  3340  3449
+## [4,] 3491 3402 3415 3430 3393 3514 3337 3442 3443  3433  3440  3470  3452  3321
 ##      [,15] [,16] [,17] [,18] [,19] [,20]
-## [1,]  3387  3466  3487  3455  3564  3448
-## [2,]  3406  3439  3496  3489  3323  3434
-## [3,]  3546  3341  3398  3418  3476  3440
-## [4,]  3455  3548  3413  3432  3431  3472</code></pre>
+## [1,]  3438  3530  3460  3523  3323  3540
+## [2,]  3378  3438  3487  3339  3510  3340
+## [3,]  3463  3395  3374  3505  3451  3500
+## [4,]  3515  3431  3473  3427  3510  3414</code></pre>
 <p>Next, I moved this into a tibble so I could more easily rearrange and plot the data using
 facetting in <code>ggplot2</code>:</p>
 <pre class="r"><code>sim_nuc_freq_df &lt;- as_tibble(sim_nuc_freq) %&gt;% 
@@ -882,16 +882,16 @@ sim_nuc_freq_df %&gt;%
 <pre><code>## # A tibble: 10 x 3
 ##    nucleotide sample value
 ##    &lt;chr&gt;       &lt;dbl&gt; &lt;int&gt;
-##  1 A               1  3397
-##  2 C               1  3523
-##  3 G               1  3430
-##  4 T               1  3444
-##  5 A               2  3447
-##  6 C               2  3442
-##  7 G               2  3456
-##  8 T               2  3449
-##  9 A               3  3540
-## 10 C               3  3360</code></pre>
+##  1 A               1  3540
+##  2 C               1  3435
+##  3 G               1  3328
+##  4 T               1  3491
+##  5 A               2  3449
+##  6 C               2  3447
+##  7 G               2  3496
+##  8 T               2  3402
+##  9 A               3  3544
+## 10 C               3  3388</code></pre>
 <pre class="r"><code>ggplot(sim_nuc_freq_df, aes(x = nucleotide, y = value)) + 
   geom_col(fill = &quot;lavender&quot;, color = &quot;black&quot;) + 
   theme_classic() + 
@@ -921,16 +921,16 @@ sim_nuc_freq_df %&gt;%
 <pre><code>## # A tibble: 10 x 3
 ##    nucleotide sample value
 ##    &lt;chr&gt;       &lt;dbl&gt; &lt;int&gt;
-##  1 A               1  3427
-##  2 C               1  3456
-##  3 G               1  3471
-##  4 T               1  3440
-##  5 A               2  3429
-##  6 C               2  3492
-##  7 G               2  3421
-##  8 T               2  3452
-##  9 A               3  3451
-## 10 C               3  3438</code></pre>
+##  1 A               1  3444
+##  2 C               1  3468
+##  3 G               1  3370
+##  4 T               1  3512
+##  5 A               2  3492
+##  6 C               2  3380
+##  7 G               2  3460
+##  8 T               2  3462
+##  9 A               3  3507
+## 10 C               3  3443</code></pre>
 <p>Using this dataframe of simulations, we can measure the mean, minimum, and maximum frequencies
 of each nucleotide across all 1,000 simulations:</p>
 <pre class="r"><code>(sim_summary &lt;- sim_nuc_freq_df %&gt;% 
@@ -941,10 +941,10 @@ of each nucleotide across all 1,000 simulations:</p>
 <pre><code>## # A tibble: 4 x 4
 ##   nucleotide mean_freq min_freq max_freq
 ##   &lt;chr&gt;          &lt;dbl&gt;    &lt;int&gt;    &lt;int&gt;
-## 1 A              3449.     3281     3602
-## 2 C              3446.     3272     3588
-## 3 G              3452.     3301     3652
-## 4 T              3447.     3266     3593</code></pre>
+## 1 A              3449.     3281     3637
+## 2 C              3450.     3307     3589
+## 3 G              3447.     3313     3638
+## 4 T              3449.     3289     3612</code></pre>
 <p>To help compare this with the observed data, we can create a table with information from
 both the original data and the simulations under the null model:</p>
 <pre class="r"><code>nuc_freq_df %&gt;% 
@@ -969,22 +969,22 @@ both the original data and the simulations under the null model:</p>
 <tr class="odd">
 <td align="center">A</td>
 <td align="center">4,335</td>
-<td align="center">3,449 (3,281, 3,602)</td>
+<td align="center">3,449 (3,281, 3,637)</td>
 </tr>
 <tr class="even">
 <td align="center">C</td>
 <td align="center">1,225</td>
-<td align="center">3,446 (3,272, 3,588)</td>
+<td align="center">3,450 (3,307, 3,589)</td>
 </tr>
 <tr class="odd">
 <td align="center">G</td>
 <td align="center">2,055</td>
-<td align="center">3,452 (3,301, 3,652)</td>
+<td align="center">3,447 (3,313, 3,638)</td>
 </tr>
 <tr class="even">
 <td align="center">T</td>
 <td align="center">6,179</td>
-<td align="center">3,447 (3,266, 3,593)</td>
+<td align="center">3,449 (3,289, 3,612)</td>
 </tr>
 </tbody>
 </table>
@@ -1034,11 +1034,11 @@ sim_stat %&gt;%
 <pre><code>## # A tibble: 5 x 2
 ##   sample variability_stat
 ##    &lt;dbl&gt;            &lt;dbl&gt;
-## 1      1            0.318
-## 2      2            0.882
-## 3      3            0.903
-## 4      4            0.476
-## 5      5            1.22</code></pre>
+## 1      1             3.07
+## 2      2             2.00
+## 3      3             1.83
+## 4      4             8.64
+## 5      5             1.56</code></pre>
 <p>Here is a plot of the distribution of this statistic across the 1,000 simulations:</p>
 <pre class="r"><code>ggplot(sim_stat, aes(x = variability_stat)) + 
   geom_rect(data = sim_stat, aes(xmin = quantile(variability_stat, prob = 0.025),
