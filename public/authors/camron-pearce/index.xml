@@ -236,5 +236,309 @@ a method that illuminates a specimen in a single plane and detected from the per
 </description>
     </item>
     
+    <item>
+      <title>Exercise Solution for 5.1</title>
+      <link>/post/exercise-solution-for-5-1/</link>
+      <pubDate>Thu, 12 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>/post/exercise-solution-for-5-1/</guid>
+      <description>
+
+
+&lt;p&gt;This exercise asks us to interpret and validate the consistency within our clusters of data. To do this, we will employ the silhouette index, which gives us a silhouette value measuring how similar an object is to its own cluster compared to other clusters.&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;silhouette index&lt;/strong&gt; is as follows:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\displaystyle S(i) = \frac{B(i) - A(i)}{max_i(A(i), B(i))} \]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;The book explains the equation by first defining that the average dissimilarity of a point &lt;span class=&#34;math inline&#34;&gt;\(x_i\)&lt;/span&gt; to a cluster &lt;span class=&#34;math inline&#34;&gt;\(C_k\)&lt;/span&gt; is the average of the distances from &lt;span class=&#34;math inline&#34;&gt;\(x_i\)&lt;/span&gt; to all of the points in &lt;span class=&#34;math inline&#34;&gt;\(C_k\)&lt;/span&gt;. From this, let &lt;span class=&#34;math inline&#34;&gt;\(A(i)\)&lt;/span&gt; be the average dissimlarity of all points in the cluster that &lt;span class=&#34;math inline&#34;&gt;\(x_i\)&lt;/span&gt; belongs to, and &lt;span class=&#34;math inline&#34;&gt;\(B(i)\)&lt;/span&gt; is the lowest average of dissimlarity of &lt;span class=&#34;math inline&#34;&gt;\(x_i\)&lt;/span&gt; to any other cluster of which &lt;span class=&#34;math inline&#34;&gt;\(x_i\)&lt;/span&gt; is NOT a member.Basically, we are subtracting the mean distance to other instances in the same cluster from the mean distance to the instances of the next closest cluster, and dividing it by which of the two values is larger. The output is a coefficient that will vary between -1 and 1, where a value closer to 1 implies that the instance is closest to the correct cluster.&lt;/p&gt;
+&lt;p&gt;The solution to this exercise requires the following R packages to be loaded into your environment.&lt;/p&gt;
+&lt;div id=&#34;required-libraries&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Required Libraries&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(cluster)
+library(dplyr)
+library(ggplot2)
+library(purrr)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;part-a&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Part A&lt;/h2&gt;
+&lt;p&gt;Question 5.1.a asks us to compute the silhouette index for the &lt;code&gt;simdat&lt;/code&gt; data that was simulated in Section &lt;strong&gt;5.7&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The provided code is used to simulate data coming from four separate groups. They use the pipe operator to concatenate four different, randomly generated, data sets. The &lt;code&gt;ggplot2&lt;/code&gt; package is used to take a look at the data as a barchart of the within-groups sum of squared distances (WSS) obtained from the &lt;em&gt;k&lt;/em&gt; means method.&lt;/p&gt;
+&lt;p&gt;First off, we need to set the seed to ensure reproducible results with a randomly generated data set.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The following chunk of code utilizes the &lt;code&gt;lapply&lt;/code&gt; function two times to generate a datset with four distinct clusters. The &lt;code&gt;lapply&lt;/code&gt; function comes from base R, and is most often used to apply a function over an entire list or vector.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(1)
+
+
+simdat = lapply(c(0, 8), function(mx) {
+  lapply(c(0,8), function(my) {
+    
+    tibble(x = rnorm(100, mean = mx, sd = 2),
+           y = rnorm(100, mean = my, sd = 2),
+           class = paste(mx, my, sep = &amp;quot;:&amp;quot;))
+   }) %&amp;gt;% bind_rows
+}) %&amp;gt;% bind_rows
+
+simdatxy = simdat[, c(&amp;quot;x&amp;quot;, &amp;quot;y&amp;quot;)] # data without class label&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The technique the authors used to generate a clustered dataset is tricky. The &lt;code&gt;lapply&lt;/code&gt; within an &lt;code&gt;lapply&lt;/code&gt;, paired with two &lt;code&gt;bind_rows&lt;/code&gt; functions can be confusing. The next sections are included to demonstrate what the data looks like through various steps in this process, and help bring understanding to the reader how the code is working.&lt;/p&gt;
+&lt;div id=&#34;the-inner-lapply-function&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;The inner &lt;code&gt;lapply&lt;/code&gt; function&lt;/h4&gt;
+&lt;p&gt;The first &lt;code&gt;lapply&lt;/code&gt; is generating a vector of n = 100 normally distributed random numbers, and creating two separate dataframes packed into a list that consist of the mean (&lt;code&gt;my&lt;/code&gt;) and standard deviation, respectively. Each individual value is specifically assigned a 0 or an 8.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;simdatmy = lapply(c(0,8), function(my) {
+    
+    tibble(y = rnorm(100, mean = my, sd = 2),
+           class = paste(my, sep = &amp;quot;:&amp;quot;))
+   })
+summary(simdatmy)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      Length Class  Mode
+## [1,] 2      tbl_df list
+## [2,] 2      tbl_df list&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;the-outer-lapply-function&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;The outer &lt;code&gt;lapply&lt;/code&gt; function&lt;/h4&gt;
+&lt;p&gt;The second (outer) &lt;code&gt;lapply&lt;/code&gt; uses the same idea to apply the same, random, 0 or 8 assignment to values in the &lt;code&gt;mx&lt;/code&gt; function. The ouput is now four separate dataframes within a list that contain all of the &lt;code&gt;mx&lt;/code&gt; data and all of the &lt;code&gt;my&lt;/code&gt; data. Within the &lt;code&gt;tibble&lt;/code&gt; function, they include the code &lt;code&gt;class =&lt;/code&gt; to ensure that each row in each of the 4 the lists is assigned one of the four possible two-way combinations of 0 and 8. This is important to simulate a clustered dataset.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;simdatmx = lapply(c(0, 8), function(mx) {
+  lapply(c(0,8), function(my) {
+    
+    tibble(x = rnorm(100, mean = mx, sd = 2),
+           y = rnorm(100, mean = my, sd = 2),
+           class = paste(mx, my, sep = &amp;quot;:&amp;quot;))
+    })})
+summary(simdatmx)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      Length Class  Mode
+## [1,] 2      -none- list
+## [2,] 2      -none- list&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;putting-it-together&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Putting it together&lt;/h4&gt;
+&lt;p&gt;The last step is to bind the list of dataframes into one single dataframe. The final dataframe includes all of the x and y data, each with assigned classes, defined by a combination of 0 and 8.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(1)
+
+
+simdat = lapply(c(0, 8), function(mx) {
+  lapply(c(0,8), function(my) {
+    
+    tibble(x = rnorm(100, mean = mx, sd = 2),
+           y = rnorm(100, mean = my, sd = 2),
+           class = paste(mx, my, sep = &amp;quot;:&amp;quot;))
+   }) %&amp;gt;% bind_rows
+}) %&amp;gt;% bind_rows
+
+head(simdat)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 3
+##        x       y class
+##    &amp;lt;dbl&amp;gt;   &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;
+## 1 -1.25  -1.24   0:0  
+## 2  0.367  0.0842 0:0  
+## 3 -1.67  -1.82   0:0  
+## 4  3.19   0.316  0:0  
+## 5  0.659 -1.31   0:0  
+## 6 -1.64   3.53   0:0&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;unique(simdat$class)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;0:0&amp;quot; &amp;quot;0:8&amp;quot; &amp;quot;8:0&amp;quot; &amp;quot;8:8&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The final &lt;code&gt;simdat&lt;/code&gt; dataframe includes 400 random points witih an assigned class to simulate clustering. We can look at the data using a simple &lt;code&gt;ggplot&lt;/code&gt; scatterplot, color coded by the class of each point.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(simdat, aes(x = x, y = y, color = class)) + geom_point()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-03-12-exercise-solution-for-5-1_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The next part of exploring the data is to compute the within-groups sum of squares (WSS) for the clusters that we just generated. The goal of this section is to observe how the WSS changes as the number of clusters is increased from 1 to 8 when using the k-means. Chapter 5 provides us with the following code and graph:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#1
+wss = tibble(k = 1:8, value = NA_real_)
+
+#2
+wss$value[1] = sum(scale(simdatxy, scale = FALSE)^2)
+
+#3
+for (i in 2:nrow(wss)) {
+  km  = kmeans(simdatxy, centers = wss$k[i])
+  wss$value[i] = sum(km$withinss)
+}
+
+ggplot(wss, aes(x = k, y = value)) + geom_col()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-03-12-exercise-solution-for-5-1_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;What is really going on here?&lt;/p&gt;
+&lt;p&gt;This first chunk is setting up a one-column dataframe with blank &lt;code&gt;NA&lt;/code&gt; values. The &lt;code&gt;NA&lt;/code&gt;s will be filled in with values as the rest of the code processes.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#1
+wss = tibble(k = 1:8, value = NA_real_)
+wss&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 8 x 2
+##       k value
+##   &amp;lt;int&amp;gt; &amp;lt;dbl&amp;gt;
+## 1     1    NA
+## 2     2    NA
+## 3     3    NA
+## 4     4    NA
+## 5     5    NA
+## 6     6    NA
+## 7     7    NA
+## 8     8    NA&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The second chunk of code is calculating the value for k = 1 individually. They use the &lt;code&gt;scale&lt;/code&gt; function to scale down the value for k = 1 because it is so much larger than the rest of the k-values. Without scaling down the k = 1 value, it would be difficult to observe any sharp decreases that might indicate a “potential sweet spot” for the number of clusters.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#2
+wss$value[1] = sum(scale(simdatxy, scale = FALSE)^2)
+wss&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 8 x 2
+##       k  value
+##   &amp;lt;int&amp;gt;  &amp;lt;dbl&amp;gt;
+## 1     1 15781.
+## 2     2    NA 
+## 3     3    NA 
+## 4     4    NA 
+## 5     5    NA 
+## 6     6    NA 
+## 7     7    NA 
+## 8     8    NA&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The last part of this chunk is running a k-means clustering on the remaining k 2 through 8 and then pulling out the &lt;code&gt;withinss&lt;/code&gt; value for all of the observations, summing it, and assigning that value to each individual k-value.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#3
+for (i in 2:nrow(wss)) {
+  km  = kmeans(simdatxy, centers = wss$k[i])
+  wss$value[i] = sum(km$withinss)
+}
+
+km$withinss&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 275.2533 165.2368 199.8292 257.9090 285.8292 131.9047 239.8457 339.1308&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;wss&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 8 x 2
+##       k  value
+##   &amp;lt;int&amp;gt;  &amp;lt;dbl&amp;gt;
+## 1     1 15781.
+## 2     2  9055.
+## 3     3  5683.
+## 4     4  3088.
+## 5     5  2755.
+## 6     6  2441.
+## 7     7  2152.
+## 8     8  1895.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;These corresponding values are then neatly displayed in a barchart of the WSS stastistic as a function of k. The sharp decrease between k = 3 and k = 4 (at the &lt;em&gt;elbow&lt;/em&gt;) is indicative of the number of clusters present in the dataset.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(wss, aes(x = k, y = value)) + geom_col()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-03-12-exercise-solution-for-5-1_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;computing-the-silhouette-index-for-simdat&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Computing the silhouette index for &lt;code&gt;simdat&lt;/code&gt;&lt;/h4&gt;
+&lt;p&gt;Next up is the code necessary to plot the silhouette index. The &lt;code&gt;silhouette&lt;/code&gt; function comes from the &lt;code&gt;cluster&lt;/code&gt; package, and the resulting graph provides an average silhouette width for k = 4 clusters.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pam4 = pam(simdatxy, 4)
+sil = silhouette(pam4, 4, border = NA)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;code&gt;pam&lt;/code&gt; (partitioning around medoids) function is doing the same thing as the &lt;code&gt;kmeans&lt;/code&gt; call from the earlier chunk of code, but using the &lt;code&gt;cluster&lt;/code&gt; package’s algorithm to calculate the k-means clustering. We use the &lt;code&gt;pam&lt;/code&gt; function here because the we need the “pam” and “partition” output class to run the &lt;code&gt;silhouette&lt;/code&gt; function. With this information, we can then compute the silhouette index and view the output summary and plot.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;class(pam4)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;pam&amp;quot;       &amp;quot;partition&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sil = silhouette(pam4, 4, border = NA)
+summary(sil)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Silhouette of 400 units in 4 clusters from pam(x = simdatxy, k = 4) :
+##  Cluster sizes and average silhouette widths:
+##       103       100        99        98 
+## 0.5279715 0.5047895 0.4815427 0.4785642 
+## Individual silhouette widths:
+##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+## -0.04754  0.41232  0.54916  0.49858  0.63554  0.71440&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Before we explore the final output plot, it might be interesting to look at plots of the simulated values with their respective cluster assignments based on &lt;code&gt;pam&lt;/code&gt; k-means clustering and the silhouette index. With some (a lot of) help from Brooke, we have the following code to view this.&lt;/p&gt;
+&lt;p&gt;For the most part, all of the points were assigned to the same cluster as the original, with the occational border point mis-assigned to the neighboring cluster. Interestingly, the silhouette index approaches zero when you near the border of of the cluster and is much higher near the center of the cluster. Although we would expect this, it can be helpful to view this graphically.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sil %&amp;gt;% 
+  unclass() %&amp;gt;% 
+  as.data.frame() %&amp;gt;% 
+  tibble::rownames_to_column(var = &amp;quot;orig_order&amp;quot;) %&amp;gt;% 
+  arrange(as.numeric(orig_order)) %&amp;gt;% 
+  bind_cols(simdat) %&amp;gt;% 
+  ggplot(aes(x = x, y = y, shape = as.factor(cluster), color = sil_width)) + 
+  geom_point() + 
+  facet_wrap(~ class)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-03-12-exercise-solution-for-5-1_files/figure-html/unnamed-chunk-16-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;And finally, a silhouette plot with the n = 400 data points. The average silhouette width is a metric that we can use to summarize everything at a level of the full clustering process. Essentially, the closer that this average is to 0.5, then the more accurate our number of clusters &lt;em&gt;k&lt;/em&gt; is. This concept is further explored in the &lt;strong&gt;Part B&lt;/strong&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(sil, col=c(&amp;quot;red&amp;quot;,&amp;quot;green&amp;quot;,&amp;quot;blue&amp;quot;,&amp;quot;purple&amp;quot;), main=&amp;quot;Silhouette&amp;quot;, border = &amp;quot;NA&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-03-12-exercise-solution-for-5-1_files/figure-html/unnamed-chunk-17-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;part-b&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Part B&lt;/h2&gt;
+&lt;p&gt;Question 5.1.b asks us to change the number of clusters &lt;em&gt;k&lt;/em&gt; and assess which &lt;em&gt;k&lt;/em&gt; value produces the best silhouette index.&lt;/p&gt;
+&lt;p&gt;In this example, there are a couple of ways to assess which k gives the best silhouette index.One method would be trial and error and determining which k-value produces the highest silhouette index. This method works out for this example, but is impractical for much larger and complex datasets. Included below is the code for testing multiple different k-values and the resulting coefficient values.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pam2 = pam(simdatxy, 2)
+sil2 = silhouette(pam2, 2)
+plot(sil2, col=c(&amp;quot;red&amp;quot;,&amp;quot;green&amp;quot;,&amp;quot;blue&amp;quot;,&amp;quot;purple&amp;quot;), main=&amp;quot;Silhouette&amp;quot;, border = &amp;quot;NA&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-03-12-exercise-solution-for-5-1_files/figure-html/unnamed-chunk-18-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pam3 = pam(simdatxy, 3)
+sil3 = silhouette(pam3, 3)
+plot(sil3, col=c(&amp;quot;red&amp;quot;,&amp;quot;green&amp;quot;,&amp;quot;blue&amp;quot;,&amp;quot;purple&amp;quot;), main=&amp;quot;Silhouette&amp;quot;, border = &amp;quot;NA&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-03-12-exercise-solution-for-5-1_files/figure-html/unnamed-chunk-18-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pam4 = pam(simdatxy, 4)
+sil = silhouette(pam4, 4)
+plot(sil, col=c(&amp;quot;red&amp;quot;,&amp;quot;green&amp;quot;,&amp;quot;blue&amp;quot;,&amp;quot;purple&amp;quot;), main=&amp;quot;Silhouette&amp;quot;, border = &amp;quot;NA&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-03-12-exercise-solution-for-5-1_files/figure-html/unnamed-chunk-18-3.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pam12 = pam(simdatxy, 12)
+sil12 = silhouette(pam12, 12)
+plot(sil12, col=c(&amp;quot;red&amp;quot;,&amp;quot;green&amp;quot;,&amp;quot;blue&amp;quot;,&amp;quot;purple&amp;quot;), main=&amp;quot;Silhouette&amp;quot;, border = &amp;quot;NA&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-03-12-exercise-solution-for-5-1_files/figure-html/unnamed-chunk-18-4.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pam40 = pam(simdatxy, 40)
+sil40 = silhouette(pam40, 40)
+plot(sil40, col=c(&amp;quot;red&amp;quot;,&amp;quot;green&amp;quot;,&amp;quot;blue&amp;quot;,&amp;quot;purple&amp;quot;), main=&amp;quot;Silhouette&amp;quot;, border = &amp;quot;NA&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-03-12-exercise-solution-for-5-1_files/figure-html/unnamed-chunk-18-5.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;This trial and error method indicates that the highest silhouette index (that was tested) is achieved with k = 4.&lt;/p&gt;
+&lt;p&gt;A different (seemingly more appropriate) method is to write a piece of code that will test a range of k-values automatically. This next piece of code is adapted from Amy Fox and the group that she worked with during class. This is a much more practical method that provides a clear answer of which &lt;em&gt;k&lt;/em&gt; gives the best silhouette index.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;k &amp;lt;- c(2:10)
+df_test &amp;lt;- data.frame()
+for (i in 2:10){
+  
+  pam_run &amp;lt;- pam(simdatxy, i)
+  sil_run &amp;lt;- silhouette(pam_run, i)
+  
+  row_to_add &amp;lt;- data.frame(i, width = summary(sil_run)$avg.width)
+  
+  df_test &amp;lt;- rbind(df_test, row_to_add)
+}
+df_test&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    i     width
+## 1  2 0.4067400
+## 2  3 0.4000560
+## 3  4 0.4985801
+## 4  5 0.4401518
+## 5  6 0.3957347
+## 6  7 0.3717875
+## 7  8 0.3699929
+## 8  9 0.3670770
+## 9 10 0.3516570&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(df_test, aes(i, width)) +
+  geom_point() +
+  geom_line() +
+  xlab(&amp;quot;k&amp;quot;) +
+  ylab(&amp;quot;Silhouette Index&amp;quot;) +
+  ggtitle(&amp;quot;Testing different k values for Silhouette Index&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-03-12-exercise-solution-for-5-1_files/figure-html/unnamed-chunk-19-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(sil_run)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Silhouette of 400 units in 10 clusters from pam(x = simdatxy, k = i) :
+##  Cluster sizes and average silhouette widths:
+##        63        38        40        52        33        40        35        33 
+## 0.3885059 0.3273800 0.3622990 0.3703291 0.3573781 0.3257945 0.4429236 0.2807700 
+##        31        35 
+## 0.3944945 0.2335738 
+## Individual silhouette widths:
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## -0.1778  0.2389  0.3703  0.3517  0.4946  0.6623&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The result of &lt;code&gt;summary(sil_run)&lt;/code&gt; matches the trial and error method, but in a more efficient manner.&lt;/p&gt;
+&lt;p&gt;In summary, k = 4 provides us with the best silhouette index value. This is because there truly are four groups in the dataset based on how we created it.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;part-c&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Part C&lt;/h2&gt;
+&lt;p&gt;The last part of this exercise asks us to repeat by calculating the silhouette index on a uniform (unclustered) data distribution over a range of values.&lt;/p&gt;
+&lt;p&gt;Here, a new data set is generated without clustering the randomly generated data. The 0 and 8 assignment values have been removed and replaced with a singular 1. This assigns all of the values to have the same class.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(1)
+
+simdat1 = lapply(c(1), function(mx) {
+  lapply(c(1), function(my) {
+    tibble(x = rnorm(100, mean = mx, sd = 2),
+           y = rnorm(100, mean = my, sd = 2),
+           class = paste(mx, my, sep = &amp;quot;:&amp;quot;))
+   }) %&amp;gt;% bind_rows
+}) %&amp;gt;% bind_rows
+
+simdatxy1 = simdat1[, c(&amp;quot;x&amp;quot;, &amp;quot;y&amp;quot;)]
+
+ggplot(simdatxy1, aes(x = x, y = y)) +
+  geom_point()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-03-12-exercise-solution-for-5-1_files/figure-html/unnamed-chunk-20-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pam4.1 = pam(simdatxy1, 4)
+sil.1 = silhouette(pam4.1, 4)
+plot(sil.1, col=c(&amp;quot;red&amp;quot;,&amp;quot;green&amp;quot;,&amp;quot;blue&amp;quot;,&amp;quot;purple&amp;quot;), main=&amp;quot;Silhouette&amp;quot;, border = &amp;quot;NA&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-03-12-exercise-solution-for-5-1_files/figure-html/unnamed-chunk-20-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The average silhouette width is 0.33, which is much lower than the clustered value of 0.50 that we see with the first simulation. It should be pointed out that several of the points end up with negative silhouette widths. These observations were assigned to the wrong group entirely.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Resources&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://web.stanford.edu/class/bios221/book/Chap-Clustering.html#ques:ques-WSSclusters&#34;&gt;Modern Statistics for Modern Biology - Chapter 5&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Silhouette_(clustering)&#34;&gt;Silhouette Clustering - Wikipedia&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://medium.com/@jyotiyadav99111/selecting-optimal-number-of-clusters-in-kmeans-algorithm-silhouette-score-c0d9ebb11308&#34;&gt;Blog on Selecting Optimal Number of Clusters&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>
