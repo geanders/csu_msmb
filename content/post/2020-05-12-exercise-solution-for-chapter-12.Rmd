@@ -29,7 +29,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Exercise 12.2 from Modern Statistics for Modern Biologists
 
-> Use glmnet for a prediction of a continous variable, i.e., for regression. Use the prostate cancer data from Chapter 3 of (Hastie, Tibshirani, and Friedman 2008). The data are available in the CRAN package `ElemStatLearn`. Explore the effects of using ridge versus lasso penalty.
+> Use glmnet for a prediction of a continous variable, i.e., for regression. Use the prostate cancer data from Chapter 3 of (Hastie, Tibshirani, and Friedman 2008). The data are available in the CRAN package `ElemStatLearn`. Explore the effects of using Ridge versus Lasso penalty.
 
 
 Here are the packages that need to be installed.
@@ -67,7 +67,19 @@ level of prostate-specific antigen
 - `train`: a logical vector, of whether the data was to be 
 part of the training dataset (TRUE) or the testing one (FALSE)
 
-So, you're trying to predict the values of `lpsa` based on all of the other variables.
+So, you're trying to predict the values of `lpsa` based on all of the other variables. `lpsa` is a continuous variable. To get a general view of the `lpsa` values, we can view a summary of values and create a histogram.
+
+```{r}
+prostate$lpsa %>%
+  summary()
+
+
+ggplot(prostate, aes(x = lpsa)) +
+  geom_histogram(bins = 30) +
+  ggtitle("Histogram of lpsa response")
+```
+
+Here we can see the values range from -0.4 to values of almost 6. Based on the histogram, the data seems to also fit a close to normal distribution.
 
 We will first split the data into testing and training data.
 ```{r}
@@ -76,13 +88,26 @@ prostate_train <- prostate %>%
 
 prostate_test <- prostate %>%
   filter(train == FALSE)
+
+
 ```
 
 There are `r nrow(prostate_train)` samples in the training set and `r nrow(prostate_test)` samples in the testing set.
 
-## Fit generaltized linear model (glmnet) with Lasso and Ridge penalties
 
-Based on the `glmnet` package, when alpha = 1 the lasso penalty is used, if alpha = 0, then ridge penalty is used. A great resource for the `glmnet` package can be found here: <https://web.stanford.edu/~hastie/glmnet/glmnet_alpha.html>
+Because this data was specifically posted to teach machine learning, the authors included a column called `train` so that users can split the data into testing and training datasets. If this column had not been created, there are many ways to sample the data and split it into two datasets. Here is an example:
+
+`install.packages("rsample")`
+`library(rsample)`
+`prostate_split <- initial_split(prostate, prop = .75)`
+`prostate_test <- testing(prostate_split)`
+`prostate_train <- training(prostate_split)`
+
+
+
+## Fit generalized linear model (glmnet) with Lasso and Ridge penalties
+
+Based on the `glmnet` package, when alpha = 1 the Lasso penalty is used, if alpha = 0, then Ridge penalty is used. A great resource for the `glmnet` package can be found here: <https://web.stanford.edu/~hastie/glmnet/glmnet_alpha.html>
 
 Here, we use a matrix of all of the predictors (`x`) to try to predict the `lpsa` column (`y`).
 
@@ -140,7 +165,7 @@ The `Nonzero` column describes the nonzero coefficients, or the number of predic
 
 ## Lasso Prediction 
 
-As we used the training data to build the model, we can then test the generalized linear model with the lasso penalty on the testing data.
+As we used the training data to build the model, we can then test the generalized linear model with the Lasso penalty on the testing data.
 
 We start by using the `predict` function to use the model to predict the `lpsa` on the testing data. We can then see the correlation between the predicted values and actual values.
 ```{r}
@@ -180,7 +205,7 @@ ggplot(actual_lasso_predict_df, aes(x = actual, y = prediction)) +
 
 ## Ridge Prediction 
 
-We can then perform the same functions using the  generalized linear model with the ridge penalty to test on the testing data.
+We can then perform the same functions using the  generalized linear model with the Ridge penalty to test on the testing data.
 
 ```{r}
 s0 <- cvglmnet_ridge$lambda.1se 
@@ -195,7 +220,7 @@ We can then see how correlated the prediction and real data are using the `cor` 
 ```{r}
 cor(actual_ridge_predict_df)
 ```
-The ridge prediction and acutal values are 77% correlated.
+The Ridge prediction and acutal values are 77% correlated.
 
 We can then fit a linear line to the prediction and actual data and look at the r^2^ value
 ```{r}
@@ -215,4 +240,4 @@ ggplot(actual_ridge_predict_df, aes(x = actual, y = prediction)) +
 
 ## Conclusion
 
-Comparing the Lasso and Ridge Penalty, based on the cross-validation, the ridge penalty had a smaller `1se Measure`, showing that it performs better. When looking at the actual predictions on the testing data, the ridge penalty had a higher correlation between the predicted and acutal values (77%) compared to the lasso penatly correlation (72%). Further, when fitting a linear model to the actual and predicted values, the r^2^ values were highter for the ridge penalty (0.589) versus the lasso penalty (0.513). In conclusion, the **ridge penalty performed better on this particular data set.**
+Comparing the Lasso and Ridge penalty, based on the cross-validation, the Ridge penalty had a smaller `1se Measure`, showing that it performs better. When looking at the actual predictions on the testing data, the Ridge penalty had a higher correlation between the predicted and acutal values (77%) compared to the Lasso penatly correlation (72%). Further, when fitting a linear model to the actual and predicted values, the r^2^ values were highter for the Ridge penalty (0.589) versus the Lasso penalty (0.513). In conclusion, the **Ridge penalty performed better on this particular data set.**
