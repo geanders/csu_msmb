@@ -29,7 +29,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Exercise 12.2 from Modern Statistics for Modern Biologists
 
-Use glmnet for a prediction of a continous variable, i.e., for regression. Use the prostate cancer data from Chapter 3 of (Hastie, Tibshirani, and Friedman 2008). The data are available in the CRAN package ElemStatLearn. Explore the effects of using ridge versus lasso penalty.
+> Use glmnet for a prediction of a continous variable, i.e., for regression. Use the prostate cancer data from Chapter 3 of (Hastie, Tibshirani, and Friedman 2008). The data are available in the CRAN package `ElemStatLearn`. Explore the effects of using ridge versus lasso penalty.
 
 
 Here are the packages that need to be installed.
@@ -41,9 +41,7 @@ library(ggplot2)
 
 ## Data for the exercise
 
-The `ElemStatPackage` has been orphaned and isn't on CRAN anymore. However, it's up on
-GitHub, so I grabbed the data file you'll need from there. You can download it 
-yourself at: https://github.com/cran/ElemStatLearn/blob/master/data/prostate.RData
+The `ElemStatPackage` isn't on CRAN anymore. But it is possible to download it from Github at: https://github.com/cran/ElemStatLearn/blob/master/data/prostate.RData
 
 ```{r}
 load("./example_datasets/prostate.RData")
@@ -52,11 +50,7 @@ prostate %>%
   head()
 ```
 
-Here's a description of the data, from the archived help files: 
-
-> "Data to examine the correlation between the level of prostate-specific
-  antigen and a number of clinical measures in men who were about to 
-  receive a radical prostatectomy."
+This data looks at correlating the level of prostate-specific antigen `lpsa` and eight other clinical measures in men.
 
 Here's what the variables mean: 
 
@@ -73,8 +67,7 @@ level of prostate-specific antigen
 - `train`: a logical vector, of whether the data was to be 
 part of the training dataset (TRUE) or the testing one (FALSE)
 
-So, you're trying to predict the values of `lpsa` based on the variables
-`lcavol` through `pgg45`. 
+So, you're trying to predict the values of `lpsa` based on all of the other variables.
 
 We will first split the data into testing and training data.
 ```{r}
@@ -89,7 +82,7 @@ There are `r nrow(prostate_train)` samples in the training set and `r nrow(prost
 
 ## Fit generaltized linear model (glmnet) with Lasso and Ridge penalties
 
-Based on the glmnet package, when alpha = 1 the lasso penalty is used, if alpha = 0, then ridge penalty is used. A great resource for the glmnet package can be found here: <https://web.stanford.edu/~hastie/glmnet/glmnet_alpha.html>
+Based on the `glmnet` package, when alpha = 1 the lasso penalty is used, if alpha = 0, then ridge penalty is used. A great resource for the `glmnet` package can be found here: <https://web.stanford.edu/~hastie/glmnet/glmnet_alpha.html>
 
 Here, we use a matrix of all of the predictors (`x`) to try to predict the `lpsa` column (`y`).
 
@@ -116,7 +109,7 @@ In the plots show the coefficients as L1- norm increases. The top axis shows the
 
 ## Cross Validation
 
-We then want to perform cross-validation on the dataset. We use the cv.glmnet function to do this. Again we input a matrix of all of the predictors (`x`) to look at the lpsa response (`y`). 
+We then want to perform cross-validation on the dataset. We use the `cv.glmnet` function to do this. Again we input a matrix of all of the predictors (`x`) to look at the `lpsa` response (`y`). 
 
 ```{r}
 set.seed(2)
@@ -141,15 +134,15 @@ title("Ridge Cross Validation", line = -1.5)
 ```
 
 In the data output, `1se` means the data point what is within 2 standard error of the minimum lambda (`min`). This it the value that the model suggests that we use (indicated by the 2nd dotted line on the plots.)
-The `1se Measure`  is similar to the mean squared error. If the measure is small, then the model is better. When comparing the `Measure` of the `1se` between the two penalties, we can see that the Ridge Penalty has a smaller 1se Measure, showing that it performs better. 
+The `1se Measure`  is similar to the mean squared error. If the measure is small, then the model is better. When comparing the `Measure` of the `1se` between the two penalties, we can see that the Ridge Penalty has a smaller `1se Measure`, showing that it performs better. 
 
-The Nonzero column describes the nonzero coefficients, or the number of predictors that are important in the particular model. There were a total of 8 predictors as the input. The Lasso penalty shows that all 8 predictors are important in building the model, but the Ridge penalty only uses 5 predictors.
+The `Nonzero` column describes the nonzero coefficients, or the number of predictors that are important in the particular model. There were a total of 8 predictors as the input. The Lasso penalty shows that all 8 predictors are important in building the model, but the Ridge penalty only uses 5 predictors.
 
 ## Lasso Prediction 
 
 As we used the training data to build the model, we can then test the generalized linear model with the lasso penalty on the testing data.
 
-We start by using the `predict` function to use the model to predict the lpsa on the testing data. We can then see the correlation between the predicted values and actual values.
+We start by using the `predict` function to use the model to predict the `lpsa` on the testing data. We can then see the correlation between the predicted values and actual values.
 ```{r}
 s0 <- cvglmnet_lasso$lambda.1se 
 
@@ -222,4 +215,4 @@ ggplot(actual_ridge_predict_df, aes(x = actual, y = prediction)) +
 
 ## Conclusion
 
-Comparing the Lasso and Ridge Penalty, based on the cross-validation, the ridge penalty had a smaller 1se Measure, showing that it performs better. When looking at the actual predictions on the testing data, the ridge penalty had a higher correlation between the predicted and acutal values (77%) compared to the lasso penatly correlation (72%). Further, when fitting a linear model to the actual and predicted values, the r^2^ values were highter for the ridge penalty (0.589) versus the lasso penalty (0.513). In conclusion, the **ridge penalty performed better on this particular data set.**
+Comparing the Lasso and Ridge Penalty, based on the cross-validation, the ridge penalty had a smaller `1se Measure`, showing that it performs better. When looking at the actual predictions on the testing data, the ridge penalty had a higher correlation between the predicted and acutal values (77%) compared to the lasso penatly correlation (72%). Further, when fitting a linear model to the actual and predicted values, the r^2^ values were highter for the ridge penalty (0.589) versus the lasso penalty (0.513). In conclusion, the **ridge penalty performed better on this particular data set.**
