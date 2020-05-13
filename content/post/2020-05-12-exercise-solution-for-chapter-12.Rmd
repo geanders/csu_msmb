@@ -204,23 +204,18 @@ cor(actual_lasso_predict_df)
 ```
 The output shows that the actual and predicted values are 72% correlated.
 
-We can then fit a linear line to the prediction and actual data and look at the R^2^ value.
-```{r}
-lm(actual_lasso_predict_df) %>%
-  summary()
-```
-
-The adjusted R^2^ value = 0.513.
-
 Finally, we can plot the actual vs. predicted values on a scatter plot. If the actual and predicted values match up exactly, they would sit on the y = x line.
 ```{r}
 ggplot(actual_lasso_predict_df, aes(x = actual, y = prediction)) +
   geom_point(color = "#00B0F6", size = 2) +
   geom_abline(slope=1, intercept=0)+
   ggtitle("Lasso Prediction") +
-  theme_light()
+  theme_light()+
+  coord_fixed(xlim = c(0.75, 5.6),
+              ylim = c(0.75, 5.6))
 ```
 
+We can see in regions of the plot above the y = x line that the model overpredicted the actual values. If a point is below the y = x line, the model underpredicted the values.
 
 ## Ridge Prediction 
 
@@ -241,22 +236,19 @@ cor(actual_ridge_predict_df)
 ```
 The Ridge prediction and actual values are 77% correlated.
 
-We can then fit a linear line to the prediction and actual data and look at the R^2^ value
-```{r}
-lm(actual_ridge_predict_df) %>%
-  summary()
-```
-The adjusted R^2^ value = 0.589
-
 Finally, we can plot the actual vs. predicted values on a scatter plot. If the actual and predicted values matched up exactly, they would sit on the y = x line.
 ```{r}
 ggplot(actual_ridge_predict_df, aes(x = actual, y = prediction)) +
   geom_point(color = "#FF62BC", size = 2) +
   geom_abline(slope=1, intercept=0) +
   ggtitle("Ridge Prediction") +
-  theme_light()
+  theme_light() +
+  coord_fixed(xlim = c(0.75, 5.6),
+              ylim = c(0.75, 5.6))
 ```
+
+We can see in regions of the plot above the y = x line that the model overpredicted the actual values. If a point is below the y = x line, the model underpredicted the values.
 
 ## Conclusion
 
-Comparing the Lasso and Ridge penalty, based on the cross-validation, the Ridge penalty had a smaller `1se Measure`, showing that it performs better. When looking at the actual predictions on the testing data, the Ridge penalty had a higher correlation between the predicted and actual values (77%) compared to the Lasso penalty correlation (72%). Further, when fitting a linear model to the actual and predicted values, the R^2^ values were highter for the Ridge penalty (0.589) versus the Lasso penalty (0.513). In conclusion, the **Ridge penalty performed better on this particular data set.**
+Comparing the Lasso and Ridge penalty, based on the cross-validation, the Ridge penalty had a smaller `1se Measure`, showing that it performs better. When looking at the actual predictions on the testing data, the Ridge penalty had a higher correlation between the predicted and actual values (77%) compared to the Lasso penalty correlation (72%). In conclusion, the **Ridge penalty performed better on this particular data set.**
