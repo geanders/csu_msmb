@@ -101,7 +101,7 @@ date_format = "   "
   Student responsibilities:
 
   * [Vocabulary](https://kind-neumann-789611.netlify.com/post/vocabulary-for-chapter-5/): [Burton Karger](https://kind-neumann-789611.netlify.com/authors/burton-karger/)
-  * Exercise: [Camron Pearce](https://kind-neumann-789611.netlify.com/authors/camron-pearce/)
+  * [Exercise](https://kind-neumann-789611.netlify.app/post/exercise-solution-for-5-1/): [Camron Pearce](https://kind-neumann-789611.netlify.com/authors/camron-pearce/)
   """
   
 [[experience]]
@@ -117,7 +117,7 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: [Daniel Dean](https://kind-neumann-789611.netlify.com/authors/daniel-dean/)
+  * [Vocabulary](https://kind-neumann-789611.netlify.app/post/vocabulary-for-chapter-6/): [Daniel Dean](https://kind-neumann-789611.netlify.com/authors/daniel-dean/)
   * Exercise: [Sherry WeMott](https://kind-neumann-789611.netlify.com/authors/sherry-wemott/)
   """
   
@@ -134,8 +134,8 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: [Zach Laubach](https://kind-neumann-789611.netlify.com/authors/zach_laubach/)
-  * Exercise: [Sierra Pugh](https://kind-neumann-789611.netlify.com/authors/sierra-pugh/)
+  * [Vocabulary](https://kind-neumann-789611.netlify.app/post/vocabulary-for-chapter-7/): [Zach Laubach](https://kind-neumann-789611.netlify.com/authors/zach_laubach/)
+  * [Exercise](https://kind-neumann-789611.netlify.app/post/exercise-solution-for-chapter-7/): [Sierra Pugh](https://kind-neumann-789611.netlify.com/authors/sierra-pugh/)
   """
   
 [[experience]]
@@ -151,7 +151,7 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: [Mikaela Elder](https://kind-neumann-789611.netlify.com/authors/mikaela-elder/)
+  * [Vocabulary](https://kind-neumann-789611.netlify.app/post/chapter-8-vocabulary-list/): [Mikaela Elder](https://kind-neumann-789611.netlify.com/authors/mikaela-elder/)
   * Exercise: [Burton Karger](https://kind-neumann-789611.netlify.com/authors/burton-karger/)
   """
   
@@ -168,7 +168,7 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: [Sere Williams](https://kind-neumann-789611.netlify.com/authors/sere-williams/)
+  * [Vocabulary](https://kind-neumann-789611.netlify.app/post/vocabulary-for-chapter-9/): [Sere Williams](https://kind-neumann-789611.netlify.com/authors/sere-williams/)
   * Exercise: [Daniel Dean](https://kind-neumann-789611.netlify.com/authors/daniel-dean/)
   """
 
@@ -185,7 +185,7 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: [Sarah Cooper](https://kind-neumann-789611.netlify.com/authors/sarah-cooper/)
+  * [Vocabulary](https://kind-neumann-789611.netlify.app/post/vocabulary-for-chapter-10/): [Sarah Cooper](https://kind-neumann-789611.netlify.com/authors/sarah-cooper/)
   * Exercise: [Zach Laubach](https://kind-neumann-789611.netlify.com/authors/zach_laubach/)
   """
   
@@ -202,7 +202,7 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: [Camron Pearce](https://kind-neumann-789611.netlify.com/authors/camron-pearce/)
+  * [Vocabulary](https://kind-neumann-789611.netlify.app/post/vocabulary-for-chapter-11/): [Camron Pearce](https://kind-neumann-789611.netlify.com/authors/camron-pearce/)
   * Exercise: [Mikaela Elder](https://kind-neumann-789611.netlify.com/authors/mikaela-elder/)
   """
 
@@ -219,7 +219,7 @@ date_format = "   "
   
   Student responsibilities:
 
-  * Vocabulary: [Sherry WeMott](https://kind-neumann-789611.netlify.com/authors/sherry-wemott/)
+  * [Vocabulary](https://kind-neumann-789611.netlify.app/post/vocabulary-for-chapter-12/): [Sherry WeMott](https://kind-neumann-789611.netlify.com/authors/sherry-wemott/)
   * Exercise: [Amy Fox](https://kind-neumann-789611.netlify.com/authors/amy-fox/)
   """
 
