@@ -126,22 +126,38 @@ Because this data was specifically posted to teach machine learning, the authors
 
 ## Fit generalized linear model (glmnet) with Lasso and Ridge penalties
 
+We will first pull out the predictors and reponse that we want to input into the `glmnet` function.
+
+```{r}
+# pull outall of the predictors that we are using
+predictors <- prostate_train %>%
+  select(lcavol:pgg45) %>%
+  as.matrix()
+
+head(predictors)
+
+# this is the response
+response <- prostate_train %>%
+  pull(lpsa)
+```
+
 Based on the `glmnet` package, when `alpha = 1` the Lasso penalty is used, if `alpha = 0`, then Ridge penalty is used. A great resource for the `glmnet` package can be found here: <https://web.stanford.edu/~hastie/glmnet/glmnet_alpha.html>
 
 Here, we use a matrix of all of the predictors (`x`) to try to predict the `lpsa` column (`y`).
 
 ```{r}
+
 # Lasso 
-lasso_glmnet <- glmnet(x = prostate_train %>% dplyr::select(lcavol:pgg45) %>% as.matrix(), 
-                    y = prostate_train %>% pull(lpsa), 
+lasso_glmnet <- glmnet(x = predictors, 
+                    y = response, 
                     family = "gaussian", alpha = 1)
 
 plot(lasso_glmnet, label = TRUE)
 title("Lasso Penalty", line = -2.5)
 
 # Ridge
-ridge_glmnet <- glmnet(x = prostate_train %>% dplyr::select(lcavol:pgg45) %>% as.matrix(), 
-                    y = prostate_train %>% pull(lpsa), 
+ridge_glmnet <- glmnet(x = predictors, 
+                    y = response, 
                     family = "gaussian", alpha = 0)
 
 plot(ridge_glmnet, label = TRUE)
@@ -159,8 +175,8 @@ We then want to perform cross-validation on the dataset. We use the `cv.glmnet` 
 set.seed(2)
 
 # Lasso
-cvglmnet_lasso <- cv.glmnet(x = prostate_train %>% dplyr::select(lcavol:pgg45) %>% as.matrix(), 
-                    y = prostate_train %>% pull(lpsa), 
+cvglmnet_lasso <- cv.glmnet(x = predictors, 
+                    y = response, 
                     family = "gaussian", alpha = 0)
 cvglmnet_lasso
 
@@ -168,8 +184,8 @@ plot(cvglmnet_lasso)
 title("Lasso Cross Validation", line = -1.5)
 
 # Ridge
-cvglmnet_ridge <- cv.glmnet(x = prostate_train %>% dplyr::select(lcavol:pgg45) %>% as.matrix(), 
-                    y = prostate_train %>% pull(lpsa), 
+cvglmnet_ridge <- cv.glmnet(x = predictors, 
+                    y = response, 
                     family = "gaussian", alpha = 1)
 cvglmnet_ridge
 
@@ -184,13 +200,23 @@ The `Nonzero` column describes the nonzero coefficients, or the number of predic
 
 ## Lasso Prediction 
 
+Here we pull out the same variables that we used to create the model, but we use the values from the testing data instead of the training data. We will then use the predictors from the testing data to predict the `lpsa`.
+```{r}
+predictors_test <- prostate_test %>% 
+  dplyr::select(lcavol:pgg45) %>% 
+  as.matrix()
+
+head(predictors_test)
+```
+
+
 As we used the training data to build the model, we can then test the generalized linear model with the Lasso penalty on the testing data.
 
 We start by using the `predict` function to use the model to predict the `lpsa` on the testing data. We can then see the correlation between the predicted values and actual values.
 ```{r}
 s0 <- cvglmnet_lasso$lambda.1se 
 
-lasso_predict <- predict(cvglmnet_lasso, newx = prostate_test%>% dplyr::select(lcavol:pgg45) %>% as.matrix(), s = s0)
+lasso_predict <- predict(cvglmnet_lasso, newx = predictors_test, s = s0)
 
 # create a data frame of the actual lpsa values and the predicted lpsa values
 actual_lasso_predict_df <- data.frame(prediction = as.vector(lasso_predict), actual = prostate_test$lpsa)
@@ -224,7 +250,7 @@ We can then perform the same functions using the  generalized linear model with 
 ```{r}
 s0 <- cvglmnet_ridge$lambda.1se 
 
-ridge_predict <- predict(cvglmnet_ridge, newx = prostate_test%>% dplyr::select(lcavol:pgg45) %>% as.matrix(), s = s0)
+ridge_predict <- predict(cvglmnet_ridge, newx = predictors_test, s = s0)
 
 # create a data frame of the predicted values and actual values
 actual_ridge_predict_df <- data.frame(prediction = as.vector(ridge_predict), actual = prostate_test$lpsa) 
