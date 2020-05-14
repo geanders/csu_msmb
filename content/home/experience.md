@@ -118,7 +118,7 @@ date_format = "   "
   Student responsibilities:
 
   * [Vocabulary](https://kind-neumann-789611.netlify.app/post/vocabulary-for-chapter-6/): [Daniel Dean](https://kind-neumann-789611.netlify.com/authors/daniel-dean/)
-  * Exercise: [Sherry WeMott](https://kind-neumann-789611.netlify.com/authors/sherry-wemott/)
+  * [Exercise](https://kind-neumann-789611.netlify.app/post/exercise-solution-for-chapter-6/): [Sherry WeMott](https://kind-neumann-789611.netlify.com/authors/sherry-wemott/)
   """
   
 [[experience]]
