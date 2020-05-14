@@ -3,7 +3,7 @@ title: "Exercise Solution for Chapter 12"
 author: "Amy Fox"
 date: '2020-05-12'
 slug: exercise-solution-for-chapter-12
-draft: yes
+draft: no
 categories:
   - Exercise solutions
   - Chapter 12
@@ -141,9 +141,27 @@ response <- prostate_train %>%
   pull(lpsa)
 ```
 
+When performing statistical analysis on data with many variables, we often have a problem with variance as there are many parameters. We can use penalization to account for this variance-bias trade off. Two examples of penalization are the Lasso and Ridge penalty which we will use in this exercise.
+
 Based on the `glmnet` package, when `alpha = 1` the Lasso penalty is used, if `alpha = 0`, then Ridge penalty is used. A great resource for the `glmnet` package can be found here: <https://web.stanford.edu/~hastie/glmnet/glmnet_alpha.html>
 
-Here, we use a matrix of all of the predictors (`x`) to try to predict the `lpsa` column (`y`).
+Here, we use a matrix of all of the predictors (`x`) to try to predict the `lpsa` column (`y`). When we plot the penalized regressions, we use the `label = TRUE` to show which lines correspond to which predictors. In this case, the order of the input vector `predictors` matches with the variable numbers as follows. 
+
+1: lcavol
+
+2: lweight
+
+3: age
+
+4: lbph
+
+5: svi
+
+6: lcp
+
+7: gleason
+
+8: pgg45
 
 ```{r}
 
@@ -164,12 +182,12 @@ plot(ridge_glmnet, label = TRUE)
 title("Ridge Penalty", line = -1.5)
 ```
 
-The plots show the estimated coefficients as L1- norm increases. The top axis shows the number of nonzero coefficients correspoding to the lamba at the current L1 norm. From these plots we can see that the variables 1 (log cancer volume), 2 (log prostate weight), and 5 (seminal vesicle invasion) are good predictors for the level of prostate-specific antigen (lpsa response).
+The plots show the estimated coefficients as L1 norm increases. L1 norm is the regularization term. It means that at small L1 norm values, there is a lot of regularization, but as it increases, more variables become part of the model as coefficients take non-zero values. The top axis shows the number of nonzero coefficients correspoding to the lamba at the current L1 norm. From these plots we can see that the variables 1 (log cancer volume), 2 (log prostate weight), and 5 (seminal vesicle invasion) are good predictors for the level of prostate-specific antigen (lpsa response).
 
 
 ## Cross Validation
 
-We then want to perform cross-validation on the dataset. We use the `cv.glmnet` function to do this. Again we input a matrix of all of the predictors (`x`) to look at the `lpsa` response (`y`). 
+After creating our models, we want to see how good they are. We can do this through cross-validation. In this case, we already split the data into training and testing data, but we could run the full modeling and cross-validation on all of the data. We use the `cv.glmnet` function to do this. It utilizes k-fold cross validation, meaning that the input data is split multiple times into new trainng and testing sets of sizes n(k-1)/k and n/k, respectively. We use this cross-validation to determine the best $\lambda$. Again we input a matrix of all of the predictors (`x`) to look at the `lpsa` response (`y`). 
 
 ```{r}
 set.seed(2)
@@ -197,6 +215,8 @@ In the data output, `1se` is the data point that is within 1 standard error of t
 The `1se Measure`  is similar to the mean squared error. If the measure is small, then the model is better. When comparing the `Measure` of the `1se` between the two penalties, we can see that the Ridge Penalty has a smaller `1se Measure`, showing that it performs better. 
 
 The `Nonzero` column describes the nonzero coefficients, or the number of predictors that are important in the particular model. There were a total of 8 predictors as the input. The Lasso penalty shows that all 8 predictors are important in building the model, but the Ridge penalty only uses 5 predictors.
+
+Based on this cross-validation, we can deduce that the Ridge penalty is the best predictive model to use for this data. We have also identified the best $\lambda$ to use with this model at 0.18074.
 
 ## Lasso Prediction 
 
@@ -278,3 +298,7 @@ We can see in regions of the plot above the y = x line that the model overpredic
 ## Conclusion
 
 Comparing the Lasso and Ridge penalty, based on the cross-validation, the Ridge penalty had a smaller `1se Measure`, showing that it performs better. When looking at the actual predictions on the testing data, the Ridge penalty had a higher correlation between the predicted and actual values (77%) compared to the Lasso penalty correlation (72%). In conclusion, the **Ridge penalty performed better on this particular data set.**
+
+
+Resources
+- https://stats.stackexchange.com/questions/68431/interpretting-lasso-variable-trace-plots
