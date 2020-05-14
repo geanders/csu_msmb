@@ -5,12 +5,261 @@
     <link>/categories/exercises/</link>
       <atom:link href="/categories/exercises/index.xml" rel="self" type="application/rss+xml" />
     <description>exercises</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 17 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 30 Apr 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>exercises</title>
       <link>/categories/exercises/</link>
     </image>
+    
+    <item>
+      <title>Exercise solution for Chapter 8, Part 1</title>
+      <link>/post/ex-8-1/</link>
+      <pubDate>Thu, 30 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/post/ex-8-1/</guid>
+      <description>
+
+
+&lt;div id=&#34;exercise-8.1&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Exercise 8.1&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Do the analyses of Section 8.5 with the &lt;code&gt;edgeR&lt;/code&gt; package and compare the results: make a scatterplot of the
+log 10 p-values, pick some genes where there are large differences,
+and visualize the raw data to see what is going on. Based on this can you explain the differences?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Most of the following code is taken straight come the book in section 8.5 for data cleaning/wrangling and &lt;code&gt;DESeq2&lt;/code&gt; analysis. The steps performed in &lt;code&gt;edgeR&lt;/code&gt; are quite similar but we do see some differences that we will get to towards the end.&lt;/p&gt;
+&lt;p&gt;First, we load our libraries.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(pasilla)
+library(edgeR)
+library(dplyr)
+library(DESeq2)
+library(ggplot2)
+library(pheatmap)
+library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We will use the same data used in the &lt;code&gt;DESeq2&lt;/code&gt; examples from the section 8.5.&lt;/p&gt;
+&lt;p&gt;Load the example data using the &lt;code&gt;system.file()&lt;/code&gt; call for R data stored as part of a R package.
+We then convert our data to a matrix object called &lt;code&gt;counts&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fn = system.file(&amp;quot;extdata&amp;quot;, &amp;quot;pasilla_gene_counts.tsv&amp;quot;,
+                  package = &amp;quot;pasilla&amp;quot;, mustWork = TRUE)
+counts = as.matrix(read.csv(fn, sep = &amp;quot;\t&amp;quot;, row.names = &amp;quot;gene_id&amp;quot;))
+
+head(counts)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##             untreated1 untreated2 untreated3 untreated4 treated1 treated2
+## FBgn0000003          0          0          0          0        0        0
+## FBgn0000008         92        161         76         70      140       88
+## FBgn0000014          5          1          0          0        4        0
+## FBgn0000015          0          2          1          2        1        0
+## FBgn0000017       4664       8714       3564       3150     6205     3072
+## FBgn0000018        583        761        245        310      722      299
+##             treated3
+## FBgn0000003        1
+## FBgn0000008       70
+## FBgn0000014        0
+## FBgn0000015        0
+## FBgn0000017     3334
+## FBgn0000018      308&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The matrix tallies the number of reads seen for each gene in each sample. We call it the count table. It has 14599 rows, corresponding to the genes, and 7 columns, corresponding to the samples.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dim(counts)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 14599     7&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;edger&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;code&gt;edgeR&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;Now begins the same analysis with the &lt;code&gt;edgeR&lt;/code&gt; package. To do this we follow the vignette for the package that is a downloadable .pdf file that you can get in your Rstudio &lt;code&gt;vignette(&#34;edgeR&#34;)&lt;/code&gt; or online with &lt;a href=&#34;https://www.bioconductor.org/packages/release/bioc/vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf&#34; class=&#34;uri&#34;&gt;https://www.bioconductor.org/packages/release/bioc/vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Here we make the &lt;code&gt;group&lt;/code&gt; object which is a vector with values representing the treatment status of each of the 8 samples, where 1 refers to the untreated group, and 2 refers to the treated group. With this &lt;code&gt;group&lt;/code&gt; object we can make a &lt;code&gt;DGEList()&lt;/code&gt;, from the &lt;code&gt;edgeR&lt;/code&gt; package, with our count data and the groups we just made.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;group &amp;lt;- factor(c(1,1,1,1,2,2,2))
+x &amp;lt;- DGEList(counts=counts, group=group)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;RNA-seq provides a measure of the relative abundance of each gene in each RNA
+sample, but does not provide any measure of the total RNA output on a per-cell basis. In other words, RNA-seq measure relative expression rather than absolute expression. This can become an issue in RNA-seq when a small number of highly expressed genes consume a substantial proportion of the total library for a sample causing under sampling of the other expressed genes.&lt;br /&gt;
+&lt;code&gt;calcNormFactors&lt;/code&gt; normalizes by finding a set of scaling factors for the library sizes that minimizes the log-fold changes between the samples for most genes. Using a trimmed mean of M-values (TMM) between each pair of samples. If we receive a &lt;code&gt;norm.factors&lt;/code&gt; &amp;lt; 1 that means a small number of high count genes are monopolizing the sequencing reducing the counts of other genes. Conversely, a &lt;code&gt;norm.factors&lt;/code&gt; &amp;gt; 1 scales up the library size, analogous to downscaling the counts.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;normalization &amp;lt;- calcNormFactors(x)
+normalization&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## An object of class &amp;quot;DGEList&amp;quot;
+## $counts
+##             untreated1 untreated2 untreated3 untreated4 treated1 treated2
+## FBgn0000003          0          0          0          0        0        0
+## FBgn0000008         92        161         76         70      140       88
+## FBgn0000014          5          1          0          0        4        0
+## FBgn0000015          0          2          1          2        1        0
+## FBgn0000017       4664       8714       3564       3150     6205     3072
+##             treated3
+## FBgn0000003        1
+## FBgn0000008       70
+## FBgn0000014        0
+## FBgn0000015        0
+## FBgn0000017     3334
+## 14594 more rows ...
+## 
+## $samples
+##            group lib.size norm.factors
+## untreated1     1 13972512    0.9995731
+## untreated2     1 21911438    1.0081519
+## untreated3     1  8358426    0.9843974
+## untreated4     1  9841335    0.9525077
+## treated1       2 18670279    1.0651817
+## treated2       2  9571826    0.9957012
+## treated3       2 10343856    0.9978557&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;code&gt;model.matrix()&lt;/code&gt; function creates a design matrix which is a matrix of values of explanatory variables of a set of objects. Each row represents an individual object, with the successive columns corresponding to the variables and their specific values for that object. The purpose of this conversion is to prepare the data in a manner that facilitates regression-like modelling (ex. &lt;code&gt;glm&lt;/code&gt;).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;design &amp;lt;- model.matrix(~group)
+head(design)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   (Intercept) group2
+## 1           1      0
+## 2           1      0
+## 3           1      0
+## 4           1      0
+## 5           1      1
+## 6           1      1&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;code&gt;estimateDisp()&lt;/code&gt; function &#34;Maximizes the negative binomial likelihood to give the estimate of the common, trended and tagwise dispersions across all tags. We have to use this negative binomial (aka gamma-Poisson) model since our experiments vary from replicate to replicate more than the traditional Poisson can account for. This variance can be due to seemingly miniscule experimental conditions such as, temperature of cell culture, pipettor calibration, etc. In the case of the gamma-Poisson we have two inputs for variance and mean instead of just having &lt;span class=&#34;math inline&#34;&gt;\(\lambda\)&lt;/span&gt; for both variance and mean in the normal Poisson.
+An important consideration that the &lt;code&gt;edgeR&lt;/code&gt; package took into account is the fact that RNA-seq and other Next Generation Sequencing projects are extremely expensive and generally have few samples. Accounting for dispersion with a small number of samples can be challenging and in the &lt;code&gt;edgeR&lt;/code&gt; package tackles this conundrum using a qCML method. The qCML method calculates the likelihood by conditioning on the total counts for each tag, and uses pseudo counts after adjusting for library sizes. Given a table of counts or a &lt;code&gt;DGEList&lt;/code&gt; object, the qCML common dispersion and tagwise dispersions can be estimated using the &lt;code&gt;estimateDisp()&lt;/code&gt; function&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;design_matrix &amp;lt;- estimateDisp(normalization, design)
+head(design_matrix)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## An object of class &amp;quot;DGEList&amp;quot;
+## $counts
+##             untreated1 untreated2 untreated3 untreated4 treated1 treated2
+## FBgn0000003          0          0          0          0        0        0
+## FBgn0000008         92        161         76         70      140       88
+## FBgn0000014          5          1          0          0        4        0
+## FBgn0000015          0          2          1          2        1        0
+## FBgn0000017       4664       8714       3564       3150     6205     3072
+## FBgn0000018        583        761        245        310      722      299
+##             treated3
+## FBgn0000003        1
+## FBgn0000008       70
+## FBgn0000014        0
+## FBgn0000015        0
+## FBgn0000017     3334
+## FBgn0000018      308
+## 
+## $samples
+##            group lib.size norm.factors
+## untreated1     1 13972512    0.9995731
+## untreated2     1 21911438    1.0081519
+## untreated3     1  8358426    0.9843974
+## untreated4     1  9841335    0.9525077
+## treated1       2 18670279    1.0651817
+## treated2       2  9571826    0.9957012
+## treated3       2 10343856    0.9978557
+## 
+## $design
+##   (Intercept) group2
+## 1           1      0
+## 2           1      0
+## 3           1      0
+## 4           1      0
+## 5           1      1
+## 6           1      1
+## 7           1      1
+## attr(,&amp;quot;assign&amp;quot;)
+## [1] 0 1
+## attr(,&amp;quot;contrasts&amp;quot;)
+## attr(,&amp;quot;contrasts&amp;quot;)$group
+## [1] &amp;quot;contr.treatment&amp;quot;
+## 
+## 
+## $common.dispersion
+## [1] 0.0228685
+## 
+## $trended.dispersion
+## [1] 0.12060195 0.04196786 0.11986264 0.12040360 0.01632837 0.02002502
+## 
+## $tagwise.dispersion
+## [1] 0.12060195 0.02742256 0.70902130 0.09430132 0.01321566 0.01722448
+## 
+## $AveLogCPM
+## [1] -2.636763  2.953356 -1.966526 -2.223010  8.454625  5.088412
+## 
+## $trend.method
+## [1] &amp;quot;locfit&amp;quot;
+## 
+## $prior.df
+## [1] 5.886884
+## 
+## $prior.n
+## [1] 1.177377
+## 
+## $span
+## [1] 0.3013916&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now that we have our &lt;code&gt;design_matrix&lt;/code&gt; we can begin fitting modified linear models to it. Here we use a quasi-likelihood negative binomial generalized log-linear model, which is a mouth full. “Quasi-likelihood estimation is one way of allowing for overdispersion, that is, greater variability in the data than would be expected from the statistical model used.” Since we have already stated that we will have variation in our experiments, possibly due to the most minute factors, this issue of overdispersion is apparent. Instead of using a traditional probability functions, a variance function is used (variance as a function of the mean) and allows for an overdispersion parameter input which is used to “fix” the variance function to resemble that of an existing probability function (ex. Poisson).&lt;/p&gt;
+&lt;p&gt;The goal of this fit is to identify genes where the intensity level (gene expression level) is notably different between our treated and untreated groups.
+Running the &lt;code&gt;glmQLF...()&lt;/code&gt; functions gives the null model against which the full model is compared. Tags can then be ranked in order of evidence for differential expression, based on the p-value computed for each tag.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fit &amp;lt;- glmQLFit(design_matrix, design)
+qlf &amp;lt;- glmQLFTest(fit, coef=2)
+edgeRoutput &amp;lt;- topTags(qlf)
+
+edgeRoutput&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Coefficient:  group2 
+##                 logFC   logCPM        F       PValue          FDR
+## FBgn0039155 -4.601317 5.882317 953.1722 1.646470e-14 2.403682e-10
+## FBgn0025111  2.905756 6.923428 714.2877 1.257310e-13 9.177735e-10
+## FBgn0035085 -2.548257 5.684922 452.3866 3.068717e-12 1.311741e-08
+## FBgn0003360 -3.173036 8.452776 442.2207 3.594058e-12 1.311741e-08
+## FBgn0029167 -2.188103 8.221274 412.0926 5.866109e-12 1.404698e-08
+## FBgn0039827 -4.142255 4.397963 408.8548 6.195926e-12 1.404698e-08
+## FBgn0034736 -3.492036 4.186934 403.9614 6.735313e-12 1.404698e-08
+## FBgn0029896 -2.434452 5.305827 336.3777 2.386477e-11 4.355023e-08
+## FBgn0000071  2.685868 4.795202 288.1793 6.900283e-11 1.119303e-07
+## FBgn0034434 -3.624878 3.214994 282.6144 7.884818e-11 1.151105e-07&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;head(as.data.frame(qlf))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                   logFC    logCPM          F     PValue
+## FBgn0000003  1.90105753 -2.636763 1.40991069 0.25938432
+## FBgn0000008  0.01020453  2.953356 0.00282599 0.95833875
+## FBgn0000014 -0.21077864 -1.966526 0.03020978 0.86444776
+## FBgn0000015 -1.61118380 -2.223010 1.65428857 0.21877991
+## FBgn0000017 -0.23044399  8.454625 3.99686462 0.06492692
+## FBgn0000018 -0.09673451  5.088412 0.53070377 0.47805393&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Our outputs can be summarized by looking at our &lt;code&gt;logFC&lt;/code&gt; column (log fold change) where the higher the number the higher expression was read during sequencing. Secondly our &lt;code&gt;PValue&lt;/code&gt; allows the rejection of our null hypothesis, which is, there is equal expression regardless of what gene you look at.&lt;/p&gt;
+&lt;p&gt;Now we want to visualize the data points after their regression fits. We must tidy up the data sets a bit to apply some &lt;code&gt;tidyverse&lt;/code&gt; magic. First the data is converted to a data frame, &lt;code&gt;as.data.frame()&lt;/code&gt;, then we use the &lt;code&gt;rownames_to_column()&lt;/code&gt; function which sounds like its name, and pulls the row names &lt;code&gt;gene_id&lt;/code&gt; into a new column of the dataframe. Lastly we subset the data using the &lt;code&gt;select()&lt;/code&gt; function for only the columns we want, and order the data using the &lt;code&gt;arrange()&lt;/code&gt; function to start with the largest values with respect to the &lt;code&gt;padj&lt;/code&gt; via the &lt;code&gt;desc()&lt;/code&gt; argument inside &lt;code&gt;select()&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tidy_pasilla &amp;lt;- pasilla %&amp;gt;% 
+  results() %&amp;gt;% 
+  as.data.frame() %&amp;gt;% 
+  rownames_to_column(var = &amp;quot;gene_id&amp;quot;) %&amp;gt;% 
+  select(gene_id, pvalue, padj) %&amp;gt;% 
+  arrange(desc(padj))
+
+tidy_edgeR &amp;lt;- qlf %&amp;gt;% 
+  as.data.frame() %&amp;gt;% 
+  rownames_to_column(var = &amp;quot;gene_id&amp;quot;) %&amp;gt;%
+  select(gene_id, PValue)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Using &lt;code&gt;full_join()&lt;/code&gt; from &lt;code&gt;dplyr&lt;/code&gt; package we are able to subset these two data frames based on the &lt;code&gt;gene_id&lt;/code&gt; column and keeping all other matching columns.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;full_join(tidy_pasilla, tidy_edgeR, 
+          &amp;quot;gene_id&amp;quot;) %&amp;gt;% 
+  ggplot(aes(x = pvalue, y = PValue)) +
+  labs(x = &amp;quot;DESeq2 pvalue&amp;quot;, y = &amp;quot;edgeR PValue&amp;quot;) +
+  scale_x_log10() +
+  scale_y_log10() +
+  geom_point(alpha = 0.5) +
+  geom_abline(slope = 1, intercept = 0, color = &amp;quot;blue&amp;quot;) +
+  geom_vline(xintercept = 1e-25, color = &amp;quot;red&amp;quot;) +
+  ggtitle(&amp;quot;DESeq2 vs EdgeR&amp;quot;, subtitle = &amp;quot;Each point represents a single gene, p-value is for whether 
+          the gene has differential expression between groups&amp;quot;) +
+  theme_bw()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-04-30-exercise-solution-for-chapter-8_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The reference line drawn here using &lt;code&gt;geom_abline(slope = 1, intercept = 0)&lt;/code&gt; is to show what it the data would look like if the two methods were identical.
+Looking at the graph above, we see that most of the data are falling on relatively close to one another when our pvalue &amp;gt; 1e-25. We know this because the alpha of the &lt;code&gt;ggplot&lt;/code&gt; object is set to 0.5, so if we see a black dot, it means there are two points, one on top of each other. This is what we would expect considering these packages &lt;code&gt;DESeq2&lt;/code&gt; and &lt;code&gt;edgeR&lt;/code&gt; have the same purpose in mind and is why we are comparing their outputs in this exercise!&lt;/p&gt;
+&lt;p&gt;Below we subset the data again, this time selecting those points with pvalues &amp;lt;= 1e-25 (log10 transform). When plotting these we don’t see much overlapping, supporting the variation between the &lt;code&gt;edgeR&lt;/code&gt; and &lt;code&gt;DESeq2&lt;/code&gt; modes of analysis.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;full_join(tidy_pasilla, tidy_edgeR,&amp;quot;gene_id&amp;quot;) %&amp;gt;% 
+  filter(pvalue &amp;lt;= 1e-25) %&amp;gt;%
+  ggplot(aes(x = pvalue, y = PValue)) +
+  labs(x = &amp;quot;DESeq2 pvalue&amp;quot;, y = &amp;quot;edgeR PValue&amp;quot;) +
+  geom_point(alpha = 0.5) +
+  scale_x_log10() +
+  scale_y_log10() +
+  ggtitle(&amp;quot;Genes with DESeq pvalue &amp;lt;= -25&amp;quot;, subtitle = &amp;quot;Each point represents a single gene, p-value is for whether 
+          the gene has differential expression between groups&amp;quot;) +
+  theme_bw()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-04-30-exercise-solution-for-chapter-8_files/figure-html/unnamed-chunk-13-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;references&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;References&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.bioconductor.org/packages/release/bioc/vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf&#34; class=&#34;uri&#34;&gt;https://www.bioconductor.org/packages/release/bioc/vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Quasi-likelihood&#34; class=&#34;uri&#34;&gt;https://en.wikipedia.org/wiki/Quasi-likelihood&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://web.stanford.edu/class/bios221/book/Chap-CountData.html&#34; class=&#34;uri&#34;&gt;http://web.stanford.edu/class/bios221/book/Chap-CountData.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf&#34; class=&#34;uri&#34;&gt;https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://geanders.github.io/RProgrammingForResearch/&#34; class=&#34;uri&#34;&gt;https://geanders.github.io/RProgrammingForResearch/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Exercise solution for Chapter 9</title>
@@ -805,7 +1054,7 @@ lines(thetas, densPostTheory, type=&amp;quot;l&amp;quot;, lwd = 3)&lt;/code&gt;&
 &lt;p&gt;&lt;img src=&#34;/post/2020-02-24-ex2-6_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;We can also check the means of both distributions computed above.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(thetaPostEmp) # Empirical&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.1362598&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.1366725&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dtheta = thetas[2]-thetas[1]
 sum(thetas * densPostTheory * dtheta) # Theoretical&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 0.1365727&lt;/code&gt;&lt;/pre&gt;
@@ -814,7 +1063,7 @@ sum(thetas * densPostTheory * dtheta) # Theoretical&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;We can use Monte Carlo integration instead and then check the agreement between our Monte Carlo sample &lt;code&gt;thetaPostMC&lt;/code&gt; and our sample &lt;code&gt;thetaPostEmp&lt;/code&gt; with a QQ plot:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;thetaPostMC = rbeta(n = 1e6, 42.47, 268.5)
 mean(thetaPostMC)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.1365826&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.1365467&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qqplot(thetaPostMC, thetaPostEmp, type = &amp;quot;l&amp;quot;, asp = 1)
 abline(a = 0, b = 1, col = &amp;quot;blue&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/2020-02-24-ex2-6_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
@@ -823,12 +1072,12 @@ mcPost2   = rbeta(1e6, 42.47, 268.5)
 sum(thetas * densPost2 * dtheta)  # mean, by numeric integration&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 0.1365727&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(mcPost2)                     # mean, by MC&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.1365765&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.1365214&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;thetas[which.max(densPost2)]      # MAP estimate&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 0.134&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;quantile(mcPost2, c(0.025, 0.975))&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##      2.5%     97.5% 
-## 0.1007367 0.1767633&lt;/code&gt;&lt;/pre&gt;
+## 0.1007414 0.1767249&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
