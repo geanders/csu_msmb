@@ -5,12 +5,28 @@
     <link>/tags/</link>
       <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <description>Tags</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 12 May 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 13 May 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Tags</title>
       <link>/tags/</link>
     </image>
+    
+    <item>
+      <title>Chapter 6</title>
+      <link>/tags/chapter-6/</link>
+      <pubDate>Wed, 13 May 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/chapter-6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>exercises</title>
+      <link>/tags/exercises/</link>
+      <pubDate>Wed, 13 May 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/exercises/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Chapter 12</title>
@@ -45,18 +61,10 @@
     </item>
     
     <item>
-      <title>chapter 8</title>
+      <title>Chapter 8</title>
       <link>/tags/chapter-8/</link>
       <pubDate>Thu, 30 Apr 2020 00:00:00 +0000</pubDate>
       <guid>/tags/chapter-8/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>exercises</title>
-      <link>/tags/exercises/</link>
-      <pubDate>Thu, 30 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>/tags/exercises/</guid>
       <description></description>
     </item>
     
@@ -89,14 +97,6 @@
       <link>/tags/chapter-5/</link>
       <pubDate>Thu, 12 Mar 2020 00:00:00 +0000</pubDate>
       <guid>/tags/chapter-5/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Chapter 6</title>
-      <link>/tags/chapter-6/</link>
-      <pubDate>Thu, 12 Mar 2020 00:00:00 +0000</pubDate>
-      <guid>/tags/chapter-6/</guid>
       <description></description>
     </item>
     

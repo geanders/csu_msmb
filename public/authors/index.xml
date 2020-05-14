@@ -5,12 +5,22 @@
     <link>/authors/</link>
       <atom:link href="/authors/index.xml" rel="self" type="application/rss+xml" />
     <description>Authors</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 12 May 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 13 May 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Authors</title>
       <link>/authors/</link>
     </image>
+    
+    <item>
+      <title></title>
+      <link>/authors/sherry-wemott/</link>
+      <pubDate>Wed, 13 May 2020 00:00:00 +0000</pubDate>
+      <guid>/authors/sherry-wemott/</guid>
+      <description>&lt;p&gt;Sherry WeMott is a research associate and graduate student in the Department of Environmental and Radiological Health Sciences at Colorado
+State University. Her research focuses on evironmental and social factors impacting health.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title></title>
@@ -31,16 +41,6 @@ primary research interests lie in the development of statistical methods for ana
 network data, with particular attention to applications in ecology and the social sciences.
 She also studies covariance models for multiway data, Bayesian statistics, and methods for
 survey analysis.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/authors/sherry-wemott/</link>
-      <pubDate>Mon, 04 May 2020 00:00:00 +0000</pubDate>
-      <guid>/authors/sherry-wemott/</guid>
-      <description>&lt;p&gt;Sherry WeMott-Colton is a graduate student in the Department of Environmental and Radiological Health Sciences at Colorado
-State University. Her research focuses on evironmental and social factors impacting health.&lt;/p&gt;
 </description>
     </item>
     

@@ -5,12 +5,280 @@
     <link>/categories/chapter-6/</link>
       <atom:link href="/categories/chapter-6/index.xml" rel="self" type="application/rss+xml" />
     <description>Chapter 6</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 12 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 13 May 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Chapter 6</title>
       <link>/categories/chapter-6/</link>
     </image>
+    
+    <item>
+      <title>Exercise Solution for Chapter 6</title>
+      <link>/post/exercise-solution-for-chapter-6/</link>
+      <pubDate>Wed, 13 May 2020 00:00:00 +0000</pubDate>
+      <guid>/post/exercise-solution-for-chapter-6/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;chapter-6-exercise-6.4&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Chapter 6, Exercise 6.4&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Make a less extreme example of correlated test statistics than the data duplication at the end of Section 6.5. Simulate data with true null hypotheses only, and let the data morph from having completely independent replicates (columns) to highly correlated as a function of some continuous-valued control parameter. Check type-I error control (e.g., with the p-value histogram) as a function of this control parameter.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;We’ll go through a few data clean up and exploration steps first, then we’ll walk through the code related specifically to the exercise a little further down in the post.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+library(purrr)
+library(ggbeeswarm)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;For this exercise we use the PlantGrowth dataset from the &lt;code&gt;datasets&lt;/code&gt; package in R. The dataset includes results from an experiment on plant growth comparing yields (as measured by dried weight of plants) obtained under a control and two different treatment conditions.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data(&amp;quot;PlantGrowth&amp;quot;)
+head(PlantGrowth)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   weight group
+## 1   4.17  ctrl
+## 2   5.58  ctrl
+## 3   5.18  ctrl
+## 4   6.11  ctrl
+## 5   4.50  ctrl
+## 6   4.61  ctrl&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here we’re plotting the outcomes of the three groups (&lt;code&gt;ctrl&lt;/code&gt;, &lt;code&gt;trt1&lt;/code&gt;, and &lt;code&gt;trt2&lt;/code&gt;):&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;PlantGrowth %&amp;gt;% 
+   mutate(group = fct_recode(group, 
+                            Control = &amp;quot;ctrl&amp;quot;, 
+                            `Treatment 1` = &amp;quot;trt1&amp;quot;, 
+                            `Treatment 2` = &amp;quot;trt2&amp;quot;)) %&amp;gt;% 
+  ggplot(aes(x = group, y = weight)) + 
+  geom_beeswarm() + 
+  labs(x = &amp;quot;&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-05-13-exercise-solution-for-chapter-6_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;288&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Often in research one of the simplest comaparisons of data we can make is between two groups. The t-test is one of the many statistics used in hypothesis testing and can help us determine if the differences between two group means is “significant” or if the differences could have happened by chance. The test statistic is defined as:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(t=\frac{\bar{m_1}-\bar{m_2}}{\sqrt{s_1^2/N_1 + s_2^2/N_2}}\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;where &lt;span class=&#34;math inline&#34;&gt;\(\bar{m_1}\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\bar{m_2}\)&lt;/span&gt; are the sample means in group 1 and
+2, respectively, which have &lt;span class=&#34;math inline&#34;&gt;\(N_1\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(N_2\)&lt;/span&gt; observations each, and
+&lt;span class=&#34;math inline&#34;&gt;\(s_1\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(s_2\)&lt;/span&gt; are the sample variances for each of the two groups.&lt;/p&gt;
+&lt;p&gt;Next we’ll apply a t-test comparing weights in the &lt;code&gt;ctrl&lt;/code&gt; group to the &lt;code&gt;trt2&lt;/code&gt; group. We’re testing against the null hypothesis that there is no difference in mean dried plant weights between the two groups.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;PlantGrowth %&amp;gt;% 
+  filter(group %in% c(&amp;quot;ctrl&amp;quot;, &amp;quot;trt2&amp;quot;)) %&amp;gt;% 
+    t.test(weight ~ group, data  = .) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+##  Welch Two Sample t-test
+## 
+## data:  weight by group
+## t = -2.134, df = 16.786, p-value = 0.0479
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -0.98287213 -0.00512787
+## sample estimates:
+## mean in group ctrl mean in group trt2 
+##              5.032              5.526&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here’s the tidy version:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(&amp;quot;broom&amp;quot;)
+(ttest_orig &amp;lt;- PlantGrowth %&amp;gt;% 
+  filter(group %in% c(&amp;quot;ctrl&amp;quot;, &amp;quot;trt2&amp;quot;)) %&amp;gt;% 
+  t.test(weight ~ group, data  = .) %&amp;gt;% 
+    tidy())&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 1 x 10
+##   estimate estimate1 estimate2 statistic p.value parameter conf.low conf.high
+##      &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;   &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;
+## 1   -0.494      5.03      5.53     -2.13  0.0479      16.8   -0.983  -0.00513
+## # … with 2 more variables: method &amp;lt;chr&amp;gt;, alternative &amp;lt;chr&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then we’ll duplicate the data, adding a second copy of the dataframe, before running the t-test.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;(ttest_dup &amp;lt;- PlantGrowth %&amp;gt;% 
+  bind_rows(PlantGrowth) %&amp;gt;% # Add the duplicate of the dataset
+  filter(group %in% c(&amp;quot;ctrl&amp;quot;, &amp;quot;trt2&amp;quot;)) %&amp;gt;% 
+  t.test(weight ~ group, data  = .) %&amp;gt;% 
+  tidy())&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 1 x 10
+##   estimate estimate1 estimate2 statistic p.value parameter conf.low conf.high
+##      &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;   &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;
+## 1   -0.494      5.03      5.53     -3.10 0.00377      35.4   -0.817    -0.171
+## # … with 2 more variables: method &amp;lt;chr&amp;gt;, alternative &amp;lt;chr&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Notice that the p-value is smaller (now less than 0.05) even though the group means haven’t changed. This is due solely to the increase in sample size.&lt;/p&gt;
+&lt;p&gt;However, we’ve violated the t-test assumption of independence. Paired (in this case blatantly duplicated) data is dependent and would be more appropriately tested by a two-sample paired test. A similar example with experimental data would involve taking duplicate measures (technical replicates) on 15 subjects (e.g., leaf, mouse, human) and assuming you now have 30 independent measurements; that would be incorrect. Taking repeated measurements on 15 subjects would leave you with just 15 independent measurments (and the
+other 15 fully dependent on those).&lt;/p&gt;
+&lt;p&gt;If the data sampled for a t-test violates one or more of the t-test assumptions, such as independence or normal distribution, results can be incorrect and misleading.&lt;/p&gt;
+&lt;p&gt;Next we resample only half the data and then duplicated that sampled half to create a datset; so the size of the data set is the same as the original dataset (n = 30), but now half of the observations are fully dependent (exactly the same) as other observations in the dataset.&lt;/p&gt;
+&lt;p&gt;The purpose of the &lt;code&gt;set.seed&lt;/code&gt; function is to set the seed of R’s random number generator. We use it below in our simulations so that the results of our sampled data don’t change each time the document is re-rendered and therefore can be reproduced.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(4234)
+
+pg1 &amp;lt;- PlantGrowth %&amp;gt;% 
+  sample_frac(size = 0.5) %&amp;gt;% 
+  bind_rows(., .) 
+
+(pg1_ttest &amp;lt;- pg1 %&amp;gt;% 
+  filter(group %in% c(&amp;quot;ctrl&amp;quot;, &amp;quot;trt2&amp;quot;)) %&amp;gt;% 
+  t.test(weight ~ group, data  = .) %&amp;gt;% 
+  tidy())&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 1 x 10
+##   estimate estimate1 estimate2 statistic p.value parameter conf.low conf.high
+##      &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;   &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;
+## 1   -0.492      5.23      5.72     -1.98  0.0722      11.3    -1.04    0.0524
+## # … with 2 more variables: method &amp;lt;chr&amp;gt;, alternative &amp;lt;chr&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The p-value increases from 0.004 with a fully duplicated dataset to a value typically much higher with half the data duplicated.&lt;/p&gt;
+&lt;p&gt;As discussed in section 6.5 of the text, the t-test function uses asymptotic theory to compute the t-statistic: “this theory states that under the null hypothesis of means in both groups, the statistic follows a known, mathematical distribution, the so called t-distribution with &lt;span class=&#34;math inline&#34;&gt;\(n^1 + n^2\)&lt;/span&gt; degrees of freedom” As we’ve discussed above, the theory also makes the assumption of independence, normality, and equal variance.&lt;/p&gt;
+&lt;p&gt;There are often variations from these assumptions in real world data. In our plant growth example, weights are always positive while the normal distribution spans over the entire axis.&lt;/p&gt;
+&lt;p&gt;Below we use permutation tests to assess whether the deviation from theoretical assumptions makes a difference. We first use &lt;code&gt;replicate&lt;/code&gt; to
+run a lot of t-tests where we test our original data, but with the
+&lt;code&gt;group&lt;/code&gt; column randomly re-ordered, so any true relationship between
+the group and weight measurements is broken:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pg1_null = with(
+  dplyr::filter(pg1, group %in% c(&amp;quot;ctrl&amp;quot;, &amp;quot;trt2&amp;quot;)),
+    replicate(10000,
+      abs(t.test(weight ~ sample(group))$statistic)))
+
+# You can see that this results in a long vector of t statistic
+# values, each estimated from a version of the data where we 
+# randomized the group labels
+head(pg1_null)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##         t         t         t         t         t         t 
+## 0.5065581 0.9543497 0.5703743 0.5760347 0.5101952 1.6371872&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;These should represent the pattern of how t statistics for this
+data would be distributed under the null hypothesis that there is no
+difference between the average weights of the two groups.
+We can plot a histogram of all these t statistic values to visualize
+the distribution of the t statistic under the null hypothesis, adding
+a line to show the t statistic we observed in the real data (without
+shuffling the &lt;code&gt;group&lt;/code&gt; column):&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(tibble(`|t|` = pg1_null), aes(x = `|t|`)) +
+  geom_histogram(binwidth = 0.1, boundary = 0) +
+  geom_vline(xintercept = abs(pg1_ttest$statistic), col = &amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-05-13-exercise-solution-for-chapter-6_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;In general, a permutation test is a type of statistical significance test in which the distribution of the test statistic under the null hypothesis is obtained by calculating all possible values of the test statistic under all possible rearrangements of the observed data points (&lt;a href=&#34;https://wikipedia.org&#34; class=&#34;uri&#34;&gt;https://wikipedia.org&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;The test essentially exchanges labels between samples and what they measure; if the connections between label and measurements are broken our t-test should show no connection between the two, demonstrating a true null hypothesis that there is no difference between group means.&lt;/p&gt;
+&lt;p&gt;Now we’ll take the dataset with half resampled, and add random noise to each observation.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(1234)
+
+pg2 &amp;lt;- pg1 %&amp;gt;% 
+  mutate(noise = rnorm(30, mean = 0, sd = 0.2), 
+         weight = weight + noise) %&amp;gt;% 
+  select(-noise)
+head(pg2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     weight group
+## 1 5.908587  trt2
+## 2 6.165486  ctrl
+## 3 6.526888  trt2
+## 4 4.030860  ctrl
+## 5 4.775825  trt1
+## 6 5.241211  ctrl&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;(pg2_ttest &amp;lt;- pg2 %&amp;gt;% 
+  filter(group %in% c(&amp;quot;ctrl&amp;quot;, &amp;quot;trt2&amp;quot;)) %&amp;gt;% 
+  t.test(weight ~ group, data  = .) %&amp;gt;% 
+  tidy())&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 1 x 10
+##   estimate estimate1 estimate2 statistic p.value parameter conf.low conf.high
+##      &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;   &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;
+## 1   -0.562      5.14      5.70     -1.97  0.0767      10.3    -1.20    0.0721
+## # … with 2 more variables: method &amp;lt;chr&amp;gt;, alternative &amp;lt;chr&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Permutation test data with half duplicated and random noise added:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pg2_null = with(
+  dplyr::filter(pg2, group %in% c(&amp;quot;ctrl&amp;quot;, &amp;quot;trt2&amp;quot;)),
+    replicate(10000,
+      abs(t.test(weight ~ sample(group))$statistic)))
+
+head(pg2_null)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##          t          t          t          t          t          t 
+## 0.63521740 1.71201809 0.73541313 0.61678119 0.02298951 1.38779279&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(tibble(`|t|` = pg2_null), aes(x = `|t|`)) +
+  geom_histogram(binwidth = 0.1, boundary = 0) +
+  geom_vline(xintercept = abs(pg2_ttest$statistic), col = &amp;quot;red&amp;quot;)  &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-05-13-exercise-solution-for-chapter-6_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;If the t-test statistic we see in our permutation test looks different compared to our observed data then we can most likely conclude that our data was not generated under the null hypothesis of no significant difference between the treatment groups. We would therefore reject the null hypothesis.&lt;/p&gt;
+&lt;p&gt;The table below summarizes the four different types of datasets we’ve explored with t-tests. Important to note is that all of these results are from random samples; the exact p-values and test statistics are variable and if someone were to run a code with a different seed, they would get different results.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(kableExtra)
+
+data_summary &amp;lt;- bind_rows(ttest_orig, ttest_dup, 
+                          pg1_ttest, pg2_ttest) %&amp;gt;% 
+  mutate(data = c(&amp;#39;original&amp;#39;, 
+                  &amp;#39;doubled without random noise&amp;#39;,
+                  &amp;#39;same size as original, half observations replicated&amp;#39;,
+                  &amp;#39;half replicated, random noise added to each replicate&amp;#39;), 
+         n = c(30, 60, 30 ,30)) %&amp;gt;% 
+  select(data, n, statistic, p.value)
+
+data_summary %&amp;gt;% 
+   kable(align = c(&amp;quot;l&amp;quot;)) %&amp;gt;% 
+  kable_styling(bootstrap_options = c(&amp;quot;striped&amp;quot;, &amp;quot;hover&amp;quot;,
+                                      &amp;quot;condensed&amp;quot;)) %&amp;gt;% 
+  column_spec(1, bold = T, border_right = T) %&amp;gt;% 
+  column_spec(2:3, width = &amp;quot;6em&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;table class=&#34;table table-striped table-hover table-condensed&#34; style=&#34;margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+data
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+n
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+statistic
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+p.value
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;font-weight: bold;border-right:1px solid;&#34;&gt;
+original
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 6em; &#34;&gt;
+30
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 6em; &#34;&gt;
+-2.134021
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0.0478993
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;font-weight: bold;border-right:1px solid;&#34;&gt;
+doubled without random noise
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 6em; &#34;&gt;
+60
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 6em; &#34;&gt;
+-3.100660
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0.0037738
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;font-weight: bold;border-right:1px solid;&#34;&gt;
+same size as original, half observations replicated
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 6em; &#34;&gt;
+30
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 6em; &#34;&gt;
+-1.982154
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0.0722163
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;font-weight: bold;border-right:1px solid;&#34;&gt;
+half replicated, random noise added to each replicate
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 6em; &#34;&gt;
+30
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;width: 6em; &#34;&gt;
+-1.967597
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0.0766878
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Chapter 6 vocabulary quiz</title>
