@@ -220,7 +220,7 @@ date_format = "   "
   Student responsibilities:
 
   * [Vocabulary](https://kind-neumann-789611.netlify.app/post/vocabulary-for-chapter-12/): [Sherry WeMott](https://kind-neumann-789611.netlify.com/authors/sherry-wemott/)
-  * Exercise: [Amy Fox](https://kind-neumann-789611.netlify.com/authors/amy-fox/)
+  * [Exercise](https://kind-neumann-789611.netlify.app/post/exercise-solution-for-chapter-12/): [Amy Fox](https://kind-neumann-789611.netlify.com/authors/amy-fox/)
   """
 
 [[experience]]

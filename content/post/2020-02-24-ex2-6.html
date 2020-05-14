@@ -69,7 +69,7 @@ lines(thetas, densPostTheory, type=&quot;l&quot;, lwd = 3)</code></pre>
 <p><img src="/post/2020-02-24-ex2-6_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>We can also check the means of both distributions computed above.</p>
 <pre class="r"><code>mean(thetaPostEmp) # Empirical</code></pre>
-<pre><code>## [1] 0.1369832</code></pre>
+<pre><code>## [1] 0.1362598</code></pre>
 <pre class="r"><code>dtheta = thetas[2]-thetas[1]
 sum(thetas * densPostTheory * dtheta) # Theoretical</code></pre>
 <pre><code>## [1] 0.1365727</code></pre>
@@ -78,7 +78,7 @@ sum(thetas * densPostTheory * dtheta) # Theoretical</code></pre>
 <p>We can use Monte Carlo integration instead and then check the agreement between our Monte Carlo sample <code>thetaPostMC</code> and our sample <code>thetaPostEmp</code> with a QQ plot:</p>
 <pre class="r"><code>thetaPostMC = rbeta(n = 1e6, 42.47, 268.5)
 mean(thetaPostMC)</code></pre>
-<pre><code>## [1] 0.1365916</code></pre>
+<pre><code>## [1] 0.1365826</code></pre>
 <pre class="r"><code>qqplot(thetaPostMC, thetaPostEmp, type = &quot;l&quot;, asp = 1)
 abline(a = 0, b = 1, col = &quot;blue&quot;)</code></pre>
 <p><img src="/post/2020-02-24-ex2-6_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
@@ -87,11 +87,11 @@ mcPost2   = rbeta(1e6, 42.47, 268.5)
 sum(thetas * densPost2 * dtheta)  # mean, by numeric integration</code></pre>
 <pre><code>## [1] 0.1365727</code></pre>
 <pre class="r"><code>mean(mcPost2)                     # mean, by MC</code></pre>
-<pre><code>## [1] 0.1365932</code></pre>
+<pre><code>## [1] 0.1365765</code></pre>
 <pre class="r"><code>thetas[which.max(densPost2)]      # MAP estimate</code></pre>
 <pre><code>## [1] 0.134</code></pre>
 <pre class="r"><code>quantile(mcPost2, c(0.025, 0.975))</code></pre>
 <pre><code>##      2.5%     97.5% 
-## 0.1007656 0.1768234</code></pre>
+## 0.1007367 0.1767633</code></pre>
 </div>
 </div>
