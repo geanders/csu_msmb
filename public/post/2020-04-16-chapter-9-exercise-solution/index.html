@@ -1,0 +1,346 @@
+
+
+
+<table>
+<tbody>
+<tr class="odd">
+<td>title: Exercise solution for Chapter 9</td>
+</tr>
+<tr class="even">
+<td>author: Daniel Dean</td>
+</tr>
+<tr class="odd">
+<td>date: ‘2020-04-17’</td>
+</tr>
+<tr class="even">
+<td>slug: exercise-solution-for-chapter-9</td>
+</tr>
+<tr class="odd">
+<td>categories:</td>
+</tr>
+<tr class="even">
+<td>- exercises</td>
+</tr>
+<tr class="odd">
+<td>- Chapter 9</td>
+</tr>
+<tr class="even">
+<td>tags:</td>
+</tr>
+<tr class="odd">
+<td>- exercises</td>
+</tr>
+<tr class="even">
+<td>- Chapter 9</td>
+</tr>
+<tr class="odd">
+<td>subtitle: ’’</td>
+</tr>
+<tr class="even">
+<td>summary: ’’</td>
+</tr>
+<tr class="odd">
+<td>authors: [daniel-dean]</td>
+</tr>
+<tr class="even">
+<td>lastmod: ‘2020-04-20T20:22:07-07:00’</td>
+</tr>
+<tr class="odd">
+<td>featured: no</td>
+</tr>
+<tr class="even">
+<td>image:</td>
+</tr>
+<tr class="odd">
+<td>caption: ’’</td>
+</tr>
+<tr class="even">
+<td>focal_point: ’’</td>
+</tr>
+<tr class="odd">
+<td>preview_only: no</td>
+</tr>
+<tr class="even">
+<td>projects: []</td>
+</tr>
+</tbody>
+</table>
+<div id="exercise-9.2" class="section level2">
+<h2>Exercise 9.2</h2>
+<blockquote>
+<p>“Correspondence Analysis on color association tables:
+Here is an example of data collected by looking at the number of Google hits resulting from queries of pairs of words. The numbers in Table 9.4 <em>[not reproduced]</em> are to be multiplied by 1000. For instance, the combination of the words “quiet” and “blue” returned 2,150,000 hits. Perform a correspondence analysis of these data. What do you notice when you look at the two-dimensional biplot?"</p>
+</blockquote>
+<p>In this exercise, we will essentially be repeating the correspondence analysis process seen in section 9.4.2, this time using associations between color and sentiment terms in search engine queries, rather than hair and eye color. Rather than testing whether certain hair/eye combinations are more likely to co-occur, we will be exploring whether a given color is more or less likely to be associated with certain sentiments (e.g. would we expect “orange” and “happy” to co-occur more frequently than would be expected by chance?). The same general steps can be repeated without many changes.</p>
+</div>
+<div id="step-1-loading-libraries" class="section level1">
+<h1>Step 1: Loading libraries</h1>
+<pre class="r"><code>library(ade4)
+library(sva)
+library(tidyverse)
+library(factoextra)
+library(janitor) #optional; function `clean_names()` makes column names easier to work with
+library(ggplot2)
+library(ggrepel)</code></pre>
+</div>
+<div id="step-2-two-ways-to-load-data" class="section level1">
+<h1>Step 2: Two ways to load data:</h1>
+<p>At least working from the online version of the text, there are two ways to obtain (roughly) equal data for this exercise. One option is to copy table 9.4 directly from the book into Excel, shift the header one cell to the right to align columns with their proper names, export a .csv (<code>ex_9.2_color_table.csv</code> in this example), and load it into R using a command like:</p>
+<pre class="r"><code>color_matrix &lt;- read_csv(&quot;example_datasets/ex_9_2_color_table.csv&quot;, col_names = TRUE) %&gt;%
+  column_to_rownames(var = &#39;X1&#39;) %&gt;%
+  as.matrix</code></pre>
+<p>Something to note is that this data is rounded to units of thousands (e.g. “19” is ~19,000), while the course data in the downloadable <code>data</code> file gives more-precise values. I don’t know that this would disrupt any major correlations, but it could cause some minor discrepancies on comparison.</p>
+<p>Alternatively, the file is included in the course data as <code>colorsentiment.csv</code>, although in a different, three-column format:</p>
+<pre class="r"><code>head(read_csv(&quot;example_datasets/colorsentiment.csv&quot;))</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   `&lt;X&gt;` = col_character(),
+##   `&lt;Y&gt;` = col_character(),
+##   Results = col_double()
+## )</code></pre>
+<pre><code>## # A tibble: 6 x 3
+##   `&lt;X&gt;` `&lt;Y&gt;`     Results
+##   &lt;chr&gt; &lt;chr&gt;       &lt;dbl&gt;
+## 1 blue  happy     8310000
+## 2 blue  depressed  957000
+## 3 blue  lively    1250000
+## 4 blue  clever    1270000
+## 5 blue  perplexed   71300
+## 6 blue  virtuous    80200</code></pre>
+<p>This can be converted to match our correspondence table format using the <code>pivot_wider</code> function and other <code>tidyverse</code> formatting tools:</p>
+<pre class="r"><code>color_matrix &lt;- read_csv(&quot;example_datasets/colorsentiment.csv&quot;) %&gt;%
+  janitor::clean_names() %&gt;% #standardizes column name format
+  arrange(desc(results)) %&gt;% # Rearranging to match row/col order in table 9.4
+  pivot_wider(names_from = x, values_from = results) %&gt;% # converts colors from column entries (`x`) to column names
+  column_to_rownames(var = &#39;y&#39;) 
+
+color_matrix</code></pre>
+<pre><code>##              black   white   green    blue  orange  purple    grey
+## happy     19300000 9150000 8730000 8310000 4220000 2610000 1920000
+## angry      2970000 1730000 1740000 1530000 1040000  710000  752000
+## quiet      2770000 2510000 2140000 2150000 1220000  821000  875000
+## lively     1840000 1480000 1350000 1250000  621000  488000  659000
+## clever     1650000 1420000 1320000 1270000  693000  416000  495000
+## depressed  1480000 1270000  983000  957000  330000  102000  147000
+## virtuous    179000  165000  102000   80200   24700   17300   20000
+## perplexed   110000  109000   80100   71300   23300   15200   18900</code></pre>
+</div>
+<div id="correspondence-analysis-following-section-9.4.2-as-a-model" class="section level1">
+<h1>Correspondence Analysis (following section 9.4.2 as a model)</h1>
+<p>Setting up the correspondence analysis object using the correspondence analysis <code>dudi</code> function from the <code>ade4</code> package:</p>
+<pre class="r"><code>color_matrix_ca &lt;- dudi.coa(color_matrix, n = 2, scannf = FALSE) # scannf = FALSE stops automatic printing of eigenvalues</code></pre>
+<p>This creates a special “<em>Du</em>ality <em>Di</em>agram” list object (used by the <code>ade4</code> package for correspondence analysis, but also principal component analysis and other methods) containing a variety of data generated by the analysis; the call <code>?dudi()</code> will give a list of what each component contains (axis weights, point coordinates, etc.).Stored features include as the base data table (<code>tab</code>), a vector of eigenvalues (<code>eig</code>), and a variety of information on row and column data (e.g. weights, coordinates, and principal components).</p>
+<p>Question 9.2 specifies that we use two dimensions, but visualizing the eigenvalues with the <code>factoextra</code> package confirms that this is a good representation of the system, with almost all variance being explained by the first two dimensions:</p>
+<pre class="r"><code>fviz_eig(color_matrix_ca, geom = &#39;bar&#39;) # visualizing eigenvalues </code></pre>
+<p><img src="/post/2020-04-16-chapter-9-exercise-solution_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>Following the book’s example in 9.4.2, we can explicitly calculate a residual matrix, which shows the difference between expected (assuming random distribution) and observed values for given row/column intercepts, in the following steps. This doesn’t feed into visualizations, but it may be helpful to have a quantitative reference for residuals:</p>
+<pre class="r"><code>rowsums_colors &lt;- as.matrix(apply(color_matrix, 1, sum))
+colsums_colors &lt;- as.matrix(apply(color_matrix, 2, sum))
+expected_colors &lt;- rowsums_colors %*% t(colsums_colors) / sum(colsums_colors) # using matrix multiplication to see what 
+# &quot;average&quot; values should look like if row and column sums are distributed evenly across the dataset
+
+#sum((color_matrix - expected_colors)^2 / expected_colors)
+
+# subtracting the &quot;expected&quot; matrix from the observed  values to see discrepancies
+
+(residual_table_colors &lt;- color_matrix - expected_colors %&gt;% 
+
+    t() %&gt;% 
+
+    round())</code></pre>
+<pre><code>##              black    white    green     blue   orange  purple    grey
+## happy      2604538  7252731  6644019  7090159  3616948 2332753 1890798
+## angry     -6856953   -19511  -241131   891748   657779  448415  620320
+## quiet     -6291637   848427  1103422  1745469   859372  639948  797493
+## lively    -6766161   610622   693006   868322 -1000836  381433  587529
+## clever    -2852964   868979   700121  -965911  -261613  317732  427122
+## depressed -1374026   750108 -1383422  -359058  -550269    8671  111484
+## virtuous  -2513797 -3678280 -1290876 -1133364  -811323  -31532   -2510
+## perplexed -3113357 -2153156 -1204300 -1081265  -414128  -15750   -2339</code></pre>
+<p>Here, we can see that, for instance, the combination of “happy” and “black” in searches occurs significantly more often (~26,000,000 additional instances) than we’d expect given no correlations between colors and sentiments, while e.g. “happy” and “grey” is much rarer.</p>
+<p>To take these patterns more intuitively, we can use a mosaic plot to visualize the proportional distribution of color/sentiment terms in searches (e.g. “back” and “happy” are both popular terms, so could be expected to occur more frequently than e.g. “perplexed” and “purple” in any case), as well as color coding for residuals:</p>
+<pre class="r"><code>mosaicplot(t(color_matrix / 2000), las = 2, shade = TRUE, type = &#39;pearson&#39;) # dividing values by 2,000 because the mosaic plot function doesn&#39;t seem to auto-scale colors, meaning that the unaltered matrix is all &quot;flattened&quot; to the &lt;4 or &gt;4 category.</code></pre>
+<p><img src="/post/2020-04-16-chapter-9-exercise-solution_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<pre class="r"><code>  #transposing is just aesthetic; seems easier to follow with sentiments on the y axis as far as labels and visual row/column continuity. </code></pre>
+<p>From this pattern, it’s easier to see broad patterns and associations among colors and sentiments. For instance, if we focus on colors, we can see <code>black</code> is quite distinct from most colors, with more than expected with <code>happy</code> and lower for other sentiments. All other sentiments behave more like each other than <code>black</code>, but do show a smaller division between <code>white</code>, <code>blue</code>, and <code>green</code>; this is distinguished from <code>orange</code>, <code>purple</code>, and <code>grey</code> by being rarer than expected (under random distribution) with <code>angry</code> and more common with <code>depressed</code>, <code>virtuous</code>, and <code>perplexed</code>. Based on this, in a 2D projection we might expect to see the largest separation between <code>black</code> and all other colors, with a smaller but obvious distinction between the two other color clusters. Because <code>quiet</code>, <code>lively</code>, and <code>clever</code> are more common than expected for everything but black, the will likely be about equidistant between these clusters.</p>
+<p>To check how close we got with these eyeballed estimates, we can use the <code>factoextra</code> biplot visualization function <code>fviz_ca_biplot</code> for correspondence analysis to see our biplot for sentiment and color searches. I thought using the option to represent one as vector arrow, rather than points, also improves legibility (e.g. the relationship between <code>angry</code> and <code>orange</code>/<code>purple</code> become more obvious):</p>
+<pre class="r"><code>fviz_ca_biplot(color_matrix_ca, arrows = c(FALSE, TRUE), repel = TRUE)</code></pre>
+<p><img src="/post/2020-04-16-chapter-9-exercise-solution_files/figure-html/fviz%20biplot-1.png" width="672" /></p>
+<p>As we can see, sentiment and color groups show similar relationships from what we might expect comparing patterns of positive/negative residuals in the mosaic plot. However, this makes it easier to see some patterns, such as the strong opposition between <code>black</code> and <code>grey</code> on dimension 1, or the fact that most of dimension 2 is due to the differences of <code>green-white-blue</code> and <code>perplexed-depressed-virtuous</code> from the rest of the data. We can also make out some smaller trends that weren’t obvious (at least to me) from the mosaic visualization, like <code>grey</code> being more distinct from <code>orange</code> and <code>purple</code> than we could make out with the mosaic plot’s effective “resolution”. This separation appears to be driven by higher co-occurrence with <code>lively</code>, <code>quiet</code>, and <code>clever</code>. Looking back to our mosaic plot, the latter three have lighter shades of blue in <code>orange</code> and <code>purple</code>, with no obvious difference with <code>angry</code>.</p>
+</div>
+<div id="plotting-directly-with-ggplot" class="section level1">
+<h1>Plotting directly with <code>ggplot</code>:</h1>
+<p>While <code>factoextra</code> uses custom functions to streamline the process, it’s possible to approximate the same visualization using <code>ggplot</code> and components of the <code>dudi</code> object. In the <code>color_matrix_ca</code> object, the ‘row’ and ‘column’ factor coordinates (emotion and color, respectively) are stored at <code>.$li</code> and <code>.$co</code>, This allows direct plotting; you could also look at e.g. normalized scores in <code>.$l1</code> and <code>.$c1</code> as well. I was able to get a general sense of how the <code>factoextra</code> authors approached this using the call <code>View(fviz_ca_biplot)</code> to pull up the function’s R code; this ultimately pointed to the more fundamental <code>fviz</code> function.</p>
+<p>Using this information, we can render single plots for color:</p>
+<pre class="r"><code>#Single plots: (roughly equivalent to default output for `fviz_ca_col` and `fviz_ca_row`)
+
+color_nmds &lt;- color_matrix_ca$co %&gt;%
+  ggplot() + 
+  aes(x = Comp1, y = Comp2) +
+  geom_point(color = &#39;blue&#39;) +
+  geom_text(label = rownames(color_matrix_ca$co), nudge_y = 0.01, color = &#39;blue&#39;) + 
+  coord_fixed()
+
+color_nmds</code></pre>
+<p><img src="/post/2020-04-16-chapter-9-exercise-solution_files/figure-html/ggplot_single_plots-1.png" width="672" /></p>
+<p>and sentiment (<em>below</em>). We can also use the <code>geom_segment</code> function in <code>ggplot</code> to replicate the arrows seen in the <code>factoExtra</code> biplot:</p>
+<pre class="r"><code>emotion_nmds &lt;- color_matrix_ca$li %&gt;%
+  ggplot() + 
+  aes(x = Axis1, y = Axis2) +
+  geom_point(color = &#39;red&#39;) +
+  ggrepel::geom_text_repel(label = rownames(color_matrix_ca$li), nudge_y = 0.01, color = &#39;red&#39;) +
+  geom_segment(aes(x = 0, y = 0, xend = Axis1, yend = Axis2), 
+
+               arrow = arrow(length = unit(0.3,&quot;cm&quot;)), 
+
+               color = &quot;red&quot;) +
+  coord_fixed()
+  
+
+emotion_nmds</code></pre>
+<p><img src="/post/2020-04-16-chapter-9-exercise-solution_files/figure-html/emotion_nmds_plot-1.png" width="672" /></p>
+<p>We can combine these elements into a biplot by combining the above dataframes, with one column for each value, and plotting the result:</p>
+<pre class="r"><code># Biplot (there are probably more efficient/correct approaches)
+
+#manually joining the two datasets using a common index (generates a partial row of NAs, with 8 sentiments and 7 colors)
+
+color_component &lt;- color_matrix_ca$co %&gt;%
+  rownames_to_column(var = &quot;color&quot;) %&gt;%
+  rownames_to_column(var = &quot;index&quot;)
+
+emotion_component &lt;- color_matrix_ca$li %&gt;%
+  rownames_to_column(var = &quot;emotion&quot;) %&gt;%
+  rownames_to_column(var = &quot;index&quot;)
+
+biplot_composite &lt;- color_component %&gt;%
+  full_join(emotion_component, by = &quot;index&quot;)
+
+(biplot_composite)</code></pre>
+<pre><code>##   index  color       Comp1       Comp2   emotion       Axis1       Axis2
+## 1     1  black  0.17794592  0.04039331     happy  0.11532145  0.01602901
+## 2     2  white -0.05317953 -0.10399481     angry -0.10756934  0.09837664
+## 3     3  green -0.03347037 -0.03237667     quiet -0.20048082 -0.01564279
+## 4     4   blue -0.03552655 -0.04588027    lively -0.20105512  0.01174266
+## 5     5 orange -0.09284092  0.07047109    clever -0.17886743 -0.03423825
+## 6     6 purple -0.15049601  0.15422498 depressed  0.03935532 -0.24782949
+## 7     7   grey -0.36826914  0.10335528  virtuous  0.05572888 -0.24684976
+## 8     8   &lt;NA&gt;          NA          NA perplexed -0.04792928 -0.22173448</code></pre>
+<pre class="r"><code>biplot_composite_plot &lt;- biplot_composite %&gt;%
+  ggplot() +
+  aes(x = Comp1, y = Comp2) +
+  geom_point(color = &#39;red&#39;) +
+  geom_text(label = biplot_composite$color, nudge_y = 0.01, color = &#39;red&#39;) +
+   geom_segment(aes(x = 0, y = 0, xend = Comp1, yend = Comp2), 
+
+               arrow = arrow(length = unit(0.3,&quot;cm&quot;)), 
+
+               color = &quot;red&quot;) + 
+  geom_point(aes(x = Axis1, y = Axis2), color = &#39;blue&#39;) +
+  geom_text_repel(aes(x = Axis1, y = Axis2), label = biplot_composite$emotion, nudge_y = 0.01, color = &#39;blue&#39;) +
+  geom_hline(yintercept = 0, lty = 2) +
+  geom_vline(xintercept = 0, lty = 2) +
+  labs(x = paste0(&quot;Dim1(&quot;,round(color_matrix_ca$eig[1]/sum(color_matrix_ca$eig)*100, 1),&quot;%)&quot;),
+       y = paste0(&quot;Dim2(&quot;,round(color_matrix_ca$eig[2]/sum(color_matrix_ca$eig)*100, 1),&quot;%)&quot;) +
+       coord_fixed()
+       ) 
+
+biplot_composite_plot</code></pre>
+<pre><code>## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
+<pre><code>## Warning: Removed 1 rows containing missing values (geom_text).</code></pre>
+<pre><code>## Warning: Removed 1 rows containing missing values (geom_segment).</code></pre>
+<p><img src="/post/2020-04-16-chapter-9-exercise-solution_files/figure-html/biplot-1.png" width="672" /></p>
+</div>
+<div id="second-approach" class="section level1">
+<h1>Second Approach</h1>
+<p>Dr. Anderson also worked out a more-efficient approach making use of <code>purrr</code> package function, <code>unclass</code>, <code>map_at</code> and other tools to unite the two <code>coa / dudi</code> objects with fewer intermediate steps:</p>
+<pre class="r"><code>color_matrix_ca %&gt;% 
+
+  # `unclass` to work with this as a regular list
+
+  unclass() %&gt;% 
+
+  # `keep` lets you keep just some elements of a list. We&#39;ll keep &quot;co&quot; and &quot;li&quot; elements
+
+  keep(names(.) %in% c(&quot;co&quot;, &quot;li&quot;)) %&gt;% 
+
+  # both of these have important info in their rownames, so move those into a column.
+
+  # `map` allows you to do the same thing to every element of the list (now just &quot;co&quot; and &quot;li&quot;
+
+  map(rownames_to_column) %&gt;% 
+
+  # `map_at` lets you do something to *just* some elements of a list. So here, to be able
+
+  # to bind the two dataframe elements in the list into one dataframe, you need to 
+
+  # make sure they have the same column names. Currently, they don&#39;t, so we need to 
+
+  # change the column names for one of them.
+
+  map_at(&quot;co&quot;, ~ rename(.x, Axis1 = Comp1, Axis2 = Comp2)) %&gt;% 
+
+  # Now that we have a list where each element is a dataframe with the same number
+
+  # of columns, and where those columns have the same names and data types, you 
+
+  # can use `bind_rows` to stick them together into one dataframe (it turns out that
+
+  # this is a *super* helpful function). After this step, you have a tidy dataframe. The
+
+  # `.id` parameter is adding a column with the original list element name, so you can 
+
+  # tell which rows originally came from &quot;co&quot; and which from &quot;li&quot;
+
+  bind_rows(.id = &quot;id&quot;) %&gt;% 
+
+  ggplot(aes(x = Axis1, y = Axis2, color = id)) + 
+
+  geom_point() + 
+
+  # You can add arrows to your segments with the `arrow` function (from the
+
+  # `grid` package, which is very old school graphics and what ggplot is built on)
+
+  # To have everything come from the center, you set the starting point to 0 for
+
+  # both x- and y-axes
+
+  geom_segment(aes(x = 0, y = 0, xend = Axis1, yend = Axis2),
+
+               arrow = arrow(length = unit(0.1, &quot;inches&quot;))) + 
+
+  geom_text_repel(aes(label = rowname)) + 
+
+  # `coord_fixed` ensures that the x- and y-axes are scaled so they have the 
+
+  # same unit size
+
+  coord_fixed() + 
+
+  # `str_c` lets you stick character strings together (`paste0` would also work here)
+
+  labs(x = str_c(&quot;Dim 1 (&quot;, 
+
+                 round(100 * color_matrix_ca$eig[1] / sum(color_matrix_ca$eig), 1), 
+
+                 &quot;%)&quot;), 
+
+       y = str_c(&quot;Dim 2 (&quot;, 
+
+                 round(100 * color_matrix_ca$eig[2] / sum(color_matrix_ca$eig), 1), 
+
+                 &quot;%)&quot;)) + 
+
+  scale_color_manual(values = c(&quot;red&quot;, &quot;blue&quot;)) + 
+
+  # Get rid of the color legend
+
+  theme(legend.position = &quot;none&quot;) + 
+
+  # Add some reference lines for 0 on the x- and y-axes
+
+  geom_hline(aes(yintercept = 0), linetype = 3) + 
+
+  geom_vline(aes(xintercept = 0), linetype = 3)</code></pre>
+<p><img src="/post/2020-04-16-chapter-9-exercise-solution_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
