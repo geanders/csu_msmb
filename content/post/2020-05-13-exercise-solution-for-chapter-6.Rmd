@@ -27,8 +27,10 @@ projects: []
 
 We'll go through a few data clean up and exploration steps first, then we'll walk through the code related specifically to the exercise a little further down in the post. 
 
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
 ```
 
 ```{r, echo=F, message=F, warning=F}
@@ -39,6 +41,8 @@ library(ggbeeswarm)
 
 For this exercise we use the PlantGrowth dataset from the `datasets` package in R. The dataset includes results from an experiment on plant growth comparing yields (as measured by dried weight of plants) obtained under a control and two different treatment conditions. 
 
+
+
 ```{r}
 data("PlantGrowth")
 head(PlantGrowth)
@@ -47,6 +51,7 @@ head(PlantGrowth)
 Here we're plotting the outcomes of the three groups (`ctrl`, `trt1`, and `trt2`)
 
 ```{r fig.height = 2, fig.width = 3, fig.align = "center"}
+
 PlantGrowth %>% 
    mutate(group = fct_recode(group, 
                             Control = "ctrl", 
@@ -79,7 +84,7 @@ PlantGrowth %>%
 
 Then we'll duplicate the data, adding a second copy of the dataframe, before running the t-test. Notice that the p-value is smaller (now less than 0.05) even though the group means haven't changed. This is due solely to the increase in sample size. 
 
-However, we've violated the t-test assumption of independence. Paired or duplicated data is dependent and would be more appropriately tested by a two-sample paired test. If the data sampled for a t-test violates one or more of the t-test assumptions, such as independence or normal distribution, results can be incorrect and misleading. 
+However, we've violated the t-test assumption of independence. Paired (in this case blatantly duplicated) data is dependent and would be more appropriately tested by a two-sample paired test. A similar expample with experimental data would be taking duplicate measures on one subject (e.g leaf, mouse, human) and assuming both of those measurements were independent.  If the data sampled for a t-test violates one or more of the t-test assumptions, such as independence or normal distribution, results can be incorrect and misleading. 
 
 ```{r}
 PlantGrowth %>% 
@@ -89,40 +94,49 @@ PlantGrowth %>%
   tidy()
 ```
 
-Here we resample only half the data; so the size of the data set is the same as the original dataset (n = 30), but now half of the observations are fully dependent (exactly the same) as other observations in the dataset. The p-value increases from 0.004 with a fully duplicated dataset to 0.423 with half the data duplicated.  
+Here we resample only half the data and then duplicated that sampled half to create a datset; so the size of the data set is the same as the original dataset (n = 30), but now half of the observations are fully dependent (exactly the same) as other observations in the dataset. The p-value increases from 0.004 with a fully duplicated dataset to a value typically much higher with half the data duplicated.  
+
+The purpose of the `set.seed` function is to set the seed of R's random number generator. We use it below in our simulations so that the results of our sampled data don't change each time the document is re-rendered and therefore can be reproduced. 
+
 
 ```{r}
-PlantGrowth %>% 
+set.seed(1234)
+
+pg1 <- PlantGrowth %>% 
   sample_frac(size = 0.5) %>% 
-  bind_rows(., .) %>% 
+  bind_rows(., .) 
+
+pg1 %>% 
   filter(group %in% c("ctrl", "trt2")) %>% 
   t.test(weight ~ group, data  = .) %>% 
   tidy()
 ```
+
 Permutation test data resample to check Type 1 error control: 
 ```{r}
-pg1 <- PlantGrowth %>% 
-  sample_frac(size = 0.5) 
-
 pg1_null = with(
   dplyr::filter(pg1, group %in% c("ctrl", "trt2")),
     replicate(10000,
       abs(t.test(weight ~ sample(group))$statistic)))
 
+head(pg1_null)
+
 ggplot(tibble(`|t|` = pg1_null), aes(x = `|t|`)) +
   geom_histogram(binwidth = 0.1, boundary = 0)
 ```
+
 Now we'll take the dataset with half resampled, and add random noise to each observation. 
 
 ```{r}
+set.seed(1234)
+
 pg2 <- pg1 %>% 
-  mutate(noise = rnorm(15, mean = 0, sd = 0.2), 
+  mutate(noise = rnorm(30, mean = 0, sd = 0.2), 
          weight = weight + noise) %>% 
   select(-noise)
 pg2
 
-pg1 %>% 
-  bind_rows(pg2) %>% 
+pg2 %>% 
   filter(group %in% c("ctrl", "trt2")) %>% 
   t.test(weight ~ group, data  = .) %>% 
   tidy()
@@ -141,14 +155,18 @@ pg2_null = with(
 ggplot(tibble(`|t|` = pg2_null), aes(x = `|t|`)) +
   geom_histogram(binwidth = 0.1, boundary = 0)  
 
+head(pg2_null)
+
 ```
+
+The table below summarizes the four different types of datasets we've explored with t-tests. Important to note is that all of these results are from random samples; the exact p-values and test statistics are variable and if someone were to run a code with a different seed, they would get different results. 
 
 ```{r}
 library(kableExtra)
 data <- c('original', 'doubled without random noise', 'same size as original, half observations replicated', 'half replicated, random noise added to each replicate')
 n <- c(30, 60, 30 ,30)
 test_statistic <- c(-2.13, -3.1, -3.03, -0.72)
-p_value <- c(0.479, 0.003, 0.009, 0.48)
+p_value <- c(0.048, 0.004, 0.005, 0.114)
 data_summary <- data.frame(data, n, test_statistic, p_value)
 data_summary %>% 
    kable(align = c("l")) %>% 
@@ -156,6 +174,5 @@ data_summary %>%
                                       "condensed")) %>% 
   column_spec(1, bold = T, border_right = T) %>% 
   column_spec(2:3, width = "6em")
-
 
 ```
