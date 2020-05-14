@@ -18,12 +18,12 @@
   </url>
   
   <url>
-    <loc>/tags/class-meeting/</loc>
+    <loc>/categories/class-meeting/</loc>
     <lastmod>2020-05-08T09:52:41-06:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/class-meeting/</loc>
+    <loc>/tags/class-meeting/</loc>
     <lastmod>2020-05-08T09:52:41-06:00</lastmod>
   </url>
   
@@ -133,12 +133,12 @@
   </url>
   
   <url>
-    <loc>/categories/chapter-9/</loc>
+    <loc>/tags/chapter-9/</loc>
     <lastmod>2020-04-20T20:22:07-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/chapter-9/</loc>
+    <loc>/categories/chapter-9/</loc>
     <lastmod>2020-04-20T20:22:07-07:00</lastmod>
   </url>
   
@@ -178,12 +178,12 @@
   </url>
   
   <url>
-    <loc>/categories/chapter-7/</loc>
+    <loc>/tags/chapter-7/</loc>
     <lastmod>2020-04-05T17:52:49-06:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/chapter-7/</loc>
+    <loc>/categories/chapter-7/</loc>
     <lastmod>2020-04-05T17:52:49-06:00</lastmod>
   </url>
   
@@ -238,22 +238,22 @@
   </url>
   
   <url>
-    <loc>/categories/chapter-5/</loc>
-    <lastmod>2020-05-13T15:00:06-06:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/chapter-5/</loc>
     <lastmod>2020-05-13T15:00:06-06:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/chapter-6/</loc>
-    <lastmod>2020-03-12T13:17:23-06:00</lastmod>
+    <loc>/categories/chapter-5/</loc>
+    <lastmod>2020-05-13T15:00:06-06:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/chapter-6/</loc>
+    <lastmod>2020-03-12T13:17:23-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/chapter-6/</loc>
     <lastmod>2020-03-12T13:17:23-06:00</lastmod>
   </url>
   
@@ -348,12 +348,12 @@
   </url>
   
   <url>
-    <loc>/tags/blogdown/</loc>
+    <loc>/categories/blogdown/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/blogdown/</loc>
+    <loc>/tags/blogdown/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
@@ -378,12 +378,12 @@
   </url>
   
   <url>
-    <loc>/tags/instructions/</loc>
+    <loc>/categories/instructions/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/instructions/</loc>
+    <loc>/tags/instructions/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   

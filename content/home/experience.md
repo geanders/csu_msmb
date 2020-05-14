@@ -169,7 +169,7 @@ date_format = "   "
   Student responsibilities:
 
   * [Vocabulary](https://kind-neumann-789611.netlify.app/post/vocabulary-for-chapter-9/): [Sere Williams](https://kind-neumann-789611.netlify.com/authors/sere-williams/)
-  * Exercise: [Daniel Dean](https://kind-neumann-789611.netlify.com/authors/daniel-dean/)
+  * [Exercise](https://kind-neumann-789611.netlify.app/post/exercise-solution-for-chapter-9/): [Daniel Dean](https://kind-neumann-789611.netlify.com/authors/daniel-dean/)
   """
 
 [[experience]]
