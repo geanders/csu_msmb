@@ -32,7 +32,7 @@ knitr::opts_chunk$set(eval = TRUE, echo = TRUE, warning = FALSE, error = FALSE, 
 log 10 p-values, pick some genes where there are large differences, 
 and visualize the raw data to see what is going on. Based on this can you explain the differences?
 
-Most of the following code is taken straight come the book in section 8.5 for data cleaning/wrangling and `DESeq2` analysis. The steps performed in `edgeR` are quite similar but we do see some differences that we will get to towards the end.
+Most of the following code is taken straight from the book in section 8.5 for data cleaning/wrangling and the `DESeq2` analysis. The steps performed in `edgeR` are quite similar but we do see some differences that we will get to towards the end.
 
 First, we load our libraries.
 ```{r}
@@ -83,32 +83,32 @@ pasilla = DESeq(pasilla)
 
 ### `edgeR`
 
-Now begins the same analysis with the `edgeR` package. To do this we follow the vignette for the package that is a downloadable .pdf file that you can get in your Rstudio `vignette("edgeR")` or online with https://www.bioconductor.org/packages/release/bioc/vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf. 
+Now begins the analysis with the `edgeR` package. To do this, we follow the vignette for the package that is a downloadable .pdf file that you can get in your Rstudio session `vignette("edgeR")` or online with https://www.bioconductor.org/packages/release/bioc/vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf. 
 
-Here we make the `group` object which is a vector with values representing the treatment status of each of the 8 samples, where 1 refers to the untreated group, and 2 refers to the treated group. With this `group` object we can make a `DGEList()`, from the `edgeR` package, with our count data and the groups we just made. 
+Here we make the `group` object which is a vector with values representing the treatment status of each of the 7 samples, where 1 refers to the untreated group, and 2 refers to the treated group. With this `group` object we can make a `DGEList()`, from the `edgeR` package, with our count data and the groups we just made. A `DGEList()` object is very similar to any traditional R list object and can be manipulated like any other list in R. 
 ```{r}
 group <- factor(c(1,1,1,1,2,2,2))
 x <- DGEList(counts=counts, group=group)
 ```
 RNA-seq provides a measure of the relative abundance of each gene in each RNA
-sample, but does not provide any measure of the total RNA output on a per-cell basis. In other words, RNA-seq measure relative expression rather than absolute expression. This can become an issue in RNA-seq when a small number of highly expressed genes consume a substantial proportion of the total library for a sample causing under sampling of the other expressed genes.  
-`calcNormFactors` normalizes by finding a set of scaling factors for the library sizes that minimizes the log-fold changes between the samples for most genes. Using a trimmed mean of M-values (TMM) between each pair of samples. If we receive a `norm.factors` < 1 that means a small number of high count genes are monopolizing the sequencing reducing the counts of other genes.  Conversely, a `norm.factors` > 1 scales up the library size, analogous to downscaling the counts.
+sample, but does not provide any measure of the total RNA output on a per-cell basis. In other words, RNA-seq measures relative expression rather than absolute expression. This can become an issue in RNA-seq when a small number of highly expressed genes consume a substantial proportion of the total library for a sample causing under sampling of the other expressed genes.  
+To help combat this we turn to normalization. `calcNormFactors` normalizes by finding a set of scaling factors for the library sizes that minimizes the log-fold changes between the samples for most genes. Using a trimmed mean of M-values (TMM) between each pair of samples. If we receive a `norm.factors` $\lt$ 1 that means a small number of high count genes are monopolizing the sequencing reducing the counts of other genes.  Conversely, a `norm.factors` $\gt$ 1 scales up the library size, analogous to downscaling the counts. This normalization can help account for things like varying sequencing depth, length of genes, and RNA composition. 
 ```{r}
 normalization <- calcNormFactors(x)
 normalization
 ```
-The `model.matrix()` function creates a design matrix which is a matrix of values of explanatory variables of a set of objects. Each row represents an individual object, with the successive columns corresponding to the variables and their specific values for that object. The purpose of this conversion is to prepare the data in a manner that facilitates regression-like modelling (ex. `glm`).
+The `model.matrix()` function creates a design matrix which is a matrix of values of **explanatory variables** of a set of objects. Each row represents an individual object, with the successive columns corresponding to the variables and their specific values for that object. The purpose of this conversion is to prepare the data in a manner that facilitates regression-like modelling (ex. `glm`).
 ```{r}
 design <- model.matrix(~group)
 head(design)
 ```
-The `estimateDisp()` function "Maximizes the negative binomial likelihood to give the estimate of the common, trended and tagwise dispersions across all tags. We have to use this negative binomial (aka gamma-Poisson) model since our experiments vary from replicate to replicate more than the traditional Poisson can account for. This variance can be due to seemingly miniscule experimental conditions such as, temperature of cell culture, pipettor calibration, etc. In the case of the gamma-Poisson we have two inputs for variance and mean instead of just having $\lambda$ for both variance and mean in the normal Poisson. 
-An important consideration that the `edgeR` package took into account is the fact that RNA-seq and other Next Generation Sequencing projects are extremely expensive and generally have few samples. Accounting for dispersion with a small number of samples can be challenging and in the `edgeR` package tackles this conundrum using a qCML method. The qCML method calculates the likelihood by conditioning on the total counts for each tag, and uses pseudo counts after adjusting for library sizes. Given a table of counts or a `DGEList` object, the qCML common dispersion and tagwise dispersions can be estimated using the `estimateDisp()` function
+The `estimateDisp()` function, "Maximizes the negative binomial likelihood to give the estimate of the common, trended and tagwise dispersions across all tags." We have to use this negative binomial (aka gamma-Poisson) model since our experiments vary from replicate to replicate more than the traditional Poisson can account for. This variance can be due to seemingly miniscule experimental conditions such as, temperature of cell culture, pipettor calibration, etc. In the case of the gamma-Poisson we have two inputs for variance and mean instead of just having $\lambda$ for both variance and mean in the normal Poisson. 
+An important consideration that the `edgeR` package has taken into account is the fact that RNA-seq and other Next Generation Sequencing projects are extremely expensive and generally have few samples. Accounting for dispersion with a small number of samples can be challenging and the `edgeR` package tackles this conundrum using a qCML method. The qCML method calculates the likelihood by conditioning on the total counts for each tag, and uses pseudo counts after adjusting for library sizes. Given a table of counts or a `DGEList` object, the qCML common dispersion and tagwise dispersions can be estimated using the `estimateDisp()` function.
 ```{r}
 design_matrix <- estimateDisp(normalization, design)
-head(design_matrix)
+design_matrix
 ```
-Now that we have our `design_matrix` we can begin fitting modified linear models to it. Here we use a quasi-likelihood negative binomial generalized log-linear model, which is a mouth full. "Quasi-likelihood estimation is one way of allowing for overdispersion, that is, greater variability in the data than would be expected from the statistical model used." Since we have already stated that we will have variation in our experiments, possibly due to the most minute factors, this issue of overdispersion is apparent. Instead of using a traditional probability functions, a variance function is used (variance as a function of the mean) and allows for an overdispersion parameter input which is used to "fix" the variance function to resemble that of an existing probability function (ex. Poisson).
+Now that we have our `design_matrix` we can begin fitting modified linear models to it. Here we use a quasi-likelihood negative binomial generalized log-linear model, which is a mouth full. "Quasi-likelihood estimation is one way of allowing for overdispersion, that is, greater variability in the data than would be expected from the statistical model used." Since we have already stated that we will have variation in our experiments, possibly due to the most minute factors, this issue of overdispersion is apparent. Instead of using traditional probability functions, a variance function is used (variance as a function of the mean) and allows for an overdispersion parameter input which is used to "fix" the variance function to resemble that of an existing probability function (ex. Poisson).
 
 The goal of this fit is to identify genes where the intensity level (gene expression level) is notably different between our treated and untreated groups. 
 Running the `glmQLF...()` functions gives the null model against which the full model is compared. Tags can then be ranked in order of evidence for differential expression, based on the p-value computed for each tag.
@@ -121,9 +121,9 @@ edgeRoutput
 
 head(as.data.frame(qlf))
 ```
-Our outputs can be summarized by looking at our `logFC` column (log fold change) where the higher the number the higher expression was read during sequencing. Secondly our `PValue` allows the rejection of our null hypothesis, which is, there is equal expression regardless of what gene you look at. 
+Our outputs can be summarized by looking at our `logFC` column (log fold change) where the higher the number the higher the count of that particular gene was read during the sequencing run. Secondly our `PValue`, if it meets threshold (typically pvalue <= 0.05) allows the rejection of our null hypothesis, which is, there is equal expression regardless of what gene you look at. 
 
-Now we want to visualize the data points after their regression fits. We must tidy up the data sets a bit to apply some `tidyverse` magic. First the data is converted to a data frame, `as.data.frame()`, then we use the `rownames_to_column()` function which sounds like its name, and pulls the row names `gene_id` into a new column of the dataframe. Lastly we subset the data using the `select()` function for only the columns we want, and order the data using the `arrange()` function to start with the largest values with respect to the `padj` via the `desc()` argument inside `select()`.
+Now we want to visualize the data points after their regression fits. We must tidy up the data sets a bit to apply some `tidyverse` magic. First the data is converted to a data frame, using `as.data.frame()`, then we use the `rownames_to_column()` function which sounds like its name, and pulls the row names, in this case `gene_id`, into a new column of the dataframe. Lastly, we subset the data using the `select()` function for only the columns we want, and order the data using the `arrange()` function to start with the largest values with respect to the `padj` via the `desc()` argument inside `arrange()`.
 ```{r}
 tidy_pasilla <- pasilla %>% 
   results() %>% 
@@ -153,10 +153,10 @@ full_join(tidy_pasilla, tidy_edgeR,
   theme_bw()
 ```
 
-The reference line drawn here using `geom_abline(slope = 1, intercept = 0)` is to show what it the data would look like if the two methods were identical. 
-Looking at the graph above, we see that most of the data are falling on relatively close to one another when our pvalue > 1e-25. We know this because the alpha of the `ggplot` object is set to 0.5, so if we see a black dot, it means there are two points, one on top of each other. This is what we would expect considering these packages `DESeq2` and `edgeR` have the same purpose in mind and is why we are comparing their outputs in this exercise! 
+The reference line drawn in blue here using `geom_abline()` is to show what the data would look like if the two methods were identical. 
+Looking at the graph above, we see that most of the data are falling relatively close to one another when our pvalue $\gt$ 1e-25. We know this because the alpha of the `ggplot` object is set to 0.5, so if we see a black dot, it means there are two points, one on top of each other. This is what we would expect considering these packages `DESeq2` and `edgeR` have the same purpose in mind and is why we are comparing their outputs in this exercise! 
 
-Below we subset the data again, this time selecting those points with pvalues <= 1e-25 (log10 transform). When plotting these we don't see much overlapping, supporting the variation between the `edgeR` and `DESeq2` modes of analysis. 
+Below we subset the data again, this time selecting those points with pvalues $\leq$ 1e-25 (log10 transform). When plotting these we don't see much overlapping, supporting the variation between the `edgeR` and `DESeq2` modes of analysis. 
 ```{r}
 full_join(tidy_pasilla, tidy_edgeR,"gene_id") %>% 
   filter(pvalue <= 1e-25) %>%
