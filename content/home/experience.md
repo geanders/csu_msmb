@@ -152,7 +152,7 @@ date_format = "   "
   Student responsibilities:
 
   * [Vocabulary](https://kind-neumann-789611.netlify.app/post/chapter-8-vocabulary-list/): [Mikaela Elder](https://kind-neumann-789611.netlify.com/authors/mikaela-elder/)
-  * Exercise: [Burton Karger](https://kind-neumann-789611.netlify.com/authors/burton-karger/)
+  * [Exercise](https://kind-neumann-789611.netlify.app/post/ex-8-1/): [Burton Karger](https://kind-neumann-789611.netlify.com/authors/burton-karger/)
   """
   
 [[experience]]
