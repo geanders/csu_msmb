@@ -759,71 +759,77 @@ plot(sil.1, col=c(&amp;quot;red&amp;quot;,&amp;quot;green&amp;quot;,&amp;quot;bl
       <description>
 
 
-&lt;div id=&#34;picking-a-prior&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Picking a prior&lt;/h1&gt;
+&lt;div id=&#34;exercise-2.6&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Exercise 2.6&lt;/h1&gt;
 &lt;p&gt;The first part of the exercise asks you to:&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;“Choose your own prior for the parameters of the beta distribution. You can do this by sketching it here: &lt;a href=&#34;https://jhubiostatistics.shinyapps.io/drawyourprior&#34; class=&#34;uri&#34;&gt;https://jhubiostatistics.shinyapps.io/drawyourprior&lt;/a&gt;. Once you have set up a prior, re-analyse the data from Section 2.9.2, where we saw Y = 40 successes out of n = 300 trials. Compare your posterior distribution to the one we obtained in that section using a QQ-plot.”&lt;/p&gt;
+&lt;p&gt;Choose your own prior for the parameters of the beta distribution. You can do this by sketching it here: &lt;a href=&#34;https://jhubiostatistics.shinyapps.io/drawyourprior&#34; class=&#34;uri&#34;&gt;https://jhubiostatistics.shinyapps.io/drawyourprior&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;After sketching a plot on the online web app, I chose the parameters to set up a prior: &lt;span class=&#34;math inline&#34;&gt;\(\alpha = 2.47\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta = 8.5\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;After sketching a plot, I chose the parameters to set up a prior: &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; = 2.47 and &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; = 8.5.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;using-this-prior&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Using this prior&lt;/h1&gt;
-&lt;p&gt;Next, I replaced the original values for &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; used in the example in the text with my own from the shape I drew with the online app.&lt;/p&gt;
+&lt;p&gt;Next, the exercise asks you:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Once you have set up a prior, re-analyse the data from Section 2.9.2, where we saw Y = 40 successes out of n = 300 trials.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;To be able to use the &lt;code&gt;loglikelihood&lt;/code&gt; function from the text, I first needed to redefine it here:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;loglikelihood = function(theta, n = 300, k = 40) { ## Function definition from the textbook
-  115 + k * log(theta) + (n - k) * log(1 - theta)
+  log(choose(n, k)) + k * log(theta) + (n - k) * log(1 - theta)
 }&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Then, I created a vector of &lt;span class=&#34;math inline&#34;&gt;\(\theta\)&lt;/span&gt; values between 0 and 1, spaced 0.001 units wide. The plot below shows …&lt;/p&gt;
+&lt;p&gt;Then, I created a vector of &lt;span class=&#34;math inline&#34;&gt;\(\theta\)&lt;/span&gt; values between 0 and 1, spaced 0.001 units wide. The plot below shows different possible values of &lt;span class=&#34;math inline&#34;&gt;\(\theta\)&lt;/span&gt; and the log likelihood for each of these values:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;thetas = seq(0, 1, by = 0.001)
 plot(thetas, loglikelihood(thetas), xlab = expression(theta),
      ylab = expression(paste(&amp;quot;log f(&amp;quot;, theta, &amp;quot; | y)&amp;quot;)),type = &amp;quot;l&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/2020-02-24-ex2-6_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Next, I used &lt;code&gt;rbeta&lt;/code&gt; to draw 1,000,000 random samples from a beta distribution with my new picks for the parameters:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;rtheta = rbeta(1000000, shape1 = 2.47, shape2 = 8.5)
-y = vapply(rtheta, function(th) {
+&lt;p&gt;Next, I used &lt;code&gt;rbeta&lt;/code&gt; to draw 1,000,000 random samples from a beta distribution with my new picks for the parameters for &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;rtheta = rbeta(1000000, shape1 = 2.47, shape2 = 8.5)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;After running the above, for each of these &lt;span class=&#34;math inline&#34;&gt;\(\theta\)&lt;/span&gt; values, we then generate a random sample of &lt;span class=&#34;math inline&#34;&gt;\(Y\)&lt;/span&gt; as observed in the histogram (with orange bars):&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;y = vapply(rtheta, function(th) {
   rbinom(1, prob = th, size = 300)
-}, numeric(1))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This plot shows … :&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;hist(y, breaks = 50, col = &amp;quot;orange&amp;quot;, main = &amp;quot;&amp;quot;, xlab = &amp;quot;&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+}, numeric(1))
+hist(y, breaks = 50, col = &amp;quot;orange&amp;quot;, main = &amp;quot;&amp;quot;, xlab = &amp;quot;&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/2020-02-24-ex2-6_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;After running the above, for each of these &lt;span class=&#34;math inline&#34;&gt;\(\theta\)&lt;/span&gt; values, we then generate a random sample of &lt;span class=&#34;math inline&#34;&gt;\(Y\)&lt;/span&gt; as observed in this histogram (with orange bars). Our next step is to use this information to generate a posterior distribution of theta at a fixed Y value. In this example they used &lt;span class=&#34;math inline&#34;&gt;\(Y=40\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Our next step is to use this information to generate a posterior distribution of &lt;span class=&#34;math inline&#34;&gt;\(\theta\)&lt;/span&gt; at a fixed &lt;span class=&#34;math inline&#34;&gt;\(Y\)&lt;/span&gt; value. In this example they used &lt;span class=&#34;math inline&#34;&gt;\(Y=40\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;After running the above, for each of these thetas, we generated simulated values for the posterior distribution of &lt;span class=&#34;math inline&#34;&gt;\(\theta\)&lt;/span&gt; at &lt;span class=&#34;math inline&#34;&gt;\(Y=40\)&lt;/span&gt; as observed in this histogram (with green bars).&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;thetaPostEmp = rtheta[ y == 40 ]
 hist(thetaPostEmp, breaks = 40, col = &amp;quot;chartreuse4&amp;quot;, main = &amp;quot;&amp;quot;,
      probability = TRUE, xlab = expression(&amp;quot;posterior&amp;quot;~theta), ylim=c(0,40))&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/2020-02-24-ex2-6_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;densPostTheory  =  dbeta(thetas, 42.47, 268.5)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can check how this compares to the theoretical posterior distribution
+for &lt;span class=&#34;math inline&#34;&gt;\(\theta\)&lt;/span&gt; at &lt;span class=&#34;math inline&#34;&gt;\(Y = 40\)&lt;/span&gt;:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;hist(thetaPostEmp, breaks = 40, col = &amp;quot;chartreuse4&amp;quot;, main = &amp;quot;&amp;quot;,
   probability = TRUE, xlab = expression(&amp;quot;posterior&amp;quot;~theta))
 lines(thetas, densPostTheory, type=&amp;quot;l&amp;quot;, lwd = 3)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/2020-02-24-ex2-6_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;After running the above, for each of these thetas, we generated simulated values for the posterior distribution of &lt;span class=&#34;math inline&#34;&gt;\(\theta\)&lt;/span&gt; at &lt;span class=&#34;math inline&#34;&gt;\(Y=40\)&lt;/span&gt; as observed in this histogram (with green bars). We can also check the means of both distributions computed above.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(thetaPostMC)
-#0.1365705
-dtheta = thetas[2]-thetas[1]
-sum(thetas * densPostTheory * dtheta)
-#0.1365727&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;#We can use Monte Carlo integration instead and then check the agreement between our Monte Carlo sample thetaPostMC and our sample thetaPostEmp with a QQ plot&lt;/p&gt;
+&lt;p&gt;We can also check the means of both distributions computed above.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(thetaPostEmp) # Empirical&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.1363129&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dtheta = thetas[2]-thetas[1]
+sum(thetas * densPostTheory * dtheta) # Theoretical&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.1365727&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;monte-carlo-integration&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Monte Carlo integration&lt;/h2&gt;
+&lt;p&gt;We can use Monte Carlo integration instead and then check the agreement between our Monte Carlo sample &lt;code&gt;thetaPostMC&lt;/code&gt; and our sample &lt;code&gt;thetaPostEmp&lt;/code&gt; with a QQ plot:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;thetaPostMC = rbeta(n = 1e6, 42.47, 268.5)
-mean(thetaPostMC)
-#0.1365902
-
-qqplot(thetaPostMC, thetaPostEmp, type = &amp;quot;l&amp;quot;, asp = 1)
-abline(a = 0, b = 1, col = &amp;quot;blue&amp;quot;)
-
-densPost2 = dbeta(thetas, 42.47, 268.5)
+mean(thetaPostMC)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.1366029&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qqplot(thetaPostMC, thetaPostEmp, type = &amp;quot;l&amp;quot;, asp = 1)
+abline(a = 0, b = 1, col = &amp;quot;blue&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-02-24-ex2-6_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;densPost2 = dbeta(thetas, 42.47, 268.5)
 mcPost2   = rbeta(1e6, 42.47, 268.5)
-
-sum(thetas * densPost2 * dtheta)  # mean, by numeric integration
-# [1] 0.1365727
-mean(mcPost2)                     # mean, by MC
-# [1] 0.1365778
-thetas[which.max(densPost2)]      # MAP estimate
-# [1] 0.134
-
-quantile(mcPost2, c(0.025, 0.975))
-#     2.5%     97.5% 
-#0.1006757 0.1768317 &lt;/code&gt;&lt;/pre&gt;
+sum(thetas * densPost2 * dtheta)  # mean, by numeric integration&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.1365727&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(mcPost2)                     # mean, by MC&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.1365783&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;thetas[which.max(densPost2)]      # MAP estimate&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.134&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;quantile(mcPost2, c(0.025, 0.975))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      2.5%     97.5% 
+## 0.1008031 0.1768366&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 </description>
     </item>
