@@ -42,7 +42,6 @@ library(ggbeeswarm)
 For this exercise we use the PlantGrowth dataset from the `datasets` package in R. The dataset includes results from an experiment on plant growth comparing yields (as measured by dried weight of plants) obtained under a control and two different treatment conditions. 
 
 
-
 ```{r}
 data("PlantGrowth")
 head(PlantGrowth)
@@ -84,7 +83,9 @@ PlantGrowth %>%
 
 Then we'll duplicate the data, adding a second copy of the dataframe, before running the t-test. Notice that the p-value is smaller (now less than 0.05) even though the group means haven't changed. This is due solely to the increase in sample size. 
 
-However, we've violated the t-test assumption of independence. Paired (in this case blatantly duplicated) data is dependent and would be more appropriately tested by a two-sample paired test. A similar expample with experimental data would be taking duplicate measures on one subject (e.g leaf, mouse, human) and assuming both of those measurements were independent.  If the data sampled for a t-test violates one or more of the t-test assumptions, such as independence or normal distribution, results can be incorrect and misleading. 
+However, we've violated the t-test assumption of independence. Paired (in this case blatantly duplicated) data is dependent and would be more appropriately tested by a two-sample paired test. A similar expample with experimental data would involve taking duplicate measures (technical replicates) on 15 subjects (e.g leaf, mouse, human) and assuming you now have 30 independent measurements; that would be incorrect. Taking repeated measurements on 15 subjects would leave you with 15 paired measurments.   
+
+If the data sampled for a t-test violates one or more of the t-test assumptions, such as independence or normal distribution, results can be incorrect and misleading. 
 
 ```{r}
 PlantGrowth %>% 
@@ -112,7 +113,11 @@ pg1 %>%
   tidy()
 ```
 
-Permutation test data resample to check Type 1 error control: 
+As discussed in section 6.5 of the text, the t-test function uses asymptotic theory to compute the t-statistic: "this theory states that under the null hypothesis of means in both groups, the statistic follows a known, mathematical distribution, the so called t-distribution with $n^1 + n^2$ degrees of freedom" As we've discussed above, the theory also makes the assumption of independence, normality, and equal variance. 
+
+There are often variations from these assumptions in real world data. In our plant growth example, weights are always positive while the normal distribution spans over the entire axis.
+
+Below we use permutation tests to assess whether the deviation from theoretical assumptions makes a difference. 
 ```{r}
 pg1_null = with(
   dplyr::filter(pg1, group %in% c("ctrl", "trt2")),
@@ -122,8 +127,13 @@ pg1_null = with(
 head(pg1_null)
 
 ggplot(tibble(`|t|` = pg1_null), aes(x = `|t|`)) +
-  geom_histogram(binwidth = 0.1, boundary = 0)
+  geom_histogram(binwidth = 0.1, boundary = 0)+
+  geom_vline(xintercept = abs(tt$statistic), col = "red")
 ```
+
+A permutation test is a type of statistical significance test in which the distribution of the test statistic under the null hypothesis is obtained by calculating all possible values of the test statistic under all possible rearrangements of the observed data points (https://wikipedia.org). 
+
+The test essentially exchanges labels between samples and what they measure; if the connections between label and measurments are broken our t-test should show no connection between the two, demonstrating a true null hypothesis that there is no difference between group means. 
 
 Now we'll take the dataset with half resampled, and add random noise to each observation. 
 
@@ -158,6 +168,8 @@ ggplot(tibble(`|t|` = pg2_null), aes(x = `|t|`)) +
 head(pg2_null)
 
 ```
+
+If the t-test statistic we see in our permutation test looks different compared to our observed data then we can most likely conclude that our data was not generated under the null hypothesis of no significant difference between the treatment groups. We would therefore reject the null hypothesis.  
 
 The table below summarizes the four different types of datasets we've explored with t-tests. Important to note is that all of these results are from random samples; the exact p-values and test statistics are variable and if someone were to run a code with a different seed, they would get different results. 
 
