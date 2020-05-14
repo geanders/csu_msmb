@@ -1,4 +1,4 @@
-----
+---
 title: Exercise solution for Chapter 9
 author: Daniel Dean
 date: '2020-04-17'
@@ -19,7 +19,7 @@ image:
   focal_point: ''
   preview_only: no
 projects: []
-----
+---
 
 ## Exercise 9.2
 
@@ -222,94 +222,48 @@ Dr. Anderson also worked out a more-efficient approach making use of `purrr` pac
 
 ```{r}
 color_matrix_ca %>% 
-
   # `unclass` to work with this as a regular list
-
   unclass() %>% 
-
   # `keep` lets you keep just some elements of a list. We'll keep "co" and "li" elements
-
   keep(names(.) %in% c("co", "li")) %>% 
-
   # both of these have important info in their rownames, so move those into a column.
-
   # `map` allows you to do the same thing to every element of the list (now just "co" and "li"
-
   map(rownames_to_column) %>% 
-
   # `map_at` lets you do something to *just* some elements of a list. So here, to be able
-
   # to bind the two dataframe elements in the list into one dataframe, you need to 
-
   # make sure they have the same column names. Currently, they don't, so we need to 
-
   # change the column names for one of them.
-
   map_at("co", ~ rename(.x, Axis1 = Comp1, Axis2 = Comp2)) %>% 
-
   # Now that we have a list where each element is a dataframe with the same number
-
   # of columns, and where those columns have the same names and data types, you 
-
   # can use `bind_rows` to stick them together into one dataframe (it turns out that
-
   # this is a *super* helpful function). After this step, you have a tidy dataframe. The
-
   # `.id` parameter is adding a column with the original list element name, so you can 
-
   # tell which rows originally came from "co" and which from "li"
-
   bind_rows(.id = "id") %>% 
-
   ggplot(aes(x = Axis1, y = Axis2, color = id)) + 
-
   geom_point() + 
-
   # You can add arrows to your segments with the `arrow` function (from the
-
   # `grid` package, which is very old school graphics and what ggplot is built on)
-
   # To have everything come from the center, you set the starting point to 0 for
-
   # both x- and y-axes
-
   geom_segment(aes(x = 0, y = 0, xend = Axis1, yend = Axis2),
-
                arrow = arrow(length = unit(0.1, "inches"))) + 
-
   geom_text_repel(aes(label = rowname)) + 
-
   # `coord_fixed` ensures that the x- and y-axes are scaled so they have the 
-
   # same unit size
-
   coord_fixed() + 
-
   # `str_c` lets you stick character strings together (`paste0` would also work here)
-
   labs(x = str_c("Dim 1 (", 
-
                  round(100 * color_matrix_ca$eig[1] / sum(color_matrix_ca$eig), 1), 
-
                  "%)"), 
-
        y = str_c("Dim 2 (", 
-
                  round(100 * color_matrix_ca$eig[2] / sum(color_matrix_ca$eig), 1), 
-
                  "%)")) + 
-
   scale_color_manual(values = c("red", "blue")) + 
-
   # Get rid of the color legend
-
   theme(legend.position = "none") + 
-
   # Add some reference lines for 0 on the x- and y-axes
-
   geom_hline(aes(yintercept = 0), linetype = 3) + 
-
   geom_vline(aes(xintercept = 0), linetype = 3)
-
-
 ```

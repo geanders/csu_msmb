@@ -1,70 +1,28 @@
+---
+title: Exercise solution for Chapter 9
+author: Daniel Dean
+date: '2020-04-17'
+slug: exercise-solution-for-chapter-9
+categories:
+  - exercises
+  - Chapter 9
+tags:
+  - exercises
+  - Chapter 9
+subtitle: ''
+summary: ''
+authors: [daniel-dean]
+lastmod: '2020-04-20T20:22:07-07:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
 
 
 
-<table>
-<tbody>
-<tr class="odd">
-<td>title: Exercise solution for Chapter 9</td>
-</tr>
-<tr class="even">
-<td>author: Daniel Dean</td>
-</tr>
-<tr class="odd">
-<td>date: ‘2020-04-17’</td>
-</tr>
-<tr class="even">
-<td>slug: exercise-solution-for-chapter-9</td>
-</tr>
-<tr class="odd">
-<td>categories:</td>
-</tr>
-<tr class="even">
-<td>- exercises</td>
-</tr>
-<tr class="odd">
-<td>- Chapter 9</td>
-</tr>
-<tr class="even">
-<td>tags:</td>
-</tr>
-<tr class="odd">
-<td>- exercises</td>
-</tr>
-<tr class="even">
-<td>- Chapter 9</td>
-</tr>
-<tr class="odd">
-<td>subtitle: ’’</td>
-</tr>
-<tr class="even">
-<td>summary: ’’</td>
-</tr>
-<tr class="odd">
-<td>authors: [daniel-dean]</td>
-</tr>
-<tr class="even">
-<td>lastmod: ‘2020-04-20T20:22:07-07:00’</td>
-</tr>
-<tr class="odd">
-<td>featured: no</td>
-</tr>
-<tr class="even">
-<td>image:</td>
-</tr>
-<tr class="odd">
-<td>caption: ’’</td>
-</tr>
-<tr class="even">
-<td>focal_point: ’’</td>
-</tr>
-<tr class="odd">
-<td>preview_only: no</td>
-</tr>
-<tr class="even">
-<td>projects: []</td>
-</tr>
-</tbody>
-</table>
 <div id="exercise-9.2" class="section level2">
 <h2>Exercise 9.2</h2>
 <blockquote>
@@ -254,93 +212,49 @@ biplot_composite_plot</code></pre>
 <h1>Second Approach</h1>
 <p>Dr. Anderson also worked out a more-efficient approach making use of <code>purrr</code> package function, <code>unclass</code>, <code>map_at</code> and other tools to unite the two <code>coa / dudi</code> objects with fewer intermediate steps:</p>
 <pre class="r"><code>color_matrix_ca %&gt;% 
-
   # `unclass` to work with this as a regular list
-
   unclass() %&gt;% 
-
   # `keep` lets you keep just some elements of a list. We&#39;ll keep &quot;co&quot; and &quot;li&quot; elements
-
   keep(names(.) %in% c(&quot;co&quot;, &quot;li&quot;)) %&gt;% 
-
   # both of these have important info in their rownames, so move those into a column.
-
   # `map` allows you to do the same thing to every element of the list (now just &quot;co&quot; and &quot;li&quot;
-
   map(rownames_to_column) %&gt;% 
-
   # `map_at` lets you do something to *just* some elements of a list. So here, to be able
-
   # to bind the two dataframe elements in the list into one dataframe, you need to 
-
   # make sure they have the same column names. Currently, they don&#39;t, so we need to 
-
   # change the column names for one of them.
-
   map_at(&quot;co&quot;, ~ rename(.x, Axis1 = Comp1, Axis2 = Comp2)) %&gt;% 
-
   # Now that we have a list where each element is a dataframe with the same number
-
   # of columns, and where those columns have the same names and data types, you 
-
   # can use `bind_rows` to stick them together into one dataframe (it turns out that
-
   # this is a *super* helpful function). After this step, you have a tidy dataframe. The
-
   # `.id` parameter is adding a column with the original list element name, so you can 
-
   # tell which rows originally came from &quot;co&quot; and which from &quot;li&quot;
-
   bind_rows(.id = &quot;id&quot;) %&gt;% 
-
   ggplot(aes(x = Axis1, y = Axis2, color = id)) + 
-
   geom_point() + 
-
   # You can add arrows to your segments with the `arrow` function (from the
-
   # `grid` package, which is very old school graphics and what ggplot is built on)
-
   # To have everything come from the center, you set the starting point to 0 for
-
   # both x- and y-axes
-
   geom_segment(aes(x = 0, y = 0, xend = Axis1, yend = Axis2),
-
                arrow = arrow(length = unit(0.1, &quot;inches&quot;))) + 
-
   geom_text_repel(aes(label = rowname)) + 
-
   # `coord_fixed` ensures that the x- and y-axes are scaled so they have the 
-
   # same unit size
-
   coord_fixed() + 
-
   # `str_c` lets you stick character strings together (`paste0` would also work here)
-
   labs(x = str_c(&quot;Dim 1 (&quot;, 
-
                  round(100 * color_matrix_ca$eig[1] / sum(color_matrix_ca$eig), 1), 
-
                  &quot;%)&quot;), 
-
        y = str_c(&quot;Dim 2 (&quot;, 
-
                  round(100 * color_matrix_ca$eig[2] / sum(color_matrix_ca$eig), 1), 
-
                  &quot;%)&quot;)) + 
-
   scale_color_manual(values = c(&quot;red&quot;, &quot;blue&quot;)) + 
-
   # Get rid of the color legend
-
   theme(legend.position = &quot;none&quot;) + 
-
   # Add some reference lines for 0 on the x- and y-axes
-
   geom_hline(aes(yintercept = 0), linetype = 3) + 
-
   geom_vline(aes(xintercept = 0), linetype = 3)</code></pre>
 <p><img src="/post/2020-04-16-chapter-9-exercise-solution_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 </div>
