@@ -28,9 +28,7 @@ knitr::opts_chunk$set(eval = TRUE, echo = TRUE, warning = FALSE, error = FALSE, 
 
 ### Exercise 8.1
 
-## `edgeR`
-
-Do the analyses of Section 8.5 with the `edgeR` package and compare the results: make a scatterplot of the 
+>Do the analyses of Section 8.5 with the `edgeR` package and compare the results: make a scatterplot of the 
 log 10 p-values, pick some genes where there are large differences, 
 and visualize the raw data to see what is going on. Based on this can you explain the differences?
 
