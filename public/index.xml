@@ -3699,7 +3699,7 @@ lines(thetas, densPostTheory, type=&amp;quot;l&amp;quot;, lwd = 3)&lt;/code&gt;&
 &lt;p&gt;&lt;img src=&#34;/post/2020-02-24-ex2-6_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;We can also check the means of both distributions computed above.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(thetaPostEmp) # Empirical&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.1368653&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.1366175&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dtheta = thetas[2]-thetas[1]
 sum(thetas * densPostTheory * dtheta) # Theoretical&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 0.1365727&lt;/code&gt;&lt;/pre&gt;
@@ -3708,7 +3708,7 @@ sum(thetas * densPostTheory * dtheta) # Theoretical&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;We can use Monte Carlo integration instead and then check the agreement between our Monte Carlo sample &lt;code&gt;thetaPostMC&lt;/code&gt; and our sample &lt;code&gt;thetaPostEmp&lt;/code&gt; with a QQ plot:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;thetaPostMC = rbeta(n = 1e6, 42.47, 268.5)
 mean(thetaPostMC)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.1365513&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.1365869&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qqplot(thetaPostMC, thetaPostEmp, type = &amp;quot;l&amp;quot;, asp = 1)
 abline(a = 0, b = 1, col = &amp;quot;blue&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/2020-02-24-ex2-6_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
@@ -3717,12 +3717,12 @@ mcPost2   = rbeta(1e6, 42.47, 268.5)
 sum(thetas * densPost2 * dtheta)  # mean, by numeric integration&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 0.1365727&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(mcPost2)                     # mean, by MC&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 0.1365723&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.13654&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;thetas[which.max(densPost2)]      # MAP estimate&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 0.134&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;quantile(mcPost2, c(0.025, 0.975))&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##      2.5%     97.5% 
-## 0.1006548 0.1767642&lt;/code&gt;&lt;/pre&gt;
+## 0.1007490 0.1768963&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
