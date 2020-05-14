@@ -20,29 +20,6 @@ image:
   preview_only: no
 projects: []
 ---
----
-title: "Exercise Solution for Chapter 6"
-author: "Sherry WeMott"
-date: '2020-05-12'
-output: pdf_document
-featured: no
-image:
-  caption: ''
-  focal_point: ''
-  preview_only: no
-lastmod: '2020-05-12T10:46:22-06:00'
-categories:
-- Chapter 6
-- exercises
-projects: []
-slug: exercise-solution-for-chapter-6
-subtitle: ''
-summary: ''
-tags:
-- Chapter 6
-- exercises
-authors: []
----
 
 ## Chapter 6, Exercise 6.4
 
@@ -117,7 +94,7 @@ PlantGrowth %>%
   t.test(weight ~ group, data  = .) %>% 
   tidy()
 ```
-
+Permutation test for fully duplicated dataset: 
 ```{r}
 pg1 <- PlantGrowth %>% 
   sample_frac(size = 0.5) 
@@ -160,5 +137,11 @@ ggplot(tibble(`|t|` = pg2_null), aes(x = `|t|`)) +
   geom_histogram(binwidth = 0.1, boundary = 0)  #geom_vline(xintercept = abs(tt$statistic), col = "red")
 
 #mean(abs(tt$statistic) <= abs_t_null)
+
+```
+
+```{r}
+
+
 
 ```
