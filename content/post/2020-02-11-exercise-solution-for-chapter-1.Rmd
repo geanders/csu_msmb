@@ -21,6 +21,8 @@ image:
 projects: []
 ---
 
+> **Exercise 1.8 (p. 17)** Is the mitochondrial sequence of *C. elegans*
+consistent with a model of equally likely nucleotides?
 
 This exercise asks us to explore the frequency of each of the four nucleotides
 (A, C, G, and T) in the genome of *C. elegans*, a type of worm used frequently
@@ -43,6 +45,9 @@ library("knitr")
 ```
 
 ## Part A
+
+> Explore the nucleotide frequencies of chromosome M by using a dedicated
+function in the *Biostrings* package from Bioconductor.
 
 Part A of the question asks us to explore the nucleotide frequency of the *C.
 elegans* genome. This genome is available in the `Celegans` data that comes with
@@ -133,6 +138,9 @@ distributed in the *C. elegans* genome. This question will be investigated more
 in the next part of the exercise.
 
 ## Part B
+
+> Test whether the *C. elegans* data are consistent with the uniform 
+model (all nucleotide frequencies the same) using a simulation.
 
 The second part of the exercise asks us to test whether the observed nucleotide
 data for *C. elegans* is  consistent with the uniform model that all nucleotide
