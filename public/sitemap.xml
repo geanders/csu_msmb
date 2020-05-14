@@ -3,8 +3,8 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/authors/bailey-fosdick/</loc>
-    <lastmod>2020-05-08T09:52:41-06:00</lastmod>
+    <loc>/authors/amy-fox/</loc>
+    <lastmod>2020-05-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -18,13 +18,13 @@
   </url>
   
   <url>
-    <loc>/tags/class-meeting/</loc>
-    <lastmod>2020-05-08T09:52:41-06:00</lastmod>
+    <loc>/tags/chapter-12/</loc>
+    <lastmod>2020-05-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/class-meeting/</loc>
-    <lastmod>2020-05-08T09:52:41-06:00</lastmod>
+    <loc>/categories/chapter-12/</loc>
+    <lastmod>2020-05-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -33,8 +33,18 @@
   </url>
   
   <url>
-    <loc>/post/details-for-class-on-may-14/</loc>
-    <lastmod>2020-05-08T09:52:41-06:00</lastmod>
+    <loc>/post/exercise-solution-for-chapter-12/</loc>
+    <lastmod>2020-05-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/exercise-solutions/</loc>
+    <lastmod>2020-05-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/exercise-solutions/</loc>
+    <lastmod>2020-05-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -48,6 +58,26 @@
   </url>
   
   <url>
+    <loc>/authors/bailey-fosdick/</loc>
+    <lastmod>2020-05-08T09:52:41-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/class-meeting/</loc>
+    <lastmod>2020-05-08T09:52:41-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/class-meeting/</loc>
+    <lastmod>2020-05-08T09:52:41-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/details-for-class-on-may-14/</loc>
+    <lastmod>2020-05-08T09:52:41-06:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/details-for-class-on-may-7/</loc>
     <lastmod>2020-05-07T13:02:51-06:00</lastmod>
   </url>
@@ -58,22 +88,12 @@
   </url>
   
   <url>
-    <loc>/categories/chapter-12/</loc>
-    <lastmod>2020-05-04T19:46:32-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/chapter-12/</loc>
+    <loc>/categories/vocabulary/</loc>
     <lastmod>2020-05-04T19:46:32-06:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/vocabulary/</loc>
-    <lastmod>2020-05-04T19:46:32-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/vocabulary/</loc>
     <lastmod>2020-05-04T19:46:32-06:00</lastmod>
   </url>
   
@@ -108,12 +128,12 @@
   </url>
   
   <url>
-    <loc>/categories/chapter-10/</loc>
+    <loc>/tags/chapter-10/</loc>
     <lastmod>2020-04-14T20:29:11-06:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/chapter-10/</loc>
+    <loc>/categories/chapter-10/</loc>
     <lastmod>2020-04-14T20:29:11-06:00</lastmod>
   </url>
   
@@ -133,12 +153,12 @@
   </url>
   
   <url>
-    <loc>/tags/chapter-9/</loc>
+    <loc>/categories/chapter-9/</loc>
     <lastmod>2020-04-20T20:22:07-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/chapter-9/</loc>
+    <loc>/tags/chapter-9/</loc>
     <lastmod>2020-04-20T20:22:07-07:00</lastmod>
   </url>
   
@@ -148,12 +168,12 @@
   </url>
   
   <url>
-    <loc>/tags/exercises/</loc>
+    <loc>/categories/exercises/</loc>
     <lastmod>2020-05-13T15:00:06-06:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/exercises/</loc>
+    <loc>/tags/exercises/</loc>
     <lastmod>2020-05-13T15:00:06-06:00</lastmod>
   </url>
   
@@ -248,12 +268,12 @@
   </url>
   
   <url>
-    <loc>/categories/chapter-6/</loc>
+    <loc>/tags/chapter-6/</loc>
     <lastmod>2020-03-12T13:17:23-06:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/chapter-6/</loc>
+    <loc>/categories/chapter-6/</loc>
     <lastmod>2020-03-12T13:17:23-06:00</lastmod>
   </url>
   
@@ -268,12 +288,12 @@
   </url>
   
   <url>
-    <loc>/categories/quiz/</loc>
+    <loc>/tags/quiz/</loc>
     <lastmod>2020-03-12T13:17:23-06:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/quiz/</loc>
+    <loc>/categories/quiz/</loc>
     <lastmod>2020-03-12T13:17:23-06:00</lastmod>
   </url>
   
@@ -328,11 +348,6 @@
   </url>
   
   <url>
-    <loc>/authors/amy-fox/</loc>
-    <lastmod>2020-02-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/post/vocabulary-for-chapter-4/</loc>
     <lastmod>2020-02-20T00:00:00+00:00</lastmod>
   </url>
@@ -348,12 +363,12 @@
   </url>
   
   <url>
-    <loc>/categories/blogdown/</loc>
+    <loc>/tags/blogdown/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/blogdown/</loc>
+    <loc>/categories/blogdown/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
@@ -363,12 +378,12 @@
   </url>
   
   <url>
-    <loc>/categories/github/</loc>
+    <loc>/tags/github/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/github/</loc>
+    <loc>/categories/github/</loc>
     <lastmod>2020-02-11T20:21:23-07:00</lastmod>
   </url>
   
@@ -393,12 +408,12 @@
   </url>
   
   <url>
-    <loc>/tags/chapter-1/</loc>
+    <loc>/categories/chapter-1/</loc>
     <lastmod>2020-02-11T20:22:07-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/chapter-1/</loc>
+    <loc>/tags/chapter-1/</loc>
     <lastmod>2020-02-11T20:22:07-07:00</lastmod>
   </url>
   

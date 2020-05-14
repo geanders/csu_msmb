@@ -5,12 +5,21 @@
     <link>/authors/</link>
       <atom:link href="/authors/index.xml" rel="self" type="application/rss+xml" />
     <description>Authors</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 08 May 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 12 May 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Authors</title>
       <link>/authors/</link>
     </image>
+    
+    <item>
+      <title></title>
+      <link>/authors/amy-fox/</link>
+      <pubDate>Tue, 12 May 2020 00:00:00 +0000</pubDate>
+      <guid>/authors/amy-fox/</guid>
+      <description>&lt;p&gt;Amy Fox is a graduate student in the Department of Microbiology, Immunology, and Pathology at Colorado State University. She&#39;s currently testing the efficacy of different tuberculosis vaccines in mice and working on developing an R-based data analysis pipeline for flow cytometry data. When she&#39;s not in the lab, she enjoys traveling and experiencing new food and cultures.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title></title>
@@ -119,15 +128,6 @@ source R software packages to facilitate environmental epidemiologic research.&l
       <guid>/authors/burton-karger/</guid>
       <description>&lt;p&gt;Burton Karger is a Research Associate in the Department of Microbiology Immunology and Pathology at Colorado
 State University.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/authors/amy-fox/</link>
-      <pubDate>Thu, 20 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>/authors/amy-fox/</guid>
-      <description>&lt;p&gt;Amy Fox is a graduate student in the Department of Microbiology, Immunology, and Pathology at Colorado State University. She&#39;s currently testing the efficacy of different tuberculosis vaccines in mice and working on developing an R-based data analysis pipeline for flow cytometry data. When she&#39;s not in the lab, she enjoys traveling and experiencing new food and cultures.&lt;/p&gt;
 </description>
     </item>
     

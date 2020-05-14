@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.7.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Amy Fox">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Exercise 12.2 from Modern Statistics for Modern Biologists  Use glmnet for a prediction of a continous variable, i.e., for regression. Use the prostate cancer data from Chapter 3 of (Hastie, Tibshirani, and Friedman 2008). The data are available in the CRAN package ElemStatLearn. Explore the effects of using Ridge versus Lasso penalty.
+ Here are the packages that need to be installed.
+library(dplyr) library(ggplot2) library(glmnet) # perform generalize linear models library(GGally) # used for ggpairs function library(superheat) # used to show correlation between variables  Data for the exercise The ElemStatPackage isn’t on CRAN anymore.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/exercise-solution-for-chapter-12/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  <script src="/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-36719749-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           document.location = url;
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target);  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-36719749-3', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
+  
+
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="/post/exercise-solution-for-chapter-12/">
+
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="CSU MSMB Group Study">
+  <meta property="og:url" content="/post/exercise-solution-for-chapter-12/">
+  <meta property="og:title" content="Exercise Solution for Chapter 12 | CSU MSMB Group Study">
+  <meta property="og:description" content="Exercise 12.2 from Modern Statistics for Modern Biologists  Use glmnet for a prediction of a continous variable, i.e., for regression. Use the prostate cancer data from Chapter 3 of (Hastie, Tibshirani, and Friedman 2008). The data are available in the CRAN package ElemStatLearn. Explore the effects of using Ridge versus Lasso penalty.
+ Here are the packages that need to be installed.
+library(dplyr) library(ggplot2) library(glmnet) # perform generalize linear models library(GGally) # used for ggpairs function library(superheat) # used to show correlation between variables  Data for the exercise The ElemStatPackage isn’t on CRAN anymore."><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
+  <meta property="twitter:image" content="img/map[gravatar:%!s(bool=false) shape:circle]"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2020-05-12T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2020-05-12T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/exercise-solution-for-chapter-12/"
+  },
+  "headline": "Exercise Solution for Chapter 12",
+  
+  "datePublished": "2020-05-12T00:00:00Z",
+  "dateModified": "2020-05-12T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Amy Fox"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "CSU MSMB Group Study",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "img//"
+    }
+  },
+  "description": "Exercise 12.2 from Modern Statistics for Modern Biologists  Use glmnet for a prediction of a continous variable, i.e., for regression. Use the prostate cancer data from Chapter 3 of (Hastie, Tibshirani, and Friedman 2008). The data are available in the CRAN package ElemStatLearn. Explore the effects of using Ridge versus Lasso penalty.\n Here are the packages that need to be installed.\nlibrary(dplyr) library(ggplot2) library(glmnet) # perform generalize linear models library(GGally) # used for ggpairs function library(superheat) # used to show correlation between variables  Data for the exercise The ElemStatPackage isn’t on CRAN anymore."
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Exercise Solution for Chapter 12 | CSU MSMB Group Study</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">CSU MSMB Group Study</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">CSU MSMB Group Study</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#people"><span>People</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#experience"><span>Schedule</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Location</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/files/csu_msmb_syllabus.pdf"><span>Syllabus</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item">
+        <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Exercise Solution for Chapter 12</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  
+  <span><a href="/authors/amy-fox/">Amy Fox</a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    May 12, 2020
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    11 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/exercise-solutions/">Exercise solutions</a>, <a href="/categories/chapter-12/">Chapter 12</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      
+
+
+<div id="exercise-12.2-from-modern-statistics-for-modern-biologists" class="section level2">
+<h2>Exercise 12.2 from Modern Statistics for Modern Biologists</h2>
+<blockquote>
+<p>Use <code>glmnet</code> for a prediction of a continous variable, i.e., for regression. Use the prostate cancer data from Chapter 3 of (Hastie, Tibshirani, and Friedman 2008). The data are available in the CRAN package <code>ElemStatLearn</code>. Explore the effects of using Ridge versus Lasso penalty.</p>
+</blockquote>
+<p>Here are the packages that need to be installed.</p>
+<pre class="r"><code>library(dplyr)
+library(ggplot2)
+library(glmnet) # perform generalize linear models
+library(GGally) # used for ggpairs function
+library(superheat) # used to show correlation between variables</code></pre>
+</div>
+<div id="data-for-the-exercise" class="section level2">
+<h2>Data for the exercise</h2>
+<p>The <code>ElemStatPackage</code> isn’t on CRAN anymore. But it is possible to download it from Github at: <a href="https://github.com/cran/ElemStatLearn/blob/master/data/prostate.RData" class="uri">https://github.com/cran/ElemStatLearn/blob/master/data/prostate.RData</a></p>
+<pre class="r"><code>load(&quot;./example_datasets/prostate.RData&quot;)
+
+prostate %&gt;% 
+  head()</code></pre>
+<pre><code>##       lcavol  lweight age      lbph svi       lcp gleason pgg45       lpsa
+## 1 -0.5798185 2.769459  50 -1.386294   0 -1.386294       6     0 -0.4307829
+## 2 -0.9942523 3.319626  58 -1.386294   0 -1.386294       6     0 -0.1625189
+## 3 -0.5108256 2.691243  74 -1.386294   0 -1.386294       7    20 -0.1625189
+## 4 -1.2039728 3.282789  58 -1.386294   0 -1.386294       6     0 -0.1625189
+## 5  0.7514161 3.432373  62 -1.386294   0 -1.386294       6     0  0.3715636
+## 6 -1.0498221 3.228826  50 -1.386294   0 -1.386294       6     0  0.7654678
+##   train
+## 1  TRUE
+## 2  TRUE
+## 3  TRUE
+## 4  TRUE
+## 5  TRUE
+## 6  TRUE</code></pre>
+<p>This data looks at correlating the level of prostate-specific antigen <code>lpsa</code> and eight other clinical measures in men.</p>
+<p>Here’s what the variables mean:</p>
+<ul>
+<li><code>lcavol</code>: log cancer volume</li>
+<li><code>lweight</code>: log prostate weight</li>
+<li><code>age</code>: in years</li>
+<li><code>lbph</code>: log of the amount of benign prostatic hyperplasia</li>
+<li><code>svi</code>: seminal vesicle invasion</li>
+<li><code>lcp</code>: log of capsular penetration</li>
+<li><code>gleason</code>: a numeric vector with the Gleason score</li>
+<li><code>pgg45</code>: percent of Gleason score 4 or 5</li>
+<li><code>lpsa</code>: response (the thing you are trying to predict), the
+level of prostate-specific antigen</li>
+<li><code>train</code>: a logical vector, of whether the data was to be
+part of the training dataset (TRUE) or the testing one (FALSE)</li>
+</ul>
+<p>So, you’re trying to predict the values of <code>lpsa</code> based on all of the other variables. <code>lpsa</code> is a continuous variable. To get a general view of the <code>lpsa</code> values, we can view a summary of values and create a histogram.</p>
+<pre class="r"><code>prostate$lpsa %&gt;%
+  summary()</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## -0.4308  1.7317  2.5915  2.4784  3.0564  5.5829</code></pre>
+<pre class="r"><code>ggplot(prostate, aes(x = lpsa)) +
+  geom_histogram(bins = 30) +
+  ggtitle(&quot;Histogram of lpsa response&quot;)</code></pre>
+<p><img src="/post/2020-05-12-exercise-solution-for-chapter-12_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>Here we can see the values range from -0.4 to values of almost 6. Based on the histogram, the data seems to also fit a close to normal distribution.</p>
+<p>Before actually performing any predictions, we may want to see if any of the variables are correlated to each other. This can show if there are potentially two variables measuring similar things. We use the <code>ggpairs</code> function from the <code>GGally</code> package to do this.</p>
+<pre class="r"><code>ggpairs(prostate)</code></pre>
+<p><img src="/post/2020-05-12-exercise-solution-for-chapter-12_files/figure-html/unnamed-chunk-4-1.png" width="576" /></p>
+<p>Based on this plot, we can see that some variables, such as<code>pgg45</code> and <code>gleason</code>, are highly correlated. We can also see the distribution of the data in the testing and training datasets (we will discuss the testing and training column later in this exercise).</p>
+<p>We can also visually view correlations between the variables using the <code>cor</code> function and a heatmap from the<code>superheat</code> package.</p>
+<pre class="r"><code>prostate %&gt;%
+  select(-train) %&gt;%
+  cor() %&gt;%
+  superheat()</code></pre>
+<p><img src="/post/2020-05-12-exercise-solution-for-chapter-12_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>This plot shows the same data as the <code>ggpairs</code> output, but we can visually see the correlation between each of the variables. If the correlation is high and positive, then the rectange is yellow, if the correlation between two variables is low, the rectangle is purple.</p>
+<p>We will first split the data into testing and training data.</p>
+<pre class="r"><code>prostate_train &lt;- prostate %&gt;%
+  filter(train == TRUE)
+
+prostate_test &lt;- prostate %&gt;%
+  filter(train == FALSE)</code></pre>
+<p>There are 67 samples in the training set and 30 samples in the testing set.</p>
+<p>Because this data was specifically posted to teach machine learning, the authors included a column called <code>train</code> so that users can split the data into testing and training datasets. If this column had not been created, there are many ways to sample the data and split it into two datasets. Here is an example:</p>
+<p><code>install.packages("rsample")</code>
+<code>library(rsample)</code>
+<code>prostate_split &lt;- initial_split(prostate, prop = .75)</code>
+<code>prostate_test &lt;- testing(prostate_split)</code>
+<code>prostate_train &lt;- training(prostate_split)</code></p>
+</div>
+<div id="fit-generalized-linear-model-glmnet-with-lasso-and-ridge-penalties" class="section level2">
+<h2>Fit generalized linear model (glmnet) with Lasso and Ridge penalties</h2>
+<p>We will first pull out the predictors and reponse that we want to input into the <code>glmnet</code> function.</p>
+<pre class="r"><code># pull outall of the predictors that we are using
+predictors &lt;- prostate_train %&gt;%
+  select(lcavol:pgg45) %&gt;%
+  as.matrix()
+
+head(predictors)</code></pre>
+<pre><code>##          lcavol  lweight age      lbph svi       lcp gleason pgg45
+## [1,] -0.5798185 2.769459  50 -1.386294   0 -1.386294       6     0
+## [2,] -0.9942523 3.319626  58 -1.386294   0 -1.386294       6     0
+## [3,] -0.5108256 2.691243  74 -1.386294   0 -1.386294       7    20
+## [4,] -1.2039728 3.282789  58 -1.386294   0 -1.386294       6     0
+## [5,]  0.7514161 3.432373  62 -1.386294   0 -1.386294       6     0
+## [6,] -1.0498221 3.228826  50 -1.386294   0 -1.386294       6     0</code></pre>
+<pre class="r"><code># this is the response
+response &lt;- prostate_train %&gt;%
+  pull(lpsa)</code></pre>
+<p>When performing statistical analysis on data with many variables, we often have a problem with variance as there are many parameters. We can use penalization to account for this variance-bias trade off. Two examples of penalization are the Lasso and Ridge penalty which we will use in this exercise.</p>
+<p>Based on the <code>glmnet</code> package, when <code>alpha = 1</code> the Lasso penalty is used, if <code>alpha = 0</code>, then Ridge penalty is used. A great resource for the <code>glmnet</code> package can be found here: <a href="https://web.stanford.edu/~hastie/glmnet/glmnet_alpha.html" class="uri">https://web.stanford.edu/~hastie/glmnet/glmnet_alpha.html</a></p>
+<p>Here, we use a matrix of all of the predictors (<code>x</code>) to try to predict the <code>lpsa</code> column (<code>y</code>). When we plot the penalized regressions, we use the <code>label = TRUE</code> to show which lines correspond to which predictors. In this case, the order of the input vector <code>predictors</code> matches with the variable numbers as follows.</p>
+<p>1: lcavol</p>
+<p>2: lweight</p>
+<p>3: age</p>
+<p>4: lbph</p>
+<p>5: svi</p>
+<p>6: lcp</p>
+<p>7: gleason</p>
+<p>8: pgg45</p>
+<pre class="r"><code># Lasso 
+lasso_glmnet &lt;- glmnet(x = predictors, 
+                    y = response, 
+                    family = &quot;gaussian&quot;, alpha = 1)
+
+plot(lasso_glmnet, label = TRUE)
+title(&quot;Lasso Penalty&quot;, line = -2.5)</code></pre>
+<p><img src="/post/2020-05-12-exercise-solution-for-chapter-12_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<pre class="r"><code># Ridge
+ridge_glmnet &lt;- glmnet(x = predictors, 
+                    y = response, 
+                    family = &quot;gaussian&quot;, alpha = 0)
+
+plot(ridge_glmnet, label = TRUE)
+title(&quot;Ridge Penalty&quot;, line = -1.5)</code></pre>
+<p><img src="/post/2020-05-12-exercise-solution-for-chapter-12_files/figure-html/unnamed-chunk-8-2.png" width="672" /></p>
+<p>The plots show the estimated coefficients as L1 norm increases. L1 norm is the regularization term. It means that at small L1 norm values, there is a lot of regularization, but as it increases, more variables become part of the model as coefficients take non-zero values. The top axis shows the number of nonzero coefficients correspoding to the lamba at the current L1 norm. From these plots we can see that the variables 1 (log cancer volume), 2 (log prostate weight), and 5 (seminal vesicle invasion) are good predictors for the level of prostate-specific antigen (lpsa response).</p>
+</div>
+<div id="cross-validation" class="section level2">
+<h2>Cross Validation</h2>
+<p>After creating our models, we want to see how good they are. We can do this through cross-validation. In this case, we already split the data into training and testing data, but we could run the full modeling and cross-validation on all of the data. We use the <code>cv.glmnet</code> function to do this. It utilizes k-fold cross validation, meaning that the input data is split multiple times into new trainng and testing sets of sizes n(k-1)/k and n/k, respectively. We use this cross-validation to determine the best <span class="math inline">\(\lambda\)</span>. Again we input a matrix of all of the predictors (<code>x</code>) to look at the <code>lpsa</code> response (<code>y</code>).</p>
+<pre class="r"><code>set.seed(2)
+
+# Lasso
+cvglmnet_lasso &lt;- cv.glmnet(x = predictors, 
+                    y = response, 
+                    family = &quot;gaussian&quot;, alpha = 0)
+cvglmnet_lasso</code></pre>
+<pre><code>## 
+## Call:  cv.glmnet(x = predictors, y = response, family = &quot;gaussian&quot;,      alpha = 0) 
+## 
+## Measure: Mean-Squared Error 
+## 
+##     Lambda Measure      SE Nonzero
+## min 0.0879  0.5939 0.09857       8
+## 1se 0.9873  0.6873 0.08098       8</code></pre>
+<pre class="r"><code>plot(cvglmnet_lasso)
+title(&quot;Lasso Cross Validation&quot;, line = -1.5)</code></pre>
+<p><img src="/post/2020-05-12-exercise-solution-for-chapter-12_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<pre class="r"><code># Ridge
+cvglmnet_ridge &lt;- cv.glmnet(x = predictors, 
+                    y = response, 
+                    family = &quot;gaussian&quot;, alpha = 1)
+cvglmnet_ridge</code></pre>
+<pre><code>## 
+## Call:  cv.glmnet(x = predictors, y = response, family = &quot;gaussian&quot;,      alpha = 1) 
+## 
+## Measure: Mean-Squared Error 
+## 
+##      Lambda Measure      SE Nonzero
+## min 0.01336  0.5753 0.07244       7
+## 1se 0.13673  0.6408 0.09222       5</code></pre>
+<pre class="r"><code>plot(cvglmnet_ridge)
+title(&quot;Ridge Cross Validation&quot;, line = -1.5)</code></pre>
+<p><img src="/post/2020-05-12-exercise-solution-for-chapter-12_files/figure-html/unnamed-chunk-9-2.png" width="672" /></p>
+<p>In the data output, <code>1se</code> is the data point that is within 1 standard error of the minimum <span class="math inline">\(\lambda\)</span> (<code>min</code>). This is the value that the model suggests that we use in our ultiamate predictive model (indicated by the 2nd dotted line on the plots.)
+The <code>1se Measure</code> is similar to the mean squared error. If the measure is small, then the model is better. When comparing the <code>Measure</code> of the <code>1se</code> between the two penalties, we can see that the Ridge Penalty has a smaller <code>1se Measure</code>, showing that it performs better.</p>
+<p>The <code>Nonzero</code> column describes the nonzero coefficients, or the number of predictors that are important in the particular model. There were a total of 8 predictors as the input. The Lasso penalty shows that all 8 predictors are important in building the model, but the Ridge penalty only uses 5 predictors.</p>
+<p>Based on this cross-validation, we can deduce that the Ridge penalty is the best predictive model to use for this data. We have also identified the best <span class="math inline">\(\lambda\)</span> to use with this model at 0.18074.</p>
+</div>
+<div id="lasso-prediction" class="section level2">
+<h2>Lasso Prediction</h2>
+<p>Here we pull out the same variables that we used to create the model, but we use the values from the testing data instead of the training data. We will then use the predictors from the testing data to predict the <code>lpsa</code>.</p>
+<pre class="r"><code>predictors_test &lt;- prostate_test %&gt;% 
+  dplyr::select(lcavol:pgg45) %&gt;% 
+  as.matrix()
+
+head(predictors_test)</code></pre>
+<pre><code>##          lcavol  lweight age       lbph svi        lcp gleason pgg45
+## [1,]  0.7371641 3.473518  64  0.6151856   0 -1.3862944       6     0
+## [2,] -0.7765288 3.539509  47 -1.3862944   0 -1.3862944       6     0
+## [3,]  0.2231436 3.244544  63 -1.3862944   0 -1.3862944       6     0
+## [4,]  1.2059708 3.442019  57 -1.3862944   0 -0.4307829       7     5
+## [5,]  2.0592388 3.501043  60  1.4747630   0  1.3480732       7    20
+## [6,]  0.3852624 3.667400  69  1.5993876   0 -1.3862944       6     0</code></pre>
+<p>As we used the training data to build the model, we can then test the generalized linear model with the Lasso penalty on the testing data.</p>
+<p>We start by using the <code>predict</code> function to use the model to predict the <code>lpsa</code> on the testing data. We can then see the correlation between the predicted values and actual values.</p>
+<pre class="r"><code>s0 &lt;- cvglmnet_lasso$lambda.1se 
+
+lasso_predict &lt;- predict(cvglmnet_lasso, newx = predictors_test, s = s0)
+
+# create a data frame of the actual lpsa values and the predicted lpsa values
+actual_lasso_predict_df &lt;- data.frame(prediction = as.vector(lasso_predict), actual = prostate_test$lpsa)</code></pre>
+<p>We can then see how correlated the prediction and real data are using the <code>cor</code> function.</p>
+<pre class="r"><code># look at the correlation of the prediction and real data
+cor(actual_lasso_predict_df)</code></pre>
+<pre><code>##            prediction    actual
+## prediction  1.0000000 0.7277086
+## actual      0.7277086 1.0000000</code></pre>
+<p>The output shows that the actual and predicted values are 72% correlated.</p>
+<p>Finally, we can plot the actual vs. predicted values on a scatter plot. If the actual and predicted values match up exactly, they would sit on the y = x line.</p>
+<pre class="r"><code>ggplot(actual_lasso_predict_df, aes(x = actual, y = prediction)) +
+  geom_point(color = &quot;#00B0F6&quot;, size = 2) +
+  geom_abline(slope=1, intercept=0)+
+  ggtitle(&quot;Lasso Prediction&quot;) +
+  theme_light()+
+  coord_fixed(xlim = c(0.75, 5.6),
+              ylim = c(0.75, 5.6))</code></pre>
+<p><img src="/post/2020-05-12-exercise-solution-for-chapter-12_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p>We can see in regions of the plot above the y = x line that the model overpredicted the actual values. If a point is below the y = x line, the model underpredicted the values.</p>
+</div>
+<div id="ridge-prediction" class="section level2">
+<h2>Ridge Prediction</h2>
+<p>We can then perform the same functions using the generalized linear model with the Ridge penalty to test on the testing data.</p>
+<pre class="r"><code>s0 &lt;- cvglmnet_ridge$lambda.1se 
+
+ridge_predict &lt;- predict(cvglmnet_ridge, newx = predictors_test, s = s0)
+
+# create a data frame of the predicted values and actual values
+actual_ridge_predict_df &lt;- data.frame(prediction = as.vector(ridge_predict), actual = prostate_test$lpsa) </code></pre>
+<p>We can then see how correlated the prediction and real data are using the <code>cor</code> function again.</p>
+<pre class="r"><code>cor(actual_ridge_predict_df)</code></pre>
+<pre><code>##            prediction    actual
+## prediction  1.0000000 0.7765403
+## actual      0.7765403 1.0000000</code></pre>
+<p>The Ridge prediction and actual values are 77% correlated.</p>
+<p>Finally, we can plot the actual vs. predicted values on a scatter plot. If the actual and predicted values matched up exactly, they would sit on the y = x line.</p>
+<pre class="r"><code>ggplot(actual_ridge_predict_df, aes(x = actual, y = prediction)) +
+  geom_point(color = &quot;#FF62BC&quot;, size = 2) +
+  geom_abline(slope=1, intercept=0) +
+  ggtitle(&quot;Ridge Prediction&quot;) +
+  theme_light() +
+  coord_fixed(xlim = c(0.75, 5.6),
+              ylim = c(0.75, 5.6))</code></pre>
+<p><img src="/post/2020-05-12-exercise-solution-for-chapter-12_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p>We can see in regions of the plot above the y = x line that the model overpredicted the actual values. If a point is below the y = x line, the model underpredicted the values.</p>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>Comparing the Lasso and Ridge penalty, based on the cross-validation, the Ridge penalty had a smaller <code>1se Measure</code>, showing that it performs better. When looking at the actual predictions on the testing data, the Ridge penalty had a higher correlation between the predicted and actual values (77%) compared to the Lasso penalty correlation (72%). In conclusion, the <strong>Ridge penalty performed better on this particular data set.</strong></p>
+<p>Resources
+- <a href="https://stats.stackexchange.com/questions/68431/interpretting-lasso-variable-trace-plots" class="uri">https://stats.stackexchange.com/questions/68431/interpretting-lasso-variable-trace-plots</a></p>
+</div>
+
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/exercise-solutions/">Exercise solutions</a>
+  
+  <a class="badge badge-light" href="/tags/chapter-12/">Chapter 12</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/exercise-solution-for-chapter-12/&amp;text=Exercise%20Solution%20for%20Chapter%2012" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/exercise-solution-for-chapter-12/&amp;t=Exercise%20Solution%20for%20Chapter%2012" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Exercise%20Solution%20for%20Chapter%2012&amp;body=/post/exercise-solution-for-chapter-12/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/exercise-solution-for-chapter-12/&amp;title=Exercise%20Solution%20for%20Chapter%2012" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Exercise%20Solution%20for%20Chapter%2012%20/post/exercise-solution-for-chapter-12/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/exercise-solution-for-chapter-12/&amp;title=Exercise%20Solution%20for%20Chapter%2012" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <img class="avatar mr-3 avatar-circle" src="/authors/amy-fox/avatar_hu86487dc3f4693ff088b8747c262f9eba_666342_270x270_fill_q90_lanczos_center.jpg" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/authors/amy-fox/">Amy Fox</a></h5>
+      <h6 class="card-subtitle">Graduate Student in Microbiology, Immunology, and Pathology</h6>
+      <p class="card-text">She's interested in using computational tools to answer biological questions.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    <li>
+      <a href="mailto:amyfox@colostate.edu" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/aef1004" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/amy-fox1/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://amyfox.netlify.com/" target="_blank" rel="noopener">
+        <i class="fa fa-user-circle"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/vocabulary-for-chapter-12/">Vocabulary for Chapter 12</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.4.3/mermaid.min.js" integrity="" crossorigin="anonymous" title="mermaid"></script>
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js" integrity="sha256-1zu+3BnLYV9LdiY85uXMzii3bdrkelyp37e0ZyTAQh0=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.a0d331bcd05dbe8b31e244f796710f08.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+  <p class="powered-by">
+    
+      <a href="/privacy/">Privacy Policy</a>
+    
+    
+       &middot; 
+      <a href="/terms/">Terms</a>
+    
+  </p>
+  
+
+  <p class="powered-by">
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

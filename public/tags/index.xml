@@ -5,7 +5,7 @@
     <link>/tags/</link>
       <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <description>Tags</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 08 May 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 12 May 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Tags</title>
@@ -13,18 +13,26 @@
     </image>
     
     <item>
-      <title>class meeting</title>
-      <link>/tags/class-meeting/</link>
-      <pubDate>Fri, 08 May 2020 00:00:00 +0000</pubDate>
-      <guid>/tags/class-meeting/</guid>
+      <title>Chapter 12</title>
+      <link>/tags/chapter-12/</link>
+      <pubDate>Tue, 12 May 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/chapter-12/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Chapter 12</title>
-      <link>/tags/chapter-12/</link>
-      <pubDate>Mon, 04 May 2020 00:00:00 +0000</pubDate>
-      <guid>/tags/chapter-12/</guid>
+      <title>Exercise solutions</title>
+      <link>/tags/exercise-solutions/</link>
+      <pubDate>Tue, 12 May 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/exercise-solutions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>class meeting</title>
+      <link>/tags/class-meeting/</link>
+      <pubDate>Fri, 08 May 2020 00:00:00 +0000</pubDate>
+      <guid>/tags/class-meeting/</guid>
       <description></description>
     </item>
     
