@@ -67,7 +67,7 @@ date_format = "   "
   Student responsibilities:
 
   * [Vocabulary](https://kind-neumann-789611.netlify.com/post/vocabulary-for-chapter-2-8-2-12/): [Sierra Pugh](https://kind-neumann-789611.netlify.com/authors/sierra-pugh/)
-  * Exercise: [Sarah Cooper](https://kind-neumann-789611.netlify.com/authors/sarah-cooper/)
+  * [Exercise](https://kind-neumann-789611.netlify.app/post/ex-2-6/): [Sarah Cooper](https://kind-neumann-789611.netlify.com/authors/sarah-cooper/)
   """
   
 [[experience]]
