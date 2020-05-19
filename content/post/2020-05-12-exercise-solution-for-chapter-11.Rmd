@@ -40,16 +40,18 @@ library("spatstat")
 ```
 
 
-## Extending the analysis in section 11.17 for all cell types
+# Extending the analysis in section 11.17 for all cell types
 
-This exercise asks us to analyze an image of a lymph node and evaluate the spatial dependence for all of the cell types in the lymph node. In this case, the null hypothesis is that each of the cell types are evenly distributed (via a homogenous Poisson process) throughout the lymph node. The cell types we will look at are T cells (T_cells), tumor cells (Tumor), dendritic cells (DCs), and other cells (other_cells). 
+This exercise asks us to analyze an image of a lymph node and evaluate the spatial dependence for all of the cell types in the lymph node. In this case, the null hypothesis is that each of the cell types are evenly distributed (via a homogenous Poisson process) throughout the lymph node. The cell types we will look at are T cells `T_cells`, tumor cells `Tumor`, dendritic cells `DCs`, and other cells `other_cells`. 
 
-# The image data
+## The image data
 
-The image data has already been processed from the original image of a stained lymph node slide to a data type known as marked point process. This example uses the following files from the *Modern Statistics for Modern Biology*'s data folder: "99_452SD-DCs.txt", "99_452SD-other_cells.txt", "99_452SD-T_cells.txt", and ""99_452SD-Tumor.txt".
+The image data has already been processed from the original image of a stained lymph node slide to a data type known as marked point process. This example uses the following files from the *Modern Statistics for Modern Biology*'s data folder: "99_452SD-DCs.txt", "99_452SD-other_cells.txt", "99_452SD-T_cells.txt", and ""99_452SD-Tumor.txt". 
+
+
 
 Reading in the data
-```{r include=FALSE}
+```{r echo=TRUE}
 # create cell classes that will be used to call the specific file names
 cellclasses = c("T_cells", "Tumor", "DCs", "other_cells")
 
@@ -66,59 +68,88 @@ brcalymphnode = lapply(cellclasses, function(k) {
 }) %>% bind_rows %>% mutate(class = factor(class))
 ```
 
-# Overview of the data
+### Overview of the data
 
-Taking a look at the first few rows
+The data is now in a dataframe that contains the following information for each cell in the lymph node: its 2-dimensional location in the image which correspond to the`x` and `y` column values, and the type of cell which is represented by the `class` column. 
+
+
+Taking a look at the first few rows:
 ```{r}
 head(brcalymphnode)
 ```
+
 
 How many cells are in each cell type?
 ```{r}
 table(brcalymphnode$class)
 ```
 
-Visualizing the data for each cell type using ggplot
+
+Visualizing the data for each cell type using `ggplot`:
 ```{r}
 ggplot(filter(brcalymphnode, class %in% cellclasses),
        aes(x = x, y = y, col = class)) + geom_point(shape = ".") +
   facet_wrap( . ~ class) + guides(col = FALSE)
 ```
 
+Already, we see that the tumor cells look very clustered together, and DCs look like they may be clustering as well. Other cells and T cells seem to potentially cluster, or at least be excluded from, certain parts of the lymph node. We will investigate this in the exercise to see if what visually looks like clustering with most of the cell types is supported when we further analyze the image.
 
-Now that we are familiar with what the data looks like, we will prepare it to be analyzed using the spatstat package, which allows us to put the data into a "ppp" object. The authors of the book describe the advantage of a "ppp" object by its ability to "capture realizations of a spatial point process," which is convenient to work with when our data is formatted as individual points in the xy plane. 
 
-The first step in this process is to change the class of our dataframe into a "ppp" object, which is found in the `spatstat` package.
+
+
+Now that we are familiar with what the data looks like, we will prepare it to be analyzed using the `spatstat` package, which allows us to put the data into a `ppp` object. The authors of the book describe the advantage of a `ppp` object by its ability to "capture realizations of a spatial point process," which is convenient to work with when our data is formatted as individual points in the xy plane. 
+
+The first step in this process is to change the class of our dataframe into a `ppp` object, which is found in the `spatstat` package. We can do this with the `ppp` function which requires inputs for `x` to be a vector of x coordinates and `y` to be a vector of y coordinates. We can also specify inputs like `marks` which is a vector that marks values for the points, which is useful in specifying which type of cell corresponds to a point (found in the `class` column of our dataframe). `ppp` also has several parameters we can use for specifying the window we want to analyze, including `xrange` and `yrange` which are used to create a rectangular window.
 ```{r}
-# put our current dataframe into a ppp object named ln
+# take our current dataframe and put its x, y, and class columns into a ppp object named ln
 ln = with(brcalymphnode,
           ppp(x = x, y = y, marks = class, xrange = range(x), yrange = range(y)))
 # calling the object gives us summary statistics
 ln
 ```
 
-We can create a tighter region to be analyzed by creating a convex hull. This way we are analyzing the shape of the lymph node instead of a rectangle that would be inconsistent with the shape of the image we are interested in analyzing.
+
+
+We can create a tighter region to be analyzed by creating a convex hull. This way we are analyzing the shape of the lymph node instead of a rectangle that would be inconsistent with the shape of the image we are interested in analyzing. 
 ```{r}
 # the book uses the convhulln function to accomplish this, but you can also use the chull function in base R
 # the convhulln function is found in the geometry package
 library("geometry")
+# defining coordinates our hull should encompass from our ln object
+# this creates a 2094642 x 2 matrix
 coords = cbind(ln$x, ln$y)
+
+# use convhulln with the coordinates defined above, store it in an object named chull
+# this will create a matrix of indices for our convex hull--it ends up being a 28 x 2 matrix
 chull = convhulln(coords)
 
 # ppp functions need the hull to be defined as closed polygons
 # this is the code the book gives to accomplish this
+
+# create a variable named pidx that is a vector of integers with length 29
 pidx = integer(nrow(chull) + 1)
+
+# for the first two integers in pidx, use the first row of chull matrix
 pidx[1:2] = chull[1, ]
+# replace values in first row of chull for NA
 chull[1, ] = NA
+# create a for loop for the rest of the entries in pidx
 for(j in 3:length(pidx)) {
+  # when chull equals the pidx[j-1] value, return a the value and store it in wh
   wh = which(chull == pidx[j-1], arr.ind = TRUE)
+  # do not continue if number of rows in wh does not equal 1
   stopifnot(nrow(wh )== 1)
   wh[, "col"] = 3 - wh[, "col"] ## 2->1, 1->2
+  # in the jth index of pidx, store the value in the wh index of chull
   pidx[j] = chull[wh]
+  # replace the corresponding row in chull with NA's
   chull[wh[, "row"], ] = NA
 }
+# now pidx has 29 integers stored in it
+# reverse the order of the integers in pidx
 pidx = rev(pidx)
 ```
+
 
 We can visualize the hull by graphing it.
 ```{r}
@@ -131,7 +162,9 @@ ggplot(tibble(x = ln$x, y = ln$y)[pidx, ], aes(x = x, y = y)) +
 If you compare the shape of the hull to Figure 11.22 in the book, this looks like a better representation of the shape we actually want to analyze. 
 
 
-Now that we have defined the hull as a closed polygon, we can convert our data into a "ppp" object class.
+
+
+Now that we have defined the hull as a closed polygon, we can refine our window in the `ppp` object to represent our hull by inputting `pidx` for the `poly` parameter in the `ppp` function.
 ```{r}
 # take brcalymphnode and use its data within the region of the hull and store it in ln
 ln = with(brcalymphnode,
@@ -147,7 +180,7 @@ plot(ln, col = 1:4, pch = 19, cex = 0.1)
 
 # Investigating Spatial Dependence (our exercise this week from section 11.17)
 
-Now that we have the data in a "ppp" object, we can start to test our null hypothesis that all of the cell types are evenly distributed throughout the lymph node (via a homogenous Poisson process). This will basically allow us to see if there is a spatial dependence in the location of the different cell types. Rejecting our null hypothesis would mean that the cells are spatially dependent on the location of other cells of their type. 
+Now that we have the data in a `ppp` object, we can start to test our null hypothesis that all of the cell types are evenly distributed throughout the lymph node (via a homogenous Poisson process). This will basically allow us to see if there is a spatial dependence in the location of the different cell types. Rejecting our null hypothesis would mean that the cells are spatially dependent on the location of other cells of their type. 
 
 
 If we want to see if a Poisson distribution is a relatively decent assumption with our data, we can use the `Gest` function in the `spatstat` package to look at this. Basically this estimates cumulative distribution function of the distance of a random point to its nearest neighbor. The plot will automatically include the CDF for a homogenous Poisson distribution.
@@ -155,12 +188,17 @@ If we want to see if a Poisson distribution is a relatively decent assumption wi
 plot(Gest(ln))
 ```
 
-While it looks like our data may differ from a homogenous Poisson CDF, the general shape of our data seems to support this distribution is a fairly reasonable assumption. 
+In this plot, we are looking for similarities between the distance estimation of *r* for the nearest neighbor of our data ($\hat{G}$) and known distance measures in a homogenous Poisson distribution ($G_{pois}$), i.e. we are looking for the $\hat{G}$ lines to be close to the blue $G_{pois}$ line. While it looks like our data may differ from a homogenous Poisson CDF, the general shape of our data seems to support this distribution is a fairly reasonable assumption. 
+
+## The L function
+For examining spatial dependence, one estimate we can consider is the $L$ function. The $L$ function is a transformation of Ripley's $K$ function (see equations 11.10 and 11.11 in [Chapter 11 of *Modern Statistics for Modern Biology*](http://web.stanford.edu/class/bios221/book/Chap-Images.html)). The book describes these equations as a way to measure the average number of points within a distance, *r*, from a random point. To estimate the $L$ function, we can use the `Linhom` function in the `spatstat` package. The basic idea is to see if the distance of between cells of a certain type follow a random pattern (represented by $L_{pois}$). For most cell types, it will look at the border-corrected and modified border-corrected estimates of the $L$ function. The border-corrected method excludes any points that are closer to the border than to their nearest neighbor, whereas the modified border-corrected method excludes any points within a certain distance from the border (more information about different types of inhomogenous estimates can be found in [this article](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.771.7741&rep=rep1&type=pdf)). 
+
+We can plot our estimates by plotting the `Linhom` output; the x-axis of the plot is the distance from a point, *r*, and  the y-axis is the estimate of the $L$ function, $L_{inhom}(r)$. The expected value of $L(r) = r$ for a homogenous Poisson which can be interpreted as the number of cells at distance *r* from a cell, or point, is *r*. If our $\hat{L}_{inhom}(r)$ estimates are above the $L_{pois}(r)$ line, that indicates the cells are clustering as there are more cells at a distance *r* than a homogenous Poisson process. We'll first look at T cells, which is the analysis shown in the book, and then extend these methods to look at tumor cells, DCs, and other cells.
 
 
-If we want to estimate the L function (see equations 11.10 and 11.11 in the book for details), we can use the `Linhom` function in the `spatstat` package. The basic idea is to see if the distance of between cells of a certain type follow a random pattern (represented by Lpois). 
 
-T cells:
+
+##### T cells:
 ```{r}
 # estimating the L function for T_cells (this may take a minute to run)
 Lln_T_cells <- Linhom(subset(ln, marks == "T_cells"))
@@ -172,9 +210,12 @@ Lln_T_cells
 plot(Lln_T_cells, col = c(2, 3, 1), lty = 1, main = "L function estimation for T cells")
 ```
 
-The distance estimator for the border-corrected estimate and modified border-corrected estimate of the L function for T cells differs quite a bit from our homogenous Poisson; this indicates that the distance between T cells in the lymph node is not evenly distributed.
+The distance estimator for the border-corrected estimate (green line, $\hat{L}_{inhom}^{bord}$) and modified border-corrected estimate (red line, $\hat{L}_{inhom}^{bordm}$) of the $L$ function for T cells differs quite a bit from our homogenous Poisson (black line, $L_{pois}$); this indicates that the distance between T cells in the lymph node is not evenly distributed.
 
-Tumor cells:
+
+
+
+##### Tumor cells:
 ```{r}
 # estimating the L function for tumor cells
 Lln_Tumor <- Linhom(subset(ln, marks == "Tumor"))
@@ -183,9 +224,12 @@ Lln_Tumor <- Linhom(subset(ln, marks == "Tumor"))
 plot(Lln_Tumor, col = c(2, 3, 1), lty = 1, main = "L function estimation for Tumor")
 ```
 
-As with the T cells, tumor cells seem to be inhomogenously distributed within the lymph node, based on our L function estimation results.
+As with the T cells, the border-corrected estimate (green line, $\hat{L}_{inhom}^{bord}$) and modified border-corrected estimate (red line, $\hat{L}_{inhom}^{bordm}$) of $L(r)$ differs from the homogenous Poisson (black line, $L_{pois}$), indicating that tumor cells are also inhomogenously distributed in the lymph node. 
 
-Dendritic Cells:
+
+
+
+##### Dendritic Cells:
 ```{r}
 # estimating the L function for DCs
 Lln_DCs <- Linhom(subset(ln, marks == "DCs"))
@@ -193,12 +237,16 @@ Lln_DCs <- Linhom(subset(ln, marks == "DCs"))
 # calling the object gives explanations about which estimates were calculated
 Lln_DCs
 # visualizing the estimates via plot
-plot(Lln_DCs, col = c(2:5, 1), lty = 1, main = "L function estimation for DCs")
+plot(Lln_DCs, col = c(4, 5, 2, 3, 1), lty = 1, main = "L function estimation for DCs")
 ```
 
-For all of the L function estimates for DCs, their distances estimates seem to differ from the homogenous Poisson, indicating that these are also potentially inhomogenously distributed. 
+In this analysis, we were given two extra $L$ function estimates that were not seen in the other cell types. This is because the number of dendritic cells, or points for `DCs`, is less than 3,000. `Linhom` first estimates the $K$ function before doing the transformation to the $L$ function, and estimating $K$ with certain corrections, namely the isotropic (blue line) and translation corrections (light blue line), is too computationally intensive. Therefore, with T cells and tumor cells, `Linhom` did not compute isotropic or translation corrections, but it did for DCs since we only have 878 points. Our book doesn't discuss different corrections, but you can find resources and further explanations about the different correction methods estimated in the [`Kest` R Documentation](https://www.rdocumentation.org/packages/spatstat/versions/1.63-3/topics/Kest).
+For DCs, the $L$ function border-corrected estimate (green line, $\hat{L}_{inhom}^{bord}$) and modified border-corrected estimate (red line, $\hat{L}_{inhom}^{bordm}$) differs quite a bit from our homogenous Poisson (black line, $L_{pois}(r)$)$\hat{L}$) seems to differ from the homogenous Poisson. Additionally, the isotropic corrected estimate (blue line, $\hat{L}_{inhom}^{iso}$) and translation corrected estimate (light blue line, $\hat{L}_{inhom}^{trans}$) differ from the homogenous Poisson for most values of *r*. Since all $\hat{L}$ estimates differ from the homogenous Poisson, DCs are also potentially inhomogenously distributed. 
 
-Other cells:
+
+
+
+##### Other cells:
 ```{r}
 # estimating the L function for other cells (this may take a minute to run)
 Lln_Other <- Linhom(subset(ln, marks == "other_cells"))
@@ -207,13 +255,19 @@ Lln_Other <- Linhom(subset(ln, marks == "other_cells"))
 plot(Lln_Other, col = c(2, 3, 1), lty = 1, main = "L function estimation for other cells")
 ```
 
-For border correction estimates of the L function for other cells, their distance estimates also differ from the homogenous Poisson. This indicates they are also inhomogenously distributed.
+The border-corrected estimate (green line, $\hat{L}_{inhom}^{bord}$) and modified border-corrected estimate (red line, $\hat{L}_{inhom}^{bordm}$) differs from the homogenous Poisson (black line, $L_{pois}$), indicating that other cells are also inhomogenously distributed in the lymph node. 
 
 
 
-Another way we can analyze our data to see if they are inhomogenously distributed would be to look at the pair correlation function (see equation 11.12) using the `pcf` and `Kinhom` functions in the `spatstat` package. The pair correlation function gives us information about the density of our data points from a reference point. For the homogenous Poisson, the pair correlation function equals 1. Anything less than one suggests inhibition of those points being close, and anything greater than one suggests the points are clustered. 
 
-T cells:
+
+## Pairwise Correlation Function
+Another way we can analyze our data to see if they are inhomogenously distributed would be to look at the pair correlation function (see equation 11.12) using the `pcf` and `Kinhom` functions in the `spatstat` package. The pair correlation function gives us information about the density of our data points from a reference point. For the homogenous Poisson, the pair correlation function equals 1. Anything less than one suggests inhibition of those points being close, and anything greater than one suggests the points are clustered. Like with the `Linhom` output, we can plot the `pcf` output. The x-axis of these plots is the same *r* that we have seen in other plots, representing the distance away from a reference point, and the y-axis is the `pcf` function, representing the density of the cells. 
+
+
+
+
+##### T cells:
 ```{r}
 # estimating the pcf for T cells (takes a minute to run)
 pcf_Tcells <- pcf(Kinhom(subset(ln, marks == "T_cells")))
@@ -225,7 +279,10 @@ plot(pcf_Tcells, lty = 1, xlim = c(0, 10))
 
 Because the pcf for T cells stays well above 1 for most values of *r*, T cells appear to cluster together in the lymph node, indicating a distribution that differs from a homogenous Poisson process. For *r* < 2, it makes sense that there would be some inhibition, as cells take up a certain volume that would inhibit them from being that close together. 
 
-Tumor cells:
+
+
+
+##### Tumor cells:
 ```{r}
 # estimating the pcf for Tumor
 pcf_Tumor <- pcf(Kinhom(subset(ln, marks == "Tumor")))
@@ -238,7 +295,9 @@ plot(pcf_Tumor, lty = 1, xlim = c(0, 20))
 At most values for *r*, the pcf > 1, indicating that tumor cells also tend to cluster together. Interestingly, the *r* values for which the pcf < 1 for tumor cells is greater than we saw with T cells, which may indicate that these cells may be larger in volume than T cells (causing their inhhibition from being closer together than a random Poisson process) or that there is something else that would inhibit them from being as dense for those *r* values compared to T cells.
 
 
-Dendritic Cells:
+
+
+##### Dendritic Cells:
 ```{r}
 # estimating the pcf for DCs
 pcf_DCs <- pcf(Kinhom(subset(ln, marks == "DCs")))
@@ -251,7 +310,9 @@ plot(pcf_DCs, lty = 1, xlim = c(0, 1000))
 The values for the pcf for DCs are much greater than we saw for T cells or tumor cells, indicating that there is more clustering at certain values of *r* in this cell type than the others. They do eventually seem to settle close to a homogenous Poisson process after *r* gets relatively large. It may be worth noting that *r* has a much greater range for DCs than the other cell types.
 
 
-Other cells:
+
+
+##### Other cells:
 ```{r}
 # estimating the pcf for other cells (takes a minute to run)
 pcf_Other <- pcf(Kinhom(subset(ln, marks == "other_cells")))
@@ -264,4 +325,16 @@ plot(pcf_Other, lty = 1, xlim = c(0, 10))
 Values for the pcf of 'other' cells overall seem to be less than other cell types, indicating that these may be clustering but to a lesser extent than other cell types. The range of values for *r* in which the pcf < 1 are in between what we saw for T cells and tumor cells, indicating that the 'other' cells may have volumes in between that of the T cells and the tumor cells that could explain an inhibition in density at those points. It appears as though other cells are also inhomogenously distributed and do not follow a homogenous Poisson process. 
 
 
-Overall, with all cell types, we saw some levels of spatial dependence based on our L function and pcf analyses. For most distances, or values of *r*, we saw differences in the distance and density distributions when comparing a homogenous Poisson distribution to the distribution of each cell type. Depending on a specific amount we consider to be significantly different than our null hypothesis, we may reject our null hypothesis that different cell types are homogenously distributed throughout the lymph node.  
+
+
+None of these results were particularly surprising, given the biological context of what is known about cell types found in lymph nodes. Tumors generally derive from an abnormal cell dividing numerous times to create a mass of abnormal cells, so it certainly makes sense that we would see these types of cells cluster. Dendritic cells enter lymph nodes through lymphatic vessels, which only occupy certain regions of the lymph node (Randolph, Angeli, & Swartz, 2005). Therefore, it makes sense that we saw inhomogenous distributions in DCs. T cells interact with DCs in the lymph node for T cell activation (Bousso, 2008), which may explain some aspects of the inhomogenous distribution observed in our analysis. It is also important to consider the fact that no two cells can occupy the exact same 2 or 3-dimensional space because each cell is self-contained by a membrane. Therefore, if there are cells that cluster, like DCs or tumor cells, then other cells like T cells or "other cells" in our analysis cannot occupy that same space leading to regions where those cell types are excluded. This would also potentially explain why T cells and "other cells" were also inhomogenously distributed. 
+
+
+Overall, with all cell types, we saw some levels of spatial dependence based on our $L$ function and pcf analyses. For most distances, or values of *r*, we saw differences in the distance and density distributions when comparing a homogenous Poisson distribution to the distribution of each cell type. Depending on a specific amount we consider to be significantly different than our null hypothesis, we may reject our null hypothesis that different cell types are homogenously distributed throughout the lymph node. 
+
+### References:
+
+* Randolph, G., Angeli, V. & Swartz, M. Dendritic-cell trafficking to lymph nodes through lymphatic vessels. *Nat Rev Immunol* **5**, 617–628 (2005). https://doi.org/10.1038/nri1670
+
+* Bousso, P. T-cell activation by dendritic cells in the lymph node: lessons from the movies. *Nat Rev Immunol* **8**, 675–684 (2008). https://doi.org/10.1038/nri2379
+
