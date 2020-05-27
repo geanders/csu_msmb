@@ -203,7 +203,7 @@ date_format = "   "
   Student responsibilities:
 
   * [Vocabulary](https://kind-neumann-789611.netlify.app/post/vocabulary-for-chapter-11/): [Camron Pearce](https://kind-neumann-789611.netlify.com/authors/camron-pearce/)
-  * Exercise: [Mikaela Elder](https://kind-neumann-789611.netlify.com/authors/mikaela-elder/)
+  * [Exercise](https://kind-neumann-789611.netlify.app/post/exercise-solution-for-chapter-11/): [Mikaela Elder](https://kind-neumann-789611.netlify.com/authors/mikaela-elder/)
   """
 
 [[experience]]
