@@ -281,6 +281,236 @@ half replicated, random noise added to each replicate
     </item>
     
     <item>
+      <title>Exercise Solution for Chapter 11</title>
+      <link>/post/exercise-solution-for-chapter-11/</link>
+      <pubDate>Tue, 12 May 2020 00:00:00 +0000</pubDate>
+      <guid>/post/exercise-solution-for-chapter-11/</guid>
+      <description>
+
+
+&lt;p&gt;To begin, we want to load (or download) the packages we will need for this exercise using &lt;code&gt;library&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+# BiocManager::install(&amp;quot;EBImage&amp;quot;)
+library(EBImage)
+# install.packages(&amp;quot;spatstat&amp;quot;)
+library(&amp;quot;spatstat&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;extending-the-analysis-in-section-11.17-for-all-cell-types&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Extending the analysis in section 11.17 for all cell types&lt;/h2&gt;
+&lt;p&gt;This exercise asks us to analyze an image of a lymph node and evaluate the spatial dependence for all of the cell types in the lymph node. In this case, the null hypothesis is that each of the cell types are evenly distributed (via a homogenous Poisson process) throughout the lymph node. The cell types we will look at are T cells (T_cells), tumor cells (Tumor), dendritic cells (DCs), and other cells (other_cells).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;the-image-data&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;The image data&lt;/h1&gt;
+&lt;p&gt;The image data has already been processed from the original image of a stained lymph node slide to a data type known as marked point process. This example uses the following files from the &lt;em&gt;Modern Statistics for Modern Biology&lt;/em&gt;’s data folder: “99_452SD-DCs.txt”, “99_452SD-other_cells.txt”, “99_452SD-T_cells.txt”, and &#34;“99_452SD-Tumor.txt”.&lt;/p&gt;
+&lt;p&gt;Reading in the data&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;overview-of-the-data&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Overview of the data&lt;/h1&gt;
+&lt;p&gt;Taking a look at the first few rows&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;head(brcalymphnode)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 3
+##       x     y class  
+##   &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;fct&amp;gt;  
+## 1  6355 10382 T_cells
+## 2  6356 10850 T_cells
+## 3  6357 11070 T_cells
+## 4  6357 11082 T_cells
+## 5  6358 10600 T_cells
+## 6  6361 10301 T_cells&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;How many cells are in each cell type?&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;table(brcalymphnode$class)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+##         DCs other_cells     T_cells       Tumor 
+##         878       77081      103681       27822&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Visualizing the data for each cell type using ggplot&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(filter(brcalymphnode, class %in% cellclasses),
+       aes(x = x, y = y, col = class)) + geom_point(shape = &amp;quot;.&amp;quot;) +
+  facet_wrap( . ~ class) + guides(col = FALSE)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-05-12-exercise-solution-for-chapter-11_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Now that we are familiar with what the data looks like, we will prepare it to be analyzed using the spatstat package, which allows us to put the data into a “ppp” object. The authors of the book describe the advantage of a “ppp” object by its ability to “capture realizations of a spatial point process,” which is convenient to work with when our data is formatted as individual points in the xy plane.&lt;/p&gt;
+&lt;p&gt;The first step in this process is to change the class of our dataframe into a “ppp” object, which is found in the &lt;code&gt;spatstat&lt;/code&gt; package.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# put our current dataframe into a ppp object named ln
+ln = with(brcalymphnode,
+          ppp(x = x, y = y, marks = class, xrange = range(x), yrange = range(y)))
+# calling the object gives us summary statistics
+ln&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Marked planar point pattern: 209462 points
+## Multitype, with levels = DCs, other_cells, T_cells, Tumor 
+## window: rectangle = [3839, 17276] x [6713, 23006] units&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can create a tighter region to be analyzed by creating a convex hull. This way we are analyzing the shape of the lymph node instead of a rectangle that would be inconsistent with the shape of the image we are interested in analyzing.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# the book uses the convhulln function to accomplish this, but you can also use the chull function in base R
+# the convhulln function is found in the geometry package
+library(&amp;quot;geometry&amp;quot;)
+coords = cbind(ln$x, ln$y)
+chull = convhulln(coords)
+
+# ppp functions need the hull to be defined as closed polygons
+# this is the code the book gives to accomplish this
+pidx = integer(nrow(chull) + 1)
+pidx[1:2] = chull[1, ]
+chull[1, ] = NA
+for(j in 3:length(pidx)) {
+  wh = which(chull == pidx[j-1], arr.ind = TRUE)
+  stopifnot(nrow(wh )== 1)
+  wh[, &amp;quot;col&amp;quot;] = 3 - wh[, &amp;quot;col&amp;quot;] ## 2-&amp;gt;1, 1-&amp;gt;2
+  pidx[j] = chull[wh]
+  chull[wh[, &amp;quot;row&amp;quot;], ] = NA
+}
+pidx = rev(pidx)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can visualize the hull by graphing it.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# the book gives the following code 
+ggplot(tibble(x = ln$x, y = ln$y)[pidx, ], aes(x = x, y = y)) +
+  geom_point() + geom_path() + coord_fixed()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-05-12-exercise-solution-for-chapter-11_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;If you compare the shape of the hull to Figure 11.22 in the book, this looks like a better representation of the shape we actually want to analyze.&lt;/p&gt;
+&lt;p&gt;Now that we have defined the hull as a closed polygon, we can convert our data into a “ppp” object class.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# take brcalymphnode and use its data within the region of the hull and store it in ln
+ln = with(brcalymphnode,
+          ppp(x = x, y = y, marks = class, poly = coords[ pidx, ],
+              check = FALSE))
+# calling the object gives a basic summary
+ln &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Marked planar point pattern: 209462 points
+## Multitype, with levels = DCs, other_cells, T_cells, Tumor 
+## window: polygonal boundary
+## enclosing rectangle: [3839, 17276] x [6713, 23006] units&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# to visualize our object, we can plot it
+plot(ln, col = 1:4, pch = 19, cex = 0.1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-05-12-exercise-solution-for-chapter-11_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;investigating-spatial-dependence-our-exercise-this-week-from-section-11.17&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Investigating Spatial Dependence (our exercise this week from section 11.17)&lt;/h1&gt;
+&lt;p&gt;Now that we have the data in a “ppp” object, we can start to test our null hypothesis that all of the cell types are evenly distributed throughout the lymph node (via a homogenous Poisson process). This will basically allow us to see if there is a spatial dependence in the location of the different cell types. Rejecting our null hypothesis would mean that the cells are spatially dependent on the location of other cells of their type.&lt;/p&gt;
+&lt;p&gt;If we want to see if a Poisson distribution is a relatively decent assumption with our data, we can use the &lt;code&gt;Gest&lt;/code&gt; function in the &lt;code&gt;spatstat&lt;/code&gt; package to look at this. Basically this estimates cumulative distribution function of the distance of a random point to its nearest neighbor. The plot will automatically include the CDF for a homogenous Poisson distribution.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(Gest(ln))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-05-12-exercise-solution-for-chapter-11_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;While it looks like our data may differ from a homogenous Poisson CDF, the general shape of our data seems to support this distribution is a fairly reasonable assumption.&lt;/p&gt;
+&lt;p&gt;If we want to estimate the L function (see equations 11.10 and 11.11 in the book for details), we can use the &lt;code&gt;Linhom&lt;/code&gt; function in the &lt;code&gt;spatstat&lt;/code&gt; package. The basic idea is to see if the distance of between cells of a certain type follow a random pattern (represented by Lpois).&lt;/p&gt;
+&lt;p&gt;T cells:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# estimating the L function for T_cells (this may take a minute to run)
+Lln_T_cells &amp;lt;- Linhom(subset(ln, marks == &amp;quot;T_cells&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## number of data points exceeds 1000 - computing border correction estimate only&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# calling the object gives us some descriptions about what each estimate is
+Lln_T_cells&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Function value object (class &amp;#39;fv&amp;#39;)
+## for the function r -&amp;gt; L[inhom](r)
+## ................................................................................
+##            Math.label                
+## r          r                         
+## theo       L[pois](r)                
+## border     {hat(L)[inhom]^{bord}}(r) 
+## bord.modif {hat(L)[inhom]^{bordm}}(r)
+##            Description                                      
+## r          distance argument r                              
+## theo       theoretical Poisson L[inhom](r)                  
+## border     border-corrected estimate of L[inhom](r)         
+## bord.modif modified border-corrected estimate of L[inhom](r)
+## ................................................................................
+## Default plot formula:  .~.x
+## where &amp;quot;.&amp;quot; stands for &amp;#39;bord.modif&amp;#39;, &amp;#39;border&amp;#39;, &amp;#39;theo&amp;#39;
+## Recommended range of argument r: [0, 694.7]
+## Available range of argument r: [0, 694.7]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# visualizing the estimates via plot
+plot(Lln_T_cells, col = c(2, 3, 1), lty = 1, main = &amp;quot;L function estimation for T cells&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-05-12-exercise-solution-for-chapter-11_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The distance estimator for the border-corrected estimate and modified border-corrected estimate of the L function for T cells differs quite a bit from our homogenous Poisson; this indicates that the distance between T cells in the lymph node is not evenly distributed.&lt;/p&gt;
+&lt;p&gt;Tumor cells:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# estimating the L function for tumor cells
+Lln_Tumor &amp;lt;- Linhom(subset(ln, marks == &amp;quot;Tumor&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## number of data points exceeds 1000 - computing border correction estimate only&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# visualizing the estimates via plot
+plot(Lln_Tumor, col = c(2, 3, 1), lty = 1, main = &amp;quot;L function estimation for Tumor&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-05-12-exercise-solution-for-chapter-11_files/figure-html/unnamed-chunk-13-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;As with the T cells, tumor cells seem to be inhomogenously distributed within the lymph node, based on our L function estimation results.&lt;/p&gt;
+&lt;p&gt;Dendritic Cells:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# estimating the L function for DCs
+Lln_DCs &amp;lt;- Linhom(subset(ln, marks == &amp;quot;DCs&amp;quot;))
+# we can see different types of estimation in DCs
+# calling the object gives explanations about which estimates were calculated
+Lln_DCs&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Function value object (class &amp;#39;fv&amp;#39;)
+## for the function r -&amp;gt; L[inhom](r)
+## ................................................................................
+##            Math.label                
+## r          r                         
+## theo       {L[inhom]^{pois}}(r)      
+## border     {hat(L)[inhom]^{bord}}(r) 
+## bord.modif {hat(L)[inhom]^{bordm}}(r)
+## trans      {hat(L)[inhom]^{trans}}(r)
+## iso        {hat(L)[inhom]^{iso}}(r)  
+##            Description                                        
+## r          distance argument r                                
+## theo       theoretical Poisson L[inhom](r)                    
+## border     border-corrected estimate of L[inhom](r)           
+## bord.modif modified border-corrected estimate of L[inhom](r)  
+## trans      translation-correction estimate of L[inhom](r)     
+## iso        Ripley isotropic correction estimate of L[inhom](r)
+## ................................................................................
+## Default plot formula:  .~.x
+## where &amp;quot;.&amp;quot; stands for &amp;#39;iso&amp;#39;, &amp;#39;trans&amp;#39;, &amp;#39;bord.modif&amp;#39;, &amp;#39;border&amp;#39;, &amp;#39;theo&amp;#39;
+## Recommended range of argument r: [0, 3359.2]
+## Available range of argument r: [0, 3359.2]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# visualizing the estimates via plot
+plot(Lln_DCs, col = c(2:5, 1), lty = 1, main = &amp;quot;L function estimation for DCs&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-05-12-exercise-solution-for-chapter-11_files/figure-html/unnamed-chunk-14-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;For all of the L function estimates for DCs, their distances estimates seem to differ from the homogenous Poisson, indicating that these are also potentially inhomogenously distributed.&lt;/p&gt;
+&lt;p&gt;Other cells:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# estimating the L function for other cells (this may take a minute to run)
+Lln_Other &amp;lt;- Linhom(subset(ln, marks == &amp;quot;other_cells&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## number of data points exceeds 1000 - computing border correction estimate only&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# visualizing the estimates via plot
+plot(Lln_Other, col = c(2, 3, 1), lty = 1, main = &amp;quot;L function estimation for other cells&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-05-12-exercise-solution-for-chapter-11_files/figure-html/unnamed-chunk-15-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;For border correction estimates of the L function for other cells, their distance estimates also differ from the homogenous Poisson. This indicates they are also inhomogenously distributed.&lt;/p&gt;
+&lt;p&gt;Another way we can analyze our data to see if they are inhomogenously distributed would be to look at the pair correlation function (see equation 11.12) using the &lt;code&gt;pcf&lt;/code&gt; and &lt;code&gt;Kinhom&lt;/code&gt; functions in the &lt;code&gt;spatstat&lt;/code&gt; package. The pair correlation function gives us information about the density of our data points from a reference point. For the homogenous Poisson, the pair correlation function equals 1. Anything less than one suggests inhibition of those points being close, and anything greater than one suggests the points are clustered.&lt;/p&gt;
+&lt;p&gt;T cells:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# estimating the pcf for T cells (takes a minute to run)
+pcf_Tcells &amp;lt;- pcf(Kinhom(subset(ln, marks == &amp;quot;T_cells&amp;quot;)))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## number of data points exceeds 1000 - computing border correction estimate only&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# visualizing the estimates by plotting
+plot(pcf_Tcells, lty = 1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-05-12-exercise-solution-for-chapter-11_files/figure-html/unnamed-chunk-16-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# zooming in to first 10 points
+plot(pcf_Tcells, lty = 1, xlim = c(0, 10))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-05-12-exercise-solution-for-chapter-11_files/figure-html/unnamed-chunk-16-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Because the pcf for T cells stays well above 1 for most values of &lt;em&gt;r&lt;/em&gt;, T cells appear to cluster together in the lymph node, indicating a distribution that differs from a homogenous Poisson process. For &lt;em&gt;r&lt;/em&gt; &amp;lt; 2, it makes sense that there would be some inhibition, as cells take up a certain volume that would inhibit them from being that close together.&lt;/p&gt;
+&lt;p&gt;Tumor cells:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# estimating the pcf for Tumor
+pcf_Tumor &amp;lt;- pcf(Kinhom(subset(ln, marks == &amp;quot;Tumor&amp;quot;)))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## number of data points exceeds 1000 - computing border correction estimate only&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# visualizing the estimates by plotting
+plot(pcf_Tumor, lty = 1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-05-12-exercise-solution-for-chapter-11_files/figure-html/unnamed-chunk-17-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# zooming in to first 20 points
+plot(pcf_Tumor, lty = 1, xlim = c(0, 20))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-05-12-exercise-solution-for-chapter-11_files/figure-html/unnamed-chunk-17-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;At most values for &lt;em&gt;r&lt;/em&gt;, the pcf &amp;gt; 1, indicating that tumor cells also tend to cluster together. Interestingly, the &lt;em&gt;r&lt;/em&gt; values for which the pcf &amp;lt; 1 for tumor cells is greater than we saw with T cells, which may indicate that these cells may be larger in volume than T cells (causing their inhhibition from being closer together than a random Poisson process) or that there is something else that would inhibit them from being as dense for those &lt;em&gt;r&lt;/em&gt; values compared to T cells.&lt;/p&gt;
+&lt;p&gt;Dendritic Cells:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# estimating the pcf for DCs
+pcf_DCs &amp;lt;- pcf(Kinhom(subset(ln, marks == &amp;quot;DCs&amp;quot;)))
+# visualizing the estimates by plotting
+plot(pcf_DCs, lty = 1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-05-12-exercise-solution-for-chapter-11_files/figure-html/unnamed-chunk-18-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# zooming in to first 1000 points
+plot(pcf_DCs, lty = 1, xlim = c(0, 1000))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-05-12-exercise-solution-for-chapter-11_files/figure-html/unnamed-chunk-18-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The values for the pcf for DCs are much greater than we saw for T cells or tumor cells, indicating that there is more clustering at certain values of &lt;em&gt;r&lt;/em&gt; in this cell type than the others. They do eventually seem to settle close to a homogenous Poisson process after &lt;em&gt;r&lt;/em&gt; gets relatively large. It may be worth noting that &lt;em&gt;r&lt;/em&gt; has a much greater range for DCs than the other cell types.&lt;/p&gt;
+&lt;p&gt;Other cells:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# estimating the pcf for other cells (takes a minute to run)
+pcf_Other &amp;lt;- pcf(Kinhom(subset(ln, marks == &amp;quot;other_cells&amp;quot;)))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## number of data points exceeds 1000 - computing border correction estimate only&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# visualizing the estimates by plotting
+plot(pcf_Other, lty = 1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-05-12-exercise-solution-for-chapter-11_files/figure-html/unnamed-chunk-19-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# zooming in to first 10 points
+plot(pcf_Other, lty = 1, xlim = c(0, 10))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-05-12-exercise-solution-for-chapter-11_files/figure-html/unnamed-chunk-19-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Values for the pcf of ‘other’ cells overall seem to be less than other cell types, indicating that these may be clustering but to a lesser extent than other cell types. The range of values for &lt;em&gt;r&lt;/em&gt; in which the pcf &amp;lt; 1 are in between what we saw for T cells and tumor cells, indicating that the ‘other’ cells may have volumes in between that of the T cells and the tumor cells that could explain an inhibition in density at those points. It appears as though other cells are also inhomogenously distributed and do not follow a homogenous Poisson process.&lt;/p&gt;
+&lt;p&gt;Overall, with all cell types, we saw some levels of spatial dependence based on our L function and pcf analyses. For most distances, or values of &lt;em&gt;r&lt;/em&gt;, we saw differences in the distance and density distributions when comparing a homogenous Poisson distribution to the distribution of each cell type. Depending on a specific amount we consider to be significantly different than our null hypothesis, we may reject our null hypothesis that different cell types are homogenously distributed throughout the lymph node.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Exercise solution for Chapter 8, Part 1</title>
       <link>/post/ex-8-1/</link>
       <pubDate>Thu, 30 Apr 2020 00:00:00 +0000</pubDate>
@@ -1627,398 +1857,6 @@ datasets in R, especially if you don’t yet know what package the item is from.
 R session once you have installed the package. These are a great place to start to find
 out more about how to use the functions and object classes that come with the package.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Exercise solution for Chapter 1</title>
-      <link>/post/exercise-solution-for-chapter-1/</link>
-      <pubDate>Tue, 11 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>/post/exercise-solution-for-chapter-1/</guid>
-      <description>
-
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Exercise 1.8 (p. 17)&lt;/strong&gt; Is the mitochondrial sequence of &lt;em&gt;C. elegans&lt;/em&gt;
-consistent with a model of equally likely nucleotides?&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;This exercise asks us to explore the frequency of each of the four nucleotides
-(A, C, G, and T) in the genome of &lt;em&gt;C. elegans&lt;/em&gt;, a type of worm used frequently
-in scientific research.&lt;/p&gt;
-&lt;p&gt;This solution requires that several R extension packages be loaded in your R
-session. If you do not have these packages installed to your computer yet, you
-should follow &lt;a href=&#34;https://kind-neumann-789611.netlify.com/post/chapter-1-exercise-setup/&#34;&gt;instructions we’ve posted
-separately&lt;/a&gt;
-describing the required set-up for this exercise. Once you have installed these
-packages on your computer, you can load them into your current R session using
-the &lt;code&gt;library&lt;/code&gt; function:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(&amp;quot;BSgenome.Celegans.UCSC.ce2&amp;quot;)
-library(&amp;quot;Biostrings&amp;quot;)
-
-library(&amp;quot;tidyverse&amp;quot;)
-library(&amp;quot;knitr&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;div id=&#34;part-a&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Part A&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Explore the nucleotide frequencies of chromosome M by using a dedicated
-function in the &lt;em&gt;Biostrings&lt;/em&gt; package from Bioconductor.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Part A of the question asks us to explore the nucleotide frequency of the &lt;em&gt;C.
-elegans&lt;/em&gt; genome. This genome is available in the &lt;code&gt;Celegans&lt;/code&gt; data that comes with
-the &lt;code&gt;BSgenome.Clegans.UCSC.ce2&lt;/code&gt; package and is stored within a &lt;code&gt;BSgenome&lt;/code&gt; class,
-which is a special object class provided by the &lt;code&gt;Biostrings&lt;/code&gt; package.&lt;/p&gt;
-&lt;p&gt;There is a dedicated function called &lt;code&gt;letterFrequency&lt;/code&gt; in the &lt;code&gt;Biostrings&lt;/code&gt;
-package that can be used to count the frequency of letters in a string (like a
-genome) in an R object like this. In a call to this function, you must also
-include the possible letters in your “alphabet”—that is, the possible letters
-that each position in your string could take.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;(nuc_freq &amp;lt;- letterFrequency(Celegans$chrM, letters=c(&amp;quot;A&amp;quot;, &amp;quot;C&amp;quot;, &amp;quot;G&amp;quot;, &amp;quot;T&amp;quot;)))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##    A    C    G    T 
-## 4335 1225 2055 6179&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;To explore and plot this data, I put this summary data into a &lt;code&gt;tibble&lt;/code&gt;, so I
-could more easily use &lt;code&gt;tidyverse&lt;/code&gt; tools with the data.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;nuc_freq_df &amp;lt;- tibble(nucleotide = names(nuc_freq), 
-             n = nuc_freq)
-nuc_freq_df&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 4 x 2
-##   nucleotide     n
-##   &amp;lt;chr&amp;gt;      &amp;lt;int&amp;gt;
-## 1 A           4335
-## 2 C           1225
-## 3 G           2055
-## 4 T           6179&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;In this format, you can use &lt;code&gt;tidyverse&lt;/code&gt; tools to explore the data a bit more.
-For example, you can determine the total number of nucleotides in the genome
-and, with that calculate the proportion of each nucleotide across the genome.
-Along with the &lt;code&gt;kable&lt;/code&gt; function from the &lt;code&gt;knitr&lt;/code&gt; package, I created a formatted
-table with this information:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;nuc_freq_df %&amp;gt;% 
-  mutate(prop = n / sum(n)) %&amp;gt;% 
-  kable(digits = 2, 
-        caption = &amp;quot;Nucleotide frequencies and proportions in *C. elegans*&amp;quot;,
-        col.names = c(&amp;quot;Nucleotide&amp;quot;, &amp;quot;Frequency&amp;quot;, &amp;quot;Proportion&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
-&lt;table&gt;
-&lt;caption&gt;&lt;span id=&#34;tab:unnamed-chunk-4&#34;&gt;Table 1: &lt;/span&gt;Nucleotide frequencies and proportions in &lt;em&gt;C. elegans&lt;/em&gt;&lt;/caption&gt;
-&lt;thead&gt;
-&lt;tr class=&#34;header&#34;&gt;
-&lt;th align=&#34;left&#34;&gt;Nucleotide&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;Frequency&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;Proportion&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td align=&#34;left&#34;&gt;A&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;4335&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.31&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td align=&#34;left&#34;&gt;C&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;1225&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.09&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td align=&#34;left&#34;&gt;G&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;2055&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.15&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td align=&#34;left&#34;&gt;T&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;6179&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.45&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;For some presentations, it might be clearer to present this information in a
-slightly different table format, using &lt;code&gt;pivot_longer&lt;/code&gt; and then &lt;code&gt;pivot_wider&lt;/code&gt; to
-reformat the table for presentation:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;nuc_freq_df %&amp;gt;% 
-  mutate(prop = n / sum(n),
-         n = prettyNum(n, big.mark = &amp;quot;,&amp;quot;),
-         prop = prettyNum(prop, digits = 2)) %&amp;gt;% 
-  pivot_longer(cols = c(&amp;quot;n&amp;quot;, &amp;quot;prop&amp;quot;)) %&amp;gt;% 
-  pivot_wider(names_from = &amp;quot;nucleotide&amp;quot;) %&amp;gt;% 
-  mutate(name = case_when(
-    name == &amp;quot;n&amp;quot; ~ &amp;quot;Frequency of nucleotide&amp;quot;,
-    name == &amp;quot;prop&amp;quot; ~ &amp;quot;Proportion of all nucleotides&amp;quot;
-  )) %&amp;gt;%  
-  rename(` ` = name) %&amp;gt;% 
-  kable(align = c(&amp;quot;rcccc&amp;quot;), 
-        caption = &amp;quot;Nucleotide frequencies and proportions in *C. elegans*&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;table&gt;
-&lt;caption&gt;&lt;span id=&#34;tab:unnamed-chunk-5&#34;&gt;Table 2: &lt;/span&gt;Nucleotide frequencies and proportions in &lt;em&gt;C. elegans&lt;/em&gt;&lt;/caption&gt;
-&lt;thead&gt;
-&lt;tr class=&#34;header&#34;&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;th align=&#34;center&#34;&gt;A&lt;/th&gt;
-&lt;th align=&#34;center&#34;&gt;C&lt;/th&gt;
-&lt;th align=&#34;center&#34;&gt;G&lt;/th&gt;
-&lt;th align=&#34;center&#34;&gt;T&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td&gt;Frequency of nucleotide&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;4,335&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;1,225&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;2,055&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;6,179&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td&gt;Proportion of all nucleotides&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;0.31&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;0.089&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;0.15&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;0.45&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;Here is a plot of the frequency of each of the four nucleotides for the &lt;em&gt;C.
-elegans&lt;/em&gt; nucleotide:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(nuc_freq_df, aes(x = nucleotide, y = n)) + 
-  geom_col(fill = &amp;quot;lavender&amp;quot;, color = &amp;quot;black&amp;quot;) + 
-  theme_classic() + 
-  scale_y_continuous(label = scales::comma) + 
-  theme(axis.title = element_blank()) + 
-  labs(title = expression(paste(italic(&amp;quot;C. elegans&amp;quot;), &amp;quot; neucleotide frequency&amp;quot;)),
-       caption = expression(paste(&amp;quot;Based on data from the &amp;quot;, italic(&amp;quot;BSgenome.Celegans.UCSC.ce2&amp;quot;), 
-                                  &amp;quot; package.&amp;quot;)))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-02-11-exercise-solution-for-chapter-1_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;This graph uses a few elements to improve its appearance that you might want to
-explore if you’re not already familiar with them:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;The &lt;code&gt;labs&lt;/code&gt; function is used to add both a title and a caption to the plot.&lt;/li&gt;
-&lt;li&gt;The &lt;code&gt;paste&lt;/code&gt;, &lt;code&gt;expression&lt;/code&gt;, and &lt;code&gt;italic&lt;/code&gt; functions are used together to put “C.
-elegans” and an R package name in italics in some of the labels on the plot.&lt;/li&gt;
-&lt;li&gt;The &lt;code&gt;scales&lt;/code&gt; package is used inside a scale layer for the &lt;code&gt;ggplot2&lt;/code&gt; code to
-make the y-axis labels a bit nicer.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;theme&lt;/code&gt; calls are used to apply a simpler overall theme than the default and to
-remove the x- and y-axis titles (with &lt;code&gt;element_blank&lt;/code&gt;).&lt;/li&gt;
-&lt;li&gt;The color and fill of the bars are customized in the geom layer (&lt;code&gt;geom_col&lt;/code&gt;).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;From this plot, it certainly looks like the nucleotides are &lt;strong&gt;not&lt;/strong&gt; uniformly
-distributed in the &lt;em&gt;C. elegans&lt;/em&gt; genome. This question will be investigated more
-in the next part of the exercise.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;part-b&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Part B&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Test whether the &lt;em&gt;C. elegans&lt;/em&gt; data are consistent with the uniform
-model (all nucleotide frequencies the same) using a simulation.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;The second part of the exercise asks us to test whether the observed nucleotide
-data for &lt;em&gt;C. elegans&lt;/em&gt; is consistent with the uniform model that all nucleotide
-frequencies are the same.&lt;/p&gt;
-&lt;p&gt;First, we can simulate several datasets under this null model and see how a plot
-of nucleotide frequencies compares to the plot that we obtained with the observed
-&lt;em&gt;C. elegans&lt;/em&gt; data. To make these plots, I first simulated 20 samples under the
-null model that the distribution is uniform across the four nucleotides, using
-the &lt;code&gt;rmultinom&lt;/code&gt; function with the &lt;code&gt;size&lt;/code&gt; argument set to the number of nucleotides in
-the original &lt;em&gt;C. elegans&lt;/em&gt; genome data and the &lt;code&gt;prob&lt;/code&gt; argument set to have an equal
-probability of each nucleotide at each spot on the genome:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;(sim_nuc_freq &amp;lt;- rmultinom(n = 20, 
-                          size = sum(nuc_freq_df$n), 
-                          prob = rep(1 / 4, 4)))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13] [,14]
-## [1,] 3505 3354 3451 3485 3474 3466 3503 3510 3368  3337  3409  3406  3554  3462
-## [2,] 3360 3435 3438 3480 3369 3441 3405 3404 3498  3518  3500  3472  3370  3450
-## [3,] 3400 3524 3394 3343 3478 3442 3425 3399 3502  3574  3534  3402  3411  3457
-## [4,] 3529 3481 3511 3486 3473 3445 3461 3481 3426  3365  3351  3514  3459  3425
-##      [,15] [,16] [,17] [,18] [,19] [,20]
-## [1,]  3396  3601  3492  3456  3480  3391
-## [2,]  3504  3452  3415  3434  3416  3467
-## [3,]  3506  3435  3418  3456  3432  3421
-## [4,]  3388  3306  3469  3448  3466  3515&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Next, I moved this into a tibble so I could more easily rearrange and plot the data using
-facetting in &lt;code&gt;ggplot2&lt;/code&gt;:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sim_nuc_freq_df &amp;lt;- as_tibble(sim_nuc_freq) %&amp;gt;% 
-  mutate(nucleotide = c(&amp;quot;A&amp;quot;, &amp;quot;C&amp;quot;, &amp;quot;G&amp;quot;, &amp;quot;T&amp;quot;)) %&amp;gt;% 
-  pivot_longer(-nucleotide, names_to = &amp;quot;sample&amp;quot;) %&amp;gt;% 
-  mutate(sample = sample %&amp;gt;% str_remove(&amp;quot;V&amp;quot;) %&amp;gt;% as.numeric()) %&amp;gt;% 
-  arrange(sample, nucleotide)
-
-sim_nuc_freq_df %&amp;gt;% 
-  slice(1:10)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 10 x 3
-##    nucleotide sample value
-##    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt; &amp;lt;int&amp;gt;
-##  1 A               1  3505
-##  2 C               1  3360
-##  3 G               1  3400
-##  4 T               1  3529
-##  5 A               2  3354
-##  6 C               2  3435
-##  7 G               2  3524
-##  8 T               2  3481
-##  9 A               3  3451
-## 10 C               3  3438&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(sim_nuc_freq_df, aes(x = nucleotide, y = value)) + 
-  geom_col(fill = &amp;quot;lavender&amp;quot;, color = &amp;quot;black&amp;quot;) + 
-  theme_classic() + 
-  scale_y_continuous(label = scales::comma) + 
-  theme(axis.title = element_blank()) + 
-  labs(title = &amp;quot;Simulated neucleotide frequencies under a uniform model&amp;quot;) +
-  facet_wrap(~ sample) + 
-  expand_limits(y = max(nuc_freq_df$n))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-02-11-exercise-solution-for-chapter-1_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;The y-axis limits were expanded here to cover the same range as that shown for the
-observed &lt;em&gt;C. elegans&lt;/em&gt; nucleotide frequencies, to help make it easier to compare these plots
-with the plot of our observed data. These plots of data simulated under the null model do
-show some variation in frequencies among the nucleotides, but it’s certainly much less than
-in the observed data for &lt;em&gt;C. elegans&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;Next, I repeated this simulation process, but I increased the number of simulations to 1,000:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sim_nuc_freq_df &amp;lt;- rmultinom(n = 1000, 
-                          size = sum(nuc_freq_df$n), 
-                          prob = rep(1 / 4, 4)) %&amp;gt;% 
-  as_tibble() %&amp;gt;% 
-  mutate(nucleotide = c(&amp;quot;A&amp;quot;, &amp;quot;C&amp;quot;, &amp;quot;G&amp;quot;, &amp;quot;T&amp;quot;)) %&amp;gt;% 
-  pivot_longer(-nucleotide, names_to = &amp;quot;sample&amp;quot;) %&amp;gt;% 
-  mutate(sample = sample %&amp;gt;% str_remove(&amp;quot;V&amp;quot;) %&amp;gt;% as.numeric()) %&amp;gt;% 
-  arrange(sample, nucleotide)
-
-sim_nuc_freq_df %&amp;gt;% 
-  slice(1:10)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 10 x 3
-##    nucleotide sample value
-##    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt; &amp;lt;int&amp;gt;
-##  1 A               1  3387
-##  2 C               1  3512
-##  3 G               1  3461
-##  4 T               1  3434
-##  5 A               2  3522
-##  6 C               2  3388
-##  7 G               2  3432
-##  8 T               2  3452
-##  9 A               3  3549
-## 10 C               3  3412&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Using this dataframe of simulations, we can measure the mean, minimum, and maximum frequencies
-of each nucleotide across all 1,000 simulations:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;(sim_summary &amp;lt;- sim_nuc_freq_df %&amp;gt;% 
-  group_by(nucleotide) %&amp;gt;% 
-  summarize(mean_freq = mean(value),
-            min_freq = min(value), 
-            max_freq = max(value)))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 4 x 4
-##   nucleotide mean_freq min_freq max_freq
-##   &amp;lt;chr&amp;gt;          &amp;lt;dbl&amp;gt;    &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;
-## 1 A              3450.     3296     3649
-## 2 C              3443.     3270     3600
-## 3 G              3454.     3272     3601
-## 4 T              3447.     3290     3609&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;To help compare this with the observed data, we can create a table with information from
-both the original data and the simulations under the null model:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;nuc_freq_df %&amp;gt;% 
-  left_join(sim_summary, by = &amp;quot;nucleotide&amp;quot;) %&amp;gt;% 
-  mutate_at(c(&amp;quot;mean_freq&amp;quot;, &amp;quot;min_freq&amp;quot;, &amp;quot;max_freq&amp;quot;, &amp;quot;n&amp;quot;), 
-            prettyNum, big.mark = &amp;quot;,&amp;quot;, digits = 0) %&amp;gt;% 
-  mutate(simulations = paste0(mean_freq, &amp;quot; (&amp;quot;, min_freq, &amp;quot;, &amp;quot;, max_freq, &amp;quot;)&amp;quot;)) %&amp;gt;% 
-  select(nucleotide, n, simulations) %&amp;gt;% 
-  kable(col.names = c(&amp;quot;Nucleotide&amp;quot;,              
-        &amp;quot;Frequency in C. elegans genome&amp;quot;,
-        &amp;quot;Mean frequency (minimum frequency, maximum frequency) across 1,000 simulations&amp;quot;), 
-        align = &amp;quot;c&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr class=&#34;header&#34;&gt;
-&lt;th align=&#34;center&#34;&gt;Nucleotide&lt;/th&gt;
-&lt;th align=&#34;center&#34;&gt;Frequency in C. elegans genome&lt;/th&gt;
-&lt;th align=&#34;center&#34;&gt;Mean frequency (minimum frequency, maximum frequency) across 1,000 simulations&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td align=&#34;center&#34;&gt;A&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;4,335&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;3,450 (3,296, 3,649)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td align=&#34;center&#34;&gt;C&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;1,225&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;3,443 (3,270, 3,600)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td align=&#34;center&#34;&gt;G&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;2,055&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;3,454 (3,272, 3,601)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td align=&#34;center&#34;&gt;T&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;6,179&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;3,447 (3,290, 3,609)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;This helps clarify how unusual the observed data would be under the null model—the
-counts of all four nucleotides in the &lt;em&gt;C. elegans&lt;/em&gt; genome are completely outside the
-range of frequencies in the simulated data.&lt;/p&gt;
-&lt;p&gt;Another way to look at this is with histograms of the distribution of frequencies
-of each nucleotide under the null model compared to the observed frequencies in
-the &lt;em&gt;C. elegans&lt;/em&gt; nucleotide:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(sim_nuc_freq_df, aes(x = value)) + 
-  geom_histogram(binwidth = 10) + 
-  facet_wrap(~ nucleotide) + 
-  theme_classic() + 
-  scale_x_continuous(name = &amp;quot;Frequency of nucleotide in the simulation under the null model&amp;quot;,
-                     labels = scales::comma) + 
-  scale_y_continuous(name = &amp;quot;# of simulations (out of 1,000)&amp;quot;) + 
-  geom_vline(data = nuc_freq_df, aes(xintercept = n), color = &amp;quot;red&amp;quot;) + 
-  labs(title = expression(paste(&amp;quot;Nucleotide frequency in &amp;quot;,
-                                italic(&amp;quot;C. elegans&amp;quot;), 
-                                &amp;quot; compared null model simulations&amp;quot;)),
-       caption = &amp;quot;Red line shows the frequency observed for the nucleotide in C. elegans&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-02-11-exercise-solution-for-chapter-1_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Finally, to help in answering this question, it would be interesting to look at a
-single measure for each simulation (and for the observed data) rather than comparing
-each nucleotide one at a time. Chapter 1 gives the equation for a statistic to
-measure variability in multinomial data by calculating the sum of squares for the
-differences between the observed and expected count of nucleotides for each of the
-four nucleotides in a sample (p. 12).&lt;/p&gt;
-&lt;p&gt;I calculated this statistic for the observed data and then for each of the 1,000
-simulations.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;(obs_stat &amp;lt;- nuc_freq_df %&amp;gt;% 
-  mutate(expected = mean(n),
-         stat_input = (n - expected) ^ 2 / expected) %&amp;gt;% 
-  summarize(variability_stat = sum(stat_input)))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 1 x 1
-##   variability_stat
-##              &amp;lt;dbl&amp;gt;
-## 1            4387.&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sim_stat &amp;lt;- sim_nuc_freq_df %&amp;gt;% 
-  mutate(expected = mean(value), 
-         stat_input = (value - expected) ^ 2 / expected) %&amp;gt;% 
-  group_by(sample) %&amp;gt;% 
-  summarize(variability_stat = sum(stat_input))
-
-sim_stat %&amp;gt;% 
-  slice(1:5)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 5 x 2
-##   sample variability_stat
-##    &amp;lt;dbl&amp;gt;            &amp;lt;dbl&amp;gt;
-## 1      1             2.37
-## 2      2             2.71
-## 3      3             3.95
-## 4      4             9.27
-## 5      5             4.01&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Here is a plot of the distribution of this statistic across the 1,000 simulations:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(sim_stat, aes(x = variability_stat)) + 
-  geom_rect(data = sim_stat, aes(xmin = quantile(variability_stat, prob = 0.025),
-                                 xmax = quantile(variability_stat, prob = 0.975),
-                                 ymin = 0, ymax = Inf), 
-            fill = &amp;quot;beige&amp;quot;, alpha = 0.5) +
-  geom_histogram(bins = 30, fill = &amp;quot;white&amp;quot;, color = &amp;quot;tan&amp;quot;, alpha = 0.5) +
-  theme_classic() + 
-  labs(title = &amp;quot;Variability from expected values&amp;quot;,
-       subtitle = &amp;quot;Values from simulations under the null&amp;quot;,
-       x = &amp;quot;Value of variability statistic&amp;quot;, 
-       y = &amp;quot;Number of simulations with given value&amp;quot;,
-       caption = &amp;quot;The shaded yellow area shows the region of the central 95% of\nstatistic values for the 1,000 simulations under the null model.&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-02-11-exercise-solution-for-chapter-1_files/figure-html/unnamed-chunk-14-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;The value of this statistic for the observed nucleotide frequencies for &lt;em&gt;C.
-elegans&lt;/em&gt; is 4387, which is much larger (indicating greater variability
-from expected values under the null model) than the value observed under most of
-the simulations. It is, in fact, far outside the central 95% range of values
-observed in simulations.&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
