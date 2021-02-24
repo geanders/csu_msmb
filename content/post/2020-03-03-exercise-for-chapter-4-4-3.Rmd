@@ -1,0 +1,150 @@
+---
+title: Exercise for Chapter 4 Solution (4.3)
+author: James DiLisio
+date: '2020-03-03'
+slug: exercise-for-chapter-4-4-3
+categories:
+  - exercises
+  - Chapter 4
+  - '4.3'
+tags:
+  - exercises
+  - Chapter 4
+  - '4.3'
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-03-03T20:43:23-07:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+## Chapter 4 Exercise 4.3
+
+>"► Exercise 4.3
+Mixture modeling examples for regression. The flexmix package (Grün, Scharl, and Leisch 2012) enables us to cluster and fit regressions to the data at the same time. The standard M-step FLXMRglm of flexmix is an interface to R’s generalized linear modeling facilities (the glm function). Load the package and an example dataset."
+
+In this chapter and exercise we look into seperating mixed data that may have a finite (this example) or infinite amount of mixtures. To help explore this data analysis method we will look at this unknown data set and attempt to classify it with clustering based on mixture modeling.  
+
+First let's set our seed, load our data, ggplots, gridExtra, and dplyr. Please install these packages if you haven't already. They will be used to help visualize the data.
+
+```{r}
+library("flexmix")
+data("NPreg")
+set.seed(10)
+library(ggplot2)
+library(dplyr)
+library(gridExtra)
+```
+# Part A
+>"a) First, plot the data and try to guess how the points were generated."
+
+
+Intially we generated plots for normal, poisson, and binomial distribution to visualize the data in different ways.
+
+"yn = normal
+yp = poisson
+yb = binomial"
+
+```{r}
+NPreg
+library(ggplot2)
+ggplot(data = NPreg, aes(x = x, y = yn, color = class)) +
+  geom_point()
+ggplot(data = NPreg, aes(x = x, y = yb, color = class)) +
+  geom_point()
+ggplot(data = NPreg, aes(x = x, y = yp, color = class)) +
+  geom_point()
+```
+
+After examining the data with all three distributions it seemed that the data fit well with a normal distribution. Two distict distributions exist and can be distingished from one another. This lead us to believe the data was generated on a continious scale such as weights or heights of a population.
+
+
+# Part B
+>"b) Fit a two component mixture model using the commands"
+
+Here we used the function from the text:
+
+>"m1 = flexmix(yn ~ x + I(x^2), data = NPreg, k = 2)"
+
+and had it print a summary
+
+```{r}
+m1 = flexmix(yn ~ x + I(x^2), data = NPreg, k = 2) %>%
+  print()
+summary(m1)
+```
+
+In doing so every individual data point is clustered to one of the two classes based on how close its value is to the mean of one of the classes. In part C we will see how accurate this clustering is.
+
+# Part C
+ 
+>"c) Look at the estimated parameters of the mixture components and make a truth table that cross-classifies true classes versus cluster memberships. What does the summary of the object m1 show us?"
+
+Here we generated a table based on the class and how it compares to the true clustering
+
+```{r}
+table(NPreg$class, clusters(m1))
+```
+
+The rows represent the true clusters. As we can see 5% of data points are misclustered, likely in an area where the data overlaps. To see what class these points actually belong to we will go to part D.
+
+# Part D
+
+>"d) Plot the data again, this time coloring each point according to its estimated class."
+
+Now we will plot the data in a normal disribution based on what we decided before. This time we will compare the "actual labels" of the classes with the classes we generated with clustering termed "guessed labels".
+
+```{r}
+library(gridExtra)
+g1<- ggplot(data = NPreg, aes(x = x, y = yn, color = class)) +
+  geom_point() +
+  ggtitle("Actual labels")
+g2 <- ggplot(data = NPreg, aes(x = x, y = yn, color = clusters(m1))) +
+  geom_point() +
+  ggtitle("Guessed labels")
+grid.arrange(g1, g2)
+```
+
+
+As we can see they are very similar. The only points that differ from our clustering and actuality are those that lie where both distributions overlap. The mixture model does well to predict the two seperate regressions except for where they overlap. 
+
+To be complete we ran the same data with possion and binomial to make sure that it did not indeed fit with these distributions.
+
+Poisson
+
+```{r}
+m2 = flexmix(yp ~ x, data = NPreg, model = FLXMRglm(family = "poisson"), k = 2) %>%
+  print()
+table(NPreg$class, clusters(m2))
+g3 <- ggplot(data = NPreg, aes(x = x, y = yp, color = class)) +
+  geom_point() +
+  ggtitle("Actual labels")
+g4 <- ggplot(data = NPreg, aes(x = x, y = yp, color = clusters(m2))) +
+  geom_point() +
+  ggtitle("Guessed labels")
+grid.arrange(g3, g4)
+```
+
+binomial
+
+```{r}
+m3 <- initFlexmix(cbind(yb,1 - yb) ~ x, data = NPreg, k = 2,
+                   model = FLXMRglm(family = "binomial"))
+table(NPreg$class, clusters(m3))
+g5 <- ggplot(data = NPreg, aes(x = x, y = yb, color = class)) +
+  geom_point() +
+  ggtitle("Actual labels")
+g6 <- ggplot(data = NPreg, aes(x = x, y = yb, color = clusters(m3))) +
+  geom_point() +
+  ggtitle("Guessed labels")
+grid.arrange(g5, g6)
+```
+
+
+Neither of these two seem to represent the data well and the normal distribution chosen seems to be the most informative in distinguishing the two classes through mixture modeling.
+
+# Major credit to Amy Fox for helping with the code for the exercise solution.
